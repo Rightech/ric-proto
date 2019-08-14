@@ -3,23 +3,25 @@ syntax = "proto3";
 package ric;
 
 service RicCode {
-  rpc parseJs (ParseRequest) returns (ParseResponse) {}
+    rpc transpileEs6 (TranspileRequest) returns (TranspileResponse) {}
 }
 
-message ParseRequest {
+message TranspileRequest {
     string id = 1;
     string code = 2;
+    string kind = 3;
 }
 
-message ParseResponse {
-   string codeEs5 = 1;
-   
-   repeated VarDecl input = 2;
-   repeated VarDecl output = 3;
-   repeated VarDecl packet = 4;
-   repeated LibRequest libs = 5;
+message TranspileResponse {
+    string codeEs5 = 1;
+    bool async = 2;
 
-   repeated string errors = 6;
+    repeated VarDecl input = 3;
+    repeated VarDecl output = 4;
+    repeated VarDecl packet = 5;
+    repeated LibRequest libs = 6;
+
+    repeated string errors = 7;
 }
 
 message VarDecl {
