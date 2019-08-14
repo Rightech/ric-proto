@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package ric;
+
+service RicCode {
+  rpc parseJs (ParseRequest) returns (ParseResponse) {}
+}
+
+message ParseRequest {
+    string id = 1;
+    string code = 2;
+}
+
+message ParseResponse {
+   string codeEs5 = 1;
+   
+   repeated VarDecl input = 2;
+   repeated VarDecl output = 3;
+   repeated VarDecl packet = 4;
+   repeated LibRequest libs = 5;
+
+   repeated string errors = 6;
+}
+
+message VarDecl {
+    string name = 1;
+    string type = 2;
+    string default = 3;
+}
+
+message LibRequest {
+    string name = 1;
+    string semver = 2;
+    bool local = 3;
+}
