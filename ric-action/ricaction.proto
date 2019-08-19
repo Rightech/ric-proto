@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+package ric;
+
+service RicAction {
+    rpc Call (CallRequest) returns (CallResponse);
+    rpc Delete (DeleteRequest) returns (EmptyResponse);
+    rpc UpdateOrDeploy (UpdateOrDeployRequest) returns (EmptyResponse);
+    rpc Logs(LogsRequest) returns (stream LogsResponse);
+    rpc Info(InfoRequest) returns (InfoResponse);
+}
+
+/*
+    В data можно положить шаблон в который будут подставлятся секреты
+
+    {
+        "someKey": "someValue",
+        "secret": {{ secrets "SECRET_VALUE_KEY" }},
+    }
+
+    Если secrets используются, то в ctx обязательно должен быть groupID.
+
+    contextType лучше задавать, если вы его знаете, иначе ric-action
+    пытается определить его самостоятельно.
+*/
+
+message CallRequest {
+    string name = 1;
+    bytes data = 2;
+    string contentType = 3;
+    Context ctx = 4;
+}
+
+message Context {
+    string objectID = 1;
+    string groupID = 2;
+    string userID = 3;
+}
+
+message DeleteRequest {
+    string name = 1;
+}
+
+message UpdateOrDeployRequest {
+    string name = 1;
+    Function func = 2;
+    Options opt = 3;
+}
+
+message Function {
+    string handler = 1;
+    string body = 2;
+    string deps = 3;
+    string runtime = 4;
+    string runtimeImage = 5;
+    string mem = 6;
+    string cpu = 7;
+    string timeout = 8;
+    string imagePullPolicy = 9;
+    string schedule = 10;
+    int32 port = 11;
+    int32 servicePort = 12;
+	bool headless = 13;
+    repeated string envs = 14;
+    repeated string labels = 15;
+	repeated string secrets = 16;
+}
+
+message Options {
+    // path to vault data
+    // do not put actual secrets here
+    repeated string secrets = 1;
+}
+
+message LogsRequest {
+   string name = 1;
+   bool follow = 2;
+}
+
+message InfoRequest {
+    string name = 1;
+}
+
+message CallResponse {
+    bytes data = 1;
+}
+
+message EmptyResponse {}
+
+message LogsResponse {
+    string line = 1;
+}
+
+message InfoResponse {
+    string status = 1;
+    string runtime = 2;
+    string deps = 3;
+}
