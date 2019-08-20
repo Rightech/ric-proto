@@ -7,7 +7,7 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.ricaction.CallResponse');
+goog.provide('proto.ricaction.HistoryRequest');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -24,12 +24,12 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ricaction.CallResponse = function(opt_data) {
+proto.ricaction.HistoryRequest = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.ricaction.CallResponse, jspb.Message);
+goog.inherits(proto.ricaction.HistoryRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.ricaction.CallResponse.displayName = 'proto.ricaction.CallResponse';
+  proto.ricaction.HistoryRequest.displayName = 'proto.ricaction.HistoryRequest';
 }
 
 
@@ -44,8 +44,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.ricaction.CallResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.ricaction.CallResponse.toObject(opt_includeInstance, this);
+proto.ricaction.HistoryRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.ricaction.HistoryRequest.toObject(opt_includeInstance, this);
 };
 
 
@@ -54,13 +54,14 @@ proto.ricaction.CallResponse.prototype.toObject = function(opt_includeInstance) 
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.ricaction.CallResponse} msg The msg instance to transform.
+ * @param {!proto.ricaction.HistoryRequest} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.CallResponse.toObject = function(includeInstance, msg) {
+proto.ricaction.HistoryRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    data: msg.getData_asB64()
+    oid: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    size: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -74,23 +75,23 @@ proto.ricaction.CallResponse.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.ricaction.CallResponse}
+ * @return {!proto.ricaction.HistoryRequest}
  */
-proto.ricaction.CallResponse.deserializeBinary = function(bytes) {
+proto.ricaction.HistoryRequest.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ricaction.CallResponse;
-  return proto.ricaction.CallResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.ricaction.HistoryRequest;
+  return proto.ricaction.HistoryRequest.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.ricaction.CallResponse} msg The message object to deserialize into.
+ * @param {!proto.ricaction.HistoryRequest} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.ricaction.CallResponse}
+ * @return {!proto.ricaction.HistoryRequest}
  */
-proto.ricaction.CallResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.ricaction.HistoryRequest.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -98,8 +99,12 @@ proto.ricaction.CallResponse.deserializeBinaryFromReader = function(msg, reader)
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setData(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setOid(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setSize(value);
       break;
     default:
       reader.skipField();
@@ -114,9 +119,9 @@ proto.ricaction.CallResponse.deserializeBinaryFromReader = function(msg, reader)
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ricaction.CallResponse.prototype.serializeBinary = function() {
+proto.ricaction.HistoryRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.ricaction.CallResponse.serializeBinaryToWriter(this, writer);
+  proto.ricaction.HistoryRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -124,16 +129,23 @@ proto.ricaction.CallResponse.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.ricaction.CallResponse} message
+ * @param {!proto.ricaction.HistoryRequest} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.CallResponse.serializeBinaryToWriter = function(message, writer) {
+proto.ricaction.HistoryRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getData_asU8();
+  f = message.getOid();
   if (f.length > 0) {
-    writer.writeBytes(
+    writer.writeString(
       1,
+      f
+    );
+  }
+  f = message.getSize();
+  if (f !== 0) {
+    writer.writeInt64(
+      2,
       f
     );
   }
@@ -141,41 +153,32 @@ proto.ricaction.CallResponse.serializeBinaryToWriter = function(message, writer)
 
 
 /**
- * optional bytes data = 1;
+ * optional string oid = 1;
  * @return {string}
  */
-proto.ricaction.CallResponse.prototype.getData = function() {
+proto.ricaction.HistoryRequest.prototype.getOid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/**
- * optional bytes data = 1;
- * This is a type-conversion wrapper around `getData()`
- * @return {string}
- */
-proto.ricaction.CallResponse.prototype.getData_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getData()));
+/** @param {string} value */
+proto.ricaction.HistoryRequest.prototype.setOid = function(value) {
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional bytes data = 1;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getData()`
- * @return {!Uint8Array}
+ * optional int64 size = 2;
+ * @return {number}
  */
-proto.ricaction.CallResponse.prototype.getData_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getData()));
+proto.ricaction.HistoryRequest.prototype.getSize = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {!(string|Uint8Array)} value */
-proto.ricaction.CallResponse.prototype.setData = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+/** @param {number} value */
+proto.ricaction.HistoryRequest.prototype.setSize = function(value) {
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 

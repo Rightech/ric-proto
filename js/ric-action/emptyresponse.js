@@ -7,7 +7,7 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.ric.EmptyResponse');
+goog.provide('proto.ricaction.EmptyResponse');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -24,12 +24,12 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ric.EmptyResponse = function(opt_data) {
+proto.ricaction.EmptyResponse = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.ric.EmptyResponse, jspb.Message);
+goog.inherits(proto.ricaction.EmptyResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.ric.EmptyResponse.displayName = 'proto.ric.EmptyResponse';
+  proto.ricaction.EmptyResponse.displayName = 'proto.ricaction.EmptyResponse';
 }
 
 
@@ -44,8 +44,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.ric.EmptyResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.ric.EmptyResponse.toObject(opt_includeInstance, this);
+proto.ricaction.EmptyResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.ricaction.EmptyResponse.toObject(opt_includeInstance, this);
 };
 
 
@@ -54,11 +54,11 @@ proto.ric.EmptyResponse.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.ric.EmptyResponse} msg The msg instance to transform.
+ * @param {!proto.ricaction.EmptyResponse} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ric.EmptyResponse.toObject = function(includeInstance, msg) {
+proto.ricaction.EmptyResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
 
   };
@@ -74,23 +74,23 @@ proto.ric.EmptyResponse.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.ric.EmptyResponse}
+ * @return {!proto.ricaction.EmptyResponse}
  */
-proto.ric.EmptyResponse.deserializeBinary = function(bytes) {
+proto.ricaction.EmptyResponse.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ric.EmptyResponse;
-  return proto.ric.EmptyResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.ricaction.EmptyResponse;
+  return proto.ricaction.EmptyResponse.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.ric.EmptyResponse} msg The message object to deserialize into.
+ * @param {!proto.ricaction.EmptyResponse} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.ric.EmptyResponse}
+ * @return {!proto.ricaction.EmptyResponse}
  */
-proto.ric.EmptyResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.ricaction.EmptyResponse.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -110,9 +110,9 @@ proto.ric.EmptyResponse.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ric.EmptyResponse.prototype.serializeBinary = function() {
+proto.ricaction.EmptyResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.ric.EmptyResponse.serializeBinaryToWriter(this, writer);
+  proto.ricaction.EmptyResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -120,11 +120,11 @@ proto.ric.EmptyResponse.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.ric.EmptyResponse} message
+ * @param {!proto.ricaction.EmptyResponse} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ric.EmptyResponse.serializeBinaryToWriter = function(message, writer) {
+proto.ricaction.EmptyResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
 };
 

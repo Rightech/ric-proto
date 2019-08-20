@@ -7,13 +7,13 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.ric.UpdateOrDeployRequest');
+goog.provide('proto.ricaction.UpdateOrDeployRequest');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
-goog.require('proto.ric.Function');
-goog.require('proto.ric.Options');
+goog.require('proto.ricaction.Function');
+goog.require('proto.ricaction.Options');
 
 
 /**
@@ -26,12 +26,12 @@ goog.require('proto.ric.Options');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ric.UpdateOrDeployRequest = function(opt_data) {
+proto.ricaction.UpdateOrDeployRequest = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.ric.UpdateOrDeployRequest, jspb.Message);
+goog.inherits(proto.ricaction.UpdateOrDeployRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.ric.UpdateOrDeployRequest.displayName = 'proto.ric.UpdateOrDeployRequest';
+  proto.ricaction.UpdateOrDeployRequest.displayName = 'proto.ricaction.UpdateOrDeployRequest';
 }
 
 
@@ -46,8 +46,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.ric.UpdateOrDeployRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.ric.UpdateOrDeployRequest.toObject(opt_includeInstance, this);
+proto.ricaction.UpdateOrDeployRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.ricaction.UpdateOrDeployRequest.toObject(opt_includeInstance, this);
 };
 
 
@@ -56,15 +56,15 @@ proto.ric.UpdateOrDeployRequest.prototype.toObject = function(opt_includeInstanc
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.ric.UpdateOrDeployRequest} msg The msg instance to transform.
+ * @param {!proto.ricaction.UpdateOrDeployRequest} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ric.UpdateOrDeployRequest.toObject = function(includeInstance, msg) {
+proto.ricaction.UpdateOrDeployRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    func: (f = msg.getFunc()) && proto.ric.Function.toObject(includeInstance, f),
-    opt: (f = msg.getOpt()) && proto.ric.Options.toObject(includeInstance, f)
+    func: (f = msg.getFunc()) && proto.ricaction.Function.toObject(includeInstance, f),
+    opt: (f = msg.getOpt()) && proto.ricaction.Options.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -78,23 +78,23 @@ proto.ric.UpdateOrDeployRequest.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.ric.UpdateOrDeployRequest}
+ * @return {!proto.ricaction.UpdateOrDeployRequest}
  */
-proto.ric.UpdateOrDeployRequest.deserializeBinary = function(bytes) {
+proto.ricaction.UpdateOrDeployRequest.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ric.UpdateOrDeployRequest;
-  return proto.ric.UpdateOrDeployRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.ricaction.UpdateOrDeployRequest;
+  return proto.ricaction.UpdateOrDeployRequest.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.ric.UpdateOrDeployRequest} msg The message object to deserialize into.
+ * @param {!proto.ricaction.UpdateOrDeployRequest} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.ric.UpdateOrDeployRequest}
+ * @return {!proto.ricaction.UpdateOrDeployRequest}
  */
-proto.ric.UpdateOrDeployRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.ricaction.UpdateOrDeployRequest.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -106,13 +106,13 @@ proto.ric.UpdateOrDeployRequest.deserializeBinaryFromReader = function(msg, read
       msg.setName(value);
       break;
     case 2:
-      var value = new proto.ric.Function;
-      reader.readMessage(value,proto.ric.Function.deserializeBinaryFromReader);
+      var value = new proto.ricaction.Function;
+      reader.readMessage(value,proto.ricaction.Function.deserializeBinaryFromReader);
       msg.setFunc(value);
       break;
     case 3:
-      var value = new proto.ric.Options;
-      reader.readMessage(value,proto.ric.Options.deserializeBinaryFromReader);
+      var value = new proto.ricaction.Options;
+      reader.readMessage(value,proto.ricaction.Options.deserializeBinaryFromReader);
       msg.setOpt(value);
       break;
     default:
@@ -128,9 +128,9 @@ proto.ric.UpdateOrDeployRequest.deserializeBinaryFromReader = function(msg, read
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ric.UpdateOrDeployRequest.prototype.serializeBinary = function() {
+proto.ricaction.UpdateOrDeployRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.ric.UpdateOrDeployRequest.serializeBinaryToWriter(this, writer);
+  proto.ricaction.UpdateOrDeployRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -138,11 +138,11 @@ proto.ric.UpdateOrDeployRequest.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.ric.UpdateOrDeployRequest} message
+ * @param {!proto.ricaction.UpdateOrDeployRequest} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ric.UpdateOrDeployRequest.serializeBinaryToWriter = function(message, writer) {
+proto.ricaction.UpdateOrDeployRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getName();
   if (f.length > 0) {
@@ -156,7 +156,7 @@ proto.ric.UpdateOrDeployRequest.serializeBinaryToWriter = function(message, writ
     writer.writeMessage(
       2,
       f,
-      proto.ric.Function.serializeBinaryToWriter
+      proto.ricaction.Function.serializeBinaryToWriter
     );
   }
   f = message.getOpt();
@@ -164,7 +164,7 @@ proto.ric.UpdateOrDeployRequest.serializeBinaryToWriter = function(message, writ
     writer.writeMessage(
       3,
       f,
-      proto.ric.Options.serializeBinaryToWriter
+      proto.ricaction.Options.serializeBinaryToWriter
     );
   }
 };
@@ -174,34 +174,34 @@ proto.ric.UpdateOrDeployRequest.serializeBinaryToWriter = function(message, writ
  * optional string name = 1;
  * @return {string}
  */
-proto.ric.UpdateOrDeployRequest.prototype.getName = function() {
+proto.ricaction.UpdateOrDeployRequest.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.ric.UpdateOrDeployRequest.prototype.setName = function(value) {
+proto.ricaction.UpdateOrDeployRequest.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
  * optional Function func = 2;
- * @return {?proto.ric.Function}
+ * @return {?proto.ricaction.Function}
  */
-proto.ric.UpdateOrDeployRequest.prototype.getFunc = function() {
-  return /** @type{?proto.ric.Function} */ (
-    jspb.Message.getWrapperField(this, proto.ric.Function, 2));
+proto.ricaction.UpdateOrDeployRequest.prototype.getFunc = function() {
+  return /** @type{?proto.ricaction.Function} */ (
+    jspb.Message.getWrapperField(this, proto.ricaction.Function, 2));
 };
 
 
-/** @param {?proto.ric.Function|undefined} value */
-proto.ric.UpdateOrDeployRequest.prototype.setFunc = function(value) {
+/** @param {?proto.ricaction.Function|undefined} value */
+proto.ricaction.UpdateOrDeployRequest.prototype.setFunc = function(value) {
   jspb.Message.setWrapperField(this, 2, value);
 };
 
 
-proto.ric.UpdateOrDeployRequest.prototype.clearFunc = function() {
+proto.ricaction.UpdateOrDeployRequest.prototype.clearFunc = function() {
   this.setFunc(undefined);
 };
 
@@ -210,28 +210,28 @@ proto.ric.UpdateOrDeployRequest.prototype.clearFunc = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.ric.UpdateOrDeployRequest.prototype.hasFunc = function() {
+proto.ricaction.UpdateOrDeployRequest.prototype.hasFunc = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
 
 /**
  * optional Options opt = 3;
- * @return {?proto.ric.Options}
+ * @return {?proto.ricaction.Options}
  */
-proto.ric.UpdateOrDeployRequest.prototype.getOpt = function() {
-  return /** @type{?proto.ric.Options} */ (
-    jspb.Message.getWrapperField(this, proto.ric.Options, 3));
+proto.ricaction.UpdateOrDeployRequest.prototype.getOpt = function() {
+  return /** @type{?proto.ricaction.Options} */ (
+    jspb.Message.getWrapperField(this, proto.ricaction.Options, 3));
 };
 
 
-/** @param {?proto.ric.Options|undefined} value */
-proto.ric.UpdateOrDeployRequest.prototype.setOpt = function(value) {
+/** @param {?proto.ricaction.Options|undefined} value */
+proto.ricaction.UpdateOrDeployRequest.prototype.setOpt = function(value) {
   jspb.Message.setWrapperField(this, 3, value);
 };
 
 
-proto.ric.UpdateOrDeployRequest.prototype.clearOpt = function() {
+proto.ricaction.UpdateOrDeployRequest.prototype.clearOpt = function() {
   this.setOpt(undefined);
 };
 
@@ -240,7 +240,7 @@ proto.ric.UpdateOrDeployRequest.prototype.clearOpt = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.ric.UpdateOrDeployRequest.prototype.hasOpt = function() {
+proto.ricaction.UpdateOrDeployRequest.prototype.hasOpt = function() {
   return jspb.Message.getField(this, 3) != null;
 };
 

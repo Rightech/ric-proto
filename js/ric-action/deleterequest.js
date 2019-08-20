@@ -7,7 +7,7 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.ric.DeleteRequest');
+goog.provide('proto.ricaction.DeleteRequest');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -24,12 +24,12 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ric.DeleteRequest = function(opt_data) {
+proto.ricaction.DeleteRequest = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.ric.DeleteRequest, jspb.Message);
+goog.inherits(proto.ricaction.DeleteRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.ric.DeleteRequest.displayName = 'proto.ric.DeleteRequest';
+  proto.ricaction.DeleteRequest.displayName = 'proto.ricaction.DeleteRequest';
 }
 
 
@@ -44,8 +44,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.ric.DeleteRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.ric.DeleteRequest.toObject(opt_includeInstance, this);
+proto.ricaction.DeleteRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.ricaction.DeleteRequest.toObject(opt_includeInstance, this);
 };
 
 
@@ -54,11 +54,11 @@ proto.ric.DeleteRequest.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.ric.DeleteRequest} msg The msg instance to transform.
+ * @param {!proto.ricaction.DeleteRequest} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ric.DeleteRequest.toObject = function(includeInstance, msg) {
+proto.ricaction.DeleteRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
@@ -74,23 +74,23 @@ proto.ric.DeleteRequest.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.ric.DeleteRequest}
+ * @return {!proto.ricaction.DeleteRequest}
  */
-proto.ric.DeleteRequest.deserializeBinary = function(bytes) {
+proto.ricaction.DeleteRequest.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ric.DeleteRequest;
-  return proto.ric.DeleteRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.ricaction.DeleteRequest;
+  return proto.ricaction.DeleteRequest.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.ric.DeleteRequest} msg The message object to deserialize into.
+ * @param {!proto.ricaction.DeleteRequest} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.ric.DeleteRequest}
+ * @return {!proto.ricaction.DeleteRequest}
  */
-proto.ric.DeleteRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.ricaction.DeleteRequest.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -114,9 +114,9 @@ proto.ric.DeleteRequest.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ric.DeleteRequest.prototype.serializeBinary = function() {
+proto.ricaction.DeleteRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.ric.DeleteRequest.serializeBinaryToWriter(this, writer);
+  proto.ricaction.DeleteRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -124,11 +124,11 @@ proto.ric.DeleteRequest.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.ric.DeleteRequest} message
+ * @param {!proto.ricaction.DeleteRequest} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ric.DeleteRequest.serializeBinaryToWriter = function(message, writer) {
+proto.ricaction.DeleteRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getName();
   if (f.length > 0) {
@@ -144,13 +144,13 @@ proto.ric.DeleteRequest.serializeBinaryToWriter = function(message, writer) {
  * optional string name = 1;
  * @return {string}
  */
-proto.ric.DeleteRequest.prototype.getName = function() {
+proto.ricaction.DeleteRequest.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.ric.DeleteRequest.prototype.setName = function(value) {
+proto.ricaction.DeleteRequest.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 

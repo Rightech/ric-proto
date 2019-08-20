@@ -7,7 +7,7 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.ric.LogsResponse');
+goog.provide('proto.ricaction.LogsResponse');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -24,12 +24,12 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ric.LogsResponse = function(opt_data) {
+proto.ricaction.LogsResponse = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.ric.LogsResponse, jspb.Message);
+goog.inherits(proto.ricaction.LogsResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.ric.LogsResponse.displayName = 'proto.ric.LogsResponse';
+  proto.ricaction.LogsResponse.displayName = 'proto.ricaction.LogsResponse';
 }
 
 
@@ -44,8 +44,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.ric.LogsResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.ric.LogsResponse.toObject(opt_includeInstance, this);
+proto.ricaction.LogsResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.ricaction.LogsResponse.toObject(opt_includeInstance, this);
 };
 
 
@@ -54,11 +54,11 @@ proto.ric.LogsResponse.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.ric.LogsResponse} msg The msg instance to transform.
+ * @param {!proto.ricaction.LogsResponse} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ric.LogsResponse.toObject = function(includeInstance, msg) {
+proto.ricaction.LogsResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     line: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
@@ -74,23 +74,23 @@ proto.ric.LogsResponse.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.ric.LogsResponse}
+ * @return {!proto.ricaction.LogsResponse}
  */
-proto.ric.LogsResponse.deserializeBinary = function(bytes) {
+proto.ricaction.LogsResponse.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ric.LogsResponse;
-  return proto.ric.LogsResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.ricaction.LogsResponse;
+  return proto.ricaction.LogsResponse.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.ric.LogsResponse} msg The message object to deserialize into.
+ * @param {!proto.ricaction.LogsResponse} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.ric.LogsResponse}
+ * @return {!proto.ricaction.LogsResponse}
  */
-proto.ric.LogsResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.ricaction.LogsResponse.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -114,9 +114,9 @@ proto.ric.LogsResponse.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ric.LogsResponse.prototype.serializeBinary = function() {
+proto.ricaction.LogsResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.ric.LogsResponse.serializeBinaryToWriter(this, writer);
+  proto.ricaction.LogsResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -124,11 +124,11 @@ proto.ric.LogsResponse.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.ric.LogsResponse} message
+ * @param {!proto.ricaction.LogsResponse} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ric.LogsResponse.serializeBinaryToWriter = function(message, writer) {
+proto.ricaction.LogsResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getLine();
   if (f.length > 0) {
@@ -144,13 +144,13 @@ proto.ric.LogsResponse.serializeBinaryToWriter = function(message, writer) {
  * optional string line = 1;
  * @return {string}
  */
-proto.ric.LogsResponse.prototype.getLine = function() {
+proto.ricaction.LogsResponse.prototype.getLine = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.ric.LogsResponse.prototype.setLine = function(value) {
+proto.ricaction.LogsResponse.prototype.setLine = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 

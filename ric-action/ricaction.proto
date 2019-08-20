@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package ric;
+package ricaction;
 
-service RicAction {
+service FunctionControl {
     rpc Call (CallRequest) returns (CallResponse);
     rpc Delete (DeleteRequest) returns (EmptyResponse);
     rpc UpdateOrDeploy (UpdateOrDeployRequest) returns (EmptyResponse);
@@ -95,4 +95,24 @@ message InfoResponse {
     string status = 1;
     string runtime = 2;
     string deps = 3;
+}
+
+service PublicAPI {
+    rpc History (HistoryRequest) returns (stream HistoryResponse);
+    rpc SendEvent(EventRequest) returns (EmptyResponse);
+}
+
+message HistoryRequest {
+    string oid = 1;
+    int64 size = 2;
+}
+
+message HistoryResponse {
+    bytes data = 1;
+}
+
+message EventRequest {
+    string oid = 1;
+    string name = 2;
+    bytes data = 3;
 }
