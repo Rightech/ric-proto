@@ -61,7 +61,8 @@ proto.ricaction.HistoryRequest.prototype.toObject = function(opt_includeInstance
 proto.ricaction.HistoryRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     oid: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    size: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    db: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    size: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -103,6 +104,10 @@ proto.ricaction.HistoryRequest.deserializeBinaryFromReader = function(msg, reade
       msg.setOid(value);
       break;
     case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDb(value);
+      break;
+    case 3:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setSize(value);
       break;
@@ -142,10 +147,17 @@ proto.ricaction.HistoryRequest.serializeBinaryToWriter = function(message, write
       f
     );
   }
+  f = message.getDb();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
   f = message.getSize();
   if (f !== 0) {
     writer.writeInt64(
-      2,
+      3,
       f
     );
   }
@@ -168,17 +180,32 @@ proto.ricaction.HistoryRequest.prototype.setOid = function(value) {
 
 
 /**
- * optional int64 size = 2;
+ * optional string db = 2;
+ * @return {string}
+ */
+proto.ricaction.HistoryRequest.prototype.getDb = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/** @param {string} value */
+proto.ricaction.HistoryRequest.prototype.setDb = function(value) {
+  jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional int64 size = 3;
  * @return {number}
  */
 proto.ricaction.HistoryRequest.prototype.getSize = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
 /** @param {number} value */
 proto.ricaction.HistoryRequest.prototype.setSize = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 

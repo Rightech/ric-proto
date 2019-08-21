@@ -104,7 +104,8 @@ service PublicAPI {
 
 message HistoryRequest {
     string oid = 1;
-    int64 size = 2;
+    string db = 2;
+    int64 size = 3;
 }
 
 message HistoryResponse {
