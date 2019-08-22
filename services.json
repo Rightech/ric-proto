@@ -1,0 +1,14 @@
+{
+    "default": {
+        "port": {
+            "k8s": 13110
+        }
+    },
+    "services": {
+        "ric-code": {
+            "port": {
+                "dev": 13310
+            }
+        }
+    }
+}
