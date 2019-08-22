@@ -7,7 +7,7 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.ricaction.InfoRequest');
+goog.provide('proto.ric.action.InfoRequest');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -24,12 +24,12 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ricaction.InfoRequest = function(opt_data) {
+proto.ric.action.InfoRequest = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.ricaction.InfoRequest, jspb.Message);
+goog.inherits(proto.ric.action.InfoRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.ricaction.InfoRequest.displayName = 'proto.ricaction.InfoRequest';
+  proto.ric.action.InfoRequest.displayName = 'proto.ric.action.InfoRequest';
 }
 
 
@@ -44,8 +44,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.ricaction.InfoRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.ricaction.InfoRequest.toObject(opt_includeInstance, this);
+proto.ric.action.InfoRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.ric.action.InfoRequest.toObject(opt_includeInstance, this);
 };
 
 
@@ -54,11 +54,11 @@ proto.ricaction.InfoRequest.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.ricaction.InfoRequest} msg The msg instance to transform.
+ * @param {!proto.ric.action.InfoRequest} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.InfoRequest.toObject = function(includeInstance, msg) {
+proto.ric.action.InfoRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
@@ -74,23 +74,23 @@ proto.ricaction.InfoRequest.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.ricaction.InfoRequest}
+ * @return {!proto.ric.action.InfoRequest}
  */
-proto.ricaction.InfoRequest.deserializeBinary = function(bytes) {
+proto.ric.action.InfoRequest.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ricaction.InfoRequest;
-  return proto.ricaction.InfoRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.ric.action.InfoRequest;
+  return proto.ric.action.InfoRequest.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.ricaction.InfoRequest} msg The message object to deserialize into.
+ * @param {!proto.ric.action.InfoRequest} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.ricaction.InfoRequest}
+ * @return {!proto.ric.action.InfoRequest}
  */
-proto.ricaction.InfoRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.ric.action.InfoRequest.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -114,9 +114,9 @@ proto.ricaction.InfoRequest.deserializeBinaryFromReader = function(msg, reader) 
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ricaction.InfoRequest.prototype.serializeBinary = function() {
+proto.ric.action.InfoRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.ricaction.InfoRequest.serializeBinaryToWriter(this, writer);
+  proto.ric.action.InfoRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -124,11 +124,11 @@ proto.ricaction.InfoRequest.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.ricaction.InfoRequest} message
+ * @param {!proto.ric.action.InfoRequest} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.InfoRequest.serializeBinaryToWriter = function(message, writer) {
+proto.ric.action.InfoRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getName();
   if (f.length > 0) {
@@ -144,13 +144,13 @@ proto.ricaction.InfoRequest.serializeBinaryToWriter = function(message, writer) 
  * optional string name = 1;
  * @return {string}
  */
-proto.ricaction.InfoRequest.prototype.getName = function() {
+proto.ric.action.InfoRequest.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.InfoRequest.prototype.setName = function(value) {
+proto.ric.action.InfoRequest.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 

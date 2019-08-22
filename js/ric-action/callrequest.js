@@ -7,12 +7,12 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.ricaction.CallRequest');
+goog.provide('proto.ric.action.CallRequest');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
 goog.require('jspb.Message');
-goog.require('proto.ricaction.Context');
+goog.require('proto.ric.action.Context');
 
 
 /**
@@ -25,12 +25,12 @@ goog.require('proto.ricaction.Context');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ricaction.CallRequest = function(opt_data) {
+proto.ric.action.CallRequest = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.ricaction.CallRequest, jspb.Message);
+goog.inherits(proto.ric.action.CallRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.ricaction.CallRequest.displayName = 'proto.ricaction.CallRequest';
+  proto.ric.action.CallRequest.displayName = 'proto.ric.action.CallRequest';
 }
 
 
@@ -45,8 +45,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.ricaction.CallRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.ricaction.CallRequest.toObject(opt_includeInstance, this);
+proto.ric.action.CallRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.ric.action.CallRequest.toObject(opt_includeInstance, this);
 };
 
 
@@ -55,16 +55,16 @@ proto.ricaction.CallRequest.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.ricaction.CallRequest} msg The msg instance to transform.
+ * @param {!proto.ric.action.CallRequest} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.CallRequest.toObject = function(includeInstance, msg) {
+proto.ric.action.CallRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     data: msg.getData_asB64(),
     contenttype: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    ctx: (f = msg.getCtx()) && proto.ricaction.Context.toObject(includeInstance, f)
+    ctx: (f = msg.getCtx()) && proto.ric.action.Context.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -78,23 +78,23 @@ proto.ricaction.CallRequest.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.ricaction.CallRequest}
+ * @return {!proto.ric.action.CallRequest}
  */
-proto.ricaction.CallRequest.deserializeBinary = function(bytes) {
+proto.ric.action.CallRequest.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ricaction.CallRequest;
-  return proto.ricaction.CallRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.ric.action.CallRequest;
+  return proto.ric.action.CallRequest.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.ricaction.CallRequest} msg The message object to deserialize into.
+ * @param {!proto.ric.action.CallRequest} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.ricaction.CallRequest}
+ * @return {!proto.ric.action.CallRequest}
  */
-proto.ricaction.CallRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.ric.action.CallRequest.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -114,8 +114,8 @@ proto.ricaction.CallRequest.deserializeBinaryFromReader = function(msg, reader) 
       msg.setContenttype(value);
       break;
     case 4:
-      var value = new proto.ricaction.Context;
-      reader.readMessage(value,proto.ricaction.Context.deserializeBinaryFromReader);
+      var value = new proto.ric.action.Context;
+      reader.readMessage(value,proto.ric.action.Context.deserializeBinaryFromReader);
       msg.setCtx(value);
       break;
     default:
@@ -131,9 +131,9 @@ proto.ricaction.CallRequest.deserializeBinaryFromReader = function(msg, reader) 
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ricaction.CallRequest.prototype.serializeBinary = function() {
+proto.ric.action.CallRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.ricaction.CallRequest.serializeBinaryToWriter(this, writer);
+  proto.ric.action.CallRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -141,11 +141,11 @@ proto.ricaction.CallRequest.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.ricaction.CallRequest} message
+ * @param {!proto.ric.action.CallRequest} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.CallRequest.serializeBinaryToWriter = function(message, writer) {
+proto.ric.action.CallRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getName();
   if (f.length > 0) {
@@ -173,7 +173,7 @@ proto.ricaction.CallRequest.serializeBinaryToWriter = function(message, writer) 
     writer.writeMessage(
       4,
       f,
-      proto.ricaction.Context.serializeBinaryToWriter
+      proto.ric.action.Context.serializeBinaryToWriter
     );
   }
 };
@@ -183,13 +183,13 @@ proto.ricaction.CallRequest.serializeBinaryToWriter = function(message, writer) 
  * optional string name = 1;
  * @return {string}
  */
-proto.ricaction.CallRequest.prototype.getName = function() {
+proto.ric.action.CallRequest.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.CallRequest.prototype.setName = function(value) {
+proto.ric.action.CallRequest.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -198,7 +198,7 @@ proto.ricaction.CallRequest.prototype.setName = function(value) {
  * optional bytes data = 2;
  * @return {string}
  */
-proto.ricaction.CallRequest.prototype.getData = function() {
+proto.ric.action.CallRequest.prototype.getData = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -208,7 +208,7 @@ proto.ricaction.CallRequest.prototype.getData = function() {
  * This is a type-conversion wrapper around `getData()`
  * @return {string}
  */
-proto.ricaction.CallRequest.prototype.getData_asB64 = function() {
+proto.ric.action.CallRequest.prototype.getData_asB64 = function() {
   return /** @type {string} */ (jspb.Message.bytesAsB64(
       this.getData()));
 };
@@ -221,14 +221,14 @@ proto.ricaction.CallRequest.prototype.getData_asB64 = function() {
  * This is a type-conversion wrapper around `getData()`
  * @return {!Uint8Array}
  */
-proto.ricaction.CallRequest.prototype.getData_asU8 = function() {
+proto.ric.action.CallRequest.prototype.getData_asU8 = function() {
   return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
       this.getData()));
 };
 
 
 /** @param {!(string|Uint8Array)} value */
-proto.ricaction.CallRequest.prototype.setData = function(value) {
+proto.ric.action.CallRequest.prototype.setData = function(value) {
   jspb.Message.setProto3BytesField(this, 2, value);
 };
 
@@ -237,34 +237,34 @@ proto.ricaction.CallRequest.prototype.setData = function(value) {
  * optional string contentType = 3;
  * @return {string}
  */
-proto.ricaction.CallRequest.prototype.getContenttype = function() {
+proto.ric.action.CallRequest.prototype.getContenttype = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.CallRequest.prototype.setContenttype = function(value) {
+proto.ric.action.CallRequest.prototype.setContenttype = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
  * optional Context ctx = 4;
- * @return {?proto.ricaction.Context}
+ * @return {?proto.ric.action.Context}
  */
-proto.ricaction.CallRequest.prototype.getCtx = function() {
-  return /** @type{?proto.ricaction.Context} */ (
-    jspb.Message.getWrapperField(this, proto.ricaction.Context, 4));
+proto.ric.action.CallRequest.prototype.getCtx = function() {
+  return /** @type{?proto.ric.action.Context} */ (
+    jspb.Message.getWrapperField(this, proto.ric.action.Context, 4));
 };
 
 
-/** @param {?proto.ricaction.Context|undefined} value */
-proto.ricaction.CallRequest.prototype.setCtx = function(value) {
+/** @param {?proto.ric.action.Context|undefined} value */
+proto.ric.action.CallRequest.prototype.setCtx = function(value) {
   jspb.Message.setWrapperField(this, 4, value);
 };
 
 
-proto.ricaction.CallRequest.prototype.clearCtx = function() {
+proto.ric.action.CallRequest.prototype.clearCtx = function() {
   this.setCtx(undefined);
 };
 
@@ -273,7 +273,7 @@ proto.ricaction.CallRequest.prototype.clearCtx = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.ricaction.CallRequest.prototype.hasCtx = function() {
+proto.ric.action.CallRequest.prototype.hasCtx = function() {
   return jspb.Message.getField(this, 4) != null;
 };
 

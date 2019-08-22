@@ -7,7 +7,7 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.ricaction.CallResponse');
+goog.provide('proto.ric.action.CallResponse');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -24,12 +24,12 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ricaction.CallResponse = function(opt_data) {
+proto.ric.action.CallResponse = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.ricaction.CallResponse, jspb.Message);
+goog.inherits(proto.ric.action.CallResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.ricaction.CallResponse.displayName = 'proto.ricaction.CallResponse';
+  proto.ric.action.CallResponse.displayName = 'proto.ric.action.CallResponse';
 }
 
 
@@ -44,8 +44,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.ricaction.CallResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.ricaction.CallResponse.toObject(opt_includeInstance, this);
+proto.ric.action.CallResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.ric.action.CallResponse.toObject(opt_includeInstance, this);
 };
 
 
@@ -54,11 +54,11 @@ proto.ricaction.CallResponse.prototype.toObject = function(opt_includeInstance) 
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.ricaction.CallResponse} msg The msg instance to transform.
+ * @param {!proto.ric.action.CallResponse} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.CallResponse.toObject = function(includeInstance, msg) {
+proto.ric.action.CallResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     data: msg.getData_asB64()
   };
@@ -74,23 +74,23 @@ proto.ricaction.CallResponse.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.ricaction.CallResponse}
+ * @return {!proto.ric.action.CallResponse}
  */
-proto.ricaction.CallResponse.deserializeBinary = function(bytes) {
+proto.ric.action.CallResponse.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ricaction.CallResponse;
-  return proto.ricaction.CallResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.ric.action.CallResponse;
+  return proto.ric.action.CallResponse.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.ricaction.CallResponse} msg The message object to deserialize into.
+ * @param {!proto.ric.action.CallResponse} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.ricaction.CallResponse}
+ * @return {!proto.ric.action.CallResponse}
  */
-proto.ricaction.CallResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.ric.action.CallResponse.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -114,9 +114,9 @@ proto.ricaction.CallResponse.deserializeBinaryFromReader = function(msg, reader)
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ricaction.CallResponse.prototype.serializeBinary = function() {
+proto.ric.action.CallResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.ricaction.CallResponse.serializeBinaryToWriter(this, writer);
+  proto.ric.action.CallResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -124,11 +124,11 @@ proto.ricaction.CallResponse.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.ricaction.CallResponse} message
+ * @param {!proto.ric.action.CallResponse} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.CallResponse.serializeBinaryToWriter = function(message, writer) {
+proto.ric.action.CallResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getData_asU8();
   if (f.length > 0) {
@@ -144,7 +144,7 @@ proto.ricaction.CallResponse.serializeBinaryToWriter = function(message, writer)
  * optional bytes data = 1;
  * @return {string}
  */
-proto.ricaction.CallResponse.prototype.getData = function() {
+proto.ric.action.CallResponse.prototype.getData = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -154,7 +154,7 @@ proto.ricaction.CallResponse.prototype.getData = function() {
  * This is a type-conversion wrapper around `getData()`
  * @return {string}
  */
-proto.ricaction.CallResponse.prototype.getData_asB64 = function() {
+proto.ric.action.CallResponse.prototype.getData_asB64 = function() {
   return /** @type {string} */ (jspb.Message.bytesAsB64(
       this.getData()));
 };
@@ -167,14 +167,14 @@ proto.ricaction.CallResponse.prototype.getData_asB64 = function() {
  * This is a type-conversion wrapper around `getData()`
  * @return {!Uint8Array}
  */
-proto.ricaction.CallResponse.prototype.getData_asU8 = function() {
+proto.ric.action.CallResponse.prototype.getData_asU8 = function() {
   return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
       this.getData()));
 };
 
 
 /** @param {!(string|Uint8Array)} value */
-proto.ricaction.CallResponse.prototype.setData = function(value) {
+proto.ric.action.CallResponse.prototype.setData = function(value) {
   jspb.Message.setProto3BytesField(this, 1, value);
 };
 

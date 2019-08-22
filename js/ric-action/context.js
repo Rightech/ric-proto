@@ -7,7 +7,7 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.ricaction.Context');
+goog.provide('proto.ric.action.Context');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -24,12 +24,12 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ricaction.Context = function(opt_data) {
+proto.ric.action.Context = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.ricaction.Context, jspb.Message);
+goog.inherits(proto.ric.action.Context, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.ricaction.Context.displayName = 'proto.ricaction.Context';
+  proto.ric.action.Context.displayName = 'proto.ric.action.Context';
 }
 
 
@@ -44,8 +44,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.ricaction.Context.prototype.toObject = function(opt_includeInstance) {
-  return proto.ricaction.Context.toObject(opt_includeInstance, this);
+proto.ric.action.Context.prototype.toObject = function(opt_includeInstance) {
+  return proto.ric.action.Context.toObject(opt_includeInstance, this);
 };
 
 
@@ -54,11 +54,11 @@ proto.ricaction.Context.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.ricaction.Context} msg The msg instance to transform.
+ * @param {!proto.ric.action.Context} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.Context.toObject = function(includeInstance, msg) {
+proto.ric.action.Context.toObject = function(includeInstance, msg) {
   var f, obj = {
     objectid: jspb.Message.getFieldWithDefault(msg, 1, ""),
     groupid: jspb.Message.getFieldWithDefault(msg, 2, ""),
@@ -76,23 +76,23 @@ proto.ricaction.Context.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.ricaction.Context}
+ * @return {!proto.ric.action.Context}
  */
-proto.ricaction.Context.deserializeBinary = function(bytes) {
+proto.ric.action.Context.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ricaction.Context;
-  return proto.ricaction.Context.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.ric.action.Context;
+  return proto.ric.action.Context.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.ricaction.Context} msg The message object to deserialize into.
+ * @param {!proto.ric.action.Context} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.ricaction.Context}
+ * @return {!proto.ric.action.Context}
  */
-proto.ricaction.Context.deserializeBinaryFromReader = function(msg, reader) {
+proto.ric.action.Context.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -124,9 +124,9 @@ proto.ricaction.Context.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ricaction.Context.prototype.serializeBinary = function() {
+proto.ric.action.Context.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.ricaction.Context.serializeBinaryToWriter(this, writer);
+  proto.ric.action.Context.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -134,11 +134,11 @@ proto.ricaction.Context.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.ricaction.Context} message
+ * @param {!proto.ric.action.Context} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.Context.serializeBinaryToWriter = function(message, writer) {
+proto.ric.action.Context.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getObjectid();
   if (f.length > 0) {
@@ -168,13 +168,13 @@ proto.ricaction.Context.serializeBinaryToWriter = function(message, writer) {
  * optional string objectID = 1;
  * @return {string}
  */
-proto.ricaction.Context.prototype.getObjectid = function() {
+proto.ric.action.Context.prototype.getObjectid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.Context.prototype.setObjectid = function(value) {
+proto.ric.action.Context.prototype.setObjectid = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -183,13 +183,13 @@ proto.ricaction.Context.prototype.setObjectid = function(value) {
  * optional string groupID = 2;
  * @return {string}
  */
-proto.ricaction.Context.prototype.getGroupid = function() {
+proto.ric.action.Context.prototype.getGroupid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.Context.prototype.setGroupid = function(value) {
+proto.ric.action.Context.prototype.setGroupid = function(value) {
   jspb.Message.setProto3StringField(this, 2, value);
 };
 
@@ -198,13 +198,13 @@ proto.ricaction.Context.prototype.setGroupid = function(value) {
  * optional string userID = 3;
  * @return {string}
  */
-proto.ricaction.Context.prototype.getUserid = function() {
+proto.ric.action.Context.prototype.getUserid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.Context.prototype.setUserid = function(value) {
+proto.ric.action.Context.prototype.setUserid = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
 

@@ -7,7 +7,7 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.ricaction.EventRequest');
+goog.provide('proto.ric.action.EventRequest');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -24,12 +24,12 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ricaction.EventRequest = function(opt_data) {
+proto.ric.action.EventRequest = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.ricaction.EventRequest, jspb.Message);
+goog.inherits(proto.ric.action.EventRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.ricaction.EventRequest.displayName = 'proto.ricaction.EventRequest';
+  proto.ric.action.EventRequest.displayName = 'proto.ric.action.EventRequest';
 }
 
 
@@ -44,8 +44,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.ricaction.EventRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.ricaction.EventRequest.toObject(opt_includeInstance, this);
+proto.ric.action.EventRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.ric.action.EventRequest.toObject(opt_includeInstance, this);
 };
 
 
@@ -54,11 +54,11 @@ proto.ricaction.EventRequest.prototype.toObject = function(opt_includeInstance) 
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.ricaction.EventRequest} msg The msg instance to transform.
+ * @param {!proto.ric.action.EventRequest} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.EventRequest.toObject = function(includeInstance, msg) {
+proto.ric.action.EventRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     oid: jspb.Message.getFieldWithDefault(msg, 1, ""),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
@@ -76,23 +76,23 @@ proto.ricaction.EventRequest.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.ricaction.EventRequest}
+ * @return {!proto.ric.action.EventRequest}
  */
-proto.ricaction.EventRequest.deserializeBinary = function(bytes) {
+proto.ric.action.EventRequest.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ricaction.EventRequest;
-  return proto.ricaction.EventRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.ric.action.EventRequest;
+  return proto.ric.action.EventRequest.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.ricaction.EventRequest} msg The message object to deserialize into.
+ * @param {!proto.ric.action.EventRequest} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.ricaction.EventRequest}
+ * @return {!proto.ric.action.EventRequest}
  */
-proto.ricaction.EventRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.ric.action.EventRequest.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -124,9 +124,9 @@ proto.ricaction.EventRequest.deserializeBinaryFromReader = function(msg, reader)
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ricaction.EventRequest.prototype.serializeBinary = function() {
+proto.ric.action.EventRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.ricaction.EventRequest.serializeBinaryToWriter(this, writer);
+  proto.ric.action.EventRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -134,11 +134,11 @@ proto.ricaction.EventRequest.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.ricaction.EventRequest} message
+ * @param {!proto.ric.action.EventRequest} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.EventRequest.serializeBinaryToWriter = function(message, writer) {
+proto.ric.action.EventRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getOid();
   if (f.length > 0) {
@@ -168,13 +168,13 @@ proto.ricaction.EventRequest.serializeBinaryToWriter = function(message, writer)
  * optional string oid = 1;
  * @return {string}
  */
-proto.ricaction.EventRequest.prototype.getOid = function() {
+proto.ric.action.EventRequest.prototype.getOid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.EventRequest.prototype.setOid = function(value) {
+proto.ric.action.EventRequest.prototype.setOid = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -183,13 +183,13 @@ proto.ricaction.EventRequest.prototype.setOid = function(value) {
  * optional string name = 2;
  * @return {string}
  */
-proto.ricaction.EventRequest.prototype.getName = function() {
+proto.ric.action.EventRequest.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.EventRequest.prototype.setName = function(value) {
+proto.ric.action.EventRequest.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 2, value);
 };
 
@@ -198,7 +198,7 @@ proto.ricaction.EventRequest.prototype.setName = function(value) {
  * optional bytes data = 3;
  * @return {string}
  */
-proto.ricaction.EventRequest.prototype.getData = function() {
+proto.ric.action.EventRequest.prototype.getData = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -208,7 +208,7 @@ proto.ricaction.EventRequest.prototype.getData = function() {
  * This is a type-conversion wrapper around `getData()`
  * @return {string}
  */
-proto.ricaction.EventRequest.prototype.getData_asB64 = function() {
+proto.ric.action.EventRequest.prototype.getData_asB64 = function() {
   return /** @type {string} */ (jspb.Message.bytesAsB64(
       this.getData()));
 };
@@ -221,14 +221,14 @@ proto.ricaction.EventRequest.prototype.getData_asB64 = function() {
  * This is a type-conversion wrapper around `getData()`
  * @return {!Uint8Array}
  */
-proto.ricaction.EventRequest.prototype.getData_asU8 = function() {
+proto.ric.action.EventRequest.prototype.getData_asU8 = function() {
   return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
       this.getData()));
 };
 
 
 /** @param {!(string|Uint8Array)} value */
-proto.ricaction.EventRequest.prototype.setData = function(value) {
+proto.ric.action.EventRequest.prototype.setData = function(value) {
   jspb.Message.setProto3BytesField(this, 3, value);
 };
 

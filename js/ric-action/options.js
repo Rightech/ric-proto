@@ -7,7 +7,7 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.ricaction.Options');
+goog.provide('proto.ric.action.Options');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -24,19 +24,19 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ricaction.Options = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.ricaction.Options.repeatedFields_, null);
+proto.ric.action.Options = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.ric.action.Options.repeatedFields_, null);
 };
-goog.inherits(proto.ricaction.Options, jspb.Message);
+goog.inherits(proto.ric.action.Options, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.ricaction.Options.displayName = 'proto.ricaction.Options';
+  proto.ric.action.Options.displayName = 'proto.ric.action.Options';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.ricaction.Options.repeatedFields_ = [1];
+proto.ric.action.Options.repeatedFields_ = [1];
 
 
 
@@ -51,8 +51,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.ricaction.Options.prototype.toObject = function(opt_includeInstance) {
-  return proto.ricaction.Options.toObject(opt_includeInstance, this);
+proto.ric.action.Options.prototype.toObject = function(opt_includeInstance) {
+  return proto.ric.action.Options.toObject(opt_includeInstance, this);
 };
 
 
@@ -61,11 +61,11 @@ proto.ricaction.Options.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.ricaction.Options} msg The msg instance to transform.
+ * @param {!proto.ric.action.Options} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.Options.toObject = function(includeInstance, msg) {
+proto.ric.action.Options.toObject = function(includeInstance, msg) {
   var f, obj = {
     secretsList: jspb.Message.getRepeatedField(msg, 1)
   };
@@ -81,23 +81,23 @@ proto.ricaction.Options.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.ricaction.Options}
+ * @return {!proto.ric.action.Options}
  */
-proto.ricaction.Options.deserializeBinary = function(bytes) {
+proto.ric.action.Options.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ricaction.Options;
-  return proto.ricaction.Options.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.ric.action.Options;
+  return proto.ric.action.Options.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.ricaction.Options} msg The message object to deserialize into.
+ * @param {!proto.ric.action.Options} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.ricaction.Options}
+ * @return {!proto.ric.action.Options}
  */
-proto.ricaction.Options.deserializeBinaryFromReader = function(msg, reader) {
+proto.ric.action.Options.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -121,9 +121,9 @@ proto.ricaction.Options.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ricaction.Options.prototype.serializeBinary = function() {
+proto.ric.action.Options.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.ricaction.Options.serializeBinaryToWriter(this, writer);
+  proto.ric.action.Options.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -131,11 +131,11 @@ proto.ricaction.Options.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.ricaction.Options} message
+ * @param {!proto.ric.action.Options} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.Options.serializeBinaryToWriter = function(message, writer) {
+proto.ric.action.Options.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getSecretsList();
   if (f.length > 0) {
@@ -151,13 +151,13 @@ proto.ricaction.Options.serializeBinaryToWriter = function(message, writer) {
  * repeated string secrets = 1;
  * @return {!Array<string>}
  */
-proto.ricaction.Options.prototype.getSecretsList = function() {
+proto.ric.action.Options.prototype.getSecretsList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 1));
 };
 
 
 /** @param {!Array<string>} value */
-proto.ricaction.Options.prototype.setSecretsList = function(value) {
+proto.ric.action.Options.prototype.setSecretsList = function(value) {
   jspb.Message.setField(this, 1, value || []);
 };
 
@@ -166,12 +166,12 @@ proto.ricaction.Options.prototype.setSecretsList = function(value) {
  * @param {!string} value
  * @param {number=} opt_index
  */
-proto.ricaction.Options.prototype.addSecrets = function(value, opt_index) {
+proto.ric.action.Options.prototype.addSecrets = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 1, value, opt_index);
 };
 
 
-proto.ricaction.Options.prototype.clearSecretsList = function() {
+proto.ric.action.Options.prototype.clearSecretsList = function() {
   this.setSecretsList([]);
 };
 

@@ -7,7 +7,7 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.ricaction.Function');
+goog.provide('proto.ric.action.Function');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -24,19 +24,19 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ricaction.Function = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.ricaction.Function.repeatedFields_, null);
+proto.ric.action.Function = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.ric.action.Function.repeatedFields_, null);
 };
-goog.inherits(proto.ricaction.Function, jspb.Message);
+goog.inherits(proto.ric.action.Function, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.ricaction.Function.displayName = 'proto.ricaction.Function';
+  proto.ric.action.Function.displayName = 'proto.ric.action.Function';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.ricaction.Function.repeatedFields_ = [14,15,16];
+proto.ric.action.Function.repeatedFields_ = [14,15,16];
 
 
 
@@ -51,8 +51,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.ricaction.Function.prototype.toObject = function(opt_includeInstance) {
-  return proto.ricaction.Function.toObject(opt_includeInstance, this);
+proto.ric.action.Function.prototype.toObject = function(opt_includeInstance) {
+  return proto.ric.action.Function.toObject(opt_includeInstance, this);
 };
 
 
@@ -61,11 +61,11 @@ proto.ricaction.Function.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.ricaction.Function} msg The msg instance to transform.
+ * @param {!proto.ric.action.Function} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.Function.toObject = function(includeInstance, msg) {
+proto.ric.action.Function.toObject = function(includeInstance, msg) {
   var f, obj = {
     handler: jspb.Message.getFieldWithDefault(msg, 1, ""),
     body: jspb.Message.getFieldWithDefault(msg, 2, ""),
@@ -96,23 +96,23 @@ proto.ricaction.Function.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.ricaction.Function}
+ * @return {!proto.ric.action.Function}
  */
-proto.ricaction.Function.deserializeBinary = function(bytes) {
+proto.ric.action.Function.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ricaction.Function;
-  return proto.ricaction.Function.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.ric.action.Function;
+  return proto.ric.action.Function.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.ricaction.Function} msg The message object to deserialize into.
+ * @param {!proto.ric.action.Function} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.ricaction.Function}
+ * @return {!proto.ric.action.Function}
  */
-proto.ricaction.Function.deserializeBinaryFromReader = function(msg, reader) {
+proto.ric.action.Function.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -196,9 +196,9 @@ proto.ricaction.Function.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ricaction.Function.prototype.serializeBinary = function() {
+proto.ric.action.Function.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.ricaction.Function.serializeBinaryToWriter(this, writer);
+  proto.ric.action.Function.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -206,11 +206,11 @@ proto.ricaction.Function.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.ricaction.Function} message
+ * @param {!proto.ric.action.Function} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.Function.serializeBinaryToWriter = function(message, writer) {
+proto.ric.action.Function.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getHandler();
   if (f.length > 0) {
@@ -331,13 +331,13 @@ proto.ricaction.Function.serializeBinaryToWriter = function(message, writer) {
  * optional string handler = 1;
  * @return {string}
  */
-proto.ricaction.Function.prototype.getHandler = function() {
+proto.ric.action.Function.prototype.getHandler = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.Function.prototype.setHandler = function(value) {
+proto.ric.action.Function.prototype.setHandler = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -346,13 +346,13 @@ proto.ricaction.Function.prototype.setHandler = function(value) {
  * optional string body = 2;
  * @return {string}
  */
-proto.ricaction.Function.prototype.getBody = function() {
+proto.ric.action.Function.prototype.getBody = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.Function.prototype.setBody = function(value) {
+proto.ric.action.Function.prototype.setBody = function(value) {
   jspb.Message.setProto3StringField(this, 2, value);
 };
 
@@ -361,13 +361,13 @@ proto.ricaction.Function.prototype.setBody = function(value) {
  * optional string deps = 3;
  * @return {string}
  */
-proto.ricaction.Function.prototype.getDeps = function() {
+proto.ric.action.Function.prototype.getDeps = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.Function.prototype.setDeps = function(value) {
+proto.ric.action.Function.prototype.setDeps = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
 
@@ -376,13 +376,13 @@ proto.ricaction.Function.prototype.setDeps = function(value) {
  * optional string runtime = 4;
  * @return {string}
  */
-proto.ricaction.Function.prototype.getRuntime = function() {
+proto.ric.action.Function.prototype.getRuntime = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.Function.prototype.setRuntime = function(value) {
+proto.ric.action.Function.prototype.setRuntime = function(value) {
   jspb.Message.setProto3StringField(this, 4, value);
 };
 
@@ -391,13 +391,13 @@ proto.ricaction.Function.prototype.setRuntime = function(value) {
  * optional string runtimeImage = 5;
  * @return {string}
  */
-proto.ricaction.Function.prototype.getRuntimeimage = function() {
+proto.ric.action.Function.prototype.getRuntimeimage = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.Function.prototype.setRuntimeimage = function(value) {
+proto.ric.action.Function.prototype.setRuntimeimage = function(value) {
   jspb.Message.setProto3StringField(this, 5, value);
 };
 
@@ -406,13 +406,13 @@ proto.ricaction.Function.prototype.setRuntimeimage = function(value) {
  * optional string mem = 6;
  * @return {string}
  */
-proto.ricaction.Function.prototype.getMem = function() {
+proto.ric.action.Function.prototype.getMem = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.Function.prototype.setMem = function(value) {
+proto.ric.action.Function.prototype.setMem = function(value) {
   jspb.Message.setProto3StringField(this, 6, value);
 };
 
@@ -421,13 +421,13 @@ proto.ricaction.Function.prototype.setMem = function(value) {
  * optional string cpu = 7;
  * @return {string}
  */
-proto.ricaction.Function.prototype.getCpu = function() {
+proto.ric.action.Function.prototype.getCpu = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.Function.prototype.setCpu = function(value) {
+proto.ric.action.Function.prototype.setCpu = function(value) {
   jspb.Message.setProto3StringField(this, 7, value);
 };
 
@@ -436,13 +436,13 @@ proto.ricaction.Function.prototype.setCpu = function(value) {
  * optional string timeout = 8;
  * @return {string}
  */
-proto.ricaction.Function.prototype.getTimeout = function() {
+proto.ric.action.Function.prototype.getTimeout = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.Function.prototype.setTimeout = function(value) {
+proto.ric.action.Function.prototype.setTimeout = function(value) {
   jspb.Message.setProto3StringField(this, 8, value);
 };
 
@@ -451,13 +451,13 @@ proto.ricaction.Function.prototype.setTimeout = function(value) {
  * optional string imagePullPolicy = 9;
  * @return {string}
  */
-proto.ricaction.Function.prototype.getImagepullpolicy = function() {
+proto.ric.action.Function.prototype.getImagepullpolicy = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.Function.prototype.setImagepullpolicy = function(value) {
+proto.ric.action.Function.prototype.setImagepullpolicy = function(value) {
   jspb.Message.setProto3StringField(this, 9, value);
 };
 
@@ -466,13 +466,13 @@ proto.ricaction.Function.prototype.setImagepullpolicy = function(value) {
  * optional string schedule = 10;
  * @return {string}
  */
-proto.ricaction.Function.prototype.getSchedule = function() {
+proto.ric.action.Function.prototype.getSchedule = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
 };
 
 
 /** @param {string} value */
-proto.ricaction.Function.prototype.setSchedule = function(value) {
+proto.ric.action.Function.prototype.setSchedule = function(value) {
   jspb.Message.setProto3StringField(this, 10, value);
 };
 
@@ -481,13 +481,13 @@ proto.ricaction.Function.prototype.setSchedule = function(value) {
  * optional int32 port = 11;
  * @return {number}
  */
-proto.ricaction.Function.prototype.getPort = function() {
+proto.ric.action.Function.prototype.getPort = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
 };
 
 
 /** @param {number} value */
-proto.ricaction.Function.prototype.setPort = function(value) {
+proto.ric.action.Function.prototype.setPort = function(value) {
   jspb.Message.setProto3IntField(this, 11, value);
 };
 
@@ -496,13 +496,13 @@ proto.ricaction.Function.prototype.setPort = function(value) {
  * optional int32 servicePort = 12;
  * @return {number}
  */
-proto.ricaction.Function.prototype.getServiceport = function() {
+proto.ric.action.Function.prototype.getServiceport = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
 };
 
 
 /** @param {number} value */
-proto.ricaction.Function.prototype.setServiceport = function(value) {
+proto.ric.action.Function.prototype.setServiceport = function(value) {
   jspb.Message.setProto3IntField(this, 12, value);
 };
 
@@ -513,13 +513,13 @@ proto.ricaction.Function.prototype.setServiceport = function(value) {
  * You should avoid comparisons like {@code val === true/false} in those cases.
  * @return {boolean}
  */
-proto.ricaction.Function.prototype.getHeadless = function() {
+proto.ric.action.Function.prototype.getHeadless = function() {
   return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 13, false));
 };
 
 
 /** @param {boolean} value */
-proto.ricaction.Function.prototype.setHeadless = function(value) {
+proto.ric.action.Function.prototype.setHeadless = function(value) {
   jspb.Message.setProto3BooleanField(this, 13, value);
 };
 
@@ -528,13 +528,13 @@ proto.ricaction.Function.prototype.setHeadless = function(value) {
  * repeated string envs = 14;
  * @return {!Array<string>}
  */
-proto.ricaction.Function.prototype.getEnvsList = function() {
+proto.ric.action.Function.prototype.getEnvsList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 14));
 };
 
 
 /** @param {!Array<string>} value */
-proto.ricaction.Function.prototype.setEnvsList = function(value) {
+proto.ric.action.Function.prototype.setEnvsList = function(value) {
   jspb.Message.setField(this, 14, value || []);
 };
 
@@ -543,12 +543,12 @@ proto.ricaction.Function.prototype.setEnvsList = function(value) {
  * @param {!string} value
  * @param {number=} opt_index
  */
-proto.ricaction.Function.prototype.addEnvs = function(value, opt_index) {
+proto.ric.action.Function.prototype.addEnvs = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 14, value, opt_index);
 };
 
 
-proto.ricaction.Function.prototype.clearEnvsList = function() {
+proto.ric.action.Function.prototype.clearEnvsList = function() {
   this.setEnvsList([]);
 };
 
@@ -557,13 +557,13 @@ proto.ricaction.Function.prototype.clearEnvsList = function() {
  * repeated string labels = 15;
  * @return {!Array<string>}
  */
-proto.ricaction.Function.prototype.getLabelsList = function() {
+proto.ric.action.Function.prototype.getLabelsList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 15));
 };
 
 
 /** @param {!Array<string>} value */
-proto.ricaction.Function.prototype.setLabelsList = function(value) {
+proto.ric.action.Function.prototype.setLabelsList = function(value) {
   jspb.Message.setField(this, 15, value || []);
 };
 
@@ -572,12 +572,12 @@ proto.ricaction.Function.prototype.setLabelsList = function(value) {
  * @param {!string} value
  * @param {number=} opt_index
  */
-proto.ricaction.Function.prototype.addLabels = function(value, opt_index) {
+proto.ric.action.Function.prototype.addLabels = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 15, value, opt_index);
 };
 
 
-proto.ricaction.Function.prototype.clearLabelsList = function() {
+proto.ric.action.Function.prototype.clearLabelsList = function() {
   this.setLabelsList([]);
 };
 
@@ -586,13 +586,13 @@ proto.ricaction.Function.prototype.clearLabelsList = function() {
  * repeated string secrets = 16;
  * @return {!Array<string>}
  */
-proto.ricaction.Function.prototype.getSecretsList = function() {
+proto.ric.action.Function.prototype.getSecretsList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 16));
 };
 
 
 /** @param {!Array<string>} value */
-proto.ricaction.Function.prototype.setSecretsList = function(value) {
+proto.ric.action.Function.prototype.setSecretsList = function(value) {
   jspb.Message.setField(this, 16, value || []);
 };
 
@@ -601,12 +601,12 @@ proto.ricaction.Function.prototype.setSecretsList = function(value) {
  * @param {!string} value
  * @param {number=} opt_index
  */
-proto.ricaction.Function.prototype.addSecrets = function(value, opt_index) {
+proto.ric.action.Function.prototype.addSecrets = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 16, value, opt_index);
 };
 
 
-proto.ricaction.Function.prototype.clearSecretsList = function() {
+proto.ric.action.Function.prototype.clearSecretsList = function() {
   this.setSecretsList([]);
 };
 

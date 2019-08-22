@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-package ricaction;
+package ric.action;
+
+option go_package = "ricaction";
 
 service FunctionControl {
     rpc Call (CallRequest) returns (CallResponse);

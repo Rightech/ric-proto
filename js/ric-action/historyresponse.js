@@ -7,7 +7,7 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 
-goog.provide('proto.ricaction.HistoryResponse');
+goog.provide('proto.ric.action.HistoryResponse');
 
 goog.require('jspb.BinaryReader');
 goog.require('jspb.BinaryWriter');
@@ -24,12 +24,12 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ricaction.HistoryResponse = function(opt_data) {
+proto.ric.action.HistoryResponse = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.ricaction.HistoryResponse, jspb.Message);
+goog.inherits(proto.ric.action.HistoryResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.ricaction.HistoryResponse.displayName = 'proto.ricaction.HistoryResponse';
+  proto.ric.action.HistoryResponse.displayName = 'proto.ric.action.HistoryResponse';
 }
 
 
@@ -44,8 +44,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.ricaction.HistoryResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.ricaction.HistoryResponse.toObject(opt_includeInstance, this);
+proto.ric.action.HistoryResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.ric.action.HistoryResponse.toObject(opt_includeInstance, this);
 };
 
 
@@ -54,11 +54,11 @@ proto.ricaction.HistoryResponse.prototype.toObject = function(opt_includeInstanc
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.ricaction.HistoryResponse} msg The msg instance to transform.
+ * @param {!proto.ric.action.HistoryResponse} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.HistoryResponse.toObject = function(includeInstance, msg) {
+proto.ric.action.HistoryResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     data: msg.getData_asB64()
   };
@@ -74,23 +74,23 @@ proto.ricaction.HistoryResponse.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.ricaction.HistoryResponse}
+ * @return {!proto.ric.action.HistoryResponse}
  */
-proto.ricaction.HistoryResponse.deserializeBinary = function(bytes) {
+proto.ric.action.HistoryResponse.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ricaction.HistoryResponse;
-  return proto.ricaction.HistoryResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.ric.action.HistoryResponse;
+  return proto.ric.action.HistoryResponse.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.ricaction.HistoryResponse} msg The message object to deserialize into.
+ * @param {!proto.ric.action.HistoryResponse} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.ricaction.HistoryResponse}
+ * @return {!proto.ric.action.HistoryResponse}
  */
-proto.ricaction.HistoryResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.ric.action.HistoryResponse.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -114,9 +114,9 @@ proto.ricaction.HistoryResponse.deserializeBinaryFromReader = function(msg, read
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ricaction.HistoryResponse.prototype.serializeBinary = function() {
+proto.ric.action.HistoryResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.ricaction.HistoryResponse.serializeBinaryToWriter(this, writer);
+  proto.ric.action.HistoryResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -124,11 +124,11 @@ proto.ricaction.HistoryResponse.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.ricaction.HistoryResponse} message
+ * @param {!proto.ric.action.HistoryResponse} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ricaction.HistoryResponse.serializeBinaryToWriter = function(message, writer) {
+proto.ric.action.HistoryResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getData_asU8();
   if (f.length > 0) {
@@ -144,7 +144,7 @@ proto.ricaction.HistoryResponse.serializeBinaryToWriter = function(message, writ
  * optional bytes data = 1;
  * @return {string}
  */
-proto.ricaction.HistoryResponse.prototype.getData = function() {
+proto.ric.action.HistoryResponse.prototype.getData = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -154,7 +154,7 @@ proto.ricaction.HistoryResponse.prototype.getData = function() {
  * This is a type-conversion wrapper around `getData()`
  * @return {string}
  */
-proto.ricaction.HistoryResponse.prototype.getData_asB64 = function() {
+proto.ric.action.HistoryResponse.prototype.getData_asB64 = function() {
   return /** @type {string} */ (jspb.Message.bytesAsB64(
       this.getData()));
 };
@@ -167,14 +167,14 @@ proto.ricaction.HistoryResponse.prototype.getData_asB64 = function() {
  * This is a type-conversion wrapper around `getData()`
  * @return {!Uint8Array}
  */
-proto.ricaction.HistoryResponse.prototype.getData_asU8 = function() {
+proto.ric.action.HistoryResponse.prototype.getData_asU8 = function() {
   return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
       this.getData()));
 };
 
 
 /** @param {!(string|Uint8Array)} value */
-proto.ricaction.HistoryResponse.prototype.setData = function(value) {
+proto.ric.action.HistoryResponse.prototype.setData = function(value) {
   jspb.Message.setProto3BytesField(this, 1, value);
 };
 
