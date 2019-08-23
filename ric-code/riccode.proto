@@ -10,24 +10,34 @@ message TranspileRequest {
     string id = 1;
     string code = 2;
     string main = 3;
+    
+    repeated LibDefinition defs = 4;
 }
 
 message TranspileResponse {
     string codeEs5 = 1;
-    bool async = 2;
 
+    repeated LibRequest libs = 2;
     repeated VarDecl input = 3;
     repeated VarDecl output = 4;
-    repeated VarDecl packet = 5;
-    repeated LibRequest libs = 6;
 
-    repeated string errors = 7;
+    repeated InputRef refs = 5;
+}
+
+message InputRef {
+    string name = 1;
+    repeated VarDecl vars = 2;
 }
 
 message VarDecl {
     string name = 1;
     string type = 2;
     string default = 3;
+}
+
+message LibDefinition {
+    string name = 1;
+    string def = 2;    
 }
 
 message LibRequest {
