@@ -62,10 +62,10 @@ message Function {
     string schedule = 10;
     int32 port = 11;
     int32 servicePort = 12;
-	bool headless = 13;
+    bool headless = 13;
     repeated string envs = 14;
     repeated string labels = 15;
-	repeated string secrets = 16;
+    repeated string secrets = 16;
 }
 
 message Options {
