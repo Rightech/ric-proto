@@ -42,7 +42,11 @@ message Context {
 
 message ScaleRequest {
     string name = 1;
-    uint64 replicas = 2;
+    Uint64 replicas = 2;
+}
+
+message Uint64 {
+    uint64 value = 1;
 }
 
 message DeleteRequest {
