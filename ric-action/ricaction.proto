@@ -42,7 +42,7 @@ message Context {
 
 message ScaleRequest {
     string name = 1;
-    int64 replicas = 2;
+    uint64 replicas = 2;
 }
 
 message DeleteRequest {
