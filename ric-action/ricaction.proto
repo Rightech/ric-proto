@@ -7,7 +7,7 @@ option go_package = "ricaction";
 service FunctionControl {
     rpc Call (CallRequest) returns (CallResponse);
     rpc Delete (DeleteRequest) returns (EmptyResponse);
-    rpc UpdateOrDeploy (UpdateOrDeployRequest) returns (EmptyResponse);
+    rpc UpdateOrDeploy (UpdateOrDeployRequest) returns (UpdateOrDeployResponse);
     rpc Logs(LogsRequest) returns (stream LogsResponse);
     rpc Info(InfoRequest) returns (InfoResponse);
 }
@@ -72,6 +72,12 @@ message Options {
     // path to vault data
     // do not put actual secrets here
     repeated string secrets = 1;
+}
+
+message UpdateOrDeployResponse {
+    int64 generation = 1;
+    string resourceVersion = 2;
+    string checksum = 3;
 }
 
 message LogsRequest {
