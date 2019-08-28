@@ -9,5 +9,5 @@ do
     fi
 
     mkdir -p go js/$dir
-    protoc --go_out=plugins=grpc:go --js_out=js/$dir $dir/*.proto
+    protoc --go_out=plugins=grpc:go $dir/*.proto
 done
