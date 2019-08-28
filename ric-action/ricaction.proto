@@ -6,6 +6,7 @@ option go_package = "ricaction";
 
 service FunctionControl {
     rpc Call (CallRequest) returns (CallResponse);
+    rpc Scale (ScaleRequest) returns (EmptyResponse);
     rpc Delete (DeleteRequest) returns (EmptyResponse);
     rpc UpdateOrDeploy (UpdateOrDeployRequest) returns (UpdateOrDeployResponse);
     rpc Logs(LogsRequest) returns (stream LogsResponse);
@@ -37,6 +38,11 @@ message Context {
     string objectID = 1;
     string groupID = 2;
     string userID = 3;
+}
+
+message ScaleRequest {
+    string name = 1;
+    int64 replicas = 2;
 }
 
 message DeleteRequest {
