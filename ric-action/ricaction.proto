@@ -76,7 +76,9 @@ message Options {
 
 message LogsRequest {
    string name = 1;
-   bool follow = 2;
+   string podName = 2; // если не задано, будут возвращены логи первого запущенного пода
+   bool follow = 3;
+   int64 tailLines = 4;
 }
 
 message InfoRequest {
