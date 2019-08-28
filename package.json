@@ -1,0 +1,24 @@
+{
+  "name": "ric-proto",
+  "version": "1.0.0",
+  "description": "gRPC/Protocol Buffers protofiles for ric services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rightech/ric-proto.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Rightech/ric-proto/issues"
+  },
+  "homepage": "https://github.com/Rightech/ric-proto#readme",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.1",
+    "@rightech/utils": "^0.1.3",
+    "grpc": "^1.23.3"
+  }
+}
