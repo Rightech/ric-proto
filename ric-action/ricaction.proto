@@ -94,9 +94,24 @@ message LogsResponse {
 }
 
 message InfoResponse {
-    string status = 1;
+    repeated Pod pods = 1;
     string runtime = 2;
     string deps = 3;
+}
+
+message Pod {
+    string name = 1;
+    string creationTimestamp = 2;
+    string phase = 3;
+    string startTime = 4;
+    repeated ContainerStatus containerStatuses = 5;
+}
+
+message ContainerStatus {
+    bool ready = 1;
+    int32 restartCount = 2;
+    string state = 3;
+    string lastState = 4;
 }
 
 service PublicAPI {
