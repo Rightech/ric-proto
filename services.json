@@ -1,18 +1,23 @@
 {
     "default": {
         "port": {
-            "k8s": 13110
+            "k8s": 5071
         }
     },
     "services": {
         "ric-code": {
             "port": {
-                "dev": 13310
+                "dev": 15071
             }
         },
         "ric-action": {
             "port": {
-                "dev": 5052
+                "dev": 15072
+            }
+        },
+        "ric-action.PublicAPI": {
+            "port": {
+                "dev": 15073
             }
         }
     }
