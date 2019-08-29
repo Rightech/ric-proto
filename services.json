@@ -17,6 +17,7 @@
         },
         "ric-action.PublicAPI": {
             "port": {
+                "k8s": 5072,
                 "dev": 15073
             }
         }
