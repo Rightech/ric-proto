@@ -8,7 +8,7 @@ const { log } = require('@rightech/utils');
 const PROTO_DIR = path.join(__dirname, '.');
 const IN_KUBE = !!process.env.KUBERNETES_PORT;
 
-const DEFAULT_KUBE_PORT = 13110;
+const DEFAULT_KUBE_PORT = 5071;
 
 const options = {
   keepCase: true,
