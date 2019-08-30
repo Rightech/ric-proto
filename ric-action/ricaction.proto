@@ -95,6 +95,8 @@ message LogsRequest {
    string podName = 2; // если не задано, будут возвращены логи первого запущенного пода
    bool follow = 3;
    int64 tailLines = 4;
+   bool filter = 5;
+   string filterBy = 6;
 }
 
 message InfoRequest {
