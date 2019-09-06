@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package ric.geo;
+
+option go_package = "ricgeo";
+
+service Watch {
+    rpc WatchGeofence(WatchRequest) returns (EmptyResponse);
+    rpc StopWatchGeofence(WatchRequest) returns (EmptyResponse);
+    rpc WatchRoom(WatchRequest) returns (EmptyResponse);
+    rpc StopWatchRoom(WatchRequest) returns (EmptyResponse);
+    rpc WatchRoute(WatchRequest) returns (EmptyResponse);
+    rpc StopWatchRoute(WatchRequest) returns (EmptyResponse);
+}
+
+message EmptyResponse {}
+
+message WatchRequest {
+    string oid = 1;
+    string geofenceID = 2;
+    string eventType = 3;
+    string shapeID = 4;
+    string roomID = 5;
+    string routeID = 6;
+}
+
+service AttendanceControl {
+    rpc Control(ControlRequest) returns (EmptyResponse);
+}
+
+message ControlRequest {
+    string oid = 1;
+    Time time = 2;
+    Circle circle = 3;
+}
+
+message Time {
+    int64 start = 1;
+    int64 interval = 2;
+}
+
+message Circle {
+    double lat = 1;
+    double lon = 2;
+    double radius = 3;
+}
+
+service OSM {
+    rpc Geocode(GeocodeRequest) returns (OSMResponse);
+    rpc GeocodeReverse(GeocodeReverseRequest) returns (OSMResponse);
+    rpc GetRoute(GetRouteRequest) returns (OSMResponse);
+}
+
+message OSMResponse {
+    bytes data = 1; // json
+}
+
+message GeocodeRequest {
+    string query = 1;
+}
+
+message Point {
+    double lat = 1;
+    double lon = 2;
+}
+
+message GeocodeReverseRequest {
+    Point point = 1;
+}
+
+message GetRouteRequest {
+    repeated Point coordinates = 1;
+    bytes options = 2; // json
+}
