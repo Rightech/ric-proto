@@ -225,6 +225,12 @@ class Registry {
 
 }
 
+let registry = null;
 module.exports = {
-  init: () => new Registry()
+  init: () => {
+    if (registry) {
+      return registry;
+    }
+    return registry = new Registry();
+  }
 };
