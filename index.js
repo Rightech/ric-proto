@@ -225,12 +225,10 @@ class Registry {
 
 }
 
-let registry = null;
+let registry = new Registry();
 module.exports = {
-  init: () => {
-    if (registry) {
-      return registry;
-    }
-    return registry = new Registry();
-  }
+  registry,
+
+  /** ric modules compat */
+  init: () => registry
 };
