@@ -31,6 +31,12 @@
             "port": {
                 "dev": 15075
             }
+        },
+        "ric-logic-v3": {
+            "stateful": true,
+            "port": {
+                "dev": 15076
+            }
         }
     }
 }

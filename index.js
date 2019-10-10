@@ -30,8 +30,10 @@ class ServiceName {
     this.service = service;
     this.namespace = namespace || '';
     this.fileName = `${service.replace(/-/gi, '')}.proto`;
-    const [, subpackage] = service.split('-');
+    const parts = service.split('-');
+    const [, subpackage] = parts;
     this.subpackage = subpackage;
+    this.version = parts.find(part => part.startsWith('v'));
   }
 
   getProtofilePath() {
@@ -55,8 +57,15 @@ class GrpcServer {
 
   getImpl() {
     return Object.keys(this.serviceDef).reduce((impl, key) => {
-      impl[key] = (call, callback) => callbackify(() =>
-        this.impl[key](call.request, call))(callback);
+      impl[key] = (call, callback) => callbackify(() => {
+        if (!this.impl[key]) {
+          return Promise.reject({
+            message: 'Not provided',
+            code: grpc.status.UNIMPLEMENTED
+          });
+        }
+        return this.impl[key](call.request, call);
+      })(callback);
       return impl;
     }, {});
   }
@@ -197,6 +206,9 @@ class Registry {
     let ric = grpc.loadPackageDefinition(def).ric;
     if (name.subpackage && ric[name.subpackage]) {
       ric = ric[name.subpackage];
+    }
+    if (name.version && ric[name.version]) {
+      ric = ric[name.version];
     }
     this.defs[name.full] = ric;
     return ric;
