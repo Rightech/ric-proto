@@ -12,18 +12,19 @@ service RicLogicV3 {
 }
 
 enum StepCategory {
-    INFO = 0;
-    LOG = 1;
-    TRANSITION = 2;
-    ACTION = 3;
-    ERROR = 4;
-    HALTED = 5;
+    INVALID = 0;
+    INFO = 1;
+    LOG = 2;
+    TRANSITION = 3;
+    ACTION = 4;
+    ERROR = 5;
+    HALTED = 6;
 }
 
 message AutomatonStats {
     int32 started = 1;
     int32 transitions = 2;
-    int32 actions = 3;    
+    int32 actions = 3;
     int32 packets = 4;
     int32 events = 5;
     string halted = 6;
