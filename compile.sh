@@ -8,6 +8,7 @@ do
         continue
     fi
 
+    prototool lint
     mkdir -p go js/$dir
-    protoc --lint_out=sort_imports:. --go_out=plugins=grpc:go $dir/*.proto
+    protoc --go_out=plugins=grpc:go $dir/*.proto
 done
