@@ -5,45 +5,42 @@ package ric.code;
 option go_package = "riccode";
 
 service RicCode {
-    rpc TranspileEs6 (TranspileRequest) returns (TranspileResponse) {}
+  rpc TranspileEs6(TranspileRequest) returns (TranspileResponse);
 }
 
 message TranspileRequest {
-    string id = 1;
-    string code = 2;
-    string main = 3;
-
-    repeated LibDefinition defs = 4;
+  string id = 1;
+  string code = 2;
+  string main = 3;
+  repeated LibDefinition defs = 4;
 }
 
 message TranspileResponse {
-    string code_es5 = 1;
-
-    repeated LibRequest libs = 2;
-    repeated VarDecl input = 3;
-    repeated VarDecl output = 4;
-
-    repeated InputRef refs = 5;
+  string code_es5 = 1;
+  repeated LibRequest libs = 2;
+  repeated VarDecl input = 3;
+  repeated VarDecl output = 4;
+  repeated InputRef refs = 5;
 }
 
 message InputRef {
-    string name = 1;
-    repeated VarDecl vars = 2;
+  string name = 1;
+  repeated VarDecl vars = 2;
 }
 
 message VarDecl {
-    string name = 1;
-    string type = 2;
-    string default = 3;
+  string name = 1;
+  string type = 2;
+  string default = 3;
 }
 
 message LibDefinition {
-    string name = 1;
-    string def = 2;
+  string name = 1;
+  string def = 2;
 }
 
 message LibRequest {
-    string name = 1;
-    string semver = 2;
-    bool local = 3;
+  string name = 1;
+  string semver = 2;
+  bool local = 3;
 }

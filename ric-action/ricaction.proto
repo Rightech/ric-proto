@@ -5,151 +5,151 @@ package ric.action;
 option go_package = "ricaction";
 
 service FunctionControl {
-    rpc Call (CallRequest) returns (CallResponse);
-    rpc Scale (ScaleRequest) returns (EmptyResponse);
-    rpc Delete (DeleteRequest) returns (EmptyResponse);
-    rpc UpdateOrDeploy (UpdateOrDeployRequest) returns (UpdateOrDeployResponse);
-    rpc Logs(LogsRequest) returns (stream LogsResponse);
-    rpc Info(InfoRequest) returns (InfoResponse);
+  rpc Call(CallRequest) returns (CallResponse);
+  rpc Scale(ScaleRequest) returns (EmptyResponse);
+  rpc Delete(DeleteRequest) returns (EmptyResponse);
+  rpc UpdateOrDeploy(UpdateOrDeployRequest) returns (UpdateOrDeployResponse);
+  rpc Logs(LogsRequest) returns (stream LogsResponse);
+  rpc Info(InfoRequest) returns (InfoResponse);
 }
 
-/*
-    В data можно положить шаблон в который будут подставлятся секреты
-
-    {
-        "someKey": "someValue",
-        "secret": {{ secrets "SECRET_VALUE_KEY" }},
-    }
-
-    Если secrets используются, то в ctx обязательно должен быть groupID.
-
-    contextType лучше задавать, если вы его знаете, иначе ric-action
-    пытается определить его самостоятельно.
-*/
+//
+//    В data можно положить шаблон в который будут подставлятся секреты
+//
+//    {
+//        "someKey": "someValue",
+//        "secret": {{ secrets "SECRET_VALUE_KEY" }},
+//    }
+//
+//    Если secrets используются, то в ctx обязательно должен быть groupID.
+//
+//    contextType лучше задавать, если вы его знаете, иначе ric-action
+//    пытается определить его самостоятельно.
+//
 
 message CallRequest {
-    string name = 1;
-    bytes data = 2;
-    string content_type = 3;
-    Context ctx = 4;
+  string name = 1;
+  bytes data = 2;
+  string content_type = 3;
+  Context ctx = 4;
 }
 
 message Context {
-    string object_id = 1;
-    string group_id = 2;
-    string user_id = 3;
+  string object_id = 1;
+  string group_id = 2;
+  string user_id = 3;
 }
 
 message ScaleRequest {
-    string name = 1;
-    Uint64 replicas = 2;
+  string name = 1;
+  Uint64 replicas = 2;
 }
 
 message Uint64 {
-    uint64 value = 1;
+  uint64 value = 1;
 }
 
 message DeleteRequest {
-    string name = 1;
+  string name = 1;
 }
 
 message UpdateOrDeployRequest {
-    string name = 1;
-    Function func = 2;
-    Options opt = 3;
+  string name = 1;
+  Function func = 2;
+  Options opt = 3;
 }
 
 message Function {
-    string handler = 1;
-    string body = 2;
-    string deps = 3;
-    string runtime = 4;
-    string runtime_image = 5;
-    string mem = 6;
-    string cpu = 7;
-    string timeout = 8;
-    string image_pull_policy = 9;
-    string schedule = 10;
-    int32 port = 11;
-    int32 service_port = 12;
-    bool headless = 13;
-    repeated string envs = 14;
-    repeated string labels = 15;
-    repeated string secrets = 16;
+  string handler = 1;
+  string body = 2;
+  string deps = 3;
+  string runtime = 4;
+  string runtime_image = 5;
+  string mem = 6;
+  string cpu = 7;
+  string timeout = 8;
+  string image_pull_policy = 9;
+  string schedule = 10;
+  int32 port = 11;
+  int32 service_port = 12;
+  bool headless = 13;
+  repeated string envs = 14;
+  repeated string labels = 15;
+  repeated string secrets = 16;
 }
 
 message Options {
-    // path to vault data
-    // do not put actual secrets here
-    repeated string secrets = 1;
+  // path to vault data
+  // do not put actual secrets here
+  repeated string secrets = 1;
 }
 
 message UpdateOrDeployResponse {
-    int64 generation = 1;
-    string resource_version = 2;
-    string checksum = 3;
+  int64 generation = 1;
+  string resource_version = 2;
+  string checksum = 3;
 }
 
 message LogsRequest {
-   string name = 1;
-   string pod_name = 2; // если не задано, будут возвращены логи первого запущенного пода
-   bool follow = 3;
-   int64 tail_lines = 4;
-   string filter_by = 5; // если задано, записи, которые содержат данную подстроку, не будут возвращаться
+  string name = 1;
+  string pod_name = 2; // если не задано, будут возвращены логи первого запущенного пода
+  bool follow = 3;
+  int64 tail_lines = 4;
+  string filter_by = 5; // если задано, записи, которые содержат данную подстроку, не будут возвращаться
 }
 
 message InfoRequest {
-    string name = 1;
+  string name = 1;
 }
 
 message CallResponse {
-    bytes data = 1;
+  bytes data = 1;
 }
 
 message EmptyResponse {}
 
 message LogsResponse {
-    string line = 1;
+  string line = 1;
 }
 
 message InfoResponse {
-    repeated Pod pods = 1;
-    string runtime = 2;
-    string deps = 3;
+  repeated Pod pods = 1;
+  string runtime = 2;
+  string deps = 3;
 }
 
 message Pod {
-    string name = 1;
-    string creation_timestamp = 2;
-    string phase = 3;
-    string start_time = 4;
-    repeated ContainerStatus container_statuses = 5;
+  string name = 1;
+  string creation_timestamp = 2;
+  string phase = 3;
+  string start_time = 4;
+  repeated ContainerStatus container_statuses = 5;
 }
 
 message ContainerStatus {
-    bool ready = 1;
-    int32 restart_count = 2;
-    string state = 3;
-    string last_state = 4;
+  bool ready = 1;
+  int32 restart_count = 2;
+  string state = 3;
+  string last_state = 4;
 }
 
 service PublicAPI {
-    rpc History (HistoryRequest) returns (stream HistoryResponse);
-    rpc SendEvent(EventRequest) returns (EmptyResponse);
+  rpc History(HistoryRequest) returns (stream HistoryResponse);
+  rpc SendEvent(EventRequest) returns (EmptyResponse);
 }
 
 message HistoryRequest {
-    string oid = 1;
-    string db = 2;
-    int64 size = 3;
+  string oid = 1;
+  string db = 2;
+  int64 size = 3;
 }
 
 message HistoryResponse {
-    bytes data = 1;
+  bytes data = 1;
 }
 
 message EventRequest {
-    string oid = 1;
-    string name = 2;
-    bytes data = 3;
+  string oid = 1;
+  string name = 2;
+  bytes data = 3;
 }

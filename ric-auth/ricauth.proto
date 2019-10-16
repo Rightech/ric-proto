@@ -5,40 +5,36 @@ package ric.auth;
 option go_package = "ricauth";
 
 service RicAuth {
-    rpc AuthObject (AuthObjectRequest) returns (AuthObjectResponse) {}
+  rpc AuthObject(AuthObjectRequest) returns (AuthObjectResponse);
 }
 
 message AuthObjectRequest {
-    string protocol = 1;
-    string object = 2;
-    string client_id = 3;
-    string username = 4;
-    string password = 5;
-
-    message AuthObjectCert {
-        string cn = 1;
-    }
-    AuthObjectCert cert = 6;
-
-    string ipv4 = 7;
-    string ipv6 = 8;
+  string protocol = 1;
+  string object = 2;
+  string client_id = 3;
+  string username = 4;
+  string password = 5;
+  message AuthObjectCert {
+    string cn = 1;
+  }
+  AuthObjectCert cert = 6;
+  string ipv4 = 7;
+  string ipv6 = 8;
 }
 
 message AuthObjectResponse {
-    string session = 1;
-    string model_id = 2;
-    string object_id = 3;
-    string group_id = 4;
-    string group_key = 5;
-
-    repeated AuthObjectArgument arguments = 6;
-    string config = 7;
+  string session = 1;
+  string model_id = 2;
+  string object_id = 3;
+  string group_id = 4;
+  string group_key = 5;
+  repeated AuthObjectArgument arguments = 6;
+  string config = 7;
 }
 
 message AuthObjectArgument {
-    string id = 1;
-    string data_type = 2;
-    string reference = 3;
-
-    string parser = 4;
+  string id = 1;
+  string data_type = 2;
+  string reference = 3;
+  string parser = 4;
 }
