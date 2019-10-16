@@ -1,26 +1,24 @@
 syntax = "proto3";
 
-import "google/protobuf/struct.proto";
-
 package ric.auth;
 
 option go_package = "ricauth";
 
 service RicAuth {
-    rpc authObject (AuthObjectRequest) returns (AuthObjectResponse) {}
+    rpc AuthObject (AuthObjectRequest) returns (AuthObjectResponse) {}
 }
 
 message AuthObjectRequest {
     string protocol = 1;
     string object = 2;
-    string clientId = 3;
+    string client_id = 3;
     string username = 4;
     string password = 5;
 
     message AuthObjectCert {
-        required string cn = 1;
+        string cn = 1;
     }
-    optional AuthObjectCert cert = 6;
+    AuthObjectCert cert = 6;
 
     string ipv4 = 7;
     string ipv6 = 8;
@@ -28,19 +26,19 @@ message AuthObjectRequest {
 
 message AuthObjectResponse {
     string session = 1;
-    string modelId = 2;
-    string objectId = 3;
-    string groupId = 4;
-    string groupKey = 5;
+    string model_id = 2;
+    string object_id = 3;
+    string group_id = 4;
+    string group_key = 5;
 
     repeated AuthObjectArgument arguments = 6;
-    optional string config = 7;
+    string config = 7;
 }
 
 message AuthObjectArgument {
     string id = 1;
-    string dataType = 2;
+    string data_type = 2;
     string reference = 3;
 
-    optional string parser = 4;
+    string parser = 4;
 }
