@@ -114,12 +114,12 @@ lint:
   #allow_beta_deps: true
 
 # Code generation directives.
-#generate:
+generate:
   # Options that will apply to all plugins of type go and gogo.
-#  go_options:
+  go_options:
     # The base import path. This should be the go path of the prototool.yaml file.
     # This is required if you have any go plugins.
-#    import_path: uber/foo/bar.git/idl/uber
+    import_path: uber/foo/bar.git/idl/uber
 
     # Extra modifiers to include with Mfile=package.
 #    extra_modifiers:
@@ -127,29 +127,29 @@ lint:
 #      google/api/http.proto: google.golang.org/genproto/googleapis/api/annotations
 
   # The list of plugins.
-#  plugins:
+  plugins:
       # The plugin name. This will go to protoc with --name_out, so it either needs
       # to be a built-in name (like java), or a plugin name with a binary
       # protoc-gen-name.
-#    - name: gogo
+    - name: go
 
       # The type, if any. Valid types are go, gogo.
       # Use go if your plugin is a standard Golang plugin
       # that uses github.com/golang/protobuf imports, use gogo
       # if it uses github.com/gogo/protobuf imports. For protoc-gen-go
       # use go, For protoc-gen-gogo, protoc-gen-gogoslick, etc, use gogo.
-#      type: gogo
+      type: go
 
       # Extra flags to specify.
       # The only flag you will generally set is plugins=grpc for Golang.
       # The Mfile=package flags are automatically set.
       # ** Otherwise, generally do not set this unless you know what you are doing. **
-#      flags: plugins=grpc
+      flags: plugins=grpc
 
       # The path to output generated files to.
       # If the directory does not exist, it will be created when running generation.
       # This needs to be a relative path.
-#      output: ../../.gen/proto/go
+      output: go
 
       # Optional override for the plugin path. For example, if you set set path to
       # /usr/local/bin/gogo_plugin", prototool will add the

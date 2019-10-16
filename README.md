@@ -3,4 +3,17 @@ gRPC/Protocol Buffers protofiles for ric services
 
 ## dependencies
 
-`compile.sh` require [uber prototool](https://github.com/uber/prototool)
+- [uber prototool](https://github.com/uber/prototool)
+
+## generate
+
+```bash
+$ prototool generate
+```
+
+## lint && format
+
+```bash
+$ prototool lint
+$ prototool format -w
+```
