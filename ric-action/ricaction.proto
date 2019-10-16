@@ -30,14 +30,14 @@ service FunctionControl {
 message CallRequest {
     string name = 1;
     bytes data = 2;
-    string contentType = 3;
+    string content_type = 3;
     Context ctx = 4;
 }
 
 message Context {
-    string objectID = 1;
-    string groupID = 2;
-    string userID = 3;
+    string object_id = 1;
+    string group_id = 2;
+    string user_id = 3;
 }
 
 message ScaleRequest {
@@ -64,14 +64,14 @@ message Function {
     string body = 2;
     string deps = 3;
     string runtime = 4;
-    string runtimeImage = 5;
+    string runtime_image = 5;
     string mem = 6;
     string cpu = 7;
     string timeout = 8;
-    string imagePullPolicy = 9;
+    string image_pull_policy = 9;
     string schedule = 10;
     int32 port = 11;
-    int32 servicePort = 12;
+    int32 service_port = 12;
     bool headless = 13;
     repeated string envs = 14;
     repeated string labels = 15;
@@ -86,16 +86,16 @@ message Options {
 
 message UpdateOrDeployResponse {
     int64 generation = 1;
-    string resourceVersion = 2;
+    string resource_version = 2;
     string checksum = 3;
 }
 
 message LogsRequest {
    string name = 1;
-   string podName = 2; // если не задано, будут возвращены логи первого запущенного пода
+   string pod_name = 2; // если не задано, будут возвращены логи первого запущенного пода
    bool follow = 3;
-   int64 tailLines = 4;
-   string filterBy = 5; // если задано, записи, которые содержат данную подстроку, не будут возвращаться
+   int64 tail_lines = 4;
+   string filter_by = 5; // если задано, записи, которые содержат данную подстроку, не будут возвращаться
 }
 
 message InfoRequest {
@@ -120,17 +120,17 @@ message InfoResponse {
 
 message Pod {
     string name = 1;
-    string creationTimestamp = 2;
+    string creation_timestamp = 2;
     string phase = 3;
-    string startTime = 4;
-    repeated ContainerStatus containerStatuses = 5;
+    string start_time = 4;
+    repeated ContainerStatus container_statuses = 5;
 }
 
 message ContainerStatus {
     bool ready = 1;
-    int32 restartCount = 2;
+    int32 restart_count = 2;
     string state = 3;
-    string lastState = 4;
+    string last_state = 4;
 }
 
 service PublicAPI {

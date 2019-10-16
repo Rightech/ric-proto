@@ -3,19 +3,19 @@ syntax = "proto3";
 package ric.code;
 
 service RicCode {
-    rpc transpileEs6 (TranspileRequest) returns (TranspileResponse) {}
+    rpc TranspileEs6 (TranspileRequest) returns (TranspileResponse) {}
 }
 
 message TranspileRequest {
     string id = 1;
     string code = 2;
     string main = 3;
-    
+
     repeated LibDefinition defs = 4;
 }
 
 message TranspileResponse {
-    string codeEs5 = 1;
+    string code_es5 = 1;
 
     repeated LibRequest libs = 2;
     repeated VarDecl input = 3;
@@ -37,7 +37,7 @@ message VarDecl {
 
 message LibDefinition {
     string name = 1;
-    string def = 2;    
+    string def = 2;
 }
 
 message LibRequest {

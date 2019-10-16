@@ -17,11 +17,11 @@ message EmptyResponse {}
 
 message WatchRequest {
     string oid = 1;
-    string geofenceID = 2;
-    string eventType = 3;
-    string shapeID = 4;
-    string roomID = 5;
-    string routeID = 6;
+    string geofence_id = 2;
+    string event_type = 3;
+    string shape_id = 4;
+    string room_id = 5;
+    string route_id = 6;
 }
 
 service AttendanceControl {
@@ -45,13 +45,13 @@ message Circle {
     double radius = 3;
 }
 
-service OSM {
-    rpc Geocode(GeocodeRequest) returns (OSMResponse);
-    rpc GeocodeReverse(GeocodeReverseRequest) returns (OSMResponse);
-    rpc GetRoute(GetRouteRequest) returns (OSMResponse);
+service Osm {
+    rpc Geocode(GeocodeRequest) returns (OsmResponse);
+    rpc GeocodeReverse(GeocodeReverseRequest) returns (OsmResponse);
+    rpc GetRoute(GetRouteRequest) returns (OsmResponse);
 }
 
-message OSMResponse {
+message OsmResponse {
     bytes data = 1; // json
 }
 

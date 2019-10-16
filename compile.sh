@@ -9,5 +9,5 @@ do
     fi
 
     mkdir -p go js/$dir
-    protoc --go_out=plugins=grpc:go $dir/*.proto
+    protoc --lint_out=sort_imports:. --go_out=plugins=grpc:go $dir/*.proto
 done
