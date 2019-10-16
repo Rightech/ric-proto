@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package ric.logic.v3;
+
+option go_package = "riclogicv3";
+
+service RicLogicV3 {
+    rpc StartAutomaton (StartAutomatonRequest) returns (StartAutomatonResponse) {}
+    rpc GetAutomatonStats (GetRuntimeInfoRequest) returns (AutomatonStats) {}
+    rpc GetAutomatonLogs (GetRuntimeInfoRequest) returns (stream RuntimeLogResponse) {}
+    rpc StopAutomaton (StopAutomatonRequest) returns (StopAutomatonResponse) {}
+}
+
+enum StepCategory {
+    INFO = 0;
+    LOG = 1;
+    TRANSITION = 2;
+    ACTION = 3;
+    ERROR = 4;
+    HALTED = 5;
+}
+
+message AutomatonStats {
+    int32 started = 1;
+    int32 transitions = 2;
+    int32 actions = 3;    
+    int32 packets = 4;
+    int32 events = 5;
+    string halted = 6;
+}
+
+message StartAutomatonRequest {
+    string object_id = 1;
+    string automaton_id = 2;
+}
+
+message StartAutomatonResponse {
+}
+
+message GetRuntimeInfoRequest {
+    string object_id = 1;
+    string automaton_id = 2;
+}
+
+message StopAutomatonRequest {
+    string object_id = 1;
+    string automaton_id = 2;
+}
+
+message StopAutomatonResponse {
+}
+
+message RuntimeLogResponse {
+    string object_id = 1;
+    string automaton_id = 2;
+
+    int32 ts = 3;
+
+    string state = 4;
+    string transition = 5;
+
+    StepCategory category = 6;
+    string message = 7;
+
+    string ctx = 8;
+    bool final = 9;
+}

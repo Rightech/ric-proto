@@ -26,6 +26,17 @@
                 "k8s": 5073,
                 "dev": 15074
             }
+        },
+        "ric-auth": {
+            "port": {
+                "dev": 15075
+            }
+        },
+        "ric-logic-v3": {
+            "stateful": true,
+            "port": {
+                "dev": 15076
+            }
         }
     }
 }
