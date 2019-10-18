@@ -19,7 +19,16 @@ message TaskId {
 message Location {
   double lat = 1;
   double lng = 2;
-  double radius = 3; // QUESTION: this is required?
+  double radius = 3;
+  string address = 4;
+  IndoorLocation indoor = 5;
+}
+
+message IndoorLocation {
+  double x = 1;
+  double y = 2;
+  double z = 3;
+  double redius = 4;
 }
 
 message Task {
@@ -39,7 +48,7 @@ message Task {
   }
   TaskId id = 1;
   string name = 2;
-  string kind = 3; // QUESTION: Maybe enum?
+  string kind = 3; 
   string description = 4;
   Status status = 5;
   ObjectId object = 6;
@@ -49,6 +58,12 @@ message Task {
   Location end = 10;
   int64 created_at = 11; // milliseconds
   int64 deadline = 12; // milliseconds
+  ObjectId owner = 13;
+}
+
+message Deadline {
+  int64 timestamp = 1;
+  Task.Status status = 2;
 }
 
 message MasterTask {
@@ -56,7 +71,6 @@ message MasterTask {
     INVALID = 0; // error
     ALL = 1; // all subtasks should be done (order doesn't matter)
     ORDERED = 2; // all subtasks shuld be done step by step
-    ANY = 3; // at least one subtask should be done
   }
   Task task = 1;
   repeated Task subtasks = 2;
