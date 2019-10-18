@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package ric.tasks;
+
+option go_package = "rictasks";
+
+service Tasks {
+  rpc Create(CreateRequest) returns (CreateResponse);
+}
+
+message ObjectId {
+  bytes id = 1;
+}
+
+message TaskId {
+  string id = 1;
+}
+
+message Location {
+  double lat = 1;
+  double lng = 2;
+  double radius = 3; // QUESTION: this is required?
+}
+
+message Task {
+  enum Status {
+    INVALID = 0; // error
+    CREATED = 1;
+    ASSIGNED = 2;
+    IN_WORK = 3;
+    SUCCESS = 4;
+    FAIL = 5;
+  }
+  enum Priority {
+    UNDEFINED = 0;
+    LOW = 1;
+    NORMAL = 2;
+    HIGH = 3;
+  }
+  TaskId id = 1;
+  string name = 2;
+  string kind = 3; // QUESTION: Maybe enum?
+  string description = 4;
+  Status status = 5;
+  ObjectId object = 6;
+  ObjectId assignee = 7;
+  Priority priority = 8;
+  Location begin = 9;
+  Location end = 10;
+  int64 created_at = 11; // milliseconds
+  int64 deadline = 12; // milliseconds
+}
+
+message MasterTask {
+  enum Constrain {
+    INVALID = 0; // error
+    ALL = 1; // all subtasks should be done (order doesn't matter)
+    ORDERED = 2; // all subtasks shuld be done step by step
+    ANY = 3; // at least one subtask should be done
+  }
+  Task task = 1;
+  repeated Task subtasks = 2;
+  Constrain constrain = 3;
+}
+
+message CreateRequest {
+  oneof payload {
+    MasterTask master_task = 1;
+    Task task = 2;
+  }
+}
+
+message CreateResponse {
+  TaskId id = 1;
+  repeated TaskId sub_ids = 2;
+}
