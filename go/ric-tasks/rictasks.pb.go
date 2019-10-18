@@ -29,8 +29,7 @@ const (
 	Task_CREATED  Task_Status = 1
 	Task_ASSIGNED Task_Status = 2
 	Task_IN_WORK  Task_Status = 3
-	Task_SUCCESS  Task_Status = 4
-	Task_FAIL     Task_Status = 5
+	Task_CLOSED   Task_Status = 4
 )
 
 var Task_Status_name = map[int32]string{
@@ -38,8 +37,7 @@ var Task_Status_name = map[int32]string{
 	1: "CREATED",
 	2: "ASSIGNED",
 	3: "IN_WORK",
-	4: "SUCCESS",
-	5: "FAIL",
+	4: "CLOSED",
 }
 
 var Task_Status_value = map[string]int32{
@@ -47,8 +45,7 @@ var Task_Status_value = map[string]int32{
 	"CREATED":  1,
 	"ASSIGNED": 2,
 	"IN_WORK":  3,
-	"SUCCESS":  4,
-	"FAIL":     5,
+	"CLOSED":   4,
 }
 
 func (x Task_Status) String() string {
@@ -56,61 +53,27 @@ func (x Task_Status) String() string {
 }
 
 func (Task_Status) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_24bc245c10750061, []int{3, 0}
-}
-
-type Task_Priority int32
-
-const (
-	Task_UNDEFINED Task_Priority = 0
-	Task_LOW       Task_Priority = 1
-	Task_NORMAL    Task_Priority = 2
-	Task_HIGH      Task_Priority = 3
-)
-
-var Task_Priority_name = map[int32]string{
-	0: "UNDEFINED",
-	1: "LOW",
-	2: "NORMAL",
-	3: "HIGH",
-}
-
-var Task_Priority_value = map[string]int32{
-	"UNDEFINED": 0,
-	"LOW":       1,
-	"NORMAL":    2,
-	"HIGH":      3,
-}
-
-func (x Task_Priority) String() string {
-	return proto.EnumName(Task_Priority_name, int32(x))
-}
-
-func (Task_Priority) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_24bc245c10750061, []int{3, 1}
+	return fileDescriptor_24bc245c10750061, []int{4, 0}
 }
 
 type MasterTask_Constrain int32
 
 const (
-	MasterTask_INVALID MasterTask_Constrain = 0
-	MasterTask_ALL     MasterTask_Constrain = 1
-	MasterTask_ORDERED MasterTask_Constrain = 2
-	MasterTask_ANY     MasterTask_Constrain = 3
+	MasterTask_INVALID   MasterTask_Constrain = 0
+	MasterTask_UNORDERED MasterTask_Constrain = 1
+	MasterTask_ORDERED   MasterTask_Constrain = 2
 )
 
 var MasterTask_Constrain_name = map[int32]string{
 	0: "INVALID",
-	1: "ALL",
+	1: "UNORDERED",
 	2: "ORDERED",
-	3: "ANY",
 }
 
 var MasterTask_Constrain_value = map[string]int32{
-	"INVALID": 0,
-	"ALL":     1,
-	"ORDERED": 2,
-	"ANY":     3,
+	"INVALID":   0,
+	"UNORDERED": 1,
+	"ORDERED":   2,
 }
 
 func (x MasterTask_Constrain) String() string {
@@ -118,7 +81,38 @@ func (x MasterTask_Constrain) String() string {
 }
 
 func (MasterTask_Constrain) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_24bc245c10750061, []int{4, 0}
+	return fileDescriptor_24bc245c10750061, []int{6, 0}
+}
+
+type MasterTask_Priority int32
+
+const (
+	MasterTask_UNDEFINED MasterTask_Priority = 0
+	MasterTask_LOW       MasterTask_Priority = 1
+	MasterTask_NORMAL    MasterTask_Priority = 2
+	MasterTask_HIGH      MasterTask_Priority = 3
+)
+
+var MasterTask_Priority_name = map[int32]string{
+	0: "UNDEFINED",
+	1: "LOW",
+	2: "NORMAL",
+	3: "HIGH",
+}
+
+var MasterTask_Priority_value = map[string]int32{
+	"UNDEFINED": 0,
+	"LOW":       1,
+	"NORMAL":    2,
+	"HIGH":      3,
+}
+
+func (x MasterTask_Priority) String() string {
+	return proto.EnumName(MasterTask_Priority_name, int32(x))
+}
+
+func (MasterTask_Priority) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_24bc245c10750061, []int{6, 1}
 }
 
 type ObjectId struct {
@@ -200,12 +194,14 @@ func (m *TaskId) GetId() string {
 }
 
 type Location struct {
-	Lat                  float64  `protobuf:"fixed64,1,opt,name=lat,proto3" json:"lat,omitempty"`
-	Lng                  float64  `protobuf:"fixed64,2,opt,name=lng,proto3" json:"lng,omitempty"`
-	Radius               float64  `protobuf:"fixed64,3,opt,name=radius,proto3" json:"radius,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Lat                  float64         `protobuf:"fixed64,1,opt,name=lat,proto3" json:"lat,omitempty"`
+	Lng                  float64         `protobuf:"fixed64,2,opt,name=lng,proto3" json:"lng,omitempty"`
+	Radius               float64         `protobuf:"fixed64,3,opt,name=radius,proto3" json:"radius,omitempty"`
+	Address              string          `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty"`
+	Indoor               *IndoorLocation `protobuf:"bytes,5,opt,name=indoor,proto3" json:"indoor,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
 }
 
 func (m *Location) Reset()         { *m = Location{} }
@@ -254,29 +250,108 @@ func (m *Location) GetRadius() float64 {
 	return 0
 }
 
+func (m *Location) GetAddress() string {
+	if m != nil {
+		return m.Address
+	}
+	return ""
+}
+
+func (m *Location) GetIndoor() *IndoorLocation {
+	if m != nil {
+		return m.Indoor
+	}
+	return nil
+}
+
+type IndoorLocation struct {
+	X                    float64  `protobuf:"fixed64,1,opt,name=x,proto3" json:"x,omitempty"`
+	Y                    float64  `protobuf:"fixed64,2,opt,name=y,proto3" json:"y,omitempty"`
+	Z                    float64  `protobuf:"fixed64,3,opt,name=z,proto3" json:"z,omitempty"`
+	Redius               float64  `protobuf:"fixed64,4,opt,name=redius,proto3" json:"redius,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *IndoorLocation) Reset()         { *m = IndoorLocation{} }
+func (m *IndoorLocation) String() string { return proto.CompactTextString(m) }
+func (*IndoorLocation) ProtoMessage()    {}
+func (*IndoorLocation) Descriptor() ([]byte, []int) {
+	return fileDescriptor_24bc245c10750061, []int{3}
+}
+
+func (m *IndoorLocation) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_IndoorLocation.Unmarshal(m, b)
+}
+func (m *IndoorLocation) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_IndoorLocation.Marshal(b, m, deterministic)
+}
+func (m *IndoorLocation) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_IndoorLocation.Merge(m, src)
+}
+func (m *IndoorLocation) XXX_Size() int {
+	return xxx_messageInfo_IndoorLocation.Size(m)
+}
+func (m *IndoorLocation) XXX_DiscardUnknown() {
+	xxx_messageInfo_IndoorLocation.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_IndoorLocation proto.InternalMessageInfo
+
+func (m *IndoorLocation) GetX() float64 {
+	if m != nil {
+		return m.X
+	}
+	return 0
+}
+
+func (m *IndoorLocation) GetY() float64 {
+	if m != nil {
+		return m.Y
+	}
+	return 0
+}
+
+func (m *IndoorLocation) GetZ() float64 {
+	if m != nil {
+		return m.Z
+	}
+	return 0
+}
+
+func (m *IndoorLocation) GetRedius() float64 {
+	if m != nil {
+		return m.Redius
+	}
+	return 0
+}
+
 type Task struct {
-	Id                   *TaskId       `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Name                 string        `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Kind                 string        `protobuf:"bytes,3,opt,name=kind,proto3" json:"kind,omitempty"`
-	Description          string        `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
-	Status               Task_Status   `protobuf:"varint,5,opt,name=status,proto3,enum=ric.tasks.Task_Status" json:"status,omitempty"`
-	Object               *ObjectId     `protobuf:"bytes,6,opt,name=object,proto3" json:"object,omitempty"`
-	Assignee             *ObjectId     `protobuf:"bytes,7,opt,name=assignee,proto3" json:"assignee,omitempty"`
-	Priority             Task_Priority `protobuf:"varint,8,opt,name=priority,proto3,enum=ric.tasks.Task_Priority" json:"priority,omitempty"`
-	Begin                *Location     `protobuf:"bytes,9,opt,name=begin,proto3" json:"begin,omitempty"`
-	End                  *Location     `protobuf:"bytes,10,opt,name=end,proto3" json:"end,omitempty"`
-	CreatedAt            int64         `protobuf:"varint,11,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	Deadline             int64         `protobuf:"varint,12,opt,name=deadline,proto3" json:"deadline,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
+	Id                   *TaskId     `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name                 string      `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Kind                 string      `protobuf:"bytes,3,opt,name=kind,proto3" json:"kind,omitempty"`
+	Description          string      `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
+	Status               Task_Status `protobuf:"varint,5,opt,name=status,proto3,enum=ric.tasks.Task_Status" json:"status,omitempty"`
+	Object               *ObjectId   `protobuf:"bytes,6,opt,name=object,proto3" json:"object,omitempty"`
+	Begin                *Location   `protobuf:"bytes,7,opt,name=begin,proto3" json:"begin,omitempty"`
+	End                  *Location   `protobuf:"bytes,8,opt,name=end,proto3" json:"end,omitempty"`
+	CreatedAt            int64       `protobuf:"varint,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	Deadline             []*Deadline `protobuf:"bytes,10,rep,name=deadline,proto3" json:"deadline,omitempty"`
+	Owner                *ObjectId   `protobuf:"bytes,11,opt,name=owner,proto3" json:"owner,omitempty"`
+	Success              bool        `protobuf:"varint,12,opt,name=success,proto3" json:"success,omitempty"`
+	Comment              string      `protobuf:"bytes,13,opt,name=comment,proto3" json:"comment,omitempty"`
+	Files                []string    `protobuf:"bytes,14,rep,name=files,proto3" json:"files,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
 }
 
 func (m *Task) Reset()         { *m = Task{} }
 func (m *Task) String() string { return proto.CompactTextString(m) }
 func (*Task) ProtoMessage()    {}
 func (*Task) Descriptor() ([]byte, []int) {
-	return fileDescriptor_24bc245c10750061, []int{3}
+	return fileDescriptor_24bc245c10750061, []int{4}
 }
 
 func (m *Task) XXX_Unmarshal(b []byte) error {
@@ -339,20 +414,6 @@ func (m *Task) GetObject() *ObjectId {
 	return nil
 }
 
-func (m *Task) GetAssignee() *ObjectId {
-	if m != nil {
-		return m.Assignee
-	}
-	return nil
-}
-
-func (m *Task) GetPriority() Task_Priority {
-	if m != nil {
-		return m.Priority
-	}
-	return Task_UNDEFINED
-}
-
 func (m *Task) GetBegin() *Location {
 	if m != nil {
 		return m.Begin
@@ -374,17 +435,99 @@ func (m *Task) GetCreatedAt() int64 {
 	return 0
 }
 
-func (m *Task) GetDeadline() int64 {
+func (m *Task) GetDeadline() []*Deadline {
 	if m != nil {
 		return m.Deadline
+	}
+	return nil
+}
+
+func (m *Task) GetOwner() *ObjectId {
+	if m != nil {
+		return m.Owner
+	}
+	return nil
+}
+
+func (m *Task) GetSuccess() bool {
+	if m != nil {
+		return m.Success
+	}
+	return false
+}
+
+func (m *Task) GetComment() string {
+	if m != nil {
+		return m.Comment
+	}
+	return ""
+}
+
+func (m *Task) GetFiles() []string {
+	if m != nil {
+		return m.Files
+	}
+	return nil
+}
+
+type Deadline struct {
+	Timestamp            int64       `protobuf:"varint,1,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	Status               Task_Status `protobuf:"varint,2,opt,name=status,proto3,enum=ric.tasks.Task_Status" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *Deadline) Reset()         { *m = Deadline{} }
+func (m *Deadline) String() string { return proto.CompactTextString(m) }
+func (*Deadline) ProtoMessage()    {}
+func (*Deadline) Descriptor() ([]byte, []int) {
+	return fileDescriptor_24bc245c10750061, []int{5}
+}
+
+func (m *Deadline) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Deadline.Unmarshal(m, b)
+}
+func (m *Deadline) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Deadline.Marshal(b, m, deterministic)
+}
+func (m *Deadline) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Deadline.Merge(m, src)
+}
+func (m *Deadline) XXX_Size() int {
+	return xxx_messageInfo_Deadline.Size(m)
+}
+func (m *Deadline) XXX_DiscardUnknown() {
+	xxx_messageInfo_Deadline.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Deadline proto.InternalMessageInfo
+
+func (m *Deadline) GetTimestamp() int64 {
+	if m != nil {
+		return m.Timestamp
 	}
 	return 0
 }
 
+func (m *Deadline) GetStatus() Task_Status {
+	if m != nil {
+		return m.Status
+	}
+	return Task_INVALID
+}
+
 type MasterTask struct {
-	Task                 *Task                `protobuf:"bytes,1,opt,name=task,proto3" json:"task,omitempty"`
-	Subtasks             []*Task              `protobuf:"bytes,2,rep,name=subtasks,proto3" json:"subtasks,omitempty"`
-	Constrain            MasterTask_Constrain `protobuf:"varint,3,opt,name=constrain,proto3,enum=ric.tasks.MasterTask_Constrain" json:"constrain,omitempty"`
+	XId                  *ObjectId            `protobuf:"bytes,1,opt,name=_id,json=Id,proto3" json:"_id,omitempty"`
+	Owner                *ObjectId            `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
+	Group                *ObjectId            `protobuf:"bytes,3,opt,name=group,proto3" json:"group,omitempty"`
+	Subtasks             []*Task              `protobuf:"bytes,4,rep,name=subtasks,proto3" json:"subtasks,omitempty"`
+	Constrain            MasterTask_Constrain `protobuf:"varint,5,opt,name=constrain,proto3,enum=ric.tasks.MasterTask_Constrain" json:"constrain,omitempty"`
+	Tags                 []string             `protobuf:"bytes,6,rep,name=tags,proto3" json:"tags,omitempty"`
+	Assignee             *ObjectId            `protobuf:"bytes,7,opt,name=assignee,proto3" json:"assignee,omitempty"`
+	Priority             MasterTask_Priority  `protobuf:"varint,8,opt,name=priority,proto3,enum=ric.tasks.MasterTask_Priority" json:"priority,omitempty"`
+	Time                 int64                `protobuf:"varint,9,opt,name=time,proto3" json:"time,omitempty"`
+	Object               *ObjectId            `protobuf:"bytes,10,opt,name=object,proto3" json:"object,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
 	XXX_sizecache        int32                `json:"-"`
@@ -394,7 +537,7 @@ func (m *MasterTask) Reset()         { *m = MasterTask{} }
 func (m *MasterTask) String() string { return proto.CompactTextString(m) }
 func (*MasterTask) ProtoMessage()    {}
 func (*MasterTask) Descriptor() ([]byte, []int) {
-	return fileDescriptor_24bc245c10750061, []int{4}
+	return fileDescriptor_24bc245c10750061, []int{6}
 }
 
 func (m *MasterTask) XXX_Unmarshal(b []byte) error {
@@ -415,9 +558,23 @@ func (m *MasterTask) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MasterTask proto.InternalMessageInfo
 
-func (m *MasterTask) GetTask() *Task {
+func (m *MasterTask) GetXId() *ObjectId {
 	if m != nil {
-		return m.Task
+		return m.XId
+	}
+	return nil
+}
+
+func (m *MasterTask) GetOwner() *ObjectId {
+	if m != nil {
+		return m.Owner
+	}
+	return nil
+}
+
+func (m *MasterTask) GetGroup() *ObjectId {
+	if m != nil {
+		return m.Group
 	}
 	return nil
 }
@@ -436,21 +593,53 @@ func (m *MasterTask) GetConstrain() MasterTask_Constrain {
 	return MasterTask_INVALID
 }
 
+func (m *MasterTask) GetTags() []string {
+	if m != nil {
+		return m.Tags
+	}
+	return nil
+}
+
+func (m *MasterTask) GetAssignee() *ObjectId {
+	if m != nil {
+		return m.Assignee
+	}
+	return nil
+}
+
+func (m *MasterTask) GetPriority() MasterTask_Priority {
+	if m != nil {
+		return m.Priority
+	}
+	return MasterTask_UNDEFINED
+}
+
+func (m *MasterTask) GetTime() int64 {
+	if m != nil {
+		return m.Time
+	}
+	return 0
+}
+
+func (m *MasterTask) GetObject() *ObjectId {
+	if m != nil {
+		return m.Object
+	}
+	return nil
+}
+
 type CreateRequest struct {
-	// Types that are valid to be assigned to Payload:
-	//	*CreateRequest_MasterTask
-	//	*CreateRequest_Task
-	Payload              isCreateRequest_Payload `protobuf_oneof:"payload"`
-	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
-	XXX_unrecognized     []byte                  `json:"-"`
-	XXX_sizecache        int32                   `json:"-"`
+	MasterTask           *MasterTask `protobuf:"bytes,1,opt,name=master_task,json=masterTask,proto3" json:"master_task,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
 }
 
 func (m *CreateRequest) Reset()         { *m = CreateRequest{} }
 func (m *CreateRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateRequest) ProtoMessage()    {}
 func (*CreateRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_24bc245c10750061, []int{5}
+	return fileDescriptor_24bc245c10750061, []int{7}
 }
 
 func (m *CreateRequest) XXX_Unmarshal(b []byte) error {
@@ -471,119 +660,15 @@ func (m *CreateRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_CreateRequest proto.InternalMessageInfo
 
-type isCreateRequest_Payload interface {
-	isCreateRequest_Payload()
-}
-
-type CreateRequest_MasterTask struct {
-	MasterTask *MasterTask `protobuf:"bytes,1,opt,name=master_task,json=masterTask,proto3,oneof"`
-}
-
-type CreateRequest_Task struct {
-	Task *Task `protobuf:"bytes,2,opt,name=task,proto3,oneof"`
-}
-
-func (*CreateRequest_MasterTask) isCreateRequest_Payload() {}
-
-func (*CreateRequest_Task) isCreateRequest_Payload() {}
-
-func (m *CreateRequest) GetPayload() isCreateRequest_Payload {
-	if m != nil {
-		return m.Payload
-	}
-	return nil
-}
-
 func (m *CreateRequest) GetMasterTask() *MasterTask {
-	if x, ok := m.GetPayload().(*CreateRequest_MasterTask); ok {
-		return x.MasterTask
+	if m != nil {
+		return m.MasterTask
 	}
 	return nil
-}
-
-func (m *CreateRequest) GetTask() *Task {
-	if x, ok := m.GetPayload().(*CreateRequest_Task); ok {
-		return x.Task
-	}
-	return nil
-}
-
-// XXX_OneofFuncs is for the internal use of the proto package.
-func (*CreateRequest) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
-	return _CreateRequest_OneofMarshaler, _CreateRequest_OneofUnmarshaler, _CreateRequest_OneofSizer, []interface{}{
-		(*CreateRequest_MasterTask)(nil),
-		(*CreateRequest_Task)(nil),
-	}
-}
-
-func _CreateRequest_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
-	m := msg.(*CreateRequest)
-	// payload
-	switch x := m.Payload.(type) {
-	case *CreateRequest_MasterTask:
-		b.EncodeVarint(1<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.MasterTask); err != nil {
-			return err
-		}
-	case *CreateRequest_Task:
-		b.EncodeVarint(2<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.Task); err != nil {
-			return err
-		}
-	case nil:
-	default:
-		return fmt.Errorf("CreateRequest.Payload has unexpected type %T", x)
-	}
-	return nil
-}
-
-func _CreateRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
-	m := msg.(*CreateRequest)
-	switch tag {
-	case 1: // payload.master_task
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(MasterTask)
-		err := b.DecodeMessage(msg)
-		m.Payload = &CreateRequest_MasterTask{msg}
-		return true, err
-	case 2: // payload.task
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(Task)
-		err := b.DecodeMessage(msg)
-		m.Payload = &CreateRequest_Task{msg}
-		return true, err
-	default:
-		return false, nil
-	}
-}
-
-func _CreateRequest_OneofSizer(msg proto.Message) (n int) {
-	m := msg.(*CreateRequest)
-	// payload
-	switch x := m.Payload.(type) {
-	case *CreateRequest_MasterTask:
-		s := proto.Size(x.MasterTask)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case *CreateRequest_Task:
-		s := proto.Size(x.Task)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case nil:
-	default:
-		panic(fmt.Sprintf("proto: unexpected type %T in oneof", x))
-	}
-	return n
 }
 
 type CreateResponse struct {
-	Id                   *TaskId   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	XId                  *ObjectId `protobuf:"bytes,1,opt,name=_id,json=Id,proto3" json:"_id,omitempty"`
 	SubIds               []*TaskId `protobuf:"bytes,2,rep,name=sub_ids,json=subIds,proto3" json:"sub_ids,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
 	XXX_unrecognized     []byte    `json:"-"`
@@ -594,7 +679,7 @@ func (m *CreateResponse) Reset()         { *m = CreateResponse{} }
 func (m *CreateResponse) String() string { return proto.CompactTextString(m) }
 func (*CreateResponse) ProtoMessage()    {}
 func (*CreateResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_24bc245c10750061, []int{6}
+	return fileDescriptor_24bc245c10750061, []int{8}
 }
 
 func (m *CreateResponse) XXX_Unmarshal(b []byte) error {
@@ -615,9 +700,9 @@ func (m *CreateResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_CreateResponse proto.InternalMessageInfo
 
-func (m *CreateResponse) GetId() *TaskId {
+func (m *CreateResponse) GetXId() *ObjectId {
 	if m != nil {
-		return m.Id
+		return m.XId
 	}
 	return nil
 }
@@ -631,12 +716,14 @@ func (m *CreateResponse) GetSubIds() []*TaskId {
 
 func init() {
 	proto.RegisterEnum("ric.tasks.Task_Status", Task_Status_name, Task_Status_value)
-	proto.RegisterEnum("ric.tasks.Task_Priority", Task_Priority_name, Task_Priority_value)
 	proto.RegisterEnum("ric.tasks.MasterTask_Constrain", MasterTask_Constrain_name, MasterTask_Constrain_value)
+	proto.RegisterEnum("ric.tasks.MasterTask_Priority", MasterTask_Priority_name, MasterTask_Priority_value)
 	proto.RegisterType((*ObjectId)(nil), "ric.tasks.ObjectId")
 	proto.RegisterType((*TaskId)(nil), "ric.tasks.TaskId")
 	proto.RegisterType((*Location)(nil), "ric.tasks.Location")
+	proto.RegisterType((*IndoorLocation)(nil), "ric.tasks.IndoorLocation")
 	proto.RegisterType((*Task)(nil), "ric.tasks.Task")
+	proto.RegisterType((*Deadline)(nil), "ric.tasks.Deadline")
 	proto.RegisterType((*MasterTask)(nil), "ric.tasks.MasterTask")
 	proto.RegisterType((*CreateRequest)(nil), "ric.tasks.CreateRequest")
 	proto.RegisterType((*CreateResponse)(nil), "ric.tasks.CreateResponse")
@@ -645,49 +732,59 @@ func init() {
 func init() { proto.RegisterFile("ric-tasks/rictasks.proto", fileDescriptor_24bc245c10750061) }
 
 var fileDescriptor_24bc245c10750061 = []byte{
-	// 658 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x54, 0x5f, 0x6f, 0xd3, 0x3e,
-	0x14, 0x6d, 0x9a, 0x36, 0x4d, 0x6e, 0xb7, 0xfe, 0xf2, 0x33, 0x62, 0x32, 0x93, 0x10, 0x25, 0x68,
-	0xd2, 0x60, 0xa2, 0x93, 0x0a, 0x12, 0x7b, 0xe1, 0x21, 0xeb, 0x9f, 0x35, 0x22, 0x6b, 0x91, 0xdb,
-	0x31, 0xc1, 0x4b, 0xe5, 0x26, 0x56, 0x65, 0xb6, 0x25, 0x25, 0x76, 0x1f, 0x26, 0xbe, 0x26, 0xe2,
-	0xf3, 0xa0, 0x38, 0x7f, 0xd6, 0x8d, 0x4e, 0xe2, 0xed, 0xde, 0x73, 0x8e, 0x73, 0xee, 0x3d, 0x71,
-	0x02, 0x38, 0xe1, 0xc1, 0x5b, 0x49, 0xc5, 0x95, 0x38, 0x4e, 0x78, 0xa0, 0x8a, 0xce, 0x2a, 0x89,
-	0x65, 0x8c, 0xac, 0x84, 0x07, 0x1d, 0x05, 0x38, 0xfb, 0x60, 0x4e, 0x16, 0xdf, 0x59, 0x20, 0xbd,
-	0x10, 0xb5, 0xa0, 0xca, 0x43, 0xac, 0xb5, 0xb5, 0xc3, 0x1d, 0x52, 0xe5, 0xa1, 0x83, 0xc1, 0x98,
-	0x51, 0x71, 0x75, 0x8f, 0xb1, 0x14, 0x33, 0x04, 0xd3, 0x8f, 0x03, 0x2a, 0x79, 0x1c, 0x21, 0x1b,
-	0xf4, 0x6b, 0x2a, 0x15, 0xa9, 0x91, 0xb4, 0x54, 0x48, 0xb4, 0xc4, 0xd5, 0x1c, 0x89, 0x96, 0x68,
-	0x0f, 0x8c, 0x84, 0x86, 0x7c, 0x2d, 0xb0, 0xae, 0xc0, 0xbc, 0x73, 0x7e, 0xd5, 0xa0, 0x96, 0x5a,
-	0xa0, 0x97, 0xa5, 0x41, 0xb3, 0xfb, 0x7f, 0xa7, 0x1c, 0xaf, 0x93, 0xf9, 0xa7, 0x9e, 0x08, 0x41,
-	0x2d, 0xa2, 0x37, 0x4c, 0x3d, 0xd6, 0x22, 0xaa, 0x4e, 0xb1, 0x2b, 0x1e, 0x85, 0xea, 0xa9, 0x16,
-	0x51, 0x35, 0x6a, 0x43, 0x33, 0x64, 0x22, 0x48, 0xf8, 0x2a, 0x1d, 0x0f, 0xd7, 0x14, 0xb5, 0x09,
-	0xa1, 0x0e, 0x18, 0x42, 0x52, 0xb9, 0x16, 0xb8, 0xde, 0xd6, 0x0e, 0x5b, 0xdd, 0xbd, 0x07, 0x86,
-	0x9d, 0xa9, 0x62, 0x49, 0xae, 0x42, 0x47, 0x60, 0xc4, 0x2a, 0x23, 0x6c, 0xa8, 0x01, 0x9f, 0x6c,
-	0xe8, 0x8b, 0xf0, 0x48, 0x2e, 0x41, 0xc7, 0x60, 0x52, 0x21, 0xf8, 0x32, 0x62, 0x0c, 0x37, 0x1e,
-	0x97, 0x97, 0x22, 0xf4, 0x1e, 0xcc, 0x55, 0xc2, 0xe3, 0x84, 0xcb, 0x5b, 0x6c, 0xaa, 0x79, 0xf0,
-	0xc3, 0x79, 0x3e, 0xe7, 0x3c, 0x29, 0x95, 0xe8, 0x35, 0xd4, 0x17, 0x6c, 0xc9, 0x23, 0x6c, 0xfd,
-	0xe5, 0x51, 0xbc, 0x19, 0x92, 0x29, 0xd0, 0x01, 0xe8, 0x2c, 0x0a, 0x31, 0x3c, 0x2e, 0x4c, 0x79,
-	0xf4, 0x1c, 0x20, 0x48, 0x18, 0x95, 0x2c, 0x9c, 0x53, 0x89, 0x9b, 0x6d, 0xed, 0x50, 0x27, 0x56,
-	0x8e, 0xb8, 0x12, 0xed, 0x83, 0x19, 0x32, 0x1a, 0x5e, 0xf3, 0x88, 0xe1, 0x1d, 0x45, 0x96, 0xbd,
-	0x33, 0x03, 0x23, 0x8b, 0x0c, 0x35, 0xa1, 0xe1, 0x8d, 0xbf, 0xb8, 0xbe, 0xd7, 0xb7, 0x2b, 0x69,
-	0xd3, 0x23, 0x03, 0x77, 0x36, 0xe8, 0xdb, 0x1a, 0xda, 0x01, 0xd3, 0x9d, 0x4e, 0xbd, 0xb3, 0xf1,
-	0xa0, 0x6f, 0x57, 0x33, 0xdd, 0xfc, 0x72, 0x42, 0x3e, 0xd9, 0x7a, 0xda, 0x4c, 0x2f, 0x7a, 0xbd,
-	0xc1, 0x74, 0x6a, 0xd7, 0x90, 0x09, 0xb5, 0xa1, 0xeb, 0xf9, 0x76, 0xdd, 0x39, 0x01, 0xb3, 0x58,
-	0x1c, 0xed, 0x82, 0x75, 0x31, 0xee, 0x0f, 0x86, 0x5e, 0x7a, 0xbc, 0x82, 0x1a, 0xa0, 0xfb, 0x93,
-	0x4b, 0x5b, 0x43, 0x00, 0xc6, 0x78, 0x42, 0xce, 0x5d, 0xdf, 0xae, 0xa6, 0x27, 0x47, 0xde, 0xd9,
-	0xc8, 0xd6, 0x9d, 0xdf, 0x1a, 0xc0, 0x39, 0x15, 0x92, 0x25, 0xea, 0x72, 0xbd, 0x82, 0x5a, 0xba,
-	0x70, 0x7e, 0xbd, 0xfe, 0x7b, 0x90, 0x2e, 0x51, 0x24, 0x3a, 0x02, 0x53, 0xac, 0x17, 0x0a, 0xc6,
-	0xd5, 0xb6, 0xbe, 0x4d, 0x58, 0x0a, 0xd0, 0x47, 0xb0, 0x82, 0x38, 0x12, 0x32, 0xa1, 0x3c, 0x52,
-	0x97, 0xaf, 0xd5, 0x7d, 0xb1, 0xa1, 0xbe, 0xf3, 0xee, 0xf4, 0x0a, 0x19, 0xb9, 0x3b, 0xe1, 0x7c,
-	0x00, 0xab, 0xc4, 0xef, 0x47, 0xd6, 0x00, 0xdd, 0xf5, 0x7d, 0x5b, 0x4b, 0xd1, 0x09, 0xe9, 0x0f,
-	0x88, 0x4a, 0x2b, 0x45, 0xc7, 0x5f, 0x6d, 0xdd, 0xf9, 0x09, 0xbb, 0x3d, 0xf5, 0x46, 0x08, 0xfb,
-	0xb1, 0x66, 0x42, 0xa2, 0x13, 0x68, 0xde, 0x28, 0xb3, 0xf9, 0xc6, 0x86, 0x4f, 0xb7, 0x8e, 0x32,
-	0xaa, 0x10, 0xb8, 0xb9, 0x0b, 0xe5, 0x20, 0x0f, 0xa5, 0xba, 0x35, 0x94, 0x51, 0x25, 0x8b, 0xe5,
-	0xd4, 0x82, 0xc6, 0x8a, 0xde, 0x5e, 0xc7, 0x34, 0x74, 0xe6, 0xd0, 0x2a, 0xcc, 0xc5, 0x2a, 0x8e,
-	0x04, 0xfb, 0x97, 0xaf, 0xf6, 0x0d, 0x34, 0xc4, 0x7a, 0x31, 0xe7, 0x61, 0x91, 0xea, 0x16, 0x9d,
-	0x21, 0xd6, 0x0b, 0x2f, 0x14, 0xdd, 0x21, 0xd4, 0x67, 0x79, 0xbc, 0x46, 0xe6, 0x84, 0x36, 0x3f,
-	0x85, 0x7b, 0x9b, 0xef, 0x3f, 0xdb, 0xc2, 0x64, 0x63, 0x9d, 0xc2, 0x37, 0xb3, 0xf8, 0xe1, 0x2d,
-	0x0c, 0xf5, 0xc7, 0x7b, 0xf7, 0x27, 0x00, 0x00, 0xff, 0xff, 0x96, 0x59, 0x8f, 0x13, 0x0d, 0x05,
-	0x00, 0x00,
+	// 824 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x55, 0x6d, 0x8f, 0xdb, 0x44,
+	0x10, 0xae, 0x5f, 0xe2, 0xd8, 0x93, 0xbb, 0x60, 0x16, 0xa8, 0xb6, 0x15, 0x2f, 0xc1, 0x02, 0x29,
+	0xa5, 0x22, 0x15, 0x01, 0x21, 0x84, 0xc4, 0x87, 0x70, 0x49, 0xaf, 0x16, 0xe9, 0x05, 0xed, 0x1d,
+	0x14, 0xf1, 0x25, 0x72, 0xec, 0x25, 0x5a, 0xee, 0x6c, 0x07, 0xef, 0x46, 0xf4, 0xfa, 0x37, 0xf8,
+	0x0f, 0xfc, 0x00, 0x7e, 0x21, 0xda, 0xf1, 0xda, 0x97, 0x5c, 0x73, 0x6a, 0xbf, 0xcd, 0xcc, 0xf3,
+	0x64, 0xf7, 0x99, 0x99, 0x67, 0x63, 0xa0, 0x95, 0x48, 0xbf, 0x54, 0x89, 0xbc, 0x94, 0x4f, 0x2a,
+	0x91, 0x62, 0x30, 0xda, 0x54, 0xa5, 0x2a, 0x49, 0x50, 0x89, 0x74, 0x84, 0x85, 0xe8, 0x21, 0xf8,
+	0x8b, 0xd5, 0x9f, 0x3c, 0x55, 0x71, 0x46, 0xfa, 0x60, 0x8b, 0x8c, 0x5a, 0x03, 0x6b, 0x78, 0xc4,
+	0x6c, 0x91, 0x45, 0x14, 0xbc, 0x8b, 0x44, 0x5e, 0xee, 0x21, 0x01, 0x22, 0xff, 0x58, 0xe0, 0xcf,
+	0xcb, 0x34, 0x51, 0xa2, 0x2c, 0x48, 0x08, 0xce, 0x55, 0xa2, 0x10, 0xb5, 0x98, 0x0e, 0xb1, 0x52,
+	0xac, 0xa9, 0x6d, 0x2a, 0xc5, 0x9a, 0xdc, 0x07, 0xaf, 0x4a, 0x32, 0xb1, 0x95, 0xd4, 0xc1, 0xa2,
+	0xc9, 0x08, 0x85, 0x6e, 0x92, 0x65, 0x15, 0x97, 0x92, 0xba, 0x78, 0x7a, 0x93, 0x92, 0xaf, 0xc0,
+	0x13, 0x45, 0x56, 0x96, 0x15, 0xed, 0x0c, 0xac, 0x61, 0x6f, 0xfc, 0x60, 0xd4, 0x8a, 0x1e, 0xc5,
+	0x08, 0x34, 0x02, 0x98, 0x21, 0x46, 0x0c, 0xfa, 0xfb, 0x08, 0x39, 0x02, 0xeb, 0xa5, 0x11, 0x66,
+	0xbd, 0xd4, 0xd9, 0xb5, 0x11, 0x65, 0x5d, 0xeb, 0xec, 0x95, 0x51, 0x63, 0xbd, 0x42, 0x81, 0x1c,
+	0x05, 0xba, 0x46, 0x20, 0x66, 0xd1, 0x7f, 0x2e, 0xb8, 0x7a, 0x08, 0xe4, 0xd3, 0x76, 0x04, 0xbd,
+	0xf1, 0xbb, 0x3b, 0x5a, 0xea, 0x09, 0xe9, 0xa9, 0x10, 0x02, 0x6e, 0x91, 0xe4, 0x1c, 0xaf, 0x08,
+	0x18, 0xc6, 0xba, 0x76, 0x29, 0x8a, 0x0c, 0x2f, 0x0a, 0x18, 0xc6, 0x64, 0x00, 0xbd, 0x8c, 0xcb,
+	0xb4, 0x12, 0x1b, 0x2d, 0xd2, 0x34, 0xbe, 0x5b, 0x22, 0x23, 0xf0, 0xa4, 0x4a, 0xd4, 0x56, 0x62,
+	0xf3, 0xfd, 0xf1, 0xfd, 0x5b, 0x17, 0x8e, 0xce, 0x11, 0x65, 0x86, 0x45, 0x1e, 0x83, 0x57, 0xe2,
+	0x16, 0xa9, 0x87, 0x02, 0xdf, 0xdb, 0xe1, 0x37, 0xeb, 0x65, 0x86, 0x42, 0x1e, 0x41, 0x67, 0xc5,
+	0xd7, 0xa2, 0xa0, 0xdd, 0xd7, 0xb8, 0xed, 0x48, 0x6b, 0x06, 0xf9, 0x1c, 0x1c, 0x5e, 0x64, 0xd4,
+	0xbf, 0x9b, 0xa8, 0x71, 0xf2, 0x11, 0x40, 0x5a, 0xf1, 0x44, 0xf1, 0x6c, 0x99, 0x28, 0x1a, 0x0c,
+	0xac, 0xa1, 0xc3, 0x02, 0x53, 0x99, 0x28, 0xf2, 0x04, 0xfc, 0x8c, 0x27, 0xd9, 0x95, 0x28, 0x38,
+	0x85, 0x81, 0x73, 0xeb, 0xa8, 0xa9, 0x81, 0x58, 0x4b, 0xd2, 0x0a, 0xcb, 0xbf, 0x0b, 0x5e, 0xd1,
+	0xde, 0xdd, 0xdd, 0xd4, 0x0c, 0x6d, 0x20, 0xb9, 0x4d, 0x53, 0x6d, 0xa0, 0xa3, 0x81, 0x35, 0xf4,
+	0x59, 0x93, 0x6a, 0x24, 0x2d, 0xf3, 0x9c, 0x17, 0x8a, 0x1e, 0xd7, 0xd6, 0x32, 0x29, 0x79, 0x1f,
+	0x3a, 0x7f, 0x88, 0x2b, 0x2e, 0x69, 0x7f, 0xe0, 0x0c, 0x03, 0x56, 0x27, 0x51, 0x0c, 0x5e, 0x3d,
+	0x55, 0xd2, 0x83, 0x6e, 0x7c, 0xf6, 0xeb, 0x64, 0x1e, 0x4f, 0xc3, 0x7b, 0x3a, 0x39, 0x61, 0xb3,
+	0xc9, 0xc5, 0x6c, 0x1a, 0x5a, 0xe4, 0x08, 0xfc, 0xc9, 0xf9, 0x79, 0x7c, 0x7a, 0x36, 0x9b, 0x86,
+	0x76, 0xcd, 0x5b, 0xbe, 0x58, 0xb0, 0x9f, 0x42, 0x87, 0x00, 0x78, 0x27, 0xf3, 0xc5, 0xf9, 0x6c,
+	0x1a, 0xba, 0xd1, 0x6f, 0xe0, 0x37, 0x5d, 0x91, 0x0f, 0x21, 0x50, 0x22, 0xe7, 0x52, 0x25, 0xf9,
+	0x06, 0xed, 0xe3, 0xb0, 0x9b, 0xc2, 0xce, 0xa2, 0xed, 0xb7, 0x59, 0x74, 0xf4, 0xaf, 0x0b, 0xf0,
+	0x3c, 0x91, 0x8a, 0x57, 0x68, 0xca, 0xcf, 0xc0, 0x59, 0xb6, 0xae, 0x3c, 0x38, 0x26, 0x3b, 0xce,
+	0x6e, 0xc6, 0x69, 0xbf, 0x71, 0x9c, 0x8f, 0xa0, 0xb3, 0xae, 0xca, 0xed, 0x06, 0xfd, 0x7a, 0x17,
+	0x15, 0x19, 0xe4, 0x31, 0xf8, 0x72, 0xbb, 0x42, 0x8c, 0xba, 0xb8, 0xd5, 0x77, 0x6e, 0x89, 0x67,
+	0x2d, 0x81, 0xfc, 0x00, 0x41, 0x5a, 0x16, 0x52, 0x55, 0x89, 0x28, 0x8c, 0xa7, 0x3f, 0xd9, 0x61,
+	0xdf, 0xb4, 0x34, 0x3a, 0x69, 0x68, 0xec, 0xe6, 0x17, 0xfa, 0x15, 0xa9, 0x64, 0x2d, 0xa9, 0x87,
+	0x0b, 0xc3, 0x58, 0xbb, 0x2a, 0x91, 0x52, 0xac, 0x0b, 0xce, 0x0f, 0x38, 0xb9, 0x55, 0xdb, 0x92,
+	0xc8, 0xf7, 0xe0, 0x6f, 0x2a, 0x51, 0x56, 0x42, 0x5d, 0xa3, 0xa3, 0xfb, 0xe3, 0x8f, 0x0f, 0x4b,
+	0xf8, 0xd9, 0xb0, 0x58, 0xcb, 0x47, 0x01, 0x22, 0xe7, 0xc6, 0xdb, 0x18, 0xef, 0x3c, 0x3a, 0x78,
+	0xe3, 0xa3, 0x8b, 0xbe, 0x81, 0xa0, 0xed, 0x6c, 0xdf, 0x60, 0xc7, 0x10, 0xfc, 0x72, 0xb6, 0x60,
+	0xd3, 0x19, 0x43, 0x8b, 0xf5, 0xa0, 0xdb, 0x24, 0x76, 0xf4, 0x1d, 0xf8, 0x8d, 0x98, 0x9a, 0x37,
+	0x9d, 0x3d, 0x8d, 0xb5, 0xf9, 0xee, 0x91, 0x2e, 0x38, 0xf3, 0xc5, 0x8b, 0xd0, 0xd2, 0xc6, 0x3b,
+	0x5b, 0xb0, 0xe7, 0x93, 0x79, 0x68, 0x13, 0x1f, 0xdc, 0x67, 0xf1, 0xe9, 0xb3, 0xd0, 0x89, 0x4e,
+	0xe1, 0xf8, 0x04, 0x1f, 0x20, 0xe3, 0x7f, 0x6d, 0xb9, 0x54, 0xe4, 0x5b, 0xe8, 0xe5, 0xd8, 0xe2,
+	0x52, 0x2b, 0x34, 0x96, 0xf9, 0xe0, 0xe0, 0x00, 0x18, 0xe4, 0x6d, 0x1c, 0xad, 0xa0, 0xdf, 0x1c,
+	0x24, 0x37, 0x65, 0x21, 0xf9, 0x5b, 0x9a, 0xee, 0x0b, 0xfd, 0x30, 0x57, 0x4b, 0x91, 0x69, 0x6b,
+	0x3b, 0x87, 0xff, 0x34, 0x3d, 0xb9, 0x5d, 0xc5, 0x99, 0x1c, 0x3f, 0x85, 0xce, 0x85, 0xb1, 0x89,
+	0x57, 0x5f, 0x46, 0xe8, 0x0e, 0x7b, 0xaf, 0x91, 0x87, 0x0f, 0x0e, 0x20, 0xb5, 0xb2, 0x1f, 0xe1,
+	0x77, 0xbf, 0xf9, 0xd2, 0xad, 0x3c, 0xfc, 0xd4, 0x7d, 0xfd, 0x7f, 0x00, 0x00, 0x00, 0xff, 0xff,
+	0x05, 0x48, 0x7f, 0xa9, 0x06, 0x07, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
