@@ -37,8 +37,7 @@ message Task {
     CREATED = 1;
     ASSIGNED = 2;
     IN_WORK = 3;
-    SUCCESS = 4;
-    FAIL = 5;
+    CLOSED = 4;
   }
   enum Priority {
     UNDEFINED = 0;
@@ -52,13 +51,14 @@ message Task {
   string description = 4;
   Status status = 5;
   ObjectId object = 6;
-  ObjectId assignee = 7;
-  Priority priority = 8;
   Location begin = 9;
   Location end = 10;
-  int64 created_at = 11; // milliseconds
-  int64 deadline = 12; // milliseconds
+  int64 created_at = 11; // create_at milliseconds
+  repeated Deadline deadline = 12;
   ObjectId owner = 13;
+  bool success = 15;
+  string comment = 16;
+  repeated string files = 17;
 }
 
 message Deadline {
@@ -72,9 +72,16 @@ message MasterTask {
     ALL = 1; // all subtasks should be done (order doesn't matter)
     ORDERED = 2; // all subtasks shuld be done step by step
   }
-  Task task = 1;
+  ObjectId _id = 1;
+  ObjectId owner = 13;
+  ObjectId group = 14;
   repeated Task subtasks = 2;
   Constrain constrain = 3;
+  repeated string tags = 4;
+  ObjectId assignee = 7;
+  Priority priority = 8;
+  int64 time = 9;
+  ObjectId object = 6;
 }
 
 message CreateRequest {
