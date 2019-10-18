@@ -39,26 +39,20 @@ message Task {
     IN_WORK = 3;
     CLOSED = 4;
   }
-  enum Priority {
-    UNDEFINED = 0;
-    LOW = 1;
-    NORMAL = 2;
-    HIGH = 3;
-  }
   TaskId id = 1;
   string name = 2;
-  string kind = 3; 
+  string kind = 3;
   string description = 4;
   Status status = 5;
   ObjectId object = 6;
-  Location begin = 9;
-  Location end = 10;
-  int64 created_at = 11; // create_at milliseconds
-  repeated Deadline deadline = 12;
-  ObjectId owner = 13;
-  bool success = 15;
-  string comment = 16;
-  repeated string files = 17;
+  Location begin = 7;
+  Location end = 8;
+  int64 created_at = 9; // milliseconds
+  repeated Deadline deadline = 10;
+  ObjectId owner = 11;
+  bool success = 12;
+  string comment = 13;
+  repeated string files = 14;
 }
 
 message Deadline {
@@ -69,29 +63,32 @@ message Deadline {
 message MasterTask {
   enum Constrain {
     INVALID = 0; // error
-    ALL = 1; // all subtasks should be done (order doesn't matter)
+    UNORDERED = 1; // all subtasks should be done (order doesn't matter)
     ORDERED = 2; // all subtasks shuld be done step by step
   }
+  enum Priority {
+    UNDEFINED = 0;
+    LOW = 1;
+    NORMAL = 2;
+    HIGH = 3;
+  }
   ObjectId _id = 1;
-  ObjectId owner = 13;
-  ObjectId group = 14;
-  repeated Task subtasks = 2;
-  Constrain constrain = 3;
-  repeated string tags = 4;
+  ObjectId owner = 2;
+  ObjectId group = 3;
+  repeated Task subtasks = 4;
+  Constrain constrain = 5;
+  repeated string tags = 6;
   ObjectId assignee = 7;
   Priority priority = 8;
   int64 time = 9;
-  ObjectId object = 6;
+  ObjectId object = 10;
 }
 
 message CreateRequest {
-  oneof payload {
-    MasterTask master_task = 1;
-    Task task = 2;
-  }
+  MasterTask master_task = 1;
 }
 
 message CreateResponse {
-  TaskId id = 1;
+  ObjectId _id = 1;
   repeated TaskId sub_ids = 2;
 }
