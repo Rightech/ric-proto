@@ -117,9 +117,9 @@ func (MasterTask_Priority) EnumDescriptor() ([]byte, []int) {
 
 type ObjectId struct {
 	Id                   []byte   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" bson:"-"`
 }
 
 func (m *ObjectId) Reset()         { *m = ObjectId{} }
@@ -156,9 +156,9 @@ func (m *ObjectId) GetId() []byte {
 
 type TaskId struct {
 	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" bson:"-"`
 }
 
 func (m *TaskId) Reset()         { *m = TaskId{} }
@@ -199,9 +199,9 @@ type Location struct {
 	Radius               float64         `protobuf:"fixed64,3,opt,name=radius,proto3" json:"radius,omitempty"`
 	Address              string          `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty"`
 	Indoor               *IndoorLocation `protobuf:"bytes,5,opt,name=indoor,proto3" json:"indoor,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-" bson:"-"`
+	XXX_unrecognized     []byte          `json:"-" bson:"-"`
+	XXX_sizecache        int32           `json:"-" bson:"-"`
 }
 
 func (m *Location) Reset()         { *m = Location{} }
@@ -269,9 +269,9 @@ type IndoorLocation struct {
 	Y                    float64  `protobuf:"fixed64,2,opt,name=y,proto3" json:"y,omitempty"`
 	Z                    float64  `protobuf:"fixed64,3,opt,name=z,proto3" json:"z,omitempty"`
 	Redius               float64  `protobuf:"fixed64,4,opt,name=redius,proto3" json:"redius,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-" bson:"-"`
+	XXX_unrecognized     []byte   `json:"-" bson:"-"`
+	XXX_sizecache        int32    `json:"-" bson:"-"`
 }
 
 func (m *IndoorLocation) Reset()         { *m = IndoorLocation{} }
@@ -342,9 +342,9 @@ type Task struct {
 	Success              bool        `protobuf:"varint,12,opt,name=success,proto3" json:"success,omitempty"`
 	Comment              string      `protobuf:"bytes,13,opt,name=comment,proto3" json:"comment,omitempty"`
 	Files                []string    `protobuf:"bytes,14,rep,name=files,proto3" json:"files,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
-	XXX_unrecognized     []byte      `json:"-"`
-	XXX_sizecache        int32       `json:"-"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-" bson:"-"`
+	XXX_unrecognized     []byte      `json:"-" bson:"-"`
+	XXX_sizecache        int32       `json:"-" bson:"-"`
 }
 
 func (m *Task) Reset()         { *m = Task{} }
@@ -473,9 +473,9 @@ func (m *Task) GetFiles() []string {
 type Deadline struct {
 	Timestamp            int64       `protobuf:"varint,1,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 	Status               Task_Status `protobuf:"varint,2,opt,name=status,proto3,enum=ric.tasks.Task_Status" json:"status,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
-	XXX_unrecognized     []byte      `json:"-"`
-	XXX_sizecache        int32       `json:"-"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-" bson:"-"`
+	XXX_unrecognized     []byte      `json:"-" bson:"-"`
+	XXX_sizecache        int32       `json:"-" bson:"-"`
 }
 
 func (m *Deadline) Reset()         { *m = Deadline{} }
@@ -528,9 +528,9 @@ type MasterTask struct {
 	Priority             MasterTask_Priority  `protobuf:"varint,8,opt,name=priority,proto3,enum=ric.tasks.MasterTask_Priority" json:"priority,omitempty"`
 	Time                 int64                `protobuf:"varint,9,opt,name=time,proto3" json:"time,omitempty"`
 	Object               *ObjectId            `protobuf:"bytes,10,opt,name=object,proto3" json:"object,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-" bson:"-"`
+	XXX_unrecognized     []byte               `json:"-" bson:"-"`
+	XXX_sizecache        int32                `json:"-" bson:"-"`
 }
 
 func (m *MasterTask) Reset()         { *m = MasterTask{} }
@@ -630,9 +630,9 @@ func (m *MasterTask) GetObject() *ObjectId {
 
 type CreateRequest struct {
 	MasterTask           *MasterTask `protobuf:"bytes,1,opt,name=master_task,json=masterTask,proto3" json:"master_task,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
-	XXX_unrecognized     []byte      `json:"-"`
-	XXX_sizecache        int32       `json:"-"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-" bson:"-"`
+	XXX_unrecognized     []byte      `json:"-" bson:"-"`
+	XXX_sizecache        int32       `json:"-" bson:"-"`
 }
 
 func (m *CreateRequest) Reset()         { *m = CreateRequest{} }
@@ -670,9 +670,9 @@ func (m *CreateRequest) GetMasterTask() *MasterTask {
 type CreateResponse struct {
 	XId                  *ObjectId `protobuf:"bytes,1,opt,name=_id,json=Id,proto3" json:"_id,omitempty"`
 	SubIds               []*TaskId `protobuf:"bytes,2,rep,name=sub_ids,json=subIds,proto3" json:"sub_ids,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-" bson:"-"`
+	XXX_unrecognized     []byte    `json:"-" bson:"-"`
+	XXX_sizecache        int32     `json:"-" bson:"-"`
 }
 
 func (m *CreateResponse) Reset()         { *m = CreateResponse{} }
