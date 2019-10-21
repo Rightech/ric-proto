@@ -6,6 +6,7 @@ option go_package = "rictasks";
 
 service Tasks {
   rpc Create(CreateRequest) returns (CreateResponse);
+  rpc Get(GetRequest) returns (GetResponse);
 }
 
 message ObjectId {
@@ -93,4 +94,15 @@ message CreateRequest {
 message CreateResponse {
   ObjectId _id = 1;
   repeated TaskId sub_ids = 2;
+}
+
+message GetRequest {
+  oneof payload {
+    ObjectId oid = 1;
+    TaskId tid = 2;
+  }
+}
+
+message GetResponse {
+  MasterTask master_task = 1;
 }
