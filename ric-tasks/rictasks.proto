@@ -7,6 +7,8 @@ option go_package = "rictasks";
 service Tasks {
   rpc Create(CreateRequest) returns (CreateResponse);
   rpc Get(GetRequest) returns (GetResponse);
+  rpc Update(UpdateRequest) returns (UpdateResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
 }
 
 message ObjectId {
@@ -104,5 +106,22 @@ message GetRequest {
 }
 
 message GetResponse {
+  MasterTask master_task = 1;
+}
+
+message DeleteRequest {
+  oneof payload {
+    ObjectId oid = 1;
+    TaskId tid = 2;
+  }
+}
+
+message DeleteResponse {}
+
+message UpdateRequest {
+  MasterTask master_task = 1;
+}
+
+message UpdateResponse {
   MasterTask master_task = 1;
 }
