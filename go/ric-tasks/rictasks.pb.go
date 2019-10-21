@@ -716,6 +716,8 @@ func (m *CreateResponse) GetSubIds() []*TaskId {
 	return nil
 }
 
+// get master task by oid or by tid
+// this request always return full master task
 type GetRequest struct {
 	// Types that are valid to be assigned to Payload:
 	//	*GetRequest_Oid
@@ -901,6 +903,8 @@ func (m *GetResponse) GetMasterTask() *MasterTask {
 	return nil
 }
 
+// delete master task by oid or subtask by tid
+// if it is a last subtask then master task also will be deleted
 type DeleteRequest struct {
 	// Types that are valid to be assigned to Payload:
 	//	*DeleteRequest_Oid

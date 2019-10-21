@@ -98,6 +98,8 @@ message CreateResponse {
   repeated TaskId sub_ids = 2;
 }
 
+// get master task by oid or by tid
+// this request always return full master task
 message GetRequest {
   oneof payload {
     ObjectId oid = 1;
@@ -109,6 +111,8 @@ message GetResponse {
   MasterTask master_task = 1;
 }
 
+// delete master task by oid or subtask by tid
+// if it is a last subtask then master task also will be deleted
 message DeleteRequest {
   oneof payload {
     ObjectId oid = 1;
