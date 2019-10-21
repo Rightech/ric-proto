@@ -48,7 +48,7 @@ message Task {
   Location begin = 7;
   Location end = 8;
   int64 created_at = 9; // milliseconds
-  repeated Deadline deadline = 10;
+  repeated Deadline deadlines = 10;
   ObjectId owner = 11;
   bool success = 12;
   string comment = 13;
