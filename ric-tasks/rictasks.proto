@@ -72,6 +72,7 @@ message MasterTask {
     NORMAL = 2;
     HIGH = 3;
   }
+  // @inject_tag: bson:"_id"
   ObjectId _id = 1;
   ObjectId owner = 2;
   ObjectId group = 3;

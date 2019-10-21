@@ -518,7 +518,8 @@ func (m *Deadline) GetStatus() Task_Status {
 }
 
 type MasterTask struct {
-	XId                  *ObjectId            `protobuf:"bytes,1,opt,name=_id,json=Id,proto3" json:"_id,omitempty"`
+	// @inject_tag: bson:"_id"
+	XId                  *ObjectId            `protobuf:"bytes,1,opt,name=_id,json=Id,proto3" json:"_id,omitempty" bson:"_id"`
 	Owner                *ObjectId            `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 	Group                *ObjectId            `protobuf:"bytes,3,opt,name=group,proto3" json:"group,omitempty"`
 	Subtasks             []*Task              `protobuf:"bytes,4,rep,name=subtasks,proto3" json:"subtasks,omitempty"`
