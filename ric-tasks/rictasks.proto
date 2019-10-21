@@ -47,6 +47,7 @@ message Task {
   ObjectId object = 6;
   Location begin = 7;
   Location end = 8;
+  // @inject_tag: bson:"created_at"
   int64 created_at = 9; // milliseconds
   repeated Deadline deadlines = 10;
   ObjectId owner = 11;

@@ -328,15 +328,16 @@ func (m *IndoorLocation) GetRedius() float64 {
 }
 
 type Task struct {
-	Id                   *TaskId     `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Name                 string      `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Kind                 string      `protobuf:"bytes,3,opt,name=kind,proto3" json:"kind,omitempty"`
-	Description          string      `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
-	Status               Task_Status `protobuf:"varint,5,opt,name=status,proto3,enum=ric.tasks.Task_Status" json:"status,omitempty"`
-	Object               *ObjectId   `protobuf:"bytes,6,opt,name=object,proto3" json:"object,omitempty"`
-	Begin                *Location   `protobuf:"bytes,7,opt,name=begin,proto3" json:"begin,omitempty"`
-	End                  *Location   `protobuf:"bytes,8,opt,name=end,proto3" json:"end,omitempty"`
-	CreatedAt            int64       `protobuf:"varint,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	Id          *TaskId     `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name        string      `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Kind        string      `protobuf:"bytes,3,opt,name=kind,proto3" json:"kind,omitempty"`
+	Description string      `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
+	Status      Task_Status `protobuf:"varint,5,opt,name=status,proto3,enum=ric.tasks.Task_Status" json:"status,omitempty"`
+	Object      *ObjectId   `protobuf:"bytes,6,opt,name=object,proto3" json:"object,omitempty"`
+	Begin       *Location   `protobuf:"bytes,7,opt,name=begin,proto3" json:"begin,omitempty"`
+	End         *Location   `protobuf:"bytes,8,opt,name=end,proto3" json:"end,omitempty"`
+	// @inject_tag: bson:"created_at"
+	CreatedAt            int64       `protobuf:"varint,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty" bson:"created_at"`
 	Deadlines            []*Deadline `protobuf:"bytes,10,rep,name=deadlines,proto3" json:"deadlines,omitempty"`
 	Owner                *ObjectId   `protobuf:"bytes,11,opt,name=owner,proto3" json:"owner,omitempty"`
 	Success              bool        `protobuf:"varint,12,opt,name=success,proto3" json:"success,omitempty"`
