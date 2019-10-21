@@ -12,7 +12,7 @@ service Tasks {
 }
 
 message ObjectId {
-  bytes id = 1;
+  string id = 1;
 }
 
 message TaskId {
