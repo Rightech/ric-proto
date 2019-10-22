@@ -4,11 +4,54 @@ package ric.tasks;
 
 option go_package = "rictasks";
 
+import "google/protobuf/wrappers.proto";
+
 service Tasks {
   rpc Create(CreateRequest) returns (CreateResponse);
+  // get master task by it's id or by some subtask id
+  // this request always return full master task
   rpc Get(GetRequest) returns (GetResponse);
+  // this method can update master task and subtasks information
+  // this method can't update (return error):
+  // 1. subtasks status (use ChangeStatus)
+  // 2. subtasks deadlines if status not equal to CREATED or ASSIGNED
+  // 3. subtasks order (use UpdateOrder)
+  // 4. begin and end location if status not equal to CREATED or ASSIGNED
+  //
+  // new subtasks can be added but they always append to end of subtasks list
+  // use UpdateOrder after this if you need add subtask to specific position
+  //
+  // to update subtask -> TaskId should be present in request
+  // if no TaskId then subtask treated as new
   rpc Update(UpdateRequest) returns (UpdateResponse);
+  // this method can delete master task or specific subtask
+  // if it is a last subtask then master task also will be deleted
   rpc Delete(DeleteRequest) returns (DeleteResponse);
+  // update subtasks order
+  // order can be updated only if following true:
+  // 1. all subtasks has status CREATED or ASSIGNED
+  // 2. all subtasks has no deadlines
+  //    (if subtask have deadline you can unset it via Update method)
+  rpc UpdateOrder(UpdateOrderRequest) returns (UpdateOrderResponse);
+  // change subtask status
+  // this method checks master task constrain before change status
+  // so if constraint ordered you can't take in work subtask if previous subtask not closed
+  //
+  // the following status change is allowed:
+  // CREATED -> ASSIGNED
+  // ASSIGNED -> IN_WORK
+  // IN_WORK -> CLOSED (with success flag)
+  // CLOSED -> CREATED
+  // ASSIGNED -> CREATED
+  // ASSIGNED -> CLOSED (method always set success flag to false)
+  // CREATED -> CLOSED (method always set success flag to false)
+  //
+  // if subtask has begin location -> change status to IN_WORK can be done only
+  // in this location
+  //
+  // if subtask has end location -> change status to CLOSED can be done only
+  // in this location
+  rpc ChangeStatus(ChangeStatusRequest) returns (ChangeStatusResponse);
 }
 
 message ObjectId {
@@ -23,7 +66,9 @@ message Location {
   double lat = 1;
   double lng = 2;
   double radius = 3;
+  // @inject_tag: bson:",omitempty"
   string address = 4;
+  // @inject_tag: bson:",omitempty"
   IndoorLocation indoor = 5;
 }
 
@@ -31,7 +76,7 @@ message IndoorLocation {
   double x = 1;
   double y = 2;
   double z = 3;
-  double redius = 4;
+  double radius = 4;
 }
 
 message Task {
@@ -43,19 +88,30 @@ message Task {
     CLOSED = 4;
   }
   TaskId id = 1;
+  // @inject_tag: bson:",omitempty"
   string name = 2;
+  // @inject_tag: bson:",omitempty"
   string kind = 3;
+  // @inject_tag: bson:",omitempty"
   string description = 4;
   Status status = 5;
+  // @inject_tag: bson:",omitempty"
   ObjectId object = 6;
+  // @inject_tag: bson:",omitempty"
   Location begin = 7;
+  // @inject_tag: bson:",omitempty"
   Location end = 8;
   // @inject_tag: bson:"created_at"
   int64 created_at = 9; // milliseconds
+  // @inject_tag: bson:",omitempty"
   repeated Deadline deadlines = 10;
+  // @inject_tag: bson:",omitempty"
   ObjectId owner = 11;
-  bool success = 12;
+  // @inject_tag: bson:",omitempty"
+  google.protobuf.BoolValue success = 12;
+  // @inject_tag: bson:",omitempty"
   string comment = 13;
+  // @inject_tag: bson:",omitempty"
   repeated string files = 14;
 }
 
@@ -78,14 +134,19 @@ message MasterTask {
   }
   // @inject_tag: bson:"_id"
   ObjectId _id = 1;
+  // @inject_tag: bson:",omitempty"
   ObjectId owner = 2;
+  // @inject_tag: bson:",omitempty"
   ObjectId group = 3;
   repeated Task subtasks = 4;
   Constrain constrain = 5;
+  // @inject_tag: bson:",omitempty"
   repeated string tags = 6;
+  // @inject_tag: bson:",omitempty"
   ObjectId assignee = 7;
   Priority priority = 8;
   int64 time = 9;
+  // @inject_tag: bson:",omitempty"
   ObjectId object = 10;
 }
 
@@ -98,8 +159,6 @@ message CreateResponse {
   repeated TaskId sub_ids = 2;
 }
 
-// get master task by oid or by tid
-// this request always return full master task
 message GetRequest {
   oneof payload {
     ObjectId oid = 1;
@@ -111,8 +170,6 @@ message GetResponse {
   MasterTask master_task = 1;
 }
 
-// delete master task by oid or subtask by tid
-// if it is a last subtask then master task also will be deleted
 message DeleteRequest {
   oneof payload {
     ObjectId oid = 1;
@@ -129,3 +186,21 @@ message UpdateRequest {
 message UpdateResponse {
   MasterTask master_task = 1;
 }
+
+message UpdateOrderRequest {
+  // new position to task id
+  map<int32, TaskId> positions = 1;
+}
+
+message UpdateOrderResponse {}
+
+message ChangeStatusRequest {
+  TaskId id = 1;
+  Task.Status new_status = 2;
+  // current location
+  Location location = 3;
+  // required only if new_status == CLOSED
+  google.protobuf.BoolValue success = 4;
+}
+
+message ChangeStatusResponse {}
