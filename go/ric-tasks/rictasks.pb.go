@@ -1178,6 +1178,8 @@ func (m *UpdateResponse) GetMasterTask() *MasterTask {
 type UpdateOrderRequest struct {
 	Id *ObjectId `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// new position to task id
+	// if new position more then subtasks length
+	// error returned
 	Positions            map[int32]*TaskId `protobuf:"bytes,2,rep,name=positions,proto3" json:"positions,omitempty" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-" bson:"-"`
 	XXX_unrecognized     []byte            `json:"-" bson:"-"`
