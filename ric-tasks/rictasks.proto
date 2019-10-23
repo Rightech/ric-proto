@@ -188,8 +188,9 @@ message UpdateResponse {
 }
 
 message UpdateOrderRequest {
+  ObjectId id = 1; // master task id
   // new position to task id
-  map<int32, TaskId> positions = 1;
+  map<int32, TaskId> positions = 2;
 }
 
 message UpdateOrderResponse {}
