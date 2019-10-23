@@ -72,3 +72,39 @@ message GetRouteRequest {
   repeated Point coordinates = 1;
   bytes options = 2; // json
 }
+
+service Check {
+  rpc CheckIn(CheckInRequest) returns (CheckInResponse);
+}
+
+message IndoorCircle {
+  double x = 1;
+  double y = 2;
+  double z = 3;
+  double radius = 4;
+}
+
+message Zone {
+  Circle circle = 1;
+  IndoorCircle indoor_circle = 2;
+}
+
+message IndoorPoint {
+  double x = 1;
+  double y = 2;
+  double z = 3;
+}
+
+message Position {
+  Point location = 1;
+  IndoorPoint indoor_location = 2;
+}
+
+message CheckInRequest {
+  Position position = 1;
+  Zone zone = 2;
+}
+
+message CheckInResponse {
+  bool in = 1;
+}
