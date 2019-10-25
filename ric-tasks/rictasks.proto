@@ -116,8 +116,10 @@ message Task {
 }
 
 message Deadline {
-  int64 timestamp = 1;
-  Task.Status status = 2;
+  int64 timestamp = 1; // milliseconds
+  // number of milliseconds before deadline when service should send notification
+  int64 notify_until = 2;
+  Task.Status status = 3;
 }
 
 message MasterTask {
@@ -145,7 +147,7 @@ message MasterTask {
   // @inject_tag: bson:",omitempty"
   ObjectId assignee = 7;
   Priority priority = 8;
-  int64 time = 9;
+  int64 time = 9; // milliseconds
   // @inject_tag: bson:",omitempty"
   ObjectId object = 10;
 }
