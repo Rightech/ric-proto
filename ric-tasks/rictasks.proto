@@ -207,6 +207,8 @@ message ChangeStatusRequest {
   Location location = 3;
   // required only if new_status == CLOSED
   google.protobuf.BoolValue success = 4;
+  string comment = 5;
+  repeated string files = 6;
 }
 
 message ChangeStatusResponse {}
