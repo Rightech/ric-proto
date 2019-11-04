@@ -6,9 +6,12 @@ option go_package = "riclogicv3";
 
 service RicLogicV3 {
   rpc StartAutomaton(StartAutomatonRequest) returns (StartAutomatonResponse);
+  rpc StopAutomaton(StopAutomatonRequest) returns (StopAutomatonResponse);
+  rpc GetAutomatons(GetAutomatonsRequest) returns (stream AutomatonInfo);
+
   rpc GetAutomatonStats(GetRuntimeInfoRequest) returns (AutomatonStats);
   rpc GetAutomatonLogs(GetRuntimeInfoRequest) returns (stream RuntimeLogResponse);
-  rpc StopAutomaton(StopAutomatonRequest) returns (StopAutomatonResponse);
+  
 }
 
 enum StepCategory {
@@ -36,6 +39,21 @@ message StartAutomatonRequest {
 }
 
 message StartAutomatonResponse {}
+
+message GetAutomatonsRequest {
+  string object_id = 1;
+}
+
+message AutomatonInfo {
+  string object_id = 1;
+  string automaton_id = 2;
+
+  string status = 3;
+  string state = 4;
+  string transition = 5;
+
+  AutomatonStats stats = 6;
+}
 
 message GetRuntimeInfoRequest {
   string object_id = 1;
