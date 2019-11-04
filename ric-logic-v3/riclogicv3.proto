@@ -8,6 +8,7 @@ service RicLogicV3 {
   rpc StartAutomaton(StartAutomatonRequest) returns (StartAutomatonResponse);
   rpc StopAutomaton(StopAutomatonRequest) returns (StopAutomatonResponse);
   rpc GetAutomatons(GetAutomatonsRequest) returns (stream AutomatonInfo);
+  rpc EmitEvent(EmitEventRequest) returns (EmitEventResponse);
 
   rpc GetAutomatonStats(GetRuntimeInfoRequest) returns (AutomatonStats);
   rpc GetAutomatonLogs(GetRuntimeInfoRequest) returns (stream RuntimeLogResponse);
@@ -43,6 +44,15 @@ message StartAutomatonResponse {}
 message GetAutomatonsRequest {
   string object_id = 1;
 }
+
+message EmitEventRequest {
+  string object_id = 1;
+  string automaton_id = 2;
+  string event = 3;
+  string payload = 4;
+}
+
+message EmitEventResponse {}
 
 message AutomatonInfo {
   string object_id = 1;
