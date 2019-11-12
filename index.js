@@ -137,6 +137,11 @@ class GrpcClient {
     const devHost = process.env.RIC_GRPC_DEV_HOST;
     const isLocal = (process.env.RIC_GRPC_LOCAL_SVCS || '').includes(this.name.service);
     if (IN_KUBE) {
+      if (this.meta.stateful) {
+        //const instanceName = this.instanceName || '0';
+        //const hostname = `${this.name.full}-${instanceName}`;
+        //return `${hostname}.${this.name.full}`
+      }
       return this.name.full;
     }
     if (devHost && !isLocal) {
