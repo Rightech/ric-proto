@@ -21,11 +21,11 @@ message UserContext {
 }
 
 message AutomatonStats {
-  int32 started = 1;
-  int32 transitions = 2;
-  int32 actions = 3;
-  int32 packets = 4;
-  int32 events = 5;
+  int64 started = 1;
+  int64 transitions = 2;
+  int64 actions = 3;
+  int64 packets = 4;
+  int64 events = 5;
   string halted = 6;
 }
 
@@ -45,7 +45,7 @@ message AutomatonInfo {
 
 message LogEntry {
   string id = 1;
-  int32 ts = 2;
+  int64 ts = 2;
 
   string object_id = 3;
   string automaton_id = 4;
@@ -69,11 +69,11 @@ message GetInstanceInfoRequest {}
 message GetInstanceInfoResponse {
   string hostname = 1;
   string status = 2;
-  int32 started_at = 3;
+  int64 started_at = 3;
 
-  int32 objects_total = 4;
-  int32 containers_total = 5;
-  int32 containers_running = 6;
+  int64 objects_total = 4;
+  int64 containers_total = 5;
+  int64 containers_running = 6;
 
   repeated string object_ids = 7;
 }
