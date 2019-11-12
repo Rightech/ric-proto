@@ -54,13 +54,13 @@ message LogEntry {
   
   string instance = 7;
   string category = 8;
-  string message = 7;
+  string message = 9;
 
-  string event = 9;
-  string state = 10;
-  string transition = 11;
+  string event = 10;
+  string state = 11;
+  string transition = 12;
 
-  UserContext ctx = 12;
+  UserContext ctx = 13;
 }
 
 
