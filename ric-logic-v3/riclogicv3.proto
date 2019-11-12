@@ -37,10 +37,16 @@ message AutomatonInfo {
 
   string status = 5;
   string state = 6;
-  string transition = 7;
+  string prevState = 7;
+  //string transition = 7;
 
   AutomatonStats stats = 8;
   repeated LogEntry logs = 9;
+}
+
+message AutomatonEvent {
+  string type = 1;
+  string payload = 2;
 }
 
 message LogEntry {
@@ -56,9 +62,9 @@ message LogEntry {
   string category = 8;
   string message = 9;
 
-  string event = 10;
+  AutomatonEvent event = 10;
   string state = 11;
-  string transition = 12;
+  string prevState = 12;
 
   UserContext ctx = 13;
 }
