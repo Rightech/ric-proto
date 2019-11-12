@@ -5,13 +5,19 @@ package ric.logic.v3;
 option go_package = "riclogicv3";
 
 service RicLogicV3 {
-  rpc StartAutomaton(StartAutomatonRequest) returns (StartAutomatonResponse);
-  rpc StopAutomaton(StopAutomatonRequest) returns (StopAutomatonResponse);
-  
+  rpc GetInstanceInfo(GetInstanceInfoRequest) returns (GetInstanceInfoResponse);
   rpc GetAutomatons(GetAutomatonsRequest) returns (GetAutomatonsResponse);
   rpc GetAutomatonsStream(GetAutomatonsRequest) returns (stream AutomatonInfo);
-
+  
+  rpc StartAutomaton(StartAutomatonRequest) returns (StartAutomatonResponse);
+  rpc StopAutomaton(StopAutomatonRequest) returns (StopAutomatonResponse);
   rpc EmitEvent(EmitEventRequest) returns (EmitEventResponse);  
+}
+
+message UserContext {
+  string group_id = 1;
+  string user_id = 2;
+  string span_id = 3;
 }
 
 message AutomatonStats {
@@ -23,12 +29,75 @@ message AutomatonStats {
   string halted = 6;
 }
 
-message StartAutomatonRequest {
+message AutomatonInfo {
   string object_id = 1;
   string automaton_id = 2;
+  string hash_id = 3;
+  string revision = 4;
+
+  string status = 5;
+  string state = 6;
+  string transition = 7;
+
+  AutomatonStats stats = 8;
+  repeated LogEntry logs = 9;
+}
+
+message LogEntry {
+  string id = 1;
+  int32 ts = 2;
+
+  string object_id = 3;
+  string automaton_id = 4;
+  string hash_id = 5;
+  string revision = 6;
+  
+  string instance = 7;
+  string category = 8;
+  string message = 7;
+
+  string event = 9;
+  string state = 10;
+  string transition = 11;
+
+  UserContext ctx = 12;
+}
+
+
+
+message GetInstanceInfoRequest {}
+message GetInstanceInfoResponse {
+  string hostname = 1;
+  string status = 2;
+  int32 started_at = 3;
+
+  int32 objects_total = 4;
+  int32 containers_total = 5;
+  int32 containers_running = 6;
+
+  repeated string object_ids = 7;
+}
+
+
+message StartAutomatonRequest {
+  UserContext ctx = 1;
+
+  string object_id = 2;
+  string automaton_id = 3;
 }
 
 message StartAutomatonResponse {}
+
+
+message StopAutomatonRequest {
+  UserContext ctx = 1;
+
+  string object_id = 2;
+  string automaton_id = 3;
+}
+
+message StopAutomatonResponse {}
+
 
 message GetAutomatonsRequest {
   string object_id = 1;
@@ -38,59 +107,21 @@ message GetAutomatonsResponse {
   repeated AutomatonInfo automatons = 1;
 }
 
+
 message EmitEventRequest {
-  string object_id = 1;
-  string automaton_id = 2;
-  string event = 3;
-  string payload = 4;
+  UserContext ctx = 1;
+
+  string object_id = 2;
+  string automaton_id = 3;
+  string event = 4;
+  string payload = 5;
 }
 
 message EmitEventResponse {}
 
-message AutomatonInfo {
-  string object_id = 1;
-  string automaton_id = 2;
-
-  string status = 3;
-  string state = 4;
-  string transition = 5;
-
-  AutomatonStats stats = 6;
-  repeated LogEntry logs = 7;
-}
 
 message GetRuntimeInfoRequest {
   string object_id = 1;
   string automaton_id = 2;
 }
 
-message StopAutomatonRequest {
-  string object_id = 1;
-  string automaton_id = 2;
-}
-
-message StopAutomatonResponse {}
-
-message LogEventContext {
-  string group_id = 1;
-  string user_id = 2;
-  string span_id = 3;
-}
-
-message LogEntry {
-  string id = 1;
-  int32 ts = 2;
-
-  string object_id = 3;
-  string automaton_id = 4;
-  
-  string instance = 5;
-  string category = 6;
-  string message = 7;
-
-  string event = 8;
-  string state = 9;
-  string transition = 10;
-
-  LogEventContext ctx = 11;
-}
