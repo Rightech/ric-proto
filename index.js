@@ -11,7 +11,7 @@ const IN_KUBE = !!process.env.KUBERNETES_PORT;
 const DEFAULT_KUBE_PORT = 5071;
 
 const options = {
-  keepCase: true,
+  keepCase: false,
   longs: String,
   enums: String,
   defaults: true,
