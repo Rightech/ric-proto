@@ -42,6 +42,12 @@
             "port": {
                 "dev": 15077
             }
+        },
+        "ric-store": {
+            "stateful": true,
+            "port": {
+                "dev": 15078
+            }
         }
     }
 }
