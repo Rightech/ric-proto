@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package ric.store;
+
+option go_package = "ricstore";
+
+service RicStore {
+  rpc Insert(stream Packet) returns (EmptyRespone);
+  rpc Query(QueryRequest) returns (stream Packet);
+  rpc Status(StatusRequest) returns (StatusResponse);
+  rpc CreateCollection(CreateCollectionRequest) returns (EmptyRespone);
+  rpc RemoveCollection(RemoveCollectionRequest) returns (EmptyRespone);
+  rpc CreateDatabase(CreateDatabaseRequest) returns (EmptyRespone);
+  rpc RemoveDatabase(RemoveDatabaseRequest) returns (EmptyRespone);
+}
+
+enum Mode {
+  UNKNOWN = 0;
+  NOMERGE = 1;
+  MERGE = 2;
+}
+
+message EmptyRespone {}
+
+message Packet {
+  string db = 1;
+  string col = 2;
+  uint64 ts = 3;
+  bytes data = 4;
+}
+
+message QueryRequest {
+  string db = 1;
+  string col = 2;
+  uint64 from = 3;
+  uint64 to = 4;
+  repeated string fields = 5;
+}
+
+message CreateCollectionRequest {
+  string db = 1;
+  string col = 2;
+  uint64 size = 3;
+  Mode mode = 4;
+}
+
+message RemoveCollectionRequest {
+  string db = 1;
+  string col = 2;
+}
+
+message CreateDatabaseRequest {
+  string db = 1;
+}
+
+message RemoveDatabaseRequest {
+  string db = 1;
+}
+
+message StatusRequest {
+  string db = 1;
+  string col = 2;
+}
+
+message StatusResponse {
+  uint64 min_ts = 1;
+  uint64 max_ts = 2;
+  uint64 count = 3;
+  uint64 size = 4;
+  uint64 max_size = 5;
+  Mode mode = 6;
+}
