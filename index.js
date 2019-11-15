@@ -11,7 +11,7 @@ const IN_KUBE = !!process.env.KUBERNETES_PORT;
 const DEFAULT_KUBE_PORT = 5071;
 
 const options = {
-  keepCase: true,
+  keepCase: false,
   longs: String,
   enums: String,
   defaults: true,
@@ -55,17 +55,27 @@ class GrpcServer {
     this.impl = impl;
   }
 
+  getAsyncWrap(key, call) {
+    const def = this.serviceDef[key];
+    return () => {
+      if (!this.impl[key]) {
+        return Promise.reject({
+          message: 'Not provided',
+          code: grpc.status.UNIMPLEMENTED
+        });
+      }
+      return this.impl[key](call.request, call);
+    };
+  }
+
   getImpl() {
     return Object.keys(this.serviceDef).reduce((impl, key) => {
-      impl[key] = (call, callback) => callbackify(() => {
-        if (!this.impl[key]) {
-          return Promise.reject({
-            message: 'Not provided',
-            code: grpc.status.UNIMPLEMENTED
-          });
-        }
-        return this.impl[key](call.request, call);
-      })(callback);
+      const def = this.serviceDef[key];
+      if (def.responseStream) {
+        impl[key] = (call) => this.impl[key](call.request, call);
+        return impl;
+      }
+      impl[key] = (call, callback) => callbackify(this.getAsyncWrap(key, call))(callback);
       return impl;
     }, {});
   }
@@ -127,6 +137,11 @@ class GrpcClient {
     const devHost = process.env.RIC_GRPC_DEV_HOST;
     const isLocal = (process.env.RIC_GRPC_LOCAL_SVCS || '').includes(this.name.service);
     if (IN_KUBE) {
+      if (this.meta.stateful) {
+        //const instanceName = this.instanceName || '0';
+        //const hostname = `${this.name.full}-${instanceName}`;
+        //return `${hostname}.${this.name.full}`
+      }
       return this.name.full;
     }
     if (devHost && !isLocal) {
