@@ -17,11 +17,25 @@ message EmptyResponse {}
 
 message WatchRequest {
   string oid = 1;
-  string geofence_id = 2;
-  string event_type = 3;
-  string shape_id = 4;
-  string room_id = 5;
-  string route_id = 6;
+  string event_type = 2;
+  oneof type {
+    RpeatedFence fences = 3;
+    RepeatedRoute routes = 4;
+  }
+}
+
+message RpeatedFence {
+  repeated Fence fence = 1;
+}
+
+message Fence {
+  string geofence_id = 1;
+  string shape_id = 2;
+  string room_id = 3;
+}
+
+message RepeatedRoute {
+  repeated string id = 1;
 }
 
 service AttendanceControl {
