@@ -8,10 +8,9 @@ service RicLogicV3 {
   rpc GetInstanceInfo(GetInstanceInfoRequest) returns (GetInstanceInfoResponse);
   rpc GetAutomatons(GetAutomatonsRequest) returns (GetAutomatonsResponse);
   rpc GetAutomatonsStream(GetAutomatonsRequest) returns (stream AutomatonInfo);
-  
   rpc StartAutomaton(StartAutomatonRequest) returns (StartAutomatonResponse);
   rpc StopAutomaton(StopAutomatonRequest) returns (StopAutomatonResponse);
-  rpc EmitEvent(EmitEventRequest) returns (EmitEventResponse);  
+  rpc EmitEvent(EmitEventRequest) returns (EmitEventResponse);
 }
 
 message UserContext {
@@ -34,10 +33,9 @@ message AutomatonInfo {
   string automaton_id = 2;
   string hash_id = 3;
   string revision = 4;
-
   string status = 5;
   string state = 6;
-  string prevState = 7;
+  string prev_state = 7;
   //string transition = 7;
 
   AutomatonStats stats = 8;
@@ -52,58 +50,46 @@ message AutomatonEvent {
 message LogEntry {
   string id = 1;
   int64 ts = 2;
-
   string object_id = 3;
   string automaton_id = 4;
   string hash_id = 5;
   string revision = 6;
-  
   string instance = 7;
   string category = 8;
   string message = 9;
-
   AutomatonEvent event = 10;
   string state = 11;
-  string prevState = 12;
-
+  string prev_state = 12;
   UserContext ctx = 13;
 }
 
-
-
 message GetInstanceInfoRequest {}
+
 message GetInstanceInfoResponse {
   string hostname = 1;
   string status = 2;
   int64 started_at = 3;
-
   int64 objects_total = 4;
   int64 containers_total = 5;
   int64 containers_running = 6;
-
   repeated string object_ids = 7;
 }
 
-
 message StartAutomatonRequest {
   UserContext ctx = 1;
-
   string object_id = 2;
   string automaton_id = 3;
 }
 
 message StartAutomatonResponse {}
 
-
 message StopAutomatonRequest {
   UserContext ctx = 1;
-
   string object_id = 2;
   string automaton_id = 3;
 }
 
 message StopAutomatonResponse {}
-
 
 message GetAutomatonsRequest {
   string object_id = 1;
@@ -113,10 +99,8 @@ message GetAutomatonsResponse {
   repeated AutomatonInfo automatons = 1;
 }
 
-
 message EmitEventRequest {
   UserContext ctx = 1;
-
   string object_id = 2;
   string automaton_id = 3;
   string event = 4;
@@ -125,9 +109,7 @@ message EmitEventRequest {
 
 message EmitEventResponse {}
 
-
 message GetRuntimeInfoRequest {
   string object_id = 1;
   string automaton_id = 2;
 }
-

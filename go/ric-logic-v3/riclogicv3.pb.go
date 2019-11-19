@@ -22,52 +22,67 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type StepCategory int32
-
-const (
-	StepCategory_INVALID    StepCategory = 0
-	StepCategory_INFO       StepCategory = 1
-	StepCategory_LOG        StepCategory = 2
-	StepCategory_TRANSITION StepCategory = 3
-	StepCategory_ACTION     StepCategory = 4
-	StepCategory_ERROR      StepCategory = 5
-	StepCategory_HALTED     StepCategory = 6
-)
-
-var StepCategory_name = map[int32]string{
-	0: "INVALID",
-	1: "INFO",
-	2: "LOG",
-	3: "TRANSITION",
-	4: "ACTION",
-	5: "ERROR",
-	6: "HALTED",
+type UserContext struct {
+	GroupId              string   `protobuf:"bytes,1,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
+	UserId               string   `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	SpanId               string   `protobuf:"bytes,3,opt,name=span_id,json=spanId,proto3" json:"span_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-var StepCategory_value = map[string]int32{
-	"INVALID":    0,
-	"INFO":       1,
-	"LOG":        2,
-	"TRANSITION": 3,
-	"ACTION":     4,
-	"ERROR":      5,
-	"HALTED":     6,
-}
-
-func (x StepCategory) String() string {
-	return proto.EnumName(StepCategory_name, int32(x))
-}
-
-func (StepCategory) EnumDescriptor() ([]byte, []int) {
+func (m *UserContext) Reset()         { *m = UserContext{} }
+func (m *UserContext) String() string { return proto.CompactTextString(m) }
+func (*UserContext) ProtoMessage()    {}
+func (*UserContext) Descriptor() ([]byte, []int) {
 	return fileDescriptor_f49a1e7f677937ad, []int{0}
 }
 
+func (m *UserContext) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UserContext.Unmarshal(m, b)
+}
+func (m *UserContext) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UserContext.Marshal(b, m, deterministic)
+}
+func (m *UserContext) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UserContext.Merge(m, src)
+}
+func (m *UserContext) XXX_Size() int {
+	return xxx_messageInfo_UserContext.Size(m)
+}
+func (m *UserContext) XXX_DiscardUnknown() {
+	xxx_messageInfo_UserContext.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UserContext proto.InternalMessageInfo
+
+func (m *UserContext) GetGroupId() string {
+	if m != nil {
+		return m.GroupId
+	}
+	return ""
+}
+
+func (m *UserContext) GetUserId() string {
+	if m != nil {
+		return m.UserId
+	}
+	return ""
+}
+
+func (m *UserContext) GetSpanId() string {
+	if m != nil {
+		return m.SpanId
+	}
+	return ""
+}
+
 type AutomatonStats struct {
-	Started              int32    `protobuf:"varint,1,opt,name=started,proto3" json:"started,omitempty"`
-	Transitions          int32    `protobuf:"varint,2,opt,name=transitions,proto3" json:"transitions,omitempty"`
-	Actions              int32    `protobuf:"varint,3,opt,name=actions,proto3" json:"actions,omitempty"`
-	Packets              int32    `protobuf:"varint,4,opt,name=packets,proto3" json:"packets,omitempty"`
-	Events               int32    `protobuf:"varint,5,opt,name=events,proto3" json:"events,omitempty"`
+	Started              int64    `protobuf:"varint,1,opt,name=started,proto3" json:"started,omitempty"`
+	Transitions          int64    `protobuf:"varint,2,opt,name=transitions,proto3" json:"transitions,omitempty"`
+	Actions              int64    `protobuf:"varint,3,opt,name=actions,proto3" json:"actions,omitempty"`
+	Packets              int64    `protobuf:"varint,4,opt,name=packets,proto3" json:"packets,omitempty"`
+	Events               int64    `protobuf:"varint,5,opt,name=events,proto3" json:"events,omitempty"`
 	Halted               string   `protobuf:"bytes,6,opt,name=halted,proto3" json:"halted,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -78,7 +93,7 @@ func (m *AutomatonStats) Reset()         { *m = AutomatonStats{} }
 func (m *AutomatonStats) String() string { return proto.CompactTextString(m) }
 func (*AutomatonStats) ProtoMessage()    {}
 func (*AutomatonStats) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f49a1e7f677937ad, []int{0}
+	return fileDescriptor_f49a1e7f677937ad, []int{1}
 }
 
 func (m *AutomatonStats) XXX_Unmarshal(b []byte) error {
@@ -99,35 +114,35 @@ func (m *AutomatonStats) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_AutomatonStats proto.InternalMessageInfo
 
-func (m *AutomatonStats) GetStarted() int32 {
+func (m *AutomatonStats) GetStarted() int64 {
 	if m != nil {
 		return m.Started
 	}
 	return 0
 }
 
-func (m *AutomatonStats) GetTransitions() int32 {
+func (m *AutomatonStats) GetTransitions() int64 {
 	if m != nil {
 		return m.Transitions
 	}
 	return 0
 }
 
-func (m *AutomatonStats) GetActions() int32 {
+func (m *AutomatonStats) GetActions() int64 {
 	if m != nil {
 		return m.Actions
 	}
 	return 0
 }
 
-func (m *AutomatonStats) GetPackets() int32 {
+func (m *AutomatonStats) GetPackets() int64 {
 	if m != nil {
 		return m.Packets
 	}
 	return 0
 }
 
-func (m *AutomatonStats) GetEvents() int32 {
+func (m *AutomatonStats) GetEvents() int64 {
 	if m != nil {
 		return m.Events
 	}
@@ -141,19 +156,423 @@ func (m *AutomatonStats) GetHalted() string {
 	return ""
 }
 
-type StartAutomatonRequest struct {
-	ObjectId             string   `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
-	AutomatonId          string   `protobuf:"bytes,2,opt,name=automaton_id,json=automatonId,proto3" json:"automaton_id,omitempty"`
+type AutomatonInfo struct {
+	ObjectId             string          `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
+	AutomatonId          string          `protobuf:"bytes,2,opt,name=automaton_id,json=automatonId,proto3" json:"automaton_id,omitempty"`
+	HashId               string          `protobuf:"bytes,3,opt,name=hash_id,json=hashId,proto3" json:"hash_id,omitempty"`
+	Revision             string          `protobuf:"bytes,4,opt,name=revision,proto3" json:"revision,omitempty"`
+	Status               string          `protobuf:"bytes,5,opt,name=status,proto3" json:"status,omitempty"`
+	State                string          `protobuf:"bytes,6,opt,name=state,proto3" json:"state,omitempty"`
+	PrevState            string          `protobuf:"bytes,7,opt,name=prev_state,json=prevState,proto3" json:"prev_state,omitempty"`
+	Stats                *AutomatonStats `protobuf:"bytes,8,opt,name=stats,proto3" json:"stats,omitempty"`
+	Logs                 []*LogEntry     `protobuf:"bytes,9,rep,name=logs,proto3" json:"logs,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *AutomatonInfo) Reset()         { *m = AutomatonInfo{} }
+func (m *AutomatonInfo) String() string { return proto.CompactTextString(m) }
+func (*AutomatonInfo) ProtoMessage()    {}
+func (*AutomatonInfo) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f49a1e7f677937ad, []int{2}
+}
+
+func (m *AutomatonInfo) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AutomatonInfo.Unmarshal(m, b)
+}
+func (m *AutomatonInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AutomatonInfo.Marshal(b, m, deterministic)
+}
+func (m *AutomatonInfo) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AutomatonInfo.Merge(m, src)
+}
+func (m *AutomatonInfo) XXX_Size() int {
+	return xxx_messageInfo_AutomatonInfo.Size(m)
+}
+func (m *AutomatonInfo) XXX_DiscardUnknown() {
+	xxx_messageInfo_AutomatonInfo.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AutomatonInfo proto.InternalMessageInfo
+
+func (m *AutomatonInfo) GetObjectId() string {
+	if m != nil {
+		return m.ObjectId
+	}
+	return ""
+}
+
+func (m *AutomatonInfo) GetAutomatonId() string {
+	if m != nil {
+		return m.AutomatonId
+	}
+	return ""
+}
+
+func (m *AutomatonInfo) GetHashId() string {
+	if m != nil {
+		return m.HashId
+	}
+	return ""
+}
+
+func (m *AutomatonInfo) GetRevision() string {
+	if m != nil {
+		return m.Revision
+	}
+	return ""
+}
+
+func (m *AutomatonInfo) GetStatus() string {
+	if m != nil {
+		return m.Status
+	}
+	return ""
+}
+
+func (m *AutomatonInfo) GetState() string {
+	if m != nil {
+		return m.State
+	}
+	return ""
+}
+
+func (m *AutomatonInfo) GetPrevState() string {
+	if m != nil {
+		return m.PrevState
+	}
+	return ""
+}
+
+func (m *AutomatonInfo) GetStats() *AutomatonStats {
+	if m != nil {
+		return m.Stats
+	}
+	return nil
+}
+
+func (m *AutomatonInfo) GetLogs() []*LogEntry {
+	if m != nil {
+		return m.Logs
+	}
+	return nil
+}
+
+type AutomatonEvent struct {
+	Type                 string   `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty"`
+	Payload              string   `protobuf:"bytes,2,opt,name=payload,proto3" json:"payload,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *AutomatonEvent) Reset()         { *m = AutomatonEvent{} }
+func (m *AutomatonEvent) String() string { return proto.CompactTextString(m) }
+func (*AutomatonEvent) ProtoMessage()    {}
+func (*AutomatonEvent) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f49a1e7f677937ad, []int{3}
+}
+
+func (m *AutomatonEvent) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AutomatonEvent.Unmarshal(m, b)
+}
+func (m *AutomatonEvent) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AutomatonEvent.Marshal(b, m, deterministic)
+}
+func (m *AutomatonEvent) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AutomatonEvent.Merge(m, src)
+}
+func (m *AutomatonEvent) XXX_Size() int {
+	return xxx_messageInfo_AutomatonEvent.Size(m)
+}
+func (m *AutomatonEvent) XXX_DiscardUnknown() {
+	xxx_messageInfo_AutomatonEvent.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AutomatonEvent proto.InternalMessageInfo
+
+func (m *AutomatonEvent) GetType() string {
+	if m != nil {
+		return m.Type
+	}
+	return ""
+}
+
+func (m *AutomatonEvent) GetPayload() string {
+	if m != nil {
+		return m.Payload
+	}
+	return ""
+}
+
+type LogEntry struct {
+	Id                   string          `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Ts                   int64           `protobuf:"varint,2,opt,name=ts,proto3" json:"ts,omitempty"`
+	ObjectId             string          `protobuf:"bytes,3,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
+	AutomatonId          string          `protobuf:"bytes,4,opt,name=automaton_id,json=automatonId,proto3" json:"automaton_id,omitempty"`
+	HashId               string          `protobuf:"bytes,5,opt,name=hash_id,json=hashId,proto3" json:"hash_id,omitempty"`
+	Revision             string          `protobuf:"bytes,6,opt,name=revision,proto3" json:"revision,omitempty"`
+	Instance             string          `protobuf:"bytes,7,opt,name=instance,proto3" json:"instance,omitempty"`
+	Category             string          `protobuf:"bytes,8,opt,name=category,proto3" json:"category,omitempty"`
+	Message              string          `protobuf:"bytes,9,opt,name=message,proto3" json:"message,omitempty"`
+	Event                *AutomatonEvent `protobuf:"bytes,10,opt,name=event,proto3" json:"event,omitempty"`
+	State                string          `protobuf:"bytes,11,opt,name=state,proto3" json:"state,omitempty"`
+	PrevState            string          `protobuf:"bytes,12,opt,name=prev_state,json=prevState,proto3" json:"prev_state,omitempty"`
+	Ctx                  *UserContext    `protobuf:"bytes,13,opt,name=ctx,proto3" json:"ctx,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *LogEntry) Reset()         { *m = LogEntry{} }
+func (m *LogEntry) String() string { return proto.CompactTextString(m) }
+func (*LogEntry) ProtoMessage()    {}
+func (*LogEntry) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f49a1e7f677937ad, []int{4}
+}
+
+func (m *LogEntry) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LogEntry.Unmarshal(m, b)
+}
+func (m *LogEntry) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LogEntry.Marshal(b, m, deterministic)
+}
+func (m *LogEntry) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LogEntry.Merge(m, src)
+}
+func (m *LogEntry) XXX_Size() int {
+	return xxx_messageInfo_LogEntry.Size(m)
+}
+func (m *LogEntry) XXX_DiscardUnknown() {
+	xxx_messageInfo_LogEntry.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_LogEntry proto.InternalMessageInfo
+
+func (m *LogEntry) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+func (m *LogEntry) GetTs() int64 {
+	if m != nil {
+		return m.Ts
+	}
+	return 0
+}
+
+func (m *LogEntry) GetObjectId() string {
+	if m != nil {
+		return m.ObjectId
+	}
+	return ""
+}
+
+func (m *LogEntry) GetAutomatonId() string {
+	if m != nil {
+		return m.AutomatonId
+	}
+	return ""
+}
+
+func (m *LogEntry) GetHashId() string {
+	if m != nil {
+		return m.HashId
+	}
+	return ""
+}
+
+func (m *LogEntry) GetRevision() string {
+	if m != nil {
+		return m.Revision
+	}
+	return ""
+}
+
+func (m *LogEntry) GetInstance() string {
+	if m != nil {
+		return m.Instance
+	}
+	return ""
+}
+
+func (m *LogEntry) GetCategory() string {
+	if m != nil {
+		return m.Category
+	}
+	return ""
+}
+
+func (m *LogEntry) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+func (m *LogEntry) GetEvent() *AutomatonEvent {
+	if m != nil {
+		return m.Event
+	}
+	return nil
+}
+
+func (m *LogEntry) GetState() string {
+	if m != nil {
+		return m.State
+	}
+	return ""
+}
+
+func (m *LogEntry) GetPrevState() string {
+	if m != nil {
+		return m.PrevState
+	}
+	return ""
+}
+
+func (m *LogEntry) GetCtx() *UserContext {
+	if m != nil {
+		return m.Ctx
+	}
+	return nil
+}
+
+type GetInstanceInfoRequest struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetInstanceInfoRequest) Reset()         { *m = GetInstanceInfoRequest{} }
+func (m *GetInstanceInfoRequest) String() string { return proto.CompactTextString(m) }
+func (*GetInstanceInfoRequest) ProtoMessage()    {}
+func (*GetInstanceInfoRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f49a1e7f677937ad, []int{5}
+}
+
+func (m *GetInstanceInfoRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetInstanceInfoRequest.Unmarshal(m, b)
+}
+func (m *GetInstanceInfoRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetInstanceInfoRequest.Marshal(b, m, deterministic)
+}
+func (m *GetInstanceInfoRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetInstanceInfoRequest.Merge(m, src)
+}
+func (m *GetInstanceInfoRequest) XXX_Size() int {
+	return xxx_messageInfo_GetInstanceInfoRequest.Size(m)
+}
+func (m *GetInstanceInfoRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetInstanceInfoRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetInstanceInfoRequest proto.InternalMessageInfo
+
+type GetInstanceInfoResponse struct {
+	Hostname             string   `protobuf:"bytes,1,opt,name=hostname,proto3" json:"hostname,omitempty"`
+	Status               string   `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
+	StartedAt            int64    `protobuf:"varint,3,opt,name=started_at,json=startedAt,proto3" json:"started_at,omitempty"`
+	ObjectsTotal         int64    `protobuf:"varint,4,opt,name=objects_total,json=objectsTotal,proto3" json:"objects_total,omitempty"`
+	ContainersTotal      int64    `protobuf:"varint,5,opt,name=containers_total,json=containersTotal,proto3" json:"containers_total,omitempty"`
+	ContainersRunning    int64    `protobuf:"varint,6,opt,name=containers_running,json=containersRunning,proto3" json:"containers_running,omitempty"`
+	ObjectIds            []string `protobuf:"bytes,7,rep,name=object_ids,json=objectIds,proto3" json:"object_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetInstanceInfoResponse) Reset()         { *m = GetInstanceInfoResponse{} }
+func (m *GetInstanceInfoResponse) String() string { return proto.CompactTextString(m) }
+func (*GetInstanceInfoResponse) ProtoMessage()    {}
+func (*GetInstanceInfoResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f49a1e7f677937ad, []int{6}
+}
+
+func (m *GetInstanceInfoResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetInstanceInfoResponse.Unmarshal(m, b)
+}
+func (m *GetInstanceInfoResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetInstanceInfoResponse.Marshal(b, m, deterministic)
+}
+func (m *GetInstanceInfoResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetInstanceInfoResponse.Merge(m, src)
+}
+func (m *GetInstanceInfoResponse) XXX_Size() int {
+	return xxx_messageInfo_GetInstanceInfoResponse.Size(m)
+}
+func (m *GetInstanceInfoResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetInstanceInfoResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetInstanceInfoResponse proto.InternalMessageInfo
+
+func (m *GetInstanceInfoResponse) GetHostname() string {
+	if m != nil {
+		return m.Hostname
+	}
+	return ""
+}
+
+func (m *GetInstanceInfoResponse) GetStatus() string {
+	if m != nil {
+		return m.Status
+	}
+	return ""
+}
+
+func (m *GetInstanceInfoResponse) GetStartedAt() int64 {
+	if m != nil {
+		return m.StartedAt
+	}
+	return 0
+}
+
+func (m *GetInstanceInfoResponse) GetObjectsTotal() int64 {
+	if m != nil {
+		return m.ObjectsTotal
+	}
+	return 0
+}
+
+func (m *GetInstanceInfoResponse) GetContainersTotal() int64 {
+	if m != nil {
+		return m.ContainersTotal
+	}
+	return 0
+}
+
+func (m *GetInstanceInfoResponse) GetContainersRunning() int64 {
+	if m != nil {
+		return m.ContainersRunning
+	}
+	return 0
+}
+
+func (m *GetInstanceInfoResponse) GetObjectIds() []string {
+	if m != nil {
+		return m.ObjectIds
+	}
+	return nil
+}
+
+type StartAutomatonRequest struct {
+	Ctx                  *UserContext `protobuf:"bytes,1,opt,name=ctx,proto3" json:"ctx,omitempty"`
+	ObjectId             string       `protobuf:"bytes,2,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
+	AutomatonId          string       `protobuf:"bytes,3,opt,name=automaton_id,json=automatonId,proto3" json:"automaton_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
 }
 
 func (m *StartAutomatonRequest) Reset()         { *m = StartAutomatonRequest{} }
 func (m *StartAutomatonRequest) String() string { return proto.CompactTextString(m) }
 func (*StartAutomatonRequest) ProtoMessage()    {}
 func (*StartAutomatonRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f49a1e7f677937ad, []int{1}
+	return fileDescriptor_f49a1e7f677937ad, []int{7}
 }
 
 func (m *StartAutomatonRequest) XXX_Unmarshal(b []byte) error {
@@ -173,6 +592,13 @@ func (m *StartAutomatonRequest) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_StartAutomatonRequest proto.InternalMessageInfo
+
+func (m *StartAutomatonRequest) GetCtx() *UserContext {
+	if m != nil {
+		return m.Ctx
+	}
+	return nil
+}
 
 func (m *StartAutomatonRequest) GetObjectId() string {
 	if m != nil {
@@ -198,7 +624,7 @@ func (m *StartAutomatonResponse) Reset()         { *m = StartAutomatonResponse{}
 func (m *StartAutomatonResponse) String() string { return proto.CompactTextString(m) }
 func (*StartAutomatonResponse) ProtoMessage()    {}
 func (*StartAutomatonResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f49a1e7f677937ad, []int{2}
+	return fileDescriptor_f49a1e7f677937ad, []int{8}
 }
 
 func (m *StartAutomatonResponse) XXX_Unmarshal(b []byte) error {
@@ -219,6 +645,272 @@ func (m *StartAutomatonResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_StartAutomatonResponse proto.InternalMessageInfo
 
+type StopAutomatonRequest struct {
+	Ctx                  *UserContext `protobuf:"bytes,1,opt,name=ctx,proto3" json:"ctx,omitempty"`
+	ObjectId             string       `protobuf:"bytes,2,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
+	AutomatonId          string       `protobuf:"bytes,3,opt,name=automaton_id,json=automatonId,proto3" json:"automaton_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *StopAutomatonRequest) Reset()         { *m = StopAutomatonRequest{} }
+func (m *StopAutomatonRequest) String() string { return proto.CompactTextString(m) }
+func (*StopAutomatonRequest) ProtoMessage()    {}
+func (*StopAutomatonRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f49a1e7f677937ad, []int{9}
+}
+
+func (m *StopAutomatonRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopAutomatonRequest.Unmarshal(m, b)
+}
+func (m *StopAutomatonRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopAutomatonRequest.Marshal(b, m, deterministic)
+}
+func (m *StopAutomatonRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopAutomatonRequest.Merge(m, src)
+}
+func (m *StopAutomatonRequest) XXX_Size() int {
+	return xxx_messageInfo_StopAutomatonRequest.Size(m)
+}
+func (m *StopAutomatonRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopAutomatonRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopAutomatonRequest proto.InternalMessageInfo
+
+func (m *StopAutomatonRequest) GetCtx() *UserContext {
+	if m != nil {
+		return m.Ctx
+	}
+	return nil
+}
+
+func (m *StopAutomatonRequest) GetObjectId() string {
+	if m != nil {
+		return m.ObjectId
+	}
+	return ""
+}
+
+func (m *StopAutomatonRequest) GetAutomatonId() string {
+	if m != nil {
+		return m.AutomatonId
+	}
+	return ""
+}
+
+type StopAutomatonResponse struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *StopAutomatonResponse) Reset()         { *m = StopAutomatonResponse{} }
+func (m *StopAutomatonResponse) String() string { return proto.CompactTextString(m) }
+func (*StopAutomatonResponse) ProtoMessage()    {}
+func (*StopAutomatonResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f49a1e7f677937ad, []int{10}
+}
+
+func (m *StopAutomatonResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StopAutomatonResponse.Unmarshal(m, b)
+}
+func (m *StopAutomatonResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StopAutomatonResponse.Marshal(b, m, deterministic)
+}
+func (m *StopAutomatonResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StopAutomatonResponse.Merge(m, src)
+}
+func (m *StopAutomatonResponse) XXX_Size() int {
+	return xxx_messageInfo_StopAutomatonResponse.Size(m)
+}
+func (m *StopAutomatonResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_StopAutomatonResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StopAutomatonResponse proto.InternalMessageInfo
+
+type GetAutomatonsRequest struct {
+	ObjectId             string   `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetAutomatonsRequest) Reset()         { *m = GetAutomatonsRequest{} }
+func (m *GetAutomatonsRequest) String() string { return proto.CompactTextString(m) }
+func (*GetAutomatonsRequest) ProtoMessage()    {}
+func (*GetAutomatonsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f49a1e7f677937ad, []int{11}
+}
+
+func (m *GetAutomatonsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetAutomatonsRequest.Unmarshal(m, b)
+}
+func (m *GetAutomatonsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetAutomatonsRequest.Marshal(b, m, deterministic)
+}
+func (m *GetAutomatonsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetAutomatonsRequest.Merge(m, src)
+}
+func (m *GetAutomatonsRequest) XXX_Size() int {
+	return xxx_messageInfo_GetAutomatonsRequest.Size(m)
+}
+func (m *GetAutomatonsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetAutomatonsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetAutomatonsRequest proto.InternalMessageInfo
+
+func (m *GetAutomatonsRequest) GetObjectId() string {
+	if m != nil {
+		return m.ObjectId
+	}
+	return ""
+}
+
+type GetAutomatonsResponse struct {
+	Automatons           []*AutomatonInfo `protobuf:"bytes,1,rep,name=automatons,proto3" json:"automatons,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
+}
+
+func (m *GetAutomatonsResponse) Reset()         { *m = GetAutomatonsResponse{} }
+func (m *GetAutomatonsResponse) String() string { return proto.CompactTextString(m) }
+func (*GetAutomatonsResponse) ProtoMessage()    {}
+func (*GetAutomatonsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f49a1e7f677937ad, []int{12}
+}
+
+func (m *GetAutomatonsResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetAutomatonsResponse.Unmarshal(m, b)
+}
+func (m *GetAutomatonsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetAutomatonsResponse.Marshal(b, m, deterministic)
+}
+func (m *GetAutomatonsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetAutomatonsResponse.Merge(m, src)
+}
+func (m *GetAutomatonsResponse) XXX_Size() int {
+	return xxx_messageInfo_GetAutomatonsResponse.Size(m)
+}
+func (m *GetAutomatonsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetAutomatonsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetAutomatonsResponse proto.InternalMessageInfo
+
+func (m *GetAutomatonsResponse) GetAutomatons() []*AutomatonInfo {
+	if m != nil {
+		return m.Automatons
+	}
+	return nil
+}
+
+type EmitEventRequest struct {
+	Ctx                  *UserContext `protobuf:"bytes,1,opt,name=ctx,proto3" json:"ctx,omitempty"`
+	ObjectId             string       `protobuf:"bytes,2,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
+	AutomatonId          string       `protobuf:"bytes,3,opt,name=automaton_id,json=automatonId,proto3" json:"automaton_id,omitempty"`
+	Event                string       `protobuf:"bytes,4,opt,name=event,proto3" json:"event,omitempty"`
+	Payload              string       `protobuf:"bytes,5,opt,name=payload,proto3" json:"payload,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *EmitEventRequest) Reset()         { *m = EmitEventRequest{} }
+func (m *EmitEventRequest) String() string { return proto.CompactTextString(m) }
+func (*EmitEventRequest) ProtoMessage()    {}
+func (*EmitEventRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f49a1e7f677937ad, []int{13}
+}
+
+func (m *EmitEventRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EmitEventRequest.Unmarshal(m, b)
+}
+func (m *EmitEventRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EmitEventRequest.Marshal(b, m, deterministic)
+}
+func (m *EmitEventRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EmitEventRequest.Merge(m, src)
+}
+func (m *EmitEventRequest) XXX_Size() int {
+	return xxx_messageInfo_EmitEventRequest.Size(m)
+}
+func (m *EmitEventRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_EmitEventRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_EmitEventRequest proto.InternalMessageInfo
+
+func (m *EmitEventRequest) GetCtx() *UserContext {
+	if m != nil {
+		return m.Ctx
+	}
+	return nil
+}
+
+func (m *EmitEventRequest) GetObjectId() string {
+	if m != nil {
+		return m.ObjectId
+	}
+	return ""
+}
+
+func (m *EmitEventRequest) GetAutomatonId() string {
+	if m != nil {
+		return m.AutomatonId
+	}
+	return ""
+}
+
+func (m *EmitEventRequest) GetEvent() string {
+	if m != nil {
+		return m.Event
+	}
+	return ""
+}
+
+func (m *EmitEventRequest) GetPayload() string {
+	if m != nil {
+		return m.Payload
+	}
+	return ""
+}
+
+type EmitEventResponse struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *EmitEventResponse) Reset()         { *m = EmitEventResponse{} }
+func (m *EmitEventResponse) String() string { return proto.CompactTextString(m) }
+func (*EmitEventResponse) ProtoMessage()    {}
+func (*EmitEventResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_f49a1e7f677937ad, []int{14}
+}
+
+func (m *EmitEventResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EmitEventResponse.Unmarshal(m, b)
+}
+func (m *EmitEventResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EmitEventResponse.Marshal(b, m, deterministic)
+}
+func (m *EmitEventResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EmitEventResponse.Merge(m, src)
+}
+func (m *EmitEventResponse) XXX_Size() int {
+	return xxx_messageInfo_EmitEventResponse.Size(m)
+}
+func (m *EmitEventResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_EmitEventResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_EmitEventResponse proto.InternalMessageInfo
+
 type GetRuntimeInfoRequest struct {
 	ObjectId             string   `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
 	AutomatonId          string   `protobuf:"bytes,2,opt,name=automaton_id,json=automatonId,proto3" json:"automaton_id,omitempty"`
@@ -231,7 +923,7 @@ func (m *GetRuntimeInfoRequest) Reset()         { *m = GetRuntimeInfoRequest{} }
 func (m *GetRuntimeInfoRequest) String() string { return proto.CompactTextString(m) }
 func (*GetRuntimeInfoRequest) ProtoMessage()    {}
 func (*GetRuntimeInfoRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f49a1e7f677937ad, []int{3}
+	return fileDescriptor_f49a1e7f677937ad, []int{15}
 }
 
 func (m *GetRuntimeInfoRequest) XXX_Unmarshal(b []byte) error {
@@ -266,237 +958,86 @@ func (m *GetRuntimeInfoRequest) GetAutomatonId() string {
 	return ""
 }
 
-type StopAutomatonRequest struct {
-	ObjectId             string   `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
-	AutomatonId          string   `protobuf:"bytes,2,opt,name=automaton_id,json=automatonId,proto3" json:"automaton_id,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *StopAutomatonRequest) Reset()         { *m = StopAutomatonRequest{} }
-func (m *StopAutomatonRequest) String() string { return proto.CompactTextString(m) }
-func (*StopAutomatonRequest) ProtoMessage()    {}
-func (*StopAutomatonRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f49a1e7f677937ad, []int{4}
-}
-
-func (m *StopAutomatonRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_StopAutomatonRequest.Unmarshal(m, b)
-}
-func (m *StopAutomatonRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_StopAutomatonRequest.Marshal(b, m, deterministic)
-}
-func (m *StopAutomatonRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_StopAutomatonRequest.Merge(m, src)
-}
-func (m *StopAutomatonRequest) XXX_Size() int {
-	return xxx_messageInfo_StopAutomatonRequest.Size(m)
-}
-func (m *StopAutomatonRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_StopAutomatonRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_StopAutomatonRequest proto.InternalMessageInfo
-
-func (m *StopAutomatonRequest) GetObjectId() string {
-	if m != nil {
-		return m.ObjectId
-	}
-	return ""
-}
-
-func (m *StopAutomatonRequest) GetAutomatonId() string {
-	if m != nil {
-		return m.AutomatonId
-	}
-	return ""
-}
-
-type StopAutomatonResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *StopAutomatonResponse) Reset()         { *m = StopAutomatonResponse{} }
-func (m *StopAutomatonResponse) String() string { return proto.CompactTextString(m) }
-func (*StopAutomatonResponse) ProtoMessage()    {}
-func (*StopAutomatonResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f49a1e7f677937ad, []int{5}
-}
-
-func (m *StopAutomatonResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_StopAutomatonResponse.Unmarshal(m, b)
-}
-func (m *StopAutomatonResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_StopAutomatonResponse.Marshal(b, m, deterministic)
-}
-func (m *StopAutomatonResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_StopAutomatonResponse.Merge(m, src)
-}
-func (m *StopAutomatonResponse) XXX_Size() int {
-	return xxx_messageInfo_StopAutomatonResponse.Size(m)
-}
-func (m *StopAutomatonResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_StopAutomatonResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_StopAutomatonResponse proto.InternalMessageInfo
-
-type RuntimeLogResponse struct {
-	ObjectId             string       `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
-	AutomatonId          string       `protobuf:"bytes,2,opt,name=automaton_id,json=automatonId,proto3" json:"automaton_id,omitempty"`
-	Ts                   int32        `protobuf:"varint,3,opt,name=ts,proto3" json:"ts,omitempty"`
-	State                string       `protobuf:"bytes,4,opt,name=state,proto3" json:"state,omitempty"`
-	Transition           string       `protobuf:"bytes,5,opt,name=transition,proto3" json:"transition,omitempty"`
-	Category             StepCategory `protobuf:"varint,6,opt,name=category,proto3,enum=ric.logic.v3.StepCategory" json:"category,omitempty"`
-	Message              string       `protobuf:"bytes,7,opt,name=message,proto3" json:"message,omitempty"`
-	Ctx                  string       `protobuf:"bytes,8,opt,name=ctx,proto3" json:"ctx,omitempty"`
-	Final                bool         `protobuf:"varint,9,opt,name=final,proto3" json:"final,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
-	XXX_unrecognized     []byte       `json:"-"`
-	XXX_sizecache        int32        `json:"-"`
-}
-
-func (m *RuntimeLogResponse) Reset()         { *m = RuntimeLogResponse{} }
-func (m *RuntimeLogResponse) String() string { return proto.CompactTextString(m) }
-func (*RuntimeLogResponse) ProtoMessage()    {}
-func (*RuntimeLogResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f49a1e7f677937ad, []int{6}
-}
-
-func (m *RuntimeLogResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_RuntimeLogResponse.Unmarshal(m, b)
-}
-func (m *RuntimeLogResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_RuntimeLogResponse.Marshal(b, m, deterministic)
-}
-func (m *RuntimeLogResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RuntimeLogResponse.Merge(m, src)
-}
-func (m *RuntimeLogResponse) XXX_Size() int {
-	return xxx_messageInfo_RuntimeLogResponse.Size(m)
-}
-func (m *RuntimeLogResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_RuntimeLogResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_RuntimeLogResponse proto.InternalMessageInfo
-
-func (m *RuntimeLogResponse) GetObjectId() string {
-	if m != nil {
-		return m.ObjectId
-	}
-	return ""
-}
-
-func (m *RuntimeLogResponse) GetAutomatonId() string {
-	if m != nil {
-		return m.AutomatonId
-	}
-	return ""
-}
-
-func (m *RuntimeLogResponse) GetTs() int32 {
-	if m != nil {
-		return m.Ts
-	}
-	return 0
-}
-
-func (m *RuntimeLogResponse) GetState() string {
-	if m != nil {
-		return m.State
-	}
-	return ""
-}
-
-func (m *RuntimeLogResponse) GetTransition() string {
-	if m != nil {
-		return m.Transition
-	}
-	return ""
-}
-
-func (m *RuntimeLogResponse) GetCategory() StepCategory {
-	if m != nil {
-		return m.Category
-	}
-	return StepCategory_INVALID
-}
-
-func (m *RuntimeLogResponse) GetMessage() string {
-	if m != nil {
-		return m.Message
-	}
-	return ""
-}
-
-func (m *RuntimeLogResponse) GetCtx() string {
-	if m != nil {
-		return m.Ctx
-	}
-	return ""
-}
-
-func (m *RuntimeLogResponse) GetFinal() bool {
-	if m != nil {
-		return m.Final
-	}
-	return false
-}
-
 func init() {
-	proto.RegisterEnum("ric.logic.v3.StepCategory", StepCategory_name, StepCategory_value)
+	proto.RegisterType((*UserContext)(nil), "ric.logic.v3.UserContext")
 	proto.RegisterType((*AutomatonStats)(nil), "ric.logic.v3.AutomatonStats")
+	proto.RegisterType((*AutomatonInfo)(nil), "ric.logic.v3.AutomatonInfo")
+	proto.RegisterType((*AutomatonEvent)(nil), "ric.logic.v3.AutomatonEvent")
+	proto.RegisterType((*LogEntry)(nil), "ric.logic.v3.LogEntry")
+	proto.RegisterType((*GetInstanceInfoRequest)(nil), "ric.logic.v3.GetInstanceInfoRequest")
+	proto.RegisterType((*GetInstanceInfoResponse)(nil), "ric.logic.v3.GetInstanceInfoResponse")
 	proto.RegisterType((*StartAutomatonRequest)(nil), "ric.logic.v3.StartAutomatonRequest")
 	proto.RegisterType((*StartAutomatonResponse)(nil), "ric.logic.v3.StartAutomatonResponse")
-	proto.RegisterType((*GetRuntimeInfoRequest)(nil), "ric.logic.v3.GetRuntimeInfoRequest")
 	proto.RegisterType((*StopAutomatonRequest)(nil), "ric.logic.v3.StopAutomatonRequest")
 	proto.RegisterType((*StopAutomatonResponse)(nil), "ric.logic.v3.StopAutomatonResponse")
-	proto.RegisterType((*RuntimeLogResponse)(nil), "ric.logic.v3.RuntimeLogResponse")
+	proto.RegisterType((*GetAutomatonsRequest)(nil), "ric.logic.v3.GetAutomatonsRequest")
+	proto.RegisterType((*GetAutomatonsResponse)(nil), "ric.logic.v3.GetAutomatonsResponse")
+	proto.RegisterType((*EmitEventRequest)(nil), "ric.logic.v3.EmitEventRequest")
+	proto.RegisterType((*EmitEventResponse)(nil), "ric.logic.v3.EmitEventResponse")
+	proto.RegisterType((*GetRuntimeInfoRequest)(nil), "ric.logic.v3.GetRuntimeInfoRequest")
 }
 
 func init() { proto.RegisterFile("ric-logic-v3/riclogicv3.proto", fileDescriptor_f49a1e7f677937ad) }
 
 var fileDescriptor_f49a1e7f677937ad = []byte{
-	// 551 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x54, 0x4d, 0x6f, 0xd3, 0x40,
-	0x10, 0xc5, 0x4e, 0xf3, 0xe1, 0x69, 0x88, 0xcc, 0xa8, 0x14, 0x2b, 0x7c, 0x28, 0xa4, 0x1c, 0x2a,
-	0xa4, 0x06, 0xd4, 0x48, 0xdc, 0x43, 0x5b, 0x82, 0x25, 0x2b, 0x91, 0x36, 0x51, 0x40, 0xf4, 0x80,
-	0xb6, 0xce, 0x36, 0x18, 0x12, 0x6f, 0xf0, 0x4e, 0x22, 0xf8, 0x1f, 0xfc, 0x10, 0x7e, 0x1e, 0x47,
-	0xb4, 0x6b, 0x27, 0x4d, 0xdc, 0xaa, 0x42, 0xa2, 0xb7, 0x7d, 0x6f, 0x66, 0xdf, 0xcc, 0x78, 0x9e,
-	0x17, 0x9e, 0x26, 0x51, 0x78, 0x34, 0x95, 0x93, 0x28, 0x3c, 0x5a, 0xb6, 0x5f, 0x25, 0x51, 0x68,
-	0xce, 0xcb, 0x76, 0x6b, 0x9e, 0x48, 0x92, 0x58, 0x4d, 0xa2, 0xb0, 0x65, 0xa8, 0xd6, 0xb2, 0xdd,
-	0xfc, 0x6d, 0x41, 0xad, 0xb3, 0x20, 0x39, 0xe3, 0x24, 0xe3, 0x01, 0x71, 0x52, 0xe8, 0x41, 0x59,
-	0x11, 0x4f, 0x48, 0x8c, 0x3d, 0xab, 0x61, 0x1d, 0x16, 0xd9, 0x0a, 0x62, 0x03, 0x76, 0x29, 0xe1,
-	0xb1, 0x8a, 0x28, 0x92, 0xb1, 0xf2, 0x6c, 0x13, 0xdd, 0xa4, 0xf4, 0x5d, 0x1e, 0xa6, 0xd1, 0x42,
-	0x7a, 0x37, 0x83, 0x3a, 0x32, 0xe7, 0xe1, 0x37, 0x41, 0xca, 0xdb, 0x49, 0x23, 0x19, 0xc4, 0x7d,
-	0x28, 0x89, 0xa5, 0x88, 0x49, 0x79, 0x45, 0x13, 0xc8, 0x90, 0xe6, 0xbf, 0xf0, 0xa9, 0x6e, 0xa3,
-	0xd4, 0xb0, 0x0e, 0x1d, 0x96, 0xa1, 0xe6, 0x07, 0x78, 0x38, 0xd0, 0x0d, 0xad, 0xdb, 0x66, 0xe2,
-	0xfb, 0x42, 0x28, 0xc2, 0xc7, 0xe0, 0xc8, 0x8b, 0xaf, 0x22, 0xa4, 0xcf, 0x51, 0xda, 0xba, 0xc3,
-	0x2a, 0x29, 0xe1, 0x8f, 0xf1, 0x39, 0x54, 0xf9, 0xea, 0x82, 0x8e, 0xdb, 0x26, 0xbe, 0xbb, 0xe6,
-	0xfc, 0x71, 0xd3, 0x83, 0xfd, 0xbc, 0xb0, 0x9a, 0xcb, 0x58, 0x09, 0x5d, 0xb2, 0x2b, 0x88, 0x2d,
-	0x62, 0x8a, 0x66, 0xc2, 0x8f, 0x2f, 0xe5, 0x5d, 0x95, 0x1c, 0xc1, 0xde, 0x80, 0xe4, 0xfc, 0xce,
-	0x47, 0x79, 0xa4, 0xbf, 0xd1, 0x96, 0x6e, 0x36, 0xc9, 0x2f, 0x1b, 0x30, 0x9b, 0x23, 0x90, 0x93,
-	0x15, 0xfd, 0xbf, 0xf5, 0xb0, 0x06, 0x36, 0xad, 0x56, 0x6e, 0x93, 0xc2, 0x3d, 0x28, 0x2a, 0xe2,
-	0x24, 0xcc, 0xae, 0x1d, 0x96, 0x02, 0x7c, 0x06, 0x70, 0x65, 0x16, 0xb3, 0x6d, 0x87, 0x6d, 0x30,
-	0xf8, 0x06, 0x2a, 0x21, 0x27, 0x31, 0x91, 0xc9, 0x4f, 0xb3, 0xf3, 0xda, 0x71, 0xbd, 0xb5, 0xe9,
-	0xd6, 0xd6, 0x80, 0xc4, 0xfc, 0x24, 0xcb, 0x60, 0xeb, 0x5c, 0xed, 0xad, 0x99, 0x50, 0x8a, 0x4f,
-	0x84, 0x57, 0x36, 0xa2, 0x2b, 0x88, 0x2e, 0x14, 0x42, 0xfa, 0xe1, 0x55, 0x0c, 0xab, 0x8f, 0xba,
-	0xb3, 0xcb, 0x28, 0xe6, 0x53, 0xcf, 0x69, 0x58, 0x87, 0x15, 0x96, 0x82, 0x97, 0x1c, 0xaa, 0x9b,
-	0xda, 0xb8, 0x0b, 0x65, 0xbf, 0x37, 0xea, 0x04, 0xfe, 0xa9, 0x7b, 0x0f, 0x2b, 0xb0, 0xe3, 0xf7,
-	0xde, 0xf5, 0x5d, 0x0b, 0xcb, 0x50, 0x08, 0xfa, 0x5d, 0xd7, 0xc6, 0x1a, 0xc0, 0x90, 0x75, 0x7a,
-	0x03, 0x7f, 0xe8, 0xf7, 0x7b, 0x6e, 0x01, 0x01, 0x4a, 0x9d, 0x13, 0x73, 0xde, 0x41, 0x07, 0x8a,
-	0x67, 0x8c, 0xf5, 0x99, 0x5b, 0xd4, 0xf4, 0xfb, 0x4e, 0x30, 0x3c, 0x3b, 0x75, 0x4b, 0xc7, 0x7f,
-	0x6c, 0x00, 0x16, 0x85, 0x81, 0x9e, 0x65, 0xd4, 0xc6, 0x73, 0xa8, 0x6d, 0x9b, 0x0d, 0x0f, 0xf2,
-	0xb3, 0xde, 0xe0, 0xf1, 0xfa, 0x8b, 0xdb, 0x93, 0xb2, 0x75, 0x8e, 0xe0, 0x41, 0x57, 0x50, 0xee,
-	0xbf, 0xce, 0xe9, 0xdf, 0x68, 0xe8, 0xfa, 0x93, 0xed, 0xa4, 0x9c, 0xc4, 0x39, 0xb8, 0x9b, 0xba,
-	0x81, 0x9c, 0xfc, 0xa3, 0x6c, 0x63, 0x3b, 0xe9, 0xba, 0x03, 0x5f, 0x5b, 0xf8, 0x11, 0xee, 0x6f,
-	0x79, 0x16, 0x9b, 0xf9, 0x59, 0xaf, 0xff, 0x28, 0xf5, 0x83, 0x5b, 0x73, 0x52, 0xed, 0xb7, 0xd5,
-	0x4f, 0x70, 0xf5, 0x0c, 0x5e, 0x94, 0xcc, 0x3b, 0xd8, 0xfe, 0x1b, 0x00, 0x00, 0xff, 0xff, 0xab,
-	0xf3, 0xf1, 0x3d, 0x28, 0x05, 0x00, 0x00,
+	// 901 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xc4, 0x56, 0xdf, 0x6f, 0x1b, 0x45,
+	0x10, 0xd6, 0xf9, 0x1c, 0xdb, 0x37, 0x76, 0xd2, 0x76, 0x9b, 0x26, 0x57, 0x97, 0x80, 0xb9, 0x14,
+	0x29, 0x80, 0x62, 0x50, 0xfc, 0x88, 0x84, 0x54, 0x50, 0x54, 0x59, 0xca, 0xd3, 0xb9, 0xfc, 0x50,
+	0x91, 0x88, 0xb6, 0xe7, 0xc5, 0x59, 0xb0, 0x77, 0xcd, 0xee, 0xd8, 0x6a, 0x9e, 0x41, 0x42, 0xe2,
+	0xff, 0xe0, 0x19, 0xf8, 0x0f, 0xd1, 0xfe, 0xb8, 0xf3, 0x9d, 0x13, 0x3b, 0x95, 0x78, 0xc8, 0xdb,
+	0xcd, 0x7c, 0xb3, 0x7b, 0xdf, 0x7d, 0xdf, 0xcc, 0xd8, 0x70, 0xa4, 0x78, 0x76, 0x3a, 0x95, 0x13,
+	0x9e, 0x9d, 0x2e, 0x07, 0x9f, 0x29, 0x9e, 0xd9, 0xe7, 0xe5, 0xa0, 0x3f, 0x57, 0x12, 0x25, 0xe9,
+	0x28, 0x9e, 0xf5, 0x6d, 0xaa, 0xbf, 0x1c, 0x24, 0xaf, 0xa1, 0xfd, 0x8d, 0x66, 0xea, 0x6b, 0x29,
+	0x90, 0xbd, 0x45, 0xf2, 0x14, 0x5a, 0x13, 0x25, 0x17, 0xf3, 0x4b, 0x3e, 0x8e, 0x83, 0x5e, 0x70,
+	0x12, 0xa5, 0x4d, 0x1b, 0x0f, 0xc7, 0xe4, 0x10, 0x9a, 0x0b, 0xcd, 0x94, 0x41, 0x6a, 0x16, 0x69,
+	0x98, 0xd0, 0x01, 0x7a, 0x4e, 0x85, 0x01, 0x42, 0x07, 0x98, 0x70, 0x38, 0x4e, 0xfe, 0x09, 0x60,
+	0xef, 0xc5, 0x02, 0xe5, 0x8c, 0xa2, 0x14, 0x23, 0xa4, 0xa8, 0x49, 0x0c, 0x4d, 0x8d, 0x54, 0x21,
+	0x73, 0xd7, 0x87, 0x69, 0x1e, 0x92, 0x1e, 0xb4, 0x51, 0x51, 0xa1, 0x39, 0x72, 0x29, 0xb4, 0x7d,
+	0x45, 0x98, 0x96, 0x53, 0xe6, 0x2c, 0xcd, 0x1c, 0x1a, 0xba, 0xb3, 0x3e, 0x34, 0xc8, 0x9c, 0x66,
+	0xbf, 0x30, 0xd4, 0x71, 0xdd, 0x21, 0x3e, 0x24, 0x07, 0xd0, 0x60, 0x4b, 0x26, 0x50, 0xc7, 0x3b,
+	0x16, 0xf0, 0x91, 0xc9, 0x5f, 0xd1, 0xa9, 0xa1, 0xd1, 0x70, 0x94, 0x5d, 0x94, 0xfc, 0x5b, 0x83,
+	0xdd, 0x82, 0xf2, 0x50, 0xfc, 0x24, 0xc9, 0x33, 0x88, 0xe4, 0x9b, 0x9f, 0x59, 0x86, 0x2b, 0x49,
+	0x5a, 0x2e, 0x31, 0x1c, 0x93, 0x0f, 0xa1, 0x43, 0xf3, 0xea, 0x95, 0x30, 0xed, 0x22, 0xe7, 0xd4,
+	0xb9, 0xa2, 0xfa, 0xaa, 0xa4, 0x8e, 0x09, 0x87, 0x63, 0xd2, 0x85, 0x96, 0x62, 0x4b, 0xae, 0xb9,
+	0x14, 0x96, 0x75, 0x94, 0x16, 0xb1, 0xa1, 0xa7, 0x91, 0xe2, 0xc2, 0xd1, 0x36, 0x8a, 0xda, 0x88,
+	0xec, 0xc3, 0x8e, 0x79, 0x62, 0x9e, 0xb5, 0x0b, 0xc8, 0x11, 0xc0, 0x5c, 0xb1, 0xe5, 0xa5, 0x83,
+	0x9a, 0x16, 0x8a, 0x4c, 0x66, 0x64, 0xe1, 0x33, 0x77, 0x48, 0xc7, 0xad, 0x5e, 0x70, 0xd2, 0x3e,
+	0x7b, 0xaf, 0x5f, 0x6e, 0x80, 0x7e, 0xd5, 0x20, 0x77, 0xa5, 0x26, 0x9f, 0x40, 0x7d, 0x2a, 0x27,
+	0x3a, 0x8e, 0x7a, 0xe1, 0x49, 0xfb, 0xec, 0xa0, 0x7a, 0xe4, 0x42, 0x4e, 0xce, 0x05, 0xaa, 0xeb,
+	0xd4, 0xd6, 0x24, 0x5f, 0x96, 0x5c, 0x3e, 0x37, 0xf2, 0x12, 0x02, 0x75, 0xbc, 0x9e, 0x33, 0x2f,
+	0x97, 0x7d, 0x76, 0x1e, 0x5d, 0x4f, 0x25, 0xcd, 0x55, 0xca, 0xc3, 0xe4, 0x8f, 0x10, 0x5a, 0xf9,
+	0x95, 0x64, 0x0f, 0x6a, 0x85, 0xce, 0x35, 0x3e, 0x36, 0x31, 0xe6, 0xdd, 0x50, 0x43, 0x5d, 0xb5,
+	0x23, 0xbc, 0xc3, 0x8e, 0xfa, 0x56, 0x3b, 0x76, 0x36, 0xda, 0xd1, 0x58, 0xb3, 0xa3, 0x0b, 0x2d,
+	0x2e, 0x34, 0x52, 0x91, 0xe5, 0xf2, 0x16, 0xb1, 0xc1, 0x32, 0x8a, 0x6c, 0x22, 0xd5, 0xb5, 0x15,
+	0x38, 0x4a, 0x8b, 0xd8, 0x7c, 0xf3, 0x8c, 0x69, 0x4d, 0x27, 0x2c, 0x8e, 0xdc, 0x37, 0xfb, 0xd0,
+	0x78, 0x62, 0x3b, 0x31, 0x86, 0xad, 0x9e, 0x58, 0x39, 0x53, 0x57, 0xba, 0x32, 0xbf, 0xbd, 0xd9,
+	0xfc, 0xce, 0xba, 0xf9, 0x9f, 0x42, 0x98, 0xe1, 0xdb, 0x78, 0xd7, 0xbe, 0xe6, 0x69, 0xf5, 0x35,
+	0xa5, 0xc1, 0x4f, 0x4d, 0x55, 0x12, 0xc3, 0xc1, 0x4b, 0x86, 0x43, 0xff, 0x69, 0xa6, 0xfd, 0x53,
+	0xf6, 0xeb, 0x82, 0x69, 0x4c, 0xfe, 0xac, 0xc1, 0xe1, 0x0d, 0x48, 0xcf, 0xa5, 0xd0, 0x56, 0x81,
+	0x2b, 0xa9, 0x51, 0xd0, 0x59, 0xee, 0x78, 0x11, 0x97, 0x1a, 0xb9, 0x56, 0x69, 0xe4, 0x23, 0x00,
+	0x3f, 0xf8, 0x97, 0x14, 0xfd, 0x38, 0x47, 0x3e, 0xf3, 0x02, 0xc9, 0x31, 0xec, 0x3a, 0x53, 0xf5,
+	0x25, 0x4a, 0xa4, 0x53, 0x3f, 0xd6, 0x1d, 0x9f, 0x7c, 0x65, 0x72, 0xe4, 0x63, 0x78, 0x98, 0x49,
+	0x81, 0x94, 0x0b, 0xa6, 0xf2, 0x3a, 0x37, 0xe5, 0x0f, 0x56, 0x79, 0x57, 0x7a, 0x0a, 0xa4, 0x54,
+	0xaa, 0x16, 0x42, 0x70, 0x31, 0xb1, 0x36, 0x87, 0xe9, 0xa3, 0x15, 0x92, 0x3a, 0xc0, 0xb0, 0x2b,
+	0x9a, 0x4c, 0xc7, 0xcd, 0x5e, 0x68, 0x34, 0xcd, 0xbb, 0x4c, 0x27, 0xbf, 0x07, 0xf0, 0x64, 0x64,
+	0xb8, 0x16, 0x3e, 0x79, 0x99, 0x72, 0xb5, 0x83, 0x77, 0x51, 0xbb, 0xda, 0xca, 0xb5, 0x3b, 0x5a,
+	0x39, 0xbc, 0xd1, 0xca, 0xc6, 0xad, 0x75, 0x16, 0xce, 0x91, 0xe4, 0xb7, 0x00, 0xf6, 0x47, 0x28,
+	0xe7, 0xf7, 0xcb, 0xef, 0xd0, 0xa8, 0x54, 0x21, 0xe1, 0xe9, 0x0d, 0x60, 0xff, 0x25, 0x5b, 0xd1,
+	0xd6, 0x39, 0xbb, 0x6d, 0xab, 0x36, 0x79, 0x05, 0x4f, 0xd6, 0x0e, 0xf9, 0xf6, 0xfb, 0x02, 0xa0,
+	0x78, 0xab, 0x8e, 0x03, 0xbb, 0xb0, 0x9e, 0x6d, 0x98, 0x27, 0xdb, 0xb7, 0xa5, 0xf2, 0xe4, 0xef,
+	0x00, 0x1e, 0x9e, 0xcf, 0x38, 0xba, 0x41, 0xbb, 0x07, 0x95, 0xcc, 0x54, 0xbb, 0x4d, 0xe0, 0x96,
+	0x95, 0x9f, 0xf5, 0xd2, 0xb6, 0xdc, 0xa9, 0x6e, 0xcb, 0xc7, 0xf0, 0xa8, 0x44, 0xd8, 0x2b, 0xfa,
+	0x9d, 0x15, 0x27, 0x5d, 0x08, 0xe4, 0xb3, 0xf2, 0xdc, 0xfe, 0xdf, 0x5f, 0xaf, 0xb3, 0xbf, 0xea,
+	0x00, 0x29, 0xcf, 0x2e, 0xcc, 0xe7, 0x7f, 0x3b, 0x20, 0x3f, 0xc2, 0x83, 0xb5, 0x2d, 0x40, 0x9e,
+	0x57, 0xf5, 0xb9, 0x7d, 0x7f, 0x74, 0x3f, 0xba, 0xa3, 0xca, 0x7b, 0xf9, 0x3d, 0xec, 0x56, 0x4c,
+	0x26, 0xc9, 0x8d, 0x73, 0x37, 0xda, 0xa6, 0x7b, 0xbc, 0xb5, 0xa6, 0xb8, 0xf9, 0x71, 0x05, 0x18,
+	0xa1, 0x62, 0x74, 0xf6, 0x4e, 0xf7, 0x6f, 0x6b, 0xa6, 0xcf, 0x03, 0xf2, 0x03, 0xec, 0x55, 0xc7,
+	0x90, 0xac, 0x11, 0xba, 0x75, 0x55, 0x74, 0x9f, 0x6f, 0x2f, 0x5a, 0x09, 0x52, 0x99, 0xa1, 0x75,
+	0xc2, 0xb7, 0x4d, 0x79, 0xf7, 0x78, 0x6b, 0x8d, 0xbf, 0xf9, 0x02, 0xa2, 0xa2, 0x8f, 0xc8, 0xfb,
+	0xd5, 0x13, 0xeb, 0x13, 0xd1, 0xfd, 0x60, 0x23, 0xee, 0x6e, 0xfb, 0xaa, 0xf3, 0x1a, 0x56, 0x7f,
+	0x34, 0xdf, 0x34, 0xec, 0x3f, 0xcd, 0xc1, 0x7f, 0x01, 0x00, 0x00, 0xff, 0xff, 0xa8, 0x13, 0x8b,
+	0x3d, 0x8a, 0x0a, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -511,10 +1052,12 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type RicLogicV3Client interface {
+	GetInstanceInfo(ctx context.Context, in *GetInstanceInfoRequest, opts ...grpc.CallOption) (*GetInstanceInfoResponse, error)
+	GetAutomatons(ctx context.Context, in *GetAutomatonsRequest, opts ...grpc.CallOption) (*GetAutomatonsResponse, error)
+	GetAutomatonsStream(ctx context.Context, in *GetAutomatonsRequest, opts ...grpc.CallOption) (RicLogicV3_GetAutomatonsStreamClient, error)
 	StartAutomaton(ctx context.Context, in *StartAutomatonRequest, opts ...grpc.CallOption) (*StartAutomatonResponse, error)
-	GetAutomatonStats(ctx context.Context, in *GetRuntimeInfoRequest, opts ...grpc.CallOption) (*AutomatonStats, error)
-	GetAutomatonLogs(ctx context.Context, in *GetRuntimeInfoRequest, opts ...grpc.CallOption) (RicLogicV3_GetAutomatonLogsClient, error)
 	StopAutomaton(ctx context.Context, in *StopAutomatonRequest, opts ...grpc.CallOption) (*StopAutomatonResponse, error)
+	EmitEvent(ctx context.Context, in *EmitEventRequest, opts ...grpc.CallOption) (*EmitEventResponse, error)
 }
 
 type ricLogicV3Client struct {
@@ -523,6 +1066,56 @@ type ricLogicV3Client struct {
 
 func NewRicLogicV3Client(cc *grpc.ClientConn) RicLogicV3Client {
 	return &ricLogicV3Client{cc}
+}
+
+func (c *ricLogicV3Client) GetInstanceInfo(ctx context.Context, in *GetInstanceInfoRequest, opts ...grpc.CallOption) (*GetInstanceInfoResponse, error) {
+	out := new(GetInstanceInfoResponse)
+	err := c.cc.Invoke(ctx, "/ric.logic.v3.RicLogicV3/GetInstanceInfo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ricLogicV3Client) GetAutomatons(ctx context.Context, in *GetAutomatonsRequest, opts ...grpc.CallOption) (*GetAutomatonsResponse, error) {
+	out := new(GetAutomatonsResponse)
+	err := c.cc.Invoke(ctx, "/ric.logic.v3.RicLogicV3/GetAutomatons", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ricLogicV3Client) GetAutomatonsStream(ctx context.Context, in *GetAutomatonsRequest, opts ...grpc.CallOption) (RicLogicV3_GetAutomatonsStreamClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_RicLogicV3_serviceDesc.Streams[0], "/ric.logic.v3.RicLogicV3/GetAutomatonsStream", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &ricLogicV3GetAutomatonsStreamClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type RicLogicV3_GetAutomatonsStreamClient interface {
+	Recv() (*AutomatonInfo, error)
+	grpc.ClientStream
+}
+
+type ricLogicV3GetAutomatonsStreamClient struct {
+	grpc.ClientStream
+}
+
+func (x *ricLogicV3GetAutomatonsStreamClient) Recv() (*AutomatonInfo, error) {
+	m := new(AutomatonInfo)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
 }
 
 func (c *ricLogicV3Client) StartAutomaton(ctx context.Context, in *StartAutomatonRequest, opts ...grpc.CallOption) (*StartAutomatonResponse, error) {
@@ -534,47 +1127,6 @@ func (c *ricLogicV3Client) StartAutomaton(ctx context.Context, in *StartAutomato
 	return out, nil
 }
 
-func (c *ricLogicV3Client) GetAutomatonStats(ctx context.Context, in *GetRuntimeInfoRequest, opts ...grpc.CallOption) (*AutomatonStats, error) {
-	out := new(AutomatonStats)
-	err := c.cc.Invoke(ctx, "/ric.logic.v3.RicLogicV3/GetAutomatonStats", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ricLogicV3Client) GetAutomatonLogs(ctx context.Context, in *GetRuntimeInfoRequest, opts ...grpc.CallOption) (RicLogicV3_GetAutomatonLogsClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_RicLogicV3_serviceDesc.Streams[0], "/ric.logic.v3.RicLogicV3/GetAutomatonLogs", opts...)
-	if err != nil {
-		return nil, err
-	}
-	x := &ricLogicV3GetAutomatonLogsClient{stream}
-	if err := x.ClientStream.SendMsg(in); err != nil {
-		return nil, err
-	}
-	if err := x.ClientStream.CloseSend(); err != nil {
-		return nil, err
-	}
-	return x, nil
-}
-
-type RicLogicV3_GetAutomatonLogsClient interface {
-	Recv() (*RuntimeLogResponse, error)
-	grpc.ClientStream
-}
-
-type ricLogicV3GetAutomatonLogsClient struct {
-	grpc.ClientStream
-}
-
-func (x *ricLogicV3GetAutomatonLogsClient) Recv() (*RuntimeLogResponse, error) {
-	m := new(RuntimeLogResponse)
-	if err := x.ClientStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
-}
-
 func (c *ricLogicV3Client) StopAutomaton(ctx context.Context, in *StopAutomatonRequest, opts ...grpc.CallOption) (*StopAutomatonResponse, error) {
 	out := new(StopAutomatonResponse)
 	err := c.cc.Invoke(ctx, "/ric.logic.v3.RicLogicV3/StopAutomaton", in, out, opts...)
@@ -584,16 +1136,84 @@ func (c *ricLogicV3Client) StopAutomaton(ctx context.Context, in *StopAutomatonR
 	return out, nil
 }
 
+func (c *ricLogicV3Client) EmitEvent(ctx context.Context, in *EmitEventRequest, opts ...grpc.CallOption) (*EmitEventResponse, error) {
+	out := new(EmitEventResponse)
+	err := c.cc.Invoke(ctx, "/ric.logic.v3.RicLogicV3/EmitEvent", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // RicLogicV3Server is the server API for RicLogicV3 service.
 type RicLogicV3Server interface {
+	GetInstanceInfo(context.Context, *GetInstanceInfoRequest) (*GetInstanceInfoResponse, error)
+	GetAutomatons(context.Context, *GetAutomatonsRequest) (*GetAutomatonsResponse, error)
+	GetAutomatonsStream(*GetAutomatonsRequest, RicLogicV3_GetAutomatonsStreamServer) error
 	StartAutomaton(context.Context, *StartAutomatonRequest) (*StartAutomatonResponse, error)
-	GetAutomatonStats(context.Context, *GetRuntimeInfoRequest) (*AutomatonStats, error)
-	GetAutomatonLogs(*GetRuntimeInfoRequest, RicLogicV3_GetAutomatonLogsServer) error
 	StopAutomaton(context.Context, *StopAutomatonRequest) (*StopAutomatonResponse, error)
+	EmitEvent(context.Context, *EmitEventRequest) (*EmitEventResponse, error)
 }
 
 func RegisterRicLogicV3Server(s *grpc.Server, srv RicLogicV3Server) {
 	s.RegisterService(&_RicLogicV3_serviceDesc, srv)
+}
+
+func _RicLogicV3_GetInstanceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstanceInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RicLogicV3Server).GetInstanceInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ric.logic.v3.RicLogicV3/GetInstanceInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RicLogicV3Server).GetInstanceInfo(ctx, req.(*GetInstanceInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RicLogicV3_GetAutomatons_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAutomatonsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RicLogicV3Server).GetAutomatons(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ric.logic.v3.RicLogicV3/GetAutomatons",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RicLogicV3Server).GetAutomatons(ctx, req.(*GetAutomatonsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RicLogicV3_GetAutomatonsStream_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(GetAutomatonsRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(RicLogicV3Server).GetAutomatonsStream(m, &ricLogicV3GetAutomatonsStreamServer{stream})
+}
+
+type RicLogicV3_GetAutomatonsStreamServer interface {
+	Send(*AutomatonInfo) error
+	grpc.ServerStream
+}
+
+type ricLogicV3GetAutomatonsStreamServer struct {
+	grpc.ServerStream
+}
+
+func (x *ricLogicV3GetAutomatonsStreamServer) Send(m *AutomatonInfo) error {
+	return x.ServerStream.SendMsg(m)
 }
 
 func _RicLogicV3_StartAutomaton_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -614,45 +1234,6 @@ func _RicLogicV3_StartAutomaton_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RicLogicV3_GetAutomatonStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRuntimeInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RicLogicV3Server).GetAutomatonStats(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/ric.logic.v3.RicLogicV3/GetAutomatonStats",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RicLogicV3Server).GetAutomatonStats(ctx, req.(*GetRuntimeInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RicLogicV3_GetAutomatonLogs_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(GetRuntimeInfoRequest)
-	if err := stream.RecvMsg(m); err != nil {
-		return err
-	}
-	return srv.(RicLogicV3Server).GetAutomatonLogs(m, &ricLogicV3GetAutomatonLogsServer{stream})
-}
-
-type RicLogicV3_GetAutomatonLogsServer interface {
-	Send(*RuntimeLogResponse) error
-	grpc.ServerStream
-}
-
-type ricLogicV3GetAutomatonLogsServer struct {
-	grpc.ServerStream
-}
-
-func (x *ricLogicV3GetAutomatonLogsServer) Send(m *RuntimeLogResponse) error {
-	return x.ServerStream.SendMsg(m)
-}
-
 func _RicLogicV3_StopAutomaton_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StopAutomatonRequest)
 	if err := dec(in); err != nil {
@@ -671,27 +1252,53 @@ func _RicLogicV3_StopAutomaton_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RicLogicV3_EmitEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EmitEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RicLogicV3Server).EmitEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ric.logic.v3.RicLogicV3/EmitEvent",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RicLogicV3Server).EmitEvent(ctx, req.(*EmitEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _RicLogicV3_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "ric.logic.v3.RicLogicV3",
 	HandlerType: (*RicLogicV3Server)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "StartAutomaton",
-			Handler:    _RicLogicV3_StartAutomaton_Handler,
+			MethodName: "GetInstanceInfo",
+			Handler:    _RicLogicV3_GetInstanceInfo_Handler,
 		},
 		{
-			MethodName: "GetAutomatonStats",
-			Handler:    _RicLogicV3_GetAutomatonStats_Handler,
+			MethodName: "GetAutomatons",
+			Handler:    _RicLogicV3_GetAutomatons_Handler,
+		},
+		{
+			MethodName: "StartAutomaton",
+			Handler:    _RicLogicV3_StartAutomaton_Handler,
 		},
 		{
 			MethodName: "StopAutomaton",
 			Handler:    _RicLogicV3_StopAutomaton_Handler,
 		},
+		{
+			MethodName: "EmitEvent",
+			Handler:    _RicLogicV3_EmitEvent_Handler,
+		},
 	},
 	Streams: []grpc.StreamDesc{
 		{
-			StreamName:    "GetAutomatonLogs",
-			Handler:       _RicLogicV3_GetAutomatonLogs_Handler,
+			StreamName:    "GetAutomatonsStream",
+			Handler:       _RicLogicV3_GetAutomatonsStream_Handler,
 			ServerStreams: true,
 		},
 	},

@@ -136,7 +136,7 @@ message MasterTask {
     HIGH = 3;
   }
   // @inject_tag: bson:"_id"
-  ObjectId _id = 1;
+  ObjectId oid = 1;
   // @inject_tag: bson:",omitempty"
   ObjectId owner = 2;
   // @inject_tag: bson:",omitempty"
@@ -158,7 +158,7 @@ message CreateRequest {
 }
 
 message CreateResponse {
-  ObjectId _id = 1;
+  ObjectId oid = 1;
   repeated TaskId sub_ids = 2;
 }
 
