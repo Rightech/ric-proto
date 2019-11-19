@@ -19,12 +19,12 @@ message WatchRequest {
   string oid = 1;
   string event_type = 2;
   oneof type {
-    RpeatedFence fences = 3;
+    RepeatedFence fences = 3;
     RepeatedRoute routes = 4;
   }
 }
 
-message RpeatedFence {
+message RepeatedFence {
   repeated Fence fences = 1;
 }
 
