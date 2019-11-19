@@ -25,7 +25,7 @@ message WatchRequest {
 }
 
 message RpeatedFence {
-  repeated Fence fence = 1;
+  repeated Fence fences = 1;
 }
 
 message Fence {
@@ -35,7 +35,7 @@ message Fence {
 }
 
 message RepeatedRoute {
-  repeated string id = 1;
+  repeated string ids = 1;
 }
 
 service AttendanceControl {
