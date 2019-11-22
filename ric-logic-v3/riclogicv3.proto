@@ -19,8 +19,8 @@ message UserContext {
 }
 
 message StatsCounter {
-  int64 total = 1;
-  int64 mean = 2;
+  int64 count = 1;
+  float mean = 2;
 }
 
 message AutomatonStats {
