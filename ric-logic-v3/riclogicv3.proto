@@ -7,7 +7,6 @@ option go_package = "riclogicv3";
 service RicLogicV3 {
   rpc GetInstanceInfo(GetInstanceInfoRequest) returns (GetInstanceInfoResponse);
   rpc GetAutomatons(GetAutomatonsRequest) returns (stream AutomatonInfo);
-  rpc WatchAutomatons(GetAutomatonsRequest) returns (stream AutomatonInfo);
   rpc StartAutomaton(StartAutomatonRequest) returns (StartAutomatonResponse);
   rpc StopAutomaton(StopAutomatonRequest) returns (StopAutomatonResponse);
   rpc EmitEvent(EmitEventRequest) returns (EmitEventResponse);
@@ -98,7 +97,8 @@ message StopAutomatonResponse {
 message GetAutomatonsRequest {
   repeated string object_ids = 1;
   repeated string automaton_ids = 2;
-  bool with_logs = 3;  
+  bool with_logs = 3;
+  bool watch = 4;
 }
 
 message GetAutomatonsResponse {
