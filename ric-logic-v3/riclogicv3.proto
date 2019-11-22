@@ -18,13 +18,20 @@ message UserContext {
   string span_id = 3;
 }
 
+message StatsCounter {
+  int64 total = 1;
+  int64 mean = 2;
+}
+
 message AutomatonStats {
-  int64 started = 1;
-  int64 transitions = 2;
-  int64 actions = 3;
-  int64 packets = 4;
-  int64 events = 5;
-  string halted = 6;
+  int64 started_at = 1;
+  int64 stopped_at = 2;
+  int64 transitioned_at = 3;
+  StatsCounter transitions = 4;
+  StatsCounter actions = 5;
+  StatsCounter packets = 6;
+  StatsCounter events = 7;
+  string halted = 8;
 }
 
 message AutomatonInfo {
