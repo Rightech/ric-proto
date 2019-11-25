@@ -8,6 +8,8 @@ import (
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -20,7 +22,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type TranspileRequest struct {
 	Id                   string           `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -435,6 +437,14 @@ func (c *ricCodeClient) TranspileEs6(ctx context.Context, in *TranspileRequest, 
 // RicCodeServer is the server API for RicCode service.
 type RicCodeServer interface {
 	TranspileEs6(context.Context, *TranspileRequest) (*TranspileResponse, error)
+}
+
+// UnimplementedRicCodeServer can be embedded to have forward compatible implementations.
+type UnimplementedRicCodeServer struct {
+}
+
+func (*UnimplementedRicCodeServer) TranspileEs6(ctx context.Context, req *TranspileRequest) (*TranspileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method TranspileEs6 not implemented")
 }
 
 func RegisterRicCodeServer(s *grpc.Server, srv RicCodeServer) {

@@ -8,6 +8,8 @@ import (
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -20,7 +22,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type AuthObjectRequest struct {
 	Protocol             string                            `protobuf:"bytes,1,opt,name=protocol,proto3" json:"protocol,omitempty"`
@@ -381,6 +383,14 @@ func (c *ricAuthClient) AuthObject(ctx context.Context, in *AuthObjectRequest, o
 // RicAuthServer is the server API for RicAuth service.
 type RicAuthServer interface {
 	AuthObject(context.Context, *AuthObjectRequest) (*AuthObjectResponse, error)
+}
+
+// UnimplementedRicAuthServer can be embedded to have forward compatible implementations.
+type UnimplementedRicAuthServer struct {
+}
+
+func (*UnimplementedRicAuthServer) AuthObject(ctx context.Context, req *AuthObjectRequest) (*AuthObjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AuthObject not implemented")
 }
 
 func RegisterRicAuthServer(s *grpc.Server, srv RicAuthServer) {

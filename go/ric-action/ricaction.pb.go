@@ -8,6 +8,8 @@ import (
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -20,7 +22,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type CallRequest struct {
 	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
@@ -1347,6 +1349,29 @@ type FunctionControlServer interface {
 	Info(context.Context, *InfoRequest) (*InfoResponse, error)
 }
 
+// UnimplementedFunctionControlServer can be embedded to have forward compatible implementations.
+type UnimplementedFunctionControlServer struct {
+}
+
+func (*UnimplementedFunctionControlServer) Call(ctx context.Context, req *CallRequest) (*CallResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Call not implemented")
+}
+func (*UnimplementedFunctionControlServer) Scale(ctx context.Context, req *ScaleRequest) (*EmptyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Scale not implemented")
+}
+func (*UnimplementedFunctionControlServer) Delete(ctx context.Context, req *DeleteRequest) (*EmptyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
+}
+func (*UnimplementedFunctionControlServer) UpdateOrDeploy(ctx context.Context, req *UpdateOrDeployRequest) (*UpdateOrDeployResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateOrDeploy not implemented")
+}
+func (*UnimplementedFunctionControlServer) Logs(req *LogsRequest, srv FunctionControl_LogsServer) error {
+	return status.Errorf(codes.Unimplemented, "method Logs not implemented")
+}
+func (*UnimplementedFunctionControlServer) Info(ctx context.Context, req *InfoRequest) (*InfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Info not implemented")
+}
+
 func RegisterFunctionControlServer(s *grpc.Server, srv FunctionControlServer) {
 	s.RegisterService(&_FunctionControl_serviceDesc, srv)
 }
@@ -1558,6 +1583,17 @@ func (c *publicAPIClient) SendEvent(ctx context.Context, in *EventRequest, opts 
 type PublicAPIServer interface {
 	History(*HistoryRequest, PublicAPI_HistoryServer) error
 	SendEvent(context.Context, *EventRequest) (*EmptyResponse, error)
+}
+
+// UnimplementedPublicAPIServer can be embedded to have forward compatible implementations.
+type UnimplementedPublicAPIServer struct {
+}
+
+func (*UnimplementedPublicAPIServer) History(req *HistoryRequest, srv PublicAPI_HistoryServer) error {
+	return status.Errorf(codes.Unimplemented, "method History not implemented")
+}
+func (*UnimplementedPublicAPIServer) SendEvent(ctx context.Context, req *EventRequest) (*EmptyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendEvent not implemented")
 }
 
 func RegisterPublicAPIServer(s *grpc.Server, srv PublicAPIServer) {

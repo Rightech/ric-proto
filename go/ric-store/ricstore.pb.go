@@ -8,6 +8,8 @@ import (
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -20,7 +22,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type Mode int32
 
@@ -729,6 +731,32 @@ type RicStoreServer interface {
 	RemoveCollection(context.Context, *RemoveCollectionRequest) (*EmptyRespone, error)
 	CreateDatabase(context.Context, *CreateDatabaseRequest) (*EmptyRespone, error)
 	RemoveDatabase(context.Context, *RemoveDatabaseRequest) (*EmptyRespone, error)
+}
+
+// UnimplementedRicStoreServer can be embedded to have forward compatible implementations.
+type UnimplementedRicStoreServer struct {
+}
+
+func (*UnimplementedRicStoreServer) Insert(srv RicStore_InsertServer) error {
+	return status.Errorf(codes.Unimplemented, "method Insert not implemented")
+}
+func (*UnimplementedRicStoreServer) Query(req *QueryRequest, srv RicStore_QueryServer) error {
+	return status.Errorf(codes.Unimplemented, "method Query not implemented")
+}
+func (*UnimplementedRicStoreServer) Status(ctx context.Context, req *StatusRequest) (*StatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Status not implemented")
+}
+func (*UnimplementedRicStoreServer) CreateCollection(ctx context.Context, req *CreateCollectionRequest) (*EmptyRespone, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCollection not implemented")
+}
+func (*UnimplementedRicStoreServer) RemoveCollection(ctx context.Context, req *RemoveCollectionRequest) (*EmptyRespone, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveCollection not implemented")
+}
+func (*UnimplementedRicStoreServer) CreateDatabase(ctx context.Context, req *CreateDatabaseRequest) (*EmptyRespone, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateDatabase not implemented")
+}
+func (*UnimplementedRicStoreServer) RemoveDatabase(ctx context.Context, req *RemoveDatabaseRequest) (*EmptyRespone, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveDatabase not implemented")
 }
 
 func RegisterRicStoreServer(s *grpc.Server, srv RicStoreServer) {

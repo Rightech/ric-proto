@@ -9,6 +9,8 @@ import (
 	proto "github.com/golang/protobuf/proto"
 	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -21,7 +23,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type Task_Status int32
 
@@ -817,78 +819,12 @@ func (m *GetRequest) GetTid() *TaskId {
 	return nil
 }
 
-// XXX_OneofFuncs is for the internal use of the proto package.
-func (*GetRequest) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
-	return _GetRequest_OneofMarshaler, _GetRequest_OneofUnmarshaler, _GetRequest_OneofSizer, []interface{}{
+// XXX_OneofWrappers is for the internal use of the proto package.
+func (*GetRequest) XXX_OneofWrappers() []interface{} {
+	return []interface{}{
 		(*GetRequest_Oid)(nil),
 		(*GetRequest_Tid)(nil),
 	}
-}
-
-func _GetRequest_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
-	m := msg.(*GetRequest)
-	// payload
-	switch x := m.Payload.(type) {
-	case *GetRequest_Oid:
-		b.EncodeVarint(1<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.Oid); err != nil {
-			return err
-		}
-	case *GetRequest_Tid:
-		b.EncodeVarint(2<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.Tid); err != nil {
-			return err
-		}
-	case nil:
-	default:
-		return fmt.Errorf("GetRequest.Payload has unexpected type %T", x)
-	}
-	return nil
-}
-
-func _GetRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
-	m := msg.(*GetRequest)
-	switch tag {
-	case 1: // payload.oid
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(ObjectId)
-		err := b.DecodeMessage(msg)
-		m.Payload = &GetRequest_Oid{msg}
-		return true, err
-	case 2: // payload.tid
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(TaskId)
-		err := b.DecodeMessage(msg)
-		m.Payload = &GetRequest_Tid{msg}
-		return true, err
-	default:
-		return false, nil
-	}
-}
-
-func _GetRequest_OneofSizer(msg proto.Message) (n int) {
-	m := msg.(*GetRequest)
-	// payload
-	switch x := m.Payload.(type) {
-	case *GetRequest_Oid:
-		s := proto.Size(x.Oid)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case *GetRequest_Tid:
-		s := proto.Size(x.Tid)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case nil:
-	default:
-		panic(fmt.Sprintf("proto: unexpected type %T in oneof", x))
-	}
-	return n
 }
 
 type GetResponse struct {
@@ -1002,78 +938,12 @@ func (m *DeleteRequest) GetTid() *TaskId {
 	return nil
 }
 
-// XXX_OneofFuncs is for the internal use of the proto package.
-func (*DeleteRequest) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
-	return _DeleteRequest_OneofMarshaler, _DeleteRequest_OneofUnmarshaler, _DeleteRequest_OneofSizer, []interface{}{
+// XXX_OneofWrappers is for the internal use of the proto package.
+func (*DeleteRequest) XXX_OneofWrappers() []interface{} {
+	return []interface{}{
 		(*DeleteRequest_Oid)(nil),
 		(*DeleteRequest_Tid)(nil),
 	}
-}
-
-func _DeleteRequest_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
-	m := msg.(*DeleteRequest)
-	// payload
-	switch x := m.Payload.(type) {
-	case *DeleteRequest_Oid:
-		b.EncodeVarint(1<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.Oid); err != nil {
-			return err
-		}
-	case *DeleteRequest_Tid:
-		b.EncodeVarint(2<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.Tid); err != nil {
-			return err
-		}
-	case nil:
-	default:
-		return fmt.Errorf("DeleteRequest.Payload has unexpected type %T", x)
-	}
-	return nil
-}
-
-func _DeleteRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
-	m := msg.(*DeleteRequest)
-	switch tag {
-	case 1: // payload.oid
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(ObjectId)
-		err := b.DecodeMessage(msg)
-		m.Payload = &DeleteRequest_Oid{msg}
-		return true, err
-	case 2: // payload.tid
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(TaskId)
-		err := b.DecodeMessage(msg)
-		m.Payload = &DeleteRequest_Tid{msg}
-		return true, err
-	default:
-		return false, nil
-	}
-}
-
-func _DeleteRequest_OneofSizer(msg proto.Message) (n int) {
-	m := msg.(*DeleteRequest)
-	// payload
-	switch x := m.Payload.(type) {
-	case *DeleteRequest_Oid:
-		s := proto.Size(x.Oid)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case *DeleteRequest_Tid:
-		s := proto.Size(x.Tid)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case nil:
-	default:
-		panic(fmt.Sprintf("proto: unexpected type %T in oneof", x))
-	}
-	return n
 }
 
 type DeleteResponse struct {
@@ -1654,6 +1524,29 @@ type TasksServer interface {
 	// if subtask has end location -> change status to CLOSED can be done only
 	// in this location
 	ChangeStatus(context.Context, *ChangeStatusRequest) (*ChangeStatusResponse, error)
+}
+
+// UnimplementedTasksServer can be embedded to have forward compatible implementations.
+type UnimplementedTasksServer struct {
+}
+
+func (*UnimplementedTasksServer) Create(ctx context.Context, req *CreateRequest) (*CreateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (*UnimplementedTasksServer) Get(ctx context.Context, req *GetRequest) (*GetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (*UnimplementedTasksServer) Update(ctx context.Context, req *UpdateRequest) (*UpdateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+func (*UnimplementedTasksServer) Delete(ctx context.Context, req *DeleteRequest) (*DeleteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
+}
+func (*UnimplementedTasksServer) UpdateOrder(ctx context.Context, req *UpdateOrderRequest) (*UpdateOrderResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateOrder not implemented")
+}
+func (*UnimplementedTasksServer) ChangeStatus(ctx context.Context, req *ChangeStatusRequest) (*ChangeStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChangeStatus not implemented")
 }
 
 func RegisterTasksServer(s *grpc.Server, srv TasksServer) {
