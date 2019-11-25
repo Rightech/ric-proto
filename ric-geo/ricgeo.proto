@@ -16,21 +16,25 @@ service Watch {
 message EmptyResponse {}
 
 message WatchGeofenceRequest {
-  string oid = 1;
-  string event_type = 2;
-  repeated string geofence_id = 3;
+  enum EventType {
+    ALL = 0;
+    GEOFENCE_ENTER = 1;
+    GEOFENCE_LEAVE = 2;
+  }
+  string object_id = 1;
+  EventType event_type = 2;
+  repeated string geofences_ids = 3;
 }
 
 message WatchRoomRequest {
-  string oid = 1;
-  string event_type = 2;
+  enum EventType {
+    ALL = 0;
+    ROOM_ENTER = 1;
+    ROOM_LEAVE = 2;
+  }
+  string object_id = 1;
+  EventType event_type = 2;
   repeated Fence fences = 3;
-}
-
-message WatchRouteRequest {
-  string oid = 1;
-  string event_type = 2;
-  repeated string route_id = 3;
 }
 
 message Fence {
@@ -39,12 +43,23 @@ message Fence {
   string room_id = 3;
 }
 
+message WatchRouteRequest {
+  enum EventType {
+    ALL = 0;
+    ROUTE_ON = 1;
+    ROUTE_OFF = 2;
+  }
+  string object_id = 1;
+  EventType event_type = 2;
+  repeated string routes_ids = 3;
+}
+
 service AttendanceControl {
   rpc Control(ControlRequest) returns (EmptyResponse);
 }
 
 message ControlRequest {
-  string oid = 1;
+  string object_id = 1;
   Time time = 2;
   Circle circle = 3;
 }
