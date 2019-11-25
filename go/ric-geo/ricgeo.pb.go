@@ -8,6 +8,8 @@ import (
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -20,7 +22,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type EmptyResponse struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -53,203 +55,167 @@ func (m *EmptyResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_EmptyResponse proto.InternalMessageInfo
 
-type WatchRequest struct {
-	Oid       string `protobuf:"bytes,1,opt,name=oid,proto3" json:"oid,omitempty"`
-	EventType string `protobuf:"bytes,2,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty"`
-	// Types that are valid to be assigned to Type:
-	//	*WatchRequest_Fences
-	//	*WatchRequest_Routes
-	Type                 isWatchRequest_Type `protobuf_oneof:"type"`
-	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
-	XXX_unrecognized     []byte              `json:"-"`
-	XXX_sizecache        int32               `json:"-"`
+type WatchGeofenceRequest struct {
+	Oid                  string   `protobuf:"bytes,1,opt,name=oid,proto3" json:"oid,omitempty"`
+	EventType            string   `protobuf:"bytes,2,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty"`
+	GeofenceId           []string `protobuf:"bytes,3,rep,name=geofence_id,json=geofenceId,proto3" json:"geofence_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *WatchRequest) Reset()         { *m = WatchRequest{} }
-func (m *WatchRequest) String() string { return proto.CompactTextString(m) }
-func (*WatchRequest) ProtoMessage()    {}
-func (*WatchRequest) Descriptor() ([]byte, []int) {
+func (m *WatchGeofenceRequest) Reset()         { *m = WatchGeofenceRequest{} }
+func (m *WatchGeofenceRequest) String() string { return proto.CompactTextString(m) }
+func (*WatchGeofenceRequest) ProtoMessage()    {}
+func (*WatchGeofenceRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_7dd0c87ff6803edb, []int{1}
 }
 
-func (m *WatchRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_WatchRequest.Unmarshal(m, b)
+func (m *WatchGeofenceRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WatchGeofenceRequest.Unmarshal(m, b)
 }
-func (m *WatchRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_WatchRequest.Marshal(b, m, deterministic)
+func (m *WatchGeofenceRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WatchGeofenceRequest.Marshal(b, m, deterministic)
 }
-func (m *WatchRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_WatchRequest.Merge(m, src)
+func (m *WatchGeofenceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WatchGeofenceRequest.Merge(m, src)
 }
-func (m *WatchRequest) XXX_Size() int {
-	return xxx_messageInfo_WatchRequest.Size(m)
+func (m *WatchGeofenceRequest) XXX_Size() int {
+	return xxx_messageInfo_WatchGeofenceRequest.Size(m)
 }
-func (m *WatchRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_WatchRequest.DiscardUnknown(m)
+func (m *WatchGeofenceRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_WatchGeofenceRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_WatchRequest proto.InternalMessageInfo
+var xxx_messageInfo_WatchGeofenceRequest proto.InternalMessageInfo
 
-func (m *WatchRequest) GetOid() string {
+func (m *WatchGeofenceRequest) GetOid() string {
 	if m != nil {
 		return m.Oid
 	}
 	return ""
 }
 
-func (m *WatchRequest) GetEventType() string {
+func (m *WatchGeofenceRequest) GetEventType() string {
 	if m != nil {
 		return m.EventType
 	}
 	return ""
 }
 
-type isWatchRequest_Type interface {
-	isWatchRequest_Type()
-}
-
-type WatchRequest_Fences struct {
-	Fences *RepeatedFence `protobuf:"bytes,3,opt,name=fences,proto3,oneof"`
-}
-
-type WatchRequest_Routes struct {
-	Routes *RepeatedRoute `protobuf:"bytes,4,opt,name=routes,proto3,oneof"`
-}
-
-func (*WatchRequest_Fences) isWatchRequest_Type() {}
-
-func (*WatchRequest_Routes) isWatchRequest_Type() {}
-
-func (m *WatchRequest) GetType() isWatchRequest_Type {
+func (m *WatchGeofenceRequest) GetGeofenceId() []string {
 	if m != nil {
-		return m.Type
+		return m.GeofenceId
 	}
 	return nil
 }
 
-func (m *WatchRequest) GetFences() *RepeatedFence {
-	if x, ok := m.GetType().(*WatchRequest_Fences); ok {
-		return x.Fences
-	}
-	return nil
-}
-
-func (m *WatchRequest) GetRoutes() *RepeatedRoute {
-	if x, ok := m.GetType().(*WatchRequest_Routes); ok {
-		return x.Routes
-	}
-	return nil
-}
-
-// XXX_OneofFuncs is for the internal use of the proto package.
-func (*WatchRequest) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
-	return _WatchRequest_OneofMarshaler, _WatchRequest_OneofUnmarshaler, _WatchRequest_OneofSizer, []interface{}{
-		(*WatchRequest_Fences)(nil),
-		(*WatchRequest_Routes)(nil),
-	}
-}
-
-func _WatchRequest_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
-	m := msg.(*WatchRequest)
-	// type
-	switch x := m.Type.(type) {
-	case *WatchRequest_Fences:
-		b.EncodeVarint(3<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.Fences); err != nil {
-			return err
-		}
-	case *WatchRequest_Routes:
-		b.EncodeVarint(4<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.Routes); err != nil {
-			return err
-		}
-	case nil:
-	default:
-		return fmt.Errorf("WatchRequest.Type has unexpected type %T", x)
-	}
-	return nil
-}
-
-func _WatchRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
-	m := msg.(*WatchRequest)
-	switch tag {
-	case 3: // type.fences
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(RepeatedFence)
-		err := b.DecodeMessage(msg)
-		m.Type = &WatchRequest_Fences{msg}
-		return true, err
-	case 4: // type.routes
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(RepeatedRoute)
-		err := b.DecodeMessage(msg)
-		m.Type = &WatchRequest_Routes{msg}
-		return true, err
-	default:
-		return false, nil
-	}
-}
-
-func _WatchRequest_OneofSizer(msg proto.Message) (n int) {
-	m := msg.(*WatchRequest)
-	// type
-	switch x := m.Type.(type) {
-	case *WatchRequest_Fences:
-		s := proto.Size(x.Fences)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case *WatchRequest_Routes:
-		s := proto.Size(x.Routes)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case nil:
-	default:
-		panic(fmt.Sprintf("proto: unexpected type %T in oneof", x))
-	}
-	return n
-}
-
-type RepeatedFence struct {
-	Fences               []*Fence `protobuf:"bytes,1,rep,name=fences,proto3" json:"fences,omitempty"`
+type WatchRoomRequest struct {
+	Oid                  string   `protobuf:"bytes,1,opt,name=oid,proto3" json:"oid,omitempty"`
+	EventType            string   `protobuf:"bytes,2,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty"`
+	Fences               []*Fence `protobuf:"bytes,3,rep,name=fences,proto3" json:"fences,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RepeatedFence) Reset()         { *m = RepeatedFence{} }
-func (m *RepeatedFence) String() string { return proto.CompactTextString(m) }
-func (*RepeatedFence) ProtoMessage()    {}
-func (*RepeatedFence) Descriptor() ([]byte, []int) {
+func (m *WatchRoomRequest) Reset()         { *m = WatchRoomRequest{} }
+func (m *WatchRoomRequest) String() string { return proto.CompactTextString(m) }
+func (*WatchRoomRequest) ProtoMessage()    {}
+func (*WatchRoomRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_7dd0c87ff6803edb, []int{2}
 }
 
-func (m *RepeatedFence) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_RepeatedFence.Unmarshal(m, b)
+func (m *WatchRoomRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WatchRoomRequest.Unmarshal(m, b)
 }
-func (m *RepeatedFence) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_RepeatedFence.Marshal(b, m, deterministic)
+func (m *WatchRoomRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WatchRoomRequest.Marshal(b, m, deterministic)
 }
-func (m *RepeatedFence) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RepeatedFence.Merge(m, src)
+func (m *WatchRoomRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WatchRoomRequest.Merge(m, src)
 }
-func (m *RepeatedFence) XXX_Size() int {
-	return xxx_messageInfo_RepeatedFence.Size(m)
+func (m *WatchRoomRequest) XXX_Size() int {
+	return xxx_messageInfo_WatchRoomRequest.Size(m)
 }
-func (m *RepeatedFence) XXX_DiscardUnknown() {
-	xxx_messageInfo_RepeatedFence.DiscardUnknown(m)
+func (m *WatchRoomRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_WatchRoomRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_RepeatedFence proto.InternalMessageInfo
+var xxx_messageInfo_WatchRoomRequest proto.InternalMessageInfo
 
-func (m *RepeatedFence) GetFences() []*Fence {
+func (m *WatchRoomRequest) GetOid() string {
+	if m != nil {
+		return m.Oid
+	}
+	return ""
+}
+
+func (m *WatchRoomRequest) GetEventType() string {
+	if m != nil {
+		return m.EventType
+	}
+	return ""
+}
+
+func (m *WatchRoomRequest) GetFences() []*Fence {
 	if m != nil {
 		return m.Fences
+	}
+	return nil
+}
+
+type WatchRouteRequest struct {
+	Oid                  string   `protobuf:"bytes,1,opt,name=oid,proto3" json:"oid,omitempty"`
+	EventType            string   `protobuf:"bytes,2,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty"`
+	RouteId              []string `protobuf:"bytes,3,rep,name=route_id,json=routeId,proto3" json:"route_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *WatchRouteRequest) Reset()         { *m = WatchRouteRequest{} }
+func (m *WatchRouteRequest) String() string { return proto.CompactTextString(m) }
+func (*WatchRouteRequest) ProtoMessage()    {}
+func (*WatchRouteRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7dd0c87ff6803edb, []int{3}
+}
+
+func (m *WatchRouteRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_WatchRouteRequest.Unmarshal(m, b)
+}
+func (m *WatchRouteRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_WatchRouteRequest.Marshal(b, m, deterministic)
+}
+func (m *WatchRouteRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_WatchRouteRequest.Merge(m, src)
+}
+func (m *WatchRouteRequest) XXX_Size() int {
+	return xxx_messageInfo_WatchRouteRequest.Size(m)
+}
+func (m *WatchRouteRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_WatchRouteRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_WatchRouteRequest proto.InternalMessageInfo
+
+func (m *WatchRouteRequest) GetOid() string {
+	if m != nil {
+		return m.Oid
+	}
+	return ""
+}
+
+func (m *WatchRouteRequest) GetEventType() string {
+	if m != nil {
+		return m.EventType
+	}
+	return ""
+}
+
+func (m *WatchRouteRequest) GetRouteId() []string {
+	if m != nil {
+		return m.RouteId
 	}
 	return nil
 }
@@ -267,7 +233,7 @@ func (m *Fence) Reset()         { *m = Fence{} }
 func (m *Fence) String() string { return proto.CompactTextString(m) }
 func (*Fence) ProtoMessage()    {}
 func (*Fence) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7dd0c87ff6803edb, []int{3}
+	return fileDescriptor_7dd0c87ff6803edb, []int{4}
 }
 
 func (m *Fence) XXX_Unmarshal(b []byte) error {
@@ -307,45 +273,6 @@ func (m *Fence) GetRoomId() string {
 		return m.RoomId
 	}
 	return ""
-}
-
-type RepeatedRoute struct {
-	Ids                  []string `protobuf:"bytes,1,rep,name=ids,proto3" json:"ids,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *RepeatedRoute) Reset()         { *m = RepeatedRoute{} }
-func (m *RepeatedRoute) String() string { return proto.CompactTextString(m) }
-func (*RepeatedRoute) ProtoMessage()    {}
-func (*RepeatedRoute) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7dd0c87ff6803edb, []int{4}
-}
-
-func (m *RepeatedRoute) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_RepeatedRoute.Unmarshal(m, b)
-}
-func (m *RepeatedRoute) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_RepeatedRoute.Marshal(b, m, deterministic)
-}
-func (m *RepeatedRoute) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RepeatedRoute.Merge(m, src)
-}
-func (m *RepeatedRoute) XXX_Size() int {
-	return xxx_messageInfo_RepeatedRoute.Size(m)
-}
-func (m *RepeatedRoute) XXX_DiscardUnknown() {
-	xxx_messageInfo_RepeatedRoute.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_RepeatedRoute proto.InternalMessageInfo
-
-func (m *RepeatedRoute) GetIds() []string {
-	if m != nil {
-		return m.Ids
-	}
-	return nil
 }
 
 type ControlRequest struct {
@@ -1016,10 +943,10 @@ func (m *CheckInResponse) GetIn() bool {
 
 func init() {
 	proto.RegisterType((*EmptyResponse)(nil), "ric.geo.EmptyResponse")
-	proto.RegisterType((*WatchRequest)(nil), "ric.geo.WatchRequest")
-	proto.RegisterType((*RepeatedFence)(nil), "ric.geo.RepeatedFence")
+	proto.RegisterType((*WatchGeofenceRequest)(nil), "ric.geo.WatchGeofenceRequest")
+	proto.RegisterType((*WatchRoomRequest)(nil), "ric.geo.WatchRoomRequest")
+	proto.RegisterType((*WatchRouteRequest)(nil), "ric.geo.WatchRouteRequest")
 	proto.RegisterType((*Fence)(nil), "ric.geo.Fence")
-	proto.RegisterType((*RepeatedRoute)(nil), "ric.geo.RepeatedRoute")
 	proto.RegisterType((*ControlRequest)(nil), "ric.geo.ControlRequest")
 	proto.RegisterType((*Time)(nil), "ric.geo.Time")
 	proto.RegisterType((*Circle)(nil), "ric.geo.Circle")
@@ -1039,61 +966,60 @@ func init() {
 func init() { proto.RegisterFile("ric-geo/ricgeo.proto", fileDescriptor_7dd0c87ff6803edb) }
 
 var fileDescriptor_7dd0c87ff6803edb = []byte{
-	// 849 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x56, 0x6f, 0x4f, 0x3b, 0x45,
-	0x10, 0xf6, 0xb8, 0xf6, 0x7a, 0x9d, 0xfe, 0x93, 0x4d, 0x7f, 0x3f, 0x6a, 0x13, 0x95, 0x6e, 0x0c,
-	0x12, 0x0d, 0x95, 0xd4, 0x17, 0x90, 0x2a, 0x18, 0x41, 0xc0, 0x26, 0x26, 0x90, 0x95, 0xc4, 0x84,
-	0x68, 0xc8, 0x71, 0xb7, 0x96, 0x0d, 0xed, 0xee, 0x71, 0xb7, 0x25, 0x94, 0xf7, 0x7e, 0x1a, 0x3f,
-	0x86, 0x5f, 0xcc, 0xec, 0x9f, 0xbb, 0x5e, 0x85, 0x1a, 0xd0, 0x77, 0x33, 0x3b, 0xf3, 0x3c, 0x33,
-	0x3b, 0x3b, 0xf7, 0xe4, 0xa0, 0x9d, 0xb0, 0x70, 0x67, 0x4c, 0xc5, 0x57, 0x09, 0x0b, 0xc7, 0x54,
-	0xf4, 0xe3, 0x44, 0x48, 0x81, 0x2a, 0x09, 0x0b, 0xfb, 0x63, 0x2a, 0x70, 0x0b, 0x1a, 0x27, 0xd3,
-	0x58, 0xce, 0x09, 0x4d, 0x63, 0xc1, 0x53, 0x8a, 0xff, 0x74, 0xa0, 0xfe, 0x4b, 0x20, 0xc3, 0x5b,
-	0x42, 0xef, 0x67, 0x34, 0x95, 0xe8, 0x43, 0x70, 0x05, 0x8b, 0x3a, 0xce, 0xa6, 0xb3, 0x5d, 0x25,
-	0xca, 0x44, 0x1f, 0x03, 0xd0, 0x07, 0xca, 0xe5, 0xb5, 0x9c, 0xc7, 0xb4, 0xb3, 0xa6, 0x03, 0x55,
-	0x7d, 0x72, 0x39, 0x8f, 0x29, 0xda, 0x05, 0xef, 0x77, 0xca, 0x43, 0x9a, 0x76, 0xdc, 0x4d, 0x67,
-	0xbb, 0x36, 0x78, 0xdf, 0xb7, 0xc5, 0xfa, 0x84, 0xc6, 0x34, 0x90, 0x34, 0x3a, 0x55, 0xe1, 0x1f,
-	0x3f, 0x20, 0x36, 0x4f, 0x21, 0x12, 0x31, 0x93, 0x34, 0xed, 0x94, 0x56, 0x20, 0x88, 0x0a, 0x2b,
-	0x84, 0xc9, 0x3b, 0xf2, 0xa0, 0xa4, 0x8a, 0xe3, 0x3d, 0x68, 0x2c, 0x91, 0xa2, 0xad, 0xbc, 0xb8,
-	0xb3, 0xe9, 0x6e, 0xd7, 0x06, 0xcd, 0x9c, 0x4a, 0xc7, 0xb3, 0x92, 0xf8, 0x57, 0x28, 0x1b, 0xc0,
-	0xa7, 0x50, 0x1b, 0x53, 0xa1, 0x4f, 0xaf, 0xf3, 0x6b, 0x42, 0x76, 0x34, 0x8a, 0xd0, 0x47, 0xe0,
-	0xa7, 0xb7, 0x41, 0xac, 0xa3, 0xe6, 0xae, 0x15, 0xed, 0x8f, 0x22, 0xb4, 0x01, 0x95, 0x44, 0x88,
-	0xa9, 0x8a, 0xb8, 0x3a, 0xe2, 0x29, 0x77, 0x14, 0xe1, 0xde, 0xa2, 0x2d, 0xdd, 0xb9, 0x1a, 0x22,
-	0x8b, 0x4c, 0x4f, 0x55, 0xa2, 0x4c, 0xcc, 0xa1, 0x79, 0x2c, 0xb8, 0x4c, 0xc4, 0x64, 0xf5, 0xa0,
-	0x7b, 0x50, 0x92, 0x6c, 0x6a, 0x46, 0x5c, 0x1b, 0x34, 0xf2, 0xab, 0x5c, 0xb2, 0x29, 0x25, 0x3a,
-	0x84, 0x3e, 0x07, 0x2f, 0x64, 0x49, 0x38, 0xa1, 0x76, 0xd8, 0xad, 0x3c, 0xe9, 0x58, 0x1f, 0x13,
-	0x1b, 0xc6, 0xfb, 0x50, 0x52, 0x30, 0xd4, 0x86, 0x72, 0x2a, 0x83, 0x44, 0xea, 0x3a, 0x2e, 0x31,
-	0x0e, 0xea, 0x82, 0xcf, 0xb8, 0xa4, 0xc9, 0x43, 0x30, 0xd1, 0xd5, 0x5c, 0x92, 0xfb, 0xf8, 0x07,
-	0xf0, 0x0c, 0x97, 0xea, 0x70, 0x12, 0x18, 0xa4, 0x43, 0x94, 0xa9, 0x4f, 0x04, 0xd7, 0x10, 0x75,
-	0x22, 0x38, 0x7a, 0x0f, 0x5e, 0x12, 0x44, 0x6c, 0x66, 0x5e, 0xdf, 0x21, 0xd6, 0xc3, 0x3d, 0xa8,
-	0x9d, 0xa7, 0xd3, 0x6c, 0xcd, 0x10, 0x82, 0x52, 0x14, 0xc8, 0x40, 0x73, 0xd5, 0x89, 0xb6, 0xf1,
-	0x16, 0x34, 0xcf, 0xa8, 0x08, 0x45, 0x44, 0xb3, 0x91, 0xb4, 0xa1, 0x7c, 0x3f, 0xa3, 0xc9, 0xdc,
-	0x0e, 0xc5, 0x38, 0xf8, 0x4b, 0x28, 0x5f, 0x08, 0xc6, 0xe5, 0x6b, 0xfa, 0xc1, 0x07, 0xf0, 0x2e,
-	0x27, 0x7d, 0xa0, 0x49, 0x9a, 0x73, 0x7f, 0x06, 0xe5, 0x58, 0xb1, 0x68, 0x78, 0x71, 0x51, 0x34,
-	0x37, 0x31, 0x41, 0xfc, 0x1b, 0xb4, 0xce, 0xa8, 0xd4, 0x8f, 0x98, 0x01, 0x77, 0xa1, 0x16, 0x0a,
-	0x91, 0x44, 0x8c, 0x07, 0xf2, 0x85, 0x3d, 0x33, 0xf0, 0x62, 0x0a, 0xea, 0x40, 0x45, 0xc4, 0x92,
-	0x09, 0x9e, 0xea, 0xce, 0xea, 0x24, 0x73, 0xf1, 0x05, 0xd4, 0x47, 0x3c, 0x12, 0x22, 0xb1, 0x13,
-	0xae, 0x83, 0xf3, 0x68, 0xef, 0xe3, 0x3c, 0x2a, 0x6f, 0x6e, 0xef, 0xe2, 0xcc, 0x95, 0xf7, 0x64,
-	0x87, 0xea, 0x3c, 0x15, 0xe6, 0x5c, 0x5a, 0x9a, 0xf3, 0x1d, 0x94, 0xae, 0x04, 0x2f, 0x2e, 0x86,
-	0xf3, 0xaf, 0x8b, 0x81, 0x86, 0xd0, 0x60, 0xba, 0x85, 0x6b, 0x9b, 0x6f, 0xb6, 0xed, 0x5d, 0x9e,
-	0x5f, 0x6c, 0x90, 0xd4, 0x59, 0xc1, 0xc3, 0x7b, 0x50, 0x33, 0x51, 0xf3, 0x1e, 0xaf, 0xee, 0x1e,
-	0xcf, 0xc0, 0xbf, 0x10, 0x29, 0x53, 0x43, 0x40, 0x5f, 0x80, 0x3f, 0x11, 0x61, 0xa0, 0xec, 0x15,
-	0x6f, 0x91, 0xc7, 0xd1, 0x01, 0xb4, 0x6c, 0xb3, 0x39, 0xc4, 0xb4, 0xdb, 0xfe, 0x47, 0xbb, 0x06,
-	0xd8, 0x34, 0xc9, 0x3f, 0xd9, 0x5c, 0x7c, 0x03, 0xcd, 0xe3, 0x5b, 0x1a, 0xde, 0x8d, 0x78, 0xf6,
-	0x98, 0x3b, 0xe0, 0xc7, 0xb6, 0x11, 0x5b, 0x7c, 0xbd, 0x50, 0xdc, 0x04, 0x48, 0x9e, 0xa2, 0xbe,
-	0xc8, 0x27, 0xc1, 0x9f, 0x7f, 0x91, 0x6a, 0xe4, 0x44, 0x87, 0x70, 0x0f, 0x5a, 0x79, 0x0d, 0xbb,
-	0xec, 0x4d, 0x58, 0x63, 0x86, 0xde, 0x27, 0x6b, 0x8c, 0x0f, 0xfe, 0x70, 0xa1, 0xac, 0x35, 0x16,
-	0x1d, 0x42, 0x43, 0x1b, 0x67, 0x56, 0x6f, 0xd0, 0x62, 0xec, 0x45, 0x11, 0xee, 0x2e, 0x14, 0x71,
-	0x49, 0xad, 0xd1, 0x11, 0xac, 0xff, 0x2c, 0x45, 0xfc, 0xbf, 0x38, 0x86, 0x50, 0x35, 0x79, 0x42,
-	0x4c, 0xdf, 0x8a, 0x3d, 0x84, 0x46, 0x5e, 0xff, 0xbf, 0xe0, 0xbf, 0x01, 0xb0, 0x58, 0xa5, 0x92,
-	0x6f, 0x04, 0x7f, 0x07, 0xcd, 0x42, 0xf1, 0xb7, 0x13, 0x0c, 0xce, 0x61, 0xfd, 0x7b, 0x29, 0x29,
-	0x8f, 0x02, 0x1e, 0x52, 0xab, 0xc6, 0x68, 0x08, 0x95, 0xcc, 0xdc, 0x58, 0x7c, 0x33, 0x4b, 0x52,
-	0xbd, 0x92, 0xf0, 0x2f, 0x07, 0xdc, 0xf3, 0x74, 0x8a, 0xf6, 0xa1, 0x62, 0x45, 0xa7, 0xc0, 0xb1,
-	0xac, 0x6d, 0xdd, 0xc5, 0xc6, 0x16, 0x75, 0xf1, 0xb4, 0xa0, 0x81, 0x5a, 0xae, 0xd0, 0x27, 0xcf,
-	0x09, 0x8a, 0x3a, 0xb6, 0x82, 0x67, 0x08, 0x7e, 0xa6, 0x5b, 0xa8, 0x53, 0x60, 0x58, 0x92, 0xb2,
-	0x97, 0xb1, 0x83, 0x13, 0x28, 0xeb, 0x0d, 0x46, 0xdf, 0x42, 0xc5, 0xae, 0x72, 0x71, 0x14, 0x4b,
-	0x1f, 0x50, 0xb7, 0xf3, 0x3c, 0x60, 0x68, 0x8e, 0xfc, 0x2b, 0xcf, 0xfc, 0x73, 0xdc, 0x78, 0xfa,
-	0xa7, 0xe3, 0xeb, 0xbf, 0x03, 0x00, 0x00, 0xff, 0xff, 0x3a, 0x0b, 0x4f, 0x2b, 0x8c, 0x08, 0x00,
-	0x00,
+	// 837 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x56, 0x6d, 0x6b, 0x1b, 0x47,
+	0x10, 0xe6, 0xac, 0x97, 0x3b, 0x8d, 0xde, 0xa2, 0x45, 0x49, 0x14, 0x41, 0xda, 0x78, 0x29, 0x69,
+	0x68, 0x89, 0x5a, 0xd4, 0x0f, 0x0d, 0xa6, 0x29, 0x6d, 0xfc, 0x86, 0x4a, 0xc1, 0x66, 0x6b, 0x28,
+	0x98, 0x16, 0x71, 0xbe, 0xdb, 0x4a, 0x8b, 0xa5, 0xdd, 0xf3, 0xdd, 0xca, 0x58, 0xfe, 0x43, 0xfd,
+	0x21, 0xfd, 0x63, 0x65, 0x5f, 0x74, 0xda, 0x93, 0xad, 0x62, 0x44, 0xbf, 0xed, 0xec, 0xcc, 0x3c,
+	0xf3, 0xcc, 0xdc, 0xec, 0xc3, 0x41, 0x37, 0x65, 0xd1, 0xfb, 0x09, 0x15, 0xdf, 0xa4, 0x2c, 0x9a,
+	0x50, 0x31, 0x48, 0x52, 0x21, 0x05, 0xf2, 0x53, 0x16, 0x0d, 0x26, 0x54, 0xe0, 0x36, 0x34, 0x8f,
+	0xe7, 0x89, 0x5c, 0x12, 0x9a, 0x25, 0x82, 0x67, 0x14, 0x4f, 0xa1, 0xfb, 0x7b, 0x28, 0xa3, 0xe9,
+	0x29, 0x15, 0x7f, 0x51, 0x1e, 0x51, 0x42, 0x6f, 0x16, 0x34, 0x93, 0xe8, 0x19, 0x94, 0x04, 0x8b,
+	0x7b, 0xde, 0x1b, 0xef, 0x5d, 0x8d, 0xa8, 0x23, 0x7a, 0x0d, 0x40, 0x6f, 0x29, 0x97, 0x63, 0xb9,
+	0x4c, 0x68, 0x6f, 0x4f, 0x3b, 0x6a, 0xfa, 0xe6, 0x62, 0x99, 0x50, 0xf4, 0x39, 0xd4, 0x27, 0x16,
+	0x63, 0xcc, 0xe2, 0x5e, 0xe9, 0x4d, 0xe9, 0x5d, 0x8d, 0xc0, 0xea, 0x6a, 0x14, 0xe3, 0x6b, 0x78,
+	0xa6, 0x2b, 0x11, 0x21, 0xe6, 0x3b, 0x57, 0x79, 0x0b, 0x55, 0x8d, 0x97, 0xe9, 0x02, 0xf5, 0x61,
+	0x6b, 0x60, 0x3b, 0x1b, 0x9c, 0x68, 0xf6, 0xd6, 0x8b, 0xc7, 0xd0, 0xb1, 0xc5, 0x16, 0x72, 0xf7,
+	0x9e, 0x5e, 0x41, 0x90, 0x2a, 0x80, 0x75, 0x43, 0xbe, 0xb6, 0x47, 0x31, 0xfe, 0x03, 0x2a, 0xba,
+	0xe2, 0x66, 0xdf, 0x06, 0xdc, 0xe9, 0x5b, 0x81, 0x64, 0xd3, 0x30, 0xd1, 0x5e, 0x53, 0xc1, 0xd7,
+	0xf6, 0x28, 0x46, 0x2f, 0xc1, 0x4f, 0x85, 0x98, 0x1b, 0x78, 0xe5, 0xa9, 0x2a, 0x73, 0x14, 0x63,
+	0x0e, 0xad, 0x43, 0xc1, 0x65, 0x2a, 0x66, 0xdb, 0xb9, 0xef, 0x43, 0x59, 0xb2, 0xb9, 0x61, 0x5d,
+	0x1f, 0x36, 0xf3, 0x41, 0x5c, 0xb0, 0x39, 0x25, 0xda, 0x85, 0xbe, 0x84, 0x6a, 0xc4, 0xd2, 0x68,
+	0x46, 0x35, 0x7c, 0x7d, 0xd8, 0xce, 0x83, 0x0e, 0xf5, 0x35, 0xb1, 0x6e, 0xfc, 0x01, 0xca, 0x2a,
+	0x0d, 0x75, 0xa1, 0x92, 0xc9, 0x30, 0x95, 0xba, 0x4e, 0x89, 0x18, 0x03, 0xf5, 0x21, 0x60, 0x5c,
+	0xd2, 0xf4, 0x36, 0x9c, 0xe9, 0x6a, 0x25, 0x92, 0xdb, 0xf8, 0x08, 0xaa, 0x06, 0x4b, 0x31, 0x9c,
+	0x85, 0x26, 0xd3, 0x23, 0xea, 0xa8, 0x6f, 0x04, 0xd7, 0x29, 0xea, 0x46, 0x70, 0xf4, 0x02, 0xaa,
+	0x69, 0x18, 0xb3, 0x45, 0xa6, 0x09, 0x79, 0xc4, 0x5a, 0x78, 0x1f, 0xea, 0x67, 0xd9, 0x7c, 0xb5,
+	0x94, 0x08, 0x41, 0x39, 0x0e, 0x65, 0xa8, 0xb1, 0x1a, 0x44, 0x9f, 0xf1, 0x5b, 0x68, 0x9d, 0x52,
+	0x11, 0x89, 0x38, 0xff, 0x9c, 0x5d, 0xa8, 0xdc, 0x2c, 0x68, 0xba, 0xb4, 0x43, 0x31, 0x06, 0xfe,
+	0x1a, 0x2a, 0xe7, 0x82, 0x71, 0xf9, 0x14, 0x3e, 0xf8, 0x23, 0x3c, 0xcf, 0x41, 0x6f, 0x69, 0x9a,
+	0xe5, 0xd8, 0x5f, 0x40, 0x25, 0x51, 0x28, 0x3a, 0xdd, 0x5d, 0x33, 0x8d, 0x4d, 0x8c, 0x13, 0xff,
+	0x09, 0xed, 0x53, 0x2a, 0x0b, 0x3b, 0xf6, 0x2d, 0xd4, 0x23, 0x21, 0xd2, 0x98, 0xf1, 0x50, 0xd2,
+	0xac, 0xe7, 0x6d, 0x6c, 0xa9, 0x49, 0x77, 0x43, 0x50, 0x0f, 0x7c, 0x91, 0x48, 0x26, 0x78, 0xa6,
+	0x99, 0x35, 0xc8, 0xca, 0xc4, 0xe7, 0xd0, 0x18, 0xf1, 0x58, 0x88, 0xd4, 0x4e, 0xb8, 0x01, 0xde,
+	0x9d, 0xed, 0xc7, 0xbb, 0x53, 0xd6, 0xd2, 0xf6, 0xe2, 0x2d, 0x95, 0x75, 0x6f, 0x87, 0xea, 0xdd,
+	0x3b, 0x73, 0x2e, 0x17, 0xe6, 0x7c, 0x0d, 0xe5, 0x4b, 0xc1, 0xdd, 0xc5, 0xf0, 0xfe, 0x73, 0x31,
+	0xd0, 0x01, 0x34, 0x99, 0xa6, 0x30, 0xb6, 0xf1, 0x66, 0xdb, 0x9e, 0xe7, 0xf1, 0x2e, 0x41, 0xd2,
+	0x60, 0x8e, 0x85, 0xbf, 0x87, 0xba, 0xf1, 0x9a, 0xef, 0xf1, 0x64, 0xf6, 0x78, 0x01, 0xc1, 0xb9,
+	0xc8, 0x98, 0x1a, 0x02, 0xfa, 0x0a, 0x82, 0x99, 0x88, 0x42, 0x75, 0xde, 0xf2, 0x2d, 0x72, 0x3f,
+	0xfa, 0x08, 0x6d, 0x4b, 0x36, 0x4f, 0x31, 0x74, 0xbb, 0x1b, 0x74, 0x4d, 0x62, 0xcb, 0x04, 0xff,
+	0x6a, 0x63, 0xf1, 0x15, 0xb4, 0x0e, 0xa7, 0x34, 0xba, 0x1e, 0xf1, 0xd5, 0xc7, 0x7c, 0x0f, 0x41,
+	0x62, 0x89, 0xd8, 0xe2, 0x1d, 0xa7, 0xb8, 0x71, 0x90, 0x3c, 0x44, 0xbd, 0xc8, 0x7b, 0xc1, 0x1f,
+	0xbe, 0x48, 0x35, 0x72, 0xa2, 0x5d, 0x78, 0x1f, 0xda, 0x79, 0x0d, 0xbb, 0xec, 0x2d, 0xd8, 0x63,
+	0x06, 0x3e, 0x20, 0x7b, 0x8c, 0x0f, 0xff, 0x2e, 0x41, 0x45, 0x6b, 0x17, 0x3a, 0x81, 0x66, 0x41,
+	0x9b, 0xd1, 0xeb, 0x1c, 0xf2, 0x31, 0xcd, 0xee, 0xbf, 0xc8, 0xdd, 0x05, 0x8d, 0x47, 0xbf, 0x40,
+	0xe7, 0x37, 0x29, 0x92, 0xff, 0x05, 0xeb, 0x47, 0xa8, 0xe5, 0x2a, 0x8e, 0x5e, 0x15, 0x31, 0x1c,
+	0x65, 0xdf, 0x9a, 0xff, 0x09, 0x9a, 0x39, 0x97, 0x5d, 0x31, 0x7e, 0x02, 0x58, 0x8b, 0x3b, 0xea,
+	0x6f, 0x02, 0xac, 0x5f, 0xe3, 0x56, 0x84, 0x23, 0x68, 0x39, 0x2c, 0x76, 0x44, 0x19, 0x9e, 0x41,
+	0xe7, 0x67, 0x29, 0x29, 0x8f, 0x43, 0x1e, 0x51, 0xab, 0xd7, 0xe8, 0x00, 0xfc, 0xd5, 0xf1, 0xe5,
+	0xfa, 0x55, 0x15, 0xc4, 0x7c, 0x2b, 0xe0, 0x3f, 0x1e, 0x94, 0xce, 0xb2, 0x39, 0xfa, 0x00, 0xbe,
+	0x95, 0x25, 0x07, 0xa3, 0xa8, 0x7e, 0xfd, 0xf5, 0x4e, 0xbb, 0xca, 0x79, 0xe2, 0xa8, 0xa4, 0x16,
+	0x34, 0xf4, 0xd9, 0x43, 0x00, 0x57, 0xe9, 0xb6, 0xe0, 0x1c, 0x40, 0xb0, 0x52, 0x36, 0xd4, 0x73,
+	0x10, 0x0a, 0x62, 0xf7, 0x78, 0xee, 0xf0, 0x18, 0x2a, 0x7a, 0xc7, 0xd1, 0x0f, 0xe0, 0xdb, 0x65,
+	0x77, 0x47, 0x51, 0x78, 0x62, 0xfd, 0xde, 0x43, 0x87, 0x81, 0xf9, 0x14, 0x5c, 0x56, 0xcd, 0x3f,
+	0xcc, 0x55, 0x55, 0xff, 0xc4, 0x7c, 0xf7, 0x6f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x03, 0xbb, 0x7a,
+	0x26, 0xdc, 0x08, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -1108,12 +1034,12 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type WatchClient interface {
-	WatchGeofence(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
-	StopWatchGeofence(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
-	WatchRoom(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
-	StopWatchRoom(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
-	WatchRoute(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
-	StopWatchRoute(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
+	WatchGeofence(ctx context.Context, in *WatchGeofenceRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
+	StopWatchGeofence(ctx context.Context, in *WatchGeofenceRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
+	WatchRoom(ctx context.Context, in *WatchRoomRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
+	StopWatchRoom(ctx context.Context, in *WatchRoomRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
+	WatchRoute(ctx context.Context, in *WatchRouteRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
+	StopWatchRoute(ctx context.Context, in *WatchRouteRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
 }
 
 type watchClient struct {
@@ -1124,7 +1050,7 @@ func NewWatchClient(cc *grpc.ClientConn) WatchClient {
 	return &watchClient{cc}
 }
 
-func (c *watchClient) WatchGeofence(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
+func (c *watchClient) WatchGeofence(ctx context.Context, in *WatchGeofenceRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
 	out := new(EmptyResponse)
 	err := c.cc.Invoke(ctx, "/ric.geo.Watch/WatchGeofence", in, out, opts...)
 	if err != nil {
@@ -1133,7 +1059,7 @@ func (c *watchClient) WatchGeofence(ctx context.Context, in *WatchRequest, opts 
 	return out, nil
 }
 
-func (c *watchClient) StopWatchGeofence(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
+func (c *watchClient) StopWatchGeofence(ctx context.Context, in *WatchGeofenceRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
 	out := new(EmptyResponse)
 	err := c.cc.Invoke(ctx, "/ric.geo.Watch/StopWatchGeofence", in, out, opts...)
 	if err != nil {
@@ -1142,7 +1068,7 @@ func (c *watchClient) StopWatchGeofence(ctx context.Context, in *WatchRequest, o
 	return out, nil
 }
 
-func (c *watchClient) WatchRoom(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
+func (c *watchClient) WatchRoom(ctx context.Context, in *WatchRoomRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
 	out := new(EmptyResponse)
 	err := c.cc.Invoke(ctx, "/ric.geo.Watch/WatchRoom", in, out, opts...)
 	if err != nil {
@@ -1151,7 +1077,7 @@ func (c *watchClient) WatchRoom(ctx context.Context, in *WatchRequest, opts ...g
 	return out, nil
 }
 
-func (c *watchClient) StopWatchRoom(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
+func (c *watchClient) StopWatchRoom(ctx context.Context, in *WatchRoomRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
 	out := new(EmptyResponse)
 	err := c.cc.Invoke(ctx, "/ric.geo.Watch/StopWatchRoom", in, out, opts...)
 	if err != nil {
@@ -1160,7 +1086,7 @@ func (c *watchClient) StopWatchRoom(ctx context.Context, in *WatchRequest, opts 
 	return out, nil
 }
 
-func (c *watchClient) WatchRoute(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
+func (c *watchClient) WatchRoute(ctx context.Context, in *WatchRouteRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
 	out := new(EmptyResponse)
 	err := c.cc.Invoke(ctx, "/ric.geo.Watch/WatchRoute", in, out, opts...)
 	if err != nil {
@@ -1169,7 +1095,7 @@ func (c *watchClient) WatchRoute(ctx context.Context, in *WatchRequest, opts ...
 	return out, nil
 }
 
-func (c *watchClient) StopWatchRoute(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
+func (c *watchClient) StopWatchRoute(ctx context.Context, in *WatchRouteRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
 	out := new(EmptyResponse)
 	err := c.cc.Invoke(ctx, "/ric.geo.Watch/StopWatchRoute", in, out, opts...)
 	if err != nil {
@@ -1180,12 +1106,35 @@ func (c *watchClient) StopWatchRoute(ctx context.Context, in *WatchRequest, opts
 
 // WatchServer is the server API for Watch service.
 type WatchServer interface {
-	WatchGeofence(context.Context, *WatchRequest) (*EmptyResponse, error)
-	StopWatchGeofence(context.Context, *WatchRequest) (*EmptyResponse, error)
-	WatchRoom(context.Context, *WatchRequest) (*EmptyResponse, error)
-	StopWatchRoom(context.Context, *WatchRequest) (*EmptyResponse, error)
-	WatchRoute(context.Context, *WatchRequest) (*EmptyResponse, error)
-	StopWatchRoute(context.Context, *WatchRequest) (*EmptyResponse, error)
+	WatchGeofence(context.Context, *WatchGeofenceRequest) (*EmptyResponse, error)
+	StopWatchGeofence(context.Context, *WatchGeofenceRequest) (*EmptyResponse, error)
+	WatchRoom(context.Context, *WatchRoomRequest) (*EmptyResponse, error)
+	StopWatchRoom(context.Context, *WatchRoomRequest) (*EmptyResponse, error)
+	WatchRoute(context.Context, *WatchRouteRequest) (*EmptyResponse, error)
+	StopWatchRoute(context.Context, *WatchRouteRequest) (*EmptyResponse, error)
+}
+
+// UnimplementedWatchServer can be embedded to have forward compatible implementations.
+type UnimplementedWatchServer struct {
+}
+
+func (*UnimplementedWatchServer) WatchGeofence(ctx context.Context, req *WatchGeofenceRequest) (*EmptyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method WatchGeofence not implemented")
+}
+func (*UnimplementedWatchServer) StopWatchGeofence(ctx context.Context, req *WatchGeofenceRequest) (*EmptyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StopWatchGeofence not implemented")
+}
+func (*UnimplementedWatchServer) WatchRoom(ctx context.Context, req *WatchRoomRequest) (*EmptyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method WatchRoom not implemented")
+}
+func (*UnimplementedWatchServer) StopWatchRoom(ctx context.Context, req *WatchRoomRequest) (*EmptyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StopWatchRoom not implemented")
+}
+func (*UnimplementedWatchServer) WatchRoute(ctx context.Context, req *WatchRouteRequest) (*EmptyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method WatchRoute not implemented")
+}
+func (*UnimplementedWatchServer) StopWatchRoute(ctx context.Context, req *WatchRouteRequest) (*EmptyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StopWatchRoute not implemented")
 }
 
 func RegisterWatchServer(s *grpc.Server, srv WatchServer) {
@@ -1193,7 +1142,7 @@ func RegisterWatchServer(s *grpc.Server, srv WatchServer) {
 }
 
 func _Watch_WatchGeofence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WatchRequest)
+	in := new(WatchGeofenceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1205,13 +1154,13 @@ func _Watch_WatchGeofence_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: "/ric.geo.Watch/WatchGeofence",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WatchServer).WatchGeofence(ctx, req.(*WatchRequest))
+		return srv.(WatchServer).WatchGeofence(ctx, req.(*WatchGeofenceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Watch_StopWatchGeofence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WatchRequest)
+	in := new(WatchGeofenceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1223,13 +1172,13 @@ func _Watch_StopWatchGeofence_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: "/ric.geo.Watch/StopWatchGeofence",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WatchServer).StopWatchGeofence(ctx, req.(*WatchRequest))
+		return srv.(WatchServer).StopWatchGeofence(ctx, req.(*WatchGeofenceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Watch_WatchRoom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WatchRequest)
+	in := new(WatchRoomRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1241,13 +1190,13 @@ func _Watch_WatchRoom_Handler(srv interface{}, ctx context.Context, dec func(int
 		FullMethod: "/ric.geo.Watch/WatchRoom",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WatchServer).WatchRoom(ctx, req.(*WatchRequest))
+		return srv.(WatchServer).WatchRoom(ctx, req.(*WatchRoomRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Watch_StopWatchRoom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WatchRequest)
+	in := new(WatchRoomRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1259,13 +1208,13 @@ func _Watch_StopWatchRoom_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: "/ric.geo.Watch/StopWatchRoom",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WatchServer).StopWatchRoom(ctx, req.(*WatchRequest))
+		return srv.(WatchServer).StopWatchRoom(ctx, req.(*WatchRoomRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Watch_WatchRoute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WatchRequest)
+	in := new(WatchRouteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1277,13 +1226,13 @@ func _Watch_WatchRoute_Handler(srv interface{}, ctx context.Context, dec func(in
 		FullMethod: "/ric.geo.Watch/WatchRoute",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WatchServer).WatchRoute(ctx, req.(*WatchRequest))
+		return srv.(WatchServer).WatchRoute(ctx, req.(*WatchRouteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Watch_StopWatchRoute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WatchRequest)
+	in := new(WatchRouteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1295,7 +1244,7 @@ func _Watch_StopWatchRoute_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: "/ric.geo.Watch/StopWatchRoute",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WatchServer).StopWatchRoute(ctx, req.(*WatchRequest))
+		return srv.(WatchServer).StopWatchRoute(ctx, req.(*WatchRouteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1360,6 +1309,14 @@ func (c *attendanceControlClient) Control(ctx context.Context, in *ControlReques
 // AttendanceControlServer is the server API for AttendanceControl service.
 type AttendanceControlServer interface {
 	Control(context.Context, *ControlRequest) (*EmptyResponse, error)
+}
+
+// UnimplementedAttendanceControlServer can be embedded to have forward compatible implementations.
+type UnimplementedAttendanceControlServer struct {
+}
+
+func (*UnimplementedAttendanceControlServer) Control(ctx context.Context, req *ControlRequest) (*EmptyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Control not implemented")
 }
 
 func RegisterAttendanceControlServer(s *grpc.Server, srv AttendanceControlServer) {
@@ -1446,6 +1403,20 @@ type OsmServer interface {
 	Geocode(context.Context, *GeocodeRequest) (*OsmResponse, error)
 	GeocodeReverse(context.Context, *GeocodeReverseRequest) (*OsmResponse, error)
 	GetRoute(context.Context, *GetRouteRequest) (*OsmResponse, error)
+}
+
+// UnimplementedOsmServer can be embedded to have forward compatible implementations.
+type UnimplementedOsmServer struct {
+}
+
+func (*UnimplementedOsmServer) Geocode(ctx context.Context, req *GeocodeRequest) (*OsmResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Geocode not implemented")
+}
+func (*UnimplementedOsmServer) GeocodeReverse(ctx context.Context, req *GeocodeReverseRequest) (*OsmResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GeocodeReverse not implemented")
+}
+func (*UnimplementedOsmServer) GetRoute(ctx context.Context, req *GetRouteRequest) (*OsmResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRoute not implemented")
 }
 
 func RegisterOsmServer(s *grpc.Server, srv OsmServer) {
@@ -1554,6 +1525,14 @@ func (c *checkClient) CheckIn(ctx context.Context, in *CheckInRequest, opts ...g
 // CheckServer is the server API for Check service.
 type CheckServer interface {
 	CheckIn(context.Context, *CheckInRequest) (*CheckInResponse, error)
+}
+
+// UnimplementedCheckServer can be embedded to have forward compatible implementations.
+type UnimplementedCheckServer struct {
+}
+
+func (*UnimplementedCheckServer) CheckIn(ctx context.Context, req *CheckInRequest) (*CheckInResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckIn not implemented")
 }
 
 func RegisterCheckServer(s *grpc.Server, srv CheckServer) {

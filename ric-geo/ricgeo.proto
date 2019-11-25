@@ -5,37 +5,38 @@ package ric.geo;
 option go_package = "ricgeo";
 
 service Watch {
-  rpc WatchGeofence(WatchRequest) returns (EmptyResponse);
-  rpc StopWatchGeofence(WatchRequest) returns (EmptyResponse);
-  rpc WatchRoom(WatchRequest) returns (EmptyResponse);
-  rpc StopWatchRoom(WatchRequest) returns (EmptyResponse);
-  rpc WatchRoute(WatchRequest) returns (EmptyResponse);
-  rpc StopWatchRoute(WatchRequest) returns (EmptyResponse);
+  rpc WatchGeofence(WatchGeofenceRequest) returns (EmptyResponse);
+  rpc StopWatchGeofence(WatchGeofenceRequest) returns (EmptyResponse);
+  rpc WatchRoom(WatchRoomRequest) returns (EmptyResponse);
+  rpc StopWatchRoom(WatchRoomRequest) returns (EmptyResponse);
+  rpc WatchRoute(WatchRouteRequest) returns (EmptyResponse);
+  rpc StopWatchRoute(WatchRouteRequest) returns (EmptyResponse);
 }
 
 message EmptyResponse {}
 
-message WatchRequest {
+message WatchGeofenceRequest {
   string oid = 1;
   string event_type = 2;
-  oneof type {
-    RepeatedFence fences = 3;
-    RepeatedRoute routes = 4;
-  }
+  repeated string geofence_id = 3;
 }
 
-message RepeatedFence {
-  repeated Fence fences = 1;
+message WatchRoomRequest {
+  string oid = 1;
+  string event_type = 2;
+  repeated Fence fences = 3;
+}
+
+message WatchRouteRequest {
+  string oid = 1;
+  string event_type = 2;
+  repeated string route_id = 3;
 }
 
 message Fence {
   string geofence_id = 1;
   string shape_id = 2;
   string room_id = 3;
-}
-
-message RepeatedRoute {
-  repeated string ids = 1;
 }
 
 service AttendanceControl {
