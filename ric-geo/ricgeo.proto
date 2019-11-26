@@ -11,6 +11,8 @@ service Watch {
   rpc StopWatchRoom(WatchRoomRequest) returns (EmptyResponse);
   rpc WatchRoute(WatchRouteRequest) returns (EmptyResponse);
   rpc StopWatchRoute(WatchRouteRequest) returns (EmptyResponse);
+  rpc UpdateGeo(UpdateGeoRequest) returns (EmptyResponse);
+  rpc GetObjectInfo(GetObjectInfoRequest) returns (GetObjectInfoResponse);
 }
 
 message EmptyResponse {}
@@ -52,6 +54,26 @@ message WatchRouteRequest {
   string object_id = 1;
   EventType event_type = 2;
   repeated string routes_ids = 3;
+}
+
+message UpdateGeoRequest {
+  string geofence_id = 1;
+  string shape_id = 2;
+}
+
+message GetObjectInfoRequest {
+  string object_id = 1;
+}
+
+message GetObjectInfoResponse {
+  message ObjectGeofenceInfo {
+    string geofence_id = 1;
+    bool is_in = 2;
+    int64 last_packet_time = 3;
+    int64 last_enter_time = 4;
+    int64 last_leave_time = 5;
+  }
+  repeated ObjectGeofenceInfo geofences = 1;
 }
 
 service AttendanceControl {
