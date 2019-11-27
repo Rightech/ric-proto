@@ -82,6 +82,9 @@ class GrpcServer {
 
   getPort() {
     if (IN_KUBE) {
+      if (this.meta.port.k8s) {
+        return this.meta.port.k8s;
+      }
       return DEFAULT_KUBE_PORT;
     }
     if (this.meta.port.dev) {
@@ -155,6 +158,9 @@ class GrpcClient {
     const devPort = this.meta.port.dev;
     if (!IN_KUBE && devPort && devHost) {
       return devPort;
+    }
+    if (IN_KUBE && this.meta.port.k8s) {
+      return this.meta.port.k8s;
     }
     return DEFAULT_KUBE_PORT;
   }
