@@ -53,11 +53,9 @@ message SetConfigRequest {
     message RandomType {
       double min = 1;
       double max = 2;
-      Send send = 3;
     }
     message LinearType {
       double step = 1;
-      Send send = 2;
     }
     message Param {
       string name = 1;
@@ -65,6 +63,7 @@ message SetConfigRequest {
         RandomType random = 2;
         LinearType linear = 3;
       }
+      Send send = 4;
     }
     message Send {
       double period = 1;
