@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package ric.bots;
+
+option go_package = "ricbots";
+
+service Bots {
+  rpc Start(StartRequest) returns (EmptyResponse);
+  rpc Stop(StopRequest) returns (EmptyResponse);
+  rpc SetState(SetStateRequest) returns (EmptyResponse);
+  rpc SetConfig(SetConfigRequest) returns (EmptyResponse);
+}
+
+message EmptyResponse {}
+
+message StartRequest {
+  string object_id = 1;
+}
+
+message StopRequest {
+  string object_id = 1;
+}
+
+message SetStateRequest {
+  message StateValue {
+    oneof type {
+      string string_val = 1;
+      double double_val = 2;
+    }
+  }
+  string object_id = 1;
+  map<string, StateValue> state = 2;
+}
+
+message SetConfigRequest {
+  message Geo {
+    enum Mode {
+      UNSET = 0; // error
+      ONE_WAY = 1;
+      TWO_WAY = 2;
+    }
+    message Point {
+      double lat = 1;
+      double lon = 2;
+    }
+    Mode mode = 1;
+    bool repeate = 2;
+    map<string, string> map = 3;
+    repeated Point track = 4;
+  }
+  message Gen {
+    message RandomType {
+      double min = 1;
+      double max = 2;
+    }
+    message LinearType {
+      double step = 1;
+    }
+    message Param {
+      string name = 1;
+      oneof type {
+        RandomType random = 2;
+        LinearType linear = 3;
+      }
+      Send send = 4;
+    }
+    message Send {
+      double period = 1;
+    }
+    repeated Param params = 1;
+    Send send = 2;
+  }
+  string object_id = 1;
+  Geo geo = 2;
+  Gen gen = 3;
+}
