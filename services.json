@@ -48,6 +48,12 @@
             "port": {
                 "dev": 15078
             }
+        },
+        "ric-bots": {
+            "stateful": true,
+            "port": {
+                "dev": 15079
+            }
         }
     }
 }
