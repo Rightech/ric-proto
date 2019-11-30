@@ -44,7 +44,7 @@ message SetConfigRequest {
       double lon = 2;
     }
     Mode mode = 1;
-    bool repeate = 2;
+    bool repeat = 2;
     map<string, string> map = 3;
     repeated Point track = 4;
   }
@@ -70,6 +70,7 @@ message SetConfigRequest {
     repeated Param params = 1;
     Send send = 2;
   }
+  // @inject_tag: bson:"-"
   string object_id = 1;
   Geo geo = 2;
   Gen gen = 3;
