@@ -53,6 +53,12 @@ message AutomatonEvent {
   string payload = 2;
 }
 
+message ActionResult {
+  string status = 1;
+  string payload = 2;
+  int32 ms = 3;
+}
+
 message LogEntry {
   string id = 1;
   int64 ts = 2;
@@ -67,6 +73,7 @@ message LogEntry {
   string state = 11;
   string prev_state = 12;
   UserContext ctx = 13;
+  ActionResult result = 14;
 }
 
 message GetInstanceInfoRequest {}
