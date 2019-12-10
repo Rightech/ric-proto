@@ -26,6 +26,7 @@ message SetStateRequest {
     oneof type {
       string string_val = 1;
       double double_val = 2;
+      bool bool_val = 3;
     }
   }
   string object_id = 1;
