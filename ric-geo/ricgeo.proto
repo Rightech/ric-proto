@@ -136,6 +136,7 @@ message ControlRequest {
   string object_id = 1;
   Time time = 2;
   Circle circle = 3;
+  repeated string tags = 4;
 }
 
 message Time {
