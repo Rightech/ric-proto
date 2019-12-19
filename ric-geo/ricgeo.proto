@@ -37,14 +37,31 @@ message StopRequest {
 }
 
 service Watch {
-  rpc WatchGeofence(WatchGeofenceRequest) returns (EmptyResponse);
-  rpc StopWatchGeofence(WatchGeofenceRequest) returns (EmptyResponse);
-  rpc WatchRoom(WatchRoomRequest) returns (EmptyResponse);
-  rpc StopWatchRoom(WatchRoomRequest) returns (EmptyResponse);
-  rpc WatchRoute(WatchRouteRequest) returns (EmptyResponse);
-  rpc StopWatchRoute(WatchRouteRequest) returns (EmptyResponse);
-  rpc UpdateGeo(UpdateGeoRequest) returns (EmptyResponse);
-  rpc GetObjectInfo(GetObjectInfoRequest) returns (GetObjectInfoResponse);
+  option deprecated = true;
+  rpc WatchGeofence(WatchGeofenceRequest) returns (EmptyResponse) {
+    option deprecated = true;
+  }
+  rpc StopWatchGeofence(WatchGeofenceRequest) returns (EmptyResponse) {
+    option deprecated = true;
+  }
+  rpc WatchRoom(WatchRoomRequest) returns (EmptyResponse) {
+    option deprecated = true;
+  }
+  rpc StopWatchRoom(WatchRoomRequest) returns (EmptyResponse) {
+    option deprecated = true;
+  }
+  rpc WatchRoute(WatchRouteRequest) returns (EmptyResponse) {
+    option deprecated = true;
+  }
+  rpc StopWatchRoute(WatchRouteRequest) returns (EmptyResponse) {
+    option deprecated = true;
+  }
+  rpc UpdateGeo(UpdateGeoRequest) returns (EmptyResponse) {
+    option deprecated = true;
+  }
+  rpc GetObjectInfo(GetObjectInfoRequest) returns (GetObjectInfoResponse) {
+    option deprecated = true;
+  }
 }
 
 message EmptyResponse {}
