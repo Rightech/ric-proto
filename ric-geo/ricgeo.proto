@@ -4,38 +4,6 @@ package ric.geo;
 
 option go_package = "ricgeo";
 
-service WatchV2 {
-  rpc Watch(WatchRequest) returns (EmptyResponse);
-  rpc Stop(StopRequest) returns (EmptyResponse);
-  rpc UpdateGeo(UpdateGeoRequest) returns (EmptyResponse);
-  rpc GetObjectInfo(GetObjectInfoRequest) returns (GetObjectInfoResponse);
-}
-
-message WatchRequest {
-  enum EventType {
-    UNDEFINED = 0;
-    GEOFENCE_ENTER = 1;
-    GEOFENCE_LEAVE = 2;
-    GEOFENCE_BOTH = 3;
-    ROUTE_ON = 5;
-    ROUTE_OFF = 6;
-    ROUTE_BOTH = 7;
-    ROOM_ENTER = 9;
-    ROOM_LEAVE = 10;
-    ROOM_BOTH = 11;
-  }
-  string object_id = 1;
-  EventType event_type = 2;
-  repeated Fence fences = 3;
-  repeated string tags = 4;
-}
-
-message StopRequest {
-  string object_id = 1;
-  repeated Fence fences = 2;
-  repeated string tags = 3;
-}
-
 service Watch {
   option deprecated = true;
   rpc WatchGeofence(WatchGeofenceRequest) returns (EmptyResponse) {
@@ -126,6 +94,38 @@ message GetObjectInfoResponse {
     int64 last_leave_time = 5;
   }
   repeated ObjectGeofenceInfo geofences = 1;
+}
+
+service WatchV2 {
+  rpc Watch(WatchRequest) returns (EmptyResponse);
+  rpc Stop(StopRequest) returns (EmptyResponse);
+  rpc UpdateGeo(UpdateGeoRequest) returns (EmptyResponse);
+  rpc GetObjectInfo(GetObjectInfoRequest) returns (GetObjectInfoResponse);
+}
+
+message WatchRequest {
+  enum EventType {
+    UNDEFINED = 0;
+    GEOFENCE_ENTER = 1;
+    GEOFENCE_LEAVE = 2;
+    GEOFENCE_BOTH = 3;
+    ROUTE_ON = 5;
+    ROUTE_OFF = 6;
+    ROUTE_BOTH = 7;
+    ROOM_ENTER = 9;
+    ROOM_LEAVE = 10;
+    ROOM_BOTH = 11;
+  }
+  string object_id = 1;
+  EventType event_type = 2;
+  repeated Fence fences = 3;
+  repeated string tags = 4;
+}
+
+message StopRequest {
+  string object_id = 1;
+  repeated Fence fences = 2;
+  repeated string tags = 3;
 }
 
 service AttendanceControl {
