@@ -80,7 +80,9 @@ message SetGenConfigRequest {
 }
 
 message UnsetGenConfigRequest {
-  repeated string params_names = 1;
+  // @inject_tag: bson:"-"
+  string object_id = 1;
+  repeated string params_names = 2;
 }
 
 message UnsetGeoConfigRequest {}
