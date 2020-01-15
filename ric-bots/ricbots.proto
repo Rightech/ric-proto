@@ -12,6 +12,7 @@ service Bots {
   rpc SetGenConfig(SetGenConfigRequest) returns (EmptyResponse);
   rpc UnsetGeoConfig(UnsetGeoConfigRequest) returns (EmptyResponse);
   rpc UnsetGenConfig(UnsetGenConfigRequest) returns (EmptyResponse);
+  rpc SetBotConfig(SetBotConfigRequest) returns (EmptyResponse);
 }
 
 message EmptyResponse {}
@@ -68,24 +69,25 @@ message SetGenConfigRequest {
       RandomType random = 2;
       LinearType linear = 3;
     }
-    Send send = 4;
-  }
-  message Send {
-    double period = 1;
   }
   // @inject_tag: bson:"-"
   string object_id = 1;
-  repeated Param params = 2;
-  Send send = 3;
+  Param param = 2;
 }
 
 message UnsetGenConfigRequest {
   // @inject_tag: bson:"-"
   string object_id = 1;
-  repeated string params_names = 2;
+  string param_name = 2;
 }
 
 message UnsetGeoConfigRequest {
   // @inject_tag: bson:"-"
   string object_id = 1;
+}
+
+message SetBotConfigRequest {
+  // @inject_tag: bson:"-"
+  string object_id = 1;
+  double send_interval = 2;
 }
