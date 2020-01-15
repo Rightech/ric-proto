@@ -9,9 +9,9 @@ service Bots {
   rpc Stop(StopRequest) returns (EmptyResponse);
   rpc SetState(SetStateRequest) returns (EmptyResponse);
   rpc SetGeoConfig(SetGeoConfigRequest) returns (EmptyResponse);
-  rpc SetGenConfig(SetGenConfigRequest) returns (EmptyResponse);
   rpc UnsetGeoConfig(UnsetGeoConfigRequest) returns (EmptyResponse);
-  rpc UnsetGenConfig(UnsetGenConfigRequest) returns (EmptyResponse);
+  rpc AddToGenConfig(AddToGenConfigRequest) returns (EmptyResponse);
+  rpc RemoveFromGenConfig(RemoveFromGenConfigRequest) returns (EmptyResponse);
   rpc SetBotConfig(SetBotConfigRequest) returns (EmptyResponse);
 }
 
@@ -51,11 +51,12 @@ message SetGeoConfigRequest {
   string object_id = 1;
   Mode mode = 2;
   bool repeat = 3;
+  // @inject_tag: bson:"omitempty"
   map<string, string> map = 4;
   repeated Point track = 5;
 }
 
-message SetGenConfigRequest {
+message AddToGenConfigRequest {
   message RandomType {
     double min = 1;
     double max = 2;
@@ -72,10 +73,10 @@ message SetGenConfigRequest {
   }
 }
 
-message UnsetGenConfigRequest {
+message RemoveFromGenConfigRequest {
   // @inject_tag: bson:"-"
   string object_id = 1;
-  string param_name = 2;
+  string name = 2;
 }
 
 message UnsetGeoConfigRequest {

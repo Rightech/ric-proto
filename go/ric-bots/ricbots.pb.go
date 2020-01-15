@@ -305,10 +305,11 @@ func (*SetStateRequest_StateValue) XXX_OneofWrappers() []interface{} {
 
 type SetGeoConfigRequest struct {
 	// @inject_tag: bson:"-"
-	ObjectId             string                       `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty" bson:"-"`
-	Mode                 SetGeoConfigRequest_Mode     `protobuf:"varint,2,opt,name=mode,proto3,enum=ric.bots.SetGeoConfigRequest_Mode" json:"mode,omitempty"`
-	Repeat               bool                         `protobuf:"varint,3,opt,name=repeat,proto3" json:"repeat,omitempty"`
-	Map                  map[string]string            `protobuf:"bytes,4,rep,name=map,proto3" json:"map,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	ObjectId string                   `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty" bson:"-"`
+	Mode     SetGeoConfigRequest_Mode `protobuf:"varint,2,opt,name=mode,proto3,enum=ric.bots.SetGeoConfigRequest_Mode" json:"mode,omitempty"`
+	Repeat   bool                     `protobuf:"varint,3,opt,name=repeat,proto3" json:"repeat,omitempty"`
+	// @inject_tag: bson:"omitempty"
+	Map                  map[string]string            `protobuf:"bytes,4,rep,name=map,proto3" json:"map,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"omitempty"`
 	Track                []*SetGeoConfigRequest_Point `protobuf:"bytes,5,rep,name=track,proto3" json:"track,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                     `json:"-" bson:"-"`
 	XXX_unrecognized     []byte                       `json:"-" bson:"-"`
@@ -422,104 +423,104 @@ func (m *SetGeoConfigRequest_Point) GetLon() float64 {
 	return 0
 }
 
-type SetGenConfigRequest struct {
+type AddToGenConfigRequest struct {
 	// @inject_tag: bson:"-"
 	ObjectId string `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty" bson:"-"`
 	Name     string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	// Types that are valid to be assigned to Type:
-	//	*SetGenConfigRequest_Random
-	//	*SetGenConfigRequest_Linear
-	Type                 isSetGenConfigRequest_Type `protobuf_oneof:"type"`
-	XXX_NoUnkeyedLiteral struct{}                   `json:"-" bson:"-"`
-	XXX_unrecognized     []byte                     `json:"-" bson:"-"`
-	XXX_sizecache        int32                      `json:"-" bson:"-"`
+	//	*AddToGenConfigRequest_Random
+	//	*AddToGenConfigRequest_Linear
+	Type                 isAddToGenConfigRequest_Type `protobuf_oneof:"type"`
+	XXX_NoUnkeyedLiteral struct{}                     `json:"-" bson:"-"`
+	XXX_unrecognized     []byte                       `json:"-" bson:"-"`
+	XXX_sizecache        int32                        `json:"-" bson:"-"`
 }
 
-func (m *SetGenConfigRequest) Reset()         { *m = SetGenConfigRequest{} }
-func (m *SetGenConfigRequest) String() string { return proto.CompactTextString(m) }
-func (*SetGenConfigRequest) ProtoMessage()    {}
-func (*SetGenConfigRequest) Descriptor() ([]byte, []int) {
+func (m *AddToGenConfigRequest) Reset()         { *m = AddToGenConfigRequest{} }
+func (m *AddToGenConfigRequest) String() string { return proto.CompactTextString(m) }
+func (*AddToGenConfigRequest) ProtoMessage()    {}
+func (*AddToGenConfigRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_bd134b2217701610, []int{5}
 }
 
-func (m *SetGenConfigRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SetGenConfigRequest.Unmarshal(m, b)
+func (m *AddToGenConfigRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddToGenConfigRequest.Unmarshal(m, b)
 }
-func (m *SetGenConfigRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SetGenConfigRequest.Marshal(b, m, deterministic)
+func (m *AddToGenConfigRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddToGenConfigRequest.Marshal(b, m, deterministic)
 }
-func (m *SetGenConfigRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SetGenConfigRequest.Merge(m, src)
+func (m *AddToGenConfigRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddToGenConfigRequest.Merge(m, src)
 }
-func (m *SetGenConfigRequest) XXX_Size() int {
-	return xxx_messageInfo_SetGenConfigRequest.Size(m)
+func (m *AddToGenConfigRequest) XXX_Size() int {
+	return xxx_messageInfo_AddToGenConfigRequest.Size(m)
 }
-func (m *SetGenConfigRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_SetGenConfigRequest.DiscardUnknown(m)
+func (m *AddToGenConfigRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddToGenConfigRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_SetGenConfigRequest proto.InternalMessageInfo
+var xxx_messageInfo_AddToGenConfigRequest proto.InternalMessageInfo
 
-func (m *SetGenConfigRequest) GetObjectId() string {
+func (m *AddToGenConfigRequest) GetObjectId() string {
 	if m != nil {
 		return m.ObjectId
 	}
 	return ""
 }
 
-func (m *SetGenConfigRequest) GetName() string {
+func (m *AddToGenConfigRequest) GetName() string {
 	if m != nil {
 		return m.Name
 	}
 	return ""
 }
 
-type isSetGenConfigRequest_Type interface {
-	isSetGenConfigRequest_Type()
+type isAddToGenConfigRequest_Type interface {
+	isAddToGenConfigRequest_Type()
 }
 
-type SetGenConfigRequest_Random struct {
-	Random *SetGenConfigRequest_RandomType `protobuf:"bytes,3,opt,name=random,proto3,oneof"`
+type AddToGenConfigRequest_Random struct {
+	Random *AddToGenConfigRequest_RandomType `protobuf:"bytes,3,opt,name=random,proto3,oneof"`
 }
 
-type SetGenConfigRequest_Linear struct {
-	Linear *SetGenConfigRequest_LinearType `protobuf:"bytes,4,opt,name=linear,proto3,oneof"`
+type AddToGenConfigRequest_Linear struct {
+	Linear *AddToGenConfigRequest_LinearType `protobuf:"bytes,4,opt,name=linear,proto3,oneof"`
 }
 
-func (*SetGenConfigRequest_Random) isSetGenConfigRequest_Type() {}
+func (*AddToGenConfigRequest_Random) isAddToGenConfigRequest_Type() {}
 
-func (*SetGenConfigRequest_Linear) isSetGenConfigRequest_Type() {}
+func (*AddToGenConfigRequest_Linear) isAddToGenConfigRequest_Type() {}
 
-func (m *SetGenConfigRequest) GetType() isSetGenConfigRequest_Type {
+func (m *AddToGenConfigRequest) GetType() isAddToGenConfigRequest_Type {
 	if m != nil {
 		return m.Type
 	}
 	return nil
 }
 
-func (m *SetGenConfigRequest) GetRandom() *SetGenConfigRequest_RandomType {
-	if x, ok := m.GetType().(*SetGenConfigRequest_Random); ok {
+func (m *AddToGenConfigRequest) GetRandom() *AddToGenConfigRequest_RandomType {
+	if x, ok := m.GetType().(*AddToGenConfigRequest_Random); ok {
 		return x.Random
 	}
 	return nil
 }
 
-func (m *SetGenConfigRequest) GetLinear() *SetGenConfigRequest_LinearType {
-	if x, ok := m.GetType().(*SetGenConfigRequest_Linear); ok {
+func (m *AddToGenConfigRequest) GetLinear() *AddToGenConfigRequest_LinearType {
+	if x, ok := m.GetType().(*AddToGenConfigRequest_Linear); ok {
 		return x.Linear
 	}
 	return nil
 }
 
 // XXX_OneofWrappers is for the internal use of the proto package.
-func (*SetGenConfigRequest) XXX_OneofWrappers() []interface{} {
+func (*AddToGenConfigRequest) XXX_OneofWrappers() []interface{} {
 	return []interface{}{
-		(*SetGenConfigRequest_Random)(nil),
-		(*SetGenConfigRequest_Linear)(nil),
+		(*AddToGenConfigRequest_Random)(nil),
+		(*AddToGenConfigRequest_Linear)(nil),
 	}
 }
 
-type SetGenConfigRequest_RandomType struct {
+type AddToGenConfigRequest_RandomType struct {
 	Min                  float64  `protobuf:"fixed64,1,opt,name=min,proto3" json:"min,omitempty"`
 	Max                  float64  `protobuf:"fixed64,2,opt,name=max,proto3" json:"max,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-" bson:"-"`
@@ -527,128 +528,128 @@ type SetGenConfigRequest_RandomType struct {
 	XXX_sizecache        int32    `json:"-" bson:"-"`
 }
 
-func (m *SetGenConfigRequest_RandomType) Reset()         { *m = SetGenConfigRequest_RandomType{} }
-func (m *SetGenConfigRequest_RandomType) String() string { return proto.CompactTextString(m) }
-func (*SetGenConfigRequest_RandomType) ProtoMessage()    {}
-func (*SetGenConfigRequest_RandomType) Descriptor() ([]byte, []int) {
+func (m *AddToGenConfigRequest_RandomType) Reset()         { *m = AddToGenConfigRequest_RandomType{} }
+func (m *AddToGenConfigRequest_RandomType) String() string { return proto.CompactTextString(m) }
+func (*AddToGenConfigRequest_RandomType) ProtoMessage()    {}
+func (*AddToGenConfigRequest_RandomType) Descriptor() ([]byte, []int) {
 	return fileDescriptor_bd134b2217701610, []int{5, 0}
 }
 
-func (m *SetGenConfigRequest_RandomType) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SetGenConfigRequest_RandomType.Unmarshal(m, b)
+func (m *AddToGenConfigRequest_RandomType) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddToGenConfigRequest_RandomType.Unmarshal(m, b)
 }
-func (m *SetGenConfigRequest_RandomType) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SetGenConfigRequest_RandomType.Marshal(b, m, deterministic)
+func (m *AddToGenConfigRequest_RandomType) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddToGenConfigRequest_RandomType.Marshal(b, m, deterministic)
 }
-func (m *SetGenConfigRequest_RandomType) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SetGenConfigRequest_RandomType.Merge(m, src)
+func (m *AddToGenConfigRequest_RandomType) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddToGenConfigRequest_RandomType.Merge(m, src)
 }
-func (m *SetGenConfigRequest_RandomType) XXX_Size() int {
-	return xxx_messageInfo_SetGenConfigRequest_RandomType.Size(m)
+func (m *AddToGenConfigRequest_RandomType) XXX_Size() int {
+	return xxx_messageInfo_AddToGenConfigRequest_RandomType.Size(m)
 }
-func (m *SetGenConfigRequest_RandomType) XXX_DiscardUnknown() {
-	xxx_messageInfo_SetGenConfigRequest_RandomType.DiscardUnknown(m)
+func (m *AddToGenConfigRequest_RandomType) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddToGenConfigRequest_RandomType.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_SetGenConfigRequest_RandomType proto.InternalMessageInfo
+var xxx_messageInfo_AddToGenConfigRequest_RandomType proto.InternalMessageInfo
 
-func (m *SetGenConfigRequest_RandomType) GetMin() float64 {
+func (m *AddToGenConfigRequest_RandomType) GetMin() float64 {
 	if m != nil {
 		return m.Min
 	}
 	return 0
 }
 
-func (m *SetGenConfigRequest_RandomType) GetMax() float64 {
+func (m *AddToGenConfigRequest_RandomType) GetMax() float64 {
 	if m != nil {
 		return m.Max
 	}
 	return 0
 }
 
-type SetGenConfigRequest_LinearType struct {
+type AddToGenConfigRequest_LinearType struct {
 	Step                 float64  `protobuf:"fixed64,1,opt,name=step,proto3" json:"step,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-" bson:"-"`
 	XXX_unrecognized     []byte   `json:"-" bson:"-"`
 	XXX_sizecache        int32    `json:"-" bson:"-"`
 }
 
-func (m *SetGenConfigRequest_LinearType) Reset()         { *m = SetGenConfigRequest_LinearType{} }
-func (m *SetGenConfigRequest_LinearType) String() string { return proto.CompactTextString(m) }
-func (*SetGenConfigRequest_LinearType) ProtoMessage()    {}
-func (*SetGenConfigRequest_LinearType) Descriptor() ([]byte, []int) {
+func (m *AddToGenConfigRequest_LinearType) Reset()         { *m = AddToGenConfigRequest_LinearType{} }
+func (m *AddToGenConfigRequest_LinearType) String() string { return proto.CompactTextString(m) }
+func (*AddToGenConfigRequest_LinearType) ProtoMessage()    {}
+func (*AddToGenConfigRequest_LinearType) Descriptor() ([]byte, []int) {
 	return fileDescriptor_bd134b2217701610, []int{5, 1}
 }
 
-func (m *SetGenConfigRequest_LinearType) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_SetGenConfigRequest_LinearType.Unmarshal(m, b)
+func (m *AddToGenConfigRequest_LinearType) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddToGenConfigRequest_LinearType.Unmarshal(m, b)
 }
-func (m *SetGenConfigRequest_LinearType) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_SetGenConfigRequest_LinearType.Marshal(b, m, deterministic)
+func (m *AddToGenConfigRequest_LinearType) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddToGenConfigRequest_LinearType.Marshal(b, m, deterministic)
 }
-func (m *SetGenConfigRequest_LinearType) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SetGenConfigRequest_LinearType.Merge(m, src)
+func (m *AddToGenConfigRequest_LinearType) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddToGenConfigRequest_LinearType.Merge(m, src)
 }
-func (m *SetGenConfigRequest_LinearType) XXX_Size() int {
-	return xxx_messageInfo_SetGenConfigRequest_LinearType.Size(m)
+func (m *AddToGenConfigRequest_LinearType) XXX_Size() int {
+	return xxx_messageInfo_AddToGenConfigRequest_LinearType.Size(m)
 }
-func (m *SetGenConfigRequest_LinearType) XXX_DiscardUnknown() {
-	xxx_messageInfo_SetGenConfigRequest_LinearType.DiscardUnknown(m)
+func (m *AddToGenConfigRequest_LinearType) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddToGenConfigRequest_LinearType.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_SetGenConfigRequest_LinearType proto.InternalMessageInfo
+var xxx_messageInfo_AddToGenConfigRequest_LinearType proto.InternalMessageInfo
 
-func (m *SetGenConfigRequest_LinearType) GetStep() float64 {
+func (m *AddToGenConfigRequest_LinearType) GetStep() float64 {
 	if m != nil {
 		return m.Step
 	}
 	return 0
 }
 
-type UnsetGenConfigRequest struct {
+type RemoveFromGenConfigRequest struct {
 	// @inject_tag: bson:"-"
 	ObjectId             string   `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty" bson:"-"`
-	ParamName            string   `protobuf:"bytes,2,opt,name=param_name,json=paramName,proto3" json:"param_name,omitempty"`
+	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-" bson:"-"`
 	XXX_unrecognized     []byte   `json:"-" bson:"-"`
 	XXX_sizecache        int32    `json:"-" bson:"-"`
 }
 
-func (m *UnsetGenConfigRequest) Reset()         { *m = UnsetGenConfigRequest{} }
-func (m *UnsetGenConfigRequest) String() string { return proto.CompactTextString(m) }
-func (*UnsetGenConfigRequest) ProtoMessage()    {}
-func (*UnsetGenConfigRequest) Descriptor() ([]byte, []int) {
+func (m *RemoveFromGenConfigRequest) Reset()         { *m = RemoveFromGenConfigRequest{} }
+func (m *RemoveFromGenConfigRequest) String() string { return proto.CompactTextString(m) }
+func (*RemoveFromGenConfigRequest) ProtoMessage()    {}
+func (*RemoveFromGenConfigRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_bd134b2217701610, []int{6}
 }
 
-func (m *UnsetGenConfigRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_UnsetGenConfigRequest.Unmarshal(m, b)
+func (m *RemoveFromGenConfigRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RemoveFromGenConfigRequest.Unmarshal(m, b)
 }
-func (m *UnsetGenConfigRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_UnsetGenConfigRequest.Marshal(b, m, deterministic)
+func (m *RemoveFromGenConfigRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RemoveFromGenConfigRequest.Marshal(b, m, deterministic)
 }
-func (m *UnsetGenConfigRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UnsetGenConfigRequest.Merge(m, src)
+func (m *RemoveFromGenConfigRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RemoveFromGenConfigRequest.Merge(m, src)
 }
-func (m *UnsetGenConfigRequest) XXX_Size() int {
-	return xxx_messageInfo_UnsetGenConfigRequest.Size(m)
+func (m *RemoveFromGenConfigRequest) XXX_Size() int {
+	return xxx_messageInfo_RemoveFromGenConfigRequest.Size(m)
 }
-func (m *UnsetGenConfigRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_UnsetGenConfigRequest.DiscardUnknown(m)
+func (m *RemoveFromGenConfigRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_RemoveFromGenConfigRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_UnsetGenConfigRequest proto.InternalMessageInfo
+var xxx_messageInfo_RemoveFromGenConfigRequest proto.InternalMessageInfo
 
-func (m *UnsetGenConfigRequest) GetObjectId() string {
+func (m *RemoveFromGenConfigRequest) GetObjectId() string {
 	if m != nil {
 		return m.ObjectId
 	}
 	return ""
 }
 
-func (m *UnsetGenConfigRequest) GetParamName() string {
+func (m *RemoveFromGenConfigRequest) GetName() string {
 	if m != nil {
-		return m.ParamName
+		return m.Name
 	}
 	return ""
 }
@@ -752,10 +753,10 @@ func init() {
 	proto.RegisterType((*SetGeoConfigRequest)(nil), "ric.bots.SetGeoConfigRequest")
 	proto.RegisterMapType((map[string]string)(nil), "ric.bots.SetGeoConfigRequest.MapEntry")
 	proto.RegisterType((*SetGeoConfigRequest_Point)(nil), "ric.bots.SetGeoConfigRequest.Point")
-	proto.RegisterType((*SetGenConfigRequest)(nil), "ric.bots.SetGenConfigRequest")
-	proto.RegisterType((*SetGenConfigRequest_RandomType)(nil), "ric.bots.SetGenConfigRequest.RandomType")
-	proto.RegisterType((*SetGenConfigRequest_LinearType)(nil), "ric.bots.SetGenConfigRequest.LinearType")
-	proto.RegisterType((*UnsetGenConfigRequest)(nil), "ric.bots.UnsetGenConfigRequest")
+	proto.RegisterType((*AddToGenConfigRequest)(nil), "ric.bots.AddToGenConfigRequest")
+	proto.RegisterType((*AddToGenConfigRequest_RandomType)(nil), "ric.bots.AddToGenConfigRequest.RandomType")
+	proto.RegisterType((*AddToGenConfigRequest_LinearType)(nil), "ric.bots.AddToGenConfigRequest.LinearType")
+	proto.RegisterType((*RemoveFromGenConfigRequest)(nil), "ric.bots.RemoveFromGenConfigRequest")
 	proto.RegisterType((*UnsetGeoConfigRequest)(nil), "ric.bots.UnsetGeoConfigRequest")
 	proto.RegisterType((*SetBotConfigRequest)(nil), "ric.bots.SetBotConfigRequest")
 }
@@ -763,52 +764,53 @@ func init() {
 func init() { proto.RegisterFile("ric-bots/ricbots.proto", fileDescriptor_bd134b2217701610) }
 
 var fileDescriptor_bd134b2217701610 = []byte{
-	// 714 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x55, 0xdd, 0x6e, 0xd3, 0x4c,
-	0x10, 0x8d, 0x13, 0x27, 0x8d, 0x27, 0xfd, 0xd3, 0x7e, 0x5f, 0x4b, 0x70, 0x55, 0x35, 0x72, 0x11,
-	0x8a, 0xa8, 0x30, 0x28, 0xa0, 0xaa, 0xf4, 0x02, 0x89, 0xa0, 0x40, 0x8b, 0xa0, 0x45, 0xeb, 0xfe,
-	0x08, 0x2e, 0x88, 0x36, 0xf1, 0x52, 0x99, 0xda, 0xbb, 0xc6, 0xde, 0x56, 0xcd, 0x23, 0xf0, 0x26,
-	0x88, 0x97, 0xe0, 0xd5, 0xd0, 0xae, 0xed, 0xc4, 0x89, 0x9a, 0x36, 0xb9, 0xea, 0xce, 0xe9, 0x9c,
-	0x33, 0x3b, 0x73, 0xb2, 0x63, 0x58, 0x8f, 0xbc, 0xfe, 0xd3, 0x1e, 0x17, 0xf1, 0xb3, 0xc8, 0xeb,
-	0xcb, 0xbf, 0x76, 0x18, 0x71, 0xc1, 0x51, 0x35, 0xf2, 0xfa, 0xb6, 0x8c, 0xad, 0x15, 0x58, 0xea,
-	0x04, 0xa1, 0x18, 0x60, 0x1a, 0x87, 0x9c, 0xc5, 0xd4, 0xda, 0x81, 0x45, 0x47, 0x90, 0x48, 0x60,
-	0xfa, 0xf3, 0x8a, 0xc6, 0x02, 0x6d, 0x80, 0xc1, 0x7b, 0x3f, 0x68, 0x5f, 0x74, 0x3d, 0xb7, 0xae,
-	0x35, 0xb4, 0xa6, 0x81, 0xab, 0x09, 0x70, 0xe8, 0x5a, 0x4f, 0xa0, 0xe6, 0x08, 0x1e, 0xce, 0x94,
-	0xfb, 0xb7, 0x08, 0x2b, 0x0e, 0x15, 0x8e, 0x20, 0x82, 0xce, 0x42, 0x40, 0xfb, 0x50, 0x8e, 0x65,
-	0x72, 0xbd, 0xd8, 0x28, 0x35, 0x6b, 0xad, 0x47, 0x76, 0x76, 0x69, 0x7b, 0x42, 0xc6, 0x56, 0x41,
-	0x87, 0x89, 0x68, 0x80, 0x13, 0x8a, 0x19, 0x03, 0x28, 0xf0, 0x8c, 0xf8, 0x57, 0x14, 0x6d, 0x01,
-	0xc4, 0x22, 0xf2, 0xd8, 0x45, 0xf7, 0x9a, 0xf8, 0x49, 0x9d, 0x83, 0x02, 0x36, 0x12, 0xec, 0x8c,
-	0xf8, 0x32, 0xc1, 0xe5, 0x57, 0x3d, 0x9f, 0xaa, 0x84, 0x62, 0x43, 0x6b, 0x6a, 0x32, 0x21, 0xc1,
-	0x64, 0xc2, 0x06, 0x54, 0x7b, 0x9c, 0xfb, 0xea, 0xdf, 0xa5, 0x86, 0xd6, 0xac, 0x1e, 0x14, 0xf0,
-	0x82, 0x44, 0xce, 0x88, 0xdf, 0xae, 0x80, 0x2e, 0x06, 0x21, 0x35, 0xbf, 0xa5, 0x45, 0xd5, 0x4d,
-	0xd0, 0x2a, 0x94, 0x2e, 0xe9, 0x20, 0xed, 0x4a, 0x1e, 0x65, 0x43, 0xd7, 0xf2, 0x3e, 0xaa, 0xc0,
-	0xfd, 0x0d, 0xa9, 0xbb, 0xe3, 0x84, 0xb2, 0x5f, 0xdc, 0xd3, 0xac, 0x5f, 0x25, 0xf8, 0xcf, 0xa1,
-	0xe2, 0x3d, 0xe5, 0x6f, 0x39, 0xfb, 0xee, 0x5d, 0xcc, 0x34, 0xc5, 0x5d, 0xd0, 0x03, 0xee, 0x26,
-	0x35, 0x97, 0x5b, 0xd6, 0x58, 0xcd, 0x49, 0x25, 0xfb, 0x13, 0x77, 0x29, 0x56, 0xf9, 0x68, 0x1d,
-	0x2a, 0x11, 0x0d, 0x29, 0x11, 0x49, 0xbf, 0x38, 0x8d, 0xd0, 0x1e, 0x94, 0x02, 0x12, 0xd6, 0x75,
-	0xe5, 0xc9, 0xe3, 0x7b, 0xe4, 0x48, 0x98, 0xb8, 0x22, 0x29, 0xe8, 0x15, 0x94, 0x45, 0x44, 0xfa,
-	0x97, 0xf5, 0xb2, 0xe2, 0x6e, 0xdf, 0xcd, 0xfd, 0xcc, 0x3d, 0x26, 0x70, 0xc2, 0x30, 0x77, 0xa0,
-	0xac, 0x62, 0x39, 0x54, 0x9f, 0x08, 0xd5, 0xa4, 0x86, 0xe5, 0x51, 0x21, 0x9c, 0x25, 0x9e, 0x61,
-	0x79, 0x34, 0x77, 0xa1, 0x9a, 0x15, 0xbe, 0xc5, 0x84, 0xff, 0xf3, 0x26, 0x18, 0xf9, 0xf1, 0xee,
-	0x80, 0x2e, 0xfb, 0x47, 0x06, 0x94, 0x4f, 0x8f, 0x9c, 0xce, 0xc9, 0x6a, 0x01, 0xd5, 0x60, 0xe1,
-	0xf8, 0xa8, 0xd3, 0x3d, 0x7f, 0xf3, 0x65, 0x55, 0x93, 0xc1, 0xc9, 0xf9, 0xb1, 0x0a, 0x8a, 0xd6,
-	0x9f, 0x62, 0xea, 0x05, 0x9b, 0xc3, 0x0b, 0x04, 0x3a, 0x23, 0x41, 0x56, 0x5a, 0x9d, 0x51, 0x1b,
-	0x2a, 0x11, 0x61, 0x2e, 0x0f, 0xd4, 0x9c, 0x6b, 0xad, 0xe6, 0xc4, 0x58, 0xc6, 0xf5, 0x6d, 0xac,
-	0x72, 0x4f, 0x06, 0x21, 0x3d, 0x28, 0xe0, 0x94, 0x29, 0x35, 0x7c, 0x8f, 0x51, 0x12, 0xd5, 0xf5,
-	0x59, 0x34, 0x3e, 0xaa, 0xdc, 0x4c, 0x23, 0x61, 0x9a, 0xcf, 0x01, 0x46, 0xda, 0x72, 0x6e, 0x81,
-	0xc7, 0xb2, 0x39, 0x07, 0x1e, 0x53, 0x08, 0xb9, 0xc9, 0xe6, 0x1c, 0x90, 0x1b, 0xb3, 0x01, 0x30,
-	0x52, 0x92, 0xbd, 0xc5, 0x82, 0x86, 0x29, 0x45, 0x9d, 0xb3, 0x87, 0x61, 0x39, 0xb0, 0x76, 0xca,
-	0xe2, 0x79, 0xa7, 0xb5, 0x09, 0x10, 0x92, 0x88, 0x04, 0xdd, 0xdc, 0xcc, 0x0c, 0x85, 0x1c, 0x91,
-	0x80, 0x5a, 0x2f, 0x87, 0xa2, 0x73, 0x3c, 0x07, 0xeb, 0x5c, 0xd9, 0xd6, 0xe6, 0x62, 0x8e, 0x8b,
-	0x6c, 0xc3, 0x52, 0x4c, 0x99, 0xdb, 0xf5, 0x98, 0xa0, 0xd1, 0x70, 0x41, 0xe0, 0x45, 0x09, 0x1e,
-	0xa6, 0x58, 0xeb, 0xb7, 0x0e, 0x7a, 0x9b, 0x8b, 0x18, 0xed, 0x41, 0x59, 0x2d, 0x50, 0xb4, 0x9e,
-	0x73, 0x21, 0xb7, 0x51, 0xcd, 0x07, 0x23, 0x7c, 0x6c, 0xf5, 0xca, 0xa7, 0x2a, 0xb7, 0x29, 0x5a,
-	0xcb, 0x13, 0x87, 0xdb, 0x75, 0x3a, 0xef, 0x35, 0x54, 0xb3, 0x05, 0x82, 0x1e, 0x4e, 0x5d, 0x2a,
-	0xd3, 0xf9, 0xef, 0x60, 0x31, 0xff, 0x02, 0xd1, 0xe6, 0x9d, 0x2f, 0xf3, 0x7e, 0x1d, 0x36, 0x45,
-	0x87, 0xcd, 0xa8, 0xf3, 0x01, 0x96, 0xc7, 0x9d, 0x45, 0x5b, 0xa3, 0xd4, 0x5b, 0x3d, 0x9f, 0x45,
-	0x8b, 0x4d, 0xd5, 0x62, 0x73, 0xf5, 0x37, 0xfc, 0xed, 0x4c, 0xf4, 0x37, 0xf9, 0x9b, 0x9a, 0xaa,
-	0xd3, 0x36, 0xbe, 0x2e, 0xa4, 0x9f, 0xe3, 0x5e, 0x45, 0x7d, 0x8f, 0x5f, 0xfc, 0x0b, 0x00, 0x00,
-	0xff, 0xff, 0x35, 0x31, 0xf2, 0x8d, 0xa9, 0x07, 0x00, 0x00,
+	// 725 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x55, 0xdd, 0x4e, 0x13, 0x41,
+	0x14, 0xee, 0xb6, 0xdb, 0xd2, 0x9e, 0xf2, 0x97, 0x41, 0xb0, 0x2e, 0x31, 0x34, 0x8b, 0x31, 0x0d,
+	0xc4, 0x6a, 0xaa, 0x21, 0xc8, 0x85, 0x09, 0xd5, 0xf2, 0x63, 0x04, 0xcc, 0xb4, 0x40, 0xf4, 0xc2,
+	0x66, 0xda, 0x1d, 0xc9, 0xca, 0xee, 0xcc, 0xba, 0x3b, 0x10, 0xfa, 0x08, 0xbe, 0x8d, 0x57, 0xde,
+	0xfa, 0x6a, 0x66, 0x66, 0x77, 0xe9, 0xb6, 0xe9, 0x42, 0x89, 0x57, 0x9d, 0x39, 0x3d, 0xdf, 0x77,
+	0xe6, 0x7c, 0xe7, 0x67, 0x61, 0xc5, 0xb7, 0xfb, 0x2f, 0x7a, 0x5c, 0x04, 0x2f, 0x7d, 0xbb, 0x2f,
+	0x7f, 0xeb, 0x9e, 0xcf, 0x05, 0x47, 0x45, 0xdf, 0xee, 0xd7, 0xe5, 0xdd, 0x5c, 0x80, 0xb9, 0x96,
+	0xeb, 0x89, 0x01, 0xa6, 0x81, 0xc7, 0x59, 0x40, 0xcd, 0x4d, 0x98, 0x6d, 0x0b, 0xe2, 0x0b, 0x4c,
+	0x7f, 0x5e, 0xd1, 0x40, 0xa0, 0x55, 0x28, 0xf1, 0xde, 0x0f, 0xda, 0x17, 0x5d, 0xdb, 0xaa, 0x68,
+	0x55, 0xad, 0x56, 0xc2, 0xc5, 0xd0, 0x70, 0x68, 0x99, 0x1b, 0x50, 0x6e, 0x0b, 0xee, 0x4d, 0xe5,
+	0xfb, 0x37, 0x0b, 0x0b, 0x6d, 0x2a, 0xda, 0x82, 0x08, 0x3a, 0x0d, 0x00, 0xed, 0x40, 0x3e, 0x90,
+	0xce, 0x95, 0x6c, 0x35, 0x57, 0x2b, 0x37, 0x9e, 0xd5, 0xe3, 0x47, 0xd7, 0xc7, 0x68, 0xea, 0xea,
+	0xd2, 0x62, 0xc2, 0x1f, 0xe0, 0x10, 0x62, 0x04, 0x00, 0xca, 0x78, 0x46, 0x9c, 0x2b, 0x8a, 0xd6,
+	0x00, 0x02, 0xe1, 0xdb, 0xec, 0xa2, 0x7b, 0x4d, 0x9c, 0x30, 0xce, 0x41, 0x06, 0x97, 0x42, 0xdb,
+	0x19, 0x71, 0xa4, 0x83, 0xc5, 0xaf, 0x7a, 0x0e, 0x55, 0x0e, 0xd9, 0xaa, 0x56, 0xd3, 0xa4, 0x43,
+	0x68, 0x93, 0x0e, 0xab, 0x50, 0xec, 0x71, 0xee, 0xa8, 0xbf, 0x73, 0x55, 0xad, 0x56, 0x3c, 0xc8,
+	0xe0, 0x19, 0x69, 0x39, 0x23, 0x4e, 0xb3, 0x00, 0xba, 0x18, 0x78, 0xd4, 0xf8, 0x16, 0x05, 0x55,
+	0x2f, 0x41, 0x8b, 0x90, 0xbb, 0xa4, 0x83, 0x28, 0x2b, 0x79, 0x94, 0x09, 0x5d, 0xcb, 0xf7, 0xa8,
+	0x00, 0xf7, 0x27, 0xa4, 0xde, 0x8e, 0x43, 0xc8, 0x4e, 0x76, 0x5b, 0x33, 0x7f, 0xe5, 0x60, 0xa9,
+	0x4d, 0xc5, 0x3e, 0xe5, 0xef, 0x39, 0xfb, 0x6e, 0x5f, 0x4c, 0xa5, 0xe2, 0x16, 0xe8, 0x2e, 0xb7,
+	0xc2, 0x98, 0xf3, 0x0d, 0x73, 0x24, 0xe6, 0x38, 0x53, 0xfd, 0x88, 0x5b, 0x14, 0x2b, 0x7f, 0xb4,
+	0x02, 0x05, 0x9f, 0x7a, 0x94, 0x88, 0x30, 0x5f, 0x1c, 0xdd, 0xd0, 0x36, 0xe4, 0x5c, 0xe2, 0x55,
+	0x74, 0x55, 0x93, 0xe7, 0xf7, 0xd0, 0x11, 0x2f, 0xac, 0x8a, 0x84, 0xa0, 0xb7, 0x90, 0x17, 0x3e,
+	0xe9, 0x5f, 0x56, 0xf2, 0x0a, 0xbb, 0x7e, 0x37, 0xf6, 0x33, 0xb7, 0x99, 0xc0, 0x21, 0xc2, 0xd8,
+	0x84, 0xbc, 0xba, 0x4b, 0x51, 0x1d, 0x22, 0x54, 0x92, 0x1a, 0x96, 0x47, 0x65, 0xe1, 0x2c, 0xac,
+	0x19, 0x96, 0x47, 0x63, 0x0b, 0x8a, 0x71, 0xe0, 0x09, 0x45, 0x78, 0x94, 0x2c, 0x42, 0x29, 0x29,
+	0xef, 0x26, 0xe8, 0x32, 0x7f, 0x54, 0x82, 0xfc, 0xe9, 0x71, 0xbb, 0xd5, 0x59, 0xcc, 0xa0, 0x32,
+	0xcc, 0x9c, 0x1c, 0xb7, 0xba, 0xe7, 0xbb, 0x5f, 0x16, 0x35, 0x79, 0xe9, 0x9c, 0x9f, 0xa8, 0x4b,
+	0xd6, 0xfc, 0x9d, 0x85, 0xe5, 0x5d, 0xcb, 0xea, 0xf0, 0x7d, 0xca, 0x1e, 0x50, 0x0d, 0x04, 0x3a,
+	0x23, 0x6e, 0x1c, 0x5c, 0x9d, 0xd1, 0x07, 0x28, 0xf8, 0x84, 0x59, 0xdc, 0x55, 0x4a, 0x97, 0x1b,
+	0x1b, 0x43, 0x61, 0x26, 0x46, 0xa8, 0x63, 0xe5, 0xdd, 0x19, 0x78, 0xf4, 0x20, 0x83, 0x23, 0xac,
+	0x64, 0x71, 0x6c, 0x46, 0x89, 0x5f, 0xd1, 0xa7, 0x63, 0xf9, 0xa4, 0xbc, 0x63, 0x96, 0x10, 0x6b,
+	0xbc, 0x02, 0x18, 0xb2, 0x4b, 0xf5, 0x5c, 0x9b, 0xc5, 0x6a, 0xbb, 0x36, 0x53, 0x16, 0x72, 0x13,
+	0xab, 0xed, 0x92, 0x1b, 0xa3, 0x0a, 0x30, 0x64, 0x92, 0xf9, 0x05, 0x82, 0x7a, 0x11, 0x44, 0x9d,
+	0xe3, 0xf1, 0x30, 0x8f, 0xc0, 0xc0, 0xd4, 0xe5, 0xd7, 0x74, 0xcf, 0xe7, 0xee, 0x7f, 0xcb, 0x66,
+	0xbe, 0x81, 0xe5, 0x53, 0x16, 0x3c, 0x70, 0x1c, 0xcc, 0x73, 0x35, 0x42, 0x4d, 0x2e, 0x1e, 0x10,
+	0x7d, 0x1d, 0xe6, 0x02, 0xca, 0xac, 0xae, 0xcd, 0x04, 0xf5, 0x6f, 0x17, 0x04, 0x9e, 0x95, 0xc6,
+	0xc3, 0xc8, 0xd6, 0xf8, 0xa3, 0x83, 0xde, 0xe4, 0x22, 0x40, 0xdb, 0x90, 0x57, 0x0b, 0x14, 0xad,
+	0x24, 0x1a, 0x3c, 0xb1, 0x51, 0x8d, 0xc7, 0x43, 0xfb, 0xc8, 0xea, 0x95, 0xa3, 0x2a, 0xb7, 0x29,
+	0x5a, 0x4e, 0x02, 0x6f, 0xb7, 0x6b, 0x3a, 0xee, 0x1d, 0x14, 0xe3, 0x05, 0x82, 0x9e, 0xa4, 0x2e,
+	0x95, 0x74, 0xfc, 0x1e, 0xcc, 0x26, 0x27, 0x10, 0x3d, 0xbd, 0x73, 0x32, 0xd3, 0x79, 0x3e, 0xc2,
+	0xfc, 0x68, 0x45, 0xd0, 0xda, 0xd0, 0x75, 0x62, 0xad, 0xee, 0xe4, 0x1a, 0x6d, 0xdb, 0x24, 0xd7,
+	0xc4, 0x86, 0x4e, 0xe7, 0xea, 0xc0, 0xd2, 0x84, 0xc6, 0x43, 0x89, 0xfd, 0x9b, 0xde, 0x97, 0xf7,
+	0xa9, 0x76, 0xdb, 0x49, 0x63, 0xaa, 0x8d, 0x77, 0x58, 0x2a, 0x4f, 0xb3, 0xf4, 0x75, 0x26, 0xfa,
+	0x38, 0xf7, 0x0a, 0xea, 0xeb, 0xfc, 0xfa, 0x5f, 0x00, 0x00, 0x00, 0xff, 0xff, 0xc6, 0x21, 0x97,
+	0xec, 0xb7, 0x07, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -827,9 +829,9 @@ type BotsClient interface {
 	Stop(ctx context.Context, in *StopRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
 	SetState(ctx context.Context, in *SetStateRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
 	SetGeoConfig(ctx context.Context, in *SetGeoConfigRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
-	SetGenConfig(ctx context.Context, in *SetGenConfigRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
 	UnsetGeoConfig(ctx context.Context, in *UnsetGeoConfigRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
-	UnsetGenConfig(ctx context.Context, in *UnsetGenConfigRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
+	AddToGenConfig(ctx context.Context, in *AddToGenConfigRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
+	RemoveFromGenConfig(ctx context.Context, in *RemoveFromGenConfigRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
 	SetBotConfig(ctx context.Context, in *SetBotConfigRequest, opts ...grpc.CallOption) (*EmptyResponse, error)
 }
 
@@ -877,15 +879,6 @@ func (c *botsClient) SetGeoConfig(ctx context.Context, in *SetGeoConfigRequest, 
 	return out, nil
 }
 
-func (c *botsClient) SetGenConfig(ctx context.Context, in *SetGenConfigRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
-	out := new(EmptyResponse)
-	err := c.cc.Invoke(ctx, "/ric.bots.Bots/SetGenConfig", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *botsClient) UnsetGeoConfig(ctx context.Context, in *UnsetGeoConfigRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
 	out := new(EmptyResponse)
 	err := c.cc.Invoke(ctx, "/ric.bots.Bots/UnsetGeoConfig", in, out, opts...)
@@ -895,9 +888,18 @@ func (c *botsClient) UnsetGeoConfig(ctx context.Context, in *UnsetGeoConfigReque
 	return out, nil
 }
 
-func (c *botsClient) UnsetGenConfig(ctx context.Context, in *UnsetGenConfigRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
+func (c *botsClient) AddToGenConfig(ctx context.Context, in *AddToGenConfigRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
 	out := new(EmptyResponse)
-	err := c.cc.Invoke(ctx, "/ric.bots.Bots/UnsetGenConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/ric.bots.Bots/AddToGenConfig", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *botsClient) RemoveFromGenConfig(ctx context.Context, in *RemoveFromGenConfigRequest, opts ...grpc.CallOption) (*EmptyResponse, error) {
+	out := new(EmptyResponse)
+	err := c.cc.Invoke(ctx, "/ric.bots.Bots/RemoveFromGenConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -919,9 +921,9 @@ type BotsServer interface {
 	Stop(context.Context, *StopRequest) (*EmptyResponse, error)
 	SetState(context.Context, *SetStateRequest) (*EmptyResponse, error)
 	SetGeoConfig(context.Context, *SetGeoConfigRequest) (*EmptyResponse, error)
-	SetGenConfig(context.Context, *SetGenConfigRequest) (*EmptyResponse, error)
 	UnsetGeoConfig(context.Context, *UnsetGeoConfigRequest) (*EmptyResponse, error)
-	UnsetGenConfig(context.Context, *UnsetGenConfigRequest) (*EmptyResponse, error)
+	AddToGenConfig(context.Context, *AddToGenConfigRequest) (*EmptyResponse, error)
+	RemoveFromGenConfig(context.Context, *RemoveFromGenConfigRequest) (*EmptyResponse, error)
 	SetBotConfig(context.Context, *SetBotConfigRequest) (*EmptyResponse, error)
 }
 
@@ -941,14 +943,14 @@ func (*UnimplementedBotsServer) SetState(ctx context.Context, req *SetStateReque
 func (*UnimplementedBotsServer) SetGeoConfig(ctx context.Context, req *SetGeoConfigRequest) (*EmptyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetGeoConfig not implemented")
 }
-func (*UnimplementedBotsServer) SetGenConfig(ctx context.Context, req *SetGenConfigRequest) (*EmptyResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SetGenConfig not implemented")
-}
 func (*UnimplementedBotsServer) UnsetGeoConfig(ctx context.Context, req *UnsetGeoConfigRequest) (*EmptyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UnsetGeoConfig not implemented")
 }
-func (*UnimplementedBotsServer) UnsetGenConfig(ctx context.Context, req *UnsetGenConfigRequest) (*EmptyResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UnsetGenConfig not implemented")
+func (*UnimplementedBotsServer) AddToGenConfig(ctx context.Context, req *AddToGenConfigRequest) (*EmptyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddToGenConfig not implemented")
+}
+func (*UnimplementedBotsServer) RemoveFromGenConfig(ctx context.Context, req *RemoveFromGenConfigRequest) (*EmptyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveFromGenConfig not implemented")
 }
 func (*UnimplementedBotsServer) SetBotConfig(ctx context.Context, req *SetBotConfigRequest) (*EmptyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetBotConfig not implemented")
@@ -1030,24 +1032,6 @@ func _Bots_SetGeoConfig_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Bots_SetGenConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetGenConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BotsServer).SetGenConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/ric.bots.Bots/SetGenConfig",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BotsServer).SetGenConfig(ctx, req.(*SetGenConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _Bots_UnsetGeoConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UnsetGeoConfigRequest)
 	if err := dec(in); err != nil {
@@ -1066,20 +1050,38 @@ func _Bots_UnsetGeoConfig_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Bots_UnsetGenConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnsetGenConfigRequest)
+func _Bots_AddToGenConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddToGenConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BotsServer).UnsetGenConfig(ctx, in)
+		return srv.(BotsServer).AddToGenConfig(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/ric.bots.Bots/UnsetGenConfig",
+		FullMethod: "/ric.bots.Bots/AddToGenConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BotsServer).UnsetGenConfig(ctx, req.(*UnsetGenConfigRequest))
+		return srv.(BotsServer).AddToGenConfig(ctx, req.(*AddToGenConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Bots_RemoveFromGenConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveFromGenConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BotsServer).RemoveFromGenConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ric.bots.Bots/RemoveFromGenConfig",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BotsServer).RemoveFromGenConfig(ctx, req.(*RemoveFromGenConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1123,16 +1125,16 @@ var _Bots_serviceDesc = grpc.ServiceDesc{
 			Handler:    _Bots_SetGeoConfig_Handler,
 		},
 		{
-			MethodName: "SetGenConfig",
-			Handler:    _Bots_SetGenConfig_Handler,
-		},
-		{
 			MethodName: "UnsetGeoConfig",
 			Handler:    _Bots_UnsetGeoConfig_Handler,
 		},
 		{
-			MethodName: "UnsetGenConfig",
-			Handler:    _Bots_UnsetGenConfig_Handler,
+			MethodName: "AddToGenConfig",
+			Handler:    _Bots_AddToGenConfig_Handler,
+		},
+		{
+			MethodName: "RemoveFromGenConfig",
+			Handler:    _Bots_RemoveFromGenConfig_Handler,
 		},
 		{
 			MethodName: "SetBotConfig",
