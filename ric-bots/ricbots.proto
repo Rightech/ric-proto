@@ -63,16 +63,13 @@ message SetGenConfigRequest {
   message LinearType {
     double step = 1;
   }
-  message Param {
-    string name = 1;
-    oneof type {
-      RandomType random = 2;
-      LinearType linear = 3;
-    }
-  }
   // @inject_tag: bson:"-"
   string object_id = 1;
-  Param param = 2;
+  string name = 2;
+  oneof type {
+    RandomType random = 3;
+    LinearType linear = 4;
+  }
 }
 
 message UnsetGenConfigRequest {
