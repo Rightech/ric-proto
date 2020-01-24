@@ -1,4 +1,8 @@
-#!/bin/sh
+#!/bin/bash
+
+if [[ -f .env ]]; then
+    source .env
+fi
 
 prototool format -w
 prototool generate
