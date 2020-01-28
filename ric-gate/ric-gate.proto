@@ -29,7 +29,7 @@ message InitRequest {
 
 message AuthRequest {
   string instance_id = 1;
-  string object_id = 2;
+  string id = 2;
   string login = 3;
   string password = 4;
 }

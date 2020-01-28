@@ -343,19 +343,19 @@ class AuthRequest final :
   ::std::string* release_instance_id();
   void set_allocated_instance_id(::std::string* instance_id);
 
-  // string object_id = 2;
-  void clear_object_id();
-  static const int kObjectIdFieldNumber = 2;
-  const ::std::string& object_id() const;
-  void set_object_id(const ::std::string& value);
+  // string id = 2;
+  void clear_id();
+  static const int kIdFieldNumber = 2;
+  const ::std::string& id() const;
+  void set_id(const ::std::string& value);
   #if LANG_CXX11
-  void set_object_id(::std::string&& value);
+  void set_id(::std::string&& value);
   #endif
-  void set_object_id(const char* value);
-  void set_object_id(const char* value, size_t size);
-  ::std::string* mutable_object_id();
-  ::std::string* release_object_id();
-  void set_allocated_object_id(::std::string* object_id);
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  ::std::string* mutable_id();
+  ::std::string* release_id();
+  void set_allocated_id(::std::string* id);
 
   // string login = 3;
   void clear_login();
@@ -391,7 +391,7 @@ class AuthRequest final :
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr instance_id_;
-  ::google::protobuf::internal::ArenaStringPtr object_id_;
+  ::google::protobuf::internal::ArenaStringPtr id_;
   ::google::protobuf::internal::ArenaStringPtr login_;
   ::google::protobuf::internal::ArenaStringPtr password_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
@@ -1247,57 +1247,57 @@ inline void AuthRequest::set_allocated_instance_id(::std::string* instance_id) {
   // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthRequest.instance_id)
 }
 
-// string object_id = 2;
-inline void AuthRequest::clear_object_id() {
-  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// string id = 2;
+inline void AuthRequest::clear_id() {
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& AuthRequest::object_id() const {
-  // @@protoc_insertion_point(field_get:ric.gate.AuthRequest.object_id)
-  return object_id_.GetNoArena();
+inline const ::std::string& AuthRequest::id() const {
+  // @@protoc_insertion_point(field_get:ric.gate.AuthRequest.id)
+  return id_.GetNoArena();
 }
-inline void AuthRequest::set_object_id(const ::std::string& value) {
+inline void AuthRequest::set_id(const ::std::string& value) {
   
-  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.gate.AuthRequest.object_id)
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.gate.AuthRequest.id)
 }
 #if LANG_CXX11
-inline void AuthRequest::set_object_id(::std::string&& value) {
+inline void AuthRequest::set_id(::std::string&& value) {
   
-  object_id_.SetNoArena(
+  id_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.gate.AuthRequest.object_id)
+  // @@protoc_insertion_point(field_set_rvalue:ric.gate.AuthRequest.id)
 }
 #endif
-inline void AuthRequest::set_object_id(const char* value) {
+inline void AuthRequest::set_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.gate.AuthRequest.object_id)
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.gate.AuthRequest.id)
 }
-inline void AuthRequest::set_object_id(const char* value, size_t size) {
+inline void AuthRequest::set_id(const char* value, size_t size) {
   
-  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.gate.AuthRequest.object_id)
+  // @@protoc_insertion_point(field_set_pointer:ric.gate.AuthRequest.id)
 }
-inline ::std::string* AuthRequest::mutable_object_id() {
+inline ::std::string* AuthRequest::mutable_id() {
   
-  // @@protoc_insertion_point(field_mutable:ric.gate.AuthRequest.object_id)
-  return object_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:ric.gate.AuthRequest.id)
+  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* AuthRequest::release_object_id() {
-  // @@protoc_insertion_point(field_release:ric.gate.AuthRequest.object_id)
+inline ::std::string* AuthRequest::release_id() {
+  // @@protoc_insertion_point(field_release:ric.gate.AuthRequest.id)
   
-  return object_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void AuthRequest::set_allocated_object_id(::std::string* object_id) {
-  if (object_id != nullptr) {
+inline void AuthRequest::set_allocated_id(::std::string* id) {
+  if (id != nullptr) {
     
   } else {
     
   }
-  object_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), object_id);
-  // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthRequest.object_id)
+  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthRequest.id)
 }
 
 // string login = 3;
