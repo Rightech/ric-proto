@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ric.gate;
 
-option go_package = "riccode";
+option go_package = "ricgate";
 
 // Methods for edge inlet and gate interaction
 service GateInlet {
@@ -29,7 +29,7 @@ message InitRequest {
 
 message AuthRequest {
   string instance_id = 1;
-  string id = 2;
+  string object_id = 2;
   string login = 3;
   string password = 4;
 }
