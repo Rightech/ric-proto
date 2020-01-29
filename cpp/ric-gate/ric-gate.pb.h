@@ -42,7 +42,7 @@ struct TableStruct_ric_2dgate_2fric_2dgate_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[7]
+  static const ::google::protobuf::internal::ParseTable schema[8]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -54,6 +54,9 @@ namespace gate {
 class AuthRequest;
 class AuthRequestDefaultTypeInternal;
 extern AuthRequestDefaultTypeInternal _AuthRequest_default_instance_;
+class AuthResponse;
+class AuthResponseDefaultTypeInternal;
+extern AuthResponseDefaultTypeInternal _AuthResponse_default_instance_;
 class Command;
 class CommandDefaultTypeInternal;
 extern CommandDefaultTypeInternal _Command_default_instance_;
@@ -77,6 +80,7 @@ extern OfflineRequestDefaultTypeInternal _OfflineRequest_default_instance_;
 namespace google {
 namespace protobuf {
 template<> ::ric::gate::AuthRequest* Arena::CreateMaybeMessage<::ric::gate::AuthRequest>(Arena*);
+template<> ::ric::gate::AuthResponse* Arena::CreateMaybeMessage<::ric::gate::AuthResponse>(Arena*);
 template<> ::ric::gate::Command* Arena::CreateMaybeMessage<::ric::gate::Command>(Arena*);
 template<> ::ric::gate::CommandReplyRequest* Arena::CreateMaybeMessage<::ric::gate::CommandReplyRequest>(Arena*);
 template<> ::ric::gate::DataRequest* Arena::CreateMaybeMessage<::ric::gate::DataRequest>(Arena*);
@@ -399,6 +403,126 @@ class AuthRequest final :
 };
 // -------------------------------------------------------------------
 
+class AuthResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.gate.AuthResponse) */ {
+ public:
+  AuthResponse();
+  virtual ~AuthResponse();
+
+  AuthResponse(const AuthResponse& from);
+
+  inline AuthResponse& operator=(const AuthResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  AuthResponse(AuthResponse&& from) noexcept
+    : AuthResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline AuthResponse& operator=(AuthResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const AuthResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const AuthResponse* internal_default_instance() {
+    return reinterpret_cast<const AuthResponse*>(
+               &_AuthResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  void Swap(AuthResponse* other);
+  friend void swap(AuthResponse& a, AuthResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline AuthResponse* New() const final {
+    return CreateMaybeMessage<AuthResponse>(nullptr);
+  }
+
+  AuthResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<AuthResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const AuthResponse& from);
+  void MergeFrom(const AuthResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(AuthResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string object_id = 1;
+  void clear_object_id();
+  static const int kObjectIdFieldNumber = 1;
+  const ::std::string& object_id() const;
+  void set_object_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_object_id(::std::string&& value);
+  #endif
+  void set_object_id(const char* value);
+  void set_object_id(const char* value, size_t size);
+  ::std::string* mutable_object_id();
+  ::std::string* release_object_id();
+  void set_allocated_object_id(::std::string* object_id);
+
+  // @@protoc_insertion_point(class_scope:ric.gate.AuthResponse)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr object_id_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dgate_2fric_2dgate_2eproto;
+};
+// -------------------------------------------------------------------
+
 class DataRequest final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.gate.DataRequest) */ {
  public:
@@ -437,7 +561,7 @@ class DataRequest final :
                &_DataRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   void Swap(DataRequest* other);
   friend void swap(DataRequest& a, DataRequest& b) {
@@ -572,7 +696,7 @@ class CommandReplyRequest final :
                &_CommandReplyRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   void Swap(CommandReplyRequest* other);
   friend void swap(CommandReplyRequest& a, CommandReplyRequest& b) {
@@ -776,7 +900,7 @@ class OfflineRequest final :
                &_OfflineRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   void Swap(OfflineRequest* other);
   friend void swap(OfflineRequest& a, OfflineRequest& b) {
@@ -896,7 +1020,7 @@ class Command final :
                &_Command_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   void Swap(Command* other);
   friend void swap(Command& a, Command& b) {
@@ -1061,7 +1185,7 @@ class EmptyResponse final :
                &_EmptyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   void Swap(EmptyResponse* other);
   friend void swap(EmptyResponse& a, EmptyResponse& b) {
@@ -1404,6 +1528,63 @@ inline void AuthRequest::set_allocated_password(::std::string* password) {
   }
   password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
   // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthRequest.password)
+}
+
+// -------------------------------------------------------------------
+
+// AuthResponse
+
+// string object_id = 1;
+inline void AuthResponse::clear_object_id() {
+  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& AuthResponse::object_id() const {
+  // @@protoc_insertion_point(field_get:ric.gate.AuthResponse.object_id)
+  return object_id_.GetNoArena();
+}
+inline void AuthResponse::set_object_id(const ::std::string& value) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.gate.AuthResponse.object_id)
+}
+#if LANG_CXX11
+inline void AuthResponse::set_object_id(::std::string&& value) {
+  
+  object_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.gate.AuthResponse.object_id)
+}
+#endif
+inline void AuthResponse::set_object_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.gate.AuthResponse.object_id)
+}
+inline void AuthResponse::set_object_id(const char* value, size_t size) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.gate.AuthResponse.object_id)
+}
+inline ::std::string* AuthResponse::mutable_object_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.gate.AuthResponse.object_id)
+  return object_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* AuthResponse::release_object_id() {
+  // @@protoc_insertion_point(field_release:ric.gate.AuthResponse.object_id)
+  
+  return object_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AuthResponse::set_allocated_object_id(::std::string* object_id) {
+  if (object_id != nullptr) {
+    
+  } else {
+    
+  }
+  object_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), object_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthResponse.object_id)
 }
 
 // -------------------------------------------------------------------
@@ -2026,6 +2207,8 @@ inline void Command::set_allocated_params(::std::string* params) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -57,24 +57,24 @@ void GateInlet::Stub::experimental_async::Init(::grpc::ClientContext* context, :
   return ::grpc::internal::ClientAsyncReaderFactory< ::ric::gate::Command>::Create(channel_.get(), cq, rpcmethod_Init_, context, request, false, nullptr);
 }
 
-::grpc::Status GateInlet::Stub::Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::ric::gate::EmptyResponse* response) {
+::grpc::Status GateInlet::Stub::Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::ric::gate::AuthResponse* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Auth_, context, request, response);
 }
 
-void GateInlet::Stub::experimental_async::Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
+void GateInlet::Stub::experimental_async::Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Auth_, context, request, response, std::move(f));
 }
 
-void GateInlet::Stub::experimental_async::Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
+void GateInlet::Stub::experimental_async::Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::AuthResponse* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Auth_, context, request, response, std::move(f));
 }
 
-::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* GateInlet::Stub::AsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Auth_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::ric::gate::AuthResponse>* GateInlet::Stub::AsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::AuthResponse>::Create(channel_.get(), cq, rpcmethod_Auth_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* GateInlet::Stub::PrepareAsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Auth_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::ric::gate::AuthResponse>* GateInlet::Stub::PrepareAsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::AuthResponse>::Create(channel_.get(), cq, rpcmethod_Auth_, context, request, false);
 }
 
 ::grpc::Status GateInlet::Stub::SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::ric::gate::EmptyResponse* response) {
@@ -146,7 +146,7 @@ GateInlet::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       GateInlet_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< GateInlet::Service, ::ric::gate::AuthRequest, ::ric::gate::EmptyResponse>(
+      new ::grpc::internal::RpcMethodHandler< GateInlet::Service, ::ric::gate::AuthRequest, ::ric::gate::AuthResponse>(
           std::mem_fn(&GateInlet::Service::Auth), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       GateInlet_method_names[2],
@@ -175,7 +175,7 @@ GateInlet::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status GateInlet::Service::Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::EmptyResponse* response) {
+::grpc::Status GateInlet::Service::Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response) {
   (void) context;
   (void) request;
   (void) response;

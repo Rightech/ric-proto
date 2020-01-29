@@ -9,7 +9,7 @@ service GateInlet {
   // Init and subscribes to commands from gate
   rpc Init(InitRequest) returns (stream Command);
   // Auth new device
-  rpc Auth(AuthRequest) returns (EmptyResponse);
+  rpc Auth(AuthRequest) returns (AuthResponse);
   // Send data from device
   rpc SendData(DataRequest) returns (EmptyResponse);
   // Send command reply
@@ -32,6 +32,10 @@ message AuthRequest {
   string id = 2;
   string login = 3;
   string password = 4;
+}
+
+message AuthResponse {
+  string object_id = 1;
 }
 
 message DataRequest {

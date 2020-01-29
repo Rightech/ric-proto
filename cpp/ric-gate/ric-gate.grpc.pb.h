@@ -50,12 +50,12 @@ class GateInlet final {
       return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::ric::gate::Command>>(PrepareAsyncInitRaw(context, request, cq));
     }
     // Auth new device
-    virtual ::grpc::Status Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::ric::gate::EmptyResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>> AsyncAuth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>>(AsyncAuthRaw(context, request, cq));
+    virtual ::grpc::Status Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::ric::gate::AuthResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::AuthResponse>> AsyncAuth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::AuthResponse>>(AsyncAuthRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>> PrepareAsyncAuth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>>(PrepareAsyncAuthRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::AuthResponse>> PrepareAsyncAuth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::AuthResponse>>(PrepareAsyncAuthRaw(context, request, cq));
     }
     // Send data from device
     virtual ::grpc::Status SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::ric::gate::EmptyResponse* response) = 0;
@@ -87,8 +87,8 @@ class GateInlet final {
       // Init and subscribes to commands from gate
       virtual void Init(::grpc::ClientContext* context, ::ric::gate::InitRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::gate::Command>* reactor) = 0;
       // Auth new device
-      virtual void Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::AuthResponse* response, std::function<void(::grpc::Status)>) = 0;
       // Send data from device
       virtual void SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -104,8 +104,8 @@ class GateInlet final {
     virtual ::grpc::ClientReaderInterface< ::ric::gate::Command>* InitRaw(::grpc::ClientContext* context, const ::ric::gate::InitRequest& request) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::ric::gate::Command>* AsyncInitRaw(::grpc::ClientContext* context, const ::ric::gate::InitRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::ric::gate::Command>* PrepareAsyncInitRaw(::grpc::ClientContext* context, const ::ric::gate::InitRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* AsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* PrepareAsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::AuthResponse>* AsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::AuthResponse>* PrepareAsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* AsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* PrepareAsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* AsyncSendCommandReplyRaw(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -125,12 +125,12 @@ class GateInlet final {
     std::unique_ptr< ::grpc::ClientAsyncReader< ::ric::gate::Command>> PrepareAsyncInit(::grpc::ClientContext* context, const ::ric::gate::InitRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReader< ::ric::gate::Command>>(PrepareAsyncInitRaw(context, request, cq));
     }
-    ::grpc::Status Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::ric::gate::EmptyResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>> AsyncAuth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>>(AsyncAuthRaw(context, request, cq));
+    ::grpc::Status Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::ric::gate::AuthResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::AuthResponse>> AsyncAuth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::AuthResponse>>(AsyncAuthRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>> PrepareAsyncAuth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>>(PrepareAsyncAuthRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::AuthResponse>> PrepareAsyncAuth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::AuthResponse>>(PrepareAsyncAuthRaw(context, request, cq));
     }
     ::grpc::Status SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::ric::gate::EmptyResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>> AsyncSendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) {
@@ -157,8 +157,8 @@ class GateInlet final {
       public StubInterface::experimental_async_interface {
      public:
       void Init(::grpc::ClientContext* context, ::ric::gate::InitRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::gate::Command>* reactor) override;
-      void Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
-      void Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      void Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response, std::function<void(::grpc::Status)>) override;
+      void Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::AuthResponse* response, std::function<void(::grpc::Status)>) override;
       void SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
@@ -179,8 +179,8 @@ class GateInlet final {
     ::grpc::ClientReader< ::ric::gate::Command>* InitRaw(::grpc::ClientContext* context, const ::ric::gate::InitRequest& request) override;
     ::grpc::ClientAsyncReader< ::ric::gate::Command>* AsyncInitRaw(::grpc::ClientContext* context, const ::ric::gate::InitRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReader< ::ric::gate::Command>* PrepareAsyncInitRaw(::grpc::ClientContext* context, const ::ric::gate::InitRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* AsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* PrepareAsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::gate::AuthResponse>* AsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::gate::AuthResponse>* PrepareAsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* AsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* PrepareAsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* AsyncSendCommandReplyRaw(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -202,7 +202,7 @@ class GateInlet final {
     // Init and subscribes to commands from gate
     virtual ::grpc::Status Init(::grpc::ServerContext* context, const ::ric::gate::InitRequest* request, ::grpc::ServerWriter< ::ric::gate::Command>* writer);
     // Auth new device
-    virtual ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::EmptyResponse* response);
+    virtual ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response);
     // Send data from device
     virtual ::grpc::Status SendData(::grpc::ServerContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response);
     // Send command reply
@@ -242,11 +242,11 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestAuth(::grpc::ServerContext* context, ::ric::gate::AuthRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::gate::EmptyResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestAuth(::grpc::ServerContext* context, ::ric::gate::AuthRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::gate::AuthResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -340,10 +340,10 @@ class GateInlet final {
    public:
     ExperimentalWithCallbackMethod_Auth() {
       ::grpc::Service::experimental().MarkMethodCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::gate::AuthRequest, ::ric::gate::EmptyResponse>(
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::gate::AuthRequest, ::ric::gate::AuthResponse>(
           [this](::grpc::ServerContext* context,
                  const ::ric::gate::AuthRequest* request,
-                 ::ric::gate::EmptyResponse* response,
+                 ::ric::gate::AuthResponse* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
                    return this->Auth(context, request, response, controller);
                  }));
@@ -352,11 +352,11 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_SendData : public BaseClass {
@@ -463,7 +463,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -551,7 +551,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -660,7 +660,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -748,18 +748,18 @@ class GateInlet final {
    public:
     WithStreamedUnaryMethod_Auth() {
       ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::internal::StreamedUnaryHandler< ::ric::gate::AuthRequest, ::ric::gate::EmptyResponse>(std::bind(&WithStreamedUnaryMethod_Auth<BaseClass>::StreamedAuth, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::gate::AuthRequest, ::ric::gate::AuthResponse>(std::bind(&WithStreamedUnaryMethod_Auth<BaseClass>::StreamedAuth, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_Auth() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedAuth(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::gate::AuthRequest,::ric::gate::EmptyResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedAuth(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::gate::AuthRequest,::ric::gate::AuthResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_SendData : public BaseClass {
