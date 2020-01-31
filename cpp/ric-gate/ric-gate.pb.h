@@ -92,6 +92,28 @@ template<> ::ric::gate::OfflineRequest* Arena::CreateMaybeMessage<::ric::gate::O
 namespace ric {
 namespace gate {
 
+enum DataRequest_DataType {
+  DataRequest_DataType_UNKNOWN = 0,
+  DataRequest_DataType_JSON = 1,
+  DataRequest_DataType_FILE = 2,
+  DataRequest_DataType_DataRequest_DataType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::min(),
+  DataRequest_DataType_DataRequest_DataType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::max()
+};
+bool DataRequest_DataType_IsValid(int value);
+const DataRequest_DataType DataRequest_DataType_DataType_MIN = DataRequest_DataType_UNKNOWN;
+const DataRequest_DataType DataRequest_DataType_DataType_MAX = DataRequest_DataType_FILE;
+const int DataRequest_DataType_DataType_ARRAYSIZE = DataRequest_DataType_DataType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* DataRequest_DataType_descriptor();
+inline const ::std::string& DataRequest_DataType_Name(DataRequest_DataType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    DataRequest_DataType_descriptor(), value);
+}
+inline bool DataRequest_DataType_Parse(
+    const ::std::string& name, DataRequest_DataType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<DataRequest_DataType>(
+    DataRequest_DataType_descriptor(), name, value);
+}
 enum CommandReplyRequest_Stage {
   CommandReplyRequest_Stage_UNKNOWN = 0,
   CommandReplyRequest_Stage_ERROR = 1,
@@ -512,12 +534,27 @@ class AuthResponse final :
   ::std::string* release_object_id();
   void set_allocated_object_id(::std::string* object_id);
 
+  // bytes config = 2;
+  void clear_config();
+  static const int kConfigFieldNumber = 2;
+  const ::std::string& config() const;
+  void set_config(const ::std::string& value);
+  #if LANG_CXX11
+  void set_config(::std::string&& value);
+  #endif
+  void set_config(const char* value);
+  void set_config(const void* value, size_t size);
+  ::std::string* mutable_config();
+  ::std::string* release_config();
+  void set_allocated_config(::std::string* config);
+
   // @@protoc_insertion_point(class_scope:ric.gate.AuthResponse)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr object_id_;
+  ::google::protobuf::internal::ArenaStringPtr config_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dgate_2fric_2dgate_2eproto;
 };
@@ -615,6 +652,34 @@ class DataRequest final :
   ::google::protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
+
+  typedef DataRequest_DataType DataType;
+  static const DataType UNKNOWN =
+    DataRequest_DataType_UNKNOWN;
+  static const DataType JSON =
+    DataRequest_DataType_JSON;
+  static const DataType FILE =
+    DataRequest_DataType_FILE;
+  static inline bool DataType_IsValid(int value) {
+    return DataRequest_DataType_IsValid(value);
+  }
+  static const DataType DataType_MIN =
+    DataRequest_DataType_DataType_MIN;
+  static const DataType DataType_MAX =
+    DataRequest_DataType_DataType_MAX;
+  static const int DataType_ARRAYSIZE =
+    DataRequest_DataType_DataType_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  DataType_descriptor() {
+    return DataRequest_DataType_descriptor();
+  }
+  static inline const ::std::string& DataType_Name(DataType value) {
+    return DataRequest_DataType_Name(value);
+  }
+  static inline bool DataType_Parse(const ::std::string& name,
+      DataType* value) {
+    return DataRequest_DataType_Parse(name, value);
+  }
 
   // accessors -------------------------------------------------------
 
@@ -1587,6 +1652,59 @@ inline void AuthResponse::set_allocated_object_id(::std::string* object_id) {
   // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthResponse.object_id)
 }
 
+// bytes config = 2;
+inline void AuthResponse::clear_config() {
+  config_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& AuthResponse::config() const {
+  // @@protoc_insertion_point(field_get:ric.gate.AuthResponse.config)
+  return config_.GetNoArena();
+}
+inline void AuthResponse::set_config(const ::std::string& value) {
+  
+  config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.gate.AuthResponse.config)
+}
+#if LANG_CXX11
+inline void AuthResponse::set_config(::std::string&& value) {
+  
+  config_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.gate.AuthResponse.config)
+}
+#endif
+inline void AuthResponse::set_config(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.gate.AuthResponse.config)
+}
+inline void AuthResponse::set_config(const void* value, size_t size) {
+  
+  config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.gate.AuthResponse.config)
+}
+inline ::std::string* AuthResponse::mutable_config() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.gate.AuthResponse.config)
+  return config_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* AuthResponse::release_config() {
+  // @@protoc_insertion_point(field_release:ric.gate.AuthResponse.config)
+  
+  return config_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AuthResponse::set_allocated_config(::std::string* config) {
+  if (config != nullptr) {
+    
+  } else {
+    
+  }
+  config_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), config);
+  // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthResponse.config)
+}
+
 // -------------------------------------------------------------------
 
 // DataRequest
@@ -2230,6 +2348,11 @@ inline void Command::set_allocated_params(::std::string* params) {
 namespace google {
 namespace protobuf {
 
+template <> struct is_proto_enum< ::ric::gate::DataRequest_DataType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ric::gate::DataRequest_DataType>() {
+  return ::ric::gate::DataRequest_DataType_descriptor();
+}
 template <> struct is_proto_enum< ::ric::gate::CommandReplyRequest_Stage> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ric::gate::CommandReplyRequest_Stage>() {

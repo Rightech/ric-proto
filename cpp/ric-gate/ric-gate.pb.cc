@@ -176,7 +176,7 @@ void InitDefaults_ric_2dgate_2fric_2dgate_2eproto() {
 }
 
 ::google::protobuf::Metadata file_level_metadata_ric_2dgate_2fric_2dgate_2eproto[8];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors_ric_2dgate_2fric_2dgate_2eproto[1];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors_ric_2dgate_2fric_2dgate_2eproto[2];
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dgate_2fric_2dgate_2eproto = nullptr;
 
 const ::google::protobuf::uint32 TableStruct_ric_2dgate_2fric_2dgate_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -201,6 +201,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dgate_2fric_2dgate_2eproto::of
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::gate::AuthResponse, object_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::gate::AuthResponse, config_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::gate::DataRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -243,11 +244,11 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 0, -1, sizeof(::ric::gate::InitRequest)},
   { 6, -1, sizeof(::ric::gate::AuthRequest)},
   { 15, -1, sizeof(::ric::gate::AuthResponse)},
-  { 21, -1, sizeof(::ric::gate::DataRequest)},
-  { 28, -1, sizeof(::ric::gate::CommandReplyRequest)},
-  { 38, -1, sizeof(::ric::gate::OfflineRequest)},
-  { 44, -1, sizeof(::ric::gate::Command)},
-  { 53, -1, sizeof(::ric::gate::EmptyResponse)},
+  { 22, -1, sizeof(::ric::gate::DataRequest)},
+  { 29, -1, sizeof(::ric::gate::CommandReplyRequest)},
+  { 39, -1, sizeof(::ric::gate::OfflineRequest)},
+  { 45, -1, sizeof(::ric::gate::Command)},
+  { 54, -1, sizeof(::ric::gate::EmptyResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -271,34 +272,35 @@ const char descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto[] =
   "\n\027ric-gate/ric-gate.proto\022\010ric.gate\"\"\n\013I"
   "nitRequest\022\023\n\013instance_id\030\001 \001(\t\"O\n\013AuthR"
   "equest\022\023\n\013instance_id\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022"
-  "\r\n\005login\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\"!\n\014Auth"
-  "Response\022\021\n\tobject_id\030\001 \001(\t\".\n\013DataReque"
-  "st\022\021\n\tobject_id\030\001 \001(\t\022\014\n\004data\030\002 \001(\014\"\321\001\n\023"
-  "CommandReplyRequest\022\022\n\ncommand_id\030\001 \001(\t\022"
-  "\021\n\tobject_id\030\002 \001(\t\022\014\n\004data\030\003 \001(\014\0222\n\005stag"
-  "e\030\004 \001(\0162#.ric.gate.CommandReplyRequest.S"
-  "tage\022\r\n\005error\030\005 \001(\t\"B\n\005Stage\022\013\n\007UNKNOWN\020"
-  "\000\022\t\n\005ERROR\020\001\022\t\n\005INLET\020\002\022\n\n\006OBJECT\020\003\022\n\n\006P"
-  "ACKET\020\004\"#\n\016OfflineRequest\022\021\n\tobject_id\030\001"
-  " \001(\t\"P\n\007Command\022\022\n\ncommand_id\030\001 \001(\t\022\021\n\to"
-  "bject_id\030\002 \001(\t\022\016\n\006method\030\003 \001(\t\022\016\n\006params"
-  "\030\004 \001(\014\"\017\n\rEmptyResponse2\300\002\n\tGateInlet\0222\n"
-  "\004Init\022\025.ric.gate.InitRequest\032\021.ric.gate."
-  "Command0\001\0225\n\004Auth\022\025.ric.gate.AuthRequest"
-  "\032\026.ric.gate.AuthResponse\022:\n\010SendData\022\025.r"
-  "ic.gate.DataRequest\032\027.ric.gate.EmptyResp"
-  "onse\022J\n\020SendCommandReply\022\035.ric.gate.Comm"
-  "andReplyRequest\032\027.ric.gate.EmptyResponse"
-  "\022@\n\013SendOffline\022\030.ric.gate.OfflineReques"
-  "t\032\027.ric.gate.EmptyResponse2J\n\013GateComman"
-  "d\022;\n\007SendRpc\022\021.ric.gate.Command\032\035.ric.ga"
-  "te.CommandReplyRequestB\tZ\007ricgateb\006proto"
-  "3"
+  "\r\n\005login\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\"1\n\014Auth"
+  "Response\022\021\n\tobject_id\030\001 \001(\t\022\016\n\006config\030\002 "
+  "\001(\014\"[\n\013DataRequest\022\021\n\tobject_id\030\001 \001(\t\022\014\n"
+  "\004data\030\002 \001(\014\"+\n\010DataType\022\013\n\007UNKNOWN\020\000\022\010\n\004"
+  "JSON\020\001\022\010\n\004FILE\020\002\"\321\001\n\023CommandReplyRequest"
+  "\022\022\n\ncommand_id\030\001 \001(\t\022\021\n\tobject_id\030\002 \001(\t\022"
+  "\014\n\004data\030\003 \001(\014\0222\n\005stage\030\004 \001(\0162#.ric.gate."
+  "CommandReplyRequest.Stage\022\r\n\005error\030\005 \001(\t"
+  "\"B\n\005Stage\022\013\n\007UNKNOWN\020\000\022\t\n\005ERROR\020\001\022\t\n\005INL"
+  "ET\020\002\022\n\n\006OBJECT\020\003\022\n\n\006PACKET\020\004\"#\n\016OfflineR"
+  "equest\022\021\n\tobject_id\030\001 \001(\t\"P\n\007Command\022\022\n\n"
+  "command_id\030\001 \001(\t\022\021\n\tobject_id\030\002 \001(\t\022\016\n\006m"
+  "ethod\030\003 \001(\t\022\016\n\006params\030\004 \001(\014\"\017\n\rEmptyResp"
+  "onse2\300\002\n\tGateInlet\0222\n\004Init\022\025.ric.gate.In"
+  "itRequest\032\021.ric.gate.Command0\001\0225\n\004Auth\022\025"
+  ".ric.gate.AuthRequest\032\026.ric.gate.AuthRes"
+  "ponse\022:\n\010SendData\022\025.ric.gate.DataRequest"
+  "\032\027.ric.gate.EmptyResponse\022J\n\020SendCommand"
+  "Reply\022\035.ric.gate.CommandReplyRequest\032\027.r"
+  "ic.gate.EmptyResponse\022@\n\013SendOffline\022\030.r"
+  "ic.gate.OfflineRequest\032\027.ric.gate.EmptyR"
+  "esponse2J\n\013GateCommand\022;\n\007SendRpc\022\021.ric."
+  "gate.Command\032\035.ric.gate.CommandReplyRequ"
+  "estB\tZ\007ricgateb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dgate_2fric_2dgate_2eproto = {
   false, InitDefaults_ric_2dgate_2fric_2dgate_2eproto, 
   descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto,
-  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1001,
+  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1062,
 };
 
 void AddDescriptors_ric_2dgate_2fric_2dgate_2eproto() {
@@ -312,9 +314,32 @@ void AddDescriptors_ric_2dgate_2fric_2dgate_2eproto() {
 static bool dynamic_init_dummy_ric_2dgate_2fric_2dgate_2eproto = []() { AddDescriptors_ric_2dgate_2fric_2dgate_2eproto(); return true; }();
 namespace ric {
 namespace gate {
-const ::google::protobuf::EnumDescriptor* CommandReplyRequest_Stage_descriptor() {
+const ::google::protobuf::EnumDescriptor* DataRequest_DataType_descriptor() {
   ::google::protobuf::internal::AssignDescriptors(&assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto);
   return file_level_enum_descriptors_ric_2dgate_2fric_2dgate_2eproto[0];
+}
+bool DataRequest_DataType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const DataRequest_DataType DataRequest::UNKNOWN;
+const DataRequest_DataType DataRequest::JSON;
+const DataRequest_DataType DataRequest::FILE;
+const DataRequest_DataType DataRequest::DataType_MIN;
+const DataRequest_DataType DataRequest::DataType_MAX;
+const int DataRequest::DataType_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* CommandReplyRequest_Stage_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto);
+  return file_level_enum_descriptors_ric_2dgate_2fric_2dgate_2eproto[1];
 }
 bool CommandReplyRequest_Stage_IsValid(int value) {
   switch (value) {
@@ -1163,6 +1188,7 @@ class AuthResponse::HasBitSetters {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int AuthResponse::kObjectIdFieldNumber;
+const int AuthResponse::kConfigFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 AuthResponse::AuthResponse()
@@ -1178,6 +1204,10 @@ AuthResponse::AuthResponse(const AuthResponse& from)
   if (from.object_id().size() > 0) {
     object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
   }
+  config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.config().size() > 0) {
+    config_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.config_);
+  }
   // @@protoc_insertion_point(copy_constructor:ric.gate.AuthResponse)
 }
 
@@ -1185,6 +1215,7 @@ void AuthResponse::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_AuthResponse_ric_2dgate_2fric_2dgate_2eproto.base);
   object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 AuthResponse::~AuthResponse() {
@@ -1194,6 +1225,7 @@ AuthResponse::~AuthResponse() {
 
 void AuthResponse::SharedDtor() {
   object_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void AuthResponse::SetCachedSize(int size) const {
@@ -1212,6 +1244,7 @@ void AuthResponse::Clear() {
   (void) cached_has_bits;
 
   object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  config_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
@@ -1240,6 +1273,21 @@ const char* AuthResponse::_InternalParse(const char* begin, const char* end, voi
           goto string_till_end;
         }
         GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // bytes config = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        object = msg->mutable_config();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParser;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
         ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
         ptr += size;
         break;
@@ -1293,6 +1341,17 @@ bool AuthResponse::MergePartialFromCodedStream(
         break;
       }
 
+      // bytes config = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_config()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -1330,6 +1389,12 @@ void AuthResponse::SerializeWithCachedSizes(
       1, this->object_id(), output);
   }
 
+  // bytes config = 2;
+  if (this->config().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->config(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -1352,6 +1417,13 @@ void AuthResponse::SerializeWithCachedSizes(
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->object_id(), target);
+  }
+
+  // bytes config = 2;
+  if (this->config().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->config(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1380,6 +1452,13 @@ size_t AuthResponse::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->object_id());
+  }
+
+  // bytes config = 2;
+  if (this->config().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->config());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1413,6 +1492,10 @@ void AuthResponse::MergeFrom(const AuthResponse& from) {
 
     object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
   }
+  if (from.config().size() > 0) {
+
+    config_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.config_);
+  }
 }
 
 void AuthResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1441,6 +1524,8 @@ void AuthResponse::InternalSwap(AuthResponse* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   object_id_.Swap(&other->object_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  config_.Swap(&other->config_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
 }
 

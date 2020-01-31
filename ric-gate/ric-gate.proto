@@ -36,9 +36,15 @@ message AuthRequest {
 
 message AuthResponse {
   string object_id = 1;
+  bytes config = 2;
 }
 
 message DataRequest {
+  enum DataType {
+    UNKNOWN = 0; // default
+    JSON = 1;
+    FILE = 2;
+  }
   string object_id = 1;
   bytes data = 2;
 }
