@@ -209,6 +209,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dgate_2fric_2dgate_2eproto::of
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::gate::DataRequest, object_id_),
   PROTOBUF_FIELD_OFFSET(::ric::gate::DataRequest, data_),
+  PROTOBUF_FIELD_OFFSET(::ric::gate::DataRequest, data_type_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::gate::CommandReplyRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -245,10 +246,10 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 6, -1, sizeof(::ric::gate::AuthRequest)},
   { 15, -1, sizeof(::ric::gate::AuthResponse)},
   { 22, -1, sizeof(::ric::gate::DataRequest)},
-  { 29, -1, sizeof(::ric::gate::CommandReplyRequest)},
-  { 39, -1, sizeof(::ric::gate::OfflineRequest)},
-  { 45, -1, sizeof(::ric::gate::Command)},
-  { 54, -1, sizeof(::ric::gate::EmptyResponse)},
+  { 30, -1, sizeof(::ric::gate::CommandReplyRequest)},
+  { 40, -1, sizeof(::ric::gate::OfflineRequest)},
+  { 46, -1, sizeof(::ric::gate::Command)},
+  { 55, -1, sizeof(::ric::gate::EmptyResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -274,33 +275,34 @@ const char descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto[] =
   "equest\022\023\n\013instance_id\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022"
   "\r\n\005login\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\"1\n\014Auth"
   "Response\022\021\n\tobject_id\030\001 \001(\t\022\016\n\006config\030\002 "
-  "\001(\014\"[\n\013DataRequest\022\021\n\tobject_id\030\001 \001(\t\022\014\n"
-  "\004data\030\002 \001(\014\"+\n\010DataType\022\013\n\007UNKNOWN\020\000\022\010\n\004"
-  "JSON\020\001\022\010\n\004FILE\020\002\"\321\001\n\023CommandReplyRequest"
-  "\022\022\n\ncommand_id\030\001 \001(\t\022\021\n\tobject_id\030\002 \001(\t\022"
-  "\014\n\004data\030\003 \001(\014\0222\n\005stage\030\004 \001(\0162#.ric.gate."
-  "CommandReplyRequest.Stage\022\r\n\005error\030\005 \001(\t"
-  "\"B\n\005Stage\022\013\n\007UNKNOWN\020\000\022\t\n\005ERROR\020\001\022\t\n\005INL"
-  "ET\020\002\022\n\n\006OBJECT\020\003\022\n\n\006PACKET\020\004\"#\n\016OfflineR"
-  "equest\022\021\n\tobject_id\030\001 \001(\t\"P\n\007Command\022\022\n\n"
-  "command_id\030\001 \001(\t\022\021\n\tobject_id\030\002 \001(\t\022\016\n\006m"
-  "ethod\030\003 \001(\t\022\016\n\006params\030\004 \001(\014\"\017\n\rEmptyResp"
-  "onse2\300\002\n\tGateInlet\0222\n\004Init\022\025.ric.gate.In"
-  "itRequest\032\021.ric.gate.Command0\001\0225\n\004Auth\022\025"
-  ".ric.gate.AuthRequest\032\026.ric.gate.AuthRes"
-  "ponse\022:\n\010SendData\022\025.ric.gate.DataRequest"
-  "\032\027.ric.gate.EmptyResponse\022J\n\020SendCommand"
-  "Reply\022\035.ric.gate.CommandReplyRequest\032\027.r"
-  "ic.gate.EmptyResponse\022@\n\013SendOffline\022\030.r"
-  "ic.gate.OfflineRequest\032\027.ric.gate.EmptyR"
-  "esponse2J\n\013GateCommand\022;\n\007SendRpc\022\021.ric."
-  "gate.Command\032\035.ric.gate.CommandReplyRequ"
-  "estB\tZ\007ricgateb\006proto3"
+  "\001(\014\"\216\001\n\013DataRequest\022\021\n\tobject_id\030\001 \001(\t\022\014"
+  "\n\004data\030\002 \001(\014\0221\n\tdata_type\030\003 \001(\0162\036.ric.ga"
+  "te.DataRequest.DataType\"+\n\010DataType\022\013\n\007U"
+  "NKNOWN\020\000\022\010\n\004JSON\020\001\022\010\n\004FILE\020\002\"\321\001\n\023Command"
+  "ReplyRequest\022\022\n\ncommand_id\030\001 \001(\t\022\021\n\tobje"
+  "ct_id\030\002 \001(\t\022\014\n\004data\030\003 \001(\014\0222\n\005stage\030\004 \001(\016"
+  "2#.ric.gate.CommandReplyRequest.Stage\022\r\n"
+  "\005error\030\005 \001(\t\"B\n\005Stage\022\013\n\007UNKNOWN\020\000\022\t\n\005ER"
+  "ROR\020\001\022\t\n\005INLET\020\002\022\n\n\006OBJECT\020\003\022\n\n\006PACKET\020\004"
+  "\"#\n\016OfflineRequest\022\021\n\tobject_id\030\001 \001(\t\"P\n"
+  "\007Command\022\022\n\ncommand_id\030\001 \001(\t\022\021\n\tobject_i"
+  "d\030\002 \001(\t\022\016\n\006method\030\003 \001(\t\022\016\n\006params\030\004 \001(\014\""
+  "\017\n\rEmptyResponse2\300\002\n\tGateInlet\0222\n\004Init\022\025"
+  ".ric.gate.InitRequest\032\021.ric.gate.Command"
+  "0\001\0225\n\004Auth\022\025.ric.gate.AuthRequest\032\026.ric."
+  "gate.AuthResponse\022:\n\010SendData\022\025.ric.gate"
+  ".DataRequest\032\027.ric.gate.EmptyResponse\022J\n"
+  "\020SendCommandReply\022\035.ric.gate.CommandRepl"
+  "yRequest\032\027.ric.gate.EmptyResponse\022@\n\013Sen"
+  "dOffline\022\030.ric.gate.OfflineRequest\032\027.ric"
+  ".gate.EmptyResponse2J\n\013GateCommand\022;\n\007Se"
+  "ndRpc\022\021.ric.gate.Command\032\035.ric.gate.Comm"
+  "andReplyRequestB\tZ\007ricgateb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dgate_2fric_2dgate_2eproto = {
   false, InitDefaults_ric_2dgate_2fric_2dgate_2eproto, 
   descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto,
-  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1062,
+  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1114,
 };
 
 void AddDescriptors_ric_2dgate_2fric_2dgate_2eproto() {
@@ -1546,6 +1548,7 @@ class DataRequest::HasBitSetters {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int DataRequest::kObjectIdFieldNumber;
 const int DataRequest::kDataFieldNumber;
+const int DataRequest::kDataTypeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 DataRequest::DataRequest()
@@ -1565,6 +1568,7 @@ DataRequest::DataRequest(const DataRequest& from)
   if (from.data().size() > 0) {
     data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
   }
+  data_type_ = from.data_type_;
   // @@protoc_insertion_point(copy_constructor:ric.gate.DataRequest)
 }
 
@@ -1573,6 +1577,7 @@ void DataRequest::SharedCtor() {
       &scc_info_DataRequest_ric_2dgate_2fric_2dgate_2eproto.base);
   object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_type_ = 0;
 }
 
 DataRequest::~DataRequest() {
@@ -1602,6 +1607,7 @@ void DataRequest::Clear() {
 
   object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_type_ = 0;
   _internal_metadata_.Clear();
 }
 
@@ -1647,6 +1653,14 @@ const char* DataRequest::_InternalParse(const char* begin, const char* end, void
         GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
         ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
         ptr += size;
+        break;
+      }
+      // .ric.gate.DataRequest.DataType data_type = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
+        ::google::protobuf::uint64 val = ::google::protobuf::internal::ReadVarint(&ptr);
+        msg->set_data_type(static_cast<::ric::gate::DataRequest_DataType>(val));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
       default: {
@@ -1709,6 +1723,20 @@ bool DataRequest::MergePartialFromCodedStream(
         break;
       }
 
+      // .ric.gate.DataRequest.DataType data_type = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
+          int value = 0;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_data_type(static_cast< ::ric::gate::DataRequest_DataType >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -1752,6 +1780,12 @@ void DataRequest::SerializeWithCachedSizes(
       2, this->data(), output);
   }
 
+  // .ric.gate.DataRequest.DataType data_type = 3;
+  if (this->data_type() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      3, this->data_type(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -1781,6 +1815,12 @@ void DataRequest::SerializeWithCachedSizes(
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
         2, this->data(), target);
+  }
+
+  // .ric.gate.DataRequest.DataType data_type = 3;
+  if (this->data_type() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      3, this->data_type(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1818,6 +1858,12 @@ size_t DataRequest::ByteSizeLong() const {
         this->data());
   }
 
+  // .ric.gate.DataRequest.DataType data_type = 3;
+  if (this->data_type() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->data_type());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -1853,6 +1899,9 @@ void DataRequest::MergeFrom(const DataRequest& from) {
 
     data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
   }
+  if (from.data_type() != 0) {
+    set_data_type(from.data_type());
+  }
 }
 
 void DataRequest::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1884,6 +1933,7 @@ void DataRequest::InternalSwap(DataRequest* other) {
     GetArenaNoVirtual());
   data_.Swap(&other->data_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  swap(data_type_, other->data_type_);
 }
 
 ::google::protobuf::Metadata DataRequest::GetMetadata() const {

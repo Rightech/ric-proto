@@ -711,6 +711,12 @@ class DataRequest final :
   ::std::string* release_data();
   void set_allocated_data(::std::string* data);
 
+  // .ric.gate.DataRequest.DataType data_type = 3;
+  void clear_data_type();
+  static const int kDataTypeFieldNumber = 3;
+  ::ric::gate::DataRequest_DataType data_type() const;
+  void set_data_type(::ric::gate::DataRequest_DataType value);
+
   // @@protoc_insertion_point(class_scope:ric.gate.DataRequest)
  private:
   class HasBitSetters;
@@ -718,6 +724,7 @@ class DataRequest final :
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr object_id_;
   ::google::protobuf::internal::ArenaStringPtr data_;
+  int data_type_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dgate_2fric_2dgate_2eproto;
 };
@@ -1813,6 +1820,20 @@ inline void DataRequest::set_allocated_data(::std::string* data) {
   }
   data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
   // @@protoc_insertion_point(field_set_allocated:ric.gate.DataRequest.data)
+}
+
+// .ric.gate.DataRequest.DataType data_type = 3;
+inline void DataRequest::clear_data_type() {
+  data_type_ = 0;
+}
+inline ::ric::gate::DataRequest_DataType DataRequest::data_type() const {
+  // @@protoc_insertion_point(field_get:ric.gate.DataRequest.data_type)
+  return static_cast< ::ric::gate::DataRequest_DataType >(data_type_);
+}
+inline void DataRequest::set_data_type(::ric::gate::DataRequest_DataType value) {
+  
+  data_type_ = value;
+  // @@protoc_insertion_point(field_set:ric.gate.DataRequest.data_type)
 }
 
 // -------------------------------------------------------------------

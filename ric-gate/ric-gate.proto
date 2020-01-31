@@ -47,6 +47,7 @@ message DataRequest {
   }
   string object_id = 1;
   bytes data = 2;
+  DataType data_type = 3;
 }
 
 message CommandReplyRequest {
