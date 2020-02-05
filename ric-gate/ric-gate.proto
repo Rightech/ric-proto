@@ -13,7 +13,7 @@ service GateInlet {
   // Send data from device
   rpc SendData(DataRequest) returns (EmptyResponse);
   // Send data from device
-  rpc Ping(PingRequest) returns (EmptyResponse);
+  rpc Ping(stream PingRequest) returns (EmptyResponse);
   // Send command reply
   rpc SendCommandReply(CommandReplyRequest) returns (EmptyResponse);
   // Send info about offline

@@ -315,24 +315,24 @@ const char descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto[] =
   "OfflineRequest\022\021\n\tobject_id\030\001 \001(\t\"P\n\007Com"
   "mand\022\022\n\ncommand_id\030\001 \001(\t\022\021\n\tobject_id\030\002 "
   "\001(\t\022\016\n\006method\030\003 \001(\t\022\016\n\006params\030\004 \001(\014\"\017\n\rE"
-  "mptyResponse2\370\002\n\tGateInlet\0222\n\004Init\022\025.ric"
+  "mptyResponse2\372\002\n\tGateInlet\0222\n\004Init\022\025.ric"
   ".gate.InitRequest\032\021.ric.gate.Command0\001\0225"
   "\n\004Auth\022\025.ric.gate.AuthRequest\032\026.ric.gate"
   ".AuthResponse\022:\n\010SendData\022\025.ric.gate.Dat"
-  "aRequest\032\027.ric.gate.EmptyResponse\0226\n\004Pin"
+  "aRequest\032\027.ric.gate.EmptyResponse\0228\n\004Pin"
   "g\022\025.ric.gate.PingRequest\032\027.ric.gate.Empt"
-  "yResponse\022J\n\020SendCommandReply\022\035.ric.gate"
-  ".CommandReplyRequest\032\027.ric.gate.EmptyRes"
-  "ponse\022@\n\013SendOffline\022\030.ric.gate.OfflineR"
-  "equest\032\027.ric.gate.EmptyResponse2J\n\013GateC"
-  "ommand\022;\n\007SendRpc\022\021.ric.gate.Command\032\035.r"
-  "ic.gate.CommandReplyRequestB\tZ\007ricgateb\006"
-  "proto3"
+  "yResponse(\001\022J\n\020SendCommandReply\022\035.ric.ga"
+  "te.CommandReplyRequest\032\027.ric.gate.EmptyR"
+  "esponse\022@\n\013SendOffline\022\030.ric.gate.Offlin"
+  "eRequest\032\027.ric.gate.EmptyResponse2J\n\013Gat"
+  "eCommand\022;\n\007SendRpc\022\021.ric.gate.Command\032\035"
+  ".ric.gate.CommandReplyRequestB\tZ\007ricgate"
+  "b\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dgate_2fric_2dgate_2eproto = {
   false, InitDefaults_ric_2dgate_2fric_2dgate_2eproto, 
   descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto,
-  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1206,
+  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1208,
 };
 
 void AddDescriptors_ric_2dgate_2fric_2dgate_2eproto() {

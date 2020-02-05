@@ -38,7 +38,7 @@ GateInlet::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_Init_(GateInlet_method_names[0], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
   , rpcmethod_Auth_(GateInlet_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SendData_(GateInlet_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Ping_(GateInlet_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Ping_(GateInlet_method_names[3], ::grpc::internal::RpcMethod::CLIENT_STREAMING, channel)
   , rpcmethod_SendCommandReply_(GateInlet_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SendOffline_(GateInlet_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
@@ -99,24 +99,20 @@ void GateInlet::Stub::experimental_async::SendData(::grpc::ClientContext* contex
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SendData_, context, request, false);
 }
 
-::grpc::Status GateInlet::Stub::Ping(::grpc::ClientContext* context, const ::ric::gate::PingRequest& request, ::ric::gate::EmptyResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Ping_, context, request, response);
+::grpc::ClientWriter< ::ric::gate::PingRequest>* GateInlet::Stub::PingRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response) {
+  return ::grpc::internal::ClientWriterFactory< ::ric::gate::PingRequest>::Create(channel_.get(), rpcmethod_Ping_, context, response);
 }
 
-void GateInlet::Stub::experimental_async::Ping(::grpc::ClientContext* context, const ::ric::gate::PingRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Ping_, context, request, response, std::move(f));
+void GateInlet::Stub::experimental_async::Ping(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientWriteReactor< ::ric::gate::PingRequest>* reactor) {
+  ::grpc::internal::ClientCallbackWriterFactory< ::ric::gate::PingRequest>::Create(stub_->channel_.get(), stub_->rpcmethod_Ping_, context, response, reactor);
 }
 
-void GateInlet::Stub::experimental_async::Ping(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Ping_, context, request, response, std::move(f));
+::grpc::ClientAsyncWriter< ::ric::gate::PingRequest>* GateInlet::Stub::AsyncPingRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncWriterFactory< ::ric::gate::PingRequest>::Create(channel_.get(), cq, rpcmethod_Ping_, context, response, true, tag);
 }
 
-::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* GateInlet::Stub::AsyncPingRaw(::grpc::ClientContext* context, const ::ric::gate::PingRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Ping_, context, request, true);
-}
-
-::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* GateInlet::Stub::PrepareAsyncPingRaw(::grpc::ClientContext* context, const ::ric::gate::PingRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Ping_, context, request, false);
+::grpc::ClientAsyncWriter< ::ric::gate::PingRequest>* GateInlet::Stub::PrepareAsyncPingRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncWriterFactory< ::ric::gate::PingRequest>::Create(channel_.get(), cq, rpcmethod_Ping_, context, response, false, nullptr);
 }
 
 ::grpc::Status GateInlet::Stub::SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::ric::gate::EmptyResponse* response) {
@@ -177,8 +173,8 @@ GateInlet::Service::Service() {
           std::mem_fn(&GateInlet::Service::SendData), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       GateInlet_method_names[3],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< GateInlet::Service, ::ric::gate::PingRequest, ::ric::gate::EmptyResponse>(
+      ::grpc::internal::RpcMethod::CLIENT_STREAMING,
+      new ::grpc::internal::ClientStreamingHandler< GateInlet::Service, ::ric::gate::PingRequest, ::ric::gate::EmptyResponse>(
           std::mem_fn(&GateInlet::Service::Ping), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       GateInlet_method_names[4],
@@ -216,9 +212,9 @@ GateInlet::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status GateInlet::Service::Ping(::grpc::ServerContext* context, const ::ric::gate::PingRequest* request, ::ric::gate::EmptyResponse* response) {
+::grpc::Status GateInlet::Service::Ping(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::PingRequest>* reader, ::ric::gate::EmptyResponse* response) {
   (void) context;
-  (void) request;
+  (void) reader;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
