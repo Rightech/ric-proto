@@ -65,6 +65,14 @@ class GateInlet final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>> PrepareAsyncSendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>>(PrepareAsyncSendDataRaw(context, request, cq));
     }
+    // Send data from device
+    virtual ::grpc::Status Ping(::grpc::ClientContext* context, const ::ric::gate::PingRequest& request, ::ric::gate::EmptyResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>> AsyncPing(::grpc::ClientContext* context, const ::ric::gate::PingRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>>(AsyncPingRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>> PrepareAsyncPing(::grpc::ClientContext* context, const ::ric::gate::PingRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>>(PrepareAsyncPingRaw(context, request, cq));
+    }
     // Send command reply
     virtual ::grpc::Status SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::ric::gate::EmptyResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>> AsyncSendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::grpc::CompletionQueue* cq) {
@@ -92,6 +100,9 @@ class GateInlet final {
       // Send data from device
       virtual void SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      // Send data from device
+      virtual void Ping(::grpc::ClientContext* context, const ::ric::gate::PingRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Ping(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       // Send command reply
       virtual void SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SendCommandReply(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -108,6 +119,8 @@ class GateInlet final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::AuthResponse>* PrepareAsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* AsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* PrepareAsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* AsyncPingRaw(::grpc::ClientContext* context, const ::ric::gate::PingRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* PrepareAsyncPingRaw(::grpc::ClientContext* context, const ::ric::gate::PingRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* AsyncSendCommandReplyRaw(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* PrepareAsyncSendCommandReplyRaw(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* AsyncSendOfflineRaw(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -139,6 +152,13 @@ class GateInlet final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>> PrepareAsyncSendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>>(PrepareAsyncSendDataRaw(context, request, cq));
     }
+    ::grpc::Status Ping(::grpc::ClientContext* context, const ::ric::gate::PingRequest& request, ::ric::gate::EmptyResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>> AsyncPing(::grpc::ClientContext* context, const ::ric::gate::PingRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>>(AsyncPingRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>> PrepareAsyncPing(::grpc::ClientContext* context, const ::ric::gate::PingRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>>(PrepareAsyncPingRaw(context, request, cq));
+    }
     ::grpc::Status SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::ric::gate::EmptyResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>> AsyncSendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>>(AsyncSendCommandReplyRaw(context, request, cq));
@@ -161,6 +181,8 @@ class GateInlet final {
       void Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::AuthResponse* response, std::function<void(::grpc::Status)>) override;
       void SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      void Ping(::grpc::ClientContext* context, const ::ric::gate::PingRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      void Ping(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SendCommandReply(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SendOffline(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
@@ -183,6 +205,8 @@ class GateInlet final {
     ::grpc::ClientAsyncResponseReader< ::ric::gate::AuthResponse>* PrepareAsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* AsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* PrepareAsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* AsyncPingRaw(::grpc::ClientContext* context, const ::ric::gate::PingRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* PrepareAsyncPingRaw(::grpc::ClientContext* context, const ::ric::gate::PingRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* AsyncSendCommandReplyRaw(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* PrepareAsyncSendCommandReplyRaw(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* AsyncSendOfflineRaw(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -190,6 +214,7 @@ class GateInlet final {
     const ::grpc::internal::RpcMethod rpcmethod_Init_;
     const ::grpc::internal::RpcMethod rpcmethod_Auth_;
     const ::grpc::internal::RpcMethod rpcmethod_SendData_;
+    const ::grpc::internal::RpcMethod rpcmethod_Ping_;
     const ::grpc::internal::RpcMethod rpcmethod_SendCommandReply_;
     const ::grpc::internal::RpcMethod rpcmethod_SendOffline_;
   };
@@ -205,6 +230,8 @@ class GateInlet final {
     virtual ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response);
     // Send data from device
     virtual ::grpc::Status SendData(::grpc::ServerContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response);
+    // Send data from device
+    virtual ::grpc::Status Ping(::grpc::ServerContext* context, const ::ric::gate::PingRequest* request, ::ric::gate::EmptyResponse* response);
     // Send command reply
     virtual ::grpc::Status SendCommandReply(::grpc::ServerContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response);
     // Send info about offline
@@ -271,12 +298,32 @@ class GateInlet final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_Ping : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_Ping() {
+      ::grpc::Service::MarkMethodAsync(3);
+    }
+    ~WithAsyncMethod_Ping() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Ping(::grpc::ServerContext* context, const ::ric::gate::PingRequest* request, ::ric::gate::EmptyResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestPing(::grpc::ServerContext* context, ::ric::gate::PingRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::gate::EmptyResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_SendCommandReply : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_SendCommandReply() {
-      ::grpc::Service::MarkMethodAsync(3);
+      ::grpc::Service::MarkMethodAsync(4);
     }
     ~WithAsyncMethod_SendCommandReply() override {
       BaseClassMustBeDerivedFromService(this);
@@ -287,7 +334,7 @@ class GateInlet final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestSendCommandReply(::grpc::ServerContext* context, ::ric::gate::CommandReplyRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::gate::EmptyResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -296,7 +343,7 @@ class GateInlet final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_SendOffline() {
-      ::grpc::Service::MarkMethodAsync(4);
+      ::grpc::Service::MarkMethodAsync(5);
     }
     ~WithAsyncMethod_SendOffline() override {
       BaseClassMustBeDerivedFromService(this);
@@ -307,10 +354,10 @@ class GateInlet final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestSendOffline(::grpc::ServerContext* context, ::ric::gate::OfflineRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::gate::EmptyResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_Init<WithAsyncMethod_Auth<WithAsyncMethod_SendData<WithAsyncMethod_SendCommandReply<WithAsyncMethod_SendOffline<Service > > > > > AsyncService;
+  typedef WithAsyncMethod_Init<WithAsyncMethod_Auth<WithAsyncMethod_SendData<WithAsyncMethod_Ping<WithAsyncMethod_SendCommandReply<WithAsyncMethod_SendOffline<Service > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Init : public BaseClass {
    private:
@@ -384,12 +431,37 @@ class GateInlet final {
     virtual void SendData(::grpc::ServerContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithCallbackMethod_Ping : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_Ping() {
+      ::grpc::Service::experimental().MarkMethodCallback(3,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::gate::PingRequest, ::ric::gate::EmptyResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::gate::PingRequest* request,
+                 ::ric::gate::EmptyResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->Ping(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_Ping() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Ping(::grpc::ServerContext* context, const ::ric::gate::PingRequest* request, ::ric::gate::EmptyResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void Ping(::grpc::ServerContext* context, const ::ric::gate::PingRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class ExperimentalWithCallbackMethod_SendCommandReply : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_SendCommandReply() {
-      ::grpc::Service::experimental().MarkMethodCallback(3,
+      ::grpc::Service::experimental().MarkMethodCallback(4,
         new ::grpc::internal::CallbackUnaryHandler< ::ric::gate::CommandReplyRequest, ::ric::gate::EmptyResponse>(
           [this](::grpc::ServerContext* context,
                  const ::ric::gate::CommandReplyRequest* request,
@@ -414,7 +486,7 @@ class GateInlet final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_SendOffline() {
-      ::grpc::Service::experimental().MarkMethodCallback(4,
+      ::grpc::Service::experimental().MarkMethodCallback(5,
         new ::grpc::internal::CallbackUnaryHandler< ::ric::gate::OfflineRequest, ::ric::gate::EmptyResponse>(
           [this](::grpc::ServerContext* context,
                  const ::ric::gate::OfflineRequest* request,
@@ -433,7 +505,7 @@ class GateInlet final {
     }
     virtual void SendOffline(::grpc::ServerContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_Init<ExperimentalWithCallbackMethod_Auth<ExperimentalWithCallbackMethod_SendData<ExperimentalWithCallbackMethod_SendCommandReply<ExperimentalWithCallbackMethod_SendOffline<Service > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_Init<ExperimentalWithCallbackMethod_Auth<ExperimentalWithCallbackMethod_SendData<ExperimentalWithCallbackMethod_Ping<ExperimentalWithCallbackMethod_SendCommandReply<ExperimentalWithCallbackMethod_SendOffline<Service > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Init : public BaseClass {
    private:
@@ -486,12 +558,29 @@ class GateInlet final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_Ping : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_Ping() {
+      ::grpc::Service::MarkMethodGeneric(3);
+    }
+    ~WithGenericMethod_Ping() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Ping(::grpc::ServerContext* context, const ::ric::gate::PingRequest* request, ::ric::gate::EmptyResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_SendCommandReply : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_SendCommandReply() {
-      ::grpc::Service::MarkMethodGeneric(3);
+      ::grpc::Service::MarkMethodGeneric(4);
     }
     ~WithGenericMethod_SendCommandReply() override {
       BaseClassMustBeDerivedFromService(this);
@@ -508,7 +597,7 @@ class GateInlet final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_SendOffline() {
-      ::grpc::Service::MarkMethodGeneric(4);
+      ::grpc::Service::MarkMethodGeneric(5);
     }
     ~WithGenericMethod_SendOffline() override {
       BaseClassMustBeDerivedFromService(this);
@@ -580,12 +669,32 @@ class GateInlet final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_Ping : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_Ping() {
+      ::grpc::Service::MarkMethodRaw(3);
+    }
+    ~WithRawMethod_Ping() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Ping(::grpc::ServerContext* context, const ::ric::gate::PingRequest* request, ::ric::gate::EmptyResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestPing(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_SendCommandReply : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_SendCommandReply() {
-      ::grpc::Service::MarkMethodRaw(3);
+      ::grpc::Service::MarkMethodRaw(4);
     }
     ~WithRawMethod_SendCommandReply() override {
       BaseClassMustBeDerivedFromService(this);
@@ -596,7 +705,7 @@ class GateInlet final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestSendCommandReply(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -605,7 +714,7 @@ class GateInlet final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_SendOffline() {
-      ::grpc::Service::MarkMethodRaw(4);
+      ::grpc::Service::MarkMethodRaw(5);
     }
     ~WithRawMethod_SendOffline() override {
       BaseClassMustBeDerivedFromService(this);
@@ -616,7 +725,7 @@ class GateInlet final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestSendOffline(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -692,12 +801,37 @@ class GateInlet final {
     virtual void SendData(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_Ping : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_Ping() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(3,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->Ping(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_Ping() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Ping(::grpc::ServerContext* context, const ::ric::gate::PingRequest* request, ::ric::gate::EmptyResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void Ping(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_SendCommandReply : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_SendCommandReply() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(3,
+      ::grpc::Service::experimental().MarkMethodRawCallback(4,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
@@ -722,7 +856,7 @@ class GateInlet final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_SendOffline() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(4,
+      ::grpc::Service::experimental().MarkMethodRawCallback(5,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
@@ -782,12 +916,32 @@ class GateInlet final {
     virtual ::grpc::Status StreamedSendData(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::gate::DataRequest,::ric::gate::EmptyResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_Ping : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_Ping() {
+      ::grpc::Service::MarkMethodStreamed(3,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::gate::PingRequest, ::ric::gate::EmptyResponse>(std::bind(&WithStreamedUnaryMethod_Ping<BaseClass>::StreamedPing, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_Ping() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status Ping(::grpc::ServerContext* context, const ::ric::gate::PingRequest* request, ::ric::gate::EmptyResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedPing(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::gate::PingRequest,::ric::gate::EmptyResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_SendCommandReply : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_SendCommandReply() {
-      ::grpc::Service::MarkMethodStreamed(3,
+      ::grpc::Service::MarkMethodStreamed(4,
         new ::grpc::internal::StreamedUnaryHandler< ::ric::gate::CommandReplyRequest, ::ric::gate::EmptyResponse>(std::bind(&WithStreamedUnaryMethod_SendCommandReply<BaseClass>::StreamedSendCommandReply, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SendCommandReply() override {
@@ -807,7 +961,7 @@ class GateInlet final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_SendOffline() {
-      ::grpc::Service::MarkMethodStreamed(4,
+      ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::StreamedUnaryHandler< ::ric::gate::OfflineRequest, ::ric::gate::EmptyResponse>(std::bind(&WithStreamedUnaryMethod_SendOffline<BaseClass>::StreamedSendOffline, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SendOffline() override {
@@ -821,7 +975,7 @@ class GateInlet final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedSendOffline(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::gate::OfflineRequest,::ric::gate::EmptyResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_Auth<WithStreamedUnaryMethod_SendData<WithStreamedUnaryMethod_SendCommandReply<WithStreamedUnaryMethod_SendOffline<Service > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_Auth<WithStreamedUnaryMethod_SendData<WithStreamedUnaryMethod_Ping<WithStreamedUnaryMethod_SendCommandReply<WithStreamedUnaryMethod_SendOffline<Service > > > > > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_Init : public BaseClass {
    private:
@@ -843,7 +997,7 @@ class GateInlet final {
     virtual ::grpc::Status StreamedInit(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::ric::gate::InitRequest,::ric::gate::Command>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_Init<Service > SplitStreamedService;
-  typedef WithSplitStreamingMethod_Init<WithStreamedUnaryMethod_Auth<WithStreamedUnaryMethod_SendData<WithStreamedUnaryMethod_SendCommandReply<WithStreamedUnaryMethod_SendOffline<Service > > > > > StreamedService;
+  typedef WithSplitStreamingMethod_Init<WithStreamedUnaryMethod_Auth<WithStreamedUnaryMethod_SendData<WithStreamedUnaryMethod_Ping<WithStreamedUnaryMethod_SendCommandReply<WithStreamedUnaryMethod_SendOffline<Service > > > > > > StreamedService;
 };
 
 class GateCommand final {

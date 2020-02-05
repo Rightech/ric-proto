@@ -34,6 +34,10 @@ class DataRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<DataRequest> _instance;
 } _DataRequest_default_instance_;
+class PingRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<PingRequest> _instance;
+} _PingRequest_default_instance_;
 class CommandReplyRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<CommandReplyRequest> _instance;
@@ -108,6 +112,20 @@ static void InitDefaultsDataRequest_ric_2dgate_2fric_2dgate_2eproto() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_DataRequest_ric_2dgate_2fric_2dgate_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsDataRequest_ric_2dgate_2fric_2dgate_2eproto}, {}};
 
+static void InitDefaultsPingRequest_ric_2dgate_2fric_2dgate_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::gate::_PingRequest_default_instance_;
+    new (ptr) ::ric::gate::PingRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::gate::PingRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_PingRequest_ric_2dgate_2fric_2dgate_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPingRequest_ric_2dgate_2fric_2dgate_2eproto}, {}};
+
 static void InitDefaultsCommandReplyRequest_ric_2dgate_2fric_2dgate_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -169,13 +187,14 @@ void InitDefaults_ric_2dgate_2fric_2dgate_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_AuthRequest_ric_2dgate_2fric_2dgate_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_AuthResponse_ric_2dgate_2fric_2dgate_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_DataRequest_ric_2dgate_2fric_2dgate_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_PingRequest_ric_2dgate_2fric_2dgate_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_CommandReplyRequest_ric_2dgate_2fric_2dgate_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_OfflineRequest_ric_2dgate_2fric_2dgate_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_Command_ric_2dgate_2fric_2dgate_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_EmptyResponse_ric_2dgate_2fric_2dgate_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dgate_2fric_2dgate_2eproto[8];
+::google::protobuf::Metadata file_level_metadata_ric_2dgate_2fric_2dgate_2eproto[9];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors_ric_2dgate_2fric_2dgate_2eproto[2];
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dgate_2fric_2dgate_2eproto = nullptr;
 
@@ -210,6 +229,12 @@ const ::google::protobuf::uint32 TableStruct_ric_2dgate_2fric_2dgate_2eproto::of
   PROTOBUF_FIELD_OFFSET(::ric::gate::DataRequest, object_id_),
   PROTOBUF_FIELD_OFFSET(::ric::gate::DataRequest, data_),
   PROTOBUF_FIELD_OFFSET(::ric::gate::DataRequest, data_type_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::gate::PingRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::gate::PingRequest, instance_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::gate::CommandReplyRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -246,10 +271,11 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 6, -1, sizeof(::ric::gate::AuthRequest)},
   { 15, -1, sizeof(::ric::gate::AuthResponse)},
   { 22, -1, sizeof(::ric::gate::DataRequest)},
-  { 30, -1, sizeof(::ric::gate::CommandReplyRequest)},
-  { 40, -1, sizeof(::ric::gate::OfflineRequest)},
-  { 46, -1, sizeof(::ric::gate::Command)},
-  { 55, -1, sizeof(::ric::gate::EmptyResponse)},
+  { 30, -1, sizeof(::ric::gate::PingRequest)},
+  { 36, -1, sizeof(::ric::gate::CommandReplyRequest)},
+  { 46, -1, sizeof(::ric::gate::OfflineRequest)},
+  { 52, -1, sizeof(::ric::gate::Command)},
+  { 61, -1, sizeof(::ric::gate::EmptyResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -257,6 +283,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::gate::_AuthRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::gate::_AuthResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::gate::_DataRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::gate::_PingRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::gate::_CommandReplyRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::gate::_OfflineRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::gate::_Command_default_instance_),
@@ -266,7 +293,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto = {
   {}, AddDescriptors_ric_2dgate_2fric_2dgate_2eproto, "ric-gate/ric-gate.proto", schemas,
   file_default_instances, TableStruct_ric_2dgate_2fric_2dgate_2eproto::offsets,
-  file_level_metadata_ric_2dgate_2fric_2dgate_2eproto, 8, file_level_enum_descriptors_ric_2dgate_2fric_2dgate_2eproto, file_level_service_descriptors_ric_2dgate_2fric_2dgate_2eproto,
+  file_level_metadata_ric_2dgate_2fric_2dgate_2eproto, 9, file_level_enum_descriptors_ric_2dgate_2fric_2dgate_2eproto, file_level_service_descriptors_ric_2dgate_2fric_2dgate_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto[] =
@@ -278,31 +305,34 @@ const char descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto[] =
   "\001(\014\"\216\001\n\013DataRequest\022\021\n\tobject_id\030\001 \001(\t\022\014"
   "\n\004data\030\002 \001(\014\0221\n\tdata_type\030\003 \001(\0162\036.ric.ga"
   "te.DataRequest.DataType\"+\n\010DataType\022\013\n\007U"
-  "NKNOWN\020\000\022\010\n\004JSON\020\001\022\010\n\004FILE\020\002\"\321\001\n\023Command"
-  "ReplyRequest\022\022\n\ncommand_id\030\001 \001(\t\022\021\n\tobje"
-  "ct_id\030\002 \001(\t\022\014\n\004data\030\003 \001(\014\0222\n\005stage\030\004 \001(\016"
-  "2#.ric.gate.CommandReplyRequest.Stage\022\r\n"
-  "\005error\030\005 \001(\t\"B\n\005Stage\022\013\n\007UNKNOWN\020\000\022\t\n\005ER"
-  "ROR\020\001\022\t\n\005INLET\020\002\022\n\n\006OBJECT\020\003\022\n\n\006PACKET\020\004"
-  "\"#\n\016OfflineRequest\022\021\n\tobject_id\030\001 \001(\t\"P\n"
-  "\007Command\022\022\n\ncommand_id\030\001 \001(\t\022\021\n\tobject_i"
-  "d\030\002 \001(\t\022\016\n\006method\030\003 \001(\t\022\016\n\006params\030\004 \001(\014\""
-  "\017\n\rEmptyResponse2\300\002\n\tGateInlet\0222\n\004Init\022\025"
-  ".ric.gate.InitRequest\032\021.ric.gate.Command"
-  "0\001\0225\n\004Auth\022\025.ric.gate.AuthRequest\032\026.ric."
-  "gate.AuthResponse\022:\n\010SendData\022\025.ric.gate"
-  ".DataRequest\032\027.ric.gate.EmptyResponse\022J\n"
-  "\020SendCommandReply\022\035.ric.gate.CommandRepl"
-  "yRequest\032\027.ric.gate.EmptyResponse\022@\n\013Sen"
-  "dOffline\022\030.ric.gate.OfflineRequest\032\027.ric"
-  ".gate.EmptyResponse2J\n\013GateCommand\022;\n\007Se"
-  "ndRpc\022\021.ric.gate.Command\032\035.ric.gate.Comm"
-  "andReplyRequestB\tZ\007ricgateb\006proto3"
+  "NKNOWN\020\000\022\010\n\004JSON\020\001\022\010\n\004FILE\020\002\"\"\n\013PingRequ"
+  "est\022\023\n\013instance_id\030\001 \001(\t\"\321\001\n\023CommandRepl"
+  "yRequest\022\022\n\ncommand_id\030\001 \001(\t\022\021\n\tobject_i"
+  "d\030\002 \001(\t\022\014\n\004data\030\003 \001(\014\0222\n\005stage\030\004 \001(\0162#.r"
+  "ic.gate.CommandReplyRequest.Stage\022\r\n\005err"
+  "or\030\005 \001(\t\"B\n\005Stage\022\013\n\007UNKNOWN\020\000\022\t\n\005ERROR\020"
+  "\001\022\t\n\005INLET\020\002\022\n\n\006OBJECT\020\003\022\n\n\006PACKET\020\004\"#\n\016"
+  "OfflineRequest\022\021\n\tobject_id\030\001 \001(\t\"P\n\007Com"
+  "mand\022\022\n\ncommand_id\030\001 \001(\t\022\021\n\tobject_id\030\002 "
+  "\001(\t\022\016\n\006method\030\003 \001(\t\022\016\n\006params\030\004 \001(\014\"\017\n\rE"
+  "mptyResponse2\370\002\n\tGateInlet\0222\n\004Init\022\025.ric"
+  ".gate.InitRequest\032\021.ric.gate.Command0\001\0225"
+  "\n\004Auth\022\025.ric.gate.AuthRequest\032\026.ric.gate"
+  ".AuthResponse\022:\n\010SendData\022\025.ric.gate.Dat"
+  "aRequest\032\027.ric.gate.EmptyResponse\0226\n\004Pin"
+  "g\022\025.ric.gate.PingRequest\032\027.ric.gate.Empt"
+  "yResponse\022J\n\020SendCommandReply\022\035.ric.gate"
+  ".CommandReplyRequest\032\027.ric.gate.EmptyRes"
+  "ponse\022@\n\013SendOffline\022\030.ric.gate.OfflineR"
+  "equest\032\027.ric.gate.EmptyResponse2J\n\013GateC"
+  "ommand\022;\n\007SendRpc\022\021.ric.gate.Command\032\035.r"
+  "ic.gate.CommandReplyRequestB\tZ\007ricgateb\006"
+  "proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dgate_2fric_2dgate_2eproto = {
   false, InitDefaults_ric_2dgate_2fric_2dgate_2eproto, 
   descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto,
-  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1114,
+  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1206,
 };
 
 void AddDescriptors_ric_2dgate_2fric_2dgate_2eproto() {
@@ -1944,6 +1974,303 @@ void DataRequest::InternalSwap(DataRequest* other) {
 
 // ===================================================================
 
+void PingRequest::InitAsDefaultInstance() {
+}
+class PingRequest::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int PingRequest::kInstanceIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+PingRequest::PingRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.gate.PingRequest)
+}
+PingRequest::PingRequest(const PingRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  instance_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.instance_id().size() > 0) {
+    instance_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.instance_id_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.gate.PingRequest)
+}
+
+void PingRequest::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_PingRequest_ric_2dgate_2fric_2dgate_2eproto.base);
+  instance_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+PingRequest::~PingRequest() {
+  // @@protoc_insertion_point(destructor:ric.gate.PingRequest)
+  SharedDtor();
+}
+
+void PingRequest::SharedDtor() {
+  instance_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void PingRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const PingRequest& PingRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_PingRequest_ric_2dgate_2fric_2dgate_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void PingRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.gate.PingRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  instance_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* PingRequest::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<PingRequest*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // string instance_id = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.gate.PingRequest.instance_id");
+        object = msg->mutable_instance_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool PingRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.gate.PingRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string instance_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_instance_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->instance_id().data(), static_cast<int>(this->instance_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.gate.PingRequest.instance_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.gate.PingRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.gate.PingRequest)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void PingRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.gate.PingRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string instance_id = 1;
+  if (this->instance_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->instance_id().data(), static_cast<int>(this->instance_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.gate.PingRequest.instance_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->instance_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.gate.PingRequest)
+}
+
+::google::protobuf::uint8* PingRequest::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.gate.PingRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string instance_id = 1;
+  if (this->instance_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->instance_id().data(), static_cast<int>(this->instance_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.gate.PingRequest.instance_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->instance_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.gate.PingRequest)
+  return target;
+}
+
+size_t PingRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.gate.PingRequest)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string instance_id = 1;
+  if (this->instance_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->instance_id());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void PingRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.gate.PingRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const PingRequest* source =
+      ::google::protobuf::DynamicCastToGenerated<PingRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.gate.PingRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.gate.PingRequest)
+    MergeFrom(*source);
+  }
+}
+
+void PingRequest::MergeFrom(const PingRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.gate.PingRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.instance_id().size() > 0) {
+
+    instance_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.instance_id_);
+  }
+}
+
+void PingRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.gate.PingRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PingRequest::CopyFrom(const PingRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.gate.PingRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PingRequest::IsInitialized() const {
+  return true;
+}
+
+void PingRequest::Swap(PingRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void PingRequest::InternalSwap(PingRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  instance_id_.Swap(&other->instance_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+}
+
+::google::protobuf::Metadata PingRequest::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto);
+  return ::file_level_metadata_ric_2dgate_2fric_2dgate_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
 void CommandReplyRequest::InitAsDefaultInstance() {
 }
 class CommandReplyRequest::HasBitSetters {
@@ -3518,6 +3845,9 @@ template<> PROTOBUF_NOINLINE ::ric::gate::AuthResponse* Arena::CreateMaybeMessag
 }
 template<> PROTOBUF_NOINLINE ::ric::gate::DataRequest* Arena::CreateMaybeMessage< ::ric::gate::DataRequest >(Arena* arena) {
   return Arena::CreateInternal< ::ric::gate::DataRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::gate::PingRequest* Arena::CreateMaybeMessage< ::ric::gate::PingRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::gate::PingRequest >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::gate::CommandReplyRequest* Arena::CreateMaybeMessage< ::ric::gate::CommandReplyRequest >(Arena* arena) {
   return Arena::CreateInternal< ::ric::gate::CommandReplyRequest >(arena);

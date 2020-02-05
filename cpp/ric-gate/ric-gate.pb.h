@@ -42,7 +42,7 @@ struct TableStruct_ric_2dgate_2fric_2dgate_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[8]
+  static const ::google::protobuf::internal::ParseTable schema[9]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -75,6 +75,9 @@ extern InitRequestDefaultTypeInternal _InitRequest_default_instance_;
 class OfflineRequest;
 class OfflineRequestDefaultTypeInternal;
 extern OfflineRequestDefaultTypeInternal _OfflineRequest_default_instance_;
+class PingRequest;
+class PingRequestDefaultTypeInternal;
+extern PingRequestDefaultTypeInternal _PingRequest_default_instance_;
 }  // namespace gate
 }  // namespace ric
 namespace google {
@@ -87,6 +90,7 @@ template<> ::ric::gate::DataRequest* Arena::CreateMaybeMessage<::ric::gate::Data
 template<> ::ric::gate::EmptyResponse* Arena::CreateMaybeMessage<::ric::gate::EmptyResponse>(Arena*);
 template<> ::ric::gate::InitRequest* Arena::CreateMaybeMessage<::ric::gate::InitRequest>(Arena*);
 template<> ::ric::gate::OfflineRequest* Arena::CreateMaybeMessage<::ric::gate::OfflineRequest>(Arena*);
+template<> ::ric::gate::PingRequest* Arena::CreateMaybeMessage<::ric::gate::PingRequest>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace ric {
@@ -730,6 +734,126 @@ class DataRequest final :
 };
 // -------------------------------------------------------------------
 
+class PingRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.gate.PingRequest) */ {
+ public:
+  PingRequest();
+  virtual ~PingRequest();
+
+  PingRequest(const PingRequest& from);
+
+  inline PingRequest& operator=(const PingRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  PingRequest(PingRequest&& from) noexcept
+    : PingRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline PingRequest& operator=(PingRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const PingRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const PingRequest* internal_default_instance() {
+    return reinterpret_cast<const PingRequest*>(
+               &_PingRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  void Swap(PingRequest* other);
+  friend void swap(PingRequest& a, PingRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline PingRequest* New() const final {
+    return CreateMaybeMessage<PingRequest>(nullptr);
+  }
+
+  PingRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<PingRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const PingRequest& from);
+  void MergeFrom(const PingRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PingRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string instance_id = 1;
+  void clear_instance_id();
+  static const int kInstanceIdFieldNumber = 1;
+  const ::std::string& instance_id() const;
+  void set_instance_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_instance_id(::std::string&& value);
+  #endif
+  void set_instance_id(const char* value);
+  void set_instance_id(const char* value, size_t size);
+  ::std::string* mutable_instance_id();
+  ::std::string* release_instance_id();
+  void set_allocated_instance_id(::std::string* instance_id);
+
+  // @@protoc_insertion_point(class_scope:ric.gate.PingRequest)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr instance_id_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dgate_2fric_2dgate_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CommandReplyRequest final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.gate.CommandReplyRequest) */ {
  public:
@@ -768,7 +892,7 @@ class CommandReplyRequest final :
                &_CommandReplyRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   void Swap(CommandReplyRequest* other);
   friend void swap(CommandReplyRequest& a, CommandReplyRequest& b) {
@@ -972,7 +1096,7 @@ class OfflineRequest final :
                &_OfflineRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   void Swap(OfflineRequest* other);
   friend void swap(OfflineRequest& a, OfflineRequest& b) {
@@ -1092,7 +1216,7 @@ class Command final :
                &_Command_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   void Swap(Command* other);
   friend void swap(Command& a, Command& b) {
@@ -1257,7 +1381,7 @@ class EmptyResponse final :
                &_EmptyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   void Swap(EmptyResponse* other);
   friend void swap(EmptyResponse& a, EmptyResponse& b) {
@@ -1838,6 +1962,63 @@ inline void DataRequest::set_data_type(::ric::gate::DataRequest_DataType value) 
 
 // -------------------------------------------------------------------
 
+// PingRequest
+
+// string instance_id = 1;
+inline void PingRequest::clear_instance_id() {
+  instance_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& PingRequest::instance_id() const {
+  // @@protoc_insertion_point(field_get:ric.gate.PingRequest.instance_id)
+  return instance_id_.GetNoArena();
+}
+inline void PingRequest::set_instance_id(const ::std::string& value) {
+  
+  instance_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.gate.PingRequest.instance_id)
+}
+#if LANG_CXX11
+inline void PingRequest::set_instance_id(::std::string&& value) {
+  
+  instance_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.gate.PingRequest.instance_id)
+}
+#endif
+inline void PingRequest::set_instance_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  instance_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.gate.PingRequest.instance_id)
+}
+inline void PingRequest::set_instance_id(const char* value, size_t size) {
+  
+  instance_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.gate.PingRequest.instance_id)
+}
+inline ::std::string* PingRequest::mutable_instance_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.gate.PingRequest.instance_id)
+  return instance_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* PingRequest::release_instance_id() {
+  // @@protoc_insertion_point(field_release:ric.gate.PingRequest.instance_id)
+  
+  return instance_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void PingRequest::set_allocated_instance_id(::std::string* instance_id) {
+  if (instance_id != nullptr) {
+    
+  } else {
+    
+  }
+  instance_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), instance_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.gate.PingRequest.instance_id)
+}
+
+// -------------------------------------------------------------------
+
 // CommandReplyRequest
 
 // string command_id = 1;
@@ -2346,6 +2527,8 @@ inline void Command::set_allocated_params(::std::string* params) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

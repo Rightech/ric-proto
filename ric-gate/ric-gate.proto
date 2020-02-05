@@ -12,6 +12,8 @@ service GateInlet {
   rpc Auth(AuthRequest) returns (AuthResponse);
   // Send data from device
   rpc SendData(DataRequest) returns (EmptyResponse);
+  // Send data from device
+  rpc Ping(PingRequest) returns (EmptyResponse);
   // Send command reply
   rpc SendCommandReply(CommandReplyRequest) returns (EmptyResponse);
   // Send info about offline
@@ -48,6 +50,10 @@ message DataRequest {
   string object_id = 1;
   bytes data = 2;
   DataType data_type = 3;
+}
+
+message PingRequest {
+  string instance_id = 1;
 }
 
 message CommandReplyRequest {
