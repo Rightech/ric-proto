@@ -12,8 +12,8 @@ service GateInlet {
   rpc Auth(AuthRequest) returns (AuthResponse);
   // Send data from device
   rpc SendData(DataRequest) returns (EmptyResponse);
-  // Send data from device
-  rpc Heartbeat(stream Ping) returns (EmptyResponse);
+  // Send heartbeats from client
+  rpc SendHeartbeat(stream Ping) returns (EmptyResponse);
   // Send command reply
   rpc SendCommandReply(CommandReplyRequest) returns (EmptyResponse);
   // Send info about offline

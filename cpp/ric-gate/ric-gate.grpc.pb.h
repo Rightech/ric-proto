@@ -65,15 +65,15 @@ class GateInlet final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>> PrepareAsyncSendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>>(PrepareAsyncSendDataRaw(context, request, cq));
     }
-    // Send data from device
-    std::unique_ptr< ::grpc::ClientWriterInterface< ::ric::gate::Ping>> Heartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response) {
-      return std::unique_ptr< ::grpc::ClientWriterInterface< ::ric::gate::Ping>>(HeartbeatRaw(context, response));
+    // Send heartbeats from client
+    std::unique_ptr< ::grpc::ClientWriterInterface< ::ric::gate::Ping>> SendHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response) {
+      return std::unique_ptr< ::grpc::ClientWriterInterface< ::ric::gate::Ping>>(SendHeartbeatRaw(context, response));
     }
-    std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ric::gate::Ping>> AsyncHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ric::gate::Ping>>(AsyncHeartbeatRaw(context, response, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ric::gate::Ping>> AsyncSendHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ric::gate::Ping>>(AsyncSendHeartbeatRaw(context, response, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ric::gate::Ping>> PrepareAsyncHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ric::gate::Ping>>(PrepareAsyncHeartbeatRaw(context, response, cq));
+    std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ric::gate::Ping>> PrepareAsyncSendHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::ric::gate::Ping>>(PrepareAsyncSendHeartbeatRaw(context, response, cq));
     }
     // Send command reply
     virtual ::grpc::Status SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::ric::gate::EmptyResponse* response) = 0;
@@ -102,8 +102,8 @@ class GateInlet final {
       // Send data from device
       virtual void SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
-      // Send data from device
-      virtual void Heartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientWriteReactor< ::ric::gate::Ping>* reactor) = 0;
+      // Send heartbeats from client
+      virtual void SendHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientWriteReactor< ::ric::gate::Ping>* reactor) = 0;
       // Send command reply
       virtual void SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SendCommandReply(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -120,9 +120,9 @@ class GateInlet final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::AuthResponse>* PrepareAsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* AsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* PrepareAsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientWriterInterface< ::ric::gate::Ping>* HeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response) = 0;
-    virtual ::grpc::ClientAsyncWriterInterface< ::ric::gate::Ping>* AsyncHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncWriterInterface< ::ric::gate::Ping>* PrepareAsyncHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientWriterInterface< ::ric::gate::Ping>* SendHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response) = 0;
+    virtual ::grpc::ClientAsyncWriterInterface< ::ric::gate::Ping>* AsyncSendHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncWriterInterface< ::ric::gate::Ping>* PrepareAsyncSendHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* AsyncSendCommandReplyRaw(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* PrepareAsyncSendCommandReplyRaw(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::EmptyResponse>* AsyncSendOfflineRaw(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -154,14 +154,14 @@ class GateInlet final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>> PrepareAsyncSendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>>(PrepareAsyncSendDataRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientWriter< ::ric::gate::Ping>> Heartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response) {
-      return std::unique_ptr< ::grpc::ClientWriter< ::ric::gate::Ping>>(HeartbeatRaw(context, response));
+    std::unique_ptr< ::grpc::ClientWriter< ::ric::gate::Ping>> SendHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response) {
+      return std::unique_ptr< ::grpc::ClientWriter< ::ric::gate::Ping>>(SendHeartbeatRaw(context, response));
     }
-    std::unique_ptr< ::grpc::ClientAsyncWriter< ::ric::gate::Ping>> AsyncHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriter< ::ric::gate::Ping>>(AsyncHeartbeatRaw(context, response, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncWriter< ::ric::gate::Ping>> AsyncSendHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncWriter< ::ric::gate::Ping>>(AsyncSendHeartbeatRaw(context, response, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncWriter< ::ric::gate::Ping>> PrepareAsyncHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncWriter< ::ric::gate::Ping>>(PrepareAsyncHeartbeatRaw(context, response, cq));
+    std::unique_ptr< ::grpc::ClientAsyncWriter< ::ric::gate::Ping>> PrepareAsyncSendHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncWriter< ::ric::gate::Ping>>(PrepareAsyncSendHeartbeatRaw(context, response, cq));
     }
     ::grpc::Status SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::ric::gate::EmptyResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>> AsyncSendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::grpc::CompletionQueue* cq) {
@@ -185,7 +185,7 @@ class GateInlet final {
       void Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::AuthResponse* response, std::function<void(::grpc::Status)>) override;
       void SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
-      void Heartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientWriteReactor< ::ric::gate::Ping>* reactor) override;
+      void SendHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientWriteReactor< ::ric::gate::Ping>* reactor) override;
       void SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SendCommandReply(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SendOffline(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
@@ -208,9 +208,9 @@ class GateInlet final {
     ::grpc::ClientAsyncResponseReader< ::ric::gate::AuthResponse>* PrepareAsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* AsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* PrepareAsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientWriter< ::ric::gate::Ping>* HeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response) override;
-    ::grpc::ClientAsyncWriter< ::ric::gate::Ping>* AsyncHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncWriter< ::ric::gate::Ping>* PrepareAsyncHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientWriter< ::ric::gate::Ping>* SendHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response) override;
+    ::grpc::ClientAsyncWriter< ::ric::gate::Ping>* AsyncSendHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncWriter< ::ric::gate::Ping>* PrepareAsyncSendHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* AsyncSendCommandReplyRaw(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* PrepareAsyncSendCommandReplyRaw(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* AsyncSendOfflineRaw(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -218,7 +218,7 @@ class GateInlet final {
     const ::grpc::internal::RpcMethod rpcmethod_Init_;
     const ::grpc::internal::RpcMethod rpcmethod_Auth_;
     const ::grpc::internal::RpcMethod rpcmethod_SendData_;
-    const ::grpc::internal::RpcMethod rpcmethod_Heartbeat_;
+    const ::grpc::internal::RpcMethod rpcmethod_SendHeartbeat_;
     const ::grpc::internal::RpcMethod rpcmethod_SendCommandReply_;
     const ::grpc::internal::RpcMethod rpcmethod_SendOffline_;
   };
@@ -234,8 +234,8 @@ class GateInlet final {
     virtual ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response);
     // Send data from device
     virtual ::grpc::Status SendData(::grpc::ServerContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response);
-    // Send data from device
-    virtual ::grpc::Status Heartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response);
+    // Send heartbeats from client
+    virtual ::grpc::Status SendHeartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response);
     // Send command reply
     virtual ::grpc::Status SendCommandReply(::grpc::ServerContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response);
     // Send info about offline
@@ -302,22 +302,22 @@ class GateInlet final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_Heartbeat : public BaseClass {
+  class WithAsyncMethod_SendHeartbeat : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_Heartbeat() {
+    WithAsyncMethod_SendHeartbeat() {
       ::grpc::Service::MarkMethodAsync(3);
     }
-    ~WithAsyncMethod_Heartbeat() override {
+    ~WithAsyncMethod_SendHeartbeat() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Heartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendHeartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestHeartbeat(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::ric::gate::EmptyResponse, ::ric::gate::Ping>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSendHeartbeat(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::ric::gate::EmptyResponse, ::ric::gate::Ping>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncClientStreaming(3, context, reader, new_call_cq, notification_cq, tag);
     }
   };
@@ -361,7 +361,7 @@ class GateInlet final {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_Init<WithAsyncMethod_Auth<WithAsyncMethod_SendData<WithAsyncMethod_Heartbeat<WithAsyncMethod_SendCommandReply<WithAsyncMethod_SendOffline<Service > > > > > > AsyncService;
+  typedef WithAsyncMethod_Init<WithAsyncMethod_Auth<WithAsyncMethod_SendData<WithAsyncMethod_SendHeartbeat<WithAsyncMethod_SendCommandReply<WithAsyncMethod_SendOffline<Service > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Init : public BaseClass {
    private:
@@ -435,24 +435,24 @@ class GateInlet final {
     virtual void SendData(::grpc::ServerContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_Heartbeat : public BaseClass {
+  class ExperimentalWithCallbackMethod_SendHeartbeat : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    ExperimentalWithCallbackMethod_Heartbeat() {
+    ExperimentalWithCallbackMethod_SendHeartbeat() {
       ::grpc::Service::experimental().MarkMethodCallback(3,
         new ::grpc::internal::CallbackClientStreamingHandler< ::ric::gate::Ping, ::ric::gate::EmptyResponse>(
-          [this] { return this->Heartbeat(); }));
+          [this] { return this->SendHeartbeat(); }));
     }
-    ~ExperimentalWithCallbackMethod_Heartbeat() override {
+    ~ExperimentalWithCallbackMethod_SendHeartbeat() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Heartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendHeartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::experimental::ServerReadReactor< ::ric::gate::Ping, ::ric::gate::EmptyResponse>* Heartbeat() {
+    virtual ::grpc::experimental::ServerReadReactor< ::ric::gate::Ping, ::ric::gate::EmptyResponse>* SendHeartbeat() {
       return new ::grpc::internal::UnimplementedReadReactor<
         ::ric::gate::Ping, ::ric::gate::EmptyResponse>;}
   };
@@ -506,7 +506,7 @@ class GateInlet final {
     }
     virtual void SendOffline(::grpc::ServerContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_Init<ExperimentalWithCallbackMethod_Auth<ExperimentalWithCallbackMethod_SendData<ExperimentalWithCallbackMethod_Heartbeat<ExperimentalWithCallbackMethod_SendCommandReply<ExperimentalWithCallbackMethod_SendOffline<Service > > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_Init<ExperimentalWithCallbackMethod_Auth<ExperimentalWithCallbackMethod_SendData<ExperimentalWithCallbackMethod_SendHeartbeat<ExperimentalWithCallbackMethod_SendCommandReply<ExperimentalWithCallbackMethod_SendOffline<Service > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Init : public BaseClass {
    private:
@@ -559,18 +559,18 @@ class GateInlet final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_Heartbeat : public BaseClass {
+  class WithGenericMethod_SendHeartbeat : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithGenericMethod_Heartbeat() {
+    WithGenericMethod_SendHeartbeat() {
       ::grpc::Service::MarkMethodGeneric(3);
     }
-    ~WithGenericMethod_Heartbeat() override {
+    ~WithGenericMethod_SendHeartbeat() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Heartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendHeartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -670,22 +670,22 @@ class GateInlet final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_Heartbeat : public BaseClass {
+  class WithRawMethod_SendHeartbeat : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithRawMethod_Heartbeat() {
+    WithRawMethod_SendHeartbeat() {
       ::grpc::Service::MarkMethodRaw(3);
     }
-    ~WithRawMethod_Heartbeat() override {
+    ~WithRawMethod_SendHeartbeat() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Heartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendHeartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestHeartbeat(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSendHeartbeat(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncClientStreaming(3, context, reader, new_call_cq, notification_cq, tag);
     }
   };
@@ -802,24 +802,24 @@ class GateInlet final {
     virtual void SendData(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_Heartbeat : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_SendHeartbeat : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    ExperimentalWithRawCallbackMethod_Heartbeat() {
+    ExperimentalWithRawCallbackMethod_SendHeartbeat() {
       ::grpc::Service::experimental().MarkMethodRawCallback(3,
         new ::grpc::internal::CallbackClientStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this] { return this->Heartbeat(); }));
+          [this] { return this->SendHeartbeat(); }));
     }
-    ~ExperimentalWithRawCallbackMethod_Heartbeat() override {
+    ~ExperimentalWithRawCallbackMethod_SendHeartbeat() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Heartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendHeartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::experimental::ServerReadReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* Heartbeat() {
+    virtual ::grpc::experimental::ServerReadReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SendHeartbeat() {
       return new ::grpc::internal::UnimplementedReadReactor<
         ::grpc::ByteBuffer, ::grpc::ByteBuffer>;}
   };

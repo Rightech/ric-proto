@@ -315,24 +315,24 @@ const char descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto[] =
   "neRequest\022\021\n\tobject_id\030\001 \001(\t\"P\n\007Command\022"
   "\022\n\ncommand_id\030\001 \001(\t\022\021\n\tobject_id\030\002 \001(\t\022\016"
   "\n\006method\030\003 \001(\t\022\016\n\006params\030\004 \001(\014\"\017\n\rEmptyR"
-  "esponse2\370\002\n\tGateInlet\0222\n\004Init\022\025.ric.gate"
+  "esponse2\374\002\n\tGateInlet\0222\n\004Init\022\025.ric.gate"
   ".InitRequest\032\021.ric.gate.Command0\001\0225\n\004Aut"
   "h\022\025.ric.gate.AuthRequest\032\026.ric.gate.Auth"
   "Response\022:\n\010SendData\022\025.ric.gate.DataRequ"
-  "est\032\027.ric.gate.EmptyResponse\0226\n\tHeartbea"
-  "t\022\016.ric.gate.Ping\032\027.ric.gate.EmptyRespon"
-  "se(\001\022J\n\020SendCommandReply\022\035.ric.gate.Comm"
-  "andReplyRequest\032\027.ric.gate.EmptyResponse"
-  "\022@\n\013SendOffline\022\030.ric.gate.OfflineReques"
-  "t\032\027.ric.gate.EmptyResponse2J\n\013GateComman"
-  "d\022;\n\007SendRpc\022\021.ric.gate.Command\032\035.ric.ga"
-  "te.CommandReplyRequestB\tZ\007ricgateb\006proto"
-  "3"
+  "est\032\027.ric.gate.EmptyResponse\022:\n\rSendHear"
+  "tbeat\022\016.ric.gate.Ping\032\027.ric.gate.EmptyRe"
+  "sponse(\001\022J\n\020SendCommandReply\022\035.ric.gate."
+  "CommandReplyRequest\032\027.ric.gate.EmptyResp"
+  "onse\022@\n\013SendOffline\022\030.ric.gate.OfflineRe"
+  "quest\032\027.ric.gate.EmptyResponse2J\n\013GateCo"
+  "mmand\022;\n\007SendRpc\022\021.ric.gate.Command\032\035.ri"
+  "c.gate.CommandReplyRequestB\tZ\007ricgateb\006p"
+  "roto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dgate_2fric_2dgate_2eproto = {
   false, InitDefaults_ric_2dgate_2fric_2dgate_2eproto, 
   descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto,
-  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1201,
+  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1205,
 };
 
 void AddDescriptors_ric_2dgate_2fric_2dgate_2eproto() {

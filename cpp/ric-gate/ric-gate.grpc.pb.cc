@@ -23,7 +23,7 @@ static const char* GateInlet_method_names[] = {
   "/ric.gate.GateInlet/Init",
   "/ric.gate.GateInlet/Auth",
   "/ric.gate.GateInlet/SendData",
-  "/ric.gate.GateInlet/Heartbeat",
+  "/ric.gate.GateInlet/SendHeartbeat",
   "/ric.gate.GateInlet/SendCommandReply",
   "/ric.gate.GateInlet/SendOffline",
 };
@@ -38,7 +38,7 @@ GateInlet::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_Init_(GateInlet_method_names[0], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
   , rpcmethod_Auth_(GateInlet_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SendData_(GateInlet_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Heartbeat_(GateInlet_method_names[3], ::grpc::internal::RpcMethod::CLIENT_STREAMING, channel)
+  , rpcmethod_SendHeartbeat_(GateInlet_method_names[3], ::grpc::internal::RpcMethod::CLIENT_STREAMING, channel)
   , rpcmethod_SendCommandReply_(GateInlet_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SendOffline_(GateInlet_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
@@ -99,20 +99,20 @@ void GateInlet::Stub::experimental_async::SendData(::grpc::ClientContext* contex
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SendData_, context, request, false);
 }
 
-::grpc::ClientWriter< ::ric::gate::Ping>* GateInlet::Stub::HeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response) {
-  return ::grpc::internal::ClientWriterFactory< ::ric::gate::Ping>::Create(channel_.get(), rpcmethod_Heartbeat_, context, response);
+::grpc::ClientWriter< ::ric::gate::Ping>* GateInlet::Stub::SendHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response) {
+  return ::grpc::internal::ClientWriterFactory< ::ric::gate::Ping>::Create(channel_.get(), rpcmethod_SendHeartbeat_, context, response);
 }
 
-void GateInlet::Stub::experimental_async::Heartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientWriteReactor< ::ric::gate::Ping>* reactor) {
-  ::grpc::internal::ClientCallbackWriterFactory< ::ric::gate::Ping>::Create(stub_->channel_.get(), stub_->rpcmethod_Heartbeat_, context, response, reactor);
+void GateInlet::Stub::experimental_async::SendHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientWriteReactor< ::ric::gate::Ping>* reactor) {
+  ::grpc::internal::ClientCallbackWriterFactory< ::ric::gate::Ping>::Create(stub_->channel_.get(), stub_->rpcmethod_SendHeartbeat_, context, response, reactor);
 }
 
-::grpc::ClientAsyncWriter< ::ric::gate::Ping>* GateInlet::Stub::AsyncHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncWriterFactory< ::ric::gate::Ping>::Create(channel_.get(), cq, rpcmethod_Heartbeat_, context, response, true, tag);
+::grpc::ClientAsyncWriter< ::ric::gate::Ping>* GateInlet::Stub::AsyncSendHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncWriterFactory< ::ric::gate::Ping>::Create(channel_.get(), cq, rpcmethod_SendHeartbeat_, context, response, true, tag);
 }
 
-::grpc::ClientAsyncWriter< ::ric::gate::Ping>* GateInlet::Stub::PrepareAsyncHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncWriterFactory< ::ric::gate::Ping>::Create(channel_.get(), cq, rpcmethod_Heartbeat_, context, response, false, nullptr);
+::grpc::ClientAsyncWriter< ::ric::gate::Ping>* GateInlet::Stub::PrepareAsyncSendHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncWriterFactory< ::ric::gate::Ping>::Create(channel_.get(), cq, rpcmethod_SendHeartbeat_, context, response, false, nullptr);
 }
 
 ::grpc::Status GateInlet::Stub::SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::ric::gate::EmptyResponse* response) {
@@ -175,7 +175,7 @@ GateInlet::Service::Service() {
       GateInlet_method_names[3],
       ::grpc::internal::RpcMethod::CLIENT_STREAMING,
       new ::grpc::internal::ClientStreamingHandler< GateInlet::Service, ::ric::gate::Ping, ::ric::gate::EmptyResponse>(
-          std::mem_fn(&GateInlet::Service::Heartbeat), this)));
+          std::mem_fn(&GateInlet::Service::SendHeartbeat), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       GateInlet_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
@@ -212,7 +212,7 @@ GateInlet::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status GateInlet::Service::Heartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) {
+::grpc::Status GateInlet::Service::SendHeartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) {
   (void) context;
   (void) reader;
   (void) response;
