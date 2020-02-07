@@ -51,7 +51,7 @@ message SetGeoConfigRequest {
   string object_id = 1;
   Mode mode = 2;
   bool repeat = 3;
-  // @inject_tag: bson:"omitempty"
+  // @inject_tag: bson:",omitempty"
   map<string, string> map = 4;
   repeated Point track = 5;
 }

@@ -308,8 +308,8 @@ type SetGeoConfigRequest struct {
 	ObjectId string                   `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty" bson:"-"`
 	Mode     SetGeoConfigRequest_Mode `protobuf:"varint,2,opt,name=mode,proto3,enum=ric.bots.SetGeoConfigRequest_Mode" json:"mode,omitempty"`
 	Repeat   bool                     `protobuf:"varint,3,opt,name=repeat,proto3" json:"repeat,omitempty"`
-	// @inject_tag: bson:"omitempty"
-	Map                  map[string]string            `protobuf:"bytes,4,rep,name=map,proto3" json:"map,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"omitempty"`
+	// @inject_tag: bson:",omitempty"
+	Map                  map[string]string            `protobuf:"bytes,4,rep,name=map,proto3" json:"map,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:",omitempty"`
 	Track                []*SetGeoConfigRequest_Point `protobuf:"bytes,5,rep,name=track,proto3" json:"track,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                     `json:"-" bson:"-"`
 	XXX_unrecognized     []byte                       `json:"-" bson:"-"`
