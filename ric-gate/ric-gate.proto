@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package ric.gate;
+
+option go_package = "ricgate";
+
+// Methods for edge inlet and gate interaction
+service GateInlet {
+  // Init and subscribes to commands from gate
+  rpc Init(InitRequest) returns (stream Command);
+  // Auth new device
+  rpc Auth(AuthRequest) returns (AuthResponse);
+  // Send data from device
+  rpc SendData(DataRequest) returns (EmptyResponse);
+  // Send heartbeats from client
+  rpc SendHeartbeat(stream Ping) returns (EmptyResponse);
+  // Send command reply
+  rpc SendCommandReply(CommandReplyRequest) returns (EmptyResponse);
+  // Send info about offline
+  rpc SendOffline(OfflineRequest) returns (EmptyResponse);
+}
+
+service GateCommand {
+  // Method to send grpc command from other service to gate
+  rpc SendRpc(Command) returns (CommandReplyRequest);
+}
+
+message InitRequest {
+  string instance_id = 1; // grpc client id
+}
+
+message AuthRequest {
+  string instance_id = 1;
+  string id = 2;
+  string login = 3;
+  string password = 4;
+}
+
+message AuthResponse {
+  string object_id = 1;
+  bytes config = 2;
+}
+
+message DataRequest {
+  enum DataType {
+    UNKNOWN = 0; // default
+    PARAMS = 1;
+    FILE = 2;
+  }
+  string object_id = 1;
+  bytes data = 2;
+  DataType data_type = 3;
+}
+
+message Ping {
+  string instance_id = 1;
+}
+
+message CommandReplyRequest {
+  enum Stage {
+    UNKNOWN = 0; // default stage
+    ERROR = 1; // wrong command
+    INLET = 2; // inlet got command
+    OBJECT = 3; // device got command
+    PACKET = 4; // packet from device
+  }
+  string command_id = 1;
+  string object_id = 2;
+  bytes data = 3;
+  Stage stage = 4;
+  string error = 5;
+}
+
+message OfflineRequest {
+  string object_id = 1;
+}
+
+message Command {
+  string command_id = 1;
+  string object_id = 2;
+  string method = 3;
+  bytes params = 4;
+}
+
+message EmptyResponse {}

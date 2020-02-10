@@ -118,7 +118,7 @@ message Task {
 message Deadline {
   int64 timestamp = 1; // milliseconds
   // number of milliseconds before deadline when service should send notification
-  // @inject_tag: bson:"notify_until,omitempty"
+  // @inject_tag: bson:",omitempty"
   google.protobuf.Int64Value notify_until = 2;
   Task.Status status = 3;
 }

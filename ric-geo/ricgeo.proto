@@ -5,14 +5,31 @@ package ric.geo;
 option go_package = "ricgeo";
 
 service Watch {
-  rpc WatchGeofence(WatchGeofenceRequest) returns (EmptyResponse);
-  rpc StopWatchGeofence(WatchGeofenceRequest) returns (EmptyResponse);
-  rpc WatchRoom(WatchRoomRequest) returns (EmptyResponse);
-  rpc StopWatchRoom(WatchRoomRequest) returns (EmptyResponse);
-  rpc WatchRoute(WatchRouteRequest) returns (EmptyResponse);
-  rpc StopWatchRoute(WatchRouteRequest) returns (EmptyResponse);
-  rpc UpdateGeo(UpdateGeoRequest) returns (EmptyResponse);
-  rpc GetObjectInfo(GetObjectInfoRequest) returns (GetObjectInfoResponse);
+  option deprecated = true;
+  rpc WatchGeofence(WatchGeofenceRequest) returns (EmptyResponse) {
+    option deprecated = true;
+  }
+  rpc StopWatchGeofence(WatchGeofenceRequest) returns (EmptyResponse) {
+    option deprecated = true;
+  }
+  rpc WatchRoom(WatchRoomRequest) returns (EmptyResponse) {
+    option deprecated = true;
+  }
+  rpc StopWatchRoom(WatchRoomRequest) returns (EmptyResponse) {
+    option deprecated = true;
+  }
+  rpc WatchRoute(WatchRouteRequest) returns (EmptyResponse) {
+    option deprecated = true;
+  }
+  rpc StopWatchRoute(WatchRouteRequest) returns (EmptyResponse) {
+    option deprecated = true;
+  }
+  rpc UpdateGeo(UpdateGeoRequest) returns (EmptyResponse) {
+    option deprecated = true;
+  }
+  rpc GetObjectInfo(GetObjectInfoRequest) returns (GetObjectInfoResponse) {
+    option deprecated = true;
+  }
 }
 
 message EmptyResponse {}
@@ -26,6 +43,7 @@ message WatchGeofenceRequest {
   string object_id = 1;
   EventType event_type = 2;
   repeated string geofences_ids = 3;
+  repeated string tags = 4;
 }
 
 message WatchRoomRequest {
@@ -37,6 +55,7 @@ message WatchRoomRequest {
   string object_id = 1;
   EventType event_type = 2;
   repeated Fence fences = 3;
+  repeated string tags = 4;
 }
 
 message Fence {
@@ -54,6 +73,7 @@ message WatchRouteRequest {
   string object_id = 1;
   EventType event_type = 2;
   repeated string routes_ids = 3;
+  repeated string tags = 4;
 }
 
 message UpdateGeoRequest {
@@ -76,6 +96,38 @@ message GetObjectInfoResponse {
   repeated ObjectGeofenceInfo geofences = 1;
 }
 
+service WatchV2 {
+  rpc Watch(WatchRequest) returns (EmptyResponse);
+  rpc Stop(StopRequest) returns (EmptyResponse);
+  rpc UpdateGeo(UpdateGeoRequest) returns (EmptyResponse);
+  rpc GetObjectInfo(GetObjectInfoRequest) returns (GetObjectInfoResponse);
+}
+
+message WatchRequest {
+  enum EventType {
+    UNDEFINED = 0;
+    GEOFENCE_ENTER = 1;
+    GEOFENCE_LEAVE = 2;
+    GEOFENCE_BOTH = 3;
+    ROUTE_ON = 5;
+    ROUTE_OFF = 6;
+    ROUTE_BOTH = 7;
+    ROOM_ENTER = 9;
+    ROOM_LEAVE = 10;
+    ROOM_BOTH = 11;
+  }
+  string object_id = 1;
+  EventType event_type = 2;
+  repeated Fence fences = 3;
+  repeated string tags = 4;
+}
+
+message StopRequest {
+  string object_id = 1;
+  repeated Fence fences = 2;
+  repeated string tags = 3;
+}
+
 service AttendanceControl {
   rpc Control(ControlRequest) returns (EmptyResponse);
 }
@@ -84,6 +136,7 @@ message ControlRequest {
   string object_id = 1;
   Time time = 2;
   Circle circle = 3;
+  repeated string tags = 4;
 }
 
 message Time {

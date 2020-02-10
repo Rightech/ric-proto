@@ -1,0 +1,5 @@
+Language: Proto
+BasedOnStyle: Google
+SpacesBeforeTrailingComments: 1
+AlignTrailingComments: false
+AllowShortFunctionsOnASingleLine: false
