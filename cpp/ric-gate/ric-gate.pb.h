@@ -687,9 +687,23 @@ class DataRequest final :
 
   // accessors -------------------------------------------------------
 
-  // string object_id = 1;
+  // string instance_id = 1;
+  void clear_instance_id();
+  static const int kInstanceIdFieldNumber = 1;
+  const ::std::string& instance_id() const;
+  void set_instance_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_instance_id(::std::string&& value);
+  #endif
+  void set_instance_id(const char* value);
+  void set_instance_id(const char* value, size_t size);
+  ::std::string* mutable_instance_id();
+  ::std::string* release_instance_id();
+  void set_allocated_instance_id(::std::string* instance_id);
+
+  // string object_id = 2;
   void clear_object_id();
-  static const int kObjectIdFieldNumber = 1;
+  static const int kObjectIdFieldNumber = 2;
   const ::std::string& object_id() const;
   void set_object_id(const ::std::string& value);
   #if LANG_CXX11
@@ -701,9 +715,9 @@ class DataRequest final :
   ::std::string* release_object_id();
   void set_allocated_object_id(::std::string* object_id);
 
-  // bytes data = 2;
+  // bytes data = 3;
   void clear_data();
-  static const int kDataFieldNumber = 2;
+  static const int kDataFieldNumber = 3;
   const ::std::string& data() const;
   void set_data(const ::std::string& value);
   #if LANG_CXX11
@@ -715,9 +729,9 @@ class DataRequest final :
   ::std::string* release_data();
   void set_allocated_data(::std::string* data);
 
-  // .ric.gate.DataRequest.DataType data_type = 3;
+  // .ric.gate.DataRequest.DataType data_type = 4;
   void clear_data_type();
-  static const int kDataTypeFieldNumber = 3;
+  static const int kDataTypeFieldNumber = 4;
   ::ric::gate::DataRequest_DataType data_type() const;
   void set_data_type(::ric::gate::DataRequest_DataType value);
 
@@ -726,6 +740,7 @@ class DataRequest final :
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr instance_id_;
   ::google::protobuf::internal::ArenaStringPtr object_id_;
   ::google::protobuf::internal::ArenaStringPtr data_;
   int data_type_;
@@ -1840,7 +1855,60 @@ inline void AuthResponse::set_allocated_config(::std::string* config) {
 
 // DataRequest
 
-// string object_id = 1;
+// string instance_id = 1;
+inline void DataRequest::clear_instance_id() {
+  instance_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& DataRequest::instance_id() const {
+  // @@protoc_insertion_point(field_get:ric.gate.DataRequest.instance_id)
+  return instance_id_.GetNoArena();
+}
+inline void DataRequest::set_instance_id(const ::std::string& value) {
+  
+  instance_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.gate.DataRequest.instance_id)
+}
+#if LANG_CXX11
+inline void DataRequest::set_instance_id(::std::string&& value) {
+  
+  instance_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.gate.DataRequest.instance_id)
+}
+#endif
+inline void DataRequest::set_instance_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  instance_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.gate.DataRequest.instance_id)
+}
+inline void DataRequest::set_instance_id(const char* value, size_t size) {
+  
+  instance_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.gate.DataRequest.instance_id)
+}
+inline ::std::string* DataRequest::mutable_instance_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.gate.DataRequest.instance_id)
+  return instance_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* DataRequest::release_instance_id() {
+  // @@protoc_insertion_point(field_release:ric.gate.DataRequest.instance_id)
+  
+  return instance_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void DataRequest::set_allocated_instance_id(::std::string* instance_id) {
+  if (instance_id != nullptr) {
+    
+  } else {
+    
+  }
+  instance_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), instance_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.gate.DataRequest.instance_id)
+}
+
+// string object_id = 2;
 inline void DataRequest::clear_object_id() {
   object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1893,7 +1961,7 @@ inline void DataRequest::set_allocated_object_id(::std::string* object_id) {
   // @@protoc_insertion_point(field_set_allocated:ric.gate.DataRequest.object_id)
 }
 
-// bytes data = 2;
+// bytes data = 3;
 inline void DataRequest::clear_data() {
   data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1946,7 +2014,7 @@ inline void DataRequest::set_allocated_data(::std::string* data) {
   // @@protoc_insertion_point(field_set_allocated:ric.gate.DataRequest.data)
 }
 
-// .ric.gate.DataRequest.DataType data_type = 3;
+// .ric.gate.DataRequest.DataType data_type = 4;
 inline void DataRequest::clear_data_type() {
   data_type_ = 0;
 }
