@@ -66,12 +66,12 @@ class Bots final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>> PrepareAsyncSetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::SetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>>(PrepareAsyncSetGeoConfigRaw(context, request, cq));
     }
-    virtual ::grpc::Status UnsetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest& request, ::ric::bots::EmptyResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>> AsyncUnsetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>>(AsyncUnsetGeoConfigRaw(context, request, cq));
+    virtual ::grpc::Status PauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest& request, ::ric::bots::EmptyResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>> AsyncPauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>>(AsyncPauseStopGeoRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>> PrepareAsyncUnsetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>>(PrepareAsyncUnsetGeoConfigRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>> PrepareAsyncPauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>>(PrepareAsyncPauseStopGeoRaw(context, request, cq));
     }
     virtual ::grpc::Status AddToGenConfig(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest& request, ::ric::bots::EmptyResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>> AsyncAddToGenConfig(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest& request, ::grpc::CompletionQueue* cq) {
@@ -105,8 +105,8 @@ class Bots final {
       virtual void SetState(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SetGeoConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void UnsetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void UnsetGeoConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void PauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void PauseStopGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void AddToGenConfig(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void AddToGenConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void RemoveFromGenConfig(::grpc::ClientContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -124,8 +124,8 @@ class Bots final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>* PrepareAsyncSetStateRaw(::grpc::ClientContext* context, const ::ric::bots::SetStateRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>* AsyncSetGeoConfigRaw(::grpc::ClientContext* context, const ::ric::bots::SetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>* PrepareAsyncSetGeoConfigRaw(::grpc::ClientContext* context, const ::ric::bots::SetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>* AsyncUnsetGeoConfigRaw(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>* PrepareAsyncUnsetGeoConfigRaw(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>* AsyncPauseStopGeoRaw(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>* PrepareAsyncPauseStopGeoRaw(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>* AsyncAddToGenConfigRaw(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>* PrepareAsyncAddToGenConfigRaw(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>* AsyncRemoveFromGenConfigRaw(::grpc::ClientContext* context, const ::ric::bots::RemoveFromGenConfigRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -164,12 +164,12 @@ class Bots final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>> PrepareAsyncSetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::SetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>>(PrepareAsyncSetGeoConfigRaw(context, request, cq));
     }
-    ::grpc::Status UnsetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest& request, ::ric::bots::EmptyResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>> AsyncUnsetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>>(AsyncUnsetGeoConfigRaw(context, request, cq));
+    ::grpc::Status PauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest& request, ::ric::bots::EmptyResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>> AsyncPauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>>(AsyncPauseStopGeoRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>> PrepareAsyncUnsetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>>(PrepareAsyncUnsetGeoConfigRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>> PrepareAsyncPauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>>(PrepareAsyncPauseStopGeoRaw(context, request, cq));
     }
     ::grpc::Status AddToGenConfig(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest& request, ::ric::bots::EmptyResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>> AsyncAddToGenConfig(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest& request, ::grpc::CompletionQueue* cq) {
@@ -203,8 +203,8 @@ class Bots final {
       void SetState(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SetGeoConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
-      void UnsetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
-      void UnsetGeoConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      void PauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      void PauseStopGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void AddToGenConfig(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void AddToGenConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void RemoveFromGenConfig(::grpc::ClientContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
@@ -230,8 +230,8 @@ class Bots final {
     ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* PrepareAsyncSetStateRaw(::grpc::ClientContext* context, const ::ric::bots::SetStateRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* AsyncSetGeoConfigRaw(::grpc::ClientContext* context, const ::ric::bots::SetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* PrepareAsyncSetGeoConfigRaw(::grpc::ClientContext* context, const ::ric::bots::SetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* AsyncUnsetGeoConfigRaw(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* PrepareAsyncUnsetGeoConfigRaw(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* AsyncPauseStopGeoRaw(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* PrepareAsyncPauseStopGeoRaw(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* AsyncAddToGenConfigRaw(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* PrepareAsyncAddToGenConfigRaw(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* AsyncRemoveFromGenConfigRaw(::grpc::ClientContext* context, const ::ric::bots::RemoveFromGenConfigRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -242,7 +242,7 @@ class Bots final {
     const ::grpc::internal::RpcMethod rpcmethod_Stop_;
     const ::grpc::internal::RpcMethod rpcmethod_SetState_;
     const ::grpc::internal::RpcMethod rpcmethod_SetGeoConfig_;
-    const ::grpc::internal::RpcMethod rpcmethod_UnsetGeoConfig_;
+    const ::grpc::internal::RpcMethod rpcmethod_PauseStopGeo_;
     const ::grpc::internal::RpcMethod rpcmethod_AddToGenConfig_;
     const ::grpc::internal::RpcMethod rpcmethod_RemoveFromGenConfig_;
     const ::grpc::internal::RpcMethod rpcmethod_SetBotConfig_;
@@ -257,7 +257,7 @@ class Bots final {
     virtual ::grpc::Status Stop(::grpc::ServerContext* context, const ::ric::bots::StopRequest* request, ::ric::bots::EmptyResponse* response);
     virtual ::grpc::Status SetState(::grpc::ServerContext* context, const ::ric::bots::SetStateRequest* request, ::ric::bots::EmptyResponse* response);
     virtual ::grpc::Status SetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response);
-    virtual ::grpc::Status UnsetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::UnsetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response);
+    virtual ::grpc::Status PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response);
     virtual ::grpc::Status AddToGenConfig(::grpc::ServerContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response);
     virtual ::grpc::Status RemoveFromGenConfig(::grpc::ServerContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response);
     virtual ::grpc::Status SetBotConfig(::grpc::ServerContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response);
@@ -343,22 +343,22 @@ class Bots final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_UnsetGeoConfig : public BaseClass {
+  class WithAsyncMethod_PauseStopGeo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_UnsetGeoConfig() {
+    WithAsyncMethod_PauseStopGeo() {
       ::grpc::Service::MarkMethodAsync(4);
     }
-    ~WithAsyncMethod_UnsetGeoConfig() override {
+    ~WithAsyncMethod_PauseStopGeo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UnsetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::UnsetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
+    ::grpc::Status PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestUnsetGeoConfig(::grpc::ServerContext* context, ::ric::bots::UnsetGeoConfigRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::bots::EmptyResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestPauseStopGeo(::grpc::ServerContext* context, ::ric::bots::PauseStopGeoRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::bots::EmptyResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -422,7 +422,7 @@ class Bots final {
       ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_Start<WithAsyncMethod_Stop<WithAsyncMethod_SetState<WithAsyncMethod_SetGeoConfig<WithAsyncMethod_UnsetGeoConfig<WithAsyncMethod_AddToGenConfig<WithAsyncMethod_RemoveFromGenConfig<WithAsyncMethod_SetBotConfig<Service > > > > > > > > AsyncService;
+  typedef WithAsyncMethod_Start<WithAsyncMethod_Stop<WithAsyncMethod_SetState<WithAsyncMethod_SetGeoConfig<WithAsyncMethod_PauseStopGeo<WithAsyncMethod_AddToGenConfig<WithAsyncMethod_RemoveFromGenConfig<WithAsyncMethod_SetBotConfig<Service > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Start : public BaseClass {
    private:
@@ -524,29 +524,29 @@ class Bots final {
     virtual void SetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_UnsetGeoConfig : public BaseClass {
+  class ExperimentalWithCallbackMethod_PauseStopGeo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    ExperimentalWithCallbackMethod_UnsetGeoConfig() {
+    ExperimentalWithCallbackMethod_PauseStopGeo() {
       ::grpc::Service::experimental().MarkMethodCallback(4,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::bots::UnsetGeoConfigRequest, ::ric::bots::EmptyResponse>(
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bots::PauseStopGeoRequest, ::ric::bots::EmptyResponse>(
           [this](::grpc::ServerContext* context,
-                 const ::ric::bots::UnsetGeoConfigRequest* request,
+                 const ::ric::bots::PauseStopGeoRequest* request,
                  ::ric::bots::EmptyResponse* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->UnsetGeoConfig(context, request, response, controller);
+                   return this->PauseStopGeo(context, request, response, controller);
                  }));
     }
-    ~ExperimentalWithCallbackMethod_UnsetGeoConfig() override {
+    ~ExperimentalWithCallbackMethod_PauseStopGeo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UnsetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::UnsetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
+    ::grpc::Status PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void UnsetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::UnsetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_AddToGenConfig : public BaseClass {
@@ -623,7 +623,7 @@ class Bots final {
     }
     virtual void SetBotConfig(::grpc::ServerContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_Start<ExperimentalWithCallbackMethod_Stop<ExperimentalWithCallbackMethod_SetState<ExperimentalWithCallbackMethod_SetGeoConfig<ExperimentalWithCallbackMethod_UnsetGeoConfig<ExperimentalWithCallbackMethod_AddToGenConfig<ExperimentalWithCallbackMethod_RemoveFromGenConfig<ExperimentalWithCallbackMethod_SetBotConfig<Service > > > > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_Start<ExperimentalWithCallbackMethod_Stop<ExperimentalWithCallbackMethod_SetState<ExperimentalWithCallbackMethod_SetGeoConfig<ExperimentalWithCallbackMethod_PauseStopGeo<ExperimentalWithCallbackMethod_AddToGenConfig<ExperimentalWithCallbackMethod_RemoveFromGenConfig<ExperimentalWithCallbackMethod_SetBotConfig<Service > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Start : public BaseClass {
    private:
@@ -693,18 +693,18 @@ class Bots final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_UnsetGeoConfig : public BaseClass {
+  class WithGenericMethod_PauseStopGeo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithGenericMethod_UnsetGeoConfig() {
+    WithGenericMethod_PauseStopGeo() {
       ::grpc::Service::MarkMethodGeneric(4);
     }
-    ~WithGenericMethod_UnsetGeoConfig() override {
+    ~WithGenericMethod_PauseStopGeo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UnsetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::UnsetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
+    ::grpc::Status PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -841,22 +841,22 @@ class Bots final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_UnsetGeoConfig : public BaseClass {
+  class WithRawMethod_PauseStopGeo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithRawMethod_UnsetGeoConfig() {
+    WithRawMethod_PauseStopGeo() {
       ::grpc::Service::MarkMethodRaw(4);
     }
-    ~WithRawMethod_UnsetGeoConfig() override {
+    ~WithRawMethod_PauseStopGeo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UnsetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::UnsetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
+    ::grpc::Status PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestUnsetGeoConfig(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestPauseStopGeo(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -1021,29 +1021,29 @@ class Bots final {
     virtual void SetGeoConfig(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_UnsetGeoConfig : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_PauseStopGeo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    ExperimentalWithRawCallbackMethod_UnsetGeoConfig() {
+    ExperimentalWithRawCallbackMethod_PauseStopGeo() {
       ::grpc::Service::experimental().MarkMethodRawCallback(4,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
                  ::grpc::ByteBuffer* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->UnsetGeoConfig(context, request, response, controller);
+                   this->PauseStopGeo(context, request, response, controller);
                  }));
     }
-    ~ExperimentalWithRawCallbackMethod_UnsetGeoConfig() override {
+    ~ExperimentalWithRawCallbackMethod_PauseStopGeo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UnsetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::UnsetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
+    ::grpc::Status PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void UnsetGeoConfig(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void PauseStopGeo(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_AddToGenConfig : public BaseClass {
@@ -1201,24 +1201,24 @@ class Bots final {
     virtual ::grpc::Status StreamedSetGeoConfig(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bots::SetGeoConfigRequest,::ric::bots::EmptyResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_UnsetGeoConfig : public BaseClass {
+  class WithStreamedUnaryMethod_PauseStopGeo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithStreamedUnaryMethod_UnsetGeoConfig() {
+    WithStreamedUnaryMethod_PauseStopGeo() {
       ::grpc::Service::MarkMethodStreamed(4,
-        new ::grpc::internal::StreamedUnaryHandler< ::ric::bots::UnsetGeoConfigRequest, ::ric::bots::EmptyResponse>(std::bind(&WithStreamedUnaryMethod_UnsetGeoConfig<BaseClass>::StreamedUnsetGeoConfig, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::bots::PauseStopGeoRequest, ::ric::bots::EmptyResponse>(std::bind(&WithStreamedUnaryMethod_PauseStopGeo<BaseClass>::StreamedPauseStopGeo, this, std::placeholders::_1, std::placeholders::_2)));
     }
-    ~WithStreamedUnaryMethod_UnsetGeoConfig() override {
+    ~WithStreamedUnaryMethod_PauseStopGeo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status UnsetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::UnsetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
+    ::grpc::Status PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedUnsetGeoConfig(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bots::UnsetGeoConfigRequest,::ric::bots::EmptyResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedPauseStopGeo(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bots::PauseStopGeoRequest,::ric::bots::EmptyResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_AddToGenConfig : public BaseClass {
@@ -1280,9 +1280,9 @@ class Bots final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedSetBotConfig(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bots::SetBotConfigRequest,::ric::bots::EmptyResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_Start<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_SetState<WithStreamedUnaryMethod_SetGeoConfig<WithStreamedUnaryMethod_UnsetGeoConfig<WithStreamedUnaryMethod_AddToGenConfig<WithStreamedUnaryMethod_RemoveFromGenConfig<WithStreamedUnaryMethod_SetBotConfig<Service > > > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_Start<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_SetState<WithStreamedUnaryMethod_SetGeoConfig<WithStreamedUnaryMethod_PauseStopGeo<WithStreamedUnaryMethod_AddToGenConfig<WithStreamedUnaryMethod_RemoveFromGenConfig<WithStreamedUnaryMethod_SetBotConfig<Service > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_Start<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_SetState<WithStreamedUnaryMethod_SetGeoConfig<WithStreamedUnaryMethod_UnsetGeoConfig<WithStreamedUnaryMethod_AddToGenConfig<WithStreamedUnaryMethod_RemoveFromGenConfig<WithStreamedUnaryMethod_SetBotConfig<Service > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_Start<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_SetState<WithStreamedUnaryMethod_SetGeoConfig<WithStreamedUnaryMethod_PauseStopGeo<WithStreamedUnaryMethod_AddToGenConfig<WithStreamedUnaryMethod_RemoveFromGenConfig<WithStreamedUnaryMethod_SetBotConfig<Service > > > > > > > > StreamedService;
 };
 
 }  // namespace bots

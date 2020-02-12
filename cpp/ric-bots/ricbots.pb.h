@@ -66,6 +66,9 @@ extern AddToGenConfigRequest_RandomTypeDefaultTypeInternal _AddToGenConfigReques
 class EmptyResponse;
 class EmptyResponseDefaultTypeInternal;
 extern EmptyResponseDefaultTypeInternal _EmptyResponse_default_instance_;
+class PauseStopGeoRequest;
+class PauseStopGeoRequestDefaultTypeInternal;
+extern PauseStopGeoRequestDefaultTypeInternal _PauseStopGeoRequest_default_instance_;
 class RemoveFromGenConfigRequest;
 class RemoveFromGenConfigRequestDefaultTypeInternal;
 extern RemoveFromGenConfigRequestDefaultTypeInternal _RemoveFromGenConfigRequest_default_instance_;
@@ -96,9 +99,6 @@ extern StartRequestDefaultTypeInternal _StartRequest_default_instance_;
 class StopRequest;
 class StopRequestDefaultTypeInternal;
 extern StopRequestDefaultTypeInternal _StopRequest_default_instance_;
-class UnsetGeoConfigRequest;
-class UnsetGeoConfigRequestDefaultTypeInternal;
-extern UnsetGeoConfigRequestDefaultTypeInternal _UnsetGeoConfigRequest_default_instance_;
 }  // namespace bots
 }  // namespace ric
 namespace google {
@@ -107,6 +107,7 @@ template<> ::ric::bots::AddToGenConfigRequest* Arena::CreateMaybeMessage<::ric::
 template<> ::ric::bots::AddToGenConfigRequest_LinearType* Arena::CreateMaybeMessage<::ric::bots::AddToGenConfigRequest_LinearType>(Arena*);
 template<> ::ric::bots::AddToGenConfigRequest_RandomType* Arena::CreateMaybeMessage<::ric::bots::AddToGenConfigRequest_RandomType>(Arena*);
 template<> ::ric::bots::EmptyResponse* Arena::CreateMaybeMessage<::ric::bots::EmptyResponse>(Arena*);
+template<> ::ric::bots::PauseStopGeoRequest* Arena::CreateMaybeMessage<::ric::bots::PauseStopGeoRequest>(Arena*);
 template<> ::ric::bots::RemoveFromGenConfigRequest* Arena::CreateMaybeMessage<::ric::bots::RemoveFromGenConfigRequest>(Arena*);
 template<> ::ric::bots::SetBotConfigRequest* Arena::CreateMaybeMessage<::ric::bots::SetBotConfigRequest>(Arena*);
 template<> ::ric::bots::SetGeoConfigRequest* Arena::CreateMaybeMessage<::ric::bots::SetGeoConfigRequest>(Arena*);
@@ -117,7 +118,6 @@ template<> ::ric::bots::SetStateRequest_StateEntry_DoNotUse* Arena::CreateMaybeM
 template<> ::ric::bots::SetStateRequest_StateValue* Arena::CreateMaybeMessage<::ric::bots::SetStateRequest_StateValue>(Arena*);
 template<> ::ric::bots::StartRequest* Arena::CreateMaybeMessage<::ric::bots::StartRequest>(Arena*);
 template<> ::ric::bots::StopRequest* Arena::CreateMaybeMessage<::ric::bots::StopRequest>(Arena*);
-template<> ::ric::bots::UnsetGeoConfigRequest* Arena::CreateMaybeMessage<::ric::bots::UnsetGeoConfigRequest>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace ric {
@@ -1693,25 +1693,25 @@ class RemoveFromGenConfigRequest final :
 };
 // -------------------------------------------------------------------
 
-class UnsetGeoConfigRequest final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.bots.UnsetGeoConfigRequest) */ {
+class PauseStopGeoRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.bots.PauseStopGeoRequest) */ {
  public:
-  UnsetGeoConfigRequest();
-  virtual ~UnsetGeoConfigRequest();
+  PauseStopGeoRequest();
+  virtual ~PauseStopGeoRequest();
 
-  UnsetGeoConfigRequest(const UnsetGeoConfigRequest& from);
+  PauseStopGeoRequest(const PauseStopGeoRequest& from);
 
-  inline UnsetGeoConfigRequest& operator=(const UnsetGeoConfigRequest& from) {
+  inline PauseStopGeoRequest& operator=(const PauseStopGeoRequest& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  UnsetGeoConfigRequest(UnsetGeoConfigRequest&& from) noexcept
-    : UnsetGeoConfigRequest() {
+  PauseStopGeoRequest(PauseStopGeoRequest&& from) noexcept
+    : PauseStopGeoRequest() {
     *this = ::std::move(from);
   }
 
-  inline UnsetGeoConfigRequest& operator=(UnsetGeoConfigRequest&& from) noexcept {
+  inline PauseStopGeoRequest& operator=(PauseStopGeoRequest&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1723,34 +1723,34 @@ class UnsetGeoConfigRequest final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const UnsetGeoConfigRequest& default_instance();
+  static const PauseStopGeoRequest& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const UnsetGeoConfigRequest* internal_default_instance() {
-    return reinterpret_cast<const UnsetGeoConfigRequest*>(
-               &_UnsetGeoConfigRequest_default_instance_);
+  static inline const PauseStopGeoRequest* internal_default_instance() {
+    return reinterpret_cast<const PauseStopGeoRequest*>(
+               &_PauseStopGeoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     13;
 
-  void Swap(UnsetGeoConfigRequest* other);
-  friend void swap(UnsetGeoConfigRequest& a, UnsetGeoConfigRequest& b) {
+  void Swap(PauseStopGeoRequest* other);
+  friend void swap(PauseStopGeoRequest& a, PauseStopGeoRequest& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline UnsetGeoConfigRequest* New() const final {
-    return CreateMaybeMessage<UnsetGeoConfigRequest>(nullptr);
+  inline PauseStopGeoRequest* New() const final {
+    return CreateMaybeMessage<PauseStopGeoRequest>(nullptr);
   }
 
-  UnsetGeoConfigRequest* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<UnsetGeoConfigRequest>(arena);
+  PauseStopGeoRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<PauseStopGeoRequest>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const UnsetGeoConfigRequest& from);
-  void MergeFrom(const UnsetGeoConfigRequest& from);
+  void CopyFrom(const PauseStopGeoRequest& from);
+  void MergeFrom(const PauseStopGeoRequest& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1772,7 +1772,7 @@ class UnsetGeoConfigRequest final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(UnsetGeoConfigRequest* other);
+  void InternalSwap(PauseStopGeoRequest* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -1802,12 +1802,19 @@ class UnsetGeoConfigRequest final :
   ::std::string* release_object_id();
   void set_allocated_object_id(::std::string* object_id);
 
-  // @@protoc_insertion_point(class_scope:ric.bots.UnsetGeoConfigRequest)
+  // bool stop = 2;
+  void clear_stop();
+  static const int kStopFieldNumber = 2;
+  bool stop() const;
+  void set_stop(bool value);
+
+  // @@protoc_insertion_point(class_scope:ric.bots.PauseStopGeoRequest)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr object_id_;
+  bool stop_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dbots_2fricbots_2eproto;
 };
@@ -2833,59 +2840,73 @@ inline void RemoveFromGenConfigRequest::set_allocated_name(::std::string* name) 
 
 // -------------------------------------------------------------------
 
-// UnsetGeoConfigRequest
+// PauseStopGeoRequest
 
 // string object_id = 1;
-inline void UnsetGeoConfigRequest::clear_object_id() {
+inline void PauseStopGeoRequest::clear_object_id() {
   object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& UnsetGeoConfigRequest::object_id() const {
-  // @@protoc_insertion_point(field_get:ric.bots.UnsetGeoConfigRequest.object_id)
+inline const ::std::string& PauseStopGeoRequest::object_id() const {
+  // @@protoc_insertion_point(field_get:ric.bots.PauseStopGeoRequest.object_id)
   return object_id_.GetNoArena();
 }
-inline void UnsetGeoConfigRequest::set_object_id(const ::std::string& value) {
+inline void PauseStopGeoRequest::set_object_id(const ::std::string& value) {
   
   object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.bots.UnsetGeoConfigRequest.object_id)
+  // @@protoc_insertion_point(field_set:ric.bots.PauseStopGeoRequest.object_id)
 }
 #if LANG_CXX11
-inline void UnsetGeoConfigRequest::set_object_id(::std::string&& value) {
+inline void PauseStopGeoRequest::set_object_id(::std::string&& value) {
   
   object_id_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.bots.UnsetGeoConfigRequest.object_id)
+  // @@protoc_insertion_point(field_set_rvalue:ric.bots.PauseStopGeoRequest.object_id)
 }
 #endif
-inline void UnsetGeoConfigRequest::set_object_id(const char* value) {
+inline void PauseStopGeoRequest::set_object_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.bots.UnsetGeoConfigRequest.object_id)
+  // @@protoc_insertion_point(field_set_char:ric.bots.PauseStopGeoRequest.object_id)
 }
-inline void UnsetGeoConfigRequest::set_object_id(const char* value, size_t size) {
+inline void PauseStopGeoRequest::set_object_id(const char* value, size_t size) {
   
   object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.bots.UnsetGeoConfigRequest.object_id)
+  // @@protoc_insertion_point(field_set_pointer:ric.bots.PauseStopGeoRequest.object_id)
 }
-inline ::std::string* UnsetGeoConfigRequest::mutable_object_id() {
+inline ::std::string* PauseStopGeoRequest::mutable_object_id() {
   
-  // @@protoc_insertion_point(field_mutable:ric.bots.UnsetGeoConfigRequest.object_id)
+  // @@protoc_insertion_point(field_mutable:ric.bots.PauseStopGeoRequest.object_id)
   return object_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* UnsetGeoConfigRequest::release_object_id() {
-  // @@protoc_insertion_point(field_release:ric.bots.UnsetGeoConfigRequest.object_id)
+inline ::std::string* PauseStopGeoRequest::release_object_id() {
+  // @@protoc_insertion_point(field_release:ric.bots.PauseStopGeoRequest.object_id)
   
   return object_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void UnsetGeoConfigRequest::set_allocated_object_id(::std::string* object_id) {
+inline void PauseStopGeoRequest::set_allocated_object_id(::std::string* object_id) {
   if (object_id != nullptr) {
     
   } else {
     
   }
   object_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), object_id);
-  // @@protoc_insertion_point(field_set_allocated:ric.bots.UnsetGeoConfigRequest.object_id)
+  // @@protoc_insertion_point(field_set_allocated:ric.bots.PauseStopGeoRequest.object_id)
+}
+
+// bool stop = 2;
+inline void PauseStopGeoRequest::clear_stop() {
+  stop_ = false;
+}
+inline bool PauseStopGeoRequest::stop() const {
+  // @@protoc_insertion_point(field_get:ric.bots.PauseStopGeoRequest.stop)
+  return stop_;
+}
+inline void PauseStopGeoRequest::set_stop(bool value) {
+  
+  stop_ = value;
+  // @@protoc_insertion_point(field_set:ric.bots.PauseStopGeoRequest.stop)
 }
 
 // -------------------------------------------------------------------

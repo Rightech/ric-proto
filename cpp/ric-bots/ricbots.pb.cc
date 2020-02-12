@@ -81,10 +81,10 @@ class RemoveFromGenConfigRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<RemoveFromGenConfigRequest> _instance;
 } _RemoveFromGenConfigRequest_default_instance_;
-class UnsetGeoConfigRequestDefaultTypeInternal {
+class PauseStopGeoRequestDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<UnsetGeoConfigRequest> _instance;
-} _UnsetGeoConfigRequest_default_instance_;
+  ::google::protobuf::internal::ExplicitlyConstructed<PauseStopGeoRequest> _instance;
+} _PauseStopGeoRequest_default_instance_;
 class SetBotConfigRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<SetBotConfigRequest> _instance;
@@ -277,19 +277,19 @@ static void InitDefaultsRemoveFromGenConfigRequest_ric_2dbots_2fricbots_2eproto(
 ::google::protobuf::internal::SCCInfo<0> scc_info_RemoveFromGenConfigRequest_ric_2dbots_2fricbots_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsRemoveFromGenConfigRequest_ric_2dbots_2fricbots_2eproto}, {}};
 
-static void InitDefaultsUnsetGeoConfigRequest_ric_2dbots_2fricbots_2eproto() {
+static void InitDefaultsPauseStopGeoRequest_ric_2dbots_2fricbots_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::ric::bots::_UnsetGeoConfigRequest_default_instance_;
-    new (ptr) ::ric::bots::UnsetGeoConfigRequest();
+    void* ptr = &::ric::bots::_PauseStopGeoRequest_default_instance_;
+    new (ptr) ::ric::bots::PauseStopGeoRequest();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ric::bots::UnsetGeoConfigRequest::InitAsDefaultInstance();
+  ::ric::bots::PauseStopGeoRequest::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_UnsetGeoConfigRequest_ric_2dbots_2fricbots_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsUnsetGeoConfigRequest_ric_2dbots_2fricbots_2eproto}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_PauseStopGeoRequest_ric_2dbots_2fricbots_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPauseStopGeoRequest_ric_2dbots_2fricbots_2eproto}, {}};
 
 static void InitDefaultsSetBotConfigRequest_ric_2dbots_2fricbots_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -319,7 +319,7 @@ void InitDefaults_ric_2dbots_2fricbots_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_AddToGenConfigRequest_LinearType_ric_2dbots_2fricbots_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_AddToGenConfigRequest_ric_2dbots_2fricbots_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_RemoveFromGenConfigRequest_ric_2dbots_2fricbots_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_UnsetGeoConfigRequest_ric_2dbots_2fricbots_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_PauseStopGeoRequest_ric_2dbots_2fricbots_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SetBotConfigRequest_ric_2dbots_2fricbots_2eproto.base);
 }
 
@@ -427,11 +427,12 @@ const ::google::protobuf::uint32 TableStruct_ric_2dbots_2fricbots_2eproto::offse
   PROTOBUF_FIELD_OFFSET(::ric::bots::RemoveFromGenConfigRequest, object_id_),
   PROTOBUF_FIELD_OFFSET(::ric::bots::RemoveFromGenConfigRequest, name_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ric::bots::UnsetGeoConfigRequest, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::ric::bots::PauseStopGeoRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ric::bots::UnsetGeoConfigRequest, object_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::bots::PauseStopGeoRequest, object_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::bots::PauseStopGeoRequest, stop_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::bots::SetBotConfigRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -454,8 +455,8 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 75, -1, sizeof(::ric::bots::AddToGenConfigRequest_LinearType)},
   { 81, -1, sizeof(::ric::bots::AddToGenConfigRequest)},
   { 91, -1, sizeof(::ric::bots::RemoveFromGenConfigRequest)},
-  { 98, -1, sizeof(::ric::bots::UnsetGeoConfigRequest)},
-  { 104, -1, sizeof(::ric::bots::SetBotConfigRequest)},
+  { 98, -1, sizeof(::ric::bots::PauseStopGeoRequest)},
+  { 105, -1, sizeof(::ric::bots::SetBotConfigRequest)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -472,7 +473,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bots::_AddToGenConfigRequest_LinearType_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bots::_AddToGenConfigRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bots::_RemoveFromGenConfigRequest_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bots::_UnsetGeoConfigRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bots::_PauseStopGeoRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bots::_SetBotConfigRequest_default_instance_),
 };
 
@@ -509,29 +510,29 @@ const char descriptor_table_protodef_ric_2dbots_2fricbots_2eproto[] =
   "\003min\030\001 \001(\001\022\013\n\003max\030\002 \001(\001\032\032\n\nLinearType\022\014\n"
   "\004step\030\001 \001(\001B\006\n\004type\"=\n\032RemoveFromGenConf"
   "igRequest\022\021\n\tobject_id\030\001 \001(\t\022\014\n\004name\030\002 \001"
-  "(\t\"*\n\025UnsetGeoConfigRequest\022\021\n\tobject_id"
-  "\030\001 \001(\t\"\?\n\023SetBotConfigRequest\022\021\n\tobject_"
-  "id\030\001 \001(\t\022\025\n\rsend_interval\030\002 \001(\0012\266\004\n\004Bots"
-  "\0228\n\005Start\022\026.ric.bots.StartRequest\032\027.ric."
-  "bots.EmptyResponse\0226\n\004Stop\022\025.ric.bots.St"
-  "opRequest\032\027.ric.bots.EmptyResponse\022>\n\010Se"
-  "tState\022\031.ric.bots.SetStateRequest\032\027.ric."
-  "bots.EmptyResponse\022F\n\014SetGeoConfig\022\035.ric"
-  ".bots.SetGeoConfigRequest\032\027.ric.bots.Emp"
-  "tyResponse\022J\n\016UnsetGeoConfig\022\037.ric.bots."
-  "UnsetGeoConfigRequest\032\027.ric.bots.EmptyRe"
-  "sponse\022J\n\016AddToGenConfig\022\037.ric.bots.AddT"
-  "oGenConfigRequest\032\027.ric.bots.EmptyRespon"
-  "se\022T\n\023RemoveFromGenConfig\022$.ric.bots.Rem"
-  "oveFromGenConfigRequest\032\027.ric.bots.Empty"
-  "Response\022F\n\014SetBotConfig\022\035.ric.bots.SetB"
-  "otConfigRequest\032\027.ric.bots.EmptyResponse"
-  "B\tZ\007ricbotsb\006proto3"
+  "(\t\"6\n\023PauseStopGeoRequest\022\021\n\tobject_id\030\001"
+  " \001(\t\022\014\n\004stop\030\002 \001(\010\"\?\n\023SetBotConfigReques"
+  "t\022\021\n\tobject_id\030\001 \001(\t\022\025\n\rsend_interval\030\002 "
+  "\001(\0012\262\004\n\004Bots\0228\n\005Start\022\026.ric.bots.StartRe"
+  "quest\032\027.ric.bots.EmptyResponse\0226\n\004Stop\022\025"
+  ".ric.bots.StopRequest\032\027.ric.bots.EmptyRe"
+  "sponse\022>\n\010SetState\022\031.ric.bots.SetStateRe"
+  "quest\032\027.ric.bots.EmptyResponse\022F\n\014SetGeo"
+  "Config\022\035.ric.bots.SetGeoConfigRequest\032\027."
+  "ric.bots.EmptyResponse\022F\n\014PauseStopGeo\022\035"
+  ".ric.bots.PauseStopGeoRequest\032\027.ric.bots"
+  ".EmptyResponse\022J\n\016AddToGenConfig\022\037.ric.b"
+  "ots.AddToGenConfigRequest\032\027.ric.bots.Emp"
+  "tyResponse\022T\n\023RemoveFromGenConfig\022$.ric."
+  "bots.RemoveFromGenConfigRequest\032\027.ric.bo"
+  "ts.EmptyResponse\022F\n\014SetBotConfig\022\035.ric.b"
+  "ots.SetBotConfigRequest\032\027.ric.bots.Empty"
+  "ResponseB\tZ\007ricbotsb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dbots_2fricbots_2eproto = {
   false, InitDefaults_ric_2dbots_2fricbots_2eproto, 
   descriptor_table_protodef_ric_2dbots_2fricbots_2eproto,
-  "ric-bots/ricbots.proto", &assign_descriptors_table_ric_2dbots_2fricbots_2eproto, 1739,
+  "ric-bots/ricbots.proto", &assign_descriptors_table_ric_2dbots_2fricbots_2eproto, 1747,
 };
 
 void AddDescriptors_ric_2dbots_2fricbots_2eproto() {
@@ -4740,22 +4741,23 @@ void RemoveFromGenConfigRequest::InternalSwap(RemoveFromGenConfigRequest* other)
 
 // ===================================================================
 
-void UnsetGeoConfigRequest::InitAsDefaultInstance() {
+void PauseStopGeoRequest::InitAsDefaultInstance() {
 }
-class UnsetGeoConfigRequest::HasBitSetters {
+class PauseStopGeoRequest::HasBitSetters {
  public:
 };
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int UnsetGeoConfigRequest::kObjectIdFieldNumber;
+const int PauseStopGeoRequest::kObjectIdFieldNumber;
+const int PauseStopGeoRequest::kStopFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-UnsetGeoConfigRequest::UnsetGeoConfigRequest()
+PauseStopGeoRequest::PauseStopGeoRequest()
   : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:ric.bots.UnsetGeoConfigRequest)
+  // @@protoc_insertion_point(constructor:ric.bots.PauseStopGeoRequest)
 }
-UnsetGeoConfigRequest::UnsetGeoConfigRequest(const UnsetGeoConfigRequest& from)
+PauseStopGeoRequest::PauseStopGeoRequest(const PauseStopGeoRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
@@ -4763,47 +4765,50 @@ UnsetGeoConfigRequest::UnsetGeoConfigRequest(const UnsetGeoConfigRequest& from)
   if (from.object_id().size() > 0) {
     object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
   }
-  // @@protoc_insertion_point(copy_constructor:ric.bots.UnsetGeoConfigRequest)
+  stop_ = from.stop_;
+  // @@protoc_insertion_point(copy_constructor:ric.bots.PauseStopGeoRequest)
 }
 
-void UnsetGeoConfigRequest::SharedCtor() {
+void PauseStopGeoRequest::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
-      &scc_info_UnsetGeoConfigRequest_ric_2dbots_2fricbots_2eproto.base);
+      &scc_info_PauseStopGeoRequest_ric_2dbots_2fricbots_2eproto.base);
   object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  stop_ = false;
 }
 
-UnsetGeoConfigRequest::~UnsetGeoConfigRequest() {
-  // @@protoc_insertion_point(destructor:ric.bots.UnsetGeoConfigRequest)
+PauseStopGeoRequest::~PauseStopGeoRequest() {
+  // @@protoc_insertion_point(destructor:ric.bots.PauseStopGeoRequest)
   SharedDtor();
 }
 
-void UnsetGeoConfigRequest::SharedDtor() {
+void PauseStopGeoRequest::SharedDtor() {
   object_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void UnsetGeoConfigRequest::SetCachedSize(int size) const {
+void PauseStopGeoRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const UnsetGeoConfigRequest& UnsetGeoConfigRequest::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_UnsetGeoConfigRequest_ric_2dbots_2fricbots_2eproto.base);
+const PauseStopGeoRequest& PauseStopGeoRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_PauseStopGeoRequest_ric_2dbots_2fricbots_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void UnsetGeoConfigRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:ric.bots.UnsetGeoConfigRequest)
+void PauseStopGeoRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.bots.PauseStopGeoRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  stop_ = false;
   _internal_metadata_.Clear();
 }
 
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* UnsetGeoConfigRequest::_InternalParse(const char* begin, const char* end, void* object,
+const char* PauseStopGeoRequest::_InternalParse(const char* begin, const char* end, void* object,
                   ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<UnsetGeoConfigRequest*>(object);
+  auto msg = static_cast<PauseStopGeoRequest*>(object);
   ::google::protobuf::int32 size; (void)size;
   int depth; (void)depth;
   ::google::protobuf::uint32 tag;
@@ -4818,7 +4823,7 @@ const char* UnsetGeoConfigRequest::_InternalParse(const char* begin, const char*
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.bots.UnsetGeoConfigRequest.object_id");
+        ctx->extra_parse_data().SetFieldName("ric.bots.PauseStopGeoRequest.object_id");
         object = msg->mutable_object_id();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
@@ -4827,6 +4832,13 @@ const char* UnsetGeoConfigRequest::_InternalParse(const char* begin, const char*
         GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
         ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
         ptr += size;
+        break;
+      }
+      // bool stop = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 16) goto handle_unusual;
+        msg->set_stop(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
       default: {
@@ -4853,11 +4865,11 @@ len_delim_till_end:
                                {parser_till_end, object}, size);
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool UnsetGeoConfigRequest::MergePartialFromCodedStream(
+bool PauseStopGeoRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:ric.bots.UnsetGeoConfigRequest)
+  // @@protoc_insertion_point(parse_start:ric.bots.PauseStopGeoRequest)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -4871,7 +4883,20 @@ bool UnsetGeoConfigRequest::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->object_id().data(), static_cast<int>(this->object_id().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.bots.UnsetGeoConfigRequest.object_id"));
+            "ric.bots.PauseStopGeoRequest.object_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bool stop = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (16 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &stop_)));
         } else {
           goto handle_unusual;
         }
@@ -4890,18 +4915,18 @@ bool UnsetGeoConfigRequest::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:ric.bots.UnsetGeoConfigRequest)
+  // @@protoc_insertion_point(parse_success:ric.bots.PauseStopGeoRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:ric.bots.UnsetGeoConfigRequest)
+  // @@protoc_insertion_point(parse_failure:ric.bots.PauseStopGeoRequest)
   return false;
 #undef DO_
 }
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
-void UnsetGeoConfigRequest::SerializeWithCachedSizes(
+void PauseStopGeoRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:ric.bots.UnsetGeoConfigRequest)
+  // @@protoc_insertion_point(serialize_start:ric.bots.PauseStopGeoRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -4910,21 +4935,26 @@ void UnsetGeoConfigRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->object_id().data(), static_cast<int>(this->object_id().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.bots.UnsetGeoConfigRequest.object_id");
+      "ric.bots.PauseStopGeoRequest.object_id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->object_id(), output);
+  }
+
+  // bool stop = 2;
+  if (this->stop() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->stop(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:ric.bots.UnsetGeoConfigRequest)
+  // @@protoc_insertion_point(serialize_end:ric.bots.PauseStopGeoRequest)
 }
 
-::google::protobuf::uint8* UnsetGeoConfigRequest::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* PauseStopGeoRequest::InternalSerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ric.bots.UnsetGeoConfigRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:ric.bots.PauseStopGeoRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -4933,22 +4963,27 @@ void UnsetGeoConfigRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->object_id().data(), static_cast<int>(this->object_id().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.bots.UnsetGeoConfigRequest.object_id");
+      "ric.bots.PauseStopGeoRequest.object_id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->object_id(), target);
+  }
+
+  // bool stop = 2;
+  if (this->stop() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->stop(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ric.bots.UnsetGeoConfigRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:ric.bots.PauseStopGeoRequest)
   return target;
 }
 
-size_t UnsetGeoConfigRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ric.bots.UnsetGeoConfigRequest)
+size_t PauseStopGeoRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.bots.PauseStopGeoRequest)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4967,28 +5002,33 @@ size_t UnsetGeoConfigRequest::ByteSizeLong() const {
         this->object_id());
   }
 
+  // bool stop = 2;
+  if (this->stop() != 0) {
+    total_size += 1 + 1;
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void UnsetGeoConfigRequest::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ric.bots.UnsetGeoConfigRequest)
+void PauseStopGeoRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.bots.PauseStopGeoRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  const UnsetGeoConfigRequest* source =
-      ::google::protobuf::DynamicCastToGenerated<UnsetGeoConfigRequest>(
+  const PauseStopGeoRequest* source =
+      ::google::protobuf::DynamicCastToGenerated<PauseStopGeoRequest>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.bots.UnsetGeoConfigRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.bots.PauseStopGeoRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.bots.UnsetGeoConfigRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.bots.PauseStopGeoRequest)
     MergeFrom(*source);
   }
 }
 
-void UnsetGeoConfigRequest::MergeFrom(const UnsetGeoConfigRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ric.bots.UnsetGeoConfigRequest)
+void PauseStopGeoRequest::MergeFrom(const PauseStopGeoRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.bots.PauseStopGeoRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -4998,38 +5038,42 @@ void UnsetGeoConfigRequest::MergeFrom(const UnsetGeoConfigRequest& from) {
 
     object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
   }
+  if (from.stop() != 0) {
+    set_stop(from.stop());
+  }
 }
 
-void UnsetGeoConfigRequest::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ric.bots.UnsetGeoConfigRequest)
+void PauseStopGeoRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.bots.PauseStopGeoRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void UnsetGeoConfigRequest::CopyFrom(const UnsetGeoConfigRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ric.bots.UnsetGeoConfigRequest)
+void PauseStopGeoRequest::CopyFrom(const PauseStopGeoRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.bots.PauseStopGeoRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool UnsetGeoConfigRequest::IsInitialized() const {
+bool PauseStopGeoRequest::IsInitialized() const {
   return true;
 }
 
-void UnsetGeoConfigRequest::Swap(UnsetGeoConfigRequest* other) {
+void PauseStopGeoRequest::Swap(PauseStopGeoRequest* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void UnsetGeoConfigRequest::InternalSwap(UnsetGeoConfigRequest* other) {
+void PauseStopGeoRequest::InternalSwap(PauseStopGeoRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   object_id_.Swap(&other->object_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  swap(stop_, other->stop_);
 }
 
-::google::protobuf::Metadata UnsetGeoConfigRequest::GetMetadata() const {
+::google::protobuf::Metadata PauseStopGeoRequest::GetMetadata() const {
   ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dbots_2fricbots_2eproto);
   return ::file_level_metadata_ric_2dbots_2fricbots_2eproto[kIndexInFileMessages];
 }
@@ -5419,8 +5463,8 @@ template<> PROTOBUF_NOINLINE ::ric::bots::AddToGenConfigRequest* Arena::CreateMa
 template<> PROTOBUF_NOINLINE ::ric::bots::RemoveFromGenConfigRequest* Arena::CreateMaybeMessage< ::ric::bots::RemoveFromGenConfigRequest >(Arena* arena) {
   return Arena::CreateInternal< ::ric::bots::RemoveFromGenConfigRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::ric::bots::UnsetGeoConfigRequest* Arena::CreateMaybeMessage< ::ric::bots::UnsetGeoConfigRequest >(Arena* arena) {
-  return Arena::CreateInternal< ::ric::bots::UnsetGeoConfigRequest >(arena);
+template<> PROTOBUF_NOINLINE ::ric::bots::PauseStopGeoRequest* Arena::CreateMaybeMessage< ::ric::bots::PauseStopGeoRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::bots::PauseStopGeoRequest >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::bots::SetBotConfigRequest* Arena::CreateMaybeMessage< ::ric::bots::SetBotConfigRequest >(Arena* arena) {
   return Arena::CreateInternal< ::ric::bots::SetBotConfigRequest >(arena);

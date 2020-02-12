@@ -24,7 +24,7 @@ static const char* Bots_method_names[] = {
   "/ric.bots.Bots/Stop",
   "/ric.bots.Bots/SetState",
   "/ric.bots.Bots/SetGeoConfig",
-  "/ric.bots.Bots/UnsetGeoConfig",
+  "/ric.bots.Bots/PauseStopGeo",
   "/ric.bots.Bots/AddToGenConfig",
   "/ric.bots.Bots/RemoveFromGenConfig",
   "/ric.bots.Bots/SetBotConfig",
@@ -41,7 +41,7 @@ Bots::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   , rpcmethod_Stop_(Bots_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SetState_(Bots_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SetGeoConfig_(Bots_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_UnsetGeoConfig_(Bots_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_PauseStopGeo_(Bots_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_AddToGenConfig_(Bots_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_RemoveFromGenConfig_(Bots_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SetBotConfig_(Bots_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
@@ -127,24 +127,24 @@ void Bots::Stub::experimental_async::SetGeoConfig(::grpc::ClientContext* context
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bots::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SetGeoConfig_, context, request, false);
 }
 
-::grpc::Status Bots::Stub::UnsetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest& request, ::ric::bots::EmptyResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_UnsetGeoConfig_, context, request, response);
+::grpc::Status Bots::Stub::PauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest& request, ::ric::bots::EmptyResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_PauseStopGeo_, context, request, response);
 }
 
-void Bots::Stub::experimental_async::UnsetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UnsetGeoConfig_, context, request, response, std::move(f));
+void Bots::Stub::experimental_async::PauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_PauseStopGeo_, context, request, response, std::move(f));
 }
 
-void Bots::Stub::experimental_async::UnsetGeoConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UnsetGeoConfig_, context, request, response, std::move(f));
+void Bots::Stub::experimental_async::PauseStopGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_PauseStopGeo_, context, request, response, std::move(f));
 }
 
-::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* Bots::Stub::AsyncUnsetGeoConfigRaw(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bots::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_UnsetGeoConfig_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* Bots::Stub::AsyncPauseStopGeoRaw(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bots::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_PauseStopGeo_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* Bots::Stub::PrepareAsyncUnsetGeoConfigRaw(::grpc::ClientContext* context, const ::ric::bots::UnsetGeoConfigRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bots::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_UnsetGeoConfig_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* Bots::Stub::PrepareAsyncPauseStopGeoRaw(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bots::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_PauseStopGeo_, context, request, false);
 }
 
 ::grpc::Status Bots::Stub::AddToGenConfig(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest& request, ::ric::bots::EmptyResponse* response) {
@@ -231,8 +231,8 @@ Bots::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Bots_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Bots::Service, ::ric::bots::UnsetGeoConfigRequest, ::ric::bots::EmptyResponse>(
-          std::mem_fn(&Bots::Service::UnsetGeoConfig), this)));
+      new ::grpc::internal::RpcMethodHandler< Bots::Service, ::ric::bots::PauseStopGeoRequest, ::ric::bots::EmptyResponse>(
+          std::mem_fn(&Bots::Service::PauseStopGeo), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Bots_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
@@ -281,7 +281,7 @@ Bots::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Bots::Service::UnsetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::UnsetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response) {
+::grpc::Status Bots::Service::PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response) {
   (void) context;
   (void) request;
   (void) response;
