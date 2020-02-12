@@ -41,7 +41,7 @@ struct TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[18]
+  static const ::google::protobuf::internal::ParseTable schema[19]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -87,6 +87,9 @@ extern GetRuntimeInfoRequestDefaultTypeInternal _GetRuntimeInfoRequest_default_i
 class LogEntry;
 class LogEntryDefaultTypeInternal;
 extern LogEntryDefaultTypeInternal _LogEntry_default_instance_;
+class RunAutomatonRequest;
+class RunAutomatonRequestDefaultTypeInternal;
+extern RunAutomatonRequestDefaultTypeInternal _RunAutomatonRequest_default_instance_;
 class StartAutomatonRequest;
 class StartAutomatonRequestDefaultTypeInternal;
 extern StartAutomatonRequestDefaultTypeInternal _StartAutomatonRequest_default_instance_;
@@ -122,6 +125,7 @@ template<> ::ric::logic::v3::GetInstanceInfoRequest* Arena::CreateMaybeMessage<:
 template<> ::ric::logic::v3::GetInstanceInfoResponse* Arena::CreateMaybeMessage<::ric::logic::v3::GetInstanceInfoResponse>(Arena*);
 template<> ::ric::logic::v3::GetRuntimeInfoRequest* Arena::CreateMaybeMessage<::ric::logic::v3::GetRuntimeInfoRequest>(Arena*);
 template<> ::ric::logic::v3::LogEntry* Arena::CreateMaybeMessage<::ric::logic::v3::LogEntry>(Arena*);
+template<> ::ric::logic::v3::RunAutomatonRequest* Arena::CreateMaybeMessage<::ric::logic::v3::RunAutomatonRequest>(Arena*);
 template<> ::ric::logic::v3::StartAutomatonRequest* Arena::CreateMaybeMessage<::ric::logic::v3::StartAutomatonRequest>(Arena*);
 template<> ::ric::logic::v3::StartAutomatonResponse* Arena::CreateMaybeMessage<::ric::logic::v3::StartAutomatonResponse>(Arena*);
 template<> ::ric::logic::v3::StatsCounter* Arena::CreateMaybeMessage<::ric::logic::v3::StatsCounter>(Arena*);
@@ -2084,6 +2088,180 @@ class StopAutomatonRequest final :
 };
 // -------------------------------------------------------------------
 
+class RunAutomatonRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.logic.v3.RunAutomatonRequest) */ {
+ public:
+  RunAutomatonRequest();
+  virtual ~RunAutomatonRequest();
+
+  RunAutomatonRequest(const RunAutomatonRequest& from);
+
+  inline RunAutomatonRequest& operator=(const RunAutomatonRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  RunAutomatonRequest(RunAutomatonRequest&& from) noexcept
+    : RunAutomatonRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline RunAutomatonRequest& operator=(RunAutomatonRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const RunAutomatonRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const RunAutomatonRequest* internal_default_instance() {
+    return reinterpret_cast<const RunAutomatonRequest*>(
+               &_RunAutomatonRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    12;
+
+  void Swap(RunAutomatonRequest* other);
+  friend void swap(RunAutomatonRequest& a, RunAutomatonRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RunAutomatonRequest* New() const final {
+    return CreateMaybeMessage<RunAutomatonRequest>(nullptr);
+  }
+
+  RunAutomatonRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<RunAutomatonRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const RunAutomatonRequest& from);
+  void MergeFrom(const RunAutomatonRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RunAutomatonRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string object_id = 2;
+  void clear_object_id();
+  static const int kObjectIdFieldNumber = 2;
+  const ::std::string& object_id() const;
+  void set_object_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_object_id(::std::string&& value);
+  #endif
+  void set_object_id(const char* value);
+  void set_object_id(const char* value, size_t size);
+  ::std::string* mutable_object_id();
+  ::std::string* release_object_id();
+  void set_allocated_object_id(::std::string* object_id);
+
+  // string automaton_id = 3;
+  void clear_automaton_id();
+  static const int kAutomatonIdFieldNumber = 3;
+  const ::std::string& automaton_id() const;
+  void set_automaton_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_automaton_id(::std::string&& value);
+  #endif
+  void set_automaton_id(const char* value);
+  void set_automaton_id(const char* value, size_t size);
+  ::std::string* mutable_automaton_id();
+  ::std::string* release_automaton_id();
+  void set_allocated_automaton_id(::std::string* automaton_id);
+
+  // string on_running = 6;
+  void clear_on_running();
+  static const int kOnRunningFieldNumber = 6;
+  const ::std::string& on_running() const;
+  void set_on_running(const ::std::string& value);
+  #if LANG_CXX11
+  void set_on_running(::std::string&& value);
+  #endif
+  void set_on_running(const char* value);
+  void set_on_running(const char* value, size_t size);
+  ::std::string* mutable_on_running();
+  ::std::string* release_on_running();
+  void set_allocated_on_running(::std::string* on_running);
+
+  // .ric.logic.v3.UserContext ctx = 1;
+  bool has_ctx() const;
+  void clear_ctx();
+  static const int kCtxFieldNumber = 1;
+  const ::ric::logic::v3::UserContext& ctx() const;
+  ::ric::logic::v3::UserContext* release_ctx();
+  ::ric::logic::v3::UserContext* mutable_ctx();
+  void set_allocated_ctx(::ric::logic::v3::UserContext* ctx);
+
+  // bool wait_final = 4;
+  void clear_wait_final();
+  static const int kWaitFinalFieldNumber = 4;
+  bool wait_final() const;
+  void set_wait_final(bool value);
+
+  // int32 wait_timeout = 5;
+  void clear_wait_timeout();
+  static const int kWaitTimeoutFieldNumber = 5;
+  ::google::protobuf::int32 wait_timeout() const;
+  void set_wait_timeout(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:ric.logic.v3.RunAutomatonRequest)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr object_id_;
+  ::google::protobuf::internal::ArenaStringPtr automaton_id_;
+  ::google::protobuf::internal::ArenaStringPtr on_running_;
+  ::ric::logic::v3::UserContext* ctx_;
+  bool wait_final_;
+  ::google::protobuf::int32 wait_timeout_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto;
+};
+// -------------------------------------------------------------------
+
 class StopAutomatonResponse final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.logic.v3.StopAutomatonResponse) */ {
  public:
@@ -2122,7 +2300,7 @@ class StopAutomatonResponse final :
                &_StopAutomatonResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   void Swap(StopAutomatonResponse* other);
   friend void swap(StopAutomatonResponse& a, StopAutomatonResponse& b) {
@@ -2237,7 +2415,7 @@ class GetAutomatonsRequest final :
                &_GetAutomatonsRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   void Swap(GetAutomatonsRequest* other);
   friend void swap(GetAutomatonsRequest& a, GetAutomatonsRequest& b) {
@@ -2402,7 +2580,7 @@ class GetAutomatonsResponse final :
                &_GetAutomatonsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   void Swap(GetAutomatonsResponse* other);
   friend void swap(GetAutomatonsResponse& a, GetAutomatonsResponse& b) {
@@ -2520,7 +2698,7 @@ class EmitEventRequest final :
                &_EmitEventRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   void Swap(EmitEventRequest* other);
   friend void swap(EmitEventRequest& a, EmitEventRequest& b) {
@@ -2695,7 +2873,7 @@ class EmitEventResponse final :
                &_EmitEventResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   void Swap(EmitEventResponse* other);
   friend void swap(EmitEventResponse& a, EmitEventResponse& b) {
@@ -2800,7 +2978,7 @@ class GetRuntimeInfoRequest final :
                &_GetRuntimeInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   void Swap(GetRuntimeInfoRequest* other);
   friend void swap(GetRuntimeInfoRequest& a, GetRuntimeInfoRequest& b) {
@@ -5409,6 +5587,248 @@ inline void StopAutomatonRequest::set_allocated_automaton_id(::std::string* auto
 
 // -------------------------------------------------------------------
 
+// RunAutomatonRequest
+
+// .ric.logic.v3.UserContext ctx = 1;
+inline bool RunAutomatonRequest::has_ctx() const {
+  return this != internal_default_instance() && ctx_ != nullptr;
+}
+inline void RunAutomatonRequest::clear_ctx() {
+  if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
+    delete ctx_;
+  }
+  ctx_ = nullptr;
+}
+inline const ::ric::logic::v3::UserContext& RunAutomatonRequest::ctx() const {
+  const ::ric::logic::v3::UserContext* p = ctx_;
+  // @@protoc_insertion_point(field_get:ric.logic.v3.RunAutomatonRequest.ctx)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::logic::v3::UserContext*>(
+      &::ric::logic::v3::_UserContext_default_instance_);
+}
+inline ::ric::logic::v3::UserContext* RunAutomatonRequest::release_ctx() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.RunAutomatonRequest.ctx)
+  
+  ::ric::logic::v3::UserContext* temp = ctx_;
+  ctx_ = nullptr;
+  return temp;
+}
+inline ::ric::logic::v3::UserContext* RunAutomatonRequest::mutable_ctx() {
+  
+  if (ctx_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::logic::v3::UserContext>(GetArenaNoVirtual());
+    ctx_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.RunAutomatonRequest.ctx)
+  return ctx_;
+}
+inline void RunAutomatonRequest::set_allocated_ctx(::ric::logic::v3::UserContext* ctx) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete ctx_;
+  }
+  if (ctx) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      ctx = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, ctx, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  ctx_ = ctx;
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.RunAutomatonRequest.ctx)
+}
+
+// string object_id = 2;
+inline void RunAutomatonRequest::clear_object_id() {
+  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& RunAutomatonRequest::object_id() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.RunAutomatonRequest.object_id)
+  return object_id_.GetNoArena();
+}
+inline void RunAutomatonRequest::set_object_id(const ::std::string& value) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.RunAutomatonRequest.object_id)
+}
+#if LANG_CXX11
+inline void RunAutomatonRequest::set_object_id(::std::string&& value) {
+  
+  object_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.logic.v3.RunAutomatonRequest.object_id)
+}
+#endif
+inline void RunAutomatonRequest::set_object_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.logic.v3.RunAutomatonRequest.object_id)
+}
+inline void RunAutomatonRequest::set_object_id(const char* value, size_t size) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.logic.v3.RunAutomatonRequest.object_id)
+}
+inline ::std::string* RunAutomatonRequest::mutable_object_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.RunAutomatonRequest.object_id)
+  return object_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* RunAutomatonRequest::release_object_id() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.RunAutomatonRequest.object_id)
+  
+  return object_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void RunAutomatonRequest::set_allocated_object_id(::std::string* object_id) {
+  if (object_id != nullptr) {
+    
+  } else {
+    
+  }
+  object_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), object_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.RunAutomatonRequest.object_id)
+}
+
+// string automaton_id = 3;
+inline void RunAutomatonRequest::clear_automaton_id() {
+  automaton_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& RunAutomatonRequest::automaton_id() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.RunAutomatonRequest.automaton_id)
+  return automaton_id_.GetNoArena();
+}
+inline void RunAutomatonRequest::set_automaton_id(const ::std::string& value) {
+  
+  automaton_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.RunAutomatonRequest.automaton_id)
+}
+#if LANG_CXX11
+inline void RunAutomatonRequest::set_automaton_id(::std::string&& value) {
+  
+  automaton_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.logic.v3.RunAutomatonRequest.automaton_id)
+}
+#endif
+inline void RunAutomatonRequest::set_automaton_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  automaton_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.logic.v3.RunAutomatonRequest.automaton_id)
+}
+inline void RunAutomatonRequest::set_automaton_id(const char* value, size_t size) {
+  
+  automaton_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.logic.v3.RunAutomatonRequest.automaton_id)
+}
+inline ::std::string* RunAutomatonRequest::mutable_automaton_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.RunAutomatonRequest.automaton_id)
+  return automaton_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* RunAutomatonRequest::release_automaton_id() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.RunAutomatonRequest.automaton_id)
+  
+  return automaton_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void RunAutomatonRequest::set_allocated_automaton_id(::std::string* automaton_id) {
+  if (automaton_id != nullptr) {
+    
+  } else {
+    
+  }
+  automaton_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), automaton_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.RunAutomatonRequest.automaton_id)
+}
+
+// bool wait_final = 4;
+inline void RunAutomatonRequest::clear_wait_final() {
+  wait_final_ = false;
+}
+inline bool RunAutomatonRequest::wait_final() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.RunAutomatonRequest.wait_final)
+  return wait_final_;
+}
+inline void RunAutomatonRequest::set_wait_final(bool value) {
+  
+  wait_final_ = value;
+  // @@protoc_insertion_point(field_set:ric.logic.v3.RunAutomatonRequest.wait_final)
+}
+
+// int32 wait_timeout = 5;
+inline void RunAutomatonRequest::clear_wait_timeout() {
+  wait_timeout_ = 0;
+}
+inline ::google::protobuf::int32 RunAutomatonRequest::wait_timeout() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.RunAutomatonRequest.wait_timeout)
+  return wait_timeout_;
+}
+inline void RunAutomatonRequest::set_wait_timeout(::google::protobuf::int32 value) {
+  
+  wait_timeout_ = value;
+  // @@protoc_insertion_point(field_set:ric.logic.v3.RunAutomatonRequest.wait_timeout)
+}
+
+// string on_running = 6;
+inline void RunAutomatonRequest::clear_on_running() {
+  on_running_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& RunAutomatonRequest::on_running() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.RunAutomatonRequest.on_running)
+  return on_running_.GetNoArena();
+}
+inline void RunAutomatonRequest::set_on_running(const ::std::string& value) {
+  
+  on_running_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.RunAutomatonRequest.on_running)
+}
+#if LANG_CXX11
+inline void RunAutomatonRequest::set_on_running(::std::string&& value) {
+  
+  on_running_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.logic.v3.RunAutomatonRequest.on_running)
+}
+#endif
+inline void RunAutomatonRequest::set_on_running(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  on_running_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.logic.v3.RunAutomatonRequest.on_running)
+}
+inline void RunAutomatonRequest::set_on_running(const char* value, size_t size) {
+  
+  on_running_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.logic.v3.RunAutomatonRequest.on_running)
+}
+inline ::std::string* RunAutomatonRequest::mutable_on_running() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.RunAutomatonRequest.on_running)
+  return on_running_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* RunAutomatonRequest::release_on_running() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.RunAutomatonRequest.on_running)
+  
+  return on_running_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void RunAutomatonRequest::set_allocated_on_running(::std::string* on_running) {
+  if (on_running != nullptr) {
+    
+  } else {
+    
+  }
+  on_running_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), on_running);
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.RunAutomatonRequest.on_running)
+}
+
+// -------------------------------------------------------------------
+
 // StopAutomatonResponse
 
 // .ric.logic.v3.AutomatonInfo automaton = 1;
@@ -6050,6 +6470,8 @@ inline void GetRuntimeInfoRequest::set_allocated_automaton_id(::std::string* aut
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

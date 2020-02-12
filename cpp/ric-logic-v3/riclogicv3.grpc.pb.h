@@ -69,6 +69,15 @@ class RicLogicV3 final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StopAutomatonResponse>> PrepareAsyncStopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StopAutomatonResponse>>(PrepareAsyncStopAutomatonRaw(context, request, cq));
     }
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::ric::logic::v3::AutomatonInfo>> RunAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::ric::logic::v3::AutomatonInfo>>(RunAutomatonRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::ric::logic::v3::AutomatonInfo>> AsyncRunAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::ric::logic::v3::AutomatonInfo>>(AsyncRunAutomatonRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::ric::logic::v3::AutomatonInfo>> PrepareAsyncRunAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::ric::logic::v3::AutomatonInfo>>(PrepareAsyncRunAutomatonRaw(context, request, cq));
+    }
     virtual ::grpc::Status EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::ric::logic::v3::EmitEventResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::EmitEventResponse>> AsyncEmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::EmitEventResponse>>(AsyncEmitEventRaw(context, request, cq));
@@ -86,6 +95,7 @@ class RicLogicV3 final {
       virtual void StartAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StartAutomatonResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void StopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void StopAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StopAutomatonResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void RunAutomaton(::grpc::ClientContext* context, ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::logic::v3::AutomatonInfo>* reactor) = 0;
       virtual void EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void EmitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::EmitEventResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
@@ -100,6 +110,9 @@ class RicLogicV3 final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StartAutomatonResponse>* PrepareAsyncStartAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StopAutomatonResponse>* AsyncStopAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StopAutomatonResponse>* PrepareAsyncStopAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderInterface< ::ric::logic::v3::AutomatonInfo>* RunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::ric::logic::v3::AutomatonInfo>* AsyncRunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::ric::logic::v3::AutomatonInfo>* PrepareAsyncRunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::EmitEventResponse>* AsyncEmitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::EmitEventResponse>* PrepareAsyncEmitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
@@ -136,6 +149,15 @@ class RicLogicV3 final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StopAutomatonResponse>> PrepareAsyncStopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StopAutomatonResponse>>(PrepareAsyncStopAutomatonRaw(context, request, cq));
     }
+    std::unique_ptr< ::grpc::ClientReader< ::ric::logic::v3::AutomatonInfo>> RunAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::ric::logic::v3::AutomatonInfo>>(RunAutomatonRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::ric::logic::v3::AutomatonInfo>> AsyncRunAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::ric::logic::v3::AutomatonInfo>>(AsyncRunAutomatonRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::ric::logic::v3::AutomatonInfo>> PrepareAsyncRunAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::ric::logic::v3::AutomatonInfo>>(PrepareAsyncRunAutomatonRaw(context, request, cq));
+    }
     ::grpc::Status EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::ric::logic::v3::EmitEventResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::EmitEventResponse>> AsyncEmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::EmitEventResponse>>(AsyncEmitEventRaw(context, request, cq));
@@ -153,6 +175,7 @@ class RicLogicV3 final {
       void StartAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StartAutomatonResponse* response, std::function<void(::grpc::Status)>) override;
       void StopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response, std::function<void(::grpc::Status)>) override;
       void StopAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StopAutomatonResponse* response, std::function<void(::grpc::Status)>) override;
+      void RunAutomaton(::grpc::ClientContext* context, ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::logic::v3::AutomatonInfo>* reactor) override;
       void EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response, std::function<void(::grpc::Status)>) override;
       void EmitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::EmitEventResponse* response, std::function<void(::grpc::Status)>) override;
      private:
@@ -175,12 +198,16 @@ class RicLogicV3 final {
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StartAutomatonResponse>* PrepareAsyncStartAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StopAutomatonResponse>* AsyncStopAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StopAutomatonResponse>* PrepareAsyncStopAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReader< ::ric::logic::v3::AutomatonInfo>* RunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request) override;
+    ::grpc::ClientAsyncReader< ::ric::logic::v3::AutomatonInfo>* AsyncRunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReader< ::ric::logic::v3::AutomatonInfo>* PrepareAsyncRunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::EmitEventResponse>* AsyncEmitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::EmitEventResponse>* PrepareAsyncEmitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetInstanceInfo_;
     const ::grpc::internal::RpcMethod rpcmethod_GetAutomatons_;
     const ::grpc::internal::RpcMethod rpcmethod_StartAutomaton_;
     const ::grpc::internal::RpcMethod rpcmethod_StopAutomaton_;
+    const ::grpc::internal::RpcMethod rpcmethod_RunAutomaton_;
     const ::grpc::internal::RpcMethod rpcmethod_EmitEvent_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -193,6 +220,7 @@ class RicLogicV3 final {
     virtual ::grpc::Status GetAutomatons(::grpc::ServerContext* context, const ::ric::logic::v3::GetAutomatonsRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer);
     virtual ::grpc::Status StartAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response);
     virtual ::grpc::Status StopAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response);
+    virtual ::grpc::Status RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer);
     virtual ::grpc::Status EmitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response);
   };
   template <class BaseClass>
@@ -276,12 +304,32 @@ class RicLogicV3 final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_RunAutomaton : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_RunAutomaton() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_RunAutomaton() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestRunAutomaton(::grpc::ServerContext* context, ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerAsyncWriter< ::ric::logic::v3::AutomatonInfo>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(4, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_EmitEvent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_EmitEvent() {
-      ::grpc::Service::MarkMethodAsync(4);
+      ::grpc::Service::MarkMethodAsync(5);
     }
     ~WithAsyncMethod_EmitEvent() override {
       BaseClassMustBeDerivedFromService(this);
@@ -292,10 +340,10 @@ class RicLogicV3 final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestEmitEvent(::grpc::ServerContext* context, ::ric::logic::v3::EmitEventRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::logic::v3::EmitEventResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetInstanceInfo<WithAsyncMethod_GetAutomatons<WithAsyncMethod_StartAutomaton<WithAsyncMethod_StopAutomaton<WithAsyncMethod_EmitEvent<Service > > > > > AsyncService;
+  typedef WithAsyncMethod_GetInstanceInfo<WithAsyncMethod_GetAutomatons<WithAsyncMethod_StartAutomaton<WithAsyncMethod_StopAutomaton<WithAsyncMethod_RunAutomaton<WithAsyncMethod_EmitEvent<Service > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_GetInstanceInfo : public BaseClass {
    private:
@@ -394,12 +442,34 @@ class RicLogicV3 final {
     virtual void StopAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithCallbackMethod_RunAutomaton : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_RunAutomaton() {
+      ::grpc::Service::experimental().MarkMethodCallback(4,
+        new ::grpc::internal::CallbackServerStreamingHandler< ::ric::logic::v3::RunAutomatonRequest, ::ric::logic::v3::AutomatonInfo>(
+          [this] { return this->RunAutomaton(); }));
+    }
+    ~ExperimentalWithCallbackMethod_RunAutomaton() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::experimental::ServerWriteReactor< ::ric::logic::v3::RunAutomatonRequest, ::ric::logic::v3::AutomatonInfo>* RunAutomaton() {
+      return new ::grpc::internal::UnimplementedWriteReactor<
+        ::ric::logic::v3::RunAutomatonRequest, ::ric::logic::v3::AutomatonInfo>;}
+  };
+  template <class BaseClass>
   class ExperimentalWithCallbackMethod_EmitEvent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_EmitEvent() {
-      ::grpc::Service::experimental().MarkMethodCallback(4,
+      ::grpc::Service::experimental().MarkMethodCallback(5,
         new ::grpc::internal::CallbackUnaryHandler< ::ric::logic::v3::EmitEventRequest, ::ric::logic::v3::EmitEventResponse>(
           [this](::grpc::ServerContext* context,
                  const ::ric::logic::v3::EmitEventRequest* request,
@@ -418,7 +488,7 @@ class RicLogicV3 final {
     }
     virtual void EmitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_GetInstanceInfo<ExperimentalWithCallbackMethod_GetAutomatons<ExperimentalWithCallbackMethod_StartAutomaton<ExperimentalWithCallbackMethod_StopAutomaton<ExperimentalWithCallbackMethod_EmitEvent<Service > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_GetInstanceInfo<ExperimentalWithCallbackMethod_GetAutomatons<ExperimentalWithCallbackMethod_StartAutomaton<ExperimentalWithCallbackMethod_StopAutomaton<ExperimentalWithCallbackMethod_RunAutomaton<ExperimentalWithCallbackMethod_EmitEvent<Service > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GetInstanceInfo : public BaseClass {
    private:
@@ -488,12 +558,29 @@ class RicLogicV3 final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_RunAutomaton : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_RunAutomaton() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_RunAutomaton() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_EmitEvent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_EmitEvent() {
-      ::grpc::Service::MarkMethodGeneric(4);
+      ::grpc::Service::MarkMethodGeneric(5);
     }
     ~WithGenericMethod_EmitEvent() override {
       BaseClassMustBeDerivedFromService(this);
@@ -585,12 +672,32 @@ class RicLogicV3 final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_RunAutomaton : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_RunAutomaton() {
+      ::grpc::Service::MarkMethodRaw(4);
+    }
+    ~WithRawMethod_RunAutomaton() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestRunAutomaton(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(4, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_EmitEvent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_EmitEvent() {
-      ::grpc::Service::MarkMethodRaw(4);
+      ::grpc::Service::MarkMethodRaw(5);
     }
     ~WithRawMethod_EmitEvent() override {
       BaseClassMustBeDerivedFromService(this);
@@ -601,7 +708,7 @@ class RicLogicV3 final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestEmitEvent(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -702,12 +809,34 @@ class RicLogicV3 final {
     virtual void StopAutomaton(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_RunAutomaton : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_RunAutomaton() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(4,
+        new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this] { return this->RunAutomaton(); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_RunAutomaton() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::experimental::ServerWriteReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* RunAutomaton() {
+      return new ::grpc::internal::UnimplementedWriteReactor<
+        ::grpc::ByteBuffer, ::grpc::ByteBuffer>;}
+  };
+  template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_EmitEvent : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_EmitEvent() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(4,
+      ::grpc::Service::experimental().MarkMethodRawCallback(5,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
@@ -792,7 +921,7 @@ class RicLogicV3 final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_EmitEvent() {
-      ::grpc::Service::MarkMethodStreamed(4,
+      ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::StreamedUnaryHandler< ::ric::logic::v3::EmitEventRequest, ::ric::logic::v3::EmitEventResponse>(std::bind(&WithStreamedUnaryMethod_EmitEvent<BaseClass>::StreamedEmitEvent, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_EmitEvent() override {
@@ -827,8 +956,28 @@ class RicLogicV3 final {
     // replace default version of method with split streamed
     virtual ::grpc::Status StreamedGetAutomatons(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::ric::logic::v3::GetAutomatonsRequest,::ric::logic::v3::AutomatonInfo>* server_split_streamer) = 0;
   };
-  typedef WithSplitStreamingMethod_GetAutomatons<Service > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GetInstanceInfo<WithSplitStreamingMethod_GetAutomatons<WithStreamedUnaryMethod_StartAutomaton<WithStreamedUnaryMethod_StopAutomaton<WithStreamedUnaryMethod_EmitEvent<Service > > > > > StreamedService;
+  template <class BaseClass>
+  class WithSplitStreamingMethod_RunAutomaton : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithSplitStreamingMethod_RunAutomaton() {
+      ::grpc::Service::MarkMethodStreamed(4,
+        new ::grpc::internal::SplitServerStreamingHandler< ::ric::logic::v3::RunAutomatonRequest, ::ric::logic::v3::AutomatonInfo>(std::bind(&WithSplitStreamingMethod_RunAutomaton<BaseClass>::StreamedRunAutomaton, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithSplitStreamingMethod_RunAutomaton() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with split streamed
+    virtual ::grpc::Status StreamedRunAutomaton(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::ric::logic::v3::RunAutomatonRequest,::ric::logic::v3::AutomatonInfo>* server_split_streamer) = 0;
+  };
+  typedef WithSplitStreamingMethod_GetAutomatons<WithSplitStreamingMethod_RunAutomaton<Service > > SplitStreamedService;
+  typedef WithStreamedUnaryMethod_GetInstanceInfo<WithSplitStreamingMethod_GetAutomatons<WithStreamedUnaryMethod_StartAutomaton<WithStreamedUnaryMethod_StopAutomaton<WithSplitStreamingMethod_RunAutomaton<WithStreamedUnaryMethod_EmitEvent<Service > > > > > > StreamedService;
 };
 
 }  // namespace v3

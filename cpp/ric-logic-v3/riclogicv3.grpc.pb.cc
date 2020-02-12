@@ -25,6 +25,7 @@ static const char* RicLogicV3_method_names[] = {
   "/ric.logic.v3.RicLogicV3/GetAutomatons",
   "/ric.logic.v3.RicLogicV3/StartAutomaton",
   "/ric.logic.v3.RicLogicV3/StopAutomaton",
+  "/ric.logic.v3.RicLogicV3/RunAutomaton",
   "/ric.logic.v3.RicLogicV3/EmitEvent",
 };
 
@@ -39,7 +40,8 @@ RicLogicV3::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel
   , rpcmethod_GetAutomatons_(RicLogicV3_method_names[1], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
   , rpcmethod_StartAutomaton_(RicLogicV3_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_StopAutomaton_(RicLogicV3_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_EmitEvent_(RicLogicV3_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_RunAutomaton_(RicLogicV3_method_names[4], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_EmitEvent_(RicLogicV3_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status RicLogicV3::Stub::GetInstanceInfo(::grpc::ClientContext* context, const ::ric::logic::v3::GetInstanceInfoRequest& request, ::ric::logic::v3::GetInstanceInfoResponse* response) {
@@ -118,6 +120,22 @@ void RicLogicV3::Stub::experimental_async::StopAutomaton(::grpc::ClientContext* 
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::StopAutomatonResponse>::Create(channel_.get(), cq, rpcmethod_StopAutomaton_, context, request, false);
 }
 
+::grpc::ClientReader< ::ric::logic::v3::AutomatonInfo>* RicLogicV3::Stub::RunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request) {
+  return ::grpc::internal::ClientReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(channel_.get(), rpcmethod_RunAutomaton_, context, request);
+}
+
+void RicLogicV3::Stub::experimental_async::RunAutomaton(::grpc::ClientContext* context, ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::logic::v3::AutomatonInfo>* reactor) {
+  ::grpc::internal::ClientCallbackReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(stub_->channel_.get(), stub_->rpcmethod_RunAutomaton_, context, request, reactor);
+}
+
+::grpc::ClientAsyncReader< ::ric::logic::v3::AutomatonInfo>* RicLogicV3::Stub::AsyncRunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(channel_.get(), cq, rpcmethod_RunAutomaton_, context, request, true, tag);
+}
+
+::grpc::ClientAsyncReader< ::ric::logic::v3::AutomatonInfo>* RicLogicV3::Stub::PrepareAsyncRunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(channel_.get(), cq, rpcmethod_RunAutomaton_, context, request, false, nullptr);
+}
+
 ::grpc::Status RicLogicV3::Stub::EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::ric::logic::v3::EmitEventResponse* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_EmitEvent_, context, request, response);
 }
@@ -161,6 +179,11 @@ RicLogicV3::Service::Service() {
           std::mem_fn(&RicLogicV3::Service::StopAutomaton), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RicLogicV3_method_names[4],
+      ::grpc::internal::RpcMethod::SERVER_STREAMING,
+      new ::grpc::internal::ServerStreamingHandler< RicLogicV3::Service, ::ric::logic::v3::RunAutomatonRequest, ::ric::logic::v3::AutomatonInfo>(
+          std::mem_fn(&RicLogicV3::Service::RunAutomaton), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RicLogicV3_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< RicLogicV3::Service, ::ric::logic::v3::EmitEventRequest, ::ric::logic::v3::EmitEventResponse>(
           std::mem_fn(&RicLogicV3::Service::EmitEvent), this)));
@@ -194,6 +217,13 @@ RicLogicV3::Service::~Service() {
   (void) context;
   (void) request;
   (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RicLogicV3::Service::RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) {
+  (void) context;
+  (void) request;
+  (void) writer;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
