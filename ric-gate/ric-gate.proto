@@ -73,7 +73,8 @@ message CommandReplyRequest {
 }
 
 message OfflineRequest {
-  string object_id = 1;
+  string instance_id = 1;
+  string object_id = 2;
 }
 
 message Command {

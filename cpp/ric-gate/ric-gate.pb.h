@@ -1168,9 +1168,23 @@ class OfflineRequest final :
 
   // accessors -------------------------------------------------------
 
-  // string object_id = 1;
+  // string instance_id = 1;
+  void clear_instance_id();
+  static const int kInstanceIdFieldNumber = 1;
+  const ::std::string& instance_id() const;
+  void set_instance_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_instance_id(::std::string&& value);
+  #endif
+  void set_instance_id(const char* value);
+  void set_instance_id(const char* value, size_t size);
+  ::std::string* mutable_instance_id();
+  ::std::string* release_instance_id();
+  void set_allocated_instance_id(::std::string* instance_id);
+
+  // string object_id = 2;
   void clear_object_id();
-  static const int kObjectIdFieldNumber = 1;
+  static const int kObjectIdFieldNumber = 2;
   const ::std::string& object_id() const;
   void set_object_id(const ::std::string& value);
   #if LANG_CXX11
@@ -1187,6 +1201,7 @@ class OfflineRequest final :
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr instance_id_;
   ::google::protobuf::internal::ArenaStringPtr object_id_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dgate_2fric_2dgate_2eproto;
@@ -2319,7 +2334,60 @@ inline void CommandReplyRequest::set_allocated_error(::std::string* error) {
 
 // OfflineRequest
 
-// string object_id = 1;
+// string instance_id = 1;
+inline void OfflineRequest::clear_instance_id() {
+  instance_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& OfflineRequest::instance_id() const {
+  // @@protoc_insertion_point(field_get:ric.gate.OfflineRequest.instance_id)
+  return instance_id_.GetNoArena();
+}
+inline void OfflineRequest::set_instance_id(const ::std::string& value) {
+  
+  instance_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.gate.OfflineRequest.instance_id)
+}
+#if LANG_CXX11
+inline void OfflineRequest::set_instance_id(::std::string&& value) {
+  
+  instance_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.gate.OfflineRequest.instance_id)
+}
+#endif
+inline void OfflineRequest::set_instance_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  instance_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.gate.OfflineRequest.instance_id)
+}
+inline void OfflineRequest::set_instance_id(const char* value, size_t size) {
+  
+  instance_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.gate.OfflineRequest.instance_id)
+}
+inline ::std::string* OfflineRequest::mutable_instance_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.gate.OfflineRequest.instance_id)
+  return instance_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* OfflineRequest::release_instance_id() {
+  // @@protoc_insertion_point(field_release:ric.gate.OfflineRequest.instance_id)
+  
+  return instance_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void OfflineRequest::set_allocated_instance_id(::std::string* instance_id) {
+  if (instance_id != nullptr) {
+    
+  } else {
+    
+  }
+  instance_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), instance_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.gate.OfflineRequest.instance_id)
+}
+
+// string object_id = 2;
 inline void OfflineRequest::clear_object_id() {
   object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
