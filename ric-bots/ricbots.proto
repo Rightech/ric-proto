@@ -10,6 +10,7 @@ service Bots {
   rpc SetState(SetStateRequest) returns (EmptyResponse);
   rpc SetGeoConfig(SetGeoConfigRequest) returns (EmptyResponse);
   rpc PauseStopGeo(PauseStopGeoRequest) returns (EmptyResponse);
+  rpc PlayGeo(PlayGeoRequest) returns (EmptyResponse);
   rpc AddToGenConfig(AddToGenConfigRequest) returns (EmptyResponse);
   rpc RemoveFromGenConfig(RemoveFromGenConfigRequest) returns (EmptyResponse);
   rpc SetBotConfig(SetBotConfigRequest) returns (EmptyResponse);
@@ -83,6 +84,11 @@ message PauseStopGeoRequest {
   // @inject_tag: bson:"-"
   string object_id = 1;
   bool stop = 2;
+}
+
+message PlayGeoRequest {
+  // @inject_tag: bson:"-"
+  string object_id = 1;
 }
 
 message SetBotConfigRequest {
