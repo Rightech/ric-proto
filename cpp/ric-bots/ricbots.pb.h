@@ -69,9 +69,6 @@ extern EmptyResponseDefaultTypeInternal _EmptyResponse_default_instance_;
 class PauseStopGeoRequest;
 class PauseStopGeoRequestDefaultTypeInternal;
 extern PauseStopGeoRequestDefaultTypeInternal _PauseStopGeoRequest_default_instance_;
-class PlayGeoRequest;
-class PlayGeoRequestDefaultTypeInternal;
-extern PlayGeoRequestDefaultTypeInternal _PlayGeoRequest_default_instance_;
 class RemoveFromGenConfigRequest;
 class RemoveFromGenConfigRequestDefaultTypeInternal;
 extern RemoveFromGenConfigRequestDefaultTypeInternal _RemoveFromGenConfigRequest_default_instance_;
@@ -96,6 +93,9 @@ extern SetStateRequest_StateEntry_DoNotUseDefaultTypeInternal _SetStateRequest_S
 class SetStateRequest_StateValue;
 class SetStateRequest_StateValueDefaultTypeInternal;
 extern SetStateRequest_StateValueDefaultTypeInternal _SetStateRequest_StateValue_default_instance_;
+class StartGeoRequest;
+class StartGeoRequestDefaultTypeInternal;
+extern StartGeoRequestDefaultTypeInternal _StartGeoRequest_default_instance_;
 class StartRequest;
 class StartRequestDefaultTypeInternal;
 extern StartRequestDefaultTypeInternal _StartRequest_default_instance_;
@@ -111,7 +111,6 @@ template<> ::ric::bots::AddToGenConfigRequest_LinearType* Arena::CreateMaybeMess
 template<> ::ric::bots::AddToGenConfigRequest_RandomType* Arena::CreateMaybeMessage<::ric::bots::AddToGenConfigRequest_RandomType>(Arena*);
 template<> ::ric::bots::EmptyResponse* Arena::CreateMaybeMessage<::ric::bots::EmptyResponse>(Arena*);
 template<> ::ric::bots::PauseStopGeoRequest* Arena::CreateMaybeMessage<::ric::bots::PauseStopGeoRequest>(Arena*);
-template<> ::ric::bots::PlayGeoRequest* Arena::CreateMaybeMessage<::ric::bots::PlayGeoRequest>(Arena*);
 template<> ::ric::bots::RemoveFromGenConfigRequest* Arena::CreateMaybeMessage<::ric::bots::RemoveFromGenConfigRequest>(Arena*);
 template<> ::ric::bots::SetBotConfigRequest* Arena::CreateMaybeMessage<::ric::bots::SetBotConfigRequest>(Arena*);
 template<> ::ric::bots::SetGeoConfigRequest* Arena::CreateMaybeMessage<::ric::bots::SetGeoConfigRequest>(Arena*);
@@ -120,6 +119,7 @@ template<> ::ric::bots::SetGeoConfigRequest_Point* Arena::CreateMaybeMessage<::r
 template<> ::ric::bots::SetStateRequest* Arena::CreateMaybeMessage<::ric::bots::SetStateRequest>(Arena*);
 template<> ::ric::bots::SetStateRequest_StateEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::bots::SetStateRequest_StateEntry_DoNotUse>(Arena*);
 template<> ::ric::bots::SetStateRequest_StateValue* Arena::CreateMaybeMessage<::ric::bots::SetStateRequest_StateValue>(Arena*);
+template<> ::ric::bots::StartGeoRequest* Arena::CreateMaybeMessage<::ric::bots::StartGeoRequest>(Arena*);
 template<> ::ric::bots::StartRequest* Arena::CreateMaybeMessage<::ric::bots::StartRequest>(Arena*);
 template<> ::ric::bots::StopRequest* Arena::CreateMaybeMessage<::ric::bots::StopRequest>(Arena*);
 }  // namespace protobuf
@@ -1824,25 +1824,25 @@ class PauseStopGeoRequest final :
 };
 // -------------------------------------------------------------------
 
-class PlayGeoRequest final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.bots.PlayGeoRequest) */ {
+class StartGeoRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.bots.StartGeoRequest) */ {
  public:
-  PlayGeoRequest();
-  virtual ~PlayGeoRequest();
+  StartGeoRequest();
+  virtual ~StartGeoRequest();
 
-  PlayGeoRequest(const PlayGeoRequest& from);
+  StartGeoRequest(const StartGeoRequest& from);
 
-  inline PlayGeoRequest& operator=(const PlayGeoRequest& from) {
+  inline StartGeoRequest& operator=(const StartGeoRequest& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  PlayGeoRequest(PlayGeoRequest&& from) noexcept
-    : PlayGeoRequest() {
+  StartGeoRequest(StartGeoRequest&& from) noexcept
+    : StartGeoRequest() {
     *this = ::std::move(from);
   }
 
-  inline PlayGeoRequest& operator=(PlayGeoRequest&& from) noexcept {
+  inline StartGeoRequest& operator=(StartGeoRequest&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1854,34 +1854,34 @@ class PlayGeoRequest final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const PlayGeoRequest& default_instance();
+  static const StartGeoRequest& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const PlayGeoRequest* internal_default_instance() {
-    return reinterpret_cast<const PlayGeoRequest*>(
-               &_PlayGeoRequest_default_instance_);
+  static inline const StartGeoRequest* internal_default_instance() {
+    return reinterpret_cast<const StartGeoRequest*>(
+               &_StartGeoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     14;
 
-  void Swap(PlayGeoRequest* other);
-  friend void swap(PlayGeoRequest& a, PlayGeoRequest& b) {
+  void Swap(StartGeoRequest* other);
+  friend void swap(StartGeoRequest& a, StartGeoRequest& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline PlayGeoRequest* New() const final {
-    return CreateMaybeMessage<PlayGeoRequest>(nullptr);
+  inline StartGeoRequest* New() const final {
+    return CreateMaybeMessage<StartGeoRequest>(nullptr);
   }
 
-  PlayGeoRequest* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<PlayGeoRequest>(arena);
+  StartGeoRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<StartGeoRequest>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const PlayGeoRequest& from);
-  void MergeFrom(const PlayGeoRequest& from);
+  void CopyFrom(const StartGeoRequest& from);
+  void MergeFrom(const StartGeoRequest& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1903,7 +1903,7 @@ class PlayGeoRequest final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(PlayGeoRequest* other);
+  void InternalSwap(StartGeoRequest* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -1933,7 +1933,7 @@ class PlayGeoRequest final :
   ::std::string* release_object_id();
   void set_allocated_object_id(::std::string* object_id);
 
-  // @@protoc_insertion_point(class_scope:ric.bots.PlayGeoRequest)
+  // @@protoc_insertion_point(class_scope:ric.bots.StartGeoRequest)
  private:
   class HasBitSetters;
 
@@ -3035,59 +3035,59 @@ inline void PauseStopGeoRequest::set_stop(bool value) {
 
 // -------------------------------------------------------------------
 
-// PlayGeoRequest
+// StartGeoRequest
 
 // string object_id = 1;
-inline void PlayGeoRequest::clear_object_id() {
+inline void StartGeoRequest::clear_object_id() {
   object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& PlayGeoRequest::object_id() const {
-  // @@protoc_insertion_point(field_get:ric.bots.PlayGeoRequest.object_id)
+inline const ::std::string& StartGeoRequest::object_id() const {
+  // @@protoc_insertion_point(field_get:ric.bots.StartGeoRequest.object_id)
   return object_id_.GetNoArena();
 }
-inline void PlayGeoRequest::set_object_id(const ::std::string& value) {
+inline void StartGeoRequest::set_object_id(const ::std::string& value) {
   
   object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.bots.PlayGeoRequest.object_id)
+  // @@protoc_insertion_point(field_set:ric.bots.StartGeoRequest.object_id)
 }
 #if LANG_CXX11
-inline void PlayGeoRequest::set_object_id(::std::string&& value) {
+inline void StartGeoRequest::set_object_id(::std::string&& value) {
   
   object_id_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.bots.PlayGeoRequest.object_id)
+  // @@protoc_insertion_point(field_set_rvalue:ric.bots.StartGeoRequest.object_id)
 }
 #endif
-inline void PlayGeoRequest::set_object_id(const char* value) {
+inline void StartGeoRequest::set_object_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.bots.PlayGeoRequest.object_id)
+  // @@protoc_insertion_point(field_set_char:ric.bots.StartGeoRequest.object_id)
 }
-inline void PlayGeoRequest::set_object_id(const char* value, size_t size) {
+inline void StartGeoRequest::set_object_id(const char* value, size_t size) {
   
   object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.bots.PlayGeoRequest.object_id)
+  // @@protoc_insertion_point(field_set_pointer:ric.bots.StartGeoRequest.object_id)
 }
-inline ::std::string* PlayGeoRequest::mutable_object_id() {
+inline ::std::string* StartGeoRequest::mutable_object_id() {
   
-  // @@protoc_insertion_point(field_mutable:ric.bots.PlayGeoRequest.object_id)
+  // @@protoc_insertion_point(field_mutable:ric.bots.StartGeoRequest.object_id)
   return object_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* PlayGeoRequest::release_object_id() {
-  // @@protoc_insertion_point(field_release:ric.bots.PlayGeoRequest.object_id)
+inline ::std::string* StartGeoRequest::release_object_id() {
+  // @@protoc_insertion_point(field_release:ric.bots.StartGeoRequest.object_id)
   
   return object_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void PlayGeoRequest::set_allocated_object_id(::std::string* object_id) {
+inline void StartGeoRequest::set_allocated_object_id(::std::string* object_id) {
   if (object_id != nullptr) {
     
   } else {
     
   }
   object_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), object_id);
-  // @@protoc_insertion_point(field_set_allocated:ric.bots.PlayGeoRequest.object_id)
+  // @@protoc_insertion_point(field_set_allocated:ric.bots.StartGeoRequest.object_id)
 }
 
 // -------------------------------------------------------------------
