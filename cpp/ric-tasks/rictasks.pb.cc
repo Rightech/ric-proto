@@ -21,9 +21,9 @@ extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2fwrappers_2eproto ::google::p
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_IndoorLocation_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_ObjectId_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_TaskId_ric_2dtasks_2frictasks_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_UpdateOrderRequest_PositionsEntry_DoNotUse_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_Deadline_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_Location_ric_2dtasks_2frictasks_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_UpdateOrderRequest_PositionsEntry_DoNotUse_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<2> scc_info_MasterTask_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<5> scc_info_Task_ric_2dtasks_2frictasks_2eproto;
 namespace ric {
@@ -353,9 +353,8 @@ static void InitDefaultsUpdateOrderRequest_PositionsEntry_DoNotUse_ric_2dtasks_2
   ::ric::tasks::UpdateOrderRequest_PositionsEntry_DoNotUse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<1> scc_info_UpdateOrderRequest_PositionsEntry_DoNotUse_ric_2dtasks_2frictasks_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsUpdateOrderRequest_PositionsEntry_DoNotUse_ric_2dtasks_2frictasks_2eproto}, {
-      &scc_info_TaskId_ric_2dtasks_2frictasks_2eproto.base,}};
+::google::protobuf::internal::SCCInfo<0> scc_info_UpdateOrderRequest_PositionsEntry_DoNotUse_ric_2dtasks_2frictasks_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsUpdateOrderRequest_PositionsEntry_DoNotUse_ric_2dtasks_2frictasks_2eproto}, {}};
 
 static void InitDefaultsUpdateOrderRequest_ric_2dtasks_2frictasks_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -709,35 +708,34 @@ const char descriptor_table_protodef_ric_2dtasks_2frictasks_2eproto[] =
   "skIdH\000B\t\n\007payload\"\020\n\016DeleteResponse\";\n\rU"
   "pdateRequest\022*\n\013master_task\030\001 \001(\0132\025.ric."
   "tasks.MasterTask\"<\n\016UpdateResponse\022*\n\013ma"
-  "ster_task\030\001 \001(\0132\025.ric.tasks.MasterTask\"\273"
+  "ster_task\030\001 \001(\0132\025.ric.tasks.MasterTask\"\250"
   "\001\n\022UpdateOrderRequest\022\037\n\002id\030\001 \001(\0132\023.ric."
   "tasks.ObjectId\022\?\n\tpositions\030\002 \003(\0132,.ric."
   "tasks.UpdateOrderRequest.PositionsEntry\032"
-  "C\n\016PositionsEntry\022\013\n\003key\030\001 \001(\005\022 \n\005value\030"
-  "\002 \001(\0132\021.ric.tasks.TaskId:\0028\001\"\025\n\023UpdateOr"
-  "derResponse\"\324\001\n\023ChangeStatusRequest\022\035\n\002i"
-  "d\030\001 \001(\0132\021.ric.tasks.TaskId\022*\n\nnew_status"
-  "\030\002 \001(\0162\026.ric.tasks.Task.Status\022%\n\010locati"
-  "on\030\003 \001(\0132\023.ric.tasks.Location\022+\n\007success"
-  "\030\004 \001(\0132\032.google.protobuf.BoolValue\022\017\n\007co"
-  "mment\030\005 \001(\t\022\r\n\005files\030\006 \003(\t\"\026\n\024ChangeStat"
-  "usResponse2\231\003\n\005Tasks\022=\n\006Create\022\030.ric.tas"
-  "ks.CreateRequest\032\031.ric.tasks.CreateRespo"
-  "nse\0224\n\003Get\022\025.ric.tasks.GetRequest\032\026.ric."
-  "tasks.GetResponse\022=\n\006Update\022\030.ric.tasks."
-  "UpdateRequest\032\031.ric.tasks.UpdateResponse"
-  "\022=\n\006Delete\022\030.ric.tasks.DeleteRequest\032\031.r"
-  "ic.tasks.DeleteResponse\022L\n\013UpdateOrder\022\035"
-  ".ric.tasks.UpdateOrderRequest\032\036.ric.task"
-  "s.UpdateOrderResponse\022O\n\014ChangeStatus\022\036."
-  "ric.tasks.ChangeStatusRequest\032\037.ric.task"
-  "s.ChangeStatusResponseB\nZ\010rictasksb\006prot"
-  "o3"
+  "0\n\016PositionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030"
+  "\002 \001(\005:\0028\001\"\025\n\023UpdateOrderResponse\"\324\001\n\023Cha"
+  "ngeStatusRequest\022\035\n\002id\030\001 \001(\0132\021.ric.tasks"
+  ".TaskId\022*\n\nnew_status\030\002 \001(\0162\026.ric.tasks."
+  "Task.Status\022%\n\010location\030\003 \001(\0132\023.ric.task"
+  "s.Location\022+\n\007success\030\004 \001(\0132\032.google.pro"
+  "tobuf.BoolValue\022\017\n\007comment\030\005 \001(\t\022\r\n\005file"
+  "s\030\006 \003(\t\"\026\n\024ChangeStatusResponse2\231\003\n\005Task"
+  "s\022=\n\006Create\022\030.ric.tasks.CreateRequest\032\031."
+  "ric.tasks.CreateResponse\0224\n\003Get\022\025.ric.ta"
+  "sks.GetRequest\032\026.ric.tasks.GetResponse\022="
+  "\n\006Update\022\030.ric.tasks.UpdateRequest\032\031.ric"
+  ".tasks.UpdateResponse\022=\n\006Delete\022\030.ric.ta"
+  "sks.DeleteRequest\032\031.ric.tasks.DeleteResp"
+  "onse\022L\n\013UpdateOrder\022\035.ric.tasks.UpdateOr"
+  "derRequest\032\036.ric.tasks.UpdateOrderRespon"
+  "se\022O\n\014ChangeStatus\022\036.ric.tasks.ChangeSta"
+  "tusRequest\032\037.ric.tasks.ChangeStatusRespo"
+  "nseB\nZ\010rictasksb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dtasks_2frictasks_2eproto = {
   false, InitDefaults_ric_2dtasks_2frictasks_2eproto, 
   descriptor_table_protodef_ric_2dtasks_2frictasks_2eproto,
-  "ric-tasks/rictasks.proto", &assign_descriptors_table_ric_2dtasks_2frictasks_2eproto, 2802,
+  "ric-tasks/rictasks.proto", &assign_descriptors_table_ric_2dtasks_2frictasks_2eproto, 2783,
 };
 
 void AddDescriptors_ric_2dtasks_2frictasks_2eproto() {
@@ -7202,6 +7200,10 @@ bool UpdateOrderRequest_PositionsEntry_DoNotUse::_ParseMap(const char* begin, co
   Parser<MF, ::google::protobuf::Map<EntryKeyType, EntryValueType>> parser(mf);
 #define DO_(x) if (!(x)) return false
   DO_(parser.ParseMap(begin, end));
+  DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+    parser.key().data(), static_cast<int>(parser.key().length()),
+    ::google::protobuf::internal::WireFormatLite::PARSE,
+    "ric.tasks.UpdateOrderRequest.PositionsEntry.key"));
 #undef DO_
   return true;
 }
@@ -7310,7 +7312,7 @@ const char* UpdateOrderRequest::_InternalParse(const char* begin, const char* en
             {parser_till_end, object}, ptr - size, ptr));
         break;
       }
-      // map<int32, .ric.tasks.TaskId> positions = 2;
+      // map<string, int32> positions = 2;
       case 2: {
         if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
         do {
@@ -7370,18 +7372,22 @@ bool UpdateOrderRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // map<int32, .ric.tasks.TaskId> positions = 2;
+      // map<string, int32> positions = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
           UpdateOrderRequest_PositionsEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
               UpdateOrderRequest_PositionsEntry_DoNotUse,
-              ::google::protobuf::int32, ::ric::tasks::TaskId,
+              ::std::string, ::google::protobuf::int32,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
               ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
-              ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
               0 >,
-            ::google::protobuf::Map< ::google::protobuf::int32, ::ric::tasks::TaskId > > parser(&positions_);
+            ::google::protobuf::Map< ::std::string, ::google::protobuf::int32 > > parser(&positions_);
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
               input, &parser));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.key().data(), static_cast<int>(parser.key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.tasks.UpdateOrderRequest.PositionsEntry.key"));
         } else {
           goto handle_unusual;
         }
@@ -7421,20 +7427,28 @@ void UpdateOrderRequest::SerializeWithCachedSizes(
       1, HasBitSetters::id(this), output);
   }
 
-  // map<int32, .ric.tasks.TaskId> positions = 2;
+  // map<string, int32> positions = 2;
   if (!this->positions().empty()) {
-    typedef ::google::protobuf::Map< ::google::protobuf::int32, ::ric::tasks::TaskId >::const_pointer
+    typedef ::google::protobuf::Map< ::std::string, ::google::protobuf::int32 >::const_pointer
         ConstPtr;
-    typedef ::google::protobuf::internal::SortItem< ::google::protobuf::int32, ConstPtr > SortItem;
-    typedef ::google::protobuf::internal::CompareByFirstField<SortItem> Less;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.tasks.UpdateOrderRequest.PositionsEntry.key");
+      }
+    };
 
     if (output->IsSerializationDeterministic() &&
         this->positions().size() > 1) {
       ::std::unique_ptr<SortItem[]> items(
           new SortItem[this->positions().size()]);
-      typedef ::google::protobuf::Map< ::google::protobuf::int32, ::ric::tasks::TaskId >::size_type size_type;
+      typedef ::google::protobuf::Map< ::std::string, ::google::protobuf::int32 >::size_type size_type;
       size_type n = 0;
-      for (::google::protobuf::Map< ::google::protobuf::int32, ::ric::tasks::TaskId >::const_iterator
+      for (::google::protobuf::Map< ::std::string, ::google::protobuf::int32 >::const_iterator
           it = this->positions().begin();
           it != this->positions().end(); ++it, ++n) {
         items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
@@ -7442,16 +7456,18 @@ void UpdateOrderRequest::SerializeWithCachedSizes(
       ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
       ::std::unique_ptr<UpdateOrderRequest_PositionsEntry_DoNotUse> entry;
       for (size_type i = 0; i < n; i++) {
-        entry.reset(positions_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second));
+        entry.reset(positions_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
         ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(2, *entry, output);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
       }
     } else {
       ::std::unique_ptr<UpdateOrderRequest_PositionsEntry_DoNotUse> entry;
-      for (::google::protobuf::Map< ::google::protobuf::int32, ::ric::tasks::TaskId >::const_iterator
+      for (::google::protobuf::Map< ::std::string, ::google::protobuf::int32 >::const_iterator
           it = this->positions().begin();
           it != this->positions().end(); ++it) {
         entry.reset(positions_.NewEntryWrapper(it->first, it->second));
         ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(2, *entry, output);
+        Utf8Check::Check(&(*it));
       }
     }
   }
@@ -7476,20 +7492,28 @@ void UpdateOrderRequest::SerializeWithCachedSizes(
         1, HasBitSetters::id(this), target);
   }
 
-  // map<int32, .ric.tasks.TaskId> positions = 2;
+  // map<string, int32> positions = 2;
   if (!this->positions().empty()) {
-    typedef ::google::protobuf::Map< ::google::protobuf::int32, ::ric::tasks::TaskId >::const_pointer
+    typedef ::google::protobuf::Map< ::std::string, ::google::protobuf::int32 >::const_pointer
         ConstPtr;
-    typedef ::google::protobuf::internal::SortItem< ::google::protobuf::int32, ConstPtr > SortItem;
-    typedef ::google::protobuf::internal::CompareByFirstField<SortItem> Less;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.tasks.UpdateOrderRequest.PositionsEntry.key");
+      }
+    };
 
     if (false &&
         this->positions().size() > 1) {
       ::std::unique_ptr<SortItem[]> items(
           new SortItem[this->positions().size()]);
-      typedef ::google::protobuf::Map< ::google::protobuf::int32, ::ric::tasks::TaskId >::size_type size_type;
+      typedef ::google::protobuf::Map< ::std::string, ::google::protobuf::int32 >::size_type size_type;
       size_type n = 0;
-      for (::google::protobuf::Map< ::google::protobuf::int32, ::ric::tasks::TaskId >::const_iterator
+      for (::google::protobuf::Map< ::std::string, ::google::protobuf::int32 >::const_iterator
           it = this->positions().begin();
           it != this->positions().end(); ++it, ++n) {
         items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
@@ -7497,16 +7521,18 @@ void UpdateOrderRequest::SerializeWithCachedSizes(
       ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
       ::std::unique_ptr<UpdateOrderRequest_PositionsEntry_DoNotUse> entry;
       for (size_type i = 0; i < n; i++) {
-        entry.reset(positions_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second));
+        entry.reset(positions_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
         target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(2, *entry, target);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
       }
     } else {
       ::std::unique_ptr<UpdateOrderRequest_PositionsEntry_DoNotUse> entry;
-      for (::google::protobuf::Map< ::google::protobuf::int32, ::ric::tasks::TaskId >::const_iterator
+      for (::google::protobuf::Map< ::std::string, ::google::protobuf::int32 >::const_iterator
           it = this->positions().begin();
           it != this->positions().end(); ++it) {
         entry.reset(positions_.NewEntryWrapper(it->first, it->second));
         target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(2, *entry, target);
+        Utf8Check::Check(&(*it));
       }
     }
   }
@@ -7532,12 +7558,12 @@ size_t UpdateOrderRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // map<int32, .ric.tasks.TaskId> positions = 2;
+  // map<string, int32> positions = 2;
   total_size += 1 *
       ::google::protobuf::internal::FromIntSize(this->positions_size());
   {
     ::std::unique_ptr<UpdateOrderRequest_PositionsEntry_DoNotUse> entry;
-    for (::google::protobuf::Map< ::google::protobuf::int32, ::ric::tasks::TaskId >::const_iterator
+    for (::google::protobuf::Map< ::std::string, ::google::protobuf::int32 >::const_iterator
         it = this->positions().begin();
         it != this->positions().end(); ++it) {
       entry.reset(positions_.NewEntryWrapper(it->first, it->second));

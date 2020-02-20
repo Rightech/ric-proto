@@ -193,9 +193,9 @@ message UpdateResponse {
 message UpdateOrderRequest {
   ObjectId id = 1; // master task id
   // new position to task id
-  // if new position more then subtasks length
+  // if new position greater then subtasks length
   // error returned
-  map<int32, TaskId> positions = 2;
+  map<string, int32> positions = 2;
 }
 
 message UpdateOrderResponse {}

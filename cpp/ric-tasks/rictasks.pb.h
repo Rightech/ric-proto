@@ -2425,18 +2425,18 @@ class UpdateResponse final :
 // -------------------------------------------------------------------
 
 class UpdateOrderRequest_PositionsEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<UpdateOrderRequest_PositionsEntry_DoNotUse, 
-    ::google::protobuf::int32, ::ric::tasks::TaskId,
+    ::std::string, ::google::protobuf::int32,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
     ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
-    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
     0 > {
 public:
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 static bool _ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
   typedef ::google::protobuf::internal::MapEntry<UpdateOrderRequest_PositionsEntry_DoNotUse, 
-    ::google::protobuf::int32, ::ric::tasks::TaskId,
+    ::std::string, ::google::protobuf::int32,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
     ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
-    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
     0 > SuperType;
   UpdateOrderRequest_PositionsEntry_DoNotUse();
   UpdateOrderRequest_PositionsEntry_DoNotUse(::google::protobuf::Arena* arena);
@@ -2544,13 +2544,13 @@ class UpdateOrderRequest final :
 
   // accessors -------------------------------------------------------
 
-  // map<int32, .ric.tasks.TaskId> positions = 2;
+  // map<string, int32> positions = 2;
   int positions_size() const;
   void clear_positions();
   static const int kPositionsFieldNumber = 2;
-  const ::google::protobuf::Map< ::google::protobuf::int32, ::ric::tasks::TaskId >&
+  const ::google::protobuf::Map< ::std::string, ::google::protobuf::int32 >&
       positions() const;
-  ::google::protobuf::Map< ::google::protobuf::int32, ::ric::tasks::TaskId >*
+  ::google::protobuf::Map< ::std::string, ::google::protobuf::int32 >*
       mutable_positions();
 
   // .ric.tasks.ObjectId id = 1;
@@ -2569,9 +2569,9 @@ class UpdateOrderRequest final :
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::MapField<
       UpdateOrderRequest_PositionsEntry_DoNotUse,
-      ::google::protobuf::int32, ::ric::tasks::TaskId,
+      ::std::string, ::google::protobuf::int32,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_INT32,
-      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
       0 > positions_;
   ::ric::tasks::ObjectId* id_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
@@ -4976,19 +4976,19 @@ inline void UpdateOrderRequest::set_allocated_id(::ric::tasks::ObjectId* id) {
   // @@protoc_insertion_point(field_set_allocated:ric.tasks.UpdateOrderRequest.id)
 }
 
-// map<int32, .ric.tasks.TaskId> positions = 2;
+// map<string, int32> positions = 2;
 inline int UpdateOrderRequest::positions_size() const {
   return positions_.size();
 }
 inline void UpdateOrderRequest::clear_positions() {
   positions_.Clear();
 }
-inline const ::google::protobuf::Map< ::google::protobuf::int32, ::ric::tasks::TaskId >&
+inline const ::google::protobuf::Map< ::std::string, ::google::protobuf::int32 >&
 UpdateOrderRequest::positions() const {
   // @@protoc_insertion_point(field_map:ric.tasks.UpdateOrderRequest.positions)
   return positions_.GetMap();
 }
-inline ::google::protobuf::Map< ::google::protobuf::int32, ::ric::tasks::TaskId >*
+inline ::google::protobuf::Map< ::std::string, ::google::protobuf::int32 >*
 UpdateOrderRequest::mutable_positions() {
   // @@protoc_insertion_point(field_mutable_map:ric.tasks.UpdateOrderRequest.positions)
   return positions_.MutableMap();
