@@ -563,7 +563,9 @@ func init() {
 	proto.RegisterType((*EmptyResponse)(nil), "ric.gate.EmptyResponse")
 }
 
-func init() { proto.RegisterFile("ric-gate/ric-gate.proto", fileDescriptor_afbbea0661e26988) }
+func init() {
+	proto.RegisterFile("ric-gate/ric-gate.proto", fileDescriptor_afbbea0661e26988)
+}
 
 var fileDescriptor_afbbea0661e26988 = []byte{
 	// 602 bytes of a gzipped FileDescriptorProto
@@ -609,11 +611,11 @@ var fileDescriptor_afbbea0661e26988 = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConn
+var _ grpc.ClientConnInterface
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion4
+const _ = grpc.SupportPackageIsVersion6
 
 // GateInletClient is the client API for GateInlet service.
 //
@@ -634,10 +636,10 @@ type GateInletClient interface {
 }
 
 type gateInletClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewGateInletClient(cc *grpc.ClientConn) GateInletClient {
+func NewGateInletClient(cc grpc.ClientConnInterface) GateInletClient {
 	return &gateInletClient{cc}
 }
 
@@ -950,10 +952,10 @@ type GateCommandClient interface {
 }
 
 type gateCommandClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewGateCommandClient(cc *grpc.ClientConn) GateCommandClient {
+func NewGateCommandClient(cc grpc.ClientConnInterface) GateCommandClient {
 	return &gateCommandClient{cc}
 }
 

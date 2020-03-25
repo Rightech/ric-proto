@@ -7,25 +7,24 @@
 #include "ric-geo/ricgeo.pb.h"
 
 #include <functional>
+#include <grpc/impl/codegen/port_platform.h>
 #include <grpcpp/impl/codegen/async_generic_service.h>
 #include <grpcpp/impl/codegen/async_stream.h>
 #include <grpcpp/impl/codegen/async_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/method_handler_impl.h>
+#include <grpcpp/impl/codegen/client_context.h>
+#include <grpcpp/impl/codegen/completion_queue.h>
+#include <grpcpp/impl/codegen/message_allocator.h>
+#include <grpcpp/impl/codegen/method_handler.h>
 #include <grpcpp/impl/codegen/proto_utils.h>
 #include <grpcpp/impl/codegen/rpc_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
+#include <grpcpp/impl/codegen/server_callback_handlers.h>
+#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/status.h>
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
-
-namespace grpc {
-class CompletionQueue;
-class Channel;
-class ServerCompletionQueue;
-class ServerContext;
-}  // namespace grpc
 
 namespace ric {
 namespace geo {
@@ -99,21 +98,107 @@ class Watch final {
       virtual ~experimental_async_interface() {}
       virtual void WatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void WatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void WatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void WatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void WatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void WatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void StopWatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void StopWatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void StopWatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void StopWatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void StopWatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void StopWatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void WatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void WatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void WatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void WatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void WatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void WatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void StopWatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void StopWatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void StopWatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void StopWatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void StopWatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void StopWatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void WatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void WatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void WatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void WatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void WatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void WatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void StopWatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void StopWatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void StopWatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void StopWatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void StopWatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void StopWatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
     };
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    typedef class experimental_async_interface async_interface;
+    #endif
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    async_interface* async() { return experimental_async(); }
+    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::EmptyResponse>* AsyncWatchGeofenceRaw(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -197,20 +282,100 @@ class Watch final {
      public:
       void WatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void WatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void WatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void WatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void WatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void WatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void StopWatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void StopWatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void StopWatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void StopWatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void StopWatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void StopWatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void WatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void WatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void WatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void WatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void WatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void WatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void StopWatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void StopWatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void StopWatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void StopWatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void StopWatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void StopWatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void WatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void WatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void WatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void WatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void WatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void WatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void StopWatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void StopWatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void StopWatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void StopWatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void StopWatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void StopWatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) override;
       void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -265,7 +430,7 @@ class Watch final {
   template <class BaseClass>
   class WithAsyncMethod_WatchGeofence : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_WatchGeofence() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -274,7 +439,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status WatchGeofence(::grpc::ServerContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchGeofence(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -285,7 +450,7 @@ class Watch final {
   template <class BaseClass>
   class WithAsyncMethod_StopWatchGeofence : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_StopWatchGeofence() {
       ::grpc::Service::MarkMethodAsync(1);
@@ -294,7 +459,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopWatchGeofence(::grpc::ServerContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchGeofence(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -305,7 +470,7 @@ class Watch final {
   template <class BaseClass>
   class WithAsyncMethod_WatchRoom : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_WatchRoom() {
       ::grpc::Service::MarkMethodAsync(2);
@@ -314,7 +479,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status WatchRoom(::grpc::ServerContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchRoom(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -325,7 +490,7 @@ class Watch final {
   template <class BaseClass>
   class WithAsyncMethod_StopWatchRoom : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_StopWatchRoom() {
       ::grpc::Service::MarkMethodAsync(3);
@@ -334,7 +499,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopWatchRoom(::grpc::ServerContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchRoom(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -345,7 +510,7 @@ class Watch final {
   template <class BaseClass>
   class WithAsyncMethod_WatchRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_WatchRoute() {
       ::grpc::Service::MarkMethodAsync(4);
@@ -354,7 +519,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status WatchRoute(::grpc::ServerContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -365,7 +530,7 @@ class Watch final {
   template <class BaseClass>
   class WithAsyncMethod_StopWatchRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_StopWatchRoute() {
       ::grpc::Service::MarkMethodAsync(5);
@@ -374,7 +539,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopWatchRoute(::grpc::ServerContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -385,7 +550,7 @@ class Watch final {
   template <class BaseClass>
   class WithAsyncMethod_UpdateGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_UpdateGeo() {
       ::grpc::Service::MarkMethodAsync(6);
@@ -394,7 +559,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateGeo(::grpc::ServerContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status UpdateGeo(::grpc::ServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -405,7 +570,7 @@ class Watch final {
   template <class BaseClass>
   class WithAsyncMethod_GetObjectInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetObjectInfo() {
       ::grpc::Service::MarkMethodAsync(7);
@@ -414,7 +579,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status GetObjectInfo(::grpc::ServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -426,208 +591,388 @@ class Watch final {
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_WatchGeofence : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_WatchGeofence() {
-      ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::WatchGeofenceRequest, ::ric::geo::EmptyResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::WatchGeofenceRequest* request,
-                 ::ric::geo::EmptyResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->WatchGeofence(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::WatchGeofenceRequest, ::ric::geo::EmptyResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response) { return this->WatchGeofence(context, request, response); }));}
+    void SetMessageAllocatorFor_WatchGeofence(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::WatchGeofenceRequest, ::ric::geo::EmptyResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::WatchGeofenceRequest, ::ric::geo::EmptyResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_WatchGeofence() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status WatchGeofence(::grpc::ServerContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchGeofence(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void WatchGeofence(::grpc::ServerContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* WatchGeofence(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* WatchGeofence(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_StopWatchGeofence : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_StopWatchGeofence() {
-      ::grpc::Service::experimental().MarkMethodCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::WatchGeofenceRequest, ::ric::geo::EmptyResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::WatchGeofenceRequest* request,
-                 ::ric::geo::EmptyResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->StopWatchGeofence(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::WatchGeofenceRequest, ::ric::geo::EmptyResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response) { return this->StopWatchGeofence(context, request, response); }));}
+    void SetMessageAllocatorFor_StopWatchGeofence(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::WatchGeofenceRequest, ::ric::geo::EmptyResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::WatchGeofenceRequest, ::ric::geo::EmptyResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_StopWatchGeofence() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopWatchGeofence(::grpc::ServerContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchGeofence(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void StopWatchGeofence(::grpc::ServerContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* StopWatchGeofence(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* StopWatchGeofence(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_WatchRoom : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_WatchRoom() {
-      ::grpc::Service::experimental().MarkMethodCallback(2,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::WatchRoomRequest, ::ric::geo::EmptyResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::WatchRoomRequest* request,
-                 ::ric::geo::EmptyResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->WatchRoom(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::WatchRoomRequest, ::ric::geo::EmptyResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response) { return this->WatchRoom(context, request, response); }));}
+    void SetMessageAllocatorFor_WatchRoom(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::WatchRoomRequest, ::ric::geo::EmptyResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::WatchRoomRequest, ::ric::geo::EmptyResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_WatchRoom() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status WatchRoom(::grpc::ServerContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchRoom(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void WatchRoom(::grpc::ServerContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* WatchRoom(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* WatchRoom(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_StopWatchRoom : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_StopWatchRoom() {
-      ::grpc::Service::experimental().MarkMethodCallback(3,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::WatchRoomRequest, ::ric::geo::EmptyResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::WatchRoomRequest* request,
-                 ::ric::geo::EmptyResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->StopWatchRoom(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(3,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::WatchRoomRequest, ::ric::geo::EmptyResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response) { return this->StopWatchRoom(context, request, response); }));}
+    void SetMessageAllocatorFor_StopWatchRoom(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::WatchRoomRequest, ::ric::geo::EmptyResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::WatchRoomRequest, ::ric::geo::EmptyResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_StopWatchRoom() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopWatchRoom(::grpc::ServerContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchRoom(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void StopWatchRoom(::grpc::ServerContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* StopWatchRoom(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* StopWatchRoom(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_WatchRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_WatchRoute() {
-      ::grpc::Service::experimental().MarkMethodCallback(4,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::WatchRouteRequest, ::ric::geo::EmptyResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::WatchRouteRequest* request,
-                 ::ric::geo::EmptyResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->WatchRoute(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(4,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::WatchRouteRequest, ::ric::geo::EmptyResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response) { return this->WatchRoute(context, request, response); }));}
+    void SetMessageAllocatorFor_WatchRoute(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::WatchRouteRequest, ::ric::geo::EmptyResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::WatchRouteRequest, ::ric::geo::EmptyResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_WatchRoute() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status WatchRoute(::grpc::ServerContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void WatchRoute(::grpc::ServerContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* WatchRoute(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* WatchRoute(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_StopWatchRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_StopWatchRoute() {
-      ::grpc::Service::experimental().MarkMethodCallback(5,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::WatchRouteRequest, ::ric::geo::EmptyResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::WatchRouteRequest* request,
-                 ::ric::geo::EmptyResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->StopWatchRoute(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(5,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::WatchRouteRequest, ::ric::geo::EmptyResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response) { return this->StopWatchRoute(context, request, response); }));}
+    void SetMessageAllocatorFor_StopWatchRoute(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::WatchRouteRequest, ::ric::geo::EmptyResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::WatchRouteRequest, ::ric::geo::EmptyResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_StopWatchRoute() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopWatchRoute(::grpc::ServerContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void StopWatchRoute(::grpc::ServerContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* StopWatchRoute(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* StopWatchRoute(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_UpdateGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_UpdateGeo() {
-      ::grpc::Service::experimental().MarkMethodCallback(6,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::UpdateGeoRequest, ::ric::geo::EmptyResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::UpdateGeoRequest* request,
-                 ::ric::geo::EmptyResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->UpdateGeo(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(6,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::UpdateGeoRequest, ::ric::geo::EmptyResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response) { return this->UpdateGeo(context, request, response); }));}
+    void SetMessageAllocatorFor_UpdateGeo(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::UpdateGeoRequest, ::ric::geo::EmptyResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::UpdateGeoRequest, ::ric::geo::EmptyResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_UpdateGeo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateGeo(::grpc::ServerContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status UpdateGeo(::grpc::ServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void UpdateGeo(::grpc::ServerContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* UpdateGeo(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* UpdateGeo(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_GetObjectInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_GetObjectInfo() {
-      ::grpc::Service::experimental().MarkMethodCallback(7,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::GetObjectInfoRequest, ::ric::geo::GetObjectInfoResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::GetObjectInfoRequest* request,
-                 ::ric::geo::GetObjectInfoResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->GetObjectInfo(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(7,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::GetObjectInfoRequest, ::ric::geo::GetObjectInfoResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) { return this->GetObjectInfo(context, request, response); }));}
+    void SetMessageAllocatorFor_GetObjectInfo(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::GetObjectInfoRequest, ::ric::geo::GetObjectInfoResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(7);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::GetObjectInfoRequest, ::ric::geo::GetObjectInfoResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_GetObjectInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status GetObjectInfo(::grpc::ServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetObjectInfo(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetObjectInfo(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
+  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+  typedef ExperimentalWithCallbackMethod_WatchGeofence<ExperimentalWithCallbackMethod_StopWatchGeofence<ExperimentalWithCallbackMethod_WatchRoom<ExperimentalWithCallbackMethod_StopWatchRoom<ExperimentalWithCallbackMethod_WatchRoute<ExperimentalWithCallbackMethod_StopWatchRoute<ExperimentalWithCallbackMethod_UpdateGeo<ExperimentalWithCallbackMethod_GetObjectInfo<Service > > > > > > > > CallbackService;
+  #endif
+
   typedef ExperimentalWithCallbackMethod_WatchGeofence<ExperimentalWithCallbackMethod_StopWatchGeofence<ExperimentalWithCallbackMethod_WatchRoom<ExperimentalWithCallbackMethod_StopWatchRoom<ExperimentalWithCallbackMethod_WatchRoute<ExperimentalWithCallbackMethod_StopWatchRoute<ExperimentalWithCallbackMethod_UpdateGeo<ExperimentalWithCallbackMethod_GetObjectInfo<Service > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_WatchGeofence : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_WatchGeofence() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -636,7 +981,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status WatchGeofence(::grpc::ServerContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchGeofence(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -644,7 +989,7 @@ class Watch final {
   template <class BaseClass>
   class WithGenericMethod_StopWatchGeofence : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_StopWatchGeofence() {
       ::grpc::Service::MarkMethodGeneric(1);
@@ -653,7 +998,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopWatchGeofence(::grpc::ServerContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchGeofence(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -661,7 +1006,7 @@ class Watch final {
   template <class BaseClass>
   class WithGenericMethod_WatchRoom : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_WatchRoom() {
       ::grpc::Service::MarkMethodGeneric(2);
@@ -670,7 +1015,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status WatchRoom(::grpc::ServerContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchRoom(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -678,7 +1023,7 @@ class Watch final {
   template <class BaseClass>
   class WithGenericMethod_StopWatchRoom : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_StopWatchRoom() {
       ::grpc::Service::MarkMethodGeneric(3);
@@ -687,7 +1032,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopWatchRoom(::grpc::ServerContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchRoom(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -695,7 +1040,7 @@ class Watch final {
   template <class BaseClass>
   class WithGenericMethod_WatchRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_WatchRoute() {
       ::grpc::Service::MarkMethodGeneric(4);
@@ -704,7 +1049,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status WatchRoute(::grpc::ServerContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -712,7 +1057,7 @@ class Watch final {
   template <class BaseClass>
   class WithGenericMethod_StopWatchRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_StopWatchRoute() {
       ::grpc::Service::MarkMethodGeneric(5);
@@ -721,7 +1066,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopWatchRoute(::grpc::ServerContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -729,7 +1074,7 @@ class Watch final {
   template <class BaseClass>
   class WithGenericMethod_UpdateGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_UpdateGeo() {
       ::grpc::Service::MarkMethodGeneric(6);
@@ -738,7 +1083,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateGeo(::grpc::ServerContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status UpdateGeo(::grpc::ServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -746,7 +1091,7 @@ class Watch final {
   template <class BaseClass>
   class WithGenericMethod_GetObjectInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetObjectInfo() {
       ::grpc::Service::MarkMethodGeneric(7);
@@ -755,7 +1100,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status GetObjectInfo(::grpc::ServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -763,7 +1108,7 @@ class Watch final {
   template <class BaseClass>
   class WithRawMethod_WatchGeofence : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_WatchGeofence() {
       ::grpc::Service::MarkMethodRaw(0);
@@ -772,7 +1117,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status WatchGeofence(::grpc::ServerContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchGeofence(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -783,7 +1128,7 @@ class Watch final {
   template <class BaseClass>
   class WithRawMethod_StopWatchGeofence : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_StopWatchGeofence() {
       ::grpc::Service::MarkMethodRaw(1);
@@ -792,7 +1137,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopWatchGeofence(::grpc::ServerContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchGeofence(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -803,7 +1148,7 @@ class Watch final {
   template <class BaseClass>
   class WithRawMethod_WatchRoom : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_WatchRoom() {
       ::grpc::Service::MarkMethodRaw(2);
@@ -812,7 +1157,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status WatchRoom(::grpc::ServerContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchRoom(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -823,7 +1168,7 @@ class Watch final {
   template <class BaseClass>
   class WithRawMethod_StopWatchRoom : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_StopWatchRoom() {
       ::grpc::Service::MarkMethodRaw(3);
@@ -832,7 +1177,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopWatchRoom(::grpc::ServerContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchRoom(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -843,7 +1188,7 @@ class Watch final {
   template <class BaseClass>
   class WithRawMethod_WatchRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_WatchRoute() {
       ::grpc::Service::MarkMethodRaw(4);
@@ -852,7 +1197,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status WatchRoute(::grpc::ServerContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -863,7 +1208,7 @@ class Watch final {
   template <class BaseClass>
   class WithRawMethod_StopWatchRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_StopWatchRoute() {
       ::grpc::Service::MarkMethodRaw(5);
@@ -872,7 +1217,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopWatchRoute(::grpc::ServerContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -883,7 +1228,7 @@ class Watch final {
   template <class BaseClass>
   class WithRawMethod_UpdateGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_UpdateGeo() {
       ::grpc::Service::MarkMethodRaw(6);
@@ -892,7 +1237,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateGeo(::grpc::ServerContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status UpdateGeo(::grpc::ServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -903,7 +1248,7 @@ class Watch final {
   template <class BaseClass>
   class WithRawMethod_GetObjectInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetObjectInfo() {
       ::grpc::Service::MarkMethodRaw(7);
@@ -912,7 +1257,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status GetObjectInfo(::grpc::ServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -923,207 +1268,311 @@ class Watch final {
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_WatchGeofence : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_WatchGeofence() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->WatchGeofence(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->WatchGeofence(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_WatchGeofence() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status WatchGeofence(::grpc::ServerContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchGeofence(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void WatchGeofence(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* WatchGeofence(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* WatchGeofence(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_StopWatchGeofence : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_StopWatchGeofence() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->StopWatchGeofence(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->StopWatchGeofence(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_StopWatchGeofence() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopWatchGeofence(::grpc::ServerContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchGeofence(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void StopWatchGeofence(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* StopWatchGeofence(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* StopWatchGeofence(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_WatchRoom : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_WatchRoom() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(2,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->WatchRoom(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->WatchRoom(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_WatchRoom() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status WatchRoom(::grpc::ServerContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchRoom(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void WatchRoom(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* WatchRoom(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* WatchRoom(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_StopWatchRoom : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_StopWatchRoom() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(3,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->StopWatchRoom(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(3,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->StopWatchRoom(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_StopWatchRoom() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopWatchRoom(::grpc::ServerContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchRoom(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void StopWatchRoom(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* StopWatchRoom(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* StopWatchRoom(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_WatchRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_WatchRoute() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(4,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->WatchRoute(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(4,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->WatchRoute(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_WatchRoute() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status WatchRoute(::grpc::ServerContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void WatchRoute(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* WatchRoute(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* WatchRoute(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_StopWatchRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_StopWatchRoute() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(5,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->StopWatchRoute(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(5,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->StopWatchRoute(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_StopWatchRoute() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopWatchRoute(::grpc::ServerContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void StopWatchRoute(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* StopWatchRoute(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* StopWatchRoute(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_UpdateGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_UpdateGeo() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(6,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->UpdateGeo(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(6,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateGeo(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_UpdateGeo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateGeo(::grpc::ServerContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status UpdateGeo(::grpc::ServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void UpdateGeo(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* UpdateGeo(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* UpdateGeo(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_GetObjectInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_GetObjectInfo() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(7,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->GetObjectInfo(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(7,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetObjectInfo(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_GetObjectInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status GetObjectInfo(::grpc::ServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void GetObjectInfo(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetObjectInfo(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetObjectInfo(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_WatchGeofence : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_WatchGeofence() {
       ::grpc::Service::MarkMethodStreamed(0,
@@ -1133,7 +1582,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status WatchGeofence(::grpc::ServerContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchGeofence(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1143,7 +1592,7 @@ class Watch final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_StopWatchGeofence : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_StopWatchGeofence() {
       ::grpc::Service::MarkMethodStreamed(1,
@@ -1153,7 +1602,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status StopWatchGeofence(::grpc::ServerContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchGeofence(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchGeofenceRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1163,7 +1612,7 @@ class Watch final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_WatchRoom : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_WatchRoom() {
       ::grpc::Service::MarkMethodStreamed(2,
@@ -1173,7 +1622,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status WatchRoom(::grpc::ServerContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchRoom(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1183,7 +1632,7 @@ class Watch final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_StopWatchRoom : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_StopWatchRoom() {
       ::grpc::Service::MarkMethodStreamed(3,
@@ -1193,7 +1642,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status StopWatchRoom(::grpc::ServerContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchRoom(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRoomRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1203,7 +1652,7 @@ class Watch final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_WatchRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_WatchRoute() {
       ::grpc::Service::MarkMethodStreamed(4,
@@ -1213,7 +1662,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status WatchRoute(::grpc::ServerContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status WatchRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1223,7 +1672,7 @@ class Watch final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_StopWatchRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_StopWatchRoute() {
       ::grpc::Service::MarkMethodStreamed(5,
@@ -1233,7 +1682,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status StopWatchRoute(::grpc::ServerContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status StopWatchRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRouteRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1243,7 +1692,7 @@ class Watch final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_UpdateGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_UpdateGeo() {
       ::grpc::Service::MarkMethodStreamed(6,
@@ -1253,7 +1702,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status UpdateGeo(::grpc::ServerContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status UpdateGeo(::grpc::ServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1263,7 +1712,7 @@ class Watch final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetObjectInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetObjectInfo() {
       ::grpc::Service::MarkMethodStreamed(7,
@@ -1273,7 +1722,7 @@ class Watch final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status GetObjectInfo(::grpc::ServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1326,13 +1775,59 @@ class WatchV2 final {
       virtual ~experimental_async_interface() {}
       virtual void Watch(::grpc::ClientContext* context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Watch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Watch(::grpc::ClientContext* context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Watch(::grpc::ClientContext* context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Watch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Watch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void Stop(::grpc::ClientContext* context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Stop(::grpc::ClientContext* context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Stop(::grpc::ClientContext* context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
     };
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    typedef class experimental_async_interface async_interface;
+    #endif
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    async_interface* async() { return experimental_async(); }
+    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::EmptyResponse>* AsyncWatchRaw(::grpc::ClientContext* context, const ::ric::geo::WatchRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -1380,12 +1875,52 @@ class WatchV2 final {
      public:
       void Watch(::grpc::ClientContext* context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void Watch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Watch(::grpc::ClientContext* context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Watch(::grpc::ClientContext* context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Watch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Watch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void Stop(::grpc::ClientContext* context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Stop(::grpc::ClientContext* context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Stop(::grpc::ClientContext* context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) override;
       void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -1424,7 +1959,7 @@ class WatchV2 final {
   template <class BaseClass>
   class WithAsyncMethod_Watch : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_Watch() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -1433,7 +1968,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Watch(::grpc::ServerContext* context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Watch(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1444,7 +1979,7 @@ class WatchV2 final {
   template <class BaseClass>
   class WithAsyncMethod_Stop : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_Stop() {
       ::grpc::Service::MarkMethodAsync(1);
@@ -1453,7 +1988,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Stop(::grpc::ServerContext* context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Stop(::grpc::ServerContext* /*context*/, const ::ric::geo::StopRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1464,7 +1999,7 @@ class WatchV2 final {
   template <class BaseClass>
   class WithAsyncMethod_UpdateGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_UpdateGeo() {
       ::grpc::Service::MarkMethodAsync(2);
@@ -1473,7 +2008,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateGeo(::grpc::ServerContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status UpdateGeo(::grpc::ServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1484,7 +2019,7 @@ class WatchV2 final {
   template <class BaseClass>
   class WithAsyncMethod_GetObjectInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetObjectInfo() {
       ::grpc::Service::MarkMethodAsync(3);
@@ -1493,7 +2028,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status GetObjectInfo(::grpc::ServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1505,108 +2040,200 @@ class WatchV2 final {
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Watch : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_Watch() {
-      ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::WatchRequest, ::ric::geo::EmptyResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::WatchRequest* request,
-                 ::ric::geo::EmptyResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->Watch(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::WatchRequest, ::ric::geo::EmptyResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response) { return this->Watch(context, request, response); }));}
+    void SetMessageAllocatorFor_Watch(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::WatchRequest, ::ric::geo::EmptyResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::WatchRequest, ::ric::geo::EmptyResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_Watch() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Watch(::grpc::ServerContext* context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Watch(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Watch(::grpc::ServerContext* context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Watch(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::WatchRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Watch(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::WatchRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Stop : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_Stop() {
-      ::grpc::Service::experimental().MarkMethodCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::StopRequest, ::ric::geo::EmptyResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::StopRequest* request,
-                 ::ric::geo::EmptyResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->Stop(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::StopRequest, ::ric::geo::EmptyResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response) { return this->Stop(context, request, response); }));}
+    void SetMessageAllocatorFor_Stop(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::StopRequest, ::ric::geo::EmptyResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::StopRequest, ::ric::geo::EmptyResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_Stop() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Stop(::grpc::ServerContext* context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Stop(::grpc::ServerContext* /*context*/, const ::ric::geo::StopRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Stop(::grpc::ServerContext* context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Stop(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::StopRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Stop(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::StopRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_UpdateGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_UpdateGeo() {
-      ::grpc::Service::experimental().MarkMethodCallback(2,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::UpdateGeoRequest, ::ric::geo::EmptyResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::UpdateGeoRequest* request,
-                 ::ric::geo::EmptyResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->UpdateGeo(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::UpdateGeoRequest, ::ric::geo::EmptyResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response) { return this->UpdateGeo(context, request, response); }));}
+    void SetMessageAllocatorFor_UpdateGeo(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::UpdateGeoRequest, ::ric::geo::EmptyResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::UpdateGeoRequest, ::ric::geo::EmptyResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_UpdateGeo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateGeo(::grpc::ServerContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status UpdateGeo(::grpc::ServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void UpdateGeo(::grpc::ServerContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* UpdateGeo(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* UpdateGeo(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_GetObjectInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_GetObjectInfo() {
-      ::grpc::Service::experimental().MarkMethodCallback(3,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::GetObjectInfoRequest, ::ric::geo::GetObjectInfoResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::GetObjectInfoRequest* request,
-                 ::ric::geo::GetObjectInfoResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->GetObjectInfo(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(3,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::GetObjectInfoRequest, ::ric::geo::GetObjectInfoResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) { return this->GetObjectInfo(context, request, response); }));}
+    void SetMessageAllocatorFor_GetObjectInfo(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::GetObjectInfoRequest, ::ric::geo::GetObjectInfoResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::GetObjectInfoRequest, ::ric::geo::GetObjectInfoResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_GetObjectInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status GetObjectInfo(::grpc::ServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetObjectInfo(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetObjectInfo(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
+  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+  typedef ExperimentalWithCallbackMethod_Watch<ExperimentalWithCallbackMethod_Stop<ExperimentalWithCallbackMethod_UpdateGeo<ExperimentalWithCallbackMethod_GetObjectInfo<Service > > > > CallbackService;
+  #endif
+
   typedef ExperimentalWithCallbackMethod_Watch<ExperimentalWithCallbackMethod_Stop<ExperimentalWithCallbackMethod_UpdateGeo<ExperimentalWithCallbackMethod_GetObjectInfo<Service > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Watch : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_Watch() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -1615,7 +2242,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Watch(::grpc::ServerContext* context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Watch(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1623,7 +2250,7 @@ class WatchV2 final {
   template <class BaseClass>
   class WithGenericMethod_Stop : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_Stop() {
       ::grpc::Service::MarkMethodGeneric(1);
@@ -1632,7 +2259,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Stop(::grpc::ServerContext* context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Stop(::grpc::ServerContext* /*context*/, const ::ric::geo::StopRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1640,7 +2267,7 @@ class WatchV2 final {
   template <class BaseClass>
   class WithGenericMethod_UpdateGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_UpdateGeo() {
       ::grpc::Service::MarkMethodGeneric(2);
@@ -1649,7 +2276,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateGeo(::grpc::ServerContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status UpdateGeo(::grpc::ServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1657,7 +2284,7 @@ class WatchV2 final {
   template <class BaseClass>
   class WithGenericMethod_GetObjectInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetObjectInfo() {
       ::grpc::Service::MarkMethodGeneric(3);
@@ -1666,7 +2293,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status GetObjectInfo(::grpc::ServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1674,7 +2301,7 @@ class WatchV2 final {
   template <class BaseClass>
   class WithRawMethod_Watch : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_Watch() {
       ::grpc::Service::MarkMethodRaw(0);
@@ -1683,7 +2310,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Watch(::grpc::ServerContext* context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Watch(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1694,7 +2321,7 @@ class WatchV2 final {
   template <class BaseClass>
   class WithRawMethod_Stop : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_Stop() {
       ::grpc::Service::MarkMethodRaw(1);
@@ -1703,7 +2330,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Stop(::grpc::ServerContext* context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Stop(::grpc::ServerContext* /*context*/, const ::ric::geo::StopRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1714,7 +2341,7 @@ class WatchV2 final {
   template <class BaseClass>
   class WithRawMethod_UpdateGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_UpdateGeo() {
       ::grpc::Service::MarkMethodRaw(2);
@@ -1723,7 +2350,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateGeo(::grpc::ServerContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status UpdateGeo(::grpc::ServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1734,7 +2361,7 @@ class WatchV2 final {
   template <class BaseClass>
   class WithRawMethod_GetObjectInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetObjectInfo() {
       ::grpc::Service::MarkMethodRaw(3);
@@ -1743,7 +2370,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status GetObjectInfo(::grpc::ServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1754,107 +2381,159 @@ class WatchV2 final {
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Watch : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_Watch() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->Watch(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Watch(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_Watch() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Watch(::grpc::ServerContext* context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Watch(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Watch(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Watch(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Watch(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Stop : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_Stop() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->Stop(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Stop(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_Stop() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Stop(::grpc::ServerContext* context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Stop(::grpc::ServerContext* /*context*/, const ::ric::geo::StopRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Stop(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Stop(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Stop(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_UpdateGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_UpdateGeo() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(2,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->UpdateGeo(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateGeo(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_UpdateGeo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateGeo(::grpc::ServerContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status UpdateGeo(::grpc::ServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void UpdateGeo(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* UpdateGeo(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* UpdateGeo(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_GetObjectInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_GetObjectInfo() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(3,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->GetObjectInfo(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(3,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetObjectInfo(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_GetObjectInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status GetObjectInfo(::grpc::ServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void GetObjectInfo(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetObjectInfo(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetObjectInfo(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Watch : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_Watch() {
       ::grpc::Service::MarkMethodStreamed(0,
@@ -1864,7 +2543,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Watch(::grpc::ServerContext* context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Watch(::grpc::ServerContext* /*context*/, const ::ric::geo::WatchRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1874,7 +2553,7 @@ class WatchV2 final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_Stop : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_Stop() {
       ::grpc::Service::MarkMethodStreamed(1,
@@ -1884,7 +2563,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Stop(::grpc::ServerContext* context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Stop(::grpc::ServerContext* /*context*/, const ::ric::geo::StopRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1894,7 +2573,7 @@ class WatchV2 final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_UpdateGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_UpdateGeo() {
       ::grpc::Service::MarkMethodStreamed(2,
@@ -1904,7 +2583,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status UpdateGeo(::grpc::ServerContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status UpdateGeo(::grpc::ServerContext* /*context*/, const ::ric::geo::UpdateGeoRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1914,7 +2593,7 @@ class WatchV2 final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetObjectInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetObjectInfo() {
       ::grpc::Service::MarkMethodStreamed(3,
@@ -1924,7 +2603,7 @@ class WatchV2 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status GetObjectInfo(::grpc::ServerContext* /*context*/, const ::ric::geo::GetObjectInfoRequest* /*request*/, ::ric::geo::GetObjectInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1956,7 +2635,23 @@ class AttendanceControl final {
       virtual ~experimental_async_interface() {}
       virtual void Control(::grpc::ClientContext* context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Control(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Control(::grpc::ClientContext* context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Control(::grpc::ClientContext* context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Control(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Control(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
     };
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    typedef class experimental_async_interface async_interface;
+    #endif
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    async_interface* async() { return experimental_async(); }
+    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::EmptyResponse>* AsyncControlRaw(::grpc::ClientContext* context, const ::ric::geo::ControlRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -1977,6 +2672,16 @@ class AttendanceControl final {
      public:
       void Control(::grpc::ClientContext* context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void Control(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Control(::grpc::ClientContext* context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Control(::grpc::ClientContext* context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Control(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Control(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -2003,7 +2708,7 @@ class AttendanceControl final {
   template <class BaseClass>
   class WithAsyncMethod_Control : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_Control() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -2012,7 +2717,7 @@ class AttendanceControl final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Control(::grpc::ServerContext* context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Control(::grpc::ServerContext* /*context*/, const ::ric::geo::ControlRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2024,33 +2729,59 @@ class AttendanceControl final {
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Control : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_Control() {
-      ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::ControlRequest, ::ric::geo::EmptyResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::ControlRequest* request,
-                 ::ric::geo::EmptyResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->Control(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::ControlRequest, ::ric::geo::EmptyResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response) { return this->Control(context, request, response); }));}
+    void SetMessageAllocatorFor_Control(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::ControlRequest, ::ric::geo::EmptyResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::ControlRequest, ::ric::geo::EmptyResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_Control() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Control(::grpc::ServerContext* context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Control(::grpc::ServerContext* /*context*/, const ::ric::geo::ControlRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Control(::grpc::ServerContext* context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Control(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::ControlRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Control(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::ControlRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
+  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+  typedef ExperimentalWithCallbackMethod_Control<Service > CallbackService;
+  #endif
+
   typedef ExperimentalWithCallbackMethod_Control<Service > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Control : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_Control() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -2059,7 +2790,7 @@ class AttendanceControl final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Control(::grpc::ServerContext* context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Control(::grpc::ServerContext* /*context*/, const ::ric::geo::ControlRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2067,7 +2798,7 @@ class AttendanceControl final {
   template <class BaseClass>
   class WithRawMethod_Control : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_Control() {
       ::grpc::Service::MarkMethodRaw(0);
@@ -2076,7 +2807,7 @@ class AttendanceControl final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Control(::grpc::ServerContext* context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Control(::grpc::ServerContext* /*context*/, const ::ric::geo::ControlRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2087,32 +2818,45 @@ class AttendanceControl final {
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Control : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_Control() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->Control(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Control(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_Control() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Control(::grpc::ServerContext* context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Control(::grpc::ServerContext* /*context*/, const ::ric::geo::ControlRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Control(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Control(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Control(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Control : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_Control() {
       ::grpc::Service::MarkMethodStreamed(0,
@@ -2122,7 +2866,7 @@ class AttendanceControl final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Control(::grpc::ServerContext* context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response) override {
+    ::grpc::Status Control(::grpc::ServerContext* /*context*/, const ::ric::geo::ControlRequest* /*request*/, ::ric::geo::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2168,11 +2912,47 @@ class Osm final {
       virtual ~experimental_async_interface() {}
       virtual void Geocode(::grpc::ClientContext* context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Geocode(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Geocode(::grpc::ClientContext* context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Geocode(::grpc::ClientContext* context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Geocode(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Geocode(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void GeocodeReverse(::grpc::ClientContext* context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GeocodeReverse(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void GeocodeReverse(::grpc::ClientContext* context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GeocodeReverse(::grpc::ClientContext* context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void GeocodeReverse(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GeocodeReverse(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       virtual void GetRoute(::grpc::ClientContext* context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void GetRoute(::grpc::ClientContext* context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetRoute(::grpc::ClientContext* context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void GetRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
     };
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    typedef class experimental_async_interface async_interface;
+    #endif
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    async_interface* async() { return experimental_async(); }
+    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::OsmResponse>* AsyncGeocodeRaw(::grpc::ClientContext* context, const ::ric::geo::GeocodeRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -2211,10 +2991,40 @@ class Osm final {
      public:
       void Geocode(::grpc::ClientContext* context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)>) override;
       void Geocode(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Geocode(::grpc::ClientContext* context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Geocode(::grpc::ClientContext* context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Geocode(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Geocode(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void GeocodeReverse(::grpc::ClientContext* context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)>) override;
       void GeocodeReverse(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void GeocodeReverse(::grpc::ClientContext* context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GeocodeReverse(::grpc::ClientContext* context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void GeocodeReverse(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GeocodeReverse(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void GetRoute(::grpc::ClientContext* context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)>) override;
       void GetRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void GetRoute(::grpc::ClientContext* context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetRoute(::grpc::ClientContext* context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void GetRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -2249,7 +3059,7 @@ class Osm final {
   template <class BaseClass>
   class WithAsyncMethod_Geocode : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_Geocode() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -2258,7 +3068,7 @@ class Osm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Geocode(::grpc::ServerContext* context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status Geocode(::grpc::ServerContext* /*context*/, const ::ric::geo::GeocodeRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2269,7 +3079,7 @@ class Osm final {
   template <class BaseClass>
   class WithAsyncMethod_GeocodeReverse : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GeocodeReverse() {
       ::grpc::Service::MarkMethodAsync(1);
@@ -2278,7 +3088,7 @@ class Osm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GeocodeReverse(::grpc::ServerContext* context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status GeocodeReverse(::grpc::ServerContext* /*context*/, const ::ric::geo::GeocodeReverseRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2289,7 +3099,7 @@ class Osm final {
   template <class BaseClass>
   class WithAsyncMethod_GetRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetRoute() {
       ::grpc::Service::MarkMethodAsync(2);
@@ -2298,7 +3108,7 @@ class Osm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetRoute(::grpc::ServerContext* context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status GetRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::GetRouteRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2310,83 +3120,153 @@ class Osm final {
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Geocode : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_Geocode() {
-      ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::GeocodeRequest, ::ric::geo::OsmResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::GeocodeRequest* request,
-                 ::ric::geo::OsmResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->Geocode(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::GeocodeRequest, ::ric::geo::OsmResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response) { return this->Geocode(context, request, response); }));}
+    void SetMessageAllocatorFor_Geocode(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::GeocodeRequest, ::ric::geo::OsmResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::GeocodeRequest, ::ric::geo::OsmResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_Geocode() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Geocode(::grpc::ServerContext* context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status Geocode(::grpc::ServerContext* /*context*/, const ::ric::geo::GeocodeRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Geocode(::grpc::ServerContext* context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Geocode(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::GeocodeRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Geocode(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::GeocodeRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_GeocodeReverse : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_GeocodeReverse() {
-      ::grpc::Service::experimental().MarkMethodCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::GeocodeReverseRequest, ::ric::geo::OsmResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::GeocodeReverseRequest* request,
-                 ::ric::geo::OsmResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->GeocodeReverse(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::GeocodeReverseRequest, ::ric::geo::OsmResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response) { return this->GeocodeReverse(context, request, response); }));}
+    void SetMessageAllocatorFor_GeocodeReverse(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::GeocodeReverseRequest, ::ric::geo::OsmResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::GeocodeReverseRequest, ::ric::geo::OsmResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_GeocodeReverse() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GeocodeReverse(::grpc::ServerContext* context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status GeocodeReverse(::grpc::ServerContext* /*context*/, const ::ric::geo::GeocodeReverseRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void GeocodeReverse(::grpc::ServerContext* context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GeocodeReverse(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::GeocodeReverseRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GeocodeReverse(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::GeocodeReverseRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_GetRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_GetRoute() {
-      ::grpc::Service::experimental().MarkMethodCallback(2,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::GetRouteRequest, ::ric::geo::OsmResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::GetRouteRequest* request,
-                 ::ric::geo::OsmResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->GetRoute(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::GetRouteRequest, ::ric::geo::OsmResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response) { return this->GetRoute(context, request, response); }));}
+    void SetMessageAllocatorFor_GetRoute(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::GetRouteRequest, ::ric::geo::OsmResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::GetRouteRequest, ::ric::geo::OsmResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_GetRoute() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetRoute(::grpc::ServerContext* context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status GetRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::GetRouteRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void GetRoute(::grpc::ServerContext* context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetRoute(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::GetRouteRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetRoute(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::GetRouteRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
+  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+  typedef ExperimentalWithCallbackMethod_Geocode<ExperimentalWithCallbackMethod_GeocodeReverse<ExperimentalWithCallbackMethod_GetRoute<Service > > > CallbackService;
+  #endif
+
   typedef ExperimentalWithCallbackMethod_Geocode<ExperimentalWithCallbackMethod_GeocodeReverse<ExperimentalWithCallbackMethod_GetRoute<Service > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Geocode : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_Geocode() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -2395,7 +3275,7 @@ class Osm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Geocode(::grpc::ServerContext* context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status Geocode(::grpc::ServerContext* /*context*/, const ::ric::geo::GeocodeRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2403,7 +3283,7 @@ class Osm final {
   template <class BaseClass>
   class WithGenericMethod_GeocodeReverse : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GeocodeReverse() {
       ::grpc::Service::MarkMethodGeneric(1);
@@ -2412,7 +3292,7 @@ class Osm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GeocodeReverse(::grpc::ServerContext* context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status GeocodeReverse(::grpc::ServerContext* /*context*/, const ::ric::geo::GeocodeReverseRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2420,7 +3300,7 @@ class Osm final {
   template <class BaseClass>
   class WithGenericMethod_GetRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetRoute() {
       ::grpc::Service::MarkMethodGeneric(2);
@@ -2429,7 +3309,7 @@ class Osm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetRoute(::grpc::ServerContext* context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status GetRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::GetRouteRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2437,7 +3317,7 @@ class Osm final {
   template <class BaseClass>
   class WithRawMethod_Geocode : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_Geocode() {
       ::grpc::Service::MarkMethodRaw(0);
@@ -2446,7 +3326,7 @@ class Osm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Geocode(::grpc::ServerContext* context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status Geocode(::grpc::ServerContext* /*context*/, const ::ric::geo::GeocodeRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2457,7 +3337,7 @@ class Osm final {
   template <class BaseClass>
   class WithRawMethod_GeocodeReverse : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GeocodeReverse() {
       ::grpc::Service::MarkMethodRaw(1);
@@ -2466,7 +3346,7 @@ class Osm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GeocodeReverse(::grpc::ServerContext* context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status GeocodeReverse(::grpc::ServerContext* /*context*/, const ::ric::geo::GeocodeReverseRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2477,7 +3357,7 @@ class Osm final {
   template <class BaseClass>
   class WithRawMethod_GetRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetRoute() {
       ::grpc::Service::MarkMethodRaw(2);
@@ -2486,7 +3366,7 @@ class Osm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetRoute(::grpc::ServerContext* context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status GetRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::GetRouteRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2497,82 +3377,121 @@ class Osm final {
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Geocode : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_Geocode() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->Geocode(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Geocode(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_Geocode() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Geocode(::grpc::ServerContext* context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status Geocode(::grpc::ServerContext* /*context*/, const ::ric::geo::GeocodeRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Geocode(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Geocode(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Geocode(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_GeocodeReverse : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_GeocodeReverse() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->GeocodeReverse(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GeocodeReverse(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_GeocodeReverse() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GeocodeReverse(::grpc::ServerContext* context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status GeocodeReverse(::grpc::ServerContext* /*context*/, const ::ric::geo::GeocodeReverseRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void GeocodeReverse(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GeocodeReverse(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GeocodeReverse(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_GetRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_GetRoute() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(2,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->GetRoute(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetRoute(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_GetRoute() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetRoute(::grpc::ServerContext* context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status GetRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::GetRouteRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void GetRoute(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetRoute(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetRoute(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Geocode : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_Geocode() {
       ::grpc::Service::MarkMethodStreamed(0,
@@ -2582,7 +3501,7 @@ class Osm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Geocode(::grpc::ServerContext* context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status Geocode(::grpc::ServerContext* /*context*/, const ::ric::geo::GeocodeRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2592,7 +3511,7 @@ class Osm final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_GeocodeReverse : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GeocodeReverse() {
       ::grpc::Service::MarkMethodStreamed(1,
@@ -2602,7 +3521,7 @@ class Osm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GeocodeReverse(::grpc::ServerContext* context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status GeocodeReverse(::grpc::ServerContext* /*context*/, const ::ric::geo::GeocodeReverseRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2612,7 +3531,7 @@ class Osm final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetRoute : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetRoute() {
       ::grpc::Service::MarkMethodStreamed(2,
@@ -2622,7 +3541,7 @@ class Osm final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetRoute(::grpc::ServerContext* context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response) override {
+    ::grpc::Status GetRoute(::grpc::ServerContext* /*context*/, const ::ric::geo::GetRouteRequest* /*request*/, ::ric::geo::OsmResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2654,7 +3573,23 @@ class Check final {
       virtual ~experimental_async_interface() {}
       virtual void CheckIn(::grpc::ClientContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void CheckIn(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::CheckInResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void CheckIn(::grpc::ClientContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void CheckIn(::grpc::ClientContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void CheckIn(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::CheckInResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void CheckIn(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::CheckInResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
     };
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    typedef class experimental_async_interface async_interface;
+    #endif
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    async_interface* async() { return experimental_async(); }
+    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::CheckInResponse>* AsyncCheckInRaw(::grpc::ClientContext* context, const ::ric::geo::CheckInRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -2675,6 +3610,16 @@ class Check final {
      public:
       void CheckIn(::grpc::ClientContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response, std::function<void(::grpc::Status)>) override;
       void CheckIn(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::CheckInResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void CheckIn(::grpc::ClientContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void CheckIn(::grpc::ClientContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void CheckIn(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::CheckInResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void CheckIn(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::CheckInResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -2701,7 +3646,7 @@ class Check final {
   template <class BaseClass>
   class WithAsyncMethod_CheckIn : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_CheckIn() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -2710,7 +3655,7 @@ class Check final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CheckIn(::grpc::ServerContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response) override {
+    ::grpc::Status CheckIn(::grpc::ServerContext* /*context*/, const ::ric::geo::CheckInRequest* /*request*/, ::ric::geo::CheckInResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2722,33 +3667,59 @@ class Check final {
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_CheckIn : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_CheckIn() {
-      ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::CheckInRequest, ::ric::geo::CheckInResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::geo::CheckInRequest* request,
-                 ::ric::geo::CheckInResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->CheckIn(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::CheckInRequest, ::ric::geo::CheckInResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response) { return this->CheckIn(context, request, response); }));}
+    void SetMessageAllocatorFor_CheckIn(
+        ::grpc::experimental::MessageAllocator< ::ric::geo::CheckInRequest, ::ric::geo::CheckInResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::geo::CheckInRequest, ::ric::geo::CheckInResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_CheckIn() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CheckIn(::grpc::ServerContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response) override {
+    ::grpc::Status CheckIn(::grpc::ServerContext* /*context*/, const ::ric::geo::CheckInRequest* /*request*/, ::ric::geo::CheckInResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void CheckIn(::grpc::ServerContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* CheckIn(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::geo::CheckInRequest* /*request*/, ::ric::geo::CheckInResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* CheckIn(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::geo::CheckInRequest* /*request*/, ::ric::geo::CheckInResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
+  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+  typedef ExperimentalWithCallbackMethod_CheckIn<Service > CallbackService;
+  #endif
+
   typedef ExperimentalWithCallbackMethod_CheckIn<Service > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_CheckIn : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_CheckIn() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -2757,7 +3728,7 @@ class Check final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CheckIn(::grpc::ServerContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response) override {
+    ::grpc::Status CheckIn(::grpc::ServerContext* /*context*/, const ::ric::geo::CheckInRequest* /*request*/, ::ric::geo::CheckInResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2765,7 +3736,7 @@ class Check final {
   template <class BaseClass>
   class WithRawMethod_CheckIn : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_CheckIn() {
       ::grpc::Service::MarkMethodRaw(0);
@@ -2774,7 +3745,7 @@ class Check final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CheckIn(::grpc::ServerContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response) override {
+    ::grpc::Status CheckIn(::grpc::ServerContext* /*context*/, const ::ric::geo::CheckInRequest* /*request*/, ::ric::geo::CheckInResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2785,32 +3756,45 @@ class Check final {
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_CheckIn : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_CheckIn() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->CheckIn(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CheckIn(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_CheckIn() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CheckIn(::grpc::ServerContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response) override {
+    ::grpc::Status CheckIn(::grpc::ServerContext* /*context*/, const ::ric::geo::CheckInRequest* /*request*/, ::ric::geo::CheckInResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void CheckIn(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* CheckIn(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* CheckIn(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_CheckIn : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_CheckIn() {
       ::grpc::Service::MarkMethodStreamed(0,
@@ -2820,7 +3804,7 @@ class Check final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status CheckIn(::grpc::ServerContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response) override {
+    ::grpc::Status CheckIn(::grpc::ServerContext* /*context*/, const ::ric::geo::CheckInRequest* /*request*/, ::ric::geo::CheckInResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

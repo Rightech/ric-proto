@@ -7,25 +7,24 @@
 #include "ric-auth/ricauth.pb.h"
 
 #include <functional>
+#include <grpc/impl/codegen/port_platform.h>
 #include <grpcpp/impl/codegen/async_generic_service.h>
 #include <grpcpp/impl/codegen/async_stream.h>
 #include <grpcpp/impl/codegen/async_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/method_handler_impl.h>
+#include <grpcpp/impl/codegen/client_context.h>
+#include <grpcpp/impl/codegen/completion_queue.h>
+#include <grpcpp/impl/codegen/message_allocator.h>
+#include <grpcpp/impl/codegen/method_handler.h>
 #include <grpcpp/impl/codegen/proto_utils.h>
 #include <grpcpp/impl/codegen/rpc_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
+#include <grpcpp/impl/codegen/server_callback_handlers.h>
+#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/status.h>
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
-
-namespace grpc {
-class CompletionQueue;
-class Channel;
-class ServerCompletionQueue;
-class ServerContext;
-}  // namespace grpc
 
 namespace ric {
 namespace auth {
@@ -50,7 +49,23 @@ class RicAuth final {
       virtual ~experimental_async_interface() {}
       virtual void AuthObject(::grpc::ClientContext* context, const ::ric::auth::AuthObjectRequest* request, ::ric::auth::AuthObjectResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void AuthObject(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::auth::AuthObjectResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void AuthObject(::grpc::ClientContext* context, const ::ric::auth::AuthObjectRequest* request, ::ric::auth::AuthObjectResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void AuthObject(::grpc::ClientContext* context, const ::ric::auth::AuthObjectRequest* request, ::ric::auth::AuthObjectResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void AuthObject(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::auth::AuthObjectResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void AuthObject(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::auth::AuthObjectResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
     };
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    typedef class experimental_async_interface async_interface;
+    #endif
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    async_interface* async() { return experimental_async(); }
+    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::auth::AuthObjectResponse>* AsyncAuthObjectRaw(::grpc::ClientContext* context, const ::ric::auth::AuthObjectRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -71,6 +86,16 @@ class RicAuth final {
      public:
       void AuthObject(::grpc::ClientContext* context, const ::ric::auth::AuthObjectRequest* request, ::ric::auth::AuthObjectResponse* response, std::function<void(::grpc::Status)>) override;
       void AuthObject(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::auth::AuthObjectResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void AuthObject(::grpc::ClientContext* context, const ::ric::auth::AuthObjectRequest* request, ::ric::auth::AuthObjectResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void AuthObject(::grpc::ClientContext* context, const ::ric::auth::AuthObjectRequest* request, ::ric::auth::AuthObjectResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void AuthObject(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::auth::AuthObjectResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void AuthObject(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::auth::AuthObjectResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -97,7 +122,7 @@ class RicAuth final {
   template <class BaseClass>
   class WithAsyncMethod_AuthObject : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_AuthObject() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -106,7 +131,7 @@ class RicAuth final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AuthObject(::grpc::ServerContext* context, const ::ric::auth::AuthObjectRequest* request, ::ric::auth::AuthObjectResponse* response) override {
+    ::grpc::Status AuthObject(::grpc::ServerContext* /*context*/, const ::ric::auth::AuthObjectRequest* /*request*/, ::ric::auth::AuthObjectResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -118,33 +143,59 @@ class RicAuth final {
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_AuthObject : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_AuthObject() {
-      ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::auth::AuthObjectRequest, ::ric::auth::AuthObjectResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::auth::AuthObjectRequest* request,
-                 ::ric::auth::AuthObjectResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->AuthObject(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::auth::AuthObjectRequest, ::ric::auth::AuthObjectResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::auth::AuthObjectRequest* request, ::ric::auth::AuthObjectResponse* response) { return this->AuthObject(context, request, response); }));}
+    void SetMessageAllocatorFor_AuthObject(
+        ::grpc::experimental::MessageAllocator< ::ric::auth::AuthObjectRequest, ::ric::auth::AuthObjectResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::auth::AuthObjectRequest, ::ric::auth::AuthObjectResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_AuthObject() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AuthObject(::grpc::ServerContext* context, const ::ric::auth::AuthObjectRequest* request, ::ric::auth::AuthObjectResponse* response) override {
+    ::grpc::Status AuthObject(::grpc::ServerContext* /*context*/, const ::ric::auth::AuthObjectRequest* /*request*/, ::ric::auth::AuthObjectResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void AuthObject(::grpc::ServerContext* context, const ::ric::auth::AuthObjectRequest* request, ::ric::auth::AuthObjectResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* AuthObject(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::auth::AuthObjectRequest* /*request*/, ::ric::auth::AuthObjectResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* AuthObject(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::auth::AuthObjectRequest* /*request*/, ::ric::auth::AuthObjectResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
+  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+  typedef ExperimentalWithCallbackMethod_AuthObject<Service > CallbackService;
+  #endif
+
   typedef ExperimentalWithCallbackMethod_AuthObject<Service > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_AuthObject : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_AuthObject() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -153,7 +204,7 @@ class RicAuth final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AuthObject(::grpc::ServerContext* context, const ::ric::auth::AuthObjectRequest* request, ::ric::auth::AuthObjectResponse* response) override {
+    ::grpc::Status AuthObject(::grpc::ServerContext* /*context*/, const ::ric::auth::AuthObjectRequest* /*request*/, ::ric::auth::AuthObjectResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -161,7 +212,7 @@ class RicAuth final {
   template <class BaseClass>
   class WithRawMethod_AuthObject : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_AuthObject() {
       ::grpc::Service::MarkMethodRaw(0);
@@ -170,7 +221,7 @@ class RicAuth final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AuthObject(::grpc::ServerContext* context, const ::ric::auth::AuthObjectRequest* request, ::ric::auth::AuthObjectResponse* response) override {
+    ::grpc::Status AuthObject(::grpc::ServerContext* /*context*/, const ::ric::auth::AuthObjectRequest* /*request*/, ::ric::auth::AuthObjectResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -181,32 +232,45 @@ class RicAuth final {
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_AuthObject : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_AuthObject() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->AuthObject(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->AuthObject(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_AuthObject() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AuthObject(::grpc::ServerContext* context, const ::ric::auth::AuthObjectRequest* request, ::ric::auth::AuthObjectResponse* response) override {
+    ::grpc::Status AuthObject(::grpc::ServerContext* /*context*/, const ::ric::auth::AuthObjectRequest* /*request*/, ::ric::auth::AuthObjectResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void AuthObject(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* AuthObject(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* AuthObject(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_AuthObject : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_AuthObject() {
       ::grpc::Service::MarkMethodStreamed(0,
@@ -216,7 +280,7 @@ class RicAuth final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status AuthObject(::grpc::ServerContext* context, const ::ric::auth::AuthObjectRequest* request, ::ric::auth::AuthObjectResponse* response) override {
+    ::grpc::Status AuthObject(::grpc::ServerContext* /*context*/, const ::ric::auth::AuthObjectRequest* /*request*/, ::ric::auth::AuthObjectResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

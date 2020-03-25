@@ -371,7 +371,9 @@ func init() {
 	proto.RegisterType((*LibRequest)(nil), "ric.code.LibRequest")
 }
 
-func init() { proto.RegisterFile("ric-code/riccode.proto", fileDescriptor_703d6cb2f51b995c) }
+func init() {
+	proto.RegisterFile("ric-code/riccode.proto", fileDescriptor_703d6cb2f51b995c)
+}
 
 var fileDescriptor_703d6cb2f51b995c = []byte{
 	// 396 bytes of a gzipped FileDescriptorProto
@@ -404,11 +406,11 @@ var fileDescriptor_703d6cb2f51b995c = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConn
+var _ grpc.ClientConnInterface
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion4
+const _ = grpc.SupportPackageIsVersion6
 
 // RicCodeClient is the client API for RicCode service.
 //
@@ -418,10 +420,10 @@ type RicCodeClient interface {
 }
 
 type ricCodeClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewRicCodeClient(cc *grpc.ClientConn) RicCodeClient {
+func NewRicCodeClient(cc grpc.ClientConnInterface) RicCodeClient {
 	return &ricCodeClient{cc}
 }
 

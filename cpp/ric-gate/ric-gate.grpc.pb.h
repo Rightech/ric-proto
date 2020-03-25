@@ -7,25 +7,24 @@
 #include "ric-gate/ric-gate.pb.h"
 
 #include <functional>
+#include <grpc/impl/codegen/port_platform.h>
 #include <grpcpp/impl/codegen/async_generic_service.h>
 #include <grpcpp/impl/codegen/async_stream.h>
 #include <grpcpp/impl/codegen/async_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/method_handler_impl.h>
+#include <grpcpp/impl/codegen/client_context.h>
+#include <grpcpp/impl/codegen/completion_queue.h>
+#include <grpcpp/impl/codegen/message_allocator.h>
+#include <grpcpp/impl/codegen/method_handler.h>
 #include <grpcpp/impl/codegen/proto_utils.h>
 #include <grpcpp/impl/codegen/rpc_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
+#include <grpcpp/impl/codegen/server_callback_handlers.h>
+#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/status.h>
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
-
-namespace grpc {
-class CompletionQueue;
-class Channel;
-class ServerCompletionQueue;
-class ServerContext;
-}  // namespace grpc
 
 namespace ric {
 namespace gate {
@@ -95,22 +94,76 @@ class GateInlet final {
      public:
       virtual ~experimental_async_interface() {}
       // Init and subscribes to commands from gate
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Init(::grpc::ClientContext* context, ::ric::gate::InitRequest* request, ::grpc::ClientReadReactor< ::ric::gate::Command>* reactor) = 0;
+      #else
       virtual void Init(::grpc::ClientContext* context, ::ric::gate::InitRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::gate::Command>* reactor) = 0;
+      #endif
       // Auth new device
       virtual void Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::AuthResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::AuthResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::AuthResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       // Send data from device
       virtual void SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       // Send heartbeats from client
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::ClientWriteReactor< ::ric::gate::Ping>* reactor) = 0;
+      #else
       virtual void SendHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientWriteReactor< ::ric::gate::Ping>* reactor) = 0;
+      #endif
       // Send command reply
       virtual void SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SendCommandReply(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendCommandReply(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendCommandReply(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       // Send info about offline
       virtual void SendOffline(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SendOffline(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendOffline(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendOffline(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendOffline(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendOffline(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
     };
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    typedef class experimental_async_interface async_interface;
+    #endif
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    async_interface* async() { return experimental_async(); }
+    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientReaderInterface< ::ric::gate::Command>* InitRaw(::grpc::ClientContext* context, const ::ric::gate::InitRequest& request) = 0;
@@ -180,16 +233,64 @@ class GateInlet final {
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Init(::grpc::ClientContext* context, ::ric::gate::InitRequest* request, ::grpc::ClientReadReactor< ::ric::gate::Command>* reactor) override;
+      #else
       void Init(::grpc::ClientContext* context, ::ric::gate::InitRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::gate::Command>* reactor) override;
+      #endif
       void Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response, std::function<void(::grpc::Status)>) override;
       void Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::AuthResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::AuthResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::AuthResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::ClientWriteReactor< ::ric::gate::Ping>* reactor) override;
+      #else
       void SendHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientWriteReactor< ::ric::gate::Ping>* reactor) override;
+      #endif
       void SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SendCommandReply(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendCommandReply(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendCommandReply(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void SendOffline(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SendOffline(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendOffline(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendOffline(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendOffline(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendOffline(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -244,7 +345,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithAsyncMethod_Init : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_Init() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -253,7 +354,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Init(::grpc::ServerContext* context, const ::ric::gate::InitRequest* request, ::grpc::ServerWriter< ::ric::gate::Command>* writer) override {
+    ::grpc::Status Init(::grpc::ServerContext* /*context*/, const ::ric::gate::InitRequest* /*request*/, ::grpc::ServerWriter< ::ric::gate::Command>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -264,7 +365,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithAsyncMethod_Auth : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_Auth() {
       ::grpc::Service::MarkMethodAsync(1);
@@ -273,7 +374,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response) override {
+    ::grpc::Status Auth(::grpc::ServerContext* /*context*/, const ::ric::gate::AuthRequest* /*request*/, ::ric::gate::AuthResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -284,7 +385,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithAsyncMethod_SendData : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SendData() {
       ::grpc::Service::MarkMethodAsync(2);
@@ -293,7 +394,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendData(::grpc::ServerContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendData(::grpc::ServerContext* /*context*/, const ::ric::gate::DataRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -304,7 +405,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithAsyncMethod_SendHeartbeat : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SendHeartbeat() {
       ::grpc::Service::MarkMethodAsync(3);
@@ -313,7 +414,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendHeartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendHeartbeat(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ric::gate::Ping>* /*reader*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -324,7 +425,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithAsyncMethod_SendCommandReply : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SendCommandReply() {
       ::grpc::Service::MarkMethodAsync(4);
@@ -333,7 +434,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendCommandReply(::grpc::ServerContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendCommandReply(::grpc::ServerContext* /*context*/, const ::ric::gate::CommandReplyRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -344,7 +445,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithAsyncMethod_SendOffline : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SendOffline() {
       ::grpc::Service::MarkMethodAsync(5);
@@ -353,7 +454,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendOffline(::grpc::ServerContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendOffline(::grpc::ServerContext* /*context*/, const ::ric::gate::OfflineRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -365,152 +466,276 @@ class GateInlet final {
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Init : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_Init() {
-      ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc::internal::CallbackServerStreamingHandler< ::ric::gate::InitRequest, ::ric::gate::Command>(
-          [this] { return this->Init(); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(0,
+          new ::grpc_impl::internal::CallbackServerStreamingHandler< ::ric::gate::InitRequest, ::ric::gate::Command>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::gate::InitRequest* request) { return this->Init(context, request); }));
     }
     ~ExperimentalWithCallbackMethod_Init() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Init(::grpc::ServerContext* context, const ::ric::gate::InitRequest* request, ::grpc::ServerWriter< ::ric::gate::Command>* writer) override {
+    ::grpc::Status Init(::grpc::ServerContext* /*context*/, const ::ric::gate::InitRequest* /*request*/, ::grpc::ServerWriter< ::ric::gate::Command>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::experimental::ServerWriteReactor< ::ric::gate::InitRequest, ::ric::gate::Command>* Init() {
-      return new ::grpc::internal::UnimplementedWriteReactor<
-        ::ric::gate::InitRequest, ::ric::gate::Command>;}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerWriteReactor< ::ric::gate::Command>* Init(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::gate::InitRequest* /*request*/)
+    #else
+    virtual ::grpc::experimental::ServerWriteReactor< ::ric::gate::Command>* Init(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::gate::InitRequest* /*request*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Auth : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_Auth() {
-      ::grpc::Service::experimental().MarkMethodCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::gate::AuthRequest, ::ric::gate::AuthResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::gate::AuthRequest* request,
-                 ::ric::gate::AuthResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->Auth(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::gate::AuthRequest, ::ric::gate::AuthResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response) { return this->Auth(context, request, response); }));}
+    void SetMessageAllocatorFor_Auth(
+        ::grpc::experimental::MessageAllocator< ::ric::gate::AuthRequest, ::ric::gate::AuthResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::gate::AuthRequest, ::ric::gate::AuthResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_Auth() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response) override {
+    ::grpc::Status Auth(::grpc::ServerContext* /*context*/, const ::ric::gate::AuthRequest* /*request*/, ::ric::gate::AuthResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Auth(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::gate::AuthRequest* /*request*/, ::ric::gate::AuthResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Auth(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::gate::AuthRequest* /*request*/, ::ric::gate::AuthResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_SendData : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_SendData() {
-      ::grpc::Service::experimental().MarkMethodCallback(2,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::gate::DataRequest, ::ric::gate::EmptyResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::gate::DataRequest* request,
-                 ::ric::gate::EmptyResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->SendData(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::gate::DataRequest, ::ric::gate::EmptyResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response) { return this->SendData(context, request, response); }));}
+    void SetMessageAllocatorFor_SendData(
+        ::grpc::experimental::MessageAllocator< ::ric::gate::DataRequest, ::ric::gate::EmptyResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::gate::DataRequest, ::ric::gate::EmptyResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_SendData() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendData(::grpc::ServerContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendData(::grpc::ServerContext* /*context*/, const ::ric::gate::DataRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void SendData(::grpc::ServerContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendData(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::gate::DataRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendData(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::gate::DataRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_SendHeartbeat : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_SendHeartbeat() {
-      ::grpc::Service::experimental().MarkMethodCallback(3,
-        new ::grpc::internal::CallbackClientStreamingHandler< ::ric::gate::Ping, ::ric::gate::EmptyResponse>(
-          [this] { return this->SendHeartbeat(); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(3,
+          new ::grpc_impl::internal::CallbackClientStreamingHandler< ::ric::gate::Ping, ::ric::gate::EmptyResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, ::ric::gate::EmptyResponse* response) { return this->SendHeartbeat(context, response); }));
     }
     ~ExperimentalWithCallbackMethod_SendHeartbeat() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendHeartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendHeartbeat(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ric::gate::Ping>* /*reader*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::experimental::ServerReadReactor< ::ric::gate::Ping, ::ric::gate::EmptyResponse>* SendHeartbeat() {
-      return new ::grpc::internal::UnimplementedReadReactor<
-        ::ric::gate::Ping, ::ric::gate::EmptyResponse>;}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerReadReactor< ::ric::gate::Ping>* SendHeartbeat(
+      ::grpc::CallbackServerContext* /*context*/, ::ric::gate::EmptyResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerReadReactor< ::ric::gate::Ping>* SendHeartbeat(
+      ::grpc::experimental::CallbackServerContext* /*context*/, ::ric::gate::EmptyResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_SendCommandReply : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_SendCommandReply() {
-      ::grpc::Service::experimental().MarkMethodCallback(4,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::gate::CommandReplyRequest, ::ric::gate::EmptyResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::gate::CommandReplyRequest* request,
-                 ::ric::gate::EmptyResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->SendCommandReply(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(4,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::gate::CommandReplyRequest, ::ric::gate::EmptyResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response) { return this->SendCommandReply(context, request, response); }));}
+    void SetMessageAllocatorFor_SendCommandReply(
+        ::grpc::experimental::MessageAllocator< ::ric::gate::CommandReplyRequest, ::ric::gate::EmptyResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::gate::CommandReplyRequest, ::ric::gate::EmptyResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_SendCommandReply() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendCommandReply(::grpc::ServerContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendCommandReply(::grpc::ServerContext* /*context*/, const ::ric::gate::CommandReplyRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void SendCommandReply(::grpc::ServerContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendCommandReply(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::gate::CommandReplyRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendCommandReply(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::gate::CommandReplyRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_SendOffline : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_SendOffline() {
-      ::grpc::Service::experimental().MarkMethodCallback(5,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::gate::OfflineRequest, ::ric::gate::EmptyResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::gate::OfflineRequest* request,
-                 ::ric::gate::EmptyResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->SendOffline(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(5,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::gate::OfflineRequest, ::ric::gate::EmptyResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response) { return this->SendOffline(context, request, response); }));}
+    void SetMessageAllocatorFor_SendOffline(
+        ::grpc::experimental::MessageAllocator< ::ric::gate::OfflineRequest, ::ric::gate::EmptyResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::gate::OfflineRequest, ::ric::gate::EmptyResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_SendOffline() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendOffline(::grpc::ServerContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendOffline(::grpc::ServerContext* /*context*/, const ::ric::gate::OfflineRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void SendOffline(::grpc::ServerContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendOffline(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::gate::OfflineRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendOffline(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::gate::OfflineRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
+  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+  typedef ExperimentalWithCallbackMethod_Init<ExperimentalWithCallbackMethod_Auth<ExperimentalWithCallbackMethod_SendData<ExperimentalWithCallbackMethod_SendHeartbeat<ExperimentalWithCallbackMethod_SendCommandReply<ExperimentalWithCallbackMethod_SendOffline<Service > > > > > > CallbackService;
+  #endif
+
   typedef ExperimentalWithCallbackMethod_Init<ExperimentalWithCallbackMethod_Auth<ExperimentalWithCallbackMethod_SendData<ExperimentalWithCallbackMethod_SendHeartbeat<ExperimentalWithCallbackMethod_SendCommandReply<ExperimentalWithCallbackMethod_SendOffline<Service > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Init : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_Init() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -519,7 +744,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Init(::grpc::ServerContext* context, const ::ric::gate::InitRequest* request, ::grpc::ServerWriter< ::ric::gate::Command>* writer) override {
+    ::grpc::Status Init(::grpc::ServerContext* /*context*/, const ::ric::gate::InitRequest* /*request*/, ::grpc::ServerWriter< ::ric::gate::Command>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -527,7 +752,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithGenericMethod_Auth : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_Auth() {
       ::grpc::Service::MarkMethodGeneric(1);
@@ -536,7 +761,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response) override {
+    ::grpc::Status Auth(::grpc::ServerContext* /*context*/, const ::ric::gate::AuthRequest* /*request*/, ::ric::gate::AuthResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -544,7 +769,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithGenericMethod_SendData : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SendData() {
       ::grpc::Service::MarkMethodGeneric(2);
@@ -553,7 +778,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendData(::grpc::ServerContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendData(::grpc::ServerContext* /*context*/, const ::ric::gate::DataRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -561,7 +786,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithGenericMethod_SendHeartbeat : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SendHeartbeat() {
       ::grpc::Service::MarkMethodGeneric(3);
@@ -570,7 +795,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendHeartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendHeartbeat(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ric::gate::Ping>* /*reader*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -578,7 +803,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithGenericMethod_SendCommandReply : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SendCommandReply() {
       ::grpc::Service::MarkMethodGeneric(4);
@@ -587,7 +812,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendCommandReply(::grpc::ServerContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendCommandReply(::grpc::ServerContext* /*context*/, const ::ric::gate::CommandReplyRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -595,7 +820,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithGenericMethod_SendOffline : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SendOffline() {
       ::grpc::Service::MarkMethodGeneric(5);
@@ -604,7 +829,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendOffline(::grpc::ServerContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendOffline(::grpc::ServerContext* /*context*/, const ::ric::gate::OfflineRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -612,7 +837,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithRawMethod_Init : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_Init() {
       ::grpc::Service::MarkMethodRaw(0);
@@ -621,7 +846,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Init(::grpc::ServerContext* context, const ::ric::gate::InitRequest* request, ::grpc::ServerWriter< ::ric::gate::Command>* writer) override {
+    ::grpc::Status Init(::grpc::ServerContext* /*context*/, const ::ric::gate::InitRequest* /*request*/, ::grpc::ServerWriter< ::ric::gate::Command>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -632,7 +857,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithRawMethod_Auth : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_Auth() {
       ::grpc::Service::MarkMethodRaw(1);
@@ -641,7 +866,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response) override {
+    ::grpc::Status Auth(::grpc::ServerContext* /*context*/, const ::ric::gate::AuthRequest* /*request*/, ::ric::gate::AuthResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -652,7 +877,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithRawMethod_SendData : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_SendData() {
       ::grpc::Service::MarkMethodRaw(2);
@@ -661,7 +886,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendData(::grpc::ServerContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendData(::grpc::ServerContext* /*context*/, const ::ric::gate::DataRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -672,7 +897,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithRawMethod_SendHeartbeat : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_SendHeartbeat() {
       ::grpc::Service::MarkMethodRaw(3);
@@ -681,7 +906,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendHeartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendHeartbeat(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ric::gate::Ping>* /*reader*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -692,7 +917,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithRawMethod_SendCommandReply : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_SendCommandReply() {
       ::grpc::Service::MarkMethodRaw(4);
@@ -701,7 +926,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendCommandReply(::grpc::ServerContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendCommandReply(::grpc::ServerContext* /*context*/, const ::ric::gate::CommandReplyRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -712,7 +937,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithRawMethod_SendOffline : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_SendOffline() {
       ::grpc::Service::MarkMethodRaw(5);
@@ -721,7 +946,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendOffline(::grpc::ServerContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendOffline(::grpc::ServerContext* /*context*/, const ::ric::gate::OfflineRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -732,151 +957,235 @@ class GateInlet final {
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Init : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_Init() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(0,
-        new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this] { return this->Init(); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(0,
+          new ::grpc_impl::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const::grpc::ByteBuffer* request) { return this->Init(context, request); }));
     }
     ~ExperimentalWithRawCallbackMethod_Init() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Init(::grpc::ServerContext* context, const ::ric::gate::InitRequest* request, ::grpc::ServerWriter< ::ric::gate::Command>* writer) override {
+    ::grpc::Status Init(::grpc::ServerContext* /*context*/, const ::ric::gate::InitRequest* /*request*/, ::grpc::ServerWriter< ::ric::gate::Command>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::experimental::ServerWriteReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* Init() {
-      return new ::grpc::internal::UnimplementedWriteReactor<
-        ::grpc::ByteBuffer, ::grpc::ByteBuffer>;}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* Init(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
+    #else
+    virtual ::grpc::experimental::ServerWriteReactor< ::grpc::ByteBuffer>* Init(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Auth : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_Auth() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->Auth(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Auth(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_Auth() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response) override {
+    ::grpc::Status Auth(::grpc::ServerContext* /*context*/, const ::ric::gate::AuthRequest* /*request*/, ::ric::gate::AuthResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Auth(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Auth(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Auth(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_SendData : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_SendData() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(2,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->SendData(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendData(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_SendData() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendData(::grpc::ServerContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendData(::grpc::ServerContext* /*context*/, const ::ric::gate::DataRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void SendData(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendData(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendData(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_SendHeartbeat : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_SendHeartbeat() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(3,
-        new ::grpc::internal::CallbackClientStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this] { return this->SendHeartbeat(); }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(3,
+          new ::grpc_impl::internal::CallbackClientStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, ::grpc::ByteBuffer* response) { return this->SendHeartbeat(context, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_SendHeartbeat() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendHeartbeat(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::gate::Ping>* reader, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendHeartbeat(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ric::gate::Ping>* /*reader*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::experimental::ServerReadReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* SendHeartbeat() {
-      return new ::grpc::internal::UnimplementedReadReactor<
-        ::grpc::ByteBuffer, ::grpc::ByteBuffer>;}
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerReadReactor< ::grpc::ByteBuffer>* SendHeartbeat(
+      ::grpc::CallbackServerContext* /*context*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerReadReactor< ::grpc::ByteBuffer>* SendHeartbeat(
+      ::grpc::experimental::CallbackServerContext* /*context*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_SendCommandReply : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_SendCommandReply() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(4,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->SendCommandReply(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(4,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendCommandReply(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_SendCommandReply() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendCommandReply(::grpc::ServerContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendCommandReply(::grpc::ServerContext* /*context*/, const ::ric::gate::CommandReplyRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void SendCommandReply(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendCommandReply(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendCommandReply(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_SendOffline : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_SendOffline() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(5,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->SendOffline(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(5,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendOffline(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_SendOffline() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendOffline(::grpc::ServerContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendOffline(::grpc::ServerContext* /*context*/, const ::ric::gate::OfflineRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void SendOffline(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendOffline(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendOffline(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Auth : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_Auth() {
       ::grpc::Service::MarkMethodStreamed(1,
@@ -886,7 +1195,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Auth(::grpc::ServerContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response) override {
+    ::grpc::Status Auth(::grpc::ServerContext* /*context*/, const ::ric::gate::AuthRequest* /*request*/, ::ric::gate::AuthResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -896,7 +1205,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_SendData : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_SendData() {
       ::grpc::Service::MarkMethodStreamed(2,
@@ -906,7 +1215,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SendData(::grpc::ServerContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendData(::grpc::ServerContext* /*context*/, const ::ric::gate::DataRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -916,7 +1225,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_SendCommandReply : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_SendCommandReply() {
       ::grpc::Service::MarkMethodStreamed(4,
@@ -926,7 +1235,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SendCommandReply(::grpc::ServerContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendCommandReply(::grpc::ServerContext* /*context*/, const ::ric::gate::CommandReplyRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -936,7 +1245,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_SendOffline : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_SendOffline() {
       ::grpc::Service::MarkMethodStreamed(5,
@@ -946,7 +1255,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SendOffline(::grpc::ServerContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response) override {
+    ::grpc::Status SendOffline(::grpc::ServerContext* /*context*/, const ::ric::gate::OfflineRequest* /*request*/, ::ric::gate::EmptyResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -957,7 +1266,7 @@ class GateInlet final {
   template <class BaseClass>
   class WithSplitStreamingMethod_Init : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithSplitStreamingMethod_Init() {
       ::grpc::Service::MarkMethodStreamed(0,
@@ -967,7 +1276,7 @@ class GateInlet final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Init(::grpc::ServerContext* context, const ::ric::gate::InitRequest* request, ::grpc::ServerWriter< ::ric::gate::Command>* writer) override {
+    ::grpc::Status Init(::grpc::ServerContext* /*context*/, const ::ric::gate::InitRequest* /*request*/, ::grpc::ServerWriter< ::ric::gate::Command>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1000,7 +1309,23 @@ class GateCommand final {
       // Method to send grpc command from other service to gate
       virtual void SendRpc(::grpc::ClientContext* context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SendRpc(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::CommandReplyRequest* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendRpc(::grpc::ClientContext* context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendRpc(::grpc::ClientContext* context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void SendRpc(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::CommandReplyRequest* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void SendRpc(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::CommandReplyRequest* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
     };
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    typedef class experimental_async_interface async_interface;
+    #endif
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    async_interface* async() { return experimental_async(); }
+    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::gate::CommandReplyRequest>* AsyncSendRpcRaw(::grpc::ClientContext* context, const ::ric::gate::Command& request, ::grpc::CompletionQueue* cq) = 0;
@@ -1021,6 +1346,16 @@ class GateCommand final {
      public:
       void SendRpc(::grpc::ClientContext* context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response, std::function<void(::grpc::Status)>) override;
       void SendRpc(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::CommandReplyRequest* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendRpc(::grpc::ClientContext* context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendRpc(::grpc::ClientContext* context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void SendRpc(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::CommandReplyRequest* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void SendRpc(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::CommandReplyRequest* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -1048,7 +1383,7 @@ class GateCommand final {
   template <class BaseClass>
   class WithAsyncMethod_SendRpc : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_SendRpc() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -1057,7 +1392,7 @@ class GateCommand final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendRpc(::grpc::ServerContext* context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response) override {
+    ::grpc::Status SendRpc(::grpc::ServerContext* /*context*/, const ::ric::gate::Command* /*request*/, ::ric::gate::CommandReplyRequest* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1069,33 +1404,59 @@ class GateCommand final {
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_SendRpc : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_SendRpc() {
-      ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::gate::Command, ::ric::gate::CommandReplyRequest>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::gate::Command* request,
-                 ::ric::gate::CommandReplyRequest* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->SendRpc(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::gate::Command, ::ric::gate::CommandReplyRequest>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response) { return this->SendRpc(context, request, response); }));}
+    void SetMessageAllocatorFor_SendRpc(
+        ::grpc::experimental::MessageAllocator< ::ric::gate::Command, ::ric::gate::CommandReplyRequest>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::gate::Command, ::ric::gate::CommandReplyRequest>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_SendRpc() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendRpc(::grpc::ServerContext* context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response) override {
+    ::grpc::Status SendRpc(::grpc::ServerContext* /*context*/, const ::ric::gate::Command* /*request*/, ::ric::gate::CommandReplyRequest* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void SendRpc(::grpc::ServerContext* context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendRpc(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::gate::Command* /*request*/, ::ric::gate::CommandReplyRequest* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendRpc(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::gate::Command* /*request*/, ::ric::gate::CommandReplyRequest* /*response*/)
+    #endif
+      { return nullptr; }
   };
+  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+  typedef ExperimentalWithCallbackMethod_SendRpc<Service > CallbackService;
+  #endif
+
   typedef ExperimentalWithCallbackMethod_SendRpc<Service > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_SendRpc : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_SendRpc() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -1104,7 +1465,7 @@ class GateCommand final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendRpc(::grpc::ServerContext* context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response) override {
+    ::grpc::Status SendRpc(::grpc::ServerContext* /*context*/, const ::ric::gate::Command* /*request*/, ::ric::gate::CommandReplyRequest* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1112,7 +1473,7 @@ class GateCommand final {
   template <class BaseClass>
   class WithRawMethod_SendRpc : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_SendRpc() {
       ::grpc::Service::MarkMethodRaw(0);
@@ -1121,7 +1482,7 @@ class GateCommand final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendRpc(::grpc::ServerContext* context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response) override {
+    ::grpc::Status SendRpc(::grpc::ServerContext* /*context*/, const ::ric::gate::Command* /*request*/, ::ric::gate::CommandReplyRequest* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1132,32 +1493,45 @@ class GateCommand final {
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_SendRpc : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_SendRpc() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->SendRpc(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SendRpc(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_SendRpc() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SendRpc(::grpc::ServerContext* context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response) override {
+    ::grpc::Status SendRpc(::grpc::ServerContext* /*context*/, const ::ric::gate::Command* /*request*/, ::ric::gate::CommandReplyRequest* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void SendRpc(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* SendRpc(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* SendRpc(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_SendRpc : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_SendRpc() {
       ::grpc::Service::MarkMethodStreamed(0,
@@ -1167,7 +1541,7 @@ class GateCommand final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SendRpc(::grpc::ServerContext* context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response) override {
+    ::grpc::Status SendRpc(::grpc::ServerContext* /*context*/, const ::ric::gate::Command* /*request*/, ::ric::gate::CommandReplyRequest* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

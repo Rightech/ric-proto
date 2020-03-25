@@ -315,7 +315,9 @@ func init() {
 	proto.RegisterType((*AuthObjectArgument)(nil), "ric.auth.AuthObjectArgument")
 }
 
-func init() { proto.RegisterFile("ric-auth/ricauth.proto", fileDescriptor_639dfa1cd1546b8e) }
+func init() {
+	proto.RegisterFile("ric-auth/ricauth.proto", fileDescriptor_639dfa1cd1546b8e)
+}
 
 var fileDescriptor_639dfa1cd1546b8e = []byte{
 	// 423 bytes of a gzipped FileDescriptorProto
@@ -350,11 +352,11 @@ var fileDescriptor_639dfa1cd1546b8e = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConn
+var _ grpc.ClientConnInterface
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion4
+const _ = grpc.SupportPackageIsVersion6
 
 // RicAuthClient is the client API for RicAuth service.
 //
@@ -364,10 +366,10 @@ type RicAuthClient interface {
 }
 
 type ricAuthClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewRicAuthClient(cc *grpc.ClientConn) RicAuthClient {
+func NewRicAuthClient(cc grpc.ClientConnInterface) RicAuthClient {
 	return &ricAuthClient{cc}
 }
 

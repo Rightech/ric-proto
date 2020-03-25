@@ -7,25 +7,24 @@
 #include "ric-tasks/rictasks.pb.h"
 
 #include <functional>
+#include <grpc/impl/codegen/port_platform.h>
 #include <grpcpp/impl/codegen/async_generic_service.h>
 #include <grpcpp/impl/codegen/async_stream.h>
 #include <grpcpp/impl/codegen/async_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/method_handler_impl.h>
+#include <grpcpp/impl/codegen/client_context.h>
+#include <grpcpp/impl/codegen/completion_queue.h>
+#include <grpcpp/impl/codegen/message_allocator.h>
+#include <grpcpp/impl/codegen/method_handler.h>
 #include <grpcpp/impl/codegen/proto_utils.h>
 #include <grpcpp/impl/codegen/rpc_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
+#include <grpcpp/impl/codegen/server_callback_handlers.h>
+#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/status.h>
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
-
-namespace grpc {
-class CompletionQueue;
-class Channel;
-class ServerCompletionQueue;
-class ServerContext;
-}  // namespace grpc
 
 namespace ric {
 namespace tasks {
@@ -124,10 +123,30 @@ class Tasks final {
       virtual ~experimental_async_interface() {}
       virtual void Create(::grpc::ClientContext* context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Create(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::CreateResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Create(::grpc::ClientContext* context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Create(::grpc::ClientContext* context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Create(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::CreateResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Create(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::CreateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       // get master task by it's id or by some subtask id
       // this request always return full master task
       virtual void Get(::grpc::ClientContext* context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::GetResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Get(::grpc::ClientContext* context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Get(::grpc::ClientContext* context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::GetResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::GetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       // this method can update master task and subtasks information
       // this method can't update (return error):
       // 1. subtasks status (use ChangeStatus)
@@ -142,10 +161,30 @@ class Tasks final {
       // if no TaskId then subtask treated as new
       virtual void Update(::grpc::ClientContext* context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Update(::grpc::ClientContext* context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Update(::grpc::ClientContext* context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       // this method can delete master task or specific subtask
       // if it is a last subtask then master task also will be deleted
       virtual void Delete(::grpc::ClientContext* context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::DeleteResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Delete(::grpc::ClientContext* context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Delete(::grpc::ClientContext* context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::DeleteResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::DeleteResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       // update subtasks order
       // order can be updated only if following true:
       // 1. all subtasks has status CREATED or ASSIGNED
@@ -153,6 +192,16 @@ class Tasks final {
       //    (if subtask have deadline you can unset it via Update method)
       virtual void UpdateOrder(::grpc::ClientContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void UpdateOrder(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateOrderResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void UpdateOrder(::grpc::ClientContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void UpdateOrder(::grpc::ClientContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void UpdateOrder(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateOrderResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void UpdateOrder(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateOrderResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
       // change subtask status
       // this method checks master task constrain before change status
       // so if constraint ordered you can't take in work subtask if previous subtask not closed
@@ -173,7 +222,23 @@ class Tasks final {
       // in this location
       virtual void ChangeStatus(::grpc::ClientContext* context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void ChangeStatus(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::ChangeStatusResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void ChangeStatus(::grpc::ClientContext* context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void ChangeStatus(::grpc::ClientContext* context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void ChangeStatus(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::ChangeStatusResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void ChangeStatus(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::ChangeStatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
     };
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    typedef class experimental_async_interface async_interface;
+    #endif
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    async_interface* async() { return experimental_async(); }
+    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::tasks::CreateResponse>* AsyncCreateRaw(::grpc::ClientContext* context, const ::ric::tasks::CreateRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -239,16 +304,76 @@ class Tasks final {
      public:
       void Create(::grpc::ClientContext* context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response, std::function<void(::grpc::Status)>) override;
       void Create(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::CreateResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Create(::grpc::ClientContext* context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Create(::grpc::ClientContext* context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Create(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::CreateResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Create(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::CreateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void Get(::grpc::ClientContext* context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response, std::function<void(::grpc::Status)>) override;
       void Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::GetResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Get(::grpc::ClientContext* context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Get(::grpc::ClientContext* context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::GetResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::GetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void Update(::grpc::ClientContext* context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response, std::function<void(::grpc::Status)>) override;
       void Update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Update(::grpc::ClientContext* context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Update(::grpc::ClientContext* context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void Delete(::grpc::ClientContext* context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response, std::function<void(::grpc::Status)>) override;
       void Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::DeleteResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Delete(::grpc::ClientContext* context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Delete(::grpc::ClientContext* context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::DeleteResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::DeleteResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void UpdateOrder(::grpc::ClientContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response, std::function<void(::grpc::Status)>) override;
       void UpdateOrder(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateOrderResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void UpdateOrder(::grpc::ClientContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void UpdateOrder(::grpc::ClientContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void UpdateOrder(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateOrderResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void UpdateOrder(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateOrderResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
       void ChangeStatus(::grpc::ClientContext* context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response, std::function<void(::grpc::Status)>) override;
       void ChangeStatus(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::ChangeStatusResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void ChangeStatus(::grpc::ClientContext* context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void ChangeStatus(::grpc::ClientContext* context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void ChangeStatus(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::ChangeStatusResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void ChangeStatus(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::ChangeStatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -334,7 +459,7 @@ class Tasks final {
   template <class BaseClass>
   class WithAsyncMethod_Create : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_Create() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -343,7 +468,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Create(::grpc::ServerContext* context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response) override {
+    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::ric::tasks::CreateRequest* /*request*/, ::ric::tasks::CreateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -354,7 +479,7 @@ class Tasks final {
   template <class BaseClass>
   class WithAsyncMethod_Get : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_Get() {
       ::grpc::Service::MarkMethodAsync(1);
@@ -363,7 +488,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Get(::grpc::ServerContext* context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response) override {
+    ::grpc::Status Get(::grpc::ServerContext* /*context*/, const ::ric::tasks::GetRequest* /*request*/, ::ric::tasks::GetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -374,7 +499,7 @@ class Tasks final {
   template <class BaseClass>
   class WithAsyncMethod_Update : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_Update() {
       ::grpc::Service::MarkMethodAsync(2);
@@ -383,7 +508,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Update(::grpc::ServerContext* context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response) override {
+    ::grpc::Status Update(::grpc::ServerContext* /*context*/, const ::ric::tasks::UpdateRequest* /*request*/, ::ric::tasks::UpdateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -394,7 +519,7 @@ class Tasks final {
   template <class BaseClass>
   class WithAsyncMethod_Delete : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_Delete() {
       ::grpc::Service::MarkMethodAsync(3);
@@ -403,7 +528,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response) override {
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::ric::tasks::DeleteRequest* /*request*/, ::ric::tasks::DeleteResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -414,7 +539,7 @@ class Tasks final {
   template <class BaseClass>
   class WithAsyncMethod_UpdateOrder : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_UpdateOrder() {
       ::grpc::Service::MarkMethodAsync(4);
@@ -423,7 +548,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateOrder(::grpc::ServerContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response) override {
+    ::grpc::Status UpdateOrder(::grpc::ServerContext* /*context*/, const ::ric::tasks::UpdateOrderRequest* /*request*/, ::ric::tasks::UpdateOrderResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -434,7 +559,7 @@ class Tasks final {
   template <class BaseClass>
   class WithAsyncMethod_ChangeStatus : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_ChangeStatus() {
       ::grpc::Service::MarkMethodAsync(5);
@@ -443,7 +568,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ChangeStatus(::grpc::ServerContext* context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response) override {
+    ::grpc::Status ChangeStatus(::grpc::ServerContext* /*context*/, const ::ric::tasks::ChangeStatusRequest* /*request*/, ::ric::tasks::ChangeStatusResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -455,158 +580,294 @@ class Tasks final {
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Create : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_Create() {
-      ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::tasks::CreateRequest, ::ric::tasks::CreateResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::tasks::CreateRequest* request,
-                 ::ric::tasks::CreateResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->Create(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::tasks::CreateRequest, ::ric::tasks::CreateResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response) { return this->Create(context, request, response); }));}
+    void SetMessageAllocatorFor_Create(
+        ::grpc::experimental::MessageAllocator< ::ric::tasks::CreateRequest, ::ric::tasks::CreateResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::tasks::CreateRequest, ::ric::tasks::CreateResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_Create() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Create(::grpc::ServerContext* context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response) override {
+    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::ric::tasks::CreateRequest* /*request*/, ::ric::tasks::CreateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Create(::grpc::ServerContext* context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Create(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::tasks::CreateRequest* /*request*/, ::ric::tasks::CreateResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Create(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::tasks::CreateRequest* /*request*/, ::ric::tasks::CreateResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Get : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_Get() {
-      ::grpc::Service::experimental().MarkMethodCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::tasks::GetRequest, ::ric::tasks::GetResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::tasks::GetRequest* request,
-                 ::ric::tasks::GetResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->Get(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::tasks::GetRequest, ::ric::tasks::GetResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response) { return this->Get(context, request, response); }));}
+    void SetMessageAllocatorFor_Get(
+        ::grpc::experimental::MessageAllocator< ::ric::tasks::GetRequest, ::ric::tasks::GetResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::tasks::GetRequest, ::ric::tasks::GetResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_Get() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Get(::grpc::ServerContext* context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response) override {
+    ::grpc::Status Get(::grpc::ServerContext* /*context*/, const ::ric::tasks::GetRequest* /*request*/, ::ric::tasks::GetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Get(::grpc::ServerContext* context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Get(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::tasks::GetRequest* /*request*/, ::ric::tasks::GetResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Get(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::tasks::GetRequest* /*request*/, ::ric::tasks::GetResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Update : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_Update() {
-      ::grpc::Service::experimental().MarkMethodCallback(2,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::tasks::UpdateRequest, ::ric::tasks::UpdateResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::tasks::UpdateRequest* request,
-                 ::ric::tasks::UpdateResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->Update(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::tasks::UpdateRequest, ::ric::tasks::UpdateResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response) { return this->Update(context, request, response); }));}
+    void SetMessageAllocatorFor_Update(
+        ::grpc::experimental::MessageAllocator< ::ric::tasks::UpdateRequest, ::ric::tasks::UpdateResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::tasks::UpdateRequest, ::ric::tasks::UpdateResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_Update() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Update(::grpc::ServerContext* context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response) override {
+    ::grpc::Status Update(::grpc::ServerContext* /*context*/, const ::ric::tasks::UpdateRequest* /*request*/, ::ric::tasks::UpdateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Update(::grpc::ServerContext* context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Update(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::tasks::UpdateRequest* /*request*/, ::ric::tasks::UpdateResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Update(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::tasks::UpdateRequest* /*request*/, ::ric::tasks::UpdateResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Delete : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_Delete() {
-      ::grpc::Service::experimental().MarkMethodCallback(3,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::tasks::DeleteRequest, ::ric::tasks::DeleteResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::tasks::DeleteRequest* request,
-                 ::ric::tasks::DeleteResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->Delete(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(3,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::tasks::DeleteRequest, ::ric::tasks::DeleteResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response) { return this->Delete(context, request, response); }));}
+    void SetMessageAllocatorFor_Delete(
+        ::grpc::experimental::MessageAllocator< ::ric::tasks::DeleteRequest, ::ric::tasks::DeleteResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::tasks::DeleteRequest, ::ric::tasks::DeleteResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_Delete() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response) override {
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::ric::tasks::DeleteRequest* /*request*/, ::ric::tasks::DeleteResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Delete(::grpc::ServerContext* context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Delete(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::tasks::DeleteRequest* /*request*/, ::ric::tasks::DeleteResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Delete(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::tasks::DeleteRequest* /*request*/, ::ric::tasks::DeleteResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_UpdateOrder : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_UpdateOrder() {
-      ::grpc::Service::experimental().MarkMethodCallback(4,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::tasks::UpdateOrderRequest, ::ric::tasks::UpdateOrderResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::tasks::UpdateOrderRequest* request,
-                 ::ric::tasks::UpdateOrderResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->UpdateOrder(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(4,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::tasks::UpdateOrderRequest, ::ric::tasks::UpdateOrderResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response) { return this->UpdateOrder(context, request, response); }));}
+    void SetMessageAllocatorFor_UpdateOrder(
+        ::grpc::experimental::MessageAllocator< ::ric::tasks::UpdateOrderRequest, ::ric::tasks::UpdateOrderResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::tasks::UpdateOrderRequest, ::ric::tasks::UpdateOrderResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_UpdateOrder() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateOrder(::grpc::ServerContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response) override {
+    ::grpc::Status UpdateOrder(::grpc::ServerContext* /*context*/, const ::ric::tasks::UpdateOrderRequest* /*request*/, ::ric::tasks::UpdateOrderResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void UpdateOrder(::grpc::ServerContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* UpdateOrder(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::tasks::UpdateOrderRequest* /*request*/, ::ric::tasks::UpdateOrderResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* UpdateOrder(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::tasks::UpdateOrderRequest* /*request*/, ::ric::tasks::UpdateOrderResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_ChangeStatus : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_ChangeStatus() {
-      ::grpc::Service::experimental().MarkMethodCallback(5,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::tasks::ChangeStatusRequest, ::ric::tasks::ChangeStatusResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::tasks::ChangeStatusRequest* request,
-                 ::ric::tasks::ChangeStatusResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->ChangeStatus(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(5,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::tasks::ChangeStatusRequest, ::ric::tasks::ChangeStatusResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response) { return this->ChangeStatus(context, request, response); }));}
+    void SetMessageAllocatorFor_ChangeStatus(
+        ::grpc::experimental::MessageAllocator< ::ric::tasks::ChangeStatusRequest, ::ric::tasks::ChangeStatusResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::tasks::ChangeStatusRequest, ::ric::tasks::ChangeStatusResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_ChangeStatus() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ChangeStatus(::grpc::ServerContext* context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response) override {
+    ::grpc::Status ChangeStatus(::grpc::ServerContext* /*context*/, const ::ric::tasks::ChangeStatusRequest* /*request*/, ::ric::tasks::ChangeStatusResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void ChangeStatus(::grpc::ServerContext* context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* ChangeStatus(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::tasks::ChangeStatusRequest* /*request*/, ::ric::tasks::ChangeStatusResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* ChangeStatus(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::tasks::ChangeStatusRequest* /*request*/, ::ric::tasks::ChangeStatusResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
+  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+  typedef ExperimentalWithCallbackMethod_Create<ExperimentalWithCallbackMethod_Get<ExperimentalWithCallbackMethod_Update<ExperimentalWithCallbackMethod_Delete<ExperimentalWithCallbackMethod_UpdateOrder<ExperimentalWithCallbackMethod_ChangeStatus<Service > > > > > > CallbackService;
+  #endif
+
   typedef ExperimentalWithCallbackMethod_Create<ExperimentalWithCallbackMethod_Get<ExperimentalWithCallbackMethod_Update<ExperimentalWithCallbackMethod_Delete<ExperimentalWithCallbackMethod_UpdateOrder<ExperimentalWithCallbackMethod_ChangeStatus<Service > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Create : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_Create() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -615,7 +876,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Create(::grpc::ServerContext* context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response) override {
+    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::ric::tasks::CreateRequest* /*request*/, ::ric::tasks::CreateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -623,7 +884,7 @@ class Tasks final {
   template <class BaseClass>
   class WithGenericMethod_Get : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_Get() {
       ::grpc::Service::MarkMethodGeneric(1);
@@ -632,7 +893,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Get(::grpc::ServerContext* context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response) override {
+    ::grpc::Status Get(::grpc::ServerContext* /*context*/, const ::ric::tasks::GetRequest* /*request*/, ::ric::tasks::GetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -640,7 +901,7 @@ class Tasks final {
   template <class BaseClass>
   class WithGenericMethod_Update : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_Update() {
       ::grpc::Service::MarkMethodGeneric(2);
@@ -649,7 +910,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Update(::grpc::ServerContext* context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response) override {
+    ::grpc::Status Update(::grpc::ServerContext* /*context*/, const ::ric::tasks::UpdateRequest* /*request*/, ::ric::tasks::UpdateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -657,7 +918,7 @@ class Tasks final {
   template <class BaseClass>
   class WithGenericMethod_Delete : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_Delete() {
       ::grpc::Service::MarkMethodGeneric(3);
@@ -666,7 +927,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response) override {
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::ric::tasks::DeleteRequest* /*request*/, ::ric::tasks::DeleteResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -674,7 +935,7 @@ class Tasks final {
   template <class BaseClass>
   class WithGenericMethod_UpdateOrder : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_UpdateOrder() {
       ::grpc::Service::MarkMethodGeneric(4);
@@ -683,7 +944,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateOrder(::grpc::ServerContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response) override {
+    ::grpc::Status UpdateOrder(::grpc::ServerContext* /*context*/, const ::ric::tasks::UpdateOrderRequest* /*request*/, ::ric::tasks::UpdateOrderResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -691,7 +952,7 @@ class Tasks final {
   template <class BaseClass>
   class WithGenericMethod_ChangeStatus : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_ChangeStatus() {
       ::grpc::Service::MarkMethodGeneric(5);
@@ -700,7 +961,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ChangeStatus(::grpc::ServerContext* context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response) override {
+    ::grpc::Status ChangeStatus(::grpc::ServerContext* /*context*/, const ::ric::tasks::ChangeStatusRequest* /*request*/, ::ric::tasks::ChangeStatusResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -708,7 +969,7 @@ class Tasks final {
   template <class BaseClass>
   class WithRawMethod_Create : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_Create() {
       ::grpc::Service::MarkMethodRaw(0);
@@ -717,7 +978,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Create(::grpc::ServerContext* context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response) override {
+    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::ric::tasks::CreateRequest* /*request*/, ::ric::tasks::CreateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -728,7 +989,7 @@ class Tasks final {
   template <class BaseClass>
   class WithRawMethod_Get : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_Get() {
       ::grpc::Service::MarkMethodRaw(1);
@@ -737,7 +998,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Get(::grpc::ServerContext* context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response) override {
+    ::grpc::Status Get(::grpc::ServerContext* /*context*/, const ::ric::tasks::GetRequest* /*request*/, ::ric::tasks::GetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -748,7 +1009,7 @@ class Tasks final {
   template <class BaseClass>
   class WithRawMethod_Update : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_Update() {
       ::grpc::Service::MarkMethodRaw(2);
@@ -757,7 +1018,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Update(::grpc::ServerContext* context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response) override {
+    ::grpc::Status Update(::grpc::ServerContext* /*context*/, const ::ric::tasks::UpdateRequest* /*request*/, ::ric::tasks::UpdateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -768,7 +1029,7 @@ class Tasks final {
   template <class BaseClass>
   class WithRawMethod_Delete : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_Delete() {
       ::grpc::Service::MarkMethodRaw(3);
@@ -777,7 +1038,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response) override {
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::ric::tasks::DeleteRequest* /*request*/, ::ric::tasks::DeleteResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -788,7 +1049,7 @@ class Tasks final {
   template <class BaseClass>
   class WithRawMethod_UpdateOrder : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_UpdateOrder() {
       ::grpc::Service::MarkMethodRaw(4);
@@ -797,7 +1058,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateOrder(::grpc::ServerContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response) override {
+    ::grpc::Status UpdateOrder(::grpc::ServerContext* /*context*/, const ::ric::tasks::UpdateOrderRequest* /*request*/, ::ric::tasks::UpdateOrderResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -808,7 +1069,7 @@ class Tasks final {
   template <class BaseClass>
   class WithRawMethod_ChangeStatus : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_ChangeStatus() {
       ::grpc::Service::MarkMethodRaw(5);
@@ -817,7 +1078,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ChangeStatus(::grpc::ServerContext* context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response) override {
+    ::grpc::Status ChangeStatus(::grpc::ServerContext* /*context*/, const ::ric::tasks::ChangeStatusRequest* /*request*/, ::ric::tasks::ChangeStatusResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -828,157 +1089,235 @@ class Tasks final {
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Create : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_Create() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->Create(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Create(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_Create() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Create(::grpc::ServerContext* context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response) override {
+    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::ric::tasks::CreateRequest* /*request*/, ::ric::tasks::CreateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Create(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Create(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Create(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Get : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_Get() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->Get(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(1,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Get(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_Get() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Get(::grpc::ServerContext* context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response) override {
+    ::grpc::Status Get(::grpc::ServerContext* /*context*/, const ::ric::tasks::GetRequest* /*request*/, ::ric::tasks::GetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Get(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Get(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Get(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Update : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_Update() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(2,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->Update(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(2,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Update(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_Update() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Update(::grpc::ServerContext* context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response) override {
+    ::grpc::Status Update(::grpc::ServerContext* /*context*/, const ::ric::tasks::UpdateRequest* /*request*/, ::ric::tasks::UpdateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Update(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Update(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Update(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Delete : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_Delete() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(3,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->Delete(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(3,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Delete(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_Delete() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response) override {
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::ric::tasks::DeleteRequest* /*request*/, ::ric::tasks::DeleteResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Delete(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* Delete(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* Delete(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_UpdateOrder : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_UpdateOrder() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(4,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->UpdateOrder(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(4,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateOrder(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_UpdateOrder() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateOrder(::grpc::ServerContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response) override {
+    ::grpc::Status UpdateOrder(::grpc::ServerContext* /*context*/, const ::ric::tasks::UpdateOrderRequest* /*request*/, ::ric::tasks::UpdateOrderResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void UpdateOrder(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* UpdateOrder(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* UpdateOrder(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_ChangeStatus : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_ChangeStatus() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(5,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->ChangeStatus(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(5,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ChangeStatus(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_ChangeStatus() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ChangeStatus(::grpc::ServerContext* context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response) override {
+    ::grpc::Status ChangeStatus(::grpc::ServerContext* /*context*/, const ::ric::tasks::ChangeStatusRequest* /*request*/, ::ric::tasks::ChangeStatusResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void ChangeStatus(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* ChangeStatus(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* ChangeStatus(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Create : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_Create() {
       ::grpc::Service::MarkMethodStreamed(0,
@@ -988,7 +1327,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Create(::grpc::ServerContext* context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response) override {
+    ::grpc::Status Create(::grpc::ServerContext* /*context*/, const ::ric::tasks::CreateRequest* /*request*/, ::ric::tasks::CreateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -998,7 +1337,7 @@ class Tasks final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_Get : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_Get() {
       ::grpc::Service::MarkMethodStreamed(1,
@@ -1008,7 +1347,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Get(::grpc::ServerContext* context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response) override {
+    ::grpc::Status Get(::grpc::ServerContext* /*context*/, const ::ric::tasks::GetRequest* /*request*/, ::ric::tasks::GetResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1018,7 +1357,7 @@ class Tasks final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_Update : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_Update() {
       ::grpc::Service::MarkMethodStreamed(2,
@@ -1028,7 +1367,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Update(::grpc::ServerContext* context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response) override {
+    ::grpc::Status Update(::grpc::ServerContext* /*context*/, const ::ric::tasks::UpdateRequest* /*request*/, ::ric::tasks::UpdateResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1038,7 +1377,7 @@ class Tasks final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_Delete : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_Delete() {
       ::grpc::Service::MarkMethodStreamed(3,
@@ -1048,7 +1387,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Delete(::grpc::ServerContext* context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response) override {
+    ::grpc::Status Delete(::grpc::ServerContext* /*context*/, const ::ric::tasks::DeleteRequest* /*request*/, ::ric::tasks::DeleteResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1058,7 +1397,7 @@ class Tasks final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_UpdateOrder : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_UpdateOrder() {
       ::grpc::Service::MarkMethodStreamed(4,
@@ -1068,7 +1407,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status UpdateOrder(::grpc::ServerContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response) override {
+    ::grpc::Status UpdateOrder(::grpc::ServerContext* /*context*/, const ::ric::tasks::UpdateOrderRequest* /*request*/, ::ric::tasks::UpdateOrderResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1078,7 +1417,7 @@ class Tasks final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_ChangeStatus : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_ChangeStatus() {
       ::grpc::Service::MarkMethodStreamed(5,
@@ -1088,7 +1427,7 @@ class Tasks final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status ChangeStatus(::grpc::ServerContext* context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response) override {
+    ::grpc::Status ChangeStatus(::grpc::ServerContext* /*context*/, const ::ric::tasks::ChangeStatusRequest* /*request*/, ::ric::tasks::ChangeStatusResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

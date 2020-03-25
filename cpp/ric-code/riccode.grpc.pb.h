@@ -7,25 +7,24 @@
 #include "ric-code/riccode.pb.h"
 
 #include <functional>
+#include <grpc/impl/codegen/port_platform.h>
 #include <grpcpp/impl/codegen/async_generic_service.h>
 #include <grpcpp/impl/codegen/async_stream.h>
 #include <grpcpp/impl/codegen/async_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/method_handler_impl.h>
+#include <grpcpp/impl/codegen/client_context.h>
+#include <grpcpp/impl/codegen/completion_queue.h>
+#include <grpcpp/impl/codegen/message_allocator.h>
+#include <grpcpp/impl/codegen/method_handler.h>
 #include <grpcpp/impl/codegen/proto_utils.h>
 #include <grpcpp/impl/codegen/rpc_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
+#include <grpcpp/impl/codegen/server_callback_handlers.h>
+#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/status.h>
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
-
-namespace grpc {
-class CompletionQueue;
-class Channel;
-class ServerCompletionQueue;
-class ServerContext;
-}  // namespace grpc
 
 namespace ric {
 namespace code {
@@ -50,7 +49,23 @@ class RicCode final {
       virtual ~experimental_async_interface() {}
       virtual void TranspileEs6(::grpc::ClientContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void TranspileEs6(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::code::TranspileResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void TranspileEs6(::grpc::ClientContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void TranspileEs6(::grpc::ClientContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void TranspileEs6(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::code::TranspileResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void TranspileEs6(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::code::TranspileResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
     };
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    typedef class experimental_async_interface async_interface;
+    #endif
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    async_interface* async() { return experimental_async(); }
+    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::code::TranspileResponse>* AsyncTranspileEs6Raw(::grpc::ClientContext* context, const ::ric::code::TranspileRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -71,6 +86,16 @@ class RicCode final {
      public:
       void TranspileEs6(::grpc::ClientContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response, std::function<void(::grpc::Status)>) override;
       void TranspileEs6(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::code::TranspileResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void TranspileEs6(::grpc::ClientContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void TranspileEs6(::grpc::ClientContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void TranspileEs6(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::code::TranspileResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void TranspileEs6(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::code::TranspileResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -97,7 +122,7 @@ class RicCode final {
   template <class BaseClass>
   class WithAsyncMethod_TranspileEs6 : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_TranspileEs6() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -106,7 +131,7 @@ class RicCode final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status TranspileEs6(::grpc::ServerContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response) override {
+    ::grpc::Status TranspileEs6(::grpc::ServerContext* /*context*/, const ::ric::code::TranspileRequest* /*request*/, ::ric::code::TranspileResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -118,33 +143,59 @@ class RicCode final {
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_TranspileEs6 : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithCallbackMethod_TranspileEs6() {
-      ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::code::TranspileRequest, ::ric::code::TranspileResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::ric::code::TranspileRequest* request,
-                 ::ric::code::TranspileResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->TranspileEs6(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::code::TranspileRequest, ::ric::code::TranspileResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response) { return this->TranspileEs6(context, request, response); }));}
+    void SetMessageAllocatorFor_TranspileEs6(
+        ::grpc::experimental::MessageAllocator< ::ric::code::TranspileRequest, ::ric::code::TranspileResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
+    #endif
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::code::TranspileRequest, ::ric::code::TranspileResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_TranspileEs6() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status TranspileEs6(::grpc::ServerContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response) override {
+    ::grpc::Status TranspileEs6(::grpc::ServerContext* /*context*/, const ::ric::code::TranspileRequest* /*request*/, ::ric::code::TranspileResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void TranspileEs6(::grpc::ServerContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* TranspileEs6(
+      ::grpc::CallbackServerContext* /*context*/, const ::ric::code::TranspileRequest* /*request*/, ::ric::code::TranspileResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* TranspileEs6(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::code::TranspileRequest* /*request*/, ::ric::code::TranspileResponse* /*response*/)
+    #endif
+      { return nullptr; }
   };
+  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+  typedef ExperimentalWithCallbackMethod_TranspileEs6<Service > CallbackService;
+  #endif
+
   typedef ExperimentalWithCallbackMethod_TranspileEs6<Service > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_TranspileEs6 : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_TranspileEs6() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -153,7 +204,7 @@ class RicCode final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status TranspileEs6(::grpc::ServerContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response) override {
+    ::grpc::Status TranspileEs6(::grpc::ServerContext* /*context*/, const ::ric::code::TranspileRequest* /*request*/, ::ric::code::TranspileResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -161,7 +212,7 @@ class RicCode final {
   template <class BaseClass>
   class WithRawMethod_TranspileEs6 : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_TranspileEs6() {
       ::grpc::Service::MarkMethodRaw(0);
@@ -170,7 +221,7 @@ class RicCode final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status TranspileEs6(::grpc::ServerContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response) override {
+    ::grpc::Status TranspileEs6(::grpc::ServerContext* /*context*/, const ::ric::code::TranspileRequest* /*request*/, ::ric::code::TranspileResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -181,32 +232,45 @@ class RicCode final {
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_TranspileEs6 : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     ExperimentalWithRawCallbackMethod_TranspileEs6() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->TranspileEs6(context, request, response, controller);
-                 }));
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(0,
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->TranspileEs6(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_TranspileEs6() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status TranspileEs6(::grpc::ServerContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response) override {
+    ::grpc::Status TranspileEs6(::grpc::ServerContext* /*context*/, const ::ric::code::TranspileRequest* /*request*/, ::ric::code::TranspileResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void TranspileEs6(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* TranspileEs6(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* TranspileEs6(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_TranspileEs6 : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_TranspileEs6() {
       ::grpc::Service::MarkMethodStreamed(0,
@@ -216,7 +280,7 @@ class RicCode final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status TranspileEs6(::grpc::ServerContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response) override {
+    ::grpc::Status TranspileEs6(::grpc::ServerContext* /*context*/, const ::ric::code::TranspileRequest* /*request*/, ::ric::code::TranspileResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

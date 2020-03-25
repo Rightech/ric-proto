@@ -1454,7 +1454,9 @@ func init() {
 	proto.RegisterType((*CheckInResponse)(nil), "ric.geo.CheckInResponse")
 }
 
-func init() { proto.RegisterFile("ric-geo/ricgeo.proto", fileDescriptor_7dd0c87ff6803edb) }
+func init() {
+	proto.RegisterFile("ric-geo/ricgeo.proto", fileDescriptor_7dd0c87ff6803edb)
+}
 
 var fileDescriptor_7dd0c87ff6803edb = []byte{
 	// 1302 bytes of a gzipped FileDescriptorProto
@@ -1544,11 +1546,11 @@ var fileDescriptor_7dd0c87ff6803edb = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConn
+var _ grpc.ClientConnInterface
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion4
+const _ = grpc.SupportPackageIsVersion6
 
 // WatchClient is the client API for Watch service.
 //
@@ -1583,11 +1585,11 @@ type WatchClient interface {
 }
 
 type watchClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
 // Deprecated: Do not use.
-func NewWatchClient(cc *grpc.ClientConn) WatchClient {
+func NewWatchClient(cc grpc.ClientConnInterface) WatchClient {
 	return &watchClient{cc}
 }
 
@@ -1932,10 +1934,10 @@ type WatchV2Client interface {
 }
 
 type watchV2Client struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewWatchV2Client(cc *grpc.ClientConn) WatchV2Client {
+func NewWatchV2Client(cc grpc.ClientConnInterface) WatchV2Client {
 	return &watchV2Client{cc}
 }
 
@@ -2109,10 +2111,10 @@ type AttendanceControlClient interface {
 }
 
 type attendanceControlClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewAttendanceControlClient(cc *grpc.ClientConn) AttendanceControlClient {
+func NewAttendanceControlClient(cc grpc.ClientConnInterface) AttendanceControlClient {
 	return &attendanceControlClient{cc}
 }
 
@@ -2183,10 +2185,10 @@ type OsmClient interface {
 }
 
 type osmClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewOsmClient(cc *grpc.ClientConn) OsmClient {
+func NewOsmClient(cc grpc.ClientConnInterface) OsmClient {
 	return &osmClient{cc}
 }
 
@@ -2325,10 +2327,10 @@ type CheckClient interface {
 }
 
 type checkClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewCheckClient(cc *grpc.ClientConn) CheckClient {
+func NewCheckClient(cc grpc.ClientConnInterface) CheckClient {
 	return &checkClient{cc}
 }
 

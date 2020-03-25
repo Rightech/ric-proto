@@ -11,9 +11,12 @@
 #include <grpcpp/impl/codegen/channel_interface.h>
 #include <grpcpp/impl/codegen/client_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/method_handler_impl.h>
+#include <grpcpp/impl/codegen/message_allocator.h>
+#include <grpcpp/impl/codegen/method_handler.h>
 #include <grpcpp/impl/codegen/rpc_service_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
+#include <grpcpp/impl/codegen/server_callback_handlers.h>
+#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
 namespace ric {
@@ -46,35 +49,35 @@ RicStore::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   {}
 
 ::grpc::ClientWriter< ::ric::store::Packet>* RicStore::Stub::InsertRaw(::grpc::ClientContext* context, ::ric::store::EmptyRespone* response) {
-  return ::grpc::internal::ClientWriterFactory< ::ric::store::Packet>::Create(channel_.get(), rpcmethod_Insert_, context, response);
+  return ::grpc_impl::internal::ClientWriterFactory< ::ric::store::Packet>::Create(channel_.get(), rpcmethod_Insert_, context, response);
 }
 
 void RicStore::Stub::experimental_async::Insert(::grpc::ClientContext* context, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientWriteReactor< ::ric::store::Packet>* reactor) {
-  ::grpc::internal::ClientCallbackWriterFactory< ::ric::store::Packet>::Create(stub_->channel_.get(), stub_->rpcmethod_Insert_, context, response, reactor);
+  ::grpc_impl::internal::ClientCallbackWriterFactory< ::ric::store::Packet>::Create(stub_->channel_.get(), stub_->rpcmethod_Insert_, context, response, reactor);
 }
 
 ::grpc::ClientAsyncWriter< ::ric::store::Packet>* RicStore::Stub::AsyncInsertRaw(::grpc::ClientContext* context, ::ric::store::EmptyRespone* response, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncWriterFactory< ::ric::store::Packet>::Create(channel_.get(), cq, rpcmethod_Insert_, context, response, true, tag);
+  return ::grpc_impl::internal::ClientAsyncWriterFactory< ::ric::store::Packet>::Create(channel_.get(), cq, rpcmethod_Insert_, context, response, true, tag);
 }
 
 ::grpc::ClientAsyncWriter< ::ric::store::Packet>* RicStore::Stub::PrepareAsyncInsertRaw(::grpc::ClientContext* context, ::ric::store::EmptyRespone* response, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncWriterFactory< ::ric::store::Packet>::Create(channel_.get(), cq, rpcmethod_Insert_, context, response, false, nullptr);
+  return ::grpc_impl::internal::ClientAsyncWriterFactory< ::ric::store::Packet>::Create(channel_.get(), cq, rpcmethod_Insert_, context, response, false, nullptr);
 }
 
 ::grpc::ClientReader< ::ric::store::Packet>* RicStore::Stub::QueryRaw(::grpc::ClientContext* context, const ::ric::store::QueryRequest& request) {
-  return ::grpc::internal::ClientReaderFactory< ::ric::store::Packet>::Create(channel_.get(), rpcmethod_Query_, context, request);
+  return ::grpc_impl::internal::ClientReaderFactory< ::ric::store::Packet>::Create(channel_.get(), rpcmethod_Query_, context, request);
 }
 
 void RicStore::Stub::experimental_async::Query(::grpc::ClientContext* context, ::ric::store::QueryRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::store::Packet>* reactor) {
-  ::grpc::internal::ClientCallbackReaderFactory< ::ric::store::Packet>::Create(stub_->channel_.get(), stub_->rpcmethod_Query_, context, request, reactor);
+  ::grpc_impl::internal::ClientCallbackReaderFactory< ::ric::store::Packet>::Create(stub_->channel_.get(), stub_->rpcmethod_Query_, context, request, reactor);
 }
 
 ::grpc::ClientAsyncReader< ::ric::store::Packet>* RicStore::Stub::AsyncQueryRaw(::grpc::ClientContext* context, const ::ric::store::QueryRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::ric::store::Packet>::Create(channel_.get(), cq, rpcmethod_Query_, context, request, true, tag);
+  return ::grpc_impl::internal::ClientAsyncReaderFactory< ::ric::store::Packet>::Create(channel_.get(), cq, rpcmethod_Query_, context, request, true, tag);
 }
 
 ::grpc::ClientAsyncReader< ::ric::store::Packet>* RicStore::Stub::PrepareAsyncQueryRaw(::grpc::ClientContext* context, const ::ric::store::QueryRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::ric::store::Packet>::Create(channel_.get(), cq, rpcmethod_Query_, context, request, false, nullptr);
+  return ::grpc_impl::internal::ClientAsyncReaderFactory< ::ric::store::Packet>::Create(channel_.get(), cq, rpcmethod_Query_, context, request, false, nullptr);
 }
 
 ::grpc::Status RicStore::Stub::Status(::grpc::ClientContext* context, const ::ric::store::StatusRequest& request, ::ric::store::StatusResponse* response) {
@@ -82,19 +85,27 @@ void RicStore::Stub::experimental_async::Query(::grpc::ClientContext* context, :
 }
 
 void RicStore::Stub::experimental_async::Status(::grpc::ClientContext* context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Status_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Status_, context, request, response, std::move(f));
 }
 
 void RicStore::Stub::experimental_async::Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::StatusResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Status_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Status_, context, request, response, std::move(f));
+}
+
+void RicStore::Stub::experimental_async::Status(::grpc::ClientContext* context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Status_, context, request, response, reactor);
+}
+
+void RicStore::Stub::experimental_async::Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::StatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Status_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::store::StatusResponse>* RicStore::Stub::AsyncStatusRaw(::grpc::ClientContext* context, const ::ric::store::StatusRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::store::StatusResponse>::Create(channel_.get(), cq, rpcmethod_Status_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::store::StatusResponse>::Create(channel_.get(), cq, rpcmethod_Status_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::store::StatusResponse>* RicStore::Stub::PrepareAsyncStatusRaw(::grpc::ClientContext* context, const ::ric::store::StatusRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::store::StatusResponse>::Create(channel_.get(), cq, rpcmethod_Status_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::store::StatusResponse>::Create(channel_.get(), cq, rpcmethod_Status_, context, request, false);
 }
 
 ::grpc::Status RicStore::Stub::CreateCollection(::grpc::ClientContext* context, const ::ric::store::CreateCollectionRequest& request, ::ric::store::EmptyRespone* response) {
@@ -102,19 +113,27 @@ void RicStore::Stub::experimental_async::Status(::grpc::ClientContext* context, 
 }
 
 void RicStore::Stub::experimental_async::CreateCollection(::grpc::ClientContext* context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CreateCollection_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CreateCollection_, context, request, response, std::move(f));
 }
 
 void RicStore::Stub::experimental_async::CreateCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CreateCollection_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CreateCollection_, context, request, response, std::move(f));
+}
+
+void RicStore::Stub::experimental_async::CreateCollection(::grpc::ClientContext* context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_CreateCollection_, context, request, response, reactor);
+}
+
+void RicStore::Stub::experimental_async::CreateCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_CreateCollection_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::store::EmptyRespone>* RicStore::Stub::AsyncCreateCollectionRaw(::grpc::ClientContext* context, const ::ric::store::CreateCollectionRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_CreateCollection_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_CreateCollection_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::store::EmptyRespone>* RicStore::Stub::PrepareAsyncCreateCollectionRaw(::grpc::ClientContext* context, const ::ric::store::CreateCollectionRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_CreateCollection_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_CreateCollection_, context, request, false);
 }
 
 ::grpc::Status RicStore::Stub::RemoveCollection(::grpc::ClientContext* context, const ::ric::store::RemoveCollectionRequest& request, ::ric::store::EmptyRespone* response) {
@@ -122,19 +141,27 @@ void RicStore::Stub::experimental_async::CreateCollection(::grpc::ClientContext*
 }
 
 void RicStore::Stub::experimental_async::RemoveCollection(::grpc::ClientContext* context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_RemoveCollection_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_RemoveCollection_, context, request, response, std::move(f));
 }
 
 void RicStore::Stub::experimental_async::RemoveCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_RemoveCollection_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_RemoveCollection_, context, request, response, std::move(f));
+}
+
+void RicStore::Stub::experimental_async::RemoveCollection(::grpc::ClientContext* context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_RemoveCollection_, context, request, response, reactor);
+}
+
+void RicStore::Stub::experimental_async::RemoveCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_RemoveCollection_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::store::EmptyRespone>* RicStore::Stub::AsyncRemoveCollectionRaw(::grpc::ClientContext* context, const ::ric::store::RemoveCollectionRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_RemoveCollection_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_RemoveCollection_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::store::EmptyRespone>* RicStore::Stub::PrepareAsyncRemoveCollectionRaw(::grpc::ClientContext* context, const ::ric::store::RemoveCollectionRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_RemoveCollection_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_RemoveCollection_, context, request, false);
 }
 
 ::grpc::Status RicStore::Stub::CreateDatabase(::grpc::ClientContext* context, const ::ric::store::CreateDatabaseRequest& request, ::ric::store::EmptyRespone* response) {
@@ -142,19 +169,27 @@ void RicStore::Stub::experimental_async::RemoveCollection(::grpc::ClientContext*
 }
 
 void RicStore::Stub::experimental_async::CreateDatabase(::grpc::ClientContext* context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CreateDatabase_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CreateDatabase_, context, request, response, std::move(f));
 }
 
 void RicStore::Stub::experimental_async::CreateDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CreateDatabase_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CreateDatabase_, context, request, response, std::move(f));
+}
+
+void RicStore::Stub::experimental_async::CreateDatabase(::grpc::ClientContext* context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_CreateDatabase_, context, request, response, reactor);
+}
+
+void RicStore::Stub::experimental_async::CreateDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_CreateDatabase_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::store::EmptyRespone>* RicStore::Stub::AsyncCreateDatabaseRaw(::grpc::ClientContext* context, const ::ric::store::CreateDatabaseRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_CreateDatabase_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_CreateDatabase_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::store::EmptyRespone>* RicStore::Stub::PrepareAsyncCreateDatabaseRaw(::grpc::ClientContext* context, const ::ric::store::CreateDatabaseRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_CreateDatabase_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_CreateDatabase_, context, request, false);
 }
 
 ::grpc::Status RicStore::Stub::RemoveDatabase(::grpc::ClientContext* context, const ::ric::store::RemoveDatabaseRequest& request, ::ric::store::EmptyRespone* response) {
@@ -162,19 +197,27 @@ void RicStore::Stub::experimental_async::CreateDatabase(::grpc::ClientContext* c
 }
 
 void RicStore::Stub::experimental_async::RemoveDatabase(::grpc::ClientContext* context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_RemoveDatabase_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_RemoveDatabase_, context, request, response, std::move(f));
 }
 
 void RicStore::Stub::experimental_async::RemoveDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_RemoveDatabase_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_RemoveDatabase_, context, request, response, std::move(f));
+}
+
+void RicStore::Stub::experimental_async::RemoveDatabase(::grpc::ClientContext* context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_RemoveDatabase_, context, request, response, reactor);
+}
+
+void RicStore::Stub::experimental_async::RemoveDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_RemoveDatabase_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::store::EmptyRespone>* RicStore::Stub::AsyncRemoveDatabaseRaw(::grpc::ClientContext* context, const ::ric::store::RemoveDatabaseRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_RemoveDatabase_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_RemoveDatabase_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::store::EmptyRespone>* RicStore::Stub::PrepareAsyncRemoveDatabaseRaw(::grpc::ClientContext* context, const ::ric::store::RemoveDatabaseRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_RemoveDatabase_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::store::EmptyRespone>::Create(channel_.get(), cq, rpcmethod_RemoveDatabase_, context, request, false);
 }
 
 RicStore::Service::Service() {

@@ -11,9 +11,12 @@
 #include <grpcpp/impl/codegen/channel_interface.h>
 #include <grpcpp/impl/codegen/client_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/method_handler_impl.h>
+#include <grpcpp/impl/codegen/message_allocator.h>
+#include <grpcpp/impl/codegen/method_handler.h>
 #include <grpcpp/impl/codegen/rpc_service_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
+#include <grpcpp/impl/codegen/server_callback_handlers.h>
+#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
 namespace ric {
@@ -44,19 +47,19 @@ GateInlet::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   {}
 
 ::grpc::ClientReader< ::ric::gate::Command>* GateInlet::Stub::InitRaw(::grpc::ClientContext* context, const ::ric::gate::InitRequest& request) {
-  return ::grpc::internal::ClientReaderFactory< ::ric::gate::Command>::Create(channel_.get(), rpcmethod_Init_, context, request);
+  return ::grpc_impl::internal::ClientReaderFactory< ::ric::gate::Command>::Create(channel_.get(), rpcmethod_Init_, context, request);
 }
 
 void GateInlet::Stub::experimental_async::Init(::grpc::ClientContext* context, ::ric::gate::InitRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::gate::Command>* reactor) {
-  ::grpc::internal::ClientCallbackReaderFactory< ::ric::gate::Command>::Create(stub_->channel_.get(), stub_->rpcmethod_Init_, context, request, reactor);
+  ::grpc_impl::internal::ClientCallbackReaderFactory< ::ric::gate::Command>::Create(stub_->channel_.get(), stub_->rpcmethod_Init_, context, request, reactor);
 }
 
 ::grpc::ClientAsyncReader< ::ric::gate::Command>* GateInlet::Stub::AsyncInitRaw(::grpc::ClientContext* context, const ::ric::gate::InitRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::ric::gate::Command>::Create(channel_.get(), cq, rpcmethod_Init_, context, request, true, tag);
+  return ::grpc_impl::internal::ClientAsyncReaderFactory< ::ric::gate::Command>::Create(channel_.get(), cq, rpcmethod_Init_, context, request, true, tag);
 }
 
 ::grpc::ClientAsyncReader< ::ric::gate::Command>* GateInlet::Stub::PrepareAsyncInitRaw(::grpc::ClientContext* context, const ::ric::gate::InitRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::ric::gate::Command>::Create(channel_.get(), cq, rpcmethod_Init_, context, request, false, nullptr);
+  return ::grpc_impl::internal::ClientAsyncReaderFactory< ::ric::gate::Command>::Create(channel_.get(), cq, rpcmethod_Init_, context, request, false, nullptr);
 }
 
 ::grpc::Status GateInlet::Stub::Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::ric::gate::AuthResponse* response) {
@@ -64,19 +67,27 @@ void GateInlet::Stub::experimental_async::Init(::grpc::ClientContext* context, :
 }
 
 void GateInlet::Stub::experimental_async::Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Auth_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Auth_, context, request, response, std::move(f));
 }
 
 void GateInlet::Stub::experimental_async::Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::AuthResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Auth_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Auth_, context, request, response, std::move(f));
+}
+
+void GateInlet::Stub::experimental_async::Auth(::grpc::ClientContext* context, const ::ric::gate::AuthRequest* request, ::ric::gate::AuthResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Auth_, context, request, response, reactor);
+}
+
+void GateInlet::Stub::experimental_async::Auth(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::AuthResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Auth_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::gate::AuthResponse>* GateInlet::Stub::AsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::AuthResponse>::Create(channel_.get(), cq, rpcmethod_Auth_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::gate::AuthResponse>::Create(channel_.get(), cq, rpcmethod_Auth_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::gate::AuthResponse>* GateInlet::Stub::PrepareAsyncAuthRaw(::grpc::ClientContext* context, const ::ric::gate::AuthRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::AuthResponse>::Create(channel_.get(), cq, rpcmethod_Auth_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::gate::AuthResponse>::Create(channel_.get(), cq, rpcmethod_Auth_, context, request, false);
 }
 
 ::grpc::Status GateInlet::Stub::SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::ric::gate::EmptyResponse* response) {
@@ -84,35 +95,43 @@ void GateInlet::Stub::experimental_async::Auth(::grpc::ClientContext* context, c
 }
 
 void GateInlet::Stub::experimental_async::SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendData_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendData_, context, request, response, std::move(f));
 }
 
 void GateInlet::Stub::experimental_async::SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendData_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendData_, context, request, response, std::move(f));
+}
+
+void GateInlet::Stub::experimental_async::SendData(::grpc::ClientContext* context, const ::ric::gate::DataRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SendData_, context, request, response, reactor);
+}
+
+void GateInlet::Stub::experimental_async::SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SendData_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* GateInlet::Stub::AsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SendData_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SendData_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* GateInlet::Stub::PrepareAsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::gate::DataRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SendData_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SendData_, context, request, false);
 }
 
 ::grpc::ClientWriter< ::ric::gate::Ping>* GateInlet::Stub::SendHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response) {
-  return ::grpc::internal::ClientWriterFactory< ::ric::gate::Ping>::Create(channel_.get(), rpcmethod_SendHeartbeat_, context, response);
+  return ::grpc_impl::internal::ClientWriterFactory< ::ric::gate::Ping>::Create(channel_.get(), rpcmethod_SendHeartbeat_, context, response);
 }
 
 void GateInlet::Stub::experimental_async::SendHeartbeat(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientWriteReactor< ::ric::gate::Ping>* reactor) {
-  ::grpc::internal::ClientCallbackWriterFactory< ::ric::gate::Ping>::Create(stub_->channel_.get(), stub_->rpcmethod_SendHeartbeat_, context, response, reactor);
+  ::grpc_impl::internal::ClientCallbackWriterFactory< ::ric::gate::Ping>::Create(stub_->channel_.get(), stub_->rpcmethod_SendHeartbeat_, context, response, reactor);
 }
 
 ::grpc::ClientAsyncWriter< ::ric::gate::Ping>* GateInlet::Stub::AsyncSendHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncWriterFactory< ::ric::gate::Ping>::Create(channel_.get(), cq, rpcmethod_SendHeartbeat_, context, response, true, tag);
+  return ::grpc_impl::internal::ClientAsyncWriterFactory< ::ric::gate::Ping>::Create(channel_.get(), cq, rpcmethod_SendHeartbeat_, context, response, true, tag);
 }
 
 ::grpc::ClientAsyncWriter< ::ric::gate::Ping>* GateInlet::Stub::PrepareAsyncSendHeartbeatRaw(::grpc::ClientContext* context, ::ric::gate::EmptyResponse* response, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncWriterFactory< ::ric::gate::Ping>::Create(channel_.get(), cq, rpcmethod_SendHeartbeat_, context, response, false, nullptr);
+  return ::grpc_impl::internal::ClientAsyncWriterFactory< ::ric::gate::Ping>::Create(channel_.get(), cq, rpcmethod_SendHeartbeat_, context, response, false, nullptr);
 }
 
 ::grpc::Status GateInlet::Stub::SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::ric::gate::EmptyResponse* response) {
@@ -120,19 +139,27 @@ void GateInlet::Stub::experimental_async::SendHeartbeat(::grpc::ClientContext* c
 }
 
 void GateInlet::Stub::experimental_async::SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendCommandReply_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendCommandReply_, context, request, response, std::move(f));
 }
 
 void GateInlet::Stub::experimental_async::SendCommandReply(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendCommandReply_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendCommandReply_, context, request, response, std::move(f));
+}
+
+void GateInlet::Stub::experimental_async::SendCommandReply(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SendCommandReply_, context, request, response, reactor);
+}
+
+void GateInlet::Stub::experimental_async::SendCommandReply(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SendCommandReply_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* GateInlet::Stub::AsyncSendCommandReplyRaw(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SendCommandReply_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SendCommandReply_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* GateInlet::Stub::PrepareAsyncSendCommandReplyRaw(::grpc::ClientContext* context, const ::ric::gate::CommandReplyRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SendCommandReply_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SendCommandReply_, context, request, false);
 }
 
 ::grpc::Status GateInlet::Stub::SendOffline(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest& request, ::ric::gate::EmptyResponse* response) {
@@ -140,19 +167,27 @@ void GateInlet::Stub::experimental_async::SendCommandReply(::grpc::ClientContext
 }
 
 void GateInlet::Stub::experimental_async::SendOffline(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendOffline_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendOffline_, context, request, response, std::move(f));
 }
 
 void GateInlet::Stub::experimental_async::SendOffline(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendOffline_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendOffline_, context, request, response, std::move(f));
+}
+
+void GateInlet::Stub::experimental_async::SendOffline(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SendOffline_, context, request, response, reactor);
+}
+
+void GateInlet::Stub::experimental_async::SendOffline(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SendOffline_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* GateInlet::Stub::AsyncSendOfflineRaw(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SendOffline_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SendOffline_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::gate::EmptyResponse>* GateInlet::Stub::PrepareAsyncSendOfflineRaw(::grpc::ClientContext* context, const ::ric::gate::OfflineRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SendOffline_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::gate::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SendOffline_, context, request, false);
 }
 
 GateInlet::Service::Service() {
@@ -253,19 +288,27 @@ GateCommand::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channe
 }
 
 void GateCommand::Stub::experimental_async::SendRpc(::grpc::ClientContext* context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendRpc_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendRpc_, context, request, response, std::move(f));
 }
 
 void GateCommand::Stub::experimental_async::SendRpc(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::CommandReplyRequest* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendRpc_, context, request, response, std::move(f));
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendRpc_, context, request, response, std::move(f));
+}
+
+void GateCommand::Stub::experimental_async::SendRpc(::grpc::ClientContext* context, const ::ric::gate::Command* request, ::ric::gate::CommandReplyRequest* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SendRpc_, context, request, response, reactor);
+}
+
+void GateCommand::Stub::experimental_async::SendRpc(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::gate::CommandReplyRequest* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_SendRpc_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::gate::CommandReplyRequest>* GateCommand::Stub::AsyncSendRpcRaw(::grpc::ClientContext* context, const ::ric::gate::Command& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::CommandReplyRequest>::Create(channel_.get(), cq, rpcmethod_SendRpc_, context, request, true);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::gate::CommandReplyRequest>::Create(channel_.get(), cq, rpcmethod_SendRpc_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::gate::CommandReplyRequest>* GateCommand::Stub::PrepareAsyncSendRpcRaw(::grpc::ClientContext* context, const ::ric::gate::Command& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::gate::CommandReplyRequest>::Create(channel_.get(), cq, rpcmethod_SendRpc_, context, request, false);
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::gate::CommandReplyRequest>::Create(channel_.get(), cq, rpcmethod_SendRpc_, context, request, false);
 }
 
 GateCommand::Service::Service() {

@@ -544,7 +544,9 @@ func init() {
 	proto.RegisterType((*StatusResponse)(nil), "ric.store.StatusResponse")
 }
 
-func init() { proto.RegisterFile("ric-store/ricstore.proto", fileDescriptor_070d1ea97cf890ec) }
+func init() {
+	proto.RegisterFile("ric-store/ricstore.proto", fileDescriptor_070d1ea97cf890ec)
+}
 
 var fileDescriptor_070d1ea97cf890ec = []byte{
 	// 512 bytes of a gzipped FileDescriptorProto
@@ -584,11 +586,11 @@ var fileDescriptor_070d1ea97cf890ec = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConn
+var _ grpc.ClientConnInterface
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion4
+const _ = grpc.SupportPackageIsVersion6
 
 // RicStoreClient is the client API for RicStore service.
 //
@@ -604,10 +606,10 @@ type RicStoreClient interface {
 }
 
 type ricStoreClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewRicStoreClient(cc *grpc.ClientConn) RicStoreClient {
+func NewRicStoreClient(cc grpc.ClientConnInterface) RicStoreClient {
 	return &ricStoreClient{cc}
 }
 

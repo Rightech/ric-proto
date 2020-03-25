@@ -1157,7 +1157,9 @@ func init() {
 	proto.RegisterType((*EventRequest)(nil), "ric.action.EventRequest")
 }
 
-func init() { proto.RegisterFile("ric-action/ricaction.proto", fileDescriptor_6b60d45eb52f0045) }
+func init() {
+	proto.RegisterFile("ric-action/ricaction.proto", fileDescriptor_6b60d45eb52f0045)
+}
 
 var fileDescriptor_6b60d45eb52f0045 = []byte{
 	// 1121 bytes of a gzipped FileDescriptorProto
@@ -1236,11 +1238,11 @@ var fileDescriptor_6b60d45eb52f0045 = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConn
+var _ grpc.ClientConnInterface
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion4
+const _ = grpc.SupportPackageIsVersion6
 
 // FunctionControlClient is the client API for FunctionControl service.
 //
@@ -1255,10 +1257,10 @@ type FunctionControlClient interface {
 }
 
 type functionControlClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewFunctionControlClient(cc *grpc.ClientConn) FunctionControlClient {
+func NewFunctionControlClient(cc grpc.ClientConnInterface) FunctionControlClient {
 	return &functionControlClient{cc}
 }
 
@@ -1531,10 +1533,10 @@ type PublicAPIClient interface {
 }
 
 type publicAPIClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewPublicAPIClient(cc *grpc.ClientConn) PublicAPIClient {
+func NewPublicAPIClient(cc grpc.ClientConnInterface) PublicAPIClient {
 	return &publicAPIClient{cc}
 }
 
