@@ -95,7 +95,8 @@ class Tasks final {
     }
     // change subtask status
     // this method checks master task constrain before change status
-    // so if constraint ordered you can't take in work subtask if previous subtask not closed
+    // so if constraint ordered you can't take in work subtask if previous subtask
+    // not closed
     //
     // the following status change is allowed:
     // CREATED -> ASSIGNED
@@ -204,7 +205,8 @@ class Tasks final {
       #endif
       // change subtask status
       // this method checks master task constrain before change status
-      // so if constraint ordered you can't take in work subtask if previous subtask not closed
+      // so if constraint ordered you can't take in work subtask if previous subtask
+      // not closed
       //
       // the following status change is allowed:
       // CREATED -> ASSIGNED
@@ -438,7 +440,8 @@ class Tasks final {
     virtual ::grpc::Status UpdateOrder(::grpc::ServerContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response);
     // change subtask status
     // this method checks master task constrain before change status
-    // so if constraint ordered you can't take in work subtask if previous subtask not closed
+    // so if constraint ordered you can't take in work subtask if previous subtask
+    // not closed
     //
     // the following status change is allowed:
     // CREATED -> ASSIGNED

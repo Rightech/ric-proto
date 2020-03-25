@@ -35,7 +35,8 @@ service Tasks {
   rpc UpdateOrder(UpdateOrderRequest) returns (UpdateOrderResponse);
   // change subtask status
   // this method checks master task constrain before change status
-  // so if constraint ordered you can't take in work subtask if previous subtask not closed
+  // so if constraint ordered you can't take in work subtask if previous subtask
+  // not closed
   //
   // the following status change is allowed:
   // CREATED -> ASSIGNED
@@ -113,11 +114,14 @@ message Task {
   string comment = 13;
   // @inject_tag: bson:",omitempty"
   repeated string files = 14;
+  // @inject_tag: bson:",omitempty"
+  ObjectId assignee = 15;
 }
 
 message Deadline {
   int64 timestamp = 1; // milliseconds
-  // number of milliseconds before deadline when service should send notification
+  // number of milliseconds before deadline when service should send
+  // notification
   // @inject_tag: bson:",omitempty"
   google.protobuf.Int64Value notify_until = 2;
   Task.Status status = 3;
@@ -145,12 +149,10 @@ message MasterTask {
   Constrain constrain = 5;
   // @inject_tag: bson:",omitempty"
   repeated string tags = 6;
+  Priority priority = 7;
+  int64 time = 8; // milliseconds
   // @inject_tag: bson:",omitempty"
-  ObjectId assignee = 7;
-  Priority priority = 8;
-  int64 time = 9; // milliseconds
-  // @inject_tag: bson:",omitempty"
-  ObjectId object = 10;
+  ObjectId object = 9;
 }
 
 message CreateRequest {

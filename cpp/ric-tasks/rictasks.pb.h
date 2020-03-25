@@ -1010,6 +1010,15 @@ class Task final :
   ::google::protobuf::BoolValue* mutable_success();
   void set_allocated_success(::google::protobuf::BoolValue* success);
 
+  // .ric.tasks.ObjectId assignee = 15;
+  bool has_assignee() const;
+  void clear_assignee();
+  static const int kAssigneeFieldNumber = 15;
+  const ::ric::tasks::ObjectId& assignee() const;
+  ::ric::tasks::ObjectId* release_assignee();
+  ::ric::tasks::ObjectId* mutable_assignee();
+  void set_allocated_assignee(::ric::tasks::ObjectId* assignee);
+
   // int64 created_at = 9;
   void clear_created_at();
   static const int kCreatedAtFieldNumber = 9;
@@ -1039,6 +1048,7 @@ class Task final :
   ::ric::tasks::Location* end_;
   ::ric::tasks::ObjectId* owner_;
   ::google::protobuf::BoolValue* success_;
+  ::ric::tasks::ObjectId* assignee_;
   ::google::protobuf::int64 created_at_;
   int status_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
@@ -1389,19 +1399,10 @@ class MasterTask final :
   ::ric::tasks::ObjectId* mutable_group();
   void set_allocated_group(::ric::tasks::ObjectId* group);
 
-  // .ric.tasks.ObjectId assignee = 7;
-  bool has_assignee() const;
-  void clear_assignee();
-  static const int kAssigneeFieldNumber = 7;
-  const ::ric::tasks::ObjectId& assignee() const;
-  ::ric::tasks::ObjectId* release_assignee();
-  ::ric::tasks::ObjectId* mutable_assignee();
-  void set_allocated_assignee(::ric::tasks::ObjectId* assignee);
-
-  // .ric.tasks.ObjectId object = 10;
+  // .ric.tasks.ObjectId object = 9;
   bool has_object() const;
   void clear_object();
-  static const int kObjectFieldNumber = 10;
+  static const int kObjectFieldNumber = 9;
   const ::ric::tasks::ObjectId& object() const;
   ::ric::tasks::ObjectId* release_object();
   ::ric::tasks::ObjectId* mutable_object();
@@ -1413,15 +1414,15 @@ class MasterTask final :
   ::ric::tasks::MasterTask_Constrain constrain() const;
   void set_constrain(::ric::tasks::MasterTask_Constrain value);
 
-  // .ric.tasks.MasterTask.Priority priority = 8;
+  // .ric.tasks.MasterTask.Priority priority = 7;
   void clear_priority();
-  static const int kPriorityFieldNumber = 8;
+  static const int kPriorityFieldNumber = 7;
   ::ric::tasks::MasterTask_Priority priority() const;
   void set_priority(::ric::tasks::MasterTask_Priority value);
 
-  // int64 time = 9;
+  // int64 time = 8;
   void clear_time();
-  static const int kTimeFieldNumber = 9;
+  static const int kTimeFieldNumber = 8;
   ::google::protobuf::int64 time() const;
   void set_time(::google::protobuf::int64 value);
 
@@ -1435,7 +1436,6 @@ class MasterTask final :
   ::ric::tasks::ObjectId* oid_;
   ::ric::tasks::ObjectId* owner_;
   ::ric::tasks::ObjectId* group_;
-  ::ric::tasks::ObjectId* assignee_;
   ::ric::tasks::ObjectId* object_;
   int constrain_;
   int priority_;
@@ -3942,6 +3942,57 @@ Task::mutable_files() {
   return &files_;
 }
 
+// .ric.tasks.ObjectId assignee = 15;
+inline bool Task::has_assignee() const {
+  return this != internal_default_instance() && assignee_ != nullptr;
+}
+inline void Task::clear_assignee() {
+  if (GetArenaNoVirtual() == nullptr && assignee_ != nullptr) {
+    delete assignee_;
+  }
+  assignee_ = nullptr;
+}
+inline const ::ric::tasks::ObjectId& Task::assignee() const {
+  const ::ric::tasks::ObjectId* p = assignee_;
+  // @@protoc_insertion_point(field_get:ric.tasks.Task.assignee)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::ObjectId*>(
+      &::ric::tasks::_ObjectId_default_instance_);
+}
+inline ::ric::tasks::ObjectId* Task::release_assignee() {
+  // @@protoc_insertion_point(field_release:ric.tasks.Task.assignee)
+  
+  ::ric::tasks::ObjectId* temp = assignee_;
+  assignee_ = nullptr;
+  return temp;
+}
+inline ::ric::tasks::ObjectId* Task::mutable_assignee() {
+  
+  if (assignee_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::tasks::ObjectId>(GetArenaNoVirtual());
+    assignee_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.Task.assignee)
+  return assignee_;
+}
+inline void Task::set_allocated_assignee(::ric::tasks::ObjectId* assignee) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete assignee_;
+  }
+  if (assignee) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      assignee = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, assignee, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  assignee_ = assignee;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.Task.assignee)
+}
+
 // -------------------------------------------------------------------
 
 // Deadline
@@ -4290,58 +4341,7 @@ MasterTask::mutable_tags() {
   return &tags_;
 }
 
-// .ric.tasks.ObjectId assignee = 7;
-inline bool MasterTask::has_assignee() const {
-  return this != internal_default_instance() && assignee_ != nullptr;
-}
-inline void MasterTask::clear_assignee() {
-  if (GetArenaNoVirtual() == nullptr && assignee_ != nullptr) {
-    delete assignee_;
-  }
-  assignee_ = nullptr;
-}
-inline const ::ric::tasks::ObjectId& MasterTask::assignee() const {
-  const ::ric::tasks::ObjectId* p = assignee_;
-  // @@protoc_insertion_point(field_get:ric.tasks.MasterTask.assignee)
-  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::ObjectId*>(
-      &::ric::tasks::_ObjectId_default_instance_);
-}
-inline ::ric::tasks::ObjectId* MasterTask::release_assignee() {
-  // @@protoc_insertion_point(field_release:ric.tasks.MasterTask.assignee)
-  
-  ::ric::tasks::ObjectId* temp = assignee_;
-  assignee_ = nullptr;
-  return temp;
-}
-inline ::ric::tasks::ObjectId* MasterTask::mutable_assignee() {
-  
-  if (assignee_ == nullptr) {
-    auto* p = CreateMaybeMessage<::ric::tasks::ObjectId>(GetArenaNoVirtual());
-    assignee_ = p;
-  }
-  // @@protoc_insertion_point(field_mutable:ric.tasks.MasterTask.assignee)
-  return assignee_;
-}
-inline void MasterTask::set_allocated_assignee(::ric::tasks::ObjectId* assignee) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete assignee_;
-  }
-  if (assignee) {
-    ::google::protobuf::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      assignee = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, assignee, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  assignee_ = assignee;
-  // @@protoc_insertion_point(field_set_allocated:ric.tasks.MasterTask.assignee)
-}
-
-// .ric.tasks.MasterTask.Priority priority = 8;
+// .ric.tasks.MasterTask.Priority priority = 7;
 inline void MasterTask::clear_priority() {
   priority_ = 0;
 }
@@ -4355,7 +4355,7 @@ inline void MasterTask::set_priority(::ric::tasks::MasterTask_Priority value) {
   // @@protoc_insertion_point(field_set:ric.tasks.MasterTask.priority)
 }
 
-// int64 time = 9;
+// int64 time = 8;
 inline void MasterTask::clear_time() {
   time_ = PROTOBUF_LONGLONG(0);
 }
@@ -4369,7 +4369,7 @@ inline void MasterTask::set_time(::google::protobuf::int64 value) {
   // @@protoc_insertion_point(field_set:ric.tasks.MasterTask.time)
 }
 
-// .ric.tasks.ObjectId object = 10;
+// .ric.tasks.ObjectId object = 9;
 inline bool MasterTask::has_object() const {
   return this != internal_default_instance() && object_ != nullptr;
 }

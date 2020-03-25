@@ -495,6 +495,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dtasks_2frictasks_2eproto::off
   PROTOBUF_FIELD_OFFSET(::ric::tasks::Task, success_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::Task, comment_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::Task, files_),
+  PROTOBUF_FIELD_OFFSET(::ric::tasks::Task, assignee_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::tasks::Deadline, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -514,7 +515,6 @@ const ::google::protobuf::uint32 TableStruct_ric_2dtasks_2frictasks_2eproto::off
   PROTOBUF_FIELD_OFFSET(::ric::tasks::MasterTask, subtasks_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::MasterTask, constrain_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::MasterTask, tags_),
-  PROTOBUF_FIELD_OFFSET(::ric::tasks::MasterTask, assignee_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::MasterTask, priority_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::MasterTask, time_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::MasterTask, object_),
@@ -614,8 +614,8 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 12, -1, sizeof(::ric::tasks::Location)},
   { 22, -1, sizeof(::ric::tasks::IndoorLocation)},
   { 31, -1, sizeof(::ric::tasks::Task)},
-  { 50, -1, sizeof(::ric::tasks::Deadline)},
-  { 58, -1, sizeof(::ric::tasks::MasterTask)},
+  { 51, -1, sizeof(::ric::tasks::Deadline)},
+  { 59, -1, sizeof(::ric::tasks::MasterTask)},
   { 73, -1, sizeof(::ric::tasks::CreateRequest)},
   { 79, -1, sizeof(::ric::tasks::CreateResponse)},
   { 86, -1, sizeof(::ric::tasks::GetRequest)},
@@ -668,7 +668,7 @@ const char descriptor_table_protodef_ric_2dtasks_2frictasks_2eproto[] =
   "ius\030\003 \001(\001\022\017\n\007address\030\004 \001(\t\022)\n\006indoor\030\005 \001"
   "(\0132\031.ric.tasks.IndoorLocation\"A\n\016IndoorL"
   "ocation\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001"
-  "\022\016\n\006radius\030\004 \001(\001\"\341\003\n\004Task\022\035\n\002id\030\001 \001(\0132\021."
+  "\022\016\n\006radius\030\004 \001(\001\"\210\004\n\004Task\022\035\n\002id\030\001 \001(\0132\021."
   "ric.tasks.TaskId\022\014\n\004name\030\002 \001(\t\022\014\n\004kind\030\003"
   " \001(\t\022\023\n\013description\030\004 \001(\t\022&\n\006status\030\005 \001("
   "\0162\026.ric.tasks.Task.Status\022#\n\006object\030\006 \001("
@@ -678,20 +678,20 @@ const char descriptor_table_protodef_ric_2dtasks_2frictasks_2eproto[] =
   "lines\030\n \003(\0132\023.ric.tasks.Deadline\022\"\n\005owne"
   "r\030\013 \001(\0132\023.ric.tasks.ObjectId\022+\n\007success\030"
   "\014 \001(\0132\032.google.protobuf.BoolValue\022\017\n\007com"
-  "ment\030\r \001(\t\022\r\n\005files\030\016 \003(\t\"I\n\006Status\022\013\n\007I"
-  "NVALID\020\000\022\013\n\007CREATED\020\001\022\014\n\010ASSIGNED\020\002\022\013\n\007I"
-  "N_WORK\020\003\022\n\n\006CLOSED\020\004\"x\n\010Deadline\022\021\n\ttime"
-  "stamp\030\001 \001(\003\0221\n\014notify_until\030\002 \001(\0132\033.goog"
-  "le.protobuf.Int64Value\022&\n\006status\030\003 \001(\0162\026"
-  ".ric.tasks.Task.Status\"\327\003\n\nMasterTask\022 \n"
-  "\003oid\030\001 \001(\0132\023.ric.tasks.ObjectId\022\"\n\005owner"
-  "\030\002 \001(\0132\023.ric.tasks.ObjectId\022\"\n\005group\030\003 \001"
-  "(\0132\023.ric.tasks.ObjectId\022!\n\010subtasks\030\004 \003("
-  "\0132\017.ric.tasks.Task\0222\n\tconstrain\030\005 \001(\0162\037."
-  "ric.tasks.MasterTask.Constrain\022\014\n\004tags\030\006"
-  " \003(\t\022%\n\010assignee\030\007 \001(\0132\023.ric.tasks.Objec"
-  "tId\0220\n\010priority\030\010 \001(\0162\036.ric.tasks.Master"
-  "Task.Priority\022\014\n\004time\030\t \001(\003\022#\n\006object\030\n "
+  "ment\030\r \001(\t\022\r\n\005files\030\016 \003(\t\022%\n\010assignee\030\017 "
+  "\001(\0132\023.ric.tasks.ObjectId\"I\n\006Status\022\013\n\007IN"
+  "VALID\020\000\022\013\n\007CREATED\020\001\022\014\n\010ASSIGNED\020\002\022\013\n\007IN"
+  "_WORK\020\003\022\n\n\006CLOSED\020\004\"x\n\010Deadline\022\021\n\ttimes"
+  "tamp\030\001 \001(\003\0221\n\014notify_until\030\002 \001(\0132\033.googl"
+  "e.protobuf.Int64Value\022&\n\006status\030\003 \001(\0162\026."
+  "ric.tasks.Task.Status\"\260\003\n\nMasterTask\022 \n\003"
+  "oid\030\001 \001(\0132\023.ric.tasks.ObjectId\022\"\n\005owner\030"
+  "\002 \001(\0132\023.ric.tasks.ObjectId\022\"\n\005group\030\003 \001("
+  "\0132\023.ric.tasks.ObjectId\022!\n\010subtasks\030\004 \003(\013"
+  "2\017.ric.tasks.Task\0222\n\tconstrain\030\005 \001(\0162\037.r"
+  "ic.tasks.MasterTask.Constrain\022\014\n\004tags\030\006 "
+  "\003(\t\0220\n\010priority\030\007 \001(\0162\036.ric.tasks.Master"
+  "Task.Priority\022\014\n\004time\030\010 \001(\003\022#\n\006object\030\t "
   "\001(\0132\023.ric.tasks.ObjectId\"4\n\tConstrain\022\013\n"
   "\007INVALID\020\000\022\r\n\tUNORDERED\020\001\022\013\n\007ORDERED\020\002\"8"
   "\n\010Priority\022\r\n\tUNDEFINED\020\000\022\007\n\003LOW\020\001\022\n\n\006NO"
@@ -2311,6 +2311,8 @@ void Task::InitAsDefaultInstance() {
       ::ric::tasks::ObjectId::internal_default_instance());
   ::ric::tasks::_Task_default_instance_._instance.get_mutable()->success_ = const_cast< ::google::protobuf::BoolValue*>(
       ::google::protobuf::BoolValue::internal_default_instance());
+  ::ric::tasks::_Task_default_instance_._instance.get_mutable()->assignee_ = const_cast< ::ric::tasks::ObjectId*>(
+      ::ric::tasks::ObjectId::internal_default_instance());
 }
 class Task::HasBitSetters {
  public:
@@ -2320,6 +2322,7 @@ class Task::HasBitSetters {
   static const ::ric::tasks::Location& end(const Task* msg);
   static const ::ric::tasks::ObjectId& owner(const Task* msg);
   static const ::google::protobuf::BoolValue& success(const Task* msg);
+  static const ::ric::tasks::ObjectId& assignee(const Task* msg);
 };
 
 const ::ric::tasks::TaskId&
@@ -2346,6 +2349,10 @@ const ::google::protobuf::BoolValue&
 Task::HasBitSetters::success(const Task* msg) {
   return *msg->success_;
 }
+const ::ric::tasks::ObjectId&
+Task::HasBitSetters::assignee(const Task* msg) {
+  return *msg->assignee_;
+}
 void Task::clear_success() {
   if (GetArenaNoVirtual() == nullptr && success_ != nullptr) {
     delete success_;
@@ -2367,6 +2374,7 @@ const int Task::kOwnerFieldNumber;
 const int Task::kSuccessFieldNumber;
 const int Task::kCommentFieldNumber;
 const int Task::kFilesFieldNumber;
+const int Task::kAssigneeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Task::Task()
@@ -2426,6 +2434,11 @@ Task::Task(const Task& from)
   } else {
     success_ = nullptr;
   }
+  if (from.has_assignee()) {
+    assignee_ = new ::ric::tasks::ObjectId(*from.assignee_);
+  } else {
+    assignee_ = nullptr;
+  }
   ::memcpy(&created_at_, &from.created_at_,
     static_cast<size_t>(reinterpret_cast<char*>(&status_) -
     reinterpret_cast<char*>(&created_at_)) + sizeof(status_));
@@ -2460,6 +2473,7 @@ void Task::SharedDtor() {
   if (this != internal_default_instance()) delete end_;
   if (this != internal_default_instance()) delete owner_;
   if (this != internal_default_instance()) delete success_;
+  if (this != internal_default_instance()) delete assignee_;
 }
 
 void Task::SetCachedSize(int size) const {
@@ -2507,6 +2521,10 @@ void Task::Clear() {
     delete success_;
   }
   success_ = nullptr;
+  if (GetArenaNoVirtual() == nullptr && assignee_ != nullptr) {
+    delete assignee_;
+  }
+  assignee_ = nullptr;
   ::memset(&created_at_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&status_) -
       reinterpret_cast<char*>(&created_at_)) + sizeof(status_));
@@ -2716,6 +2734,19 @@ const char* Task::_InternalParse(const char* begin, const char* end, void* objec
           ptr += size;
           if (ptr >= end) break;
         } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 114 && (ptr += 1));
+        break;
+      }
+      // .ric.tasks.ObjectId assignee = 15;
+      case 15: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 122) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::ric::tasks::ObjectId::_InternalParse;
+        object = msg->mutable_assignee();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
         break;
       }
       default: {
@@ -2932,6 +2963,17 @@ bool Task::MergePartialFromCodedStream(
         break;
       }
 
+      // .ric.tasks.ObjectId assignee = 15;
+      case 15: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (122 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_assignee()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -3065,6 +3107,12 @@ void Task::SerializeWithCachedSizes(
       14, this->files(i), output);
   }
 
+  // .ric.tasks.ObjectId assignee = 15;
+  if (this->has_assignee()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      15, HasBitSetters::assignee(this), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -3193,6 +3241,13 @@ void Task::SerializeWithCachedSizes(
       WriteStringToArray(14, this->files(i), target);
   }
 
+  // .ric.tasks.ObjectId assignee = 15;
+  if (this->has_assignee()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        15, HasBitSetters::assignee(this), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -3303,6 +3358,13 @@ size_t Task::ByteSizeLong() const {
         *success_);
   }
 
+  // .ric.tasks.ObjectId assignee = 15;
+  if (this->has_assignee()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *assignee_);
+  }
+
   // int64 created_at = 9;
   if (this->created_at() != 0) {
     total_size += 1 +
@@ -3379,6 +3441,9 @@ void Task::MergeFrom(const Task& from) {
   if (from.has_success()) {
     mutable_success()->::google::protobuf::BoolValue::MergeFrom(from.success());
   }
+  if (from.has_assignee()) {
+    mutable_assignee()->::ric::tasks::ObjectId::MergeFrom(from.assignee());
+  }
   if (from.created_at() != 0) {
     set_created_at(from.created_at());
   }
@@ -3428,6 +3493,7 @@ void Task::InternalSwap(Task* other) {
   swap(end_, other->end_);
   swap(owner_, other->owner_);
   swap(success_, other->success_);
+  swap(assignee_, other->assignee_);
   swap(created_at_, other->created_at_);
   swap(status_, other->status_);
 }
@@ -3835,8 +3901,6 @@ void MasterTask::InitAsDefaultInstance() {
       ::ric::tasks::ObjectId::internal_default_instance());
   ::ric::tasks::_MasterTask_default_instance_._instance.get_mutable()->group_ = const_cast< ::ric::tasks::ObjectId*>(
       ::ric::tasks::ObjectId::internal_default_instance());
-  ::ric::tasks::_MasterTask_default_instance_._instance.get_mutable()->assignee_ = const_cast< ::ric::tasks::ObjectId*>(
-      ::ric::tasks::ObjectId::internal_default_instance());
   ::ric::tasks::_MasterTask_default_instance_._instance.get_mutable()->object_ = const_cast< ::ric::tasks::ObjectId*>(
       ::ric::tasks::ObjectId::internal_default_instance());
 }
@@ -3845,7 +3909,6 @@ class MasterTask::HasBitSetters {
   static const ::ric::tasks::ObjectId& oid(const MasterTask* msg);
   static const ::ric::tasks::ObjectId& owner(const MasterTask* msg);
   static const ::ric::tasks::ObjectId& group(const MasterTask* msg);
-  static const ::ric::tasks::ObjectId& assignee(const MasterTask* msg);
   static const ::ric::tasks::ObjectId& object(const MasterTask* msg);
 };
 
@@ -3862,10 +3925,6 @@ MasterTask::HasBitSetters::group(const MasterTask* msg) {
   return *msg->group_;
 }
 const ::ric::tasks::ObjectId&
-MasterTask::HasBitSetters::assignee(const MasterTask* msg) {
-  return *msg->assignee_;
-}
-const ::ric::tasks::ObjectId&
 MasterTask::HasBitSetters::object(const MasterTask* msg) {
   return *msg->object_;
 }
@@ -3876,7 +3935,6 @@ const int MasterTask::kGroupFieldNumber;
 const int MasterTask::kSubtasksFieldNumber;
 const int MasterTask::kConstrainFieldNumber;
 const int MasterTask::kTagsFieldNumber;
-const int MasterTask::kAssigneeFieldNumber;
 const int MasterTask::kPriorityFieldNumber;
 const int MasterTask::kTimeFieldNumber;
 const int MasterTask::kObjectFieldNumber;
@@ -3908,11 +3966,6 @@ MasterTask::MasterTask(const MasterTask& from)
   } else {
     group_ = nullptr;
   }
-  if (from.has_assignee()) {
-    assignee_ = new ::ric::tasks::ObjectId(*from.assignee_);
-  } else {
-    assignee_ = nullptr;
-  }
   if (from.has_object()) {
     object_ = new ::ric::tasks::ObjectId(*from.object_);
   } else {
@@ -3941,7 +3994,6 @@ void MasterTask::SharedDtor() {
   if (this != internal_default_instance()) delete oid_;
   if (this != internal_default_instance()) delete owner_;
   if (this != internal_default_instance()) delete group_;
-  if (this != internal_default_instance()) delete assignee_;
   if (this != internal_default_instance()) delete object_;
 }
 
@@ -3974,10 +4026,6 @@ void MasterTask::Clear() {
     delete group_;
   }
   group_ = nullptr;
-  if (GetArenaNoVirtual() == nullptr && assignee_ != nullptr) {
-    delete assignee_;
-  }
-  assignee_ = nullptr;
   if (GetArenaNoVirtual() == nullptr && object_ != nullptr) {
     delete object_;
   }
@@ -4083,37 +4131,24 @@ const char* MasterTask::_InternalParse(const char* begin, const char* end, void*
         } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 50 && (ptr += 1));
         break;
       }
-      // .ric.tasks.ObjectId assignee = 7;
+      // .ric.tasks.MasterTask.Priority priority = 7;
       case 7: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 58) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::ric::tasks::ObjectId::_InternalParse;
-        object = msg->mutable_assignee();
-        if (size > end - ptr) goto len_delim_till_end;
-        ptr += size;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
-            {parser_till_end, object}, ptr - size, ptr));
-        break;
-      }
-      // .ric.tasks.MasterTask.Priority priority = 8;
-      case 8: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 64) goto handle_unusual;
+        if (static_cast<::google::protobuf::uint8>(tag) != 56) goto handle_unusual;
         ::google::protobuf::uint64 val = ::google::protobuf::internal::ReadVarint(&ptr);
         msg->set_priority(static_cast<::ric::tasks::MasterTask_Priority>(val));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // int64 time = 9;
-      case 9: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 72) goto handle_unusual;
+      // int64 time = 8;
+      case 8: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 64) goto handle_unusual;
         msg->set_time(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // .ric.tasks.ObjectId object = 10;
-      case 10: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 82) goto handle_unusual;
+      // .ric.tasks.ObjectId object = 9;
+      case 9: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 74) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::ric::tasks::ObjectId::_InternalParse;
@@ -4232,20 +4267,9 @@ bool MasterTask::MergePartialFromCodedStream(
         break;
       }
 
-      // .ric.tasks.ObjectId assignee = 7;
+      // .ric.tasks.MasterTask.Priority priority = 7;
       case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (58 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_assignee()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // .ric.tasks.MasterTask.Priority priority = 8;
-      case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (64 & 0xFF)) {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (56 & 0xFF)) {
           int value = 0;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -4257,9 +4281,9 @@ bool MasterTask::MergePartialFromCodedStream(
         break;
       }
 
-      // int64 time = 9;
-      case 9: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (72 & 0xFF)) {
+      // int64 time = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (64 & 0xFF)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
@@ -4270,9 +4294,9 @@ bool MasterTask::MergePartialFromCodedStream(
         break;
       }
 
-      // .ric.tasks.ObjectId object = 10;
-      case 10: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (82 & 0xFF)) {
+      // .ric.tasks.ObjectId object = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (74 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_object()));
         } else {
@@ -4351,27 +4375,21 @@ void MasterTask::SerializeWithCachedSizes(
       6, this->tags(i), output);
   }
 
-  // .ric.tasks.ObjectId assignee = 7;
-  if (this->has_assignee()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, HasBitSetters::assignee(this), output);
-  }
-
-  // .ric.tasks.MasterTask.Priority priority = 8;
+  // .ric.tasks.MasterTask.Priority priority = 7;
   if (this->priority() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      8, this->priority(), output);
+      7, this->priority(), output);
   }
 
-  // int64 time = 9;
+  // int64 time = 8;
   if (this->time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(9, this->time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->time(), output);
   }
 
-  // .ric.tasks.ObjectId object = 10;
+  // .ric.tasks.ObjectId object = 9;
   if (this->has_object()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      10, HasBitSetters::object(this), output);
+      9, HasBitSetters::object(this), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4432,29 +4450,22 @@ void MasterTask::SerializeWithCachedSizes(
       WriteStringToArray(6, this->tags(i), target);
   }
 
-  // .ric.tasks.ObjectId assignee = 7;
-  if (this->has_assignee()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        7, HasBitSetters::assignee(this), target);
-  }
-
-  // .ric.tasks.MasterTask.Priority priority = 8;
+  // .ric.tasks.MasterTask.Priority priority = 7;
   if (this->priority() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      8, this->priority(), target);
+      7, this->priority(), target);
   }
 
-  // int64 time = 9;
+  // int64 time = 8;
   if (this->time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->time(), target);
   }
 
-  // .ric.tasks.ObjectId object = 10;
+  // .ric.tasks.ObjectId object = 9;
   if (this->has_object()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        10, HasBitSetters::object(this), target);
+        9, HasBitSetters::object(this), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4518,14 +4529,7 @@ size_t MasterTask::ByteSizeLong() const {
         *group_);
   }
 
-  // .ric.tasks.ObjectId assignee = 7;
-  if (this->has_assignee()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *assignee_);
-  }
-
-  // .ric.tasks.ObjectId object = 10;
+  // .ric.tasks.ObjectId object = 9;
   if (this->has_object()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -4538,13 +4542,13 @@ size_t MasterTask::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->constrain());
   }
 
-  // .ric.tasks.MasterTask.Priority priority = 8;
+  // .ric.tasks.MasterTask.Priority priority = 7;
   if (this->priority() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->priority());
   }
 
-  // int64 time = 9;
+  // int64 time = 8;
   if (this->time() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -4588,9 +4592,6 @@ void MasterTask::MergeFrom(const MasterTask& from) {
   }
   if (from.has_group()) {
     mutable_group()->::ric::tasks::ObjectId::MergeFrom(from.group());
-  }
-  if (from.has_assignee()) {
-    mutable_assignee()->::ric::tasks::ObjectId::MergeFrom(from.assignee());
   }
   if (from.has_object()) {
     mutable_object()->::ric::tasks::ObjectId::MergeFrom(from.object());
@@ -4636,7 +4637,6 @@ void MasterTask::InternalSwap(MasterTask* other) {
   swap(oid_, other->oid_);
   swap(owner_, other->owner_);
   swap(group_, other->group_);
-  swap(assignee_, other->assignee_);
   swap(object_, other->object_);
   swap(constrain_, other->constrain_);
   swap(priority_, other->priority_);
