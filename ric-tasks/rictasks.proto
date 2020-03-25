@@ -55,6 +55,12 @@ service Tasks {
   rpc ChangeStatus(ChangeStatusRequest) returns (ChangeStatusResponse);
 }
 
+message UserContext {
+  string group_id = 1;
+  string user_id = 2;
+  string span_id = 3;
+}
+
 message ObjectId {
   string id = 1;
 }
@@ -156,7 +162,8 @@ message MasterTask {
 }
 
 message CreateRequest {
-  MasterTask master_task = 1;
+  UserContext ctx = 1;
+  MasterTask master_task = 2;
 }
 
 message CreateResponse {
@@ -176,16 +183,18 @@ message GetResponse {
 }
 
 message DeleteRequest {
+  UserContext ctx = 1;
   oneof payload {
-    ObjectId oid = 1;
-    TaskId tid = 2;
+    ObjectId oid = 2;
+    TaskId tid = 3;
   }
 }
 
 message DeleteResponse {}
 
 message UpdateRequest {
-  MasterTask master_task = 1;
+  UserContext ctx = 1;
+  MasterTask master_task = 2;
 }
 
 message UpdateResponse {
@@ -193,24 +202,26 @@ message UpdateResponse {
 }
 
 message UpdateOrderRequest {
-  ObjectId id = 1; // master task id
+  UserContext ctx = 1;
+  ObjectId id = 2; // master task id
   // new position to task id
   // if new position greater then subtasks length
   // error returned
-  map<string, int32> positions = 2;
+  map<string, int32> positions = 3;
 }
 
 message UpdateOrderResponse {}
 
 message ChangeStatusRequest {
-  TaskId id = 1;
-  Task.Status new_status = 2;
+  UserContext ctx = 1;
+  TaskId id = 2;
+  Task.Status new_status = 3;
   // current location
-  Location location = 3;
+  Location location = 4;
   // required only if new_status == CLOSED
-  google.protobuf.BoolValue success = 4;
-  string comment = 5;
-  repeated string files = 6;
+  google.protobuf.BoolValue success = 5;
+  string comment = 6;
+  repeated string files = 7;
 }
 
 message ChangeStatusResponse {}

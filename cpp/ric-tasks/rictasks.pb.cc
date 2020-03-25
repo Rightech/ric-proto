@@ -22,12 +22,17 @@ extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobu
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_ObjectId_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_TaskId_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_UpdateOrderRequest_PositionsEntry_DoNotUse_ric_2dtasks_2frictasks_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_UserContext_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_Deadline_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_Location_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<2> scc_info_MasterTask_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<5> scc_info_Task_ric_2dtasks_2frictasks_2eproto;
 namespace ric {
 namespace tasks {
+class UserContextDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<UserContext> _instance;
+} _UserContext_default_instance_;
 class ObjectIdDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<ObjectId> _instance;
@@ -114,6 +119,20 @@ class ChangeStatusResponseDefaultTypeInternal {
 } _ChangeStatusResponse_default_instance_;
 }  // namespace tasks
 }  // namespace ric
+static void InitDefaultsUserContext_ric_2dtasks_2frictasks_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::tasks::_UserContext_default_instance_;
+    new (ptr) ::ric::tasks::UserContext();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::tasks::UserContext::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_UserContext_ric_2dtasks_2frictasks_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsUserContext_ric_2dtasks_2frictasks_2eproto}, {}};
+
 static void InitDefaultsObjectId_ric_2dtasks_2frictasks_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -232,8 +251,9 @@ static void InitDefaultsCreateRequest_ric_2dtasks_2frictasks_2eproto() {
   ::ric::tasks::CreateRequest::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<1> scc_info_CreateRequest_ric_2dtasks_2frictasks_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsCreateRequest_ric_2dtasks_2frictasks_2eproto}, {
+::google::protobuf::internal::SCCInfo<2> scc_info_CreateRequest_ric_2dtasks_2frictasks_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsCreateRequest_ric_2dtasks_2frictasks_2eproto}, {
+      &scc_info_UserContext_ric_2dtasks_2frictasks_2eproto.base,
       &scc_info_MasterTask_ric_2dtasks_2frictasks_2eproto.base,}};
 
 static void InitDefaultsCreateResponse_ric_2dtasks_2frictasks_2eproto() {
@@ -294,8 +314,9 @@ static void InitDefaultsDeleteRequest_ric_2dtasks_2frictasks_2eproto() {
   ::ric::tasks::DeleteRequest::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<2> scc_info_DeleteRequest_ric_2dtasks_2frictasks_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsDeleteRequest_ric_2dtasks_2frictasks_2eproto}, {
+::google::protobuf::internal::SCCInfo<3> scc_info_DeleteRequest_ric_2dtasks_2frictasks_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 3, InitDefaultsDeleteRequest_ric_2dtasks_2frictasks_2eproto}, {
+      &scc_info_UserContext_ric_2dtasks_2frictasks_2eproto.base,
       &scc_info_ObjectId_ric_2dtasks_2frictasks_2eproto.base,
       &scc_info_TaskId_ric_2dtasks_2frictasks_2eproto.base,}};
 
@@ -324,8 +345,9 @@ static void InitDefaultsUpdateRequest_ric_2dtasks_2frictasks_2eproto() {
   ::ric::tasks::UpdateRequest::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<1> scc_info_UpdateRequest_ric_2dtasks_2frictasks_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsUpdateRequest_ric_2dtasks_2frictasks_2eproto}, {
+::google::protobuf::internal::SCCInfo<2> scc_info_UpdateRequest_ric_2dtasks_2frictasks_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsUpdateRequest_ric_2dtasks_2frictasks_2eproto}, {
+      &scc_info_UserContext_ric_2dtasks_2frictasks_2eproto.base,
       &scc_info_MasterTask_ric_2dtasks_2frictasks_2eproto.base,}};
 
 static void InitDefaultsUpdateResponse_ric_2dtasks_2frictasks_2eproto() {
@@ -367,8 +389,9 @@ static void InitDefaultsUpdateOrderRequest_ric_2dtasks_2frictasks_2eproto() {
   ::ric::tasks::UpdateOrderRequest::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<2> scc_info_UpdateOrderRequest_ric_2dtasks_2frictasks_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsUpdateOrderRequest_ric_2dtasks_2frictasks_2eproto}, {
+::google::protobuf::internal::SCCInfo<3> scc_info_UpdateOrderRequest_ric_2dtasks_2frictasks_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 3, InitDefaultsUpdateOrderRequest_ric_2dtasks_2frictasks_2eproto}, {
+      &scc_info_UserContext_ric_2dtasks_2frictasks_2eproto.base,
       &scc_info_ObjectId_ric_2dtasks_2frictasks_2eproto.base,
       &scc_info_UpdateOrderRequest_PositionsEntry_DoNotUse_ric_2dtasks_2frictasks_2eproto.base,}};
 
@@ -397,8 +420,9 @@ static void InitDefaultsChangeStatusRequest_ric_2dtasks_2frictasks_2eproto() {
   ::ric::tasks::ChangeStatusRequest::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<3> scc_info_ChangeStatusRequest_ric_2dtasks_2frictasks_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 3, InitDefaultsChangeStatusRequest_ric_2dtasks_2frictasks_2eproto}, {
+::google::protobuf::internal::SCCInfo<4> scc_info_ChangeStatusRequest_ric_2dtasks_2frictasks_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 4, InitDefaultsChangeStatusRequest_ric_2dtasks_2frictasks_2eproto}, {
+      &scc_info_UserContext_ric_2dtasks_2frictasks_2eproto.base,
       &scc_info_TaskId_ric_2dtasks_2frictasks_2eproto.base,
       &scc_info_Location_ric_2dtasks_2frictasks_2eproto.base,
       &scc_info_BoolValue_google_2fprotobuf_2fwrappers_2eproto.base,}};
@@ -418,6 +442,7 @@ static void InitDefaultsChangeStatusResponse_ric_2dtasks_2frictasks_2eproto() {
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsChangeStatusResponse_ric_2dtasks_2frictasks_2eproto}, {}};
 
 void InitDefaults_ric_2dtasks_2frictasks_2eproto() {
+  ::google::protobuf::internal::InitSCC(&scc_info_UserContext_ric_2dtasks_2frictasks_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ObjectId_ric_2dtasks_2frictasks_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_TaskId_ric_2dtasks_2frictasks_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_Location_ric_2dtasks_2frictasks_2eproto.base);
@@ -440,11 +465,19 @@ void InitDefaults_ric_2dtasks_2frictasks_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_ChangeStatusResponse_ric_2dtasks_2frictasks_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dtasks_2frictasks_2eproto[20];
+::google::protobuf::Metadata file_level_metadata_ric_2dtasks_2frictasks_2eproto[21];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors_ric_2dtasks_2frictasks_2eproto[3];
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dtasks_2frictasks_2eproto = nullptr;
 
 const ::google::protobuf::uint32 TableStruct_ric_2dtasks_2frictasks_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::tasks::UserContext, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::tasks::UserContext, group_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::tasks::UserContext, user_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::tasks::UserContext, span_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::tasks::ObjectId, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -523,6 +556,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dtasks_2frictasks_2eproto::off
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::tasks::CreateRequest, ctx_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::CreateRequest, master_task_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::tasks::CreateResponse, _internal_metadata_),
@@ -550,6 +584,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dtasks_2frictasks_2eproto::off
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::ric::tasks::DeleteRequest, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::tasks::DeleteRequest, ctx_),
   offsetof(::ric::tasks::DeleteRequestDefaultTypeInternal, oid_),
   offsetof(::ric::tasks::DeleteRequestDefaultTypeInternal, tid_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::DeleteRequest, payload_),
@@ -563,6 +598,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dtasks_2frictasks_2eproto::off
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::tasks::UpdateRequest, ctx_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::UpdateRequest, master_task_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::tasks::UpdateResponse, _internal_metadata_),
@@ -584,6 +620,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dtasks_2frictasks_2eproto::off
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::tasks::UpdateOrderRequest, ctx_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::UpdateOrderRequest, id_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::UpdateOrderRequest, positions_),
   ~0u,  // no _has_bits_
@@ -596,6 +633,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dtasks_2frictasks_2eproto::off
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::tasks::ChangeStatusRequest, ctx_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::ChangeStatusRequest, id_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::ChangeStatusRequest, new_status_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::ChangeStatusRequest, location_),
@@ -609,29 +647,31 @@ const ::google::protobuf::uint32 TableStruct_ric_2dtasks_2frictasks_2eproto::off
   ~0u,  // no _weak_field_map_
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::ric::tasks::ObjectId)},
-  { 6, -1, sizeof(::ric::tasks::TaskId)},
-  { 12, -1, sizeof(::ric::tasks::Location)},
-  { 22, -1, sizeof(::ric::tasks::IndoorLocation)},
-  { 31, -1, sizeof(::ric::tasks::Task)},
-  { 51, -1, sizeof(::ric::tasks::Deadline)},
-  { 59, -1, sizeof(::ric::tasks::MasterTask)},
-  { 73, -1, sizeof(::ric::tasks::CreateRequest)},
-  { 79, -1, sizeof(::ric::tasks::CreateResponse)},
-  { 86, -1, sizeof(::ric::tasks::GetRequest)},
-  { 94, -1, sizeof(::ric::tasks::GetResponse)},
-  { 100, -1, sizeof(::ric::tasks::DeleteRequest)},
-  { 108, -1, sizeof(::ric::tasks::DeleteResponse)},
-  { 113, -1, sizeof(::ric::tasks::UpdateRequest)},
-  { 119, -1, sizeof(::ric::tasks::UpdateResponse)},
-  { 125, 132, sizeof(::ric::tasks::UpdateOrderRequest_PositionsEntry_DoNotUse)},
-  { 134, -1, sizeof(::ric::tasks::UpdateOrderRequest)},
-  { 141, -1, sizeof(::ric::tasks::UpdateOrderResponse)},
-  { 146, -1, sizeof(::ric::tasks::ChangeStatusRequest)},
-  { 157, -1, sizeof(::ric::tasks::ChangeStatusResponse)},
+  { 0, -1, sizeof(::ric::tasks::UserContext)},
+  { 8, -1, sizeof(::ric::tasks::ObjectId)},
+  { 14, -1, sizeof(::ric::tasks::TaskId)},
+  { 20, -1, sizeof(::ric::tasks::Location)},
+  { 30, -1, sizeof(::ric::tasks::IndoorLocation)},
+  { 39, -1, sizeof(::ric::tasks::Task)},
+  { 59, -1, sizeof(::ric::tasks::Deadline)},
+  { 67, -1, sizeof(::ric::tasks::MasterTask)},
+  { 81, -1, sizeof(::ric::tasks::CreateRequest)},
+  { 88, -1, sizeof(::ric::tasks::CreateResponse)},
+  { 95, -1, sizeof(::ric::tasks::GetRequest)},
+  { 103, -1, sizeof(::ric::tasks::GetResponse)},
+  { 109, -1, sizeof(::ric::tasks::DeleteRequest)},
+  { 118, -1, sizeof(::ric::tasks::DeleteResponse)},
+  { 123, -1, sizeof(::ric::tasks::UpdateRequest)},
+  { 130, -1, sizeof(::ric::tasks::UpdateResponse)},
+  { 136, 143, sizeof(::ric::tasks::UpdateOrderRequest_PositionsEntry_DoNotUse)},
+  { 145, -1, sizeof(::ric::tasks::UpdateOrderRequest)},
+  { 153, -1, sizeof(::ric::tasks::UpdateOrderResponse)},
+  { 158, -1, sizeof(::ric::tasks::ChangeStatusRequest)},
+  { 170, -1, sizeof(::ric::tasks::ChangeStatusResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::tasks::_UserContext_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::tasks::_ObjectId_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::tasks::_TaskId_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::tasks::_Location_default_instance_),
@@ -657,85 +697,91 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dtasks_2frictasks_2eproto = {
   {}, AddDescriptors_ric_2dtasks_2frictasks_2eproto, "ric-tasks/rictasks.proto", schemas,
   file_default_instances, TableStruct_ric_2dtasks_2frictasks_2eproto::offsets,
-  file_level_metadata_ric_2dtasks_2frictasks_2eproto, 20, file_level_enum_descriptors_ric_2dtasks_2frictasks_2eproto, file_level_service_descriptors_ric_2dtasks_2frictasks_2eproto,
+  file_level_metadata_ric_2dtasks_2frictasks_2eproto, 21, file_level_enum_descriptors_ric_2dtasks_2frictasks_2eproto, file_level_service_descriptors_ric_2dtasks_2frictasks_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dtasks_2frictasks_2eproto[] =
   "\n\030ric-tasks/rictasks.proto\022\tric.tasks\032\036g"
-  "oogle/protobuf/wrappers.proto\"\026\n\010ObjectI"
-  "d\022\n\n\002id\030\001 \001(\t\"\024\n\006TaskId\022\n\n\002id\030\001 \001(\t\"p\n\010L"
-  "ocation\022\013\n\003lat\030\001 \001(\001\022\013\n\003lng\030\002 \001(\001\022\016\n\006rad"
-  "ius\030\003 \001(\001\022\017\n\007address\030\004 \001(\t\022)\n\006indoor\030\005 \001"
-  "(\0132\031.ric.tasks.IndoorLocation\"A\n\016IndoorL"
-  "ocation\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001"
-  "\022\016\n\006radius\030\004 \001(\001\"\210\004\n\004Task\022\035\n\002id\030\001 \001(\0132\021."
-  "ric.tasks.TaskId\022\014\n\004name\030\002 \001(\t\022\014\n\004kind\030\003"
-  " \001(\t\022\023\n\013description\030\004 \001(\t\022&\n\006status\030\005 \001("
-  "\0162\026.ric.tasks.Task.Status\022#\n\006object\030\006 \001("
-  "\0132\023.ric.tasks.ObjectId\022\"\n\005begin\030\007 \001(\0132\023."
-  "ric.tasks.Location\022 \n\003end\030\010 \001(\0132\023.ric.ta"
-  "sks.Location\022\022\n\ncreated_at\030\t \001(\003\022&\n\tdead"
-  "lines\030\n \003(\0132\023.ric.tasks.Deadline\022\"\n\005owne"
-  "r\030\013 \001(\0132\023.ric.tasks.ObjectId\022+\n\007success\030"
-  "\014 \001(\0132\032.google.protobuf.BoolValue\022\017\n\007com"
-  "ment\030\r \001(\t\022\r\n\005files\030\016 \003(\t\022%\n\010assignee\030\017 "
-  "\001(\0132\023.ric.tasks.ObjectId\"I\n\006Status\022\013\n\007IN"
-  "VALID\020\000\022\013\n\007CREATED\020\001\022\014\n\010ASSIGNED\020\002\022\013\n\007IN"
-  "_WORK\020\003\022\n\n\006CLOSED\020\004\"x\n\010Deadline\022\021\n\ttimes"
-  "tamp\030\001 \001(\003\0221\n\014notify_until\030\002 \001(\0132\033.googl"
-  "e.protobuf.Int64Value\022&\n\006status\030\003 \001(\0162\026."
-  "ric.tasks.Task.Status\"\260\003\n\nMasterTask\022 \n\003"
-  "oid\030\001 \001(\0132\023.ric.tasks.ObjectId\022\"\n\005owner\030"
-  "\002 \001(\0132\023.ric.tasks.ObjectId\022\"\n\005group\030\003 \001("
-  "\0132\023.ric.tasks.ObjectId\022!\n\010subtasks\030\004 \003(\013"
-  "2\017.ric.tasks.Task\0222\n\tconstrain\030\005 \001(\0162\037.r"
-  "ic.tasks.MasterTask.Constrain\022\014\n\004tags\030\006 "
-  "\003(\t\0220\n\010priority\030\007 \001(\0162\036.ric.tasks.Master"
-  "Task.Priority\022\014\n\004time\030\010 \001(\003\022#\n\006object\030\t "
-  "\001(\0132\023.ric.tasks.ObjectId\"4\n\tConstrain\022\013\n"
-  "\007INVALID\020\000\022\r\n\tUNORDERED\020\001\022\013\n\007ORDERED\020\002\"8"
-  "\n\010Priority\022\r\n\tUNDEFINED\020\000\022\007\n\003LOW\020\001\022\n\n\006NO"
-  "RMAL\020\002\022\010\n\004HIGH\020\003\";\n\rCreateRequest\022*\n\013mas"
-  "ter_task\030\001 \001(\0132\025.ric.tasks.MasterTask\"V\n"
-  "\016CreateResponse\022 \n\003oid\030\001 \001(\0132\023.ric.tasks"
-  ".ObjectId\022\"\n\007sub_ids\030\002 \003(\0132\021.ric.tasks.T"
-  "askId\"]\n\nGetRequest\022\"\n\003oid\030\001 \001(\0132\023.ric.t"
-  "asks.ObjectIdH\000\022 \n\003tid\030\002 \001(\0132\021.ric.tasks"
-  ".TaskIdH\000B\t\n\007payload\"9\n\013GetResponse\022*\n\013m"
-  "aster_task\030\001 \001(\0132\025.ric.tasks.MasterTask\""
-  "`\n\rDeleteRequest\022\"\n\003oid\030\001 \001(\0132\023.ric.task"
-  "s.ObjectIdH\000\022 \n\003tid\030\002 \001(\0132\021.ric.tasks.Ta"
-  "skIdH\000B\t\n\007payload\"\020\n\016DeleteResponse\";\n\rU"
-  "pdateRequest\022*\n\013master_task\030\001 \001(\0132\025.ric."
-  "tasks.MasterTask\"<\n\016UpdateResponse\022*\n\013ma"
-  "ster_task\030\001 \001(\0132\025.ric.tasks.MasterTask\"\250"
-  "\001\n\022UpdateOrderRequest\022\037\n\002id\030\001 \001(\0132\023.ric."
-  "tasks.ObjectId\022\?\n\tpositions\030\002 \003(\0132,.ric."
-  "tasks.UpdateOrderRequest.PositionsEntry\032"
-  "0\n\016PositionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030"
-  "\002 \001(\005:\0028\001\"\025\n\023UpdateOrderResponse\"\324\001\n\023Cha"
-  "ngeStatusRequest\022\035\n\002id\030\001 \001(\0132\021.ric.tasks"
-  ".TaskId\022*\n\nnew_status\030\002 \001(\0162\026.ric.tasks."
-  "Task.Status\022%\n\010location\030\003 \001(\0132\023.ric.task"
-  "s.Location\022+\n\007success\030\004 \001(\0132\032.google.pro"
-  "tobuf.BoolValue\022\017\n\007comment\030\005 \001(\t\022\r\n\005file"
-  "s\030\006 \003(\t\"\026\n\024ChangeStatusResponse2\231\003\n\005Task"
-  "s\022=\n\006Create\022\030.ric.tasks.CreateRequest\032\031."
-  "ric.tasks.CreateResponse\0224\n\003Get\022\025.ric.ta"
-  "sks.GetRequest\032\026.ric.tasks.GetResponse\022="
-  "\n\006Update\022\030.ric.tasks.UpdateRequest\032\031.ric"
-  ".tasks.UpdateResponse\022=\n\006Delete\022\030.ric.ta"
-  "sks.DeleteRequest\032\031.ric.tasks.DeleteResp"
-  "onse\022L\n\013UpdateOrder\022\035.ric.tasks.UpdateOr"
-  "derRequest\032\036.ric.tasks.UpdateOrderRespon"
-  "se\022O\n\014ChangeStatus\022\036.ric.tasks.ChangeSta"
-  "tusRequest\032\037.ric.tasks.ChangeStatusRespo"
-  "nseB\nZ\010rictasksb\006proto3"
+  "oogle/protobuf/wrappers.proto\"A\n\013UserCon"
+  "text\022\020\n\010group_id\030\001 \001(\t\022\017\n\007user_id\030\002 \001(\t\022"
+  "\017\n\007span_id\030\003 \001(\t\"\026\n\010ObjectId\022\n\n\002id\030\001 \001(\t"
+  "\"\024\n\006TaskId\022\n\n\002id\030\001 \001(\t\"p\n\010Location\022\013\n\003la"
+  "t\030\001 \001(\001\022\013\n\003lng\030\002 \001(\001\022\016\n\006radius\030\003 \001(\001\022\017\n\007"
+  "address\030\004 \001(\t\022)\n\006indoor\030\005 \001(\0132\031.ric.task"
+  "s.IndoorLocation\"A\n\016IndoorLocation\022\t\n\001x\030"
+  "\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\016\n\006radius\030\004 "
+  "\001(\001\"\210\004\n\004Task\022\035\n\002id\030\001 \001(\0132\021.ric.tasks.Tas"
+  "kId\022\014\n\004name\030\002 \001(\t\022\014\n\004kind\030\003 \001(\t\022\023\n\013descr"
+  "iption\030\004 \001(\t\022&\n\006status\030\005 \001(\0162\026.ric.tasks"
+  ".Task.Status\022#\n\006object\030\006 \001(\0132\023.ric.tasks"
+  ".ObjectId\022\"\n\005begin\030\007 \001(\0132\023.ric.tasks.Loc"
+  "ation\022 \n\003end\030\010 \001(\0132\023.ric.tasks.Location\022"
+  "\022\n\ncreated_at\030\t \001(\003\022&\n\tdeadlines\030\n \003(\0132\023"
+  ".ric.tasks.Deadline\022\"\n\005owner\030\013 \001(\0132\023.ric"
+  ".tasks.ObjectId\022+\n\007success\030\014 \001(\0132\032.googl"
+  "e.protobuf.BoolValue\022\017\n\007comment\030\r \001(\t\022\r\n"
+  "\005files\030\016 \003(\t\022%\n\010assignee\030\017 \001(\0132\023.ric.tas"
+  "ks.ObjectId\"I\n\006Status\022\013\n\007INVALID\020\000\022\013\n\007CR"
+  "EATED\020\001\022\014\n\010ASSIGNED\020\002\022\013\n\007IN_WORK\020\003\022\n\n\006CL"
+  "OSED\020\004\"x\n\010Deadline\022\021\n\ttimestamp\030\001 \001(\003\0221\n"
+  "\014notify_until\030\002 \001(\0132\033.google.protobuf.In"
+  "t64Value\022&\n\006status\030\003 \001(\0162\026.ric.tasks.Tas"
+  "k.Status\"\260\003\n\nMasterTask\022 \n\003oid\030\001 \001(\0132\023.r"
+  "ic.tasks.ObjectId\022\"\n\005owner\030\002 \001(\0132\023.ric.t"
+  "asks.ObjectId\022\"\n\005group\030\003 \001(\0132\023.ric.tasks"
+  ".ObjectId\022!\n\010subtasks\030\004 \003(\0132\017.ric.tasks."
+  "Task\0222\n\tconstrain\030\005 \001(\0162\037.ric.tasks.Mast"
+  "erTask.Constrain\022\014\n\004tags\030\006 \003(\t\0220\n\010priori"
+  "ty\030\007 \001(\0162\036.ric.tasks.MasterTask.Priority"
+  "\022\014\n\004time\030\010 \001(\003\022#\n\006object\030\t \001(\0132\023.ric.tas"
+  "ks.ObjectId\"4\n\tConstrain\022\013\n\007INVALID\020\000\022\r\n"
+  "\tUNORDERED\020\001\022\013\n\007ORDERED\020\002\"8\n\010Priority\022\r\n"
+  "\tUNDEFINED\020\000\022\007\n\003LOW\020\001\022\n\n\006NORMAL\020\002\022\010\n\004HIG"
+  "H\020\003\"`\n\rCreateRequest\022#\n\003ctx\030\001 \001(\0132\026.ric."
+  "tasks.UserContext\022*\n\013master_task\030\002 \001(\0132\025"
+  ".ric.tasks.MasterTask\"V\n\016CreateResponse\022"
+  " \n\003oid\030\001 \001(\0132\023.ric.tasks.ObjectId\022\"\n\007sub"
+  "_ids\030\002 \003(\0132\021.ric.tasks.TaskId\"]\n\nGetRequ"
+  "est\022\"\n\003oid\030\001 \001(\0132\023.ric.tasks.ObjectIdH\000\022"
+  " \n\003tid\030\002 \001(\0132\021.ric.tasks.TaskIdH\000B\t\n\007pay"
+  "load\"9\n\013GetResponse\022*\n\013master_task\030\001 \001(\013"
+  "2\025.ric.tasks.MasterTask\"\205\001\n\rDeleteReques"
+  "t\022#\n\003ctx\030\001 \001(\0132\026.ric.tasks.UserContext\022\""
+  "\n\003oid\030\002 \001(\0132\023.ric.tasks.ObjectIdH\000\022 \n\003ti"
+  "d\030\003 \001(\0132\021.ric.tasks.TaskIdH\000B\t\n\007payload\""
+  "\020\n\016DeleteResponse\"`\n\rUpdateRequest\022#\n\003ct"
+  "x\030\001 \001(\0132\026.ric.tasks.UserContext\022*\n\013maste"
+  "r_task\030\002 \001(\0132\025.ric.tasks.MasterTask\"<\n\016U"
+  "pdateResponse\022*\n\013master_task\030\001 \001(\0132\025.ric"
+  ".tasks.MasterTask\"\315\001\n\022UpdateOrderRequest"
+  "\022#\n\003ctx\030\001 \001(\0132\026.ric.tasks.UserContext\022\037\n"
+  "\002id\030\002 \001(\0132\023.ric.tasks.ObjectId\022\?\n\tpositi"
+  "ons\030\003 \003(\0132,.ric.tasks.UpdateOrderRequest"
+  ".PositionsEntry\0320\n\016PositionsEntry\022\013\n\003key"
+  "\030\001 \001(\t\022\r\n\005value\030\002 \001(\005:\0028\001\"\025\n\023UpdateOrder"
+  "Response\"\371\001\n\023ChangeStatusRequest\022#\n\003ctx\030"
+  "\001 \001(\0132\026.ric.tasks.UserContext\022\035\n\002id\030\002 \001("
+  "\0132\021.ric.tasks.TaskId\022*\n\nnew_status\030\003 \001(\016"
+  "2\026.ric.tasks.Task.Status\022%\n\010location\030\004 \001"
+  "(\0132\023.ric.tasks.Location\022+\n\007success\030\005 \001(\013"
+  "2\032.google.protobuf.BoolValue\022\017\n\007comment\030"
+  "\006 \001(\t\022\r\n\005files\030\007 \003(\t\"\026\n\024ChangeStatusResp"
+  "onse2\231\003\n\005Tasks\022=\n\006Create\022\030.ric.tasks.Cre"
+  "ateRequest\032\031.ric.tasks.CreateResponse\0224\n"
+  "\003Get\022\025.ric.tasks.GetRequest\032\026.ric.tasks."
+  "GetResponse\022=\n\006Update\022\030.ric.tasks.Update"
+  "Request\032\031.ric.tasks.UpdateResponse\022=\n\006De"
+  "lete\022\030.ric.tasks.DeleteRequest\032\031.ric.tas"
+  "ks.DeleteResponse\022L\n\013UpdateOrder\022\035.ric.t"
+  "asks.UpdateOrderRequest\032\036.ric.tasks.Upda"
+  "teOrderResponse\022O\n\014ChangeStatus\022\036.ric.ta"
+  "sks.ChangeStatusRequest\032\037.ric.tasks.Chan"
+  "geStatusResponseB\nZ\010rictasksb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dtasks_2frictasks_2eproto = {
   false, InitDefaults_ric_2dtasks_2frictasks_2eproto, 
   descriptor_table_protodef_ric_2dtasks_2frictasks_2eproto,
-  "ric-tasks/rictasks.proto", &assign_descriptors_table_ric_2dtasks_2frictasks_2eproto, 2783,
+  "ric-tasks/rictasks.proto", &assign_descriptors_table_ric_2dtasks_2frictasks_2eproto, 3036,
 };
 
 void AddDescriptors_ric_2dtasks_2frictasks_2eproto() {
@@ -825,6 +871,449 @@ const MasterTask_Priority MasterTask::Priority_MIN;
 const MasterTask_Priority MasterTask::Priority_MAX;
 const int MasterTask::Priority_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+// ===================================================================
+
+void UserContext::InitAsDefaultInstance() {
+}
+class UserContext::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UserContext::kGroupIdFieldNumber;
+const int UserContext::kUserIdFieldNumber;
+const int UserContext::kSpanIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+UserContext::UserContext()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.tasks.UserContext)
+}
+UserContext::UserContext(const UserContext& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  group_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.group_id().size() > 0) {
+    group_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_id_);
+  }
+  user_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.user_id().size() > 0) {
+    user_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_id_);
+  }
+  span_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.span_id().size() > 0) {
+    span_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.span_id_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.tasks.UserContext)
+}
+
+void UserContext::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_UserContext_ric_2dtasks_2frictasks_2eproto.base);
+  group_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  span_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+UserContext::~UserContext() {
+  // @@protoc_insertion_point(destructor:ric.tasks.UserContext)
+  SharedDtor();
+}
+
+void UserContext::SharedDtor() {
+  group_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  span_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void UserContext::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const UserContext& UserContext::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_UserContext_ric_2dtasks_2frictasks_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void UserContext::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.tasks.UserContext)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  group_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  span_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* UserContext::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<UserContext*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // string group_id = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.tasks.UserContext.group_id");
+        object = msg->mutable_group_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string user_id = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.tasks.UserContext.user_id");
+        object = msg->mutable_user_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string span_id = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.tasks.UserContext.span_id");
+        object = msg->mutable_span_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool UserContext::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.tasks.UserContext)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string group_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_group_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->group_id().data(), static_cast<int>(this->group_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.tasks.UserContext.group_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string user_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_user_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->user_id().data(), static_cast<int>(this->user_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.tasks.UserContext.user_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string span_id = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_span_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->span_id().data(), static_cast<int>(this->span_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.tasks.UserContext.span_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.tasks.UserContext)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.tasks.UserContext)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void UserContext::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.tasks.UserContext)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string group_id = 1;
+  if (this->group_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->group_id().data(), static_cast<int>(this->group_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.tasks.UserContext.group_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->group_id(), output);
+  }
+
+  // string user_id = 2;
+  if (this->user_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_id().data(), static_cast<int>(this->user_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.tasks.UserContext.user_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->user_id(), output);
+  }
+
+  // string span_id = 3;
+  if (this->span_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->span_id().data(), static_cast<int>(this->span_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.tasks.UserContext.span_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->span_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.tasks.UserContext)
+}
+
+::google::protobuf::uint8* UserContext::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.tasks.UserContext)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string group_id = 1;
+  if (this->group_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->group_id().data(), static_cast<int>(this->group_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.tasks.UserContext.group_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->group_id(), target);
+  }
+
+  // string user_id = 2;
+  if (this->user_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->user_id().data(), static_cast<int>(this->user_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.tasks.UserContext.user_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->user_id(), target);
+  }
+
+  // string span_id = 3;
+  if (this->span_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->span_id().data(), static_cast<int>(this->span_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.tasks.UserContext.span_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->span_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.tasks.UserContext)
+  return target;
+}
+
+size_t UserContext::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.tasks.UserContext)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string group_id = 1;
+  if (this->group_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->group_id());
+  }
+
+  // string user_id = 2;
+  if (this->user_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_id());
+  }
+
+  // string span_id = 3;
+  if (this->span_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->span_id());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void UserContext::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.tasks.UserContext)
+  GOOGLE_DCHECK_NE(&from, this);
+  const UserContext* source =
+      ::google::protobuf::DynamicCastToGenerated<UserContext>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.tasks.UserContext)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.tasks.UserContext)
+    MergeFrom(*source);
+  }
+}
+
+void UserContext::MergeFrom(const UserContext& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.tasks.UserContext)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.group_id().size() > 0) {
+
+    group_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_id_);
+  }
+  if (from.user_id().size() > 0) {
+
+    user_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_id_);
+  }
+  if (from.span_id().size() > 0) {
+
+    span_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.span_id_);
+  }
+}
+
+void UserContext::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.tasks.UserContext)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UserContext::CopyFrom(const UserContext& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.tasks.UserContext)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UserContext::IsInitialized() const {
+  return true;
+}
+
+void UserContext::Swap(UserContext* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void UserContext::InternalSwap(UserContext* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  group_id_.Swap(&other->group_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  user_id_.Swap(&other->user_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  span_id_.Swap(&other->span_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+}
+
+::google::protobuf::Metadata UserContext::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dtasks_2frictasks_2eproto);
+  return ::file_level_metadata_ric_2dtasks_2frictasks_2eproto[kIndexInFileMessages];
+}
+
 
 // ===================================================================
 
@@ -4652,19 +5141,27 @@ void MasterTask::InternalSwap(MasterTask* other) {
 // ===================================================================
 
 void CreateRequest::InitAsDefaultInstance() {
+  ::ric::tasks::_CreateRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::tasks::UserContext*>(
+      ::ric::tasks::UserContext::internal_default_instance());
   ::ric::tasks::_CreateRequest_default_instance_._instance.get_mutable()->master_task_ = const_cast< ::ric::tasks::MasterTask*>(
       ::ric::tasks::MasterTask::internal_default_instance());
 }
 class CreateRequest::HasBitSetters {
  public:
+  static const ::ric::tasks::UserContext& ctx(const CreateRequest* msg);
   static const ::ric::tasks::MasterTask& master_task(const CreateRequest* msg);
 };
 
+const ::ric::tasks::UserContext&
+CreateRequest::HasBitSetters::ctx(const CreateRequest* msg) {
+  return *msg->ctx_;
+}
 const ::ric::tasks::MasterTask&
 CreateRequest::HasBitSetters::master_task(const CreateRequest* msg) {
   return *msg->master_task_;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int CreateRequest::kCtxFieldNumber;
 const int CreateRequest::kMasterTaskFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -4677,6 +5174,11 @@ CreateRequest::CreateRequest(const CreateRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_ctx()) {
+    ctx_ = new ::ric::tasks::UserContext(*from.ctx_);
+  } else {
+    ctx_ = nullptr;
+  }
   if (from.has_master_task()) {
     master_task_ = new ::ric::tasks::MasterTask(*from.master_task_);
   } else {
@@ -4688,7 +5190,9 @@ CreateRequest::CreateRequest(const CreateRequest& from)
 void CreateRequest::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_CreateRequest_ric_2dtasks_2frictasks_2eproto.base);
-  master_task_ = nullptr;
+  ::memset(&ctx_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&master_task_) -
+      reinterpret_cast<char*>(&ctx_)) + sizeof(master_task_));
 }
 
 CreateRequest::~CreateRequest() {
@@ -4697,6 +5201,7 @@ CreateRequest::~CreateRequest() {
 }
 
 void CreateRequest::SharedDtor() {
+  if (this != internal_default_instance()) delete ctx_;
   if (this != internal_default_instance()) delete master_task_;
 }
 
@@ -4715,6 +5220,10 @@ void CreateRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
+    delete ctx_;
+  }
+  ctx_ = nullptr;
   if (GetArenaNoVirtual() == nullptr && master_task_ != nullptr) {
     delete master_task_;
   }
@@ -4735,9 +5244,22 @@ const char* CreateRequest::_InternalParse(const char* begin, const char* end, vo
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // .ric.tasks.MasterTask master_task = 1;
+      // .ric.tasks.UserContext ctx = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::ric::tasks::UserContext::_InternalParse;
+        object = msg->mutable_ctx();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // .ric.tasks.MasterTask master_task = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::ric::tasks::MasterTask::_InternalParse;
@@ -4778,9 +5300,20 @@ bool CreateRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .ric.tasks.MasterTask master_task = 1;
+      // .ric.tasks.UserContext ctx = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_ctx()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .ric.tasks.MasterTask master_task = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_master_task()));
         } else {
@@ -4816,10 +5349,16 @@ void CreateRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.tasks.MasterTask master_task = 1;
+  // .ric.tasks.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, HasBitSetters::ctx(this), output);
+  }
+
+  // .ric.tasks.MasterTask master_task = 2;
   if (this->has_master_task()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, HasBitSetters::master_task(this), output);
+      2, HasBitSetters::master_task(this), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4835,11 +5374,18 @@ void CreateRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.tasks.MasterTask master_task = 1;
+  // .ric.tasks.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, HasBitSetters::ctx(this), target);
+  }
+
+  // .ric.tasks.MasterTask master_task = 2;
   if (this->has_master_task()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, HasBitSetters::master_task(this), target);
+        2, HasBitSetters::master_task(this), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4863,7 +5409,14 @@ size_t CreateRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .ric.tasks.MasterTask master_task = 1;
+  // .ric.tasks.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *ctx_);
+  }
+
+  // .ric.tasks.MasterTask master_task = 2;
   if (this->has_master_task()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -4897,6 +5450,9 @@ void CreateRequest::MergeFrom(const CreateRequest& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.has_ctx()) {
+    mutable_ctx()->::ric::tasks::UserContext::MergeFrom(from.ctx());
+  }
   if (from.has_master_task()) {
     mutable_master_task()->::ric::tasks::MasterTask::MergeFrom(from.master_task());
   }
@@ -4927,6 +5483,7 @@ void CreateRequest::Swap(CreateRequest* other) {
 void CreateRequest::InternalSwap(CreateRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(ctx_, other->ctx_);
   swap(master_task_, other->master_task_);
 }
 
@@ -5983,6 +6540,8 @@ void GetResponse::InternalSwap(GetResponse* other) {
 // ===================================================================
 
 void DeleteRequest::InitAsDefaultInstance() {
+  ::ric::tasks::_DeleteRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::tasks::UserContext*>(
+      ::ric::tasks::UserContext::internal_default_instance());
   ::ric::tasks::_DeleteRequest_default_instance_.oid_ = const_cast< ::ric::tasks::ObjectId*>(
       ::ric::tasks::ObjectId::internal_default_instance());
   ::ric::tasks::_DeleteRequest_default_instance_.tid_ = const_cast< ::ric::tasks::TaskId*>(
@@ -5990,10 +6549,15 @@ void DeleteRequest::InitAsDefaultInstance() {
 }
 class DeleteRequest::HasBitSetters {
  public:
+  static const ::ric::tasks::UserContext& ctx(const DeleteRequest* msg);
   static const ::ric::tasks::ObjectId& oid(const DeleteRequest* msg);
   static const ::ric::tasks::TaskId& tid(const DeleteRequest* msg);
 };
 
+const ::ric::tasks::UserContext&
+DeleteRequest::HasBitSetters::ctx(const DeleteRequest* msg) {
+  return *msg->ctx_;
+}
 const ::ric::tasks::ObjectId&
 DeleteRequest::HasBitSetters::oid(const DeleteRequest* msg) {
   return *msg->payload_.oid_;
@@ -6031,6 +6595,7 @@ void DeleteRequest::set_allocated_tid(::ric::tasks::TaskId* tid) {
   // @@protoc_insertion_point(field_set_allocated:ric.tasks.DeleteRequest.tid)
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int DeleteRequest::kCtxFieldNumber;
 const int DeleteRequest::kOidFieldNumber;
 const int DeleteRequest::kTidFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -6044,6 +6609,11 @@ DeleteRequest::DeleteRequest(const DeleteRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_ctx()) {
+    ctx_ = new ::ric::tasks::UserContext(*from.ctx_);
+  } else {
+    ctx_ = nullptr;
+  }
   clear_has_payload();
   switch (from.payload_case()) {
     case kOid: {
@@ -6064,6 +6634,7 @@ DeleteRequest::DeleteRequest(const DeleteRequest& from)
 void DeleteRequest::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_DeleteRequest_ric_2dtasks_2frictasks_2eproto.base);
+  ctx_ = nullptr;
   clear_has_payload();
 }
 
@@ -6073,6 +6644,7 @@ DeleteRequest::~DeleteRequest() {
 }
 
 void DeleteRequest::SharedDtor() {
+  if (this != internal_default_instance()) delete ctx_;
   if (has_payload()) {
     clear_payload();
   }
@@ -6112,6 +6684,10 @@ void DeleteRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
+    delete ctx_;
+  }
+  ctx_ = nullptr;
   clear_payload();
   _internal_metadata_.Clear();
 }
@@ -6129,9 +6705,22 @@ const char* DeleteRequest::_InternalParse(const char* begin, const char* end, vo
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // .ric.tasks.ObjectId oid = 1;
+      // .ric.tasks.UserContext ctx = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::ric::tasks::UserContext::_InternalParse;
+        object = msg->mutable_ctx();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // .ric.tasks.ObjectId oid = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::ric::tasks::ObjectId::_InternalParse;
@@ -6142,9 +6731,9 @@ const char* DeleteRequest::_InternalParse(const char* begin, const char* end, vo
             {parser_till_end, object}, ptr - size, ptr));
         break;
       }
-      // .ric.tasks.TaskId tid = 2;
-      case 2: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+      // .ric.tasks.TaskId tid = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::ric::tasks::TaskId::_InternalParse;
@@ -6185,9 +6774,20 @@ bool DeleteRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .ric.tasks.ObjectId oid = 1;
+      // .ric.tasks.UserContext ctx = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_ctx()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .ric.tasks.ObjectId oid = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_oid()));
         } else {
@@ -6196,9 +6796,9 @@ bool DeleteRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // .ric.tasks.TaskId tid = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+      // .ric.tasks.TaskId tid = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_tid()));
         } else {
@@ -6234,16 +6834,22 @@ void DeleteRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.tasks.ObjectId oid = 1;
-  if (has_oid()) {
+  // .ric.tasks.UserContext ctx = 1;
+  if (this->has_ctx()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, HasBitSetters::oid(this), output);
+      1, HasBitSetters::ctx(this), output);
   }
 
-  // .ric.tasks.TaskId tid = 2;
+  // .ric.tasks.ObjectId oid = 2;
+  if (has_oid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, HasBitSetters::oid(this), output);
+  }
+
+  // .ric.tasks.TaskId tid = 3;
   if (has_tid()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, HasBitSetters::tid(this), output);
+      3, HasBitSetters::tid(this), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6259,18 +6865,25 @@ void DeleteRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.tasks.ObjectId oid = 1;
+  // .ric.tasks.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, HasBitSetters::ctx(this), target);
+  }
+
+  // .ric.tasks.ObjectId oid = 2;
   if (has_oid()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, HasBitSetters::oid(this), target);
+        2, HasBitSetters::oid(this), target);
   }
 
-  // .ric.tasks.TaskId tid = 2;
+  // .ric.tasks.TaskId tid = 3;
   if (has_tid()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        2, HasBitSetters::tid(this), target);
+        3, HasBitSetters::tid(this), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6294,15 +6907,22 @@ size_t DeleteRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // .ric.tasks.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *ctx_);
+  }
+
   switch (payload_case()) {
-    // .ric.tasks.ObjectId oid = 1;
+    // .ric.tasks.ObjectId oid = 2;
     case kOid: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
           *payload_.oid_);
       break;
     }
-    // .ric.tasks.TaskId tid = 2;
+    // .ric.tasks.TaskId tid = 3;
     case kTid: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -6340,6 +6960,9 @@ void DeleteRequest::MergeFrom(const DeleteRequest& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.has_ctx()) {
+    mutable_ctx()->::ric::tasks::UserContext::MergeFrom(from.ctx());
+  }
   switch (from.payload_case()) {
     case kOid: {
       mutable_oid()->::ric::tasks::ObjectId::MergeFrom(from.oid());
@@ -6380,6 +7003,7 @@ void DeleteRequest::Swap(DeleteRequest* other) {
 void DeleteRequest::InternalSwap(DeleteRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(ctx_, other->ctx_);
   swap(payload_, other->payload_);
   swap(_oneof_case_[0], other->_oneof_case_[0]);
 }
@@ -6602,19 +7226,27 @@ void DeleteResponse::InternalSwap(DeleteResponse* other) {
 // ===================================================================
 
 void UpdateRequest::InitAsDefaultInstance() {
+  ::ric::tasks::_UpdateRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::tasks::UserContext*>(
+      ::ric::tasks::UserContext::internal_default_instance());
   ::ric::tasks::_UpdateRequest_default_instance_._instance.get_mutable()->master_task_ = const_cast< ::ric::tasks::MasterTask*>(
       ::ric::tasks::MasterTask::internal_default_instance());
 }
 class UpdateRequest::HasBitSetters {
  public:
+  static const ::ric::tasks::UserContext& ctx(const UpdateRequest* msg);
   static const ::ric::tasks::MasterTask& master_task(const UpdateRequest* msg);
 };
 
+const ::ric::tasks::UserContext&
+UpdateRequest::HasBitSetters::ctx(const UpdateRequest* msg) {
+  return *msg->ctx_;
+}
 const ::ric::tasks::MasterTask&
 UpdateRequest::HasBitSetters::master_task(const UpdateRequest* msg) {
   return *msg->master_task_;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UpdateRequest::kCtxFieldNumber;
 const int UpdateRequest::kMasterTaskFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -6627,6 +7259,11 @@ UpdateRequest::UpdateRequest(const UpdateRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_ctx()) {
+    ctx_ = new ::ric::tasks::UserContext(*from.ctx_);
+  } else {
+    ctx_ = nullptr;
+  }
   if (from.has_master_task()) {
     master_task_ = new ::ric::tasks::MasterTask(*from.master_task_);
   } else {
@@ -6638,7 +7275,9 @@ UpdateRequest::UpdateRequest(const UpdateRequest& from)
 void UpdateRequest::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_UpdateRequest_ric_2dtasks_2frictasks_2eproto.base);
-  master_task_ = nullptr;
+  ::memset(&ctx_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&master_task_) -
+      reinterpret_cast<char*>(&ctx_)) + sizeof(master_task_));
 }
 
 UpdateRequest::~UpdateRequest() {
@@ -6647,6 +7286,7 @@ UpdateRequest::~UpdateRequest() {
 }
 
 void UpdateRequest::SharedDtor() {
+  if (this != internal_default_instance()) delete ctx_;
   if (this != internal_default_instance()) delete master_task_;
 }
 
@@ -6665,6 +7305,10 @@ void UpdateRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
+    delete ctx_;
+  }
+  ctx_ = nullptr;
   if (GetArenaNoVirtual() == nullptr && master_task_ != nullptr) {
     delete master_task_;
   }
@@ -6685,9 +7329,22 @@ const char* UpdateRequest::_InternalParse(const char* begin, const char* end, vo
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // .ric.tasks.MasterTask master_task = 1;
+      // .ric.tasks.UserContext ctx = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::ric::tasks::UserContext::_InternalParse;
+        object = msg->mutable_ctx();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // .ric.tasks.MasterTask master_task = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::ric::tasks::MasterTask::_InternalParse;
@@ -6728,9 +7385,20 @@ bool UpdateRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .ric.tasks.MasterTask master_task = 1;
+      // .ric.tasks.UserContext ctx = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_ctx()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .ric.tasks.MasterTask master_task = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_master_task()));
         } else {
@@ -6766,10 +7434,16 @@ void UpdateRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.tasks.MasterTask master_task = 1;
+  // .ric.tasks.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, HasBitSetters::ctx(this), output);
+  }
+
+  // .ric.tasks.MasterTask master_task = 2;
   if (this->has_master_task()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, HasBitSetters::master_task(this), output);
+      2, HasBitSetters::master_task(this), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6785,11 +7459,18 @@ void UpdateRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.tasks.MasterTask master_task = 1;
+  // .ric.tasks.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, HasBitSetters::ctx(this), target);
+  }
+
+  // .ric.tasks.MasterTask master_task = 2;
   if (this->has_master_task()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, HasBitSetters::master_task(this), target);
+        2, HasBitSetters::master_task(this), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6813,7 +7494,14 @@ size_t UpdateRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .ric.tasks.MasterTask master_task = 1;
+  // .ric.tasks.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *ctx_);
+  }
+
+  // .ric.tasks.MasterTask master_task = 2;
   if (this->has_master_task()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -6847,6 +7535,9 @@ void UpdateRequest::MergeFrom(const UpdateRequest& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.has_ctx()) {
+    mutable_ctx()->::ric::tasks::UserContext::MergeFrom(from.ctx());
+  }
   if (from.has_master_task()) {
     mutable_master_task()->::ric::tasks::MasterTask::MergeFrom(from.master_task());
   }
@@ -6877,6 +7568,7 @@ void UpdateRequest::Swap(UpdateRequest* other) {
 void UpdateRequest::InternalSwap(UpdateRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(ctx_, other->ctx_);
   swap(master_task_, other->master_task_);
 }
 
@@ -7183,7 +7875,7 @@ void UpdateOrderRequest_PositionsEntry_DoNotUse::MergeFrom(const UpdateOrderRequ
 }
 ::google::protobuf::Metadata UpdateOrderRequest_PositionsEntry_DoNotUse::GetMetadata() const {
   ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dtasks_2frictasks_2eproto);
-  return ::file_level_metadata_ric_2dtasks_2frictasks_2eproto[15];
+  return ::file_level_metadata_ric_2dtasks_2frictasks_2eproto[16];
 }
 void UpdateOrderRequest_PositionsEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -7213,19 +7905,27 @@ bool UpdateOrderRequest_PositionsEntry_DoNotUse::_ParseMap(const char* begin, co
 // ===================================================================
 
 void UpdateOrderRequest::InitAsDefaultInstance() {
+  ::ric::tasks::_UpdateOrderRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::tasks::UserContext*>(
+      ::ric::tasks::UserContext::internal_default_instance());
   ::ric::tasks::_UpdateOrderRequest_default_instance_._instance.get_mutable()->id_ = const_cast< ::ric::tasks::ObjectId*>(
       ::ric::tasks::ObjectId::internal_default_instance());
 }
 class UpdateOrderRequest::HasBitSetters {
  public:
+  static const ::ric::tasks::UserContext& ctx(const UpdateOrderRequest* msg);
   static const ::ric::tasks::ObjectId& id(const UpdateOrderRequest* msg);
 };
 
+const ::ric::tasks::UserContext&
+UpdateOrderRequest::HasBitSetters::ctx(const UpdateOrderRequest* msg) {
+  return *msg->ctx_;
+}
 const ::ric::tasks::ObjectId&
 UpdateOrderRequest::HasBitSetters::id(const UpdateOrderRequest* msg) {
   return *msg->id_;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UpdateOrderRequest::kCtxFieldNumber;
 const int UpdateOrderRequest::kIdFieldNumber;
 const int UpdateOrderRequest::kPositionsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -7240,6 +7940,11 @@ UpdateOrderRequest::UpdateOrderRequest(const UpdateOrderRequest& from)
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   positions_.MergeFrom(from.positions_);
+  if (from.has_ctx()) {
+    ctx_ = new ::ric::tasks::UserContext(*from.ctx_);
+  } else {
+    ctx_ = nullptr;
+  }
   if (from.has_id()) {
     id_ = new ::ric::tasks::ObjectId(*from.id_);
   } else {
@@ -7251,7 +7956,9 @@ UpdateOrderRequest::UpdateOrderRequest(const UpdateOrderRequest& from)
 void UpdateOrderRequest::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_UpdateOrderRequest_ric_2dtasks_2frictasks_2eproto.base);
-  id_ = nullptr;
+  ::memset(&ctx_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&id_) -
+      reinterpret_cast<char*>(&ctx_)) + sizeof(id_));
 }
 
 UpdateOrderRequest::~UpdateOrderRequest() {
@@ -7260,6 +7967,7 @@ UpdateOrderRequest::~UpdateOrderRequest() {
 }
 
 void UpdateOrderRequest::SharedDtor() {
+  if (this != internal_default_instance()) delete ctx_;
   if (this != internal_default_instance()) delete id_;
 }
 
@@ -7279,6 +7987,10 @@ void UpdateOrderRequest::Clear() {
   (void) cached_has_bits;
 
   positions_.Clear();
+  if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
+    delete ctx_;
+  }
+  ctx_ = nullptr;
   if (GetArenaNoVirtual() == nullptr && id_ != nullptr) {
     delete id_;
   }
@@ -7299,9 +8011,22 @@ const char* UpdateOrderRequest::_InternalParse(const char* begin, const char* en
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // .ric.tasks.ObjectId id = 1;
+      // .ric.tasks.UserContext ctx = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::ric::tasks::UserContext::_InternalParse;
+        object = msg->mutable_ctx();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // .ric.tasks.ObjectId id = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::ric::tasks::ObjectId::_InternalParse;
@@ -7312,9 +8037,9 @@ const char* UpdateOrderRequest::_InternalParse(const char* begin, const char* en
             {parser_till_end, object}, ptr - size, ptr));
         break;
       }
-      // map<string, int32> positions = 2;
-      case 2: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+      // map<string, int32> positions = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
         do {
           ptr = ::google::protobuf::io::ReadSize(ptr, &size);
           GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
@@ -7328,7 +8053,7 @@ const char* UpdateOrderRequest::_InternalParse(const char* begin, const char* en
           GOOGLE_PROTOBUF_PARSER_ASSERT(parse_map(ptr, newend, object, ctx));
           ptr = newend;
           if (ptr >= end) break;
-        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 18 && (ptr += 1));
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 26 && (ptr += 1));
         break;
       }
       default: {
@@ -7361,9 +8086,20 @@ bool UpdateOrderRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .ric.tasks.ObjectId id = 1;
+      // .ric.tasks.UserContext ctx = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_ctx()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .ric.tasks.ObjectId id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_id()));
         } else {
@@ -7372,9 +8108,9 @@ bool UpdateOrderRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // map<string, int32> positions = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+      // map<string, int32> positions = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
           UpdateOrderRequest_PositionsEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
               UpdateOrderRequest_PositionsEntry_DoNotUse,
               ::std::string, ::google::protobuf::int32,
@@ -7421,13 +8157,19 @@ void UpdateOrderRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.tasks.ObjectId id = 1;
-  if (this->has_id()) {
+  // .ric.tasks.UserContext ctx = 1;
+  if (this->has_ctx()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, HasBitSetters::id(this), output);
+      1, HasBitSetters::ctx(this), output);
   }
 
-  // map<string, int32> positions = 2;
+  // .ric.tasks.ObjectId id = 2;
+  if (this->has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, HasBitSetters::id(this), output);
+  }
+
+  // map<string, int32> positions = 3;
   if (!this->positions().empty()) {
     typedef ::google::protobuf::Map< ::std::string, ::google::protobuf::int32 >::const_pointer
         ConstPtr;
@@ -7457,7 +8199,7 @@ void UpdateOrderRequest::SerializeWithCachedSizes(
       ::std::unique_ptr<UpdateOrderRequest_PositionsEntry_DoNotUse> entry;
       for (size_type i = 0; i < n; i++) {
         entry.reset(positions_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(2, *entry, output);
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(3, *entry, output);
         Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
       }
     } else {
@@ -7466,7 +8208,7 @@ void UpdateOrderRequest::SerializeWithCachedSizes(
           it = this->positions().begin();
           it != this->positions().end(); ++it) {
         entry.reset(positions_.NewEntryWrapper(it->first, it->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(2, *entry, output);
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(3, *entry, output);
         Utf8Check::Check(&(*it));
       }
     }
@@ -7485,14 +8227,21 @@ void UpdateOrderRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.tasks.ObjectId id = 1;
+  // .ric.tasks.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, HasBitSetters::ctx(this), target);
+  }
+
+  // .ric.tasks.ObjectId id = 2;
   if (this->has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, HasBitSetters::id(this), target);
+        2, HasBitSetters::id(this), target);
   }
 
-  // map<string, int32> positions = 2;
+  // map<string, int32> positions = 3;
   if (!this->positions().empty()) {
     typedef ::google::protobuf::Map< ::std::string, ::google::protobuf::int32 >::const_pointer
         ConstPtr;
@@ -7522,7 +8271,7 @@ void UpdateOrderRequest::SerializeWithCachedSizes(
       ::std::unique_ptr<UpdateOrderRequest_PositionsEntry_DoNotUse> entry;
       for (size_type i = 0; i < n; i++) {
         entry.reset(positions_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
-        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(2, *entry, target);
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(3, *entry, target);
         Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
       }
     } else {
@@ -7531,7 +8280,7 @@ void UpdateOrderRequest::SerializeWithCachedSizes(
           it = this->positions().begin();
           it != this->positions().end(); ++it) {
         entry.reset(positions_.NewEntryWrapper(it->first, it->second));
-        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(2, *entry, target);
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(3, *entry, target);
         Utf8Check::Check(&(*it));
       }
     }
@@ -7558,7 +8307,7 @@ size_t UpdateOrderRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // map<string, int32> positions = 2;
+  // map<string, int32> positions = 3;
   total_size += 1 *
       ::google::protobuf::internal::FromIntSize(this->positions_size());
   {
@@ -7572,7 +8321,14 @@ size_t UpdateOrderRequest::ByteSizeLong() const {
     }
   }
 
-  // .ric.tasks.ObjectId id = 1;
+  // .ric.tasks.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *ctx_);
+  }
+
+  // .ric.tasks.ObjectId id = 2;
   if (this->has_id()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -7607,6 +8363,9 @@ void UpdateOrderRequest::MergeFrom(const UpdateOrderRequest& from) {
   (void) cached_has_bits;
 
   positions_.MergeFrom(from.positions_);
+  if (from.has_ctx()) {
+    mutable_ctx()->::ric::tasks::UserContext::MergeFrom(from.ctx());
+  }
   if (from.has_id()) {
     mutable_id()->::ric::tasks::ObjectId::MergeFrom(from.id());
   }
@@ -7638,6 +8397,7 @@ void UpdateOrderRequest::InternalSwap(UpdateOrderRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   positions_.Swap(&other->positions_);
+  swap(ctx_, other->ctx_);
   swap(id_, other->id_);
 }
 
@@ -7859,6 +8619,8 @@ void UpdateOrderResponse::InternalSwap(UpdateOrderResponse* other) {
 // ===================================================================
 
 void ChangeStatusRequest::InitAsDefaultInstance() {
+  ::ric::tasks::_ChangeStatusRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::tasks::UserContext*>(
+      ::ric::tasks::UserContext::internal_default_instance());
   ::ric::tasks::_ChangeStatusRequest_default_instance_._instance.get_mutable()->id_ = const_cast< ::ric::tasks::TaskId*>(
       ::ric::tasks::TaskId::internal_default_instance());
   ::ric::tasks::_ChangeStatusRequest_default_instance_._instance.get_mutable()->location_ = const_cast< ::ric::tasks::Location*>(
@@ -7868,11 +8630,16 @@ void ChangeStatusRequest::InitAsDefaultInstance() {
 }
 class ChangeStatusRequest::HasBitSetters {
  public:
+  static const ::ric::tasks::UserContext& ctx(const ChangeStatusRequest* msg);
   static const ::ric::tasks::TaskId& id(const ChangeStatusRequest* msg);
   static const ::ric::tasks::Location& location(const ChangeStatusRequest* msg);
   static const ::google::protobuf::BoolValue& success(const ChangeStatusRequest* msg);
 };
 
+const ::ric::tasks::UserContext&
+ChangeStatusRequest::HasBitSetters::ctx(const ChangeStatusRequest* msg) {
+  return *msg->ctx_;
+}
 const ::ric::tasks::TaskId&
 ChangeStatusRequest::HasBitSetters::id(const ChangeStatusRequest* msg) {
   return *msg->id_;
@@ -7892,6 +8659,7 @@ void ChangeStatusRequest::clear_success() {
   success_ = nullptr;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int ChangeStatusRequest::kCtxFieldNumber;
 const int ChangeStatusRequest::kIdFieldNumber;
 const int ChangeStatusRequest::kNewStatusFieldNumber;
 const int ChangeStatusRequest::kLocationFieldNumber;
@@ -7913,6 +8681,11 @@ ChangeStatusRequest::ChangeStatusRequest(const ChangeStatusRequest& from)
   comment_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.comment().size() > 0) {
     comment_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.comment_);
+  }
+  if (from.has_ctx()) {
+    ctx_ = new ::ric::tasks::UserContext(*from.ctx_);
+  } else {
+    ctx_ = nullptr;
   }
   if (from.has_id()) {
     id_ = new ::ric::tasks::TaskId(*from.id_);
@@ -7937,9 +8710,9 @@ void ChangeStatusRequest::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_ChangeStatusRequest_ric_2dtasks_2frictasks_2eproto.base);
   comment_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&id_, 0, static_cast<size_t>(
+  ::memset(&ctx_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&new_status_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(new_status_));
+      reinterpret_cast<char*>(&ctx_)) + sizeof(new_status_));
 }
 
 ChangeStatusRequest::~ChangeStatusRequest() {
@@ -7949,6 +8722,7 @@ ChangeStatusRequest::~ChangeStatusRequest() {
 
 void ChangeStatusRequest::SharedDtor() {
   comment_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete ctx_;
   if (this != internal_default_instance()) delete id_;
   if (this != internal_default_instance()) delete location_;
   if (this != internal_default_instance()) delete success_;
@@ -7971,6 +8745,10 @@ void ChangeStatusRequest::Clear() {
 
   files_.Clear();
   comment_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
+    delete ctx_;
+  }
+  ctx_ = nullptr;
   if (GetArenaNoVirtual() == nullptr && id_ != nullptr) {
     delete id_;
   }
@@ -8000,9 +8778,22 @@ const char* ChangeStatusRequest::_InternalParse(const char* begin, const char* e
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // .ric.tasks.TaskId id = 1;
+      // .ric.tasks.UserContext ctx = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::ric::tasks::UserContext::_InternalParse;
+        object = msg->mutable_ctx();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // .ric.tasks.TaskId id = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::ric::tasks::TaskId::_InternalParse;
@@ -8013,17 +8804,17 @@ const char* ChangeStatusRequest::_InternalParse(const char* begin, const char* e
             {parser_till_end, object}, ptr - size, ptr));
         break;
       }
-      // .ric.tasks.Task.Status new_status = 2;
-      case 2: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 16) goto handle_unusual;
+      // .ric.tasks.Task.Status new_status = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
         ::google::protobuf::uint64 val = ::google::protobuf::internal::ReadVarint(&ptr);
         msg->set_new_status(static_cast<::ric::tasks::Task_Status>(val));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // .ric.tasks.Location location = 3;
-      case 3: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+      // .ric.tasks.Location location = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::ric::tasks::Location::_InternalParse;
@@ -8034,9 +8825,9 @@ const char* ChangeStatusRequest::_InternalParse(const char* begin, const char* e
             {parser_till_end, object}, ptr - size, ptr));
         break;
       }
-      // .google.protobuf.BoolValue success = 4;
-      case 4: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+      // .google.protobuf.BoolValue success = 5;
+      case 5: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 42) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::google::protobuf::BoolValue::_InternalParse;
@@ -8047,9 +8838,9 @@ const char* ChangeStatusRequest::_InternalParse(const char* begin, const char* e
             {parser_till_end, object}, ptr - size, ptr));
         break;
       }
-      // string comment = 5;
-      case 5: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 42) goto handle_unusual;
+      // string comment = 6;
+      case 6: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         ctx->extra_parse_data().SetFieldName("ric.tasks.ChangeStatusRequest.comment");
@@ -8063,9 +8854,9 @@ const char* ChangeStatusRequest::_InternalParse(const char* begin, const char* e
         ptr += size;
         break;
       }
-      // repeated string files = 6;
-      case 6: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
+      // repeated string files = 7;
+      case 7: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 58) goto handle_unusual;
         do {
           ptr = ::google::protobuf::io::ReadSize(ptr, &size);
           GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
@@ -8079,7 +8870,7 @@ const char* ChangeStatusRequest::_InternalParse(const char* begin, const char* e
           ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
           ptr += size;
           if (ptr >= end) break;
-        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 50 && (ptr += 1));
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 58 && (ptr += 1));
         break;
       }
       default: {
@@ -8116,9 +8907,20 @@ bool ChangeStatusRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .ric.tasks.TaskId id = 1;
+      // .ric.tasks.UserContext ctx = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_ctx()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .ric.tasks.TaskId id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_id()));
         } else {
@@ -8127,9 +8929,9 @@ bool ChangeStatusRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // .ric.tasks.Task.Status new_status = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (16 & 0xFF)) {
+      // .ric.tasks.Task.Status new_status = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
           int value = 0;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -8141,9 +8943,9 @@ bool ChangeStatusRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // .ric.tasks.Location location = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+      // .ric.tasks.Location location = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_location()));
         } else {
@@ -8152,9 +8954,9 @@ bool ChangeStatusRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // .google.protobuf.BoolValue success = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+      // .google.protobuf.BoolValue success = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (42 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_success()));
         } else {
@@ -8163,9 +8965,9 @@ bool ChangeStatusRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // string comment = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (42 & 0xFF)) {
+      // string comment = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_comment()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -8178,9 +8980,9 @@ bool ChangeStatusRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated string files = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
+      // repeated string files = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (58 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->add_files()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -8221,48 +9023,54 @@ void ChangeStatusRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.tasks.TaskId id = 1;
+  // .ric.tasks.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, HasBitSetters::ctx(this), output);
+  }
+
+  // .ric.tasks.TaskId id = 2;
   if (this->has_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, HasBitSetters::id(this), output);
+      2, HasBitSetters::id(this), output);
   }
 
-  // .ric.tasks.Task.Status new_status = 2;
+  // .ric.tasks.Task.Status new_status = 3;
   if (this->new_status() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      2, this->new_status(), output);
+      3, this->new_status(), output);
   }
 
-  // .ric.tasks.Location location = 3;
+  // .ric.tasks.Location location = 4;
   if (this->has_location()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, HasBitSetters::location(this), output);
+      4, HasBitSetters::location(this), output);
   }
 
-  // .google.protobuf.BoolValue success = 4;
+  // .google.protobuf.BoolValue success = 5;
   if (this->has_success()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, HasBitSetters::success(this), output);
+      5, HasBitSetters::success(this), output);
   }
 
-  // string comment = 5;
+  // string comment = 6;
   if (this->comment().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->comment().data(), static_cast<int>(this->comment().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "ric.tasks.ChangeStatusRequest.comment");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->comment(), output);
+      6, this->comment(), output);
   }
 
-  // repeated string files = 6;
+  // repeated string files = 7;
   for (int i = 0, n = this->files_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->files(i).data(), static_cast<int>(this->files(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "ric.tasks.ChangeStatusRequest.files");
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      6, this->files(i), output);
+      7, this->files(i), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -8278,34 +9086,41 @@ void ChangeStatusRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.tasks.TaskId id = 1;
+  // .ric.tasks.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, HasBitSetters::ctx(this), target);
+  }
+
+  // .ric.tasks.TaskId id = 2;
   if (this->has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, HasBitSetters::id(this), target);
+        2, HasBitSetters::id(this), target);
   }
 
-  // .ric.tasks.Task.Status new_status = 2;
+  // .ric.tasks.Task.Status new_status = 3;
   if (this->new_status() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      2, this->new_status(), target);
+      3, this->new_status(), target);
   }
 
-  // .ric.tasks.Location location = 3;
+  // .ric.tasks.Location location = 4;
   if (this->has_location()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        3, HasBitSetters::location(this), target);
+        4, HasBitSetters::location(this), target);
   }
 
-  // .google.protobuf.BoolValue success = 4;
+  // .google.protobuf.BoolValue success = 5;
   if (this->has_success()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        4, HasBitSetters::success(this), target);
+        5, HasBitSetters::success(this), target);
   }
 
-  // string comment = 5;
+  // string comment = 6;
   if (this->comment().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->comment().data(), static_cast<int>(this->comment().length()),
@@ -8313,17 +9128,17 @@ void ChangeStatusRequest::SerializeWithCachedSizes(
       "ric.tasks.ChangeStatusRequest.comment");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->comment(), target);
+        6, this->comment(), target);
   }
 
-  // repeated string files = 6;
+  // repeated string files = 7;
   for (int i = 0, n = this->files_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->files(i).data(), static_cast<int>(this->files(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "ric.tasks.ChangeStatusRequest.files");
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(6, this->files(i), target);
+      WriteStringToArray(7, this->files(i), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -8347,7 +9162,7 @@ size_t ChangeStatusRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string files = 6;
+  // repeated string files = 7;
   total_size += 1 *
       ::google::protobuf::internal::FromIntSize(this->files_size());
   for (int i = 0, n = this->files_size(); i < n; i++) {
@@ -8355,35 +9170,42 @@ size_t ChangeStatusRequest::ByteSizeLong() const {
       this->files(i));
   }
 
-  // string comment = 5;
+  // string comment = 6;
   if (this->comment().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->comment());
   }
 
-  // .ric.tasks.TaskId id = 1;
+  // .ric.tasks.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *ctx_);
+  }
+
+  // .ric.tasks.TaskId id = 2;
   if (this->has_id()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
         *id_);
   }
 
-  // .ric.tasks.Location location = 3;
+  // .ric.tasks.Location location = 4;
   if (this->has_location()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
         *location_);
   }
 
-  // .google.protobuf.BoolValue success = 4;
+  // .google.protobuf.BoolValue success = 5;
   if (this->has_success()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
         *success_);
   }
 
-  // .ric.tasks.Task.Status new_status = 2;
+  // .ric.tasks.Task.Status new_status = 3;
   if (this->new_status() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->new_status());
@@ -8420,6 +9242,9 @@ void ChangeStatusRequest::MergeFrom(const ChangeStatusRequest& from) {
   if (from.comment().size() > 0) {
 
     comment_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.comment_);
+  }
+  if (from.has_ctx()) {
+    mutable_ctx()->::ric::tasks::UserContext::MergeFrom(from.ctx());
   }
   if (from.has_id()) {
     mutable_id()->::ric::tasks::TaskId::MergeFrom(from.id());
@@ -8463,6 +9288,7 @@ void ChangeStatusRequest::InternalSwap(ChangeStatusRequest* other) {
   files_.InternalSwap(CastToBase(&other->files_));
   comment_.Swap(&other->comment_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  swap(ctx_, other->ctx_);
   swap(id_, other->id_);
   swap(location_, other->location_);
   swap(success_, other->success_);
@@ -8689,6 +9515,9 @@ void ChangeStatusResponse::InternalSwap(ChangeStatusResponse* other) {
 }  // namespace ric
 namespace google {
 namespace protobuf {
+template<> PROTOBUF_NOINLINE ::ric::tasks::UserContext* Arena::CreateMaybeMessage< ::ric::tasks::UserContext >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::tasks::UserContext >(arena);
+}
 template<> PROTOBUF_NOINLINE ::ric::tasks::ObjectId* Arena::CreateMaybeMessage< ::ric::tasks::ObjectId >(Arena* arena) {
   return Arena::CreateInternal< ::ric::tasks::ObjectId >(arena);
 }
