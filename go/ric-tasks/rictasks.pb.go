@@ -555,8 +555,8 @@ type Deadline struct {
 	Timestamp int64 `protobuf:"varint,1,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 	// number of milliseconds before deadline when service should send
 	// notification
-	// @inject_tag: bson:",omitempty"
-	NotifyUntil          *wrappers.Int64Value `protobuf:"bytes,2,opt,name=notify_until,json=notifyUntil,proto3" json:"notify_until,omitempty" bson:",omitempty"`
+	// @inject_tag: bson:"notify_until,omitempty"
+	NotifyUntil          *wrappers.Int64Value `protobuf:"bytes,2,opt,name=notify_until,json=notifyUntil,proto3" json:"notify_until,omitempty" bson:"notify_until,omitempty"`
 	Status               Task_Status          `protobuf:"varint,3,opt,name=status,proto3,enum=ric.tasks.Task_Status" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-" bson:"-"`
 	XXX_unrecognized     []byte               `json:"-" bson:"-"`
