@@ -142,9 +142,13 @@ for (const { service, services } of index) {
 const indexDts = `
 ${imports.join('\n')}
 
-export interface GrpcRegistry {
+interface GrpcRegistry {
 ${clients.join('\n\n')}
 }
+
+declare const index: { registry: GrpcRegistry };
+export default index;
+export type { GrpcRegistry };
 `;
 
 fs.writeFileSync(`./index.d.ts`, indexDts);

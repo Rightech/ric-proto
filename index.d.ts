@@ -8,7 +8,7 @@ import { Tasks } from './dts/ric-tasks';
 import { RicStore } from './dts/ric-store';
 import { Bots } from './dts/ric-bots';
 
-export interface GrpcRegistry {
+interface GrpcRegistry {
   getClient(service: 'ric-code'): RicCode;
   getClient(service: 'ric-code.RicCode'): RicCode;
 
@@ -38,3 +38,7 @@ export interface GrpcRegistry {
   getClient(service: 'ric-bots'): Bots;
   getClient(service: 'ric-bots.Bots'): Bots;
 }
+
+declare const index: { registry: GrpcRegistry };
+export default index;
+export type { GrpcRegistry };
