@@ -1,3 +1,10 @@
+
+import { Stream } from 'stream';
+
+interface GrpcStream<T> extends Stream {
+  on(event: 'data', listener: (chunk: T) => void): this;
+}
+
 export interface RicStore {
   Insert(request: Packet): Promise<EmptyRespone>;
   Query(request: QueryRequest): Promise<Packet>;
@@ -6,6 +13,10 @@ export interface RicStore {
   RemoveCollection(request: RemoveCollectionRequest): Promise<EmptyRespone>;
   CreateDatabase(request: CreateDatabaseRequest): Promise<EmptyRespone>;
   RemoveDatabase(request: RemoveDatabaseRequest): Promise<EmptyRespone>;
+
+  streamed(): {
+    Query(request: QueryRequest): GrpcStream<Packet>;
+  };
 }
 
 

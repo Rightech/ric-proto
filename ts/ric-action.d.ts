@@ -1,3 +1,10 @@
+
+import { Stream } from 'stream';
+
+interface GrpcStream<T> extends Stream {
+  on(event: 'data', listener: (chunk: T) => void): this;
+}
+
 export interface FunctionControl {
   Call(request: CallRequest): Promise<CallResponse>;
   Scale(request: ScaleRequest): Promise<EmptyResponse>;
@@ -5,6 +12,10 @@ export interface FunctionControl {
   UpdateOrDeploy(request: UpdateOrDeployRequest): Promise<UpdateOrDeployResponse>;
   Logs(request: LogsRequest): Promise<LogsResponse>;
   Info(request: InfoRequest): Promise<InfoResponse>;
+
+  streamed(): {
+    Logs(request: LogsRequest): GrpcStream<LogsResponse>;
+  };
 }
 
 export interface CallRequest {
@@ -116,6 +127,10 @@ export interface ContainerStatus {
 export interface PublicAPI {
   History(request: HistoryRequest): Promise<HistoryResponse>;
   SendEvent(request: EventRequest): Promise<EmptyResponse>;
+
+  streamed(): {
+    History(request: HistoryRequest): GrpcStream<HistoryResponse>;
+  };
 }
 
 export interface HistoryRequest {

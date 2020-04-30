@@ -56,17 +56,37 @@ function messageTyping(name, def) {
 }
 
 function serviceTyping(name, def) {
+  let streamed = [];
   const requests = Object.keys(def.service).map((name) => {
     const call = def.service[name];
     const req = call.requestType.type.name;
     const res = call.responseType.type.name;
+
+    if (call.responseStream) {
+      streamed.push({ req, res, name });
+    }
     return `  ${name}(request: ${req}): Promise<${res}>;`;
   });
 
-  return `export interface ${name} {\n${requests.join('\n')}\n}`;
+  if (streamed.length) {
+    streamed = streamed.map(
+      ({ req, res, name }) => `    ${name}(request: ${req}): GrpcStream<${res}>;`
+    );
+    streamed = `\n\n  streamed(): {\n${streamed.join('\n')}\n  };`;
+  } else {
+    streamed = '';
+  }
+
+  return `export interface ${name} {\n${requests.join('\n')}${streamed}\n}`;
 }
 
 let index = [];
+const streamImport = `
+import { Stream } from 'stream';
+
+interface GrpcStream<T> extends Stream {
+  on(event: 'data', listener: (chunk: T) => void): this;
+}`;
 
 for (const service of Object.keys(registry.meta.services)) {
   if (service.includes('.')) {
@@ -93,7 +113,11 @@ for (const service of Object.keys(registry.meta.services)) {
     }
   }
 
-  fs.writeFileSync(`./ts/${service}.d.ts`, typings.join('\n\n'));
+  let content = typings.join('\n\n');
+  if (content.includes('streamed(): {')) {
+    content = `${streamImport}\n\n${content}`;
+  }
+  fs.writeFileSync(`./ts/${service}.d.ts`, content);
   index.push({ service, services });
 }
 
