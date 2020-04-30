@@ -121,6 +121,8 @@ for (const service of Object.keys(registry.meta.services)) {
 
 let imports = [];
 let clients = [];
+let servers = [];
+
 
 for (const { service, services } of index) {
   let importsCode = `import { ${services
@@ -128,22 +130,31 @@ for (const { service, services } of index) {
     .join(', ')} } from './dts/${service}';`;
 
   let clientsCode = [];
+  let serversCode = [];
+
   for (const svc of services) {
     if (svc.main) {
       clientsCode.push(`  getClient(service: '${svc.service}'): ${svc.name};`);
+      serversCode.push(`  addServer(service: '${svc.service}', impl: ${svc.name});`);
     }
     clientsCode.push(`  getClient(service: '${svc.service}.${svc.name}'): ${svc.name};`);
+    serversCode.push(`  addServer(service: '${svc.service}.${svc.name}', impl: ${svc.name});`);
   }
 
   imports.push(importsCode);
   clients.push(clientsCode.join('\n'));
+  servers.push(serversCode.join('\n'));
 }
 
 const indexDts = `
 ${imports.join('\n')}
 
 interface GrpcRegistry {
+  /* clients */  
 ${clients.join('\n\n')}
+\n
+  /* servers */ 
+${servers.join('\n\n')}
 }
 
 declare const index: { registry: GrpcRegistry };

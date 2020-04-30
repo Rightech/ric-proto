@@ -9,6 +9,7 @@ import { RicStore } from './dts/ric-store';
 import { Bots } from './dts/ric-bots';
 
 interface GrpcRegistry {
+  /* clients */  
   getClient(service: 'ric-code'): RicCode;
   getClient(service: 'ric-code.RicCode'): RicCode;
 
@@ -37,6 +38,37 @@ interface GrpcRegistry {
 
   getClient(service: 'ric-bots'): Bots;
   getClient(service: 'ric-bots.Bots'): Bots;
+
+
+  /* servers */ 
+  addServer(service: 'ric-code', impl: RicCode);
+  addServer(service: 'ric-code.RicCode', impl: RicCode);
+
+  addServer(service: 'ric-action', impl: FunctionControl);
+  addServer(service: 'ric-action.FunctionControl', impl: FunctionControl);
+  addServer(service: 'ric-action.PublicAPI', impl: PublicAPI);
+
+  addServer(service: 'ric-geo', impl: Watch);
+  addServer(service: 'ric-geo.Watch', impl: Watch);
+  addServer(service: 'ric-geo.WatchV2', impl: WatchV2);
+  addServer(service: 'ric-geo.AttendanceControl', impl: AttendanceControl);
+  addServer(service: 'ric-geo.Osm', impl: Osm);
+  addServer(service: 'ric-geo.Check', impl: Check);
+
+  addServer(service: 'ric-auth', impl: RicAuth);
+  addServer(service: 'ric-auth.RicAuth', impl: RicAuth);
+
+  addServer(service: 'ric-logic-v3', impl: RicLogicV3);
+  addServer(service: 'ric-logic-v3.RicLogicV3', impl: RicLogicV3);
+
+  addServer(service: 'ric-tasks', impl: Tasks);
+  addServer(service: 'ric-tasks.Tasks', impl: Tasks);
+
+  addServer(service: 'ric-store', impl: RicStore);
+  addServer(service: 'ric-store.RicStore', impl: RicStore);
+
+  addServer(service: 'ric-bots', impl: Bots);
+  addServer(service: 'ric-bots.Bots', impl: Bots);
 }
 
 declare const index: { registry: GrpcRegistry };
