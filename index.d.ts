@@ -1,12 +1,12 @@
 
-import { RicCode } from './ts/ric-code';
-import { FunctionControl, PublicAPI } from './ts/ric-action';
-import { Watch, WatchV2, AttendanceControl, Osm, Check } from './ts/ric-geo';
-import { RicAuth } from './ts/ric-auth';
-import { RicLogicV3 } from './ts/ric-logic-v3';
-import { Tasks } from './ts/ric-tasks';
-import { RicStore } from './ts/ric-store';
-import { Bots } from './ts/ric-bots';
+import { RicCode } from './dts/ric-code';
+import { FunctionControl, PublicAPI } from './dts/ric-action';
+import { Watch, WatchV2, AttendanceControl, Osm, Check } from './dts/ric-geo';
+import { RicAuth } from './dts/ric-auth';
+import { RicLogicV3 } from './dts/ric-logic-v3';
+import { Tasks } from './dts/ric-tasks';
+import { RicStore } from './dts/ric-store';
+import { Bots } from './dts/ric-bots';
 
 export interface GrpcRegistry {
   getClient(service: 'ric-code'): RicCode;

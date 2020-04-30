@@ -115,7 +115,7 @@ for (const service of Object.keys(registry.meta.services)) {
   if (content.includes('streamed(): {')) {
     content = `${streamImport}\n\n${content}`;
   }
-  fs.writeFileSync(`./ts/${service}.d.ts`, content);
+  fs.writeFileSync(`./dts/${service}.d.ts`, content);
   index.push({ service, services });
 }
 
@@ -125,7 +125,7 @@ let clients = [];
 for (const { service, services } of index) {
   let importsCode = `import { ${services
     .map(({ name }) => name)
-    .join(', ')} } from './ts/${service}';`;
+    .join(', ')} } from './dts/${service}';`;
 
   let clientsCode = [];
   for (const svc of services) {
