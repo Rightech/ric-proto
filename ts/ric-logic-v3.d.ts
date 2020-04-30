@@ -7,10 +7,8 @@ interface GrpcStream<T> extends Stream {
 
 export interface RicLogicV3 {
   GetInstanceInfo(request: GetInstanceInfoRequest): Promise<GetInstanceInfoResponse>;
-  GetAutomatons(request: GetAutomatonsRequest): Promise<AutomatonInfo>;
   StartAutomaton(request: StartAutomatonRequest): Promise<StartAutomatonResponse>;
   StopAutomaton(request: StopAutomatonRequest): Promise<StopAutomatonResponse>;
-  RunAutomaton(request: RunAutomatonRequest): Promise<AutomatonInfo>;
   EmitEvent(request: EmitEventRequest): Promise<EmitEventResponse>;
 
   streamed(): {

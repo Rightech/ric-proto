@@ -10,7 +10,6 @@ export interface FunctionControl {
   Scale(request: ScaleRequest): Promise<EmptyResponse>;
   Delete(request: DeleteRequest): Promise<EmptyResponse>;
   UpdateOrDeploy(request: UpdateOrDeployRequest): Promise<UpdateOrDeployResponse>;
-  Logs(request: LogsRequest): Promise<LogsResponse>;
   Info(request: InfoRequest): Promise<InfoResponse>;
 
   streamed(): {
@@ -125,7 +124,6 @@ export interface ContainerStatus {
 }
 
 export interface PublicAPI {
-  History(request: HistoryRequest): Promise<HistoryResponse>;
   SendEvent(request: EventRequest): Promise<EmptyResponse>;
 
   streamed(): {

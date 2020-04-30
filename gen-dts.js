@@ -63,15 +63,13 @@ function serviceTyping(name, def) {
     const res = call.responseType.type.name;
 
     if (call.responseStream) {
-      streamed.push({ req, res, name });
+      streamed.push(`    ${name}(request: ${req}): GrpcStream<${res}>;`);
+      return null;
     }
     return `  ${name}(request: ${req}): Promise<${res}>;`;
-  });
+  }).filter(x=> !!x);
 
   if (streamed.length) {
-    streamed = streamed.map(
-      ({ req, res, name }) => `    ${name}(request: ${req}): GrpcStream<${res}>;`
-    );
     streamed = `\n\n  streamed(): {\n${streamed.join('\n')}\n  };`;
   } else {
     streamed = '';

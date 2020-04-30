@@ -7,7 +7,6 @@ interface GrpcStream<T> extends Stream {
 
 export interface RicStore {
   Insert(request: Packet): Promise<EmptyRespone>;
-  Query(request: QueryRequest): Promise<Packet>;
   Status(request: StatusRequest): Promise<StatusResponse>;
   CreateCollection(request: CreateCollectionRequest): Promise<EmptyRespone>;
   RemoveCollection(request: RemoveCollectionRequest): Promise<EmptyRespone>;
