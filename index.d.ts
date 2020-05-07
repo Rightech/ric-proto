@@ -7,6 +7,7 @@ import { RicLogicV3 } from './dts/ric-logic-v3';
 import { Tasks } from './dts/ric-tasks';
 import { RicStore } from './dts/ric-store';
 import { Bots } from './dts/ric-bots';
+import { Billing } from './dts/ric-bill';
 
 interface GrpcRegistry {
   /* clients */  
@@ -39,6 +40,9 @@ interface GrpcRegistry {
   getClient(service: 'ric-bots'): Bots;
   getClient(service: 'ric-bots.Bots'): Bots;
 
+  getClient(service: 'ric-bill'): Billing;
+  getClient(service: 'ric-bill.Billing'): Billing;
+
 
   /* servers */ 
   addServer(service: 'ric-code', impl: RicCode);
@@ -69,6 +73,9 @@ interface GrpcRegistry {
 
   addServer(service: 'ric-bots', impl: Bots);
   addServer(service: 'ric-bots.Bots', impl: Bots);
+
+  addServer(service: 'ric-bill', impl: Billing);
+  addServer(service: 'ric-bill.Billing', impl: Billing);
 }
 
 declare const index: { registry: GrpcRegistry };

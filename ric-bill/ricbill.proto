@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package ric.bill;
+
+option go_package = "ricbill";
+
+service Billing {
+  rpc CreatePayment(PaymentRequest) returns (PaymentResponse);
+}
+
+message PaymentRequest {
+
+}
+
+message PaymentResponse {
+
+}
