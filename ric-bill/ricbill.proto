@@ -8,10 +8,6 @@ service Billing {
   rpc CreatePayment(PaymentRequest) returns (PaymentResponse);
 }
 
-message PaymentRequest {
+message PaymentRequest {}
 
-}
-
-message PaymentResponse {
-
-}
+message PaymentResponse {}
