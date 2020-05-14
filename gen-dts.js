@@ -164,4 +164,4 @@ export type { GrpcRegistry };
 
 fs.writeFileSync(`./index.d.ts`, indexDts);
 
-console.log(indexDts);
+//console.log(indexDts);
