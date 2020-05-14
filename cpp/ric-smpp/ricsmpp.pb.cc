@@ -44,6 +44,14 @@ class StatusResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<StatusResponse> _instance;
 } _StatusResponse_default_instance_;
+class GatewayInfoRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<GatewayInfoRequest> _instance;
+} _GatewayInfoRequest_default_instance_;
+class GatewayInfoResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<GatewayInfoResponse> _instance;
+} _GatewayInfoResponse_default_instance_;
 }  // namespace smpp
 }  // namespace ric
 static void InitDefaultsUserContext_ric_2dsmpp_2fricsmpp_2eproto() {
@@ -132,6 +140,34 @@ static void InitDefaultsStatusResponse_ric_2dsmpp_2fricsmpp_2eproto() {
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsStatusResponse_ric_2dsmpp_2fricsmpp_2eproto}, {
       &scc_info_StatusResponse_SMPPStatus_ric_2dsmpp_2fricsmpp_2eproto.base,}};
 
+static void InitDefaultsGatewayInfoRequest_ric_2dsmpp_2fricsmpp_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::smpp::_GatewayInfoRequest_default_instance_;
+    new (ptr) ::ric::smpp::GatewayInfoRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::smpp::GatewayInfoRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_GatewayInfoRequest_ric_2dsmpp_2fricsmpp_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGatewayInfoRequest_ric_2dsmpp_2fricsmpp_2eproto}, {}};
+
+static void InitDefaultsGatewayInfoResponse_ric_2dsmpp_2fricsmpp_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::smpp::_GatewayInfoResponse_default_instance_;
+    new (ptr) ::ric::smpp::GatewayInfoResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::smpp::GatewayInfoResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_GatewayInfoResponse_ric_2dsmpp_2fricsmpp_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGatewayInfoResponse_ric_2dsmpp_2fricsmpp_2eproto}, {}};
+
 void InitDefaults_ric_2dsmpp_2fricsmpp_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_UserContext_ric_2dsmpp_2fricsmpp_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SendRequest_ric_2dsmpp_2fricsmpp_2eproto.base);
@@ -139,9 +175,11 @@ void InitDefaults_ric_2dsmpp_2fricsmpp_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_StatusRequest_ric_2dsmpp_2fricsmpp_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_StatusResponse_SMPPStatus_ric_2dsmpp_2fricsmpp_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_StatusResponse_ric_2dsmpp_2fricsmpp_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_GatewayInfoRequest_ric_2dsmpp_2fricsmpp_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_GatewayInfoResponse_ric_2dsmpp_2fricsmpp_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dsmpp_2fricsmpp_2eproto[6];
+::google::protobuf::Metadata file_level_metadata_ric_2dsmpp_2fricsmpp_2eproto[8];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors_ric_2dsmpp_2fricsmpp_2eproto[1];
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dsmpp_2fricsmpp_2eproto = nullptr;
 
@@ -193,6 +231,19 @@ const ::google::protobuf::uint32 TableStruct_ric_2dsmpp_2fricsmpp_2eproto::offse
   PROTOBUF_FIELD_OFFSET(::ric::smpp::StatusResponse, state_),
   PROTOBUF_FIELD_OFFSET(::ric::smpp::StatusResponse, description_),
   PROTOBUF_FIELD_OFFSET(::ric::smpp::StatusResponse, smpp_status_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::smpp::GatewayInfoRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::smpp::GatewayInfoRequest, gateway_id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::smpp::GatewayInfoResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::smpp::GatewayInfoResponse, online_),
+  PROTOBUF_FIELD_OFFSET(::ric::smpp::GatewayInfoResponse, uptime_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ric::smpp::UserContext)},
@@ -201,6 +252,8 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 23, -1, sizeof(::ric::smpp::StatusRequest)},
   { 30, -1, sizeof(::ric::smpp::StatusResponse_SMPPStatus)},
   { 39, -1, sizeof(::ric::smpp::StatusResponse)},
+  { 47, -1, sizeof(::ric::smpp::GatewayInfoRequest)},
+  { 53, -1, sizeof(::ric::smpp::GatewayInfoResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -210,12 +263,14 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::smpp::_StatusRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::smpp::_StatusResponse_SMPPStatus_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::smpp::_StatusResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::smpp::_GatewayInfoRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::smpp::_GatewayInfoResponse_default_instance_),
 };
 
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dsmpp_2fricsmpp_2eproto = {
   {}, AddDescriptors_ric_2dsmpp_2fricsmpp_2eproto, "ric-smpp/ricsmpp.proto", schemas,
   file_default_instances, TableStruct_ric_2dsmpp_2fricsmpp_2eproto::offsets,
-  file_level_metadata_ric_2dsmpp_2fricsmpp_2eproto, 6, file_level_enum_descriptors_ric_2dsmpp_2fricsmpp_2eproto, file_level_service_descriptors_ric_2dsmpp_2fricsmpp_2eproto,
+  file_level_metadata_ric_2dsmpp_2fricsmpp_2eproto, 8, file_level_enum_descriptors_ric_2dsmpp_2fricsmpp_2eproto, file_level_service_descriptors_ric_2dsmpp_2fricsmpp_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dsmpp_2fricsmpp_2eproto[] =
@@ -234,15 +289,20 @@ const char descriptor_table_protodef_ric_2dsmpp_2fricsmpp_2eproto[] =
   "state\030\002 \001(\t\022\022\n\nfinal_date\030\003 \001(\t\022\020\n\010err_c"
   "ode\030\004 \001(\005\"V\n\005State\022\013\n\007UNKNOWN\020\000\022\014\n\010SCHED"
   "ULE\020\001\022\016\n\nSEND_ERROR\020\002\022\010\n\004SENT\020\003\022\t\n\005ERROR"
-  "\020\004\022\r\n\tNOT_FOUND\020\0052z\n\004SMPP\0225\n\004Send\022\025.ric."
-  "smpp.SendRequest\032\026.ric.smpp.SendResponse"
-  "\022;\n\006Status\022\027.ric.smpp.StatusRequest\032\030.ri"
-  "c.smpp.StatusResponseB\tZ\007ricsmppb\006proto3"
+  "\020\004\022\r\n\tNOT_FOUND\020\005\"(\n\022GatewayInfoRequest\022"
+  "\022\n\ngateway_id\030\001 \001(\t\"5\n\023GatewayInfoRespon"
+  "se\022\016\n\006online\030\001 \001(\010\022\016\n\006uptime\030\002 \001(\0032\306\001\n\004S"
+  "MPP\0225\n\004Send\022\025.ric.smpp.SendRequest\032\026.ric"
+  ".smpp.SendResponse\022;\n\006Status\022\027.ric.smpp."
+  "StatusRequest\032\030.ric.smpp.StatusResponse\022"
+  "J\n\013GatewayInfo\022\034.ric.smpp.GatewayInfoReq"
+  "uest\032\035.ric.smpp.GatewayInfoResponseB\tZ\007r"
+  "icsmppb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dsmpp_2fricsmpp_2eproto = {
   false, InitDefaults_ric_2dsmpp_2fricsmpp_2eproto, 
   descriptor_table_protodef_ric_2dsmpp_2fricsmpp_2eproto,
-  "ric-smpp/ricsmpp.proto", &assign_descriptors_table_ric_2dsmpp_2fricsmpp_2eproto, 760,
+  "ric-smpp/ricsmpp.proto", &assign_descriptors_table_ric_2dsmpp_2fricsmpp_2eproto, 934,
 };
 
 void AddDescriptors_ric_2dsmpp_2fricsmpp_2eproto() {
@@ -2807,6 +2867,609 @@ void StatusResponse::InternalSwap(StatusResponse* other) {
 }
 
 
+// ===================================================================
+
+void GatewayInfoRequest::InitAsDefaultInstance() {
+}
+class GatewayInfoRequest::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int GatewayInfoRequest::kGatewayIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+GatewayInfoRequest::GatewayInfoRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.smpp.GatewayInfoRequest)
+}
+GatewayInfoRequest::GatewayInfoRequest(const GatewayInfoRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  gateway_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.gateway_id().size() > 0) {
+    gateway_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.gateway_id_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.smpp.GatewayInfoRequest)
+}
+
+void GatewayInfoRequest::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_GatewayInfoRequest_ric_2dsmpp_2fricsmpp_2eproto.base);
+  gateway_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+GatewayInfoRequest::~GatewayInfoRequest() {
+  // @@protoc_insertion_point(destructor:ric.smpp.GatewayInfoRequest)
+  SharedDtor();
+}
+
+void GatewayInfoRequest::SharedDtor() {
+  gateway_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void GatewayInfoRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const GatewayInfoRequest& GatewayInfoRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_GatewayInfoRequest_ric_2dsmpp_2fricsmpp_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void GatewayInfoRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.smpp.GatewayInfoRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  gateway_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* GatewayInfoRequest::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<GatewayInfoRequest*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // string gateway_id = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.smpp.GatewayInfoRequest.gateway_id");
+        object = msg->mutable_gateway_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool GatewayInfoRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.smpp.GatewayInfoRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string gateway_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_gateway_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->gateway_id().data(), static_cast<int>(this->gateway_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.smpp.GatewayInfoRequest.gateway_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.smpp.GatewayInfoRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.smpp.GatewayInfoRequest)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void GatewayInfoRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.smpp.GatewayInfoRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string gateway_id = 1;
+  if (this->gateway_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->gateway_id().data(), static_cast<int>(this->gateway_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.smpp.GatewayInfoRequest.gateway_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->gateway_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.smpp.GatewayInfoRequest)
+}
+
+::google::protobuf::uint8* GatewayInfoRequest::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.smpp.GatewayInfoRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string gateway_id = 1;
+  if (this->gateway_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->gateway_id().data(), static_cast<int>(this->gateway_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.smpp.GatewayInfoRequest.gateway_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->gateway_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.smpp.GatewayInfoRequest)
+  return target;
+}
+
+size_t GatewayInfoRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.smpp.GatewayInfoRequest)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string gateway_id = 1;
+  if (this->gateway_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->gateway_id());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void GatewayInfoRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.smpp.GatewayInfoRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const GatewayInfoRequest* source =
+      ::google::protobuf::DynamicCastToGenerated<GatewayInfoRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.smpp.GatewayInfoRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.smpp.GatewayInfoRequest)
+    MergeFrom(*source);
+  }
+}
+
+void GatewayInfoRequest::MergeFrom(const GatewayInfoRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.smpp.GatewayInfoRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.gateway_id().size() > 0) {
+
+    gateway_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.gateway_id_);
+  }
+}
+
+void GatewayInfoRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.smpp.GatewayInfoRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GatewayInfoRequest::CopyFrom(const GatewayInfoRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.smpp.GatewayInfoRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GatewayInfoRequest::IsInitialized() const {
+  return true;
+}
+
+void GatewayInfoRequest::Swap(GatewayInfoRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void GatewayInfoRequest::InternalSwap(GatewayInfoRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  gateway_id_.Swap(&other->gateway_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+}
+
+::google::protobuf::Metadata GatewayInfoRequest::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dsmpp_2fricsmpp_2eproto);
+  return ::file_level_metadata_ric_2dsmpp_2fricsmpp_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void GatewayInfoResponse::InitAsDefaultInstance() {
+}
+class GatewayInfoResponse::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int GatewayInfoResponse::kOnlineFieldNumber;
+const int GatewayInfoResponse::kUptimeFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+GatewayInfoResponse::GatewayInfoResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.smpp.GatewayInfoResponse)
+}
+GatewayInfoResponse::GatewayInfoResponse(const GatewayInfoResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&uptime_, &from.uptime_,
+    static_cast<size_t>(reinterpret_cast<char*>(&online_) -
+    reinterpret_cast<char*>(&uptime_)) + sizeof(online_));
+  // @@protoc_insertion_point(copy_constructor:ric.smpp.GatewayInfoResponse)
+}
+
+void GatewayInfoResponse::SharedCtor() {
+  ::memset(&uptime_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&online_) -
+      reinterpret_cast<char*>(&uptime_)) + sizeof(online_));
+}
+
+GatewayInfoResponse::~GatewayInfoResponse() {
+  // @@protoc_insertion_point(destructor:ric.smpp.GatewayInfoResponse)
+  SharedDtor();
+}
+
+void GatewayInfoResponse::SharedDtor() {
+}
+
+void GatewayInfoResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const GatewayInfoResponse& GatewayInfoResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_GatewayInfoResponse_ric_2dsmpp_2fricsmpp_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void GatewayInfoResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.smpp.GatewayInfoResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&uptime_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&online_) -
+      reinterpret_cast<char*>(&uptime_)) + sizeof(online_));
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* GatewayInfoResponse::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<GatewayInfoResponse*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // bool online = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 8) goto handle_unusual;
+        msg->set_online(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // int64 uptime = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 16) goto handle_unusual;
+        msg->set_uptime(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool GatewayInfoResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.smpp.GatewayInfoResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // bool online = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (8 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &online_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int64 uptime = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (16 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &uptime_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.smpp.GatewayInfoResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.smpp.GatewayInfoResponse)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void GatewayInfoResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.smpp.GatewayInfoResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool online = 1;
+  if (this->online() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->online(), output);
+  }
+
+  // int64 uptime = 2;
+  if (this->uptime() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->uptime(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.smpp.GatewayInfoResponse)
+}
+
+::google::protobuf::uint8* GatewayInfoResponse::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.smpp.GatewayInfoResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool online = 1;
+  if (this->online() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->online(), target);
+  }
+
+  // int64 uptime = 2;
+  if (this->uptime() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->uptime(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.smpp.GatewayInfoResponse)
+  return target;
+}
+
+size_t GatewayInfoResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.smpp.GatewayInfoResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int64 uptime = 2;
+  if (this->uptime() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->uptime());
+  }
+
+  // bool online = 1;
+  if (this->online() != 0) {
+    total_size += 1 + 1;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void GatewayInfoResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.smpp.GatewayInfoResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const GatewayInfoResponse* source =
+      ::google::protobuf::DynamicCastToGenerated<GatewayInfoResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.smpp.GatewayInfoResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.smpp.GatewayInfoResponse)
+    MergeFrom(*source);
+  }
+}
+
+void GatewayInfoResponse::MergeFrom(const GatewayInfoResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.smpp.GatewayInfoResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.uptime() != 0) {
+    set_uptime(from.uptime());
+  }
+  if (from.online() != 0) {
+    set_online(from.online());
+  }
+}
+
+void GatewayInfoResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.smpp.GatewayInfoResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GatewayInfoResponse::CopyFrom(const GatewayInfoResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.smpp.GatewayInfoResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GatewayInfoResponse::IsInitialized() const {
+  return true;
+}
+
+void GatewayInfoResponse::Swap(GatewayInfoResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void GatewayInfoResponse::InternalSwap(GatewayInfoResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(uptime_, other->uptime_);
+  swap(online_, other->online_);
+}
+
+::google::protobuf::Metadata GatewayInfoResponse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dsmpp_2fricsmpp_2eproto);
+  return ::file_level_metadata_ric_2dsmpp_2fricsmpp_2eproto[kIndexInFileMessages];
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace smpp
 }  // namespace ric
@@ -2829,6 +3492,12 @@ template<> PROTOBUF_NOINLINE ::ric::smpp::StatusResponse_SMPPStatus* Arena::Crea
 }
 template<> PROTOBUF_NOINLINE ::ric::smpp::StatusResponse* Arena::CreateMaybeMessage< ::ric::smpp::StatusResponse >(Arena* arena) {
   return Arena::CreateInternal< ::ric::smpp::StatusResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::smpp::GatewayInfoRequest* Arena::CreateMaybeMessage< ::ric::smpp::GatewayInfoRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::smpp::GatewayInfoRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::smpp::GatewayInfoResponse* Arena::CreateMaybeMessage< ::ric::smpp::GatewayInfoResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::smpp::GatewayInfoResponse >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

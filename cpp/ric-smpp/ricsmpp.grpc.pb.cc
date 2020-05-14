@@ -25,6 +25,7 @@ namespace smpp {
 static const char* SMPP_method_names[] = {
   "/ric.smpp.SMPP/Send",
   "/ric.smpp.SMPP/Status",
+  "/ric.smpp.SMPP/GatewayInfo",
 };
 
 std::unique_ptr< SMPP::Stub> SMPP::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -36,6 +37,7 @@ std::unique_ptr< SMPP::Stub> SMPP::NewStub(const std::shared_ptr< ::grpc::Channe
 SMPP::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_Send_(SMPP_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_Status_(SMPP_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GatewayInfo_(SMPP_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status SMPP::Stub::Send(::grpc::ClientContext* context, const ::ric::smpp::SendRequest& request, ::ric::smpp::SendResponse* response) {
@@ -94,6 +96,34 @@ void SMPP::Stub::experimental_async::Status(::grpc::ClientContext* context, cons
   return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::smpp::StatusResponse>::Create(channel_.get(), cq, rpcmethod_Status_, context, request, false);
 }
 
+::grpc::Status SMPP::Stub::GatewayInfo(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest& request, ::ric::smpp::GatewayInfoResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_GatewayInfo_, context, request, response);
+}
+
+void SMPP::Stub::experimental_async::GatewayInfo(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GatewayInfo_, context, request, response, std::move(f));
+}
+
+void SMPP::Stub::experimental_async::GatewayInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::GatewayInfoResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GatewayInfo_, context, request, response, std::move(f));
+}
+
+void SMPP::Stub::experimental_async::GatewayInfo(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GatewayInfo_, context, request, response, reactor);
+}
+
+void SMPP::Stub::experimental_async::GatewayInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::GatewayInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GatewayInfo_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::smpp::GatewayInfoResponse>* SMPP::Stub::AsyncGatewayInfoRaw(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::smpp::GatewayInfoResponse>::Create(channel_.get(), cq, rpcmethod_GatewayInfo_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::smpp::GatewayInfoResponse>* SMPP::Stub::PrepareAsyncGatewayInfoRaw(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::smpp::GatewayInfoResponse>::Create(channel_.get(), cq, rpcmethod_GatewayInfo_, context, request, false);
+}
+
 SMPP::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       SMPP_method_names[0],
@@ -105,6 +135,11 @@ SMPP::Service::Service() {
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< SMPP::Service, ::ric::smpp::StatusRequest, ::ric::smpp::StatusResponse>(
           std::mem_fn(&SMPP::Service::Status), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      SMPP_method_names[2],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< SMPP::Service, ::ric::smpp::GatewayInfoRequest, ::ric::smpp::GatewayInfoResponse>(
+          std::mem_fn(&SMPP::Service::GatewayInfo), this)));
 }
 
 SMPP::Service::~Service() {
@@ -118,6 +153,13 @@ SMPP::Service::~Service() {
 }
 
 ::grpc::Status SMPP::Service::Status(::grpc::ServerContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status SMPP::Service::GatewayInfo(::grpc::ServerContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response) {
   (void) context;
   (void) request;
   (void) response;

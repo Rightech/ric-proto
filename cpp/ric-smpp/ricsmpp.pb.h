@@ -42,7 +42,7 @@ struct TableStruct_ric_2dsmpp_2fricsmpp_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[6]
+  static const ::google::protobuf::internal::ParseTable schema[8]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -51,6 +51,12 @@ struct TableStruct_ric_2dsmpp_2fricsmpp_2eproto {
 void AddDescriptors_ric_2dsmpp_2fricsmpp_2eproto();
 namespace ric {
 namespace smpp {
+class GatewayInfoRequest;
+class GatewayInfoRequestDefaultTypeInternal;
+extern GatewayInfoRequestDefaultTypeInternal _GatewayInfoRequest_default_instance_;
+class GatewayInfoResponse;
+class GatewayInfoResponseDefaultTypeInternal;
+extern GatewayInfoResponseDefaultTypeInternal _GatewayInfoResponse_default_instance_;
 class SendRequest;
 class SendRequestDefaultTypeInternal;
 extern SendRequestDefaultTypeInternal _SendRequest_default_instance_;
@@ -73,6 +79,8 @@ extern UserContextDefaultTypeInternal _UserContext_default_instance_;
 }  // namespace ric
 namespace google {
 namespace protobuf {
+template<> ::ric::smpp::GatewayInfoRequest* Arena::CreateMaybeMessage<::ric::smpp::GatewayInfoRequest>(Arena*);
+template<> ::ric::smpp::GatewayInfoResponse* Arena::CreateMaybeMessage<::ric::smpp::GatewayInfoResponse>(Arena*);
 template<> ::ric::smpp::SendRequest* Arena::CreateMaybeMessage<::ric::smpp::SendRequest>(Arena*);
 template<> ::ric::smpp::SendResponse* Arena::CreateMaybeMessage<::ric::smpp::SendResponse>(Arena*);
 template<> ::ric::smpp::StatusRequest* Arena::CreateMaybeMessage<::ric::smpp::StatusRequest>(Arena*);
@@ -1004,6 +1012,245 @@ class StatusResponse final :
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dsmpp_2fricsmpp_2eproto;
 };
+// -------------------------------------------------------------------
+
+class GatewayInfoRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.smpp.GatewayInfoRequest) */ {
+ public:
+  GatewayInfoRequest();
+  virtual ~GatewayInfoRequest();
+
+  GatewayInfoRequest(const GatewayInfoRequest& from);
+
+  inline GatewayInfoRequest& operator=(const GatewayInfoRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GatewayInfoRequest(GatewayInfoRequest&& from) noexcept
+    : GatewayInfoRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline GatewayInfoRequest& operator=(GatewayInfoRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const GatewayInfoRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GatewayInfoRequest* internal_default_instance() {
+    return reinterpret_cast<const GatewayInfoRequest*>(
+               &_GatewayInfoRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  void Swap(GatewayInfoRequest* other);
+  friend void swap(GatewayInfoRequest& a, GatewayInfoRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GatewayInfoRequest* New() const final {
+    return CreateMaybeMessage<GatewayInfoRequest>(nullptr);
+  }
+
+  GatewayInfoRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<GatewayInfoRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const GatewayInfoRequest& from);
+  void MergeFrom(const GatewayInfoRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GatewayInfoRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string gateway_id = 1;
+  void clear_gateway_id();
+  static const int kGatewayIdFieldNumber = 1;
+  const ::std::string& gateway_id() const;
+  void set_gateway_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_gateway_id(::std::string&& value);
+  #endif
+  void set_gateway_id(const char* value);
+  void set_gateway_id(const char* value, size_t size);
+  ::std::string* mutable_gateway_id();
+  ::std::string* release_gateway_id();
+  void set_allocated_gateway_id(::std::string* gateway_id);
+
+  // @@protoc_insertion_point(class_scope:ric.smpp.GatewayInfoRequest)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr gateway_id_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dsmpp_2fricsmpp_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GatewayInfoResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.smpp.GatewayInfoResponse) */ {
+ public:
+  GatewayInfoResponse();
+  virtual ~GatewayInfoResponse();
+
+  GatewayInfoResponse(const GatewayInfoResponse& from);
+
+  inline GatewayInfoResponse& operator=(const GatewayInfoResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GatewayInfoResponse(GatewayInfoResponse&& from) noexcept
+    : GatewayInfoResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline GatewayInfoResponse& operator=(GatewayInfoResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const GatewayInfoResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GatewayInfoResponse* internal_default_instance() {
+    return reinterpret_cast<const GatewayInfoResponse*>(
+               &_GatewayInfoResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  void Swap(GatewayInfoResponse* other);
+  friend void swap(GatewayInfoResponse& a, GatewayInfoResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GatewayInfoResponse* New() const final {
+    return CreateMaybeMessage<GatewayInfoResponse>(nullptr);
+  }
+
+  GatewayInfoResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<GatewayInfoResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const GatewayInfoResponse& from);
+  void MergeFrom(const GatewayInfoResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GatewayInfoResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int64 uptime = 2;
+  void clear_uptime();
+  static const int kUptimeFieldNumber = 2;
+  ::google::protobuf::int64 uptime() const;
+  void set_uptime(::google::protobuf::int64 value);
+
+  // bool online = 1;
+  void clear_online();
+  static const int kOnlineFieldNumber = 1;
+  bool online() const;
+  void set_online(bool value);
+
+  // @@protoc_insertion_point(class_scope:ric.smpp.GatewayInfoResponse)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int64 uptime_;
+  bool online_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dsmpp_2fricsmpp_2eproto;
+};
 // ===================================================================
 
 
@@ -1854,9 +2101,102 @@ inline void StatusResponse::set_allocated_smpp_status(::ric::smpp::StatusRespons
   // @@protoc_insertion_point(field_set_allocated:ric.smpp.StatusResponse.smpp_status)
 }
 
+// -------------------------------------------------------------------
+
+// GatewayInfoRequest
+
+// string gateway_id = 1;
+inline void GatewayInfoRequest::clear_gateway_id() {
+  gateway_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& GatewayInfoRequest::gateway_id() const {
+  // @@protoc_insertion_point(field_get:ric.smpp.GatewayInfoRequest.gateway_id)
+  return gateway_id_.GetNoArena();
+}
+inline void GatewayInfoRequest::set_gateway_id(const ::std::string& value) {
+  
+  gateway_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.smpp.GatewayInfoRequest.gateway_id)
+}
+#if LANG_CXX11
+inline void GatewayInfoRequest::set_gateway_id(::std::string&& value) {
+  
+  gateway_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.smpp.GatewayInfoRequest.gateway_id)
+}
+#endif
+inline void GatewayInfoRequest::set_gateway_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  gateway_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.smpp.GatewayInfoRequest.gateway_id)
+}
+inline void GatewayInfoRequest::set_gateway_id(const char* value, size_t size) {
+  
+  gateway_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.smpp.GatewayInfoRequest.gateway_id)
+}
+inline ::std::string* GatewayInfoRequest::mutable_gateway_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.smpp.GatewayInfoRequest.gateway_id)
+  return gateway_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* GatewayInfoRequest::release_gateway_id() {
+  // @@protoc_insertion_point(field_release:ric.smpp.GatewayInfoRequest.gateway_id)
+  
+  return gateway_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GatewayInfoRequest::set_allocated_gateway_id(::std::string* gateway_id) {
+  if (gateway_id != nullptr) {
+    
+  } else {
+    
+  }
+  gateway_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), gateway_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.smpp.GatewayInfoRequest.gateway_id)
+}
+
+// -------------------------------------------------------------------
+
+// GatewayInfoResponse
+
+// bool online = 1;
+inline void GatewayInfoResponse::clear_online() {
+  online_ = false;
+}
+inline bool GatewayInfoResponse::online() const {
+  // @@protoc_insertion_point(field_get:ric.smpp.GatewayInfoResponse.online)
+  return online_;
+}
+inline void GatewayInfoResponse::set_online(bool value) {
+  
+  online_ = value;
+  // @@protoc_insertion_point(field_set:ric.smpp.GatewayInfoResponse.online)
+}
+
+// int64 uptime = 2;
+inline void GatewayInfoResponse::clear_uptime() {
+  uptime_ = PROTOBUF_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GatewayInfoResponse::uptime() const {
+  // @@protoc_insertion_point(field_get:ric.smpp.GatewayInfoResponse.uptime)
+  return uptime_;
+}
+inline void GatewayInfoResponse::set_uptime(::google::protobuf::int64 value) {
+  
+  uptime_ = value;
+  // @@protoc_insertion_point(field_set:ric.smpp.GatewayInfoResponse.uptime)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

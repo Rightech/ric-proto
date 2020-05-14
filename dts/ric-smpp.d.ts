@@ -1,6 +1,7 @@
 export interface SMPP {
   Send(request: SendRequest): Promise<SendResponse>;
   Status(request: StatusRequest): Promise<StatusResponse>;
+  GatewayInfo(request: GatewayInfoRequest): Promise<GatewayInfoResponse>;
 }
 
 export interface UserContext {
@@ -36,4 +37,13 @@ export interface SMPPStatus {
   msgState?: string;
   finalDate?: string;
   errCode?: number;
+}
+
+export interface GatewayInfoRequest {
+  gatewayId?: string;
+}
+
+export interface GatewayInfoResponse {
+  online?: boolean;
+  uptime?: number;
 }

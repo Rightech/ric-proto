@@ -7,6 +7,7 @@ option go_package = "ricsmpp";
 service SMPP {
   rpc Send(SendRequest) returns (SendResponse);
   rpc Status(StatusRequest) returns (StatusResponse);
+  rpc GatewayInfo(GatewayInfoRequest) returns (GatewayInfoResponse);
 }
 
 message UserContext {
@@ -22,9 +23,7 @@ message SendRequest {
   string message = 4;
 }
 
-message SendResponse {
-  string message_id = 1;
-}
+message SendResponse { string message_id = 1; }
 
 message StatusRequest {
   string gateway_id = 1;
@@ -49,4 +48,11 @@ message StatusResponse {
   State state = 1;
   string description = 2;
   SMPPStatus smpp_status = 3;
+}
+
+message GatewayInfoRequest { string gateway_id = 1; }
+
+message GatewayInfoResponse {
+  bool online = 1;
+  int64 uptime = 2;
 }
