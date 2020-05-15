@@ -281,28 +281,28 @@ const char descriptor_table_protodef_ric_2dsmpp_2fricsmpp_2eproto[] =
   "way_id\030\002 \001(\t\022\r\n\005phone\030\003 \001(\t\022\017\n\007message\030\004"
   " \001(\t\"\"\n\014SendResponse\022\022\n\nmessage_id\030\001 \001(\t"
   "\"7\n\rStatusRequest\022\022\n\ngateway_id\030\001 \001(\t\022\022\n"
-  "\nmessage_id\030\002 \001(\t\"\275\002\n\016StatusResponse\022-\n\005"
+  "\nmessage_id\030\002 \001(\t\"\310\002\n\016StatusResponse\022-\n\005"
   "state\030\001 \001(\0162\036.ric.smpp.StatusResponse.St"
   "ate\022\023\n\013description\030\002 \001(\t\0228\n\013smpp_status\030"
   "\003 \001(\0132#.ric.smpp.StatusResponse.SMPPStat"
   "us\032U\n\nSMPPStatus\022\016\n\006msg_id\030\001 \001(\t\022\021\n\tmsg_"
   "state\030\002 \001(\t\022\022\n\nfinal_date\030\003 \001(\t\022\020\n\010err_c"
-  "ode\030\004 \001(\005\"V\n\005State\022\013\n\007UNKNOWN\020\000\022\014\n\010SCHED"
-  "ULE\020\001\022\016\n\nSEND_ERROR\020\002\022\010\n\004SENT\020\003\022\t\n\005ERROR"
-  "\020\004\022\r\n\tNOT_FOUND\020\005\"(\n\022GatewayInfoRequest\022"
-  "\022\n\ngateway_id\030\001 \001(\t\"5\n\023GatewayInfoRespon"
-  "se\022\016\n\006online\030\001 \001(\010\022\016\n\006uptime\030\002 \001(\0032\306\001\n\004S"
-  "MPP\0225\n\004Send\022\025.ric.smpp.SendRequest\032\026.ric"
-  ".smpp.SendResponse\022;\n\006Status\022\027.ric.smpp."
-  "StatusRequest\032\030.ric.smpp.StatusResponse\022"
-  "J\n\013GatewayInfo\022\034.ric.smpp.GatewayInfoReq"
-  "uest\032\035.ric.smpp.GatewayInfoResponseB\tZ\007r"
-  "icsmppb\006proto3"
+  "ode\030\004 \001(\005\"a\n\005State\022\013\n\007UNKNOWN\020\000\022\014\n\010SCHED"
+  "ULE\020\001\022\016\n\nSEND_ERROR\020\002\022\030\n\024MAX_RETRIES_EXC"
+  "EEDED\020\003\022\010\n\004SENT\020\004\022\t\n\005ERROR\020\005\"(\n\022GatewayI"
+  "nfoRequest\022\022\n\ngateway_id\030\001 \001(\t\"5\n\023Gatewa"
+  "yInfoResponse\022\016\n\006online\030\001 \001(\010\022\016\n\006uptime\030"
+  "\002 \001(\0032\306\001\n\004SMPP\0225\n\004Send\022\025.ric.smpp.SendRe"
+  "quest\032\026.ric.smpp.SendResponse\022;\n\006Status\022"
+  "\027.ric.smpp.StatusRequest\032\030.ric.smpp.Stat"
+  "usResponse\022J\n\013GatewayInfo\022\034.ric.smpp.Gat"
+  "ewayInfoRequest\032\035.ric.smpp.GatewayInfoRe"
+  "sponseB\tZ\007ricsmppb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dsmpp_2fricsmpp_2eproto = {
   false, InitDefaults_ric_2dsmpp_2fricsmpp_2eproto, 
   descriptor_table_protodef_ric_2dsmpp_2fricsmpp_2eproto,
-  "ric-smpp/ricsmpp.proto", &assign_descriptors_table_ric_2dsmpp_2fricsmpp_2eproto, 934,
+  "ric-smpp/ricsmpp.proto", &assign_descriptors_table_ric_2dsmpp_2fricsmpp_2eproto, 945,
 };
 
 void AddDescriptors_ric_2dsmpp_2fricsmpp_2eproto() {
@@ -338,9 +338,9 @@ bool StatusResponse_State_IsValid(int value) {
 const StatusResponse_State StatusResponse::UNKNOWN;
 const StatusResponse_State StatusResponse::SCHEDULE;
 const StatusResponse_State StatusResponse::SEND_ERROR;
+const StatusResponse_State StatusResponse::MAX_RETRIES_EXCEEDED;
 const StatusResponse_State StatusResponse::SENT;
 const StatusResponse_State StatusResponse::ERROR;
-const StatusResponse_State StatusResponse::NOT_FOUND;
 const StatusResponse_State StatusResponse::State_MIN;
 const StatusResponse_State StatusResponse::State_MAX;
 const int StatusResponse::State_ARRAYSIZE;

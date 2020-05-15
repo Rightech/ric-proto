@@ -96,15 +96,15 @@ enum StatusResponse_State {
   StatusResponse_State_UNKNOWN = 0,
   StatusResponse_State_SCHEDULE = 1,
   StatusResponse_State_SEND_ERROR = 2,
-  StatusResponse_State_SENT = 3,
-  StatusResponse_State_ERROR = 4,
-  StatusResponse_State_NOT_FOUND = 5,
+  StatusResponse_State_MAX_RETRIES_EXCEEDED = 3,
+  StatusResponse_State_SENT = 4,
+  StatusResponse_State_ERROR = 5,
   StatusResponse_State_StatusResponse_State_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::min(),
   StatusResponse_State_StatusResponse_State_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::max()
 };
 bool StatusResponse_State_IsValid(int value);
 const StatusResponse_State StatusResponse_State_State_MIN = StatusResponse_State_UNKNOWN;
-const StatusResponse_State StatusResponse_State_State_MAX = StatusResponse_State_NOT_FOUND;
+const StatusResponse_State StatusResponse_State_State_MAX = StatusResponse_State_ERROR;
 const int StatusResponse_State_State_ARRAYSIZE = StatusResponse_State_State_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* StatusResponse_State_descriptor();
@@ -943,12 +943,12 @@ class StatusResponse final :
     StatusResponse_State_SCHEDULE;
   static const State SEND_ERROR =
     StatusResponse_State_SEND_ERROR;
+  static const State MAX_RETRIES_EXCEEDED =
+    StatusResponse_State_MAX_RETRIES_EXCEEDED;
   static const State SENT =
     StatusResponse_State_SENT;
   static const State ERROR =
     StatusResponse_State_ERROR;
-  static const State NOT_FOUND =
-    StatusResponse_State_NOT_FOUND;
   static inline bool State_IsValid(int value) {
     return StatusResponse_State_IsValid(value);
   }

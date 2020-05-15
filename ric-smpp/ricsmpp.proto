@@ -35,9 +35,9 @@ message StatusResponse {
     UNKNOWN = 0;
     SCHEDULE = 1;
     SEND_ERROR = 2;
-    SENT = 3;
-    ERROR = 4;
-    NOT_FOUND = 5;
+    MAX_RETRIES_EXCEEDED = 3;
+    SENT = 4;
+    ERROR = 5;
   }
   message SMPPStatus {
     string msg_id = 1;
