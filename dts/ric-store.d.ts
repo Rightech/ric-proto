@@ -2,18 +2,20 @@
 import { Stream } from 'stream';
 
 interface GrpcStream<T> extends Stream {
+  write(chunk: T): boolean;
   on(event: 'data', listener: (chunk: T) => void): this;
 }
 
 export interface RicStore {
   Insert(request: Packet): Promise<EmptyRespone>;
+  Query(request: QueryRequest, clientCall?: GrpcStream<Packet>): any;
   Status(request: StatusRequest): Promise<StatusResponse>;
   CreateCollection(request: CreateCollectionRequest): Promise<EmptyRespone>;
   RemoveCollection(request: RemoveCollectionRequest): Promise<EmptyRespone>;
   CreateDatabase(request: CreateDatabaseRequest): Promise<EmptyRespone>;
   RemoveDatabase(request: RemoveDatabaseRequest): Promise<EmptyRespone>;
 
-  streamed(): {
+  streamed?(): {
     Query(request: QueryRequest): GrpcStream<Packet>;
   };
 }

@@ -8,9 +8,11 @@ service RicLogicV3 {
   rpc GetInstanceInfo(GetInstanceInfoRequest) returns (GetInstanceInfoResponse);
   rpc GetAutomatons(GetAutomatonsRequest) returns (stream AutomatonInfo);
   rpc StartAutomaton(StartAutomatonRequest) returns (StartAutomatonResponse);
+  rpc StartAutomatonMulti(StartAutomatonMultiRequest) returns (StartAutomatonResponse);
   rpc StopAutomaton(StopAutomatonRequest) returns (StopAutomatonResponse);
   rpc RunAutomaton(RunAutomatonRequest) returns (stream AutomatonInfo);
   rpc EmitEvent(EmitEventRequest) returns (EmitEventResponse);
+  rpc UpdateAutomatonVars(UpdateAutomatonVarsRequest) returns (UpdateAutomatonVarsResponse);
 }
 
 message UserContext {
@@ -35,6 +37,14 @@ message AutomatonStats {
   string halted = 8;
 }
 
+message AutomatonVarValue {
+  oneof type {
+    string string_val = 1;
+    double double_val = 2;
+    bool bool_val = 3;
+  }
+}
+
 message AutomatonInfo {
   string object_id = 1;
   string automaton_id = 2;
@@ -47,6 +57,7 @@ message AutomatonInfo {
 
   AutomatonStats stats = 8;
   repeated LogEntry logs = 9;
+  map<string, AutomatonVarValue> vars = 10;
 }
 
 message AutomatonEvent {
@@ -93,6 +104,13 @@ message StartAutomatonRequest {
   UserContext ctx = 1;
   string object_id = 2;
   string automaton_id = 3;
+  map<string, AutomatonVarValue> vars = 4;
+}
+
+message StartAutomatonMultiRequest {
+  UserContext ctx = 1;
+  repeated string object_ids = 2;
+  string automaton_id = 3;
 }
 
 message StartAutomatonResponse {
@@ -112,6 +130,7 @@ message RunAutomatonRequest {
   bool wait_final = 4;
   int32 wait_timeout = 5;
   string on_running = 6;
+  map<string, AutomatonVarValue> vars = 7;
 }
 
 message StopAutomatonResponse {
@@ -142,4 +161,15 @@ message EmitEventResponse {}
 message GetRuntimeInfoRequest {
   string object_id = 1;
   string automaton_id = 2;
+}
+
+message UpdateAutomatonVarsRequest {
+  UserContext ctx = 1;
+  string object_id = 2;
+  string automaton_id = 3;
+  map<string, AutomatonVarValue> vars = 4;
+}
+
+message UpdateAutomatonVarsResponse {
+  map<string, AutomatonVarValue> vars = 1;
 }
