@@ -43,6 +43,9 @@ interface GrpcRegistry {
   getClient(service: 'ric-bill'): Billing;
   getClient(service: 'ric-bill.Billing'): Billing;
 
+  getClient(service: 'ric-smpp'): SMPP;
+  getClient(service: 'ric-smpp.SMPP'): SMPP;
+
 
   /* servers */ 
   addServer(service: 'ric-code', impl: RicCode);
@@ -76,6 +79,9 @@ interface GrpcRegistry {
 
   addServer(service: 'ric-bill', impl: Billing);
   addServer(service: 'ric-bill.Billing', impl: Billing);
+
+  addServer(service: 'ric-smpp', impl: SMPP);
+  addServer(service: 'ric-smpp.SMPP', impl: SMPP);
 }
 
 declare const index: { registry: GrpcRegistry };

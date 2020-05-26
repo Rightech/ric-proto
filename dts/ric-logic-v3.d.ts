@@ -2,16 +2,21 @@
 import { Stream } from 'stream';
 
 interface GrpcStream<T> extends Stream {
+  write(chunk: T): boolean;
   on(event: 'data', listener: (chunk: T) => void): this;
 }
 
 export interface RicLogicV3 {
   GetInstanceInfo(request: GetInstanceInfoRequest): Promise<GetInstanceInfoResponse>;
+  GetAutomatons(request: GetAutomatonsRequest, clientCall?: GrpcStream<AutomatonInfo>): any;
   StartAutomaton(request: StartAutomatonRequest): Promise<StartAutomatonResponse>;
+  StartAutomatonMulti(request: StartAutomatonMultiRequest): Promise<StartAutomatonResponse>;
   StopAutomaton(request: StopAutomatonRequest): Promise<StopAutomatonResponse>;
+  RunAutomaton(request: RunAutomatonRequest, clientCall?: GrpcStream<AutomatonInfo>): any;
   EmitEvent(request: EmitEventRequest): Promise<EmitEventResponse>;
+  UpdateAutomatonVars(request: UpdateAutomatonVarsRequest): Promise<UpdateAutomatonVarsResponse>;
 
-  streamed(): {
+  streamed?(): {
     GetAutomatons(request: GetAutomatonsRequest): GrpcStream<AutomatonInfo>;
     RunAutomaton(request: RunAutomatonRequest): GrpcStream<AutomatonInfo>;
   };
@@ -39,6 +44,12 @@ export interface AutomatonStats {
   halted?: string;
 }
 
+export interface AutomatonVarValue {
+  stringVal?: string;
+  doubleVal?: number;
+  boolVal?: boolean;
+}
+
 export interface AutomatonInfo {
   objectId?: string;
   automatonId?: string;
@@ -49,6 +60,12 @@ export interface AutomatonInfo {
   prevState?: string;
   stats?: AutomatonStats;
   logs?: LogEntry[];
+  vars?: Vars[];
+}
+
+export interface Vars {
+  key?: string;
+  value?: AutomatonVarValue;
 }
 
 export interface AutomatonEvent {
@@ -97,6 +114,18 @@ export interface StartAutomatonRequest {
   ctx?: UserContext;
   objectId?: string;
   automatonId?: string;
+  vars?: Vars[];
+}
+
+export interface Vars {
+  key?: string;
+  value?: AutomatonVarValue;
+}
+
+export interface StartAutomatonMultiRequest {
+  ctx?: UserContext;
+  objectIds?: string[];
+  automatonId?: string;
 }
 
 export interface StartAutomatonResponse {
@@ -116,6 +145,12 @@ export interface RunAutomatonRequest {
   waitFinal?: boolean;
   waitTimeout?: number;
   onRunning?: string;
+  vars?: Vars[];
+}
+
+export interface Vars {
+  key?: string;
+  value?: AutomatonVarValue;
 }
 
 export interface StopAutomatonResponse {
@@ -148,4 +183,25 @@ export interface EmitEventResponse {
 export interface GetRuntimeInfoRequest {
   objectId?: string;
   automatonId?: string;
+}
+
+export interface UpdateAutomatonVarsRequest {
+  ctx?: UserContext;
+  objectId?: string;
+  automatonId?: string;
+  vars?: Vars[];
+}
+
+export interface Vars {
+  key?: string;
+  value?: AutomatonVarValue;
+}
+
+export interface UpdateAutomatonVarsResponse {
+  vars?: Vars[];
+}
+
+export interface Vars {
+  key?: string;
+  value?: AutomatonVarValue;
 }

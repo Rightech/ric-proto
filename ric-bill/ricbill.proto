@@ -30,8 +30,4 @@ message SetupResponse {
 
 message PaymentRequest {
 
-}
-
-message PaymentResponse {
-
-}
+message PaymentResponse {}
