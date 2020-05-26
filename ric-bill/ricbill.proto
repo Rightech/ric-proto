@@ -6,8 +6,6 @@ option go_package = "ricbill";
 
 service Billing {
   rpc SetupAccount(SetupRequest) returns (SetupResponse);
-  //rpc VerifyAccount(PaymentRequest) returns (PaymentResponse);
-  //rpc CloseAccount(PaymentRequest) returns (PaymentResponse);
 
   rpc CreatePayment(PaymentRequest) returns (PaymentResponse);
 }
@@ -28,6 +26,6 @@ message SetupResponse {
 }
 
 
-message PaymentRequest {
+message PaymentRequest {}
 
 message PaymentResponse {}

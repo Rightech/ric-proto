@@ -8,6 +8,7 @@ import { Tasks } from './ric-tasks';
 import { RicStore } from './ric-store';
 import { Bots } from './ric-bots';
 import { Billing } from './ric-bill';
+import { SMPP } from './ric-smpp';
 
 interface GrpcRegistry {
   /* clients */  
