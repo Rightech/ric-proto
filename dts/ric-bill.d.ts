@@ -1,6 +1,7 @@
 export interface Billing {
   SetupAccount(request: SetupRequest): Promise<SetupResponse>;
   VerifyAccount(request: SetupRequest): Promise<SetupResponse>;
+  CloseAccount(request: SetupRequest): Promise<SetupResponse>;
   CreatePayment(request: PaymentRequest): Promise<PaymentResponse>;
 }
 
