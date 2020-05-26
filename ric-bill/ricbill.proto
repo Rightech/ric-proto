@@ -5,8 +5,28 @@ package ric.bill;
 option go_package = "ricbill";
 
 service Billing {
+  rpc SetupAccount(SetupRequest) returns (SetupResponse);
+  //rpc VerifyAccount(PaymentRequest) returns (PaymentResponse);
+  //rpc CloseAccount(PaymentRequest) returns (PaymentResponse);
+
   rpc CreatePayment(PaymentRequest) returns (PaymentResponse);
 }
+
+message UserContext {
+  string group_id = 1;
+  string user_id = 2;
+  string span_id = 3;
+}
+
+message SetupRequest {
+  UserContext ctx = 1;
+}
+
+message SetupResponse {
+  string account_id = 1;
+  string widget_params = 2; 
+}
+
 
 message PaymentRequest {
 

@@ -1,13 +1,13 @@
 
-import { RicCode } from './dts/ric-code';
-import { FunctionControl, PublicAPI } from './dts/ric-action';
-import { Watch, WatchV2, AttendanceControl, Osm, Check } from './dts/ric-geo';
-import { RicAuth } from './dts/ric-auth';
-import { RicLogicV3 } from './dts/ric-logic-v3';
-import { Tasks } from './dts/ric-tasks';
-import { RicStore } from './dts/ric-store';
-import { Bots } from './dts/ric-bots';
-import { Billing } from './dts/ric-bill';
+import { RicCode } from './ric-code';
+import { FunctionControl, PublicAPI } from './ric-action';
+import { Watch, WatchV2, AttendanceControl, Osm, Check } from './ric-geo';
+import { RicAuth } from './ric-auth';
+import { RicLogicV3 } from './ric-logic-v3';
+import { Tasks } from './ric-tasks';
+import { RicStore } from './ric-store';
+import { Bots } from './ric-bots';
+import { Billing } from './ric-bill';
 
 interface GrpcRegistry {
   /* clients */  

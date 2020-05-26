@@ -127,7 +127,7 @@ let servers = [];
 for (const { service, services } of index) {
   let importsCode = `import { ${services
     .map(({ name }) => name)
-    .join(', ')} } from './dts/${service}';`;
+    .join(', ')} } from './${service}';`;
 
   let clientsCode = [];
   let serversCode = [];
@@ -162,6 +162,6 @@ export default index;
 export type { GrpcRegistry };
 `;
 
-fs.writeFileSync(`./index.d.ts`, indexDts);
+fs.writeFileSync(`./dts/index.d.ts`, indexDts);
 
 console.log(indexDts);
