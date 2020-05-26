@@ -6,6 +6,7 @@ option go_package = "ricbill";
 
 service Billing {
   rpc SetupAccount(SetupRequest) returns (SetupResponse);
+  rpc VerifyAccount(SetupRequest) returns (SetupResponse);
 
   rpc CreatePayment(PaymentRequest) returns (PaymentResponse);
 }
@@ -21,7 +22,7 @@ message SetupRequest {
 }
 
 message SetupResponse {
-  string account_id = 1;
+  string binding_id = 1;
   string widget_params = 2; 
 }
 

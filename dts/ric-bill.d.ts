@@ -1,5 +1,6 @@
 export interface Billing {
   SetupAccount(request: SetupRequest): Promise<SetupResponse>;
+  VerifyAccount(request: SetupRequest): Promise<SetupResponse>;
   CreatePayment(request: PaymentRequest): Promise<PaymentResponse>;
 }
 
@@ -14,7 +15,7 @@ export interface SetupRequest {
 }
 
 export interface SetupResponse {
-  accountId?: string;
+  bindingId?: string;
   widgetParams?: string;
 }
 
