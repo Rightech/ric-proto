@@ -1,3 +1,5 @@
+const nanoid = require('nanoid');
+
 const path = require('path');
 const grpc = require('grpc');
 const protoLoader = require('@grpc/proto-loader');
@@ -9,6 +11,7 @@ const PROTO_DIR = path.join(__dirname, '.');
 const IN_KUBE = !!process.env.KUBERNETES_PORT;
 
 const DEFAULT_KUBE_PORT = 5071;
+const CALL_DEBUG = Symbol('log');
 
 const options = {
   keepCase: false,
@@ -19,7 +22,6 @@ const options = {
 };
 
 class ServiceName {
-
   constructor(name) {
     this.full = name;
     this.parse();
@@ -33,7 +35,7 @@ class ServiceName {
     const parts = service.split('-');
     const [, subpackage] = parts;
     this.subpackage = subpackage;
-    this.version = parts.find(part => part.startsWith('v'));
+    this.version = parts.find((part) => part.startsWith('v'));
   }
 
   getProtofilePath() {
@@ -42,13 +44,12 @@ class ServiceName {
 }
 
 class GrpcServer {
-
   constructor(name, def, meta = {}) {
     this.meta = meta;
     this.name = new ServiceName(name);
     this.def = def;
-    this.serviceDef = Object.values(this.def)
-      .find(x => !!x.service).service;
+    this.logEnabled = false;
+    this.serviceDef = Object.values(this.def).find((x) => !!x.service).service;
   }
 
   setImpl(impl) {
@@ -68,6 +69,15 @@ class GrpcServer {
     };
   }
 
+  addCallDebugInfo(call, method) {
+    call[CALL_DEBUG] = {
+      id: nanoid(10),
+      startedAt: Date.now(),
+      method
+    };
+    return call[CALL_DEBUG];
+  }
+
   getImpl() {
     return Object.keys(this.serviceDef).reduce((impl, key) => {
       const def = this.serviceDef[key];
@@ -75,7 +85,20 @@ class GrpcServer {
         impl[key] = (call) => this.impl[key](call.request, call);
         return impl;
       }
-      impl[key] = (call, callback) => callbackify(this.getAsyncWrap(key, call))(callback);
+      impl[key] = (call, callback) => {
+        this.addCallDebugInfo(call, key);
+
+        const callbackWithLogs = (err, res) => {
+          if (err) {
+            this.logStep('err', call, err);
+          } else {
+            this.logStep('res', call, res);
+          }
+          return callback(err, res);
+        };
+        this.logStep('req', call);
+        callbackify(this.getAsyncWrap(key, call))(callbackWithLogs);
+      };
       return impl;
     }, {});
   }
@@ -102,27 +125,47 @@ class GrpcServer {
 
     log.info(`${this.name.full} started at ${addr}`);
   }
+
+  logStep(step = 'req', call, res) {
+    if (!this.logEnabled) {
+      return;
+    }
+    const info = call[CALL_DEBUG];
+    let json = JSON.stringify(res || call.request);
+    if (json.length > 130) {
+      json = `${json.substring(0, 130)} ...`;
+    }
+    if (step === 'err') {
+      json = `${res.name}: ${res.message}`;
+    }
+    let stepSymbol = '?';
+    if (step === 'req') stepSymbol = '>';
+    if (step === 'res') stepSymbol = '<';
+    if (step === 'err') stepSymbol = '!';
+
+    log.debug(json, `${stepSymbol} ${info.method} ${info.id} [${this.name.service}]`);
+  }
+
+  enableLog() {
+    this.logEnabled = true;
+    return this;
+  }
 }
 
-
 class GrpcClient {
-
   constructor(name, def, meta = {}) {
     this.meta = meta;
     this.name = new ServiceName(name);
     this.def = def;
 
-    this.serviceCtor = Object.values(this.def)
-      .find(x => !!x.service);
+    this.serviceCtor = Object.values(this.def).find((x) => !!x.service);
     this.serviceDef = this.serviceCtor.service;
 
     this.createRef();
   }
 
   createRef() {
-    this.ref = new this.serviceCtor(
-      this.getAddr(),
-      this.getCredentials());
+    this.ref = new this.serviceCtor(this.getAddr(), this.getCredentials());
 
     log.info(`${this.name.full} connect to ${this.getAddr()}`);
     this._export();
@@ -166,15 +209,15 @@ class GrpcClient {
   }
 
   _export() {
-    Object.keys(this.serviceDef).forEach(key => {
-      this[key] = req => {
+    Object.keys(this.serviceDef).forEach((key) => {
+      this[key] = (req) => {
         return new Promise((resolve, reject) => {
           this.ref[key](req, (err, resp) => {
             err ? reject(err) : resolve(resp);
-          })
-        })
+          });
+        });
       };
-    })
+    });
   }
 
   streamed() {
@@ -183,27 +226,24 @@ class GrpcClient {
     client._export();
     return client;
   }
-
 }
 
 class GrpcClientStreamed extends GrpcClient {
-
   createRef() {
     /* nothing,
      getting this.ref through original client.streamed() call  */
   }
 
   _export() {
-    Object.keys(this.serviceDef).forEach(key => {
-      this[key] = req => {
+    Object.keys(this.serviceDef).forEach((key) => {
+      this[key] = (req) => {
         return this.ref[key](req);
       };
-    })
+    });
   }
 }
 
 class Registry {
-
   constructor() {
     this.meta = require(path.join(PROTO_DIR, 'services.json'));
     this.defs = {};
@@ -213,9 +253,11 @@ class Registry {
 
   getMetaFor(name) {
     name = new ServiceName(name);
-    return Object.assign({},
+    return Object.assign(
+      {},
       this.meta.default || {},
-      this.meta.services[name.service] || {})
+      this.meta.services[name.service] || {}
+    );
   }
 
   loadDef(name) {
@@ -255,7 +297,6 @@ class Registry {
     this.clients[name] = client;
     return client;
   }
-
 }
 
 let registry = new Registry();
