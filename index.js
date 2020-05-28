@@ -146,7 +146,7 @@ class GrpcServer {
     log.debug(json, `${stepSymbol} ${info.method} ${info.id} [${this.name.service}]`);
   }
 
-  enableLog() {
+  withLogEnabled() {
     this.logEnabled = true;
     return this;
   }
