@@ -8,7 +8,6 @@ service Billing {
   rpc SetupAccount(SetupRequest) returns (SetupResponse);
   rpc VerifyAccount(SetupRequest) returns (SetupResponse);
   rpc CloseAccount(SetupRequest) returns (SetupResponse);
-
   rpc CreatePayment(PaymentRequest) returns (PaymentResponse);
 }
 
@@ -24,9 +23,8 @@ message SetupRequest {
 
 message SetupResponse {
   string binding_id = 1;
-  string widget_params = 2; 
+  string widget_params = 2;
 }
-
 
 message PaymentRequest {}
 
