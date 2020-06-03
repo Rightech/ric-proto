@@ -776,12 +776,13 @@ const char descriptor_table_protodef_ric_2dtasks_2frictasks_2eproto[] =
   "asks.UpdateOrderRequest\032\036.ric.tasks.Upda"
   "teOrderResponse\022O\n\014ChangeStatus\022\036.ric.ta"
   "sks.ChangeStatusRequest\032\037.ric.tasks.Chan"
-  "geStatusResponseB\nZ\010rictasksb\006proto3"
+  "geStatusResponseB\026Z\024./ric-tasks;rictasks"
+  "b\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dtasks_2frictasks_2eproto = {
   false, InitDefaults_ric_2dtasks_2frictasks_2eproto, 
   descriptor_table_protodef_ric_2dtasks_2frictasks_2eproto,
-  "ric-tasks/rictasks.proto", &assign_descriptors_table_ric_2dtasks_2frictasks_2eproto, 3036,
+  "ric-tasks/rictasks.proto", &assign_descriptors_table_ric_2dtasks_2frictasks_2eproto, 3048,
 };
 
 void AddDescriptors_ric_2dtasks_2frictasks_2eproto() {

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ric.bill;
 
-option go_package = "ricbill";
+option go_package = "./ric-bill;ricbill";
 
 service Billing {
   rpc SetupAccount(SetupRequest) returns (SetupResponse);

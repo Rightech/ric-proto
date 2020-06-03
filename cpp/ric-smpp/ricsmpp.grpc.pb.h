@@ -7,24 +7,25 @@
 #include "ric-smpp/ricsmpp.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
 #include <grpcpp/impl/codegen/async_generic_service.h>
 #include <grpcpp/impl/codegen/async_stream.h>
 #include <grpcpp/impl/codegen/async_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/client_context.h>
-#include <grpcpp/impl/codegen/completion_queue.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/method_handler_impl.h>
 #include <grpcpp/impl/codegen/proto_utils.h>
 #include <grpcpp/impl/codegen/rpc_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/status.h>
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
+
+namespace grpc {
+class CompletionQueue;
+class Channel;
+class ServerCompletionQueue;
+class ServerContext;
+}  // namespace grpc
 
 namespace ric {
 namespace smpp {
@@ -63,47 +64,11 @@ class SMPP final {
       virtual ~experimental_async_interface() {}
       virtual void Send(::grpc::ClientContext* context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Send(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::SendResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void Send(::grpc::ClientContext* context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void Send(::grpc::ClientContext* context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void Send(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::SendResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void Send(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::SendResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void Status(::grpc::ClientContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::StatusResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void Status(::grpc::ClientContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void Status(::grpc::ClientContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::StatusResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::StatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void GatewayInfo(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GatewayInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::GatewayInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void GatewayInfo(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GatewayInfo(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void GatewayInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::GatewayInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GatewayInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::GatewayInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::smpp::SendResponse>* AsyncSendRaw(::grpc::ClientContext* context, const ::ric::smpp::SendRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -142,40 +107,10 @@ class SMPP final {
      public:
       void Send(::grpc::ClientContext* context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response, std::function<void(::grpc::Status)>) override;
       void Send(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::SendResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void Send(::grpc::ClientContext* context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void Send(::grpc::ClientContext* context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void Send(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::SendResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void Send(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::SendResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void Status(::grpc::ClientContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response, std::function<void(::grpc::Status)>) override;
       void Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::StatusResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void Status(::grpc::ClientContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void Status(::grpc::ClientContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::StatusResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::StatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void GatewayInfo(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response, std::function<void(::grpc::Status)>) override;
       void GatewayInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::GatewayInfoResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void GatewayInfo(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GatewayInfo(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void GatewayInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::GatewayInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GatewayInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::GatewayInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -210,7 +145,7 @@ class SMPP final {
   template <class BaseClass>
   class WithAsyncMethod_Send : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_Send() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -219,7 +154,7 @@ class SMPP final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Send(::grpc::ServerContext* /*context*/, const ::ric::smpp::SendRequest* /*request*/, ::ric::smpp::SendResponse* /*response*/) override {
+    ::grpc::Status Send(::grpc::ServerContext* context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -230,7 +165,7 @@ class SMPP final {
   template <class BaseClass>
   class WithAsyncMethod_Status : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_Status() {
       ::grpc::Service::MarkMethodAsync(1);
@@ -239,7 +174,7 @@ class SMPP final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Status(::grpc::ServerContext* /*context*/, const ::ric::smpp::StatusRequest* /*request*/, ::ric::smpp::StatusResponse* /*response*/) override {
+    ::grpc::Status Status(::grpc::ServerContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -250,7 +185,7 @@ class SMPP final {
   template <class BaseClass>
   class WithAsyncMethod_GatewayInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_GatewayInfo() {
       ::grpc::Service::MarkMethodAsync(2);
@@ -259,7 +194,7 @@ class SMPP final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GatewayInfo(::grpc::ServerContext* /*context*/, const ::ric::smpp::GatewayInfoRequest* /*request*/, ::ric::smpp::GatewayInfoResponse* /*response*/) override {
+    ::grpc::Status GatewayInfo(::grpc::ServerContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -271,153 +206,83 @@ class SMPP final {
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Send : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_Send() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::smpp::SendRequest, ::ric::smpp::SendResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response) { return this->Send(context, request, response); }));}
-    void SetMessageAllocatorFor_Send(
-        ::grpc::experimental::MessageAllocator< ::ric::smpp::SendRequest, ::ric::smpp::SendResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::smpp::SendRequest, ::ric::smpp::SendResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(0,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::smpp::SendRequest, ::ric::smpp::SendResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::smpp::SendRequest* request,
+                 ::ric::smpp::SendResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->Send(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_Send() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Send(::grpc::ServerContext* /*context*/, const ::ric::smpp::SendRequest* /*request*/, ::ric::smpp::SendResponse* /*response*/) override {
+    ::grpc::Status Send(::grpc::ServerContext* context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* Send(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::smpp::SendRequest* /*request*/, ::ric::smpp::SendResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* Send(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::smpp::SendRequest* /*request*/, ::ric::smpp::SendResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void Send(::grpc::ServerContext* context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Status : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_Status() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(1,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::smpp::StatusRequest, ::ric::smpp::StatusResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response) { return this->Status(context, request, response); }));}
-    void SetMessageAllocatorFor_Status(
-        ::grpc::experimental::MessageAllocator< ::ric::smpp::StatusRequest, ::ric::smpp::StatusResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::smpp::StatusRequest, ::ric::smpp::StatusResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::smpp::StatusRequest, ::ric::smpp::StatusResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::smpp::StatusRequest* request,
+                 ::ric::smpp::StatusResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->Status(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_Status() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Status(::grpc::ServerContext* /*context*/, const ::ric::smpp::StatusRequest* /*request*/, ::ric::smpp::StatusResponse* /*response*/) override {
+    ::grpc::Status Status(::grpc::ServerContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* Status(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::smpp::StatusRequest* /*request*/, ::ric::smpp::StatusResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* Status(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::smpp::StatusRequest* /*request*/, ::ric::smpp::StatusResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void Status(::grpc::ServerContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_GatewayInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_GatewayInfo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(2,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::smpp::GatewayInfoRequest, ::ric::smpp::GatewayInfoResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response) { return this->GatewayInfo(context, request, response); }));}
-    void SetMessageAllocatorFor_GatewayInfo(
-        ::grpc::experimental::MessageAllocator< ::ric::smpp::GatewayInfoRequest, ::ric::smpp::GatewayInfoResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::smpp::GatewayInfoRequest, ::ric::smpp::GatewayInfoResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::smpp::GatewayInfoRequest, ::ric::smpp::GatewayInfoResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::smpp::GatewayInfoRequest* request,
+                 ::ric::smpp::GatewayInfoResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->GatewayInfo(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_GatewayInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GatewayInfo(::grpc::ServerContext* /*context*/, const ::ric::smpp::GatewayInfoRequest* /*request*/, ::ric::smpp::GatewayInfoResponse* /*response*/) override {
+    ::grpc::Status GatewayInfo(::grpc::ServerContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* GatewayInfo(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::smpp::GatewayInfoRequest* /*request*/, ::ric::smpp::GatewayInfoResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GatewayInfo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::smpp::GatewayInfoRequest* /*request*/, ::ric::smpp::GatewayInfoResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void GatewayInfo(::grpc::ServerContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_Send<ExperimentalWithCallbackMethod_Status<ExperimentalWithCallbackMethod_GatewayInfo<Service > > > CallbackService;
-  #endif
-
   typedef ExperimentalWithCallbackMethod_Send<ExperimentalWithCallbackMethod_Status<ExperimentalWithCallbackMethod_GatewayInfo<Service > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Send : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_Send() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -426,7 +291,7 @@ class SMPP final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Send(::grpc::ServerContext* /*context*/, const ::ric::smpp::SendRequest* /*request*/, ::ric::smpp::SendResponse* /*response*/) override {
+    ::grpc::Status Send(::grpc::ServerContext* context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -434,7 +299,7 @@ class SMPP final {
   template <class BaseClass>
   class WithGenericMethod_Status : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_Status() {
       ::grpc::Service::MarkMethodGeneric(1);
@@ -443,7 +308,7 @@ class SMPP final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Status(::grpc::ServerContext* /*context*/, const ::ric::smpp::StatusRequest* /*request*/, ::ric::smpp::StatusResponse* /*response*/) override {
+    ::grpc::Status Status(::grpc::ServerContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -451,7 +316,7 @@ class SMPP final {
   template <class BaseClass>
   class WithGenericMethod_GatewayInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_GatewayInfo() {
       ::grpc::Service::MarkMethodGeneric(2);
@@ -460,7 +325,7 @@ class SMPP final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GatewayInfo(::grpc::ServerContext* /*context*/, const ::ric::smpp::GatewayInfoRequest* /*request*/, ::ric::smpp::GatewayInfoResponse* /*response*/) override {
+    ::grpc::Status GatewayInfo(::grpc::ServerContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -468,7 +333,7 @@ class SMPP final {
   template <class BaseClass>
   class WithRawMethod_Send : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_Send() {
       ::grpc::Service::MarkMethodRaw(0);
@@ -477,7 +342,7 @@ class SMPP final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Send(::grpc::ServerContext* /*context*/, const ::ric::smpp::SendRequest* /*request*/, ::ric::smpp::SendResponse* /*response*/) override {
+    ::grpc::Status Send(::grpc::ServerContext* context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -488,7 +353,7 @@ class SMPP final {
   template <class BaseClass>
   class WithRawMethod_Status : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_Status() {
       ::grpc::Service::MarkMethodRaw(1);
@@ -497,7 +362,7 @@ class SMPP final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Status(::grpc::ServerContext* /*context*/, const ::ric::smpp::StatusRequest* /*request*/, ::ric::smpp::StatusResponse* /*response*/) override {
+    ::grpc::Status Status(::grpc::ServerContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -508,7 +373,7 @@ class SMPP final {
   template <class BaseClass>
   class WithRawMethod_GatewayInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_GatewayInfo() {
       ::grpc::Service::MarkMethodRaw(2);
@@ -517,7 +382,7 @@ class SMPP final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GatewayInfo(::grpc::ServerContext* /*context*/, const ::ric::smpp::GatewayInfoRequest* /*request*/, ::ric::smpp::GatewayInfoResponse* /*response*/) override {
+    ::grpc::Status GatewayInfo(::grpc::ServerContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -528,121 +393,82 @@ class SMPP final {
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Send : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_Send() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Send(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(0,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->Send(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_Send() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Send(::grpc::ServerContext* /*context*/, const ::ric::smpp::SendRequest* /*request*/, ::ric::smpp::SendResponse* /*response*/) override {
+    ::grpc::Status Send(::grpc::ServerContext* context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* Send(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* Send(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void Send(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Status : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_Status() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(1,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Status(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->Status(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_Status() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Status(::grpc::ServerContext* /*context*/, const ::ric::smpp::StatusRequest* /*request*/, ::ric::smpp::StatusResponse* /*response*/) override {
+    ::grpc::Status Status(::grpc::ServerContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* Status(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* Status(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void Status(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_GatewayInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_GatewayInfo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(2,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GatewayInfo(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->GatewayInfo(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_GatewayInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GatewayInfo(::grpc::ServerContext* /*context*/, const ::ric::smpp::GatewayInfoRequest* /*request*/, ::ric::smpp::GatewayInfoResponse* /*response*/) override {
+    ::grpc::Status GatewayInfo(::grpc::ServerContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* GatewayInfo(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GatewayInfo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void GatewayInfo(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Send : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_Send() {
       ::grpc::Service::MarkMethodStreamed(0,
@@ -652,7 +478,7 @@ class SMPP final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Send(::grpc::ServerContext* /*context*/, const ::ric::smpp::SendRequest* /*request*/, ::ric::smpp::SendResponse* /*response*/) override {
+    ::grpc::Status Send(::grpc::ServerContext* context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -662,7 +488,7 @@ class SMPP final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_Status : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_Status() {
       ::grpc::Service::MarkMethodStreamed(1,
@@ -672,7 +498,7 @@ class SMPP final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Status(::grpc::ServerContext* /*context*/, const ::ric::smpp::StatusRequest* /*request*/, ::ric::smpp::StatusResponse* /*response*/) override {
+    ::grpc::Status Status(::grpc::ServerContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -682,7 +508,7 @@ class SMPP final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_GatewayInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_GatewayInfo() {
       ::grpc::Service::MarkMethodStreamed(2,
@@ -692,7 +518,7 @@ class SMPP final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GatewayInfo(::grpc::ServerContext* /*context*/, const ::ric::smpp::GatewayInfoRequest* /*request*/, ::ric::smpp::GatewayInfoResponse* /*response*/) override {
+    ::grpc::Status GatewayInfo(::grpc::ServerContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

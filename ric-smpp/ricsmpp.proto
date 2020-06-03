@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ric.smpp;
 
-option go_package = "ricsmpp";
+option go_package = "./ric-smpp;ricsmpp";
 
 service SMPP {
   rpc Send(SendRequest) returns (SendResponse);
@@ -23,7 +23,9 @@ message SendRequest {
   string message = 4;
 }
 
-message SendResponse { string message_id = 1; }
+message SendResponse {
+  string message_id = 1;
+}
 
 message StatusRequest {
   string gateway_id = 1;
@@ -50,7 +52,9 @@ message StatusResponse {
   SMPPStatus smpp_status = 3;
 }
 
-message GatewayInfoRequest { string gateway_id = 1; }
+message GatewayInfoRequest {
+  string gateway_id = 1;
+}
 
 message GatewayInfoResponse {
   bool online = 1;

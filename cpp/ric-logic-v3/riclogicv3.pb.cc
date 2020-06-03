@@ -18,10 +18,16 @@
 
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_ActionResult_ric_2dlogic_2dv3_2friclogicv3_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_AutomatonEvent_ric_2dlogic_2dv3_2friclogicv3_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_AutomatonVarValue_ric_2dlogic_2dv3_2friclogicv3_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_StatsCounter_ric_2dlogic_2dv3_2friclogicv3_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_UserContext_ric_2dlogic_2dv3_2friclogicv3_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_AutomatonInfo_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_AutomatonStats_ric_2dlogic_2dv3_2friclogicv3_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<2> scc_info_AutomatonInfo_ric_2dlogic_2dv3_2friclogicv3_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_RunAutomatonRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_StartAutomatonRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_UpdateAutomatonVarsRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_UpdateAutomatonVarsResponse_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<3> scc_info_AutomatonInfo_ric_2dlogic_2dv3_2friclogicv3_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<3> scc_info_LogEntry_ric_2dlogic_2dv3_2friclogicv3_2eproto;
 namespace ric {
 namespace logic {
@@ -38,6 +44,17 @@ class AutomatonStatsDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<AutomatonStats> _instance;
 } _AutomatonStats_default_instance_;
+class AutomatonVarValueDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<AutomatonVarValue> _instance;
+  ::google::protobuf::internal::ArenaStringPtr string_val_;
+  double double_val_;
+  bool bool_val_;
+} _AutomatonVarValue_default_instance_;
+class AutomatonInfo_VarsEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<AutomatonInfo_VarsEntry_DoNotUse> _instance;
+} _AutomatonInfo_VarsEntry_DoNotUse_default_instance_;
 class AutomatonInfoDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<AutomatonInfo> _instance;
@@ -62,10 +79,18 @@ class GetInstanceInfoResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<GetInstanceInfoResponse> _instance;
 } _GetInstanceInfoResponse_default_instance_;
+class StartAutomatonRequest_VarsEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<StartAutomatonRequest_VarsEntry_DoNotUse> _instance;
+} _StartAutomatonRequest_VarsEntry_DoNotUse_default_instance_;
 class StartAutomatonRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<StartAutomatonRequest> _instance;
 } _StartAutomatonRequest_default_instance_;
+class StartAutomatonMultiRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<StartAutomatonMultiRequest> _instance;
+} _StartAutomatonMultiRequest_default_instance_;
 class StartAutomatonResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<StartAutomatonResponse> _instance;
@@ -74,6 +99,10 @@ class StopAutomatonRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<StopAutomatonRequest> _instance;
 } _StopAutomatonRequest_default_instance_;
+class RunAutomatonRequest_VarsEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<RunAutomatonRequest_VarsEntry_DoNotUse> _instance;
+} _RunAutomatonRequest_VarsEntry_DoNotUse_default_instance_;
 class RunAutomatonRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<RunAutomatonRequest> _instance;
@@ -102,6 +131,22 @@ class GetRuntimeInfoRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<GetRuntimeInfoRequest> _instance;
 } _GetRuntimeInfoRequest_default_instance_;
+class UpdateAutomatonVarsRequest_VarsEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<UpdateAutomatonVarsRequest_VarsEntry_DoNotUse> _instance;
+} _UpdateAutomatonVarsRequest_VarsEntry_DoNotUse_default_instance_;
+class UpdateAutomatonVarsRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<UpdateAutomatonVarsRequest> _instance;
+} _UpdateAutomatonVarsRequest_default_instance_;
+class UpdateAutomatonVarsResponse_VarsEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<UpdateAutomatonVarsResponse_VarsEntry_DoNotUse> _instance;
+} _UpdateAutomatonVarsResponse_VarsEntry_DoNotUse_default_instance_;
+class UpdateAutomatonVarsResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<UpdateAutomatonVarsResponse> _instance;
+} _UpdateAutomatonVarsResponse_default_instance_;
 }  // namespace v3
 }  // namespace logic
 }  // namespace ric
@@ -148,6 +193,34 @@ static void InitDefaultsAutomatonStats_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsAutomatonStats_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
       &scc_info_StatsCounter_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
 
+static void InitDefaultsAutomatonVarValue_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::logic::v3::_AutomatonVarValue_default_instance_;
+    new (ptr) ::ric::logic::v3::AutomatonVarValue();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::logic::v3::AutomatonVarValue::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_AutomatonVarValue_ric_2dlogic_2dv3_2friclogicv3_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsAutomatonVarValue_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {}};
+
+static void InitDefaultsAutomatonInfo_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::logic::v3::_AutomatonInfo_VarsEntry_DoNotUse_default_instance_;
+    new (ptr) ::ric::logic::v3::AutomatonInfo_VarsEntry_DoNotUse();
+  }
+  ::ric::logic::v3::AutomatonInfo_VarsEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_AutomatonInfo_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsAutomatonInfo_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
+      &scc_info_AutomatonVarValue_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
+
 static void InitDefaultsAutomatonInfo_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -159,10 +232,11 @@ static void InitDefaultsAutomatonInfo_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
   ::ric::logic::v3::AutomatonInfo::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<2> scc_info_AutomatonInfo_ric_2dlogic_2dv3_2friclogicv3_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsAutomatonInfo_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
+::google::protobuf::internal::SCCInfo<3> scc_info_AutomatonInfo_ric_2dlogic_2dv3_2friclogicv3_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 3, InitDefaultsAutomatonInfo_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
       &scc_info_AutomatonStats_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,
-      &scc_info_LogEntry_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
+      &scc_info_LogEntry_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,
+      &scc_info_AutomatonInfo_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
 
 static void InitDefaultsAutomatonEvent_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -237,6 +311,20 @@ static void InitDefaultsGetInstanceInfoResponse_ric_2dlogic_2dv3_2friclogicv3_2e
 ::google::protobuf::internal::SCCInfo<0> scc_info_GetInstanceInfoResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGetInstanceInfoResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {}};
 
+static void InitDefaultsStartAutomatonRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::logic::v3::_StartAutomatonRequest_VarsEntry_DoNotUse_default_instance_;
+    new (ptr) ::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse();
+  }
+  ::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_StartAutomatonRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsStartAutomatonRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
+      &scc_info_AutomatonVarValue_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
+
 static void InitDefaultsStartAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -248,8 +336,24 @@ static void InitDefaultsStartAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2epr
   ::ric::logic::v3::StartAutomatonRequest::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<1> scc_info_StartAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsStartAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
+::google::protobuf::internal::SCCInfo<2> scc_info_StartAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsStartAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
+      &scc_info_UserContext_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,
+      &scc_info_StartAutomatonRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
+
+static void InitDefaultsStartAutomatonMultiRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::logic::v3::_StartAutomatonMultiRequest_default_instance_;
+    new (ptr) ::ric::logic::v3::StartAutomatonMultiRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::logic::v3::StartAutomatonMultiRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_StartAutomatonMultiRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsStartAutomatonMultiRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
       &scc_info_UserContext_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
 
 static void InitDefaultsStartAutomatonResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
@@ -282,6 +386,20 @@ static void InitDefaultsStopAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2epro
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsStopAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
       &scc_info_UserContext_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
 
+static void InitDefaultsRunAutomatonRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::logic::v3::_RunAutomatonRequest_VarsEntry_DoNotUse_default_instance_;
+    new (ptr) ::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse();
+  }
+  ::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_RunAutomatonRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsRunAutomatonRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
+      &scc_info_AutomatonVarValue_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
+
 static void InitDefaultsRunAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -293,9 +411,10 @@ static void InitDefaultsRunAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eprot
   ::ric::logic::v3::RunAutomatonRequest::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<1> scc_info_RunAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsRunAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
-      &scc_info_UserContext_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
+::google::protobuf::internal::SCCInfo<2> scc_info_RunAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsRunAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
+      &scc_info_UserContext_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,
+      &scc_info_RunAutomatonRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
 
 static void InitDefaultsStopAutomatonResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -384,19 +503,83 @@ static void InitDefaultsGetRuntimeInfoRequest_ric_2dlogic_2dv3_2friclogicv3_2epr
 ::google::protobuf::internal::SCCInfo<0> scc_info_GetRuntimeInfoRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGetRuntimeInfoRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {}};
 
+static void InitDefaultsUpdateAutomatonVarsRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::logic::v3::_UpdateAutomatonVarsRequest_VarsEntry_DoNotUse_default_instance_;
+    new (ptr) ::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse();
+  }
+  ::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_UpdateAutomatonVarsRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsUpdateAutomatonVarsRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
+      &scc_info_AutomatonVarValue_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
+
+static void InitDefaultsUpdateAutomatonVarsRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::logic::v3::_UpdateAutomatonVarsRequest_default_instance_;
+    new (ptr) ::ric::logic::v3::UpdateAutomatonVarsRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::logic::v3::UpdateAutomatonVarsRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<2> scc_info_UpdateAutomatonVarsRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsUpdateAutomatonVarsRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
+      &scc_info_UserContext_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,
+      &scc_info_UpdateAutomatonVarsRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
+
+static void InitDefaultsUpdateAutomatonVarsResponse_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::logic::v3::_UpdateAutomatonVarsResponse_VarsEntry_DoNotUse_default_instance_;
+    new (ptr) ::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse();
+  }
+  ::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_UpdateAutomatonVarsResponse_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsUpdateAutomatonVarsResponse_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
+      &scc_info_AutomatonVarValue_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
+
+static void InitDefaultsUpdateAutomatonVarsResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::logic::v3::_UpdateAutomatonVarsResponse_default_instance_;
+    new (ptr) ::ric::logic::v3::UpdateAutomatonVarsResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::logic::v3::UpdateAutomatonVarsResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_UpdateAutomatonVarsResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsUpdateAutomatonVarsResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
+      &scc_info_UpdateAutomatonVarsResponse_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
+
 void InitDefaults_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_UserContext_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_StatsCounter_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_AutomatonStats_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_AutomatonVarValue_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_AutomatonInfo_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_AutomatonInfo_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_AutomatonEvent_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ActionResult_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_LogEntry_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_GetInstanceInfoRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_GetInstanceInfoResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_StartAutomatonRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_StartAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_StartAutomatonMultiRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_StartAutomatonResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_StopAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_RunAutomatonRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_RunAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_StopAutomatonResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_GetAutomatonsRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
@@ -404,9 +587,13 @@ void InitDefaults_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_EmitEventRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_EmitEventResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_GetRuntimeInfoRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_UpdateAutomatonVarsRequest_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_UpdateAutomatonVarsRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_UpdateAutomatonVarsResponse_VarsEntry_DoNotUse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_UpdateAutomatonVarsResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[19];
+::google::protobuf::Metadata file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[28];
 constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto = nullptr;
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto = nullptr;
 
@@ -440,6 +627,24 @@ const ::google::protobuf::uint32 TableStruct_ric_2dlogic_2dv3_2friclogicv3_2epro
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonStats, events_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonStats, halted_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonVarValue, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonVarValue, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  offsetof(::ric::logic::v3::AutomatonVarValueDefaultTypeInternal, string_val_),
+  offsetof(::ric::logic::v3::AutomatonVarValueDefaultTypeInternal, double_val_),
+  offsetof(::ric::logic::v3::AutomatonVarValueDefaultTypeInternal, bool_val_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonVarValue, type_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo_VarsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo_VarsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo_VarsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo_VarsEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -453,6 +658,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dlogic_2dv3_2friclogicv3_2epro
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo, prev_state_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo, stats_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo, logs_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo, vars_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonEvent, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -504,6 +710,15 @@ const ::google::protobuf::uint32 TableStruct_ric_2dlogic_2dv3_2friclogicv3_2epro
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::GetInstanceInfoResponse, containers_total_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::GetInstanceInfoResponse, containers_running_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::GetInstanceInfoResponse, object_ids_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse, value_),
+  0,
+  1,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -512,6 +727,15 @@ const ::google::protobuf::uint32 TableStruct_ric_2dlogic_2dv3_2friclogicv3_2epro
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonRequest, ctx_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonRequest, object_id_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonRequest, automaton_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonRequest, vars_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonMultiRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonMultiRequest, ctx_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonMultiRequest, object_ids_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonMultiRequest, automaton_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -526,6 +750,15 @@ const ::google::protobuf::uint32 TableStruct_ric_2dlogic_2dv3_2friclogicv3_2epro
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StopAutomatonRequest, ctx_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StopAutomatonRequest, object_id_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StopAutomatonRequest, automaton_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse, value_),
+  0,
+  1,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::RunAutomatonRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -537,6 +770,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dlogic_2dv3_2friclogicv3_2epro
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::RunAutomatonRequest, wait_final_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::RunAutomatonRequest, wait_timeout_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::RunAutomatonRequest, on_running_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::RunAutomatonRequest, vars_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StopAutomatonResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -580,42 +814,89 @@ const ::google::protobuf::uint32 TableStruct_ric_2dlogic_2dv3_2friclogicv3_2epro
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::GetRuntimeInfoRequest, object_id_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::GetRuntimeInfoRequest, automaton_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::UpdateAutomatonVarsRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::UpdateAutomatonVarsRequest, ctx_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::UpdateAutomatonVarsRequest, object_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::UpdateAutomatonVarsRequest, automaton_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::UpdateAutomatonVarsRequest, vars_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::UpdateAutomatonVarsResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::UpdateAutomatonVarsResponse, vars_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ric::logic::v3::UserContext)},
   { 8, -1, sizeof(::ric::logic::v3::StatsCounter)},
   { 15, -1, sizeof(::ric::logic::v3::AutomatonStats)},
-  { 28, -1, sizeof(::ric::logic::v3::AutomatonInfo)},
-  { 42, -1, sizeof(::ric::logic::v3::AutomatonEvent)},
-  { 49, -1, sizeof(::ric::logic::v3::ActionResult)},
-  { 57, -1, sizeof(::ric::logic::v3::LogEntry)},
-  { 76, -1, sizeof(::ric::logic::v3::GetInstanceInfoRequest)},
-  { 81, -1, sizeof(::ric::logic::v3::GetInstanceInfoResponse)},
-  { 93, -1, sizeof(::ric::logic::v3::StartAutomatonRequest)},
-  { 101, -1, sizeof(::ric::logic::v3::StartAutomatonResponse)},
-  { 107, -1, sizeof(::ric::logic::v3::StopAutomatonRequest)},
-  { 115, -1, sizeof(::ric::logic::v3::RunAutomatonRequest)},
-  { 126, -1, sizeof(::ric::logic::v3::StopAutomatonResponse)},
-  { 132, -1, sizeof(::ric::logic::v3::GetAutomatonsRequest)},
-  { 141, -1, sizeof(::ric::logic::v3::GetAutomatonsResponse)},
-  { 147, -1, sizeof(::ric::logic::v3::EmitEventRequest)},
-  { 157, -1, sizeof(::ric::logic::v3::EmitEventResponse)},
-  { 162, -1, sizeof(::ric::logic::v3::GetRuntimeInfoRequest)},
+  { 28, -1, sizeof(::ric::logic::v3::AutomatonVarValue)},
+  { 37, 44, sizeof(::ric::logic::v3::AutomatonInfo_VarsEntry_DoNotUse)},
+  { 46, -1, sizeof(::ric::logic::v3::AutomatonInfo)},
+  { 61, -1, sizeof(::ric::logic::v3::AutomatonEvent)},
+  { 68, -1, sizeof(::ric::logic::v3::ActionResult)},
+  { 76, -1, sizeof(::ric::logic::v3::LogEntry)},
+  { 95, -1, sizeof(::ric::logic::v3::GetInstanceInfoRequest)},
+  { 100, -1, sizeof(::ric::logic::v3::GetInstanceInfoResponse)},
+  { 112, 119, sizeof(::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse)},
+  { 121, -1, sizeof(::ric::logic::v3::StartAutomatonRequest)},
+  { 130, -1, sizeof(::ric::logic::v3::StartAutomatonMultiRequest)},
+  { 138, -1, sizeof(::ric::logic::v3::StartAutomatonResponse)},
+  { 144, -1, sizeof(::ric::logic::v3::StopAutomatonRequest)},
+  { 152, 159, sizeof(::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse)},
+  { 161, -1, sizeof(::ric::logic::v3::RunAutomatonRequest)},
+  { 173, -1, sizeof(::ric::logic::v3::StopAutomatonResponse)},
+  { 179, -1, sizeof(::ric::logic::v3::GetAutomatonsRequest)},
+  { 188, -1, sizeof(::ric::logic::v3::GetAutomatonsResponse)},
+  { 194, -1, sizeof(::ric::logic::v3::EmitEventRequest)},
+  { 204, -1, sizeof(::ric::logic::v3::EmitEventResponse)},
+  { 209, -1, sizeof(::ric::logic::v3::GetRuntimeInfoRequest)},
+  { 216, 223, sizeof(::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse)},
+  { 225, -1, sizeof(::ric::logic::v3::UpdateAutomatonVarsRequest)},
+  { 234, 241, sizeof(::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse)},
+  { 243, -1, sizeof(::ric::logic::v3::UpdateAutomatonVarsResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_UserContext_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_StatsCounter_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_AutomatonStats_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_AutomatonVarValue_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_AutomatonInfo_VarsEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_AutomatonInfo_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_AutomatonEvent_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_ActionResult_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_LogEntry_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_GetInstanceInfoRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_GetInstanceInfoResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_StartAutomatonRequest_VarsEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_StartAutomatonRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_StartAutomatonMultiRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_StartAutomatonResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_StopAutomatonRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_RunAutomatonRequest_VarsEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_RunAutomatonRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_StopAutomatonResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_GetAutomatonsRequest_default_instance_),
@@ -623,12 +904,16 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_EmitEventRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_EmitEventResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_GetRuntimeInfoRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_UpdateAutomatonVarsRequest_VarsEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_UpdateAutomatonVarsRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_UpdateAutomatonVarsResponse_VarsEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_UpdateAutomatonVarsResponse_default_instance_),
 };
 
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto = {
   {}, AddDescriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto, "ric-logic-v3/riclogicv3.proto", schemas,
   file_default_instances, TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto::offsets,
-  file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto, 19, file_level_enum_descriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto, file_level_service_descriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto,
+  file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto, 28, file_level_enum_descriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto, file_level_service_descriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dlogic_2dv3_2friclogicv3_2eproto[] =
@@ -643,70 +928,102 @@ const char descriptor_table_protodef_ric_2dlogic_2dv3_2friclogicv3_2eproto[] =
   "v3.StatsCounter\022+\n\007packets\030\006 \001(\0132\032.ric.l"
   "ogic.v3.StatsCounter\022*\n\006events\030\007 \001(\0132\032.r"
   "ic.logic.v3.StatsCounter\022\016\n\006halted\030\010 \001(\t"
-  "\"\341\001\n\rAutomatonInfo\022\021\n\tobject_id\030\001 \001(\t\022\024\n"
-  "\014automaton_id\030\002 \001(\t\022\017\n\007hash_id\030\003 \001(\t\022\020\n\010"
-  "revision\030\004 \001(\t\022\016\n\006status\030\005 \001(\t\022\r\n\005state\030"
-  "\006 \001(\t\022\022\n\nprev_state\030\007 \001(\t\022+\n\005stats\030\010 \001(\013"
-  "2\034.ric.logic.v3.AutomatonStats\022$\n\004logs\030\t"
-  " \003(\0132\026.ric.logic.v3.LogEntry\"/\n\016Automato"
-  "nEvent\022\014\n\004type\030\001 \001(\t\022\017\n\007payload\030\002 \001(\t\";\n"
-  "\014ActionResult\022\016\n\006status\030\001 \001(\t\022\017\n\007payload"
-  "\030\002 \001(\t\022\n\n\002ms\030\003 \001(\005\"\307\002\n\010LogEntry\022\n\n\002id\030\001 "
-  "\001(\t\022\n\n\002ts\030\002 \001(\003\022\021\n\tobject_id\030\003 \001(\t\022\024\n\014au"
-  "tomaton_id\030\004 \001(\t\022\017\n\007hash_id\030\005 \001(\t\022\020\n\010rev"
-  "ision\030\006 \001(\t\022\020\n\010instance\030\007 \001(\t\022\020\n\010categor"
-  "y\030\010 \001(\t\022\017\n\007message\030\t \001(\t\022+\n\005event\030\n \001(\0132"
-  "\034.ric.logic.v3.AutomatonEvent\022\r\n\005state\030\013"
-  " \001(\t\022\022\n\nprev_state\030\014 \001(\t\022&\n\003ctx\030\r \001(\0132\031."
-  "ric.logic.v3.UserContext\022*\n\006result\030\016 \001(\013"
-  "2\032.ric.logic.v3.ActionResult\"\030\n\026GetInsta"
-  "nceInfoRequest\"\260\001\n\027GetInstanceInfoRespon"
-  "se\022\020\n\010hostname\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\022\022\n\n"
-  "started_at\030\003 \001(\003\022\025\n\robjects_total\030\004 \001(\003\022"
-  "\030\n\020containers_total\030\005 \001(\003\022\032\n\022containers_"
-  "running\030\006 \001(\003\022\022\n\nobject_ids\030\007 \003(\t\"h\n\025Sta"
-  "rtAutomatonRequest\022&\n\003ctx\030\001 \001(\0132\031.ric.lo"
+  "\"[\n\021AutomatonVarValue\022\024\n\nstring_val\030\001 \001("
+  "\tH\000\022\024\n\ndouble_val\030\002 \001(\001H\000\022\022\n\010bool_val\030\003 "
+  "\001(\010H\000B\006\n\004type\"\344\002\n\rAutomatonInfo\022\021\n\tobjec"
+  "t_id\030\001 \001(\t\022\024\n\014automaton_id\030\002 \001(\t\022\017\n\007hash"
+  "_id\030\003 \001(\t\022\020\n\010revision\030\004 \001(\t\022\016\n\006status\030\005 "
+  "\001(\t\022\r\n\005state\030\006 \001(\t\022\022\n\nprev_state\030\007 \001(\t\022+"
+  "\n\005stats\030\010 \001(\0132\034.ric.logic.v3.AutomatonSt"
+  "ats\022$\n\004logs\030\t \003(\0132\026.ric.logic.v3.LogEntr"
+  "y\0223\n\004vars\030\n \003(\0132%.ric.logic.v3.Automaton"
+  "Info.VarsEntry\032L\n\tVarsEntry\022\013\n\003key\030\001 \001(\t"
+  "\022.\n\005value\030\002 \001(\0132\037.ric.logic.v3.Automaton"
+  "VarValue:\0028\001\"/\n\016AutomatonEvent\022\014\n\004type\030\001"
+  " \001(\t\022\017\n\007payload\030\002 \001(\t\";\n\014ActionResult\022\016\n"
+  "\006status\030\001 \001(\t\022\017\n\007payload\030\002 \001(\t\022\n\n\002ms\030\003 \001"
+  "(\005\"\307\002\n\010LogEntry\022\n\n\002id\030\001 \001(\t\022\n\n\002ts\030\002 \001(\003\022"
+  "\021\n\tobject_id\030\003 \001(\t\022\024\n\014automaton_id\030\004 \001(\t"
+  "\022\017\n\007hash_id\030\005 \001(\t\022\020\n\010revision\030\006 \001(\t\022\020\n\010i"
+  "nstance\030\007 \001(\t\022\020\n\010category\030\010 \001(\t\022\017\n\007messa"
+  "ge\030\t \001(\t\022+\n\005event\030\n \001(\0132\034.ric.logic.v3.A"
+  "utomatonEvent\022\r\n\005state\030\013 \001(\t\022\022\n\nprev_sta"
+  "te\030\014 \001(\t\022&\n\003ctx\030\r \001(\0132\031.ric.logic.v3.Use"
+  "rContext\022*\n\006result\030\016 \001(\0132\032.ric.logic.v3."
+  "ActionResult\"\030\n\026GetInstanceInfoRequest\"\260"
+  "\001\n\027GetInstanceInfoResponse\022\020\n\010hostname\030\001"
+  " \001(\t\022\016\n\006status\030\002 \001(\t\022\022\n\nstarted_at\030\003 \001(\003"
+  "\022\025\n\robjects_total\030\004 \001(\003\022\030\n\020containers_to"
+  "tal\030\005 \001(\003\022\032\n\022containers_running\030\006 \001(\003\022\022\n"
+  "\nobject_ids\030\007 \003(\t\"\363\001\n\025StartAutomatonRequ"
+  "est\022&\n\003ctx\030\001 \001(\0132\031.ric.logic.v3.UserCont"
+  "ext\022\021\n\tobject_id\030\002 \001(\t\022\024\n\014automaton_id\030\003"
+  " \001(\t\022;\n\004vars\030\004 \003(\0132-.ric.logic.v3.StartA"
+  "utomatonRequest.VarsEntry\032L\n\tVarsEntry\022\013"
+  "\n\003key\030\001 \001(\t\022.\n\005value\030\002 \001(\0132\037.ric.logic.v"
+  "3.AutomatonVarValue:\0028\001\"n\n\032StartAutomato"
+  "nMultiRequest\022&\n\003ctx\030\001 \001(\0132\031.ric.logic.v"
+  "3.UserContext\022\022\n\nobject_ids\030\002 \003(\t\022\024\n\014aut"
+  "omaton_id\030\003 \001(\t\"H\n\026StartAutomatonRespons"
+  "e\022.\n\tautomaton\030\001 \001(\0132\033.ric.logic.v3.Auto"
+  "matonInfo\"g\n\024StopAutomatonRequest\022&\n\003ctx"
+  "\030\001 \001(\0132\031.ric.logic.v3.UserContext\022\021\n\tobj"
+  "ect_id\030\002 \001(\t\022\024\n\014automaton_id\030\003 \001(\t\"\255\002\n\023R"
+  "unAutomatonRequest\022&\n\003ctx\030\001 \001(\0132\031.ric.lo"
   "gic.v3.UserContext\022\021\n\tobject_id\030\002 \001(\t\022\024\n"
-  "\014automaton_id\030\003 \001(\t\"H\n\026StartAutomatonRes"
-  "ponse\022.\n\tautomaton\030\001 \001(\0132\033.ric.logic.v3."
-  "AutomatonInfo\"g\n\024StopAutomatonRequest\022&\n"
-  "\003ctx\030\001 \001(\0132\031.ric.logic.v3.UserContext\022\021\n"
-  "\tobject_id\030\002 \001(\t\022\024\n\014automaton_id\030\003 \001(\t\"\244"
-  "\001\n\023RunAutomatonRequest\022&\n\003ctx\030\001 \001(\0132\031.ri"
-  "c.logic.v3.UserContext\022\021\n\tobject_id\030\002 \001("
-  "\t\022\024\n\014automaton_id\030\003 \001(\t\022\022\n\nwait_final\030\004 "
-  "\001(\010\022\024\n\014wait_timeout\030\005 \001(\005\022\022\n\non_running\030"
-  "\006 \001(\t\"G\n\025StopAutomatonResponse\022.\n\tautoma"
-  "ton\030\001 \001(\0132\033.ric.logic.v3.AutomatonInfo\"c"
-  "\n\024GetAutomatonsRequest\022\022\n\nobject_ids\030\001 \003"
-  "(\t\022\025\n\rautomaton_ids\030\002 \003(\t\022\021\n\twith_logs\030\003"
-  " \001(\010\022\r\n\005watch\030\004 \001(\010\"H\n\025GetAutomatonsResp"
-  "onse\022/\n\nautomatons\030\001 \003(\0132\033.ric.logic.v3."
-  "AutomatonInfo\"\203\001\n\020EmitEventRequest\022&\n\003ct"
-  "x\030\001 \001(\0132\031.ric.logic.v3.UserContext\022\021\n\tob"
-  "ject_id\030\002 \001(\t\022\024\n\014automaton_id\030\003 \001(\t\022\r\n\005e"
-  "vent\030\004 \001(\t\022\017\n\007payload\030\005 \001(\t\"\023\n\021EmitEvent"
-  "Response\"@\n\025GetRuntimeInfoRequest\022\021\n\tobj"
-  "ect_id\030\001 \001(\t\022\024\n\014automaton_id\030\002 \001(\t2\227\004\n\nR"
-  "icLogicV3\022^\n\017GetInstanceInfo\022$.ric.logic"
-  ".v3.GetInstanceInfoRequest\032%.ric.logic.v"
-  "3.GetInstanceInfoResponse\022R\n\rGetAutomato"
-  "ns\022\".ric.logic.v3.GetAutomatonsRequest\032\033"
-  ".ric.logic.v3.AutomatonInfo0\001\022[\n\016StartAu"
-  "tomaton\022#.ric.logic.v3.StartAutomatonReq"
-  "uest\032$.ric.logic.v3.StartAutomatonRespon"
-  "se\022X\n\rStopAutomaton\022\".ric.logic.v3.StopA"
-  "utomatonRequest\032#.ric.logic.v3.StopAutom"
-  "atonResponse\022P\n\014RunAutomaton\022!.ric.logic"
-  ".v3.RunAutomatonRequest\032\033.ric.logic.v3.A"
-  "utomatonInfo0\001\022L\n\tEmitEvent\022\036.ric.logic."
-  "v3.EmitEventRequest\032\037.ric.logic.v3.EmitE"
-  "ventResponseB\014Z\nriclogicv3b\006proto3"
+  "\014automaton_id\030\003 \001(\t\022\022\n\nwait_final\030\004 \001(\010\022"
+  "\024\n\014wait_timeout\030\005 \001(\005\022\022\n\non_running\030\006 \001("
+  "\t\0229\n\004vars\030\007 \003(\0132+.ric.logic.v3.RunAutoma"
+  "tonRequest.VarsEntry\032L\n\tVarsEntry\022\013\n\003key"
+  "\030\001 \001(\t\022.\n\005value\030\002 \001(\0132\037.ric.logic.v3.Aut"
+  "omatonVarValue:\0028\001\"G\n\025StopAutomatonRespo"
+  "nse\022.\n\tautomaton\030\001 \001(\0132\033.ric.logic.v3.Au"
+  "tomatonInfo\"c\n\024GetAutomatonsRequest\022\022\n\no"
+  "bject_ids\030\001 \003(\t\022\025\n\rautomaton_ids\030\002 \003(\t\022\021"
+  "\n\twith_logs\030\003 \001(\010\022\r\n\005watch\030\004 \001(\010\"H\n\025GetA"
+  "utomatonsResponse\022/\n\nautomatons\030\001 \003(\0132\033."
+  "ric.logic.v3.AutomatonInfo\"\203\001\n\020EmitEvent"
+  "Request\022&\n\003ctx\030\001 \001(\0132\031.ric.logic.v3.User"
+  "Context\022\021\n\tobject_id\030\002 \001(\t\022\024\n\014automaton_"
+  "id\030\003 \001(\t\022\r\n\005event\030\004 \001(\t\022\017\n\007payload\030\005 \001(\t"
+  "\"\023\n\021EmitEventResponse\"@\n\025GetRuntimeInfoR"
+  "equest\022\021\n\tobject_id\030\001 \001(\t\022\024\n\014automaton_i"
+  "d\030\002 \001(\t\"\375\001\n\032UpdateAutomatonVarsRequest\022&"
+  "\n\003ctx\030\001 \001(\0132\031.ric.logic.v3.UserContext\022\021"
+  "\n\tobject_id\030\002 \001(\t\022\024\n\014automaton_id\030\003 \001(\t\022"
+  "@\n\004vars\030\004 \003(\01322.ric.logic.v3.UpdateAutom"
+  "atonVarsRequest.VarsEntry\032L\n\tVarsEntry\022\013"
+  "\n\003key\030\001 \001(\t\022.\n\005value\030\002 \001(\0132\037.ric.logic.v"
+  "3.AutomatonVarValue:\0028\001\"\256\001\n\033UpdateAutoma"
+  "tonVarsResponse\022A\n\004vars\030\001 \003(\01323.ric.logi"
+  "c.v3.UpdateAutomatonVarsResponse.VarsEnt"
+  "ry\032L\n\tVarsEntry\022\013\n\003key\030\001 \001(\t\022.\n\005value\030\002 "
+  "\001(\0132\037.ric.logic.v3.AutomatonVarValue:\0028\001"
+  "2\352\005\n\nRicLogicV3\022^\n\017GetInstanceInfo\022$.ric"
+  ".logic.v3.GetInstanceInfoRequest\032%.ric.l"
+  "ogic.v3.GetInstanceInfoResponse\022R\n\rGetAu"
+  "tomatons\022\".ric.logic.v3.GetAutomatonsReq"
+  "uest\032\033.ric.logic.v3.AutomatonInfo0\001\022[\n\016S"
+  "tartAutomaton\022#.ric.logic.v3.StartAutoma"
+  "tonRequest\032$.ric.logic.v3.StartAutomaton"
+  "Response\022e\n\023StartAutomatonMulti\022(.ric.lo"
+  "gic.v3.StartAutomatonMultiRequest\032$.ric."
+  "logic.v3.StartAutomatonResponse\022X\n\rStopA"
+  "utomaton\022\".ric.logic.v3.StopAutomatonReq"
+  "uest\032#.ric.logic.v3.StopAutomatonRespons"
+  "e\022P\n\014RunAutomaton\022!.ric.logic.v3.RunAuto"
+  "matonRequest\032\033.ric.logic.v3.AutomatonInf"
+  "o0\001\022L\n\tEmitEvent\022\036.ric.logic.v3.EmitEven"
+  "tRequest\032\037.ric.logic.v3.EmitEventRespons"
+  "e\022j\n\023UpdateAutomatonVars\022(.ric.logic.v3."
+  "UpdateAutomatonVarsRequest\032).ric.logic.v"
+  "3.UpdateAutomatonVarsResponseB\033Z\031./ric-l"
+  "ogic-v3;riclogicv3b\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dlogic_2dv3_2friclogicv3_2eproto = {
   false, InitDefaults_ric_2dlogic_2dv3_2friclogicv3_2eproto, 
   descriptor_table_protodef_ric_2dlogic_2dv3_2friclogicv3_2eproto,
-  "ric-logic-v3/riclogicv3.proto", &assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto, 2794,
+  "ric-logic-v3/riclogicv3.proto", &assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto, 4066,
 };
 
 void AddDescriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
@@ -2169,6 +2486,475 @@ void AutomatonStats::InternalSwap(AutomatonStats* other) {
 
 // ===================================================================
 
+void AutomatonVarValue::InitAsDefaultInstance() {
+  ::ric::logic::v3::_AutomatonVarValue_default_instance_.string_val_.UnsafeSetDefault(
+      &::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::ric::logic::v3::_AutomatonVarValue_default_instance_.double_val_ = 0;
+  ::ric::logic::v3::_AutomatonVarValue_default_instance_.bool_val_ = false;
+}
+class AutomatonVarValue::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int AutomatonVarValue::kStringValFieldNumber;
+const int AutomatonVarValue::kDoubleValFieldNumber;
+const int AutomatonVarValue::kBoolValFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+AutomatonVarValue::AutomatonVarValue()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.logic.v3.AutomatonVarValue)
+}
+AutomatonVarValue::AutomatonVarValue(const AutomatonVarValue& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  clear_has_type();
+  switch (from.type_case()) {
+    case kStringVal: {
+      set_string_val(from.string_val());
+      break;
+    }
+    case kDoubleVal: {
+      set_double_val(from.double_val());
+      break;
+    }
+    case kBoolVal: {
+      set_bool_val(from.bool_val());
+      break;
+    }
+    case TYPE_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.logic.v3.AutomatonVarValue)
+}
+
+void AutomatonVarValue::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_AutomatonVarValue_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  clear_has_type();
+}
+
+AutomatonVarValue::~AutomatonVarValue() {
+  // @@protoc_insertion_point(destructor:ric.logic.v3.AutomatonVarValue)
+  SharedDtor();
+}
+
+void AutomatonVarValue::SharedDtor() {
+  if (has_type()) {
+    clear_type();
+  }
+}
+
+void AutomatonVarValue::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const AutomatonVarValue& AutomatonVarValue::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_AutomatonVarValue_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void AutomatonVarValue::clear_type() {
+// @@protoc_insertion_point(one_of_clear_start:ric.logic.v3.AutomatonVarValue)
+  switch (type_case()) {
+    case kStringVal: {
+      type_.string_val_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+      break;
+    }
+    case kDoubleVal: {
+      // No need to clear
+      break;
+    }
+    case kBoolVal: {
+      // No need to clear
+      break;
+    }
+    case TYPE_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = TYPE_NOT_SET;
+}
+
+
+void AutomatonVarValue::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.logic.v3.AutomatonVarValue)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clear_type();
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* AutomatonVarValue::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<AutomatonVarValue*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // string string_val = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.logic.v3.AutomatonVarValue.string_val");
+        object = msg->mutable_string_val();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // double double_val = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 17) goto handle_unusual;
+        msg->set_double_val(::google::protobuf::io::UnalignedLoad<double>(ptr));
+        ptr += sizeof(double);
+        break;
+      }
+      // bool bool_val = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
+        msg->set_bool_val(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool AutomatonVarValue::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.logic.v3.AutomatonVarValue)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string string_val = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_string_val()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->string_val().data(), static_cast<int>(this->string_val().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.logic.v3.AutomatonVarValue.string_val"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // double double_val = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (17 & 0xFF)) {
+          clear_type();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &type_.double_val_)));
+          set_has_double_val();
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bool bool_val = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
+          clear_type();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &type_.bool_val_)));
+          set_has_bool_val();
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.logic.v3.AutomatonVarValue)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.logic.v3.AutomatonVarValue)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void AutomatonVarValue::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.logic.v3.AutomatonVarValue)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string string_val = 1;
+  if (has_string_val()) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->string_val().data(), static_cast<int>(this->string_val().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.AutomatonVarValue.string_val");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->string_val(), output);
+  }
+
+  // double double_val = 2;
+  if (has_double_val()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->double_val(), output);
+  }
+
+  // bool bool_val = 3;
+  if (has_bool_val()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->bool_val(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.logic.v3.AutomatonVarValue)
+}
+
+::google::protobuf::uint8* AutomatonVarValue::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.logic.v3.AutomatonVarValue)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string string_val = 1;
+  if (has_string_val()) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->string_val().data(), static_cast<int>(this->string_val().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.AutomatonVarValue.string_val");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->string_val(), target);
+  }
+
+  // double double_val = 2;
+  if (has_double_val()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->double_val(), target);
+  }
+
+  // bool bool_val = 3;
+  if (has_bool_val()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->bool_val(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.logic.v3.AutomatonVarValue)
+  return target;
+}
+
+size_t AutomatonVarValue::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.logic.v3.AutomatonVarValue)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  switch (type_case()) {
+    // string string_val = 1;
+    case kStringVal: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->string_val());
+      break;
+    }
+    // double double_val = 2;
+    case kDoubleVal: {
+      total_size += 1 + 8;
+      break;
+    }
+    // bool bool_val = 3;
+    case kBoolVal: {
+      total_size += 1 + 1;
+      break;
+    }
+    case TYPE_NOT_SET: {
+      break;
+    }
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void AutomatonVarValue::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.logic.v3.AutomatonVarValue)
+  GOOGLE_DCHECK_NE(&from, this);
+  const AutomatonVarValue* source =
+      ::google::protobuf::DynamicCastToGenerated<AutomatonVarValue>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.logic.v3.AutomatonVarValue)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.logic.v3.AutomatonVarValue)
+    MergeFrom(*source);
+  }
+}
+
+void AutomatonVarValue::MergeFrom(const AutomatonVarValue& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.logic.v3.AutomatonVarValue)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  switch (from.type_case()) {
+    case kStringVal: {
+      set_string_val(from.string_val());
+      break;
+    }
+    case kDoubleVal: {
+      set_double_val(from.double_val());
+      break;
+    }
+    case kBoolVal: {
+      set_bool_val(from.bool_val());
+      break;
+    }
+    case TYPE_NOT_SET: {
+      break;
+    }
+  }
+}
+
+void AutomatonVarValue::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.logic.v3.AutomatonVarValue)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void AutomatonVarValue::CopyFrom(const AutomatonVarValue& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.logic.v3.AutomatonVarValue)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool AutomatonVarValue::IsInitialized() const {
+  return true;
+}
+
+void AutomatonVarValue::Swap(AutomatonVarValue* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void AutomatonVarValue::InternalSwap(AutomatonVarValue* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(type_, other->type_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+}
+
+::google::protobuf::Metadata AutomatonVarValue::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto);
+  return ::file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+AutomatonInfo_VarsEntry_DoNotUse::AutomatonInfo_VarsEntry_DoNotUse() {}
+AutomatonInfo_VarsEntry_DoNotUse::AutomatonInfo_VarsEntry_DoNotUse(::google::protobuf::Arena* arena)
+    : SuperType(arena) {}
+void AutomatonInfo_VarsEntry_DoNotUse::MergeFrom(const AutomatonInfo_VarsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::google::protobuf::Metadata AutomatonInfo_VarsEntry_DoNotUse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto);
+  return ::file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[4];
+}
+void AutomatonInfo_VarsEntry_DoNotUse::MergeFrom(
+    const ::google::protobuf::Message& other) {
+  ::google::protobuf::Message::MergeFrom(other);
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool AutomatonInfo_VarsEntry_DoNotUse::_ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx) {
+  using MF = ::google::protobuf::internal::MapField<
+      AutomatonInfo_VarsEntry_DoNotUse, EntryKeyType, EntryValueType,
+      kEntryKeyFieldType, kEntryValueFieldType,
+      kEntryDefaultEnumValue>;
+  auto mf = static_cast<MF*>(object);
+  Parser<MF, ::google::protobuf::Map<EntryKeyType, EntryValueType>> parser(mf);
+#define DO_(x) if (!(x)) return false
+  DO_(parser.ParseMap(begin, end));
+  DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+    parser.key().data(), static_cast<int>(parser.key().length()),
+    ::google::protobuf::internal::WireFormatLite::PARSE,
+    "ric.logic.v3.AutomatonInfo.VarsEntry.key"));
+#undef DO_
+  return true;
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+
+// ===================================================================
+
 void AutomatonInfo::InitAsDefaultInstance() {
   ::ric::logic::v3::_AutomatonInfo_default_instance_._instance.get_mutable()->stats_ = const_cast< ::ric::logic::v3::AutomatonStats*>(
       ::ric::logic::v3::AutomatonStats::internal_default_instance());
@@ -2192,6 +2978,7 @@ const int AutomatonInfo::kStateFieldNumber;
 const int AutomatonInfo::kPrevStateFieldNumber;
 const int AutomatonInfo::kStatsFieldNumber;
 const int AutomatonInfo::kLogsFieldNumber;
+const int AutomatonInfo::kVarsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 AutomatonInfo::AutomatonInfo()
@@ -2204,6 +2991,7 @@ AutomatonInfo::AutomatonInfo(const AutomatonInfo& from)
       _internal_metadata_(nullptr),
       logs_(from.logs_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  vars_.MergeFrom(from.vars_);
   object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.object_id().size() > 0) {
     object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
@@ -2285,6 +3073,7 @@ void AutomatonInfo::Clear() {
   (void) cached_has_bits;
 
   logs_.Clear();
+  vars_.Clear();
   object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   automaton_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   hash_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -2453,6 +3242,25 @@ const char* AutomatonInfo::_InternalParse(const char* begin, const char* end, vo
         } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 74 && (ptr += 1));
         break;
       }
+      // map<string, .ric.logic.v3.AutomatonVarValue> vars = 10;
+      case 10: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 82) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::google::protobuf::internal::SlowMapEntryParser;
+          auto parse_map = ::ric::logic::v3::AutomatonInfo_VarsEntry_DoNotUse::_ParseMap;
+          ctx->extra_parse_data().payload.clear();
+          ctx->extra_parse_data().parse_map = parse_map;
+          object = &msg->vars_;
+          if (size > end - ptr) goto len_delim_till_end;
+          auto newend = ptr + size;
+          GOOGLE_PROTOBUF_PARSER_ASSERT(parse_map(ptr, newend, object, ctx));
+          ptr = newend;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 82 && (ptr += 1));
+        break;
+      }
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -2614,6 +3422,28 @@ bool AutomatonInfo::MergePartialFromCodedStream(
         break;
       }
 
+      // map<string, .ric.logic.v3.AutomatonVarValue> vars = 10;
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (82 & 0xFF)) {
+          AutomatonInfo_VarsEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
+              AutomatonInfo_VarsEntry_DoNotUse,
+              ::std::string, ::ric::logic::v3::AutomatonVarValue,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+              0 >,
+            ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue > > parser(&vars_);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, &parser));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.key().data(), static_cast<int>(parser.key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.logic.v3.AutomatonInfo.VarsEntry.key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -2726,6 +3556,51 @@ void AutomatonInfo::SerializeWithCachedSizes(
       output);
   }
 
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 10;
+  if (!this->vars().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.logic.v3.AutomatonInfo.VarsEntry.key");
+      }
+    };
+
+    if (output->IsSerializationDeterministic() &&
+        this->vars().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->vars().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<AutomatonInfo_VarsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(vars_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(10, *entry, output);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<AutomatonInfo_VarsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it) {
+        entry.reset(vars_.NewEntryWrapper(it->first, it->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(10, *entry, output);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -2831,6 +3706,51 @@ void AutomatonInfo::SerializeWithCachedSizes(
         9, this->logs(static_cast<int>(i)), target);
   }
 
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 10;
+  if (!this->vars().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.logic.v3.AutomatonInfo.VarsEntry.key");
+      }
+    };
+
+    if (false &&
+        this->vars().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->vars().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<AutomatonInfo_VarsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(vars_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(10, *entry, target);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<AutomatonInfo_VarsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it) {
+        entry.reset(vars_.NewEntryWrapper(it->first, it->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(10, *entry, target);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -2860,6 +3780,20 @@ size_t AutomatonInfo::ByteSizeLong() const {
       total_size +=
         ::google::protobuf::internal::WireFormatLite::MessageSize(
           this->logs(static_cast<int>(i)));
+    }
+  }
+
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 10;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->vars_size());
+  {
+    ::std::unique_ptr<AutomatonInfo_VarsEntry_DoNotUse> entry;
+    for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+        it = this->vars().begin();
+        it != this->vars().end(); ++it) {
+      entry.reset(vars_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
     }
   }
 
@@ -2947,6 +3881,7 @@ void AutomatonInfo::MergeFrom(const AutomatonInfo& from) {
   (void) cached_has_bits;
 
   logs_.MergeFrom(from.logs_);
+  vars_.MergeFrom(from.vars_);
   if (from.object_id().size() > 0) {
 
     object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
@@ -3006,6 +3941,7 @@ void AutomatonInfo::InternalSwap(AutomatonInfo* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   CastToBase(&logs_)->InternalSwap(CastToBase(&other->logs_));
+  vars_.Swap(&other->vars_);
   object_id_.Swap(&other->object_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   automaton_id_.Swap(&other->automaton_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
@@ -5839,6 +6775,43 @@ void GetInstanceInfoResponse::InternalSwap(GetInstanceInfoResponse* other) {
 
 // ===================================================================
 
+StartAutomatonRequest_VarsEntry_DoNotUse::StartAutomatonRequest_VarsEntry_DoNotUse() {}
+StartAutomatonRequest_VarsEntry_DoNotUse::StartAutomatonRequest_VarsEntry_DoNotUse(::google::protobuf::Arena* arena)
+    : SuperType(arena) {}
+void StartAutomatonRequest_VarsEntry_DoNotUse::MergeFrom(const StartAutomatonRequest_VarsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::google::protobuf::Metadata StartAutomatonRequest_VarsEntry_DoNotUse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto);
+  return ::file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[11];
+}
+void StartAutomatonRequest_VarsEntry_DoNotUse::MergeFrom(
+    const ::google::protobuf::Message& other) {
+  ::google::protobuf::Message::MergeFrom(other);
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool StartAutomatonRequest_VarsEntry_DoNotUse::_ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx) {
+  using MF = ::google::protobuf::internal::MapField<
+      StartAutomatonRequest_VarsEntry_DoNotUse, EntryKeyType, EntryValueType,
+      kEntryKeyFieldType, kEntryValueFieldType,
+      kEntryDefaultEnumValue>;
+  auto mf = static_cast<MF*>(object);
+  Parser<MF, ::google::protobuf::Map<EntryKeyType, EntryValueType>> parser(mf);
+#define DO_(x) if (!(x)) return false
+  DO_(parser.ParseMap(begin, end));
+  DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+    parser.key().data(), static_cast<int>(parser.key().length()),
+    ::google::protobuf::internal::WireFormatLite::PARSE,
+    "ric.logic.v3.StartAutomatonRequest.VarsEntry.key"));
+#undef DO_
+  return true;
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+
+// ===================================================================
+
 void StartAutomatonRequest::InitAsDefaultInstance() {
   ::ric::logic::v3::_StartAutomatonRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::logic::v3::UserContext*>(
       ::ric::logic::v3::UserContext::internal_default_instance());
@@ -5856,6 +6829,7 @@ StartAutomatonRequest::HasBitSetters::ctx(const StartAutomatonRequest* msg) {
 const int StartAutomatonRequest::kCtxFieldNumber;
 const int StartAutomatonRequest::kObjectIdFieldNumber;
 const int StartAutomatonRequest::kAutomatonIdFieldNumber;
+const int StartAutomatonRequest::kVarsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 StartAutomatonRequest::StartAutomatonRequest()
@@ -5867,6 +6841,7 @@ StartAutomatonRequest::StartAutomatonRequest(const StartAutomatonRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  vars_.MergeFrom(from.vars_);
   object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.object_id().size() > 0) {
     object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
@@ -5917,6 +6892,7 @@ void StartAutomatonRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  vars_.Clear();
   object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   automaton_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
@@ -5982,6 +6958,25 @@ const char* StartAutomatonRequest::_InternalParse(const char* begin, const char*
         GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
         ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
         ptr += size;
+        break;
+      }
+      // map<string, .ric.logic.v3.AutomatonVarValue> vars = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::google::protobuf::internal::SlowMapEntryParser;
+          auto parse_map = ::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse::_ParseMap;
+          ctx->extra_parse_data().payload.clear();
+          ctx->extra_parse_data().parse_map = parse_map;
+          object = &msg->vars_;
+          if (size > end - ptr) goto len_delim_till_end;
+          auto newend = ptr + size;
+          GOOGLE_PROTOBUF_PARSER_ASSERT(parse_map(ptr, newend, object, ctx));
+          ptr = newend;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 34 && (ptr += 1));
         break;
       }
       default: {
@@ -6059,6 +7054,28 @@ bool StartAutomatonRequest::MergePartialFromCodedStream(
         break;
       }
 
+      // map<string, .ric.logic.v3.AutomatonVarValue> vars = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          StartAutomatonRequest_VarsEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
+              StartAutomatonRequest_VarsEntry_DoNotUse,
+              ::std::string, ::ric::logic::v3::AutomatonVarValue,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+              0 >,
+            ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue > > parser(&vars_);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, &parser));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.key().data(), static_cast<int>(parser.key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.logic.v3.StartAutomatonRequest.VarsEntry.key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -6112,6 +7129,51 @@ void StartAutomatonRequest::SerializeWithCachedSizes(
       3, this->automaton_id(), output);
   }
 
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 4;
+  if (!this->vars().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.logic.v3.StartAutomatonRequest.VarsEntry.key");
+      }
+    };
+
+    if (output->IsSerializationDeterministic() &&
+        this->vars().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->vars().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<StartAutomatonRequest_VarsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(vars_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(4, *entry, output);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<StartAutomatonRequest_VarsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it) {
+        entry.reset(vars_.NewEntryWrapper(it->first, it->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(4, *entry, output);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -6154,6 +7216,51 @@ void StartAutomatonRequest::SerializeWithCachedSizes(
         3, this->automaton_id(), target);
   }
 
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 4;
+  if (!this->vars().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.logic.v3.StartAutomatonRequest.VarsEntry.key");
+      }
+    };
+
+    if (false &&
+        this->vars().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->vars().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<StartAutomatonRequest_VarsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(vars_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(4, *entry, target);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<StartAutomatonRequest_VarsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it) {
+        entry.reset(vars_.NewEntryWrapper(it->first, it->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(4, *entry, target);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -6174,6 +7281,20 @@ size_t StartAutomatonRequest::ByteSizeLong() const {
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 4;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->vars_size());
+  {
+    ::std::unique_ptr<StartAutomatonRequest_VarsEntry_DoNotUse> entry;
+    for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+        it = this->vars().begin();
+        it != this->vars().end(); ++it) {
+      entry.reset(vars_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
+    }
+  }
 
   // string object_id = 2;
   if (this->object_id().size() > 0) {
@@ -6223,6 +7344,7 @@ void StartAutomatonRequest::MergeFrom(const StartAutomatonRequest& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  vars_.MergeFrom(from.vars_);
   if (from.object_id().size() > 0) {
 
     object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
@@ -6261,6 +7383,7 @@ void StartAutomatonRequest::Swap(StartAutomatonRequest* other) {
 void StartAutomatonRequest::InternalSwap(StartAutomatonRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  vars_.Swap(&other->vars_);
   object_id_.Swap(&other->object_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   automaton_id_.Swap(&other->automaton_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
@@ -6269,6 +7392,438 @@ void StartAutomatonRequest::InternalSwap(StartAutomatonRequest* other) {
 }
 
 ::google::protobuf::Metadata StartAutomatonRequest::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto);
+  return ::file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void StartAutomatonMultiRequest::InitAsDefaultInstance() {
+  ::ric::logic::v3::_StartAutomatonMultiRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::logic::v3::UserContext*>(
+      ::ric::logic::v3::UserContext::internal_default_instance());
+}
+class StartAutomatonMultiRequest::HasBitSetters {
+ public:
+  static const ::ric::logic::v3::UserContext& ctx(const StartAutomatonMultiRequest* msg);
+};
+
+const ::ric::logic::v3::UserContext&
+StartAutomatonMultiRequest::HasBitSetters::ctx(const StartAutomatonMultiRequest* msg) {
+  return *msg->ctx_;
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int StartAutomatonMultiRequest::kCtxFieldNumber;
+const int StartAutomatonMultiRequest::kObjectIdsFieldNumber;
+const int StartAutomatonMultiRequest::kAutomatonIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+StartAutomatonMultiRequest::StartAutomatonMultiRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.logic.v3.StartAutomatonMultiRequest)
+}
+StartAutomatonMultiRequest::StartAutomatonMultiRequest(const StartAutomatonMultiRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr),
+      object_ids_(from.object_ids_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  automaton_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.automaton_id().size() > 0) {
+    automaton_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.automaton_id_);
+  }
+  if (from.has_ctx()) {
+    ctx_ = new ::ric::logic::v3::UserContext(*from.ctx_);
+  } else {
+    ctx_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.logic.v3.StartAutomatonMultiRequest)
+}
+
+void StartAutomatonMultiRequest::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_StartAutomatonMultiRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  automaton_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ctx_ = nullptr;
+}
+
+StartAutomatonMultiRequest::~StartAutomatonMultiRequest() {
+  // @@protoc_insertion_point(destructor:ric.logic.v3.StartAutomatonMultiRequest)
+  SharedDtor();
+}
+
+void StartAutomatonMultiRequest::SharedDtor() {
+  automaton_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete ctx_;
+}
+
+void StartAutomatonMultiRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const StartAutomatonMultiRequest& StartAutomatonMultiRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_StartAutomatonMultiRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void StartAutomatonMultiRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.logic.v3.StartAutomatonMultiRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  object_ids_.Clear();
+  automaton_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
+    delete ctx_;
+  }
+  ctx_ = nullptr;
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* StartAutomatonMultiRequest::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<StartAutomatonMultiRequest*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // .ric.logic.v3.UserContext ctx = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::ric::logic::v3::UserContext::_InternalParse;
+        object = msg->mutable_ctx();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // repeated string object_ids = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          ctx->extra_parse_data().SetFieldName("ric.logic.v3.StartAutomatonMultiRequest.object_ids");
+          object = msg->add_object_ids();
+          if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+            parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+            goto string_till_end;
+          }
+          GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+          ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+          ptr += size;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 18 && (ptr += 1));
+        break;
+      }
+      // string automaton_id = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.logic.v3.StartAutomatonMultiRequest.automaton_id");
+        object = msg->mutable_automaton_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool StartAutomatonMultiRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.logic.v3.StartAutomatonMultiRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .ric.logic.v3.UserContext ctx = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_ctx()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated string object_ids = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_object_ids()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->object_ids(this->object_ids_size() - 1).data(),
+            static_cast<int>(this->object_ids(this->object_ids_size() - 1).length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.logic.v3.StartAutomatonMultiRequest.object_ids"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string automaton_id = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_automaton_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->automaton_id().data(), static_cast<int>(this->automaton_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.logic.v3.StartAutomatonMultiRequest.automaton_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.logic.v3.StartAutomatonMultiRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.logic.v3.StartAutomatonMultiRequest)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void StartAutomatonMultiRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.logic.v3.StartAutomatonMultiRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ric.logic.v3.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, HasBitSetters::ctx(this), output);
+  }
+
+  // repeated string object_ids = 2;
+  for (int i = 0, n = this->object_ids_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->object_ids(i).data(), static_cast<int>(this->object_ids(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.StartAutomatonMultiRequest.object_ids");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->object_ids(i), output);
+  }
+
+  // string automaton_id = 3;
+  if (this->automaton_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->automaton_id().data(), static_cast<int>(this->automaton_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.StartAutomatonMultiRequest.automaton_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->automaton_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.logic.v3.StartAutomatonMultiRequest)
+}
+
+::google::protobuf::uint8* StartAutomatonMultiRequest::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.logic.v3.StartAutomatonMultiRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ric.logic.v3.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, HasBitSetters::ctx(this), target);
+  }
+
+  // repeated string object_ids = 2;
+  for (int i = 0, n = this->object_ids_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->object_ids(i).data(), static_cast<int>(this->object_ids(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.StartAutomatonMultiRequest.object_ids");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(2, this->object_ids(i), target);
+  }
+
+  // string automaton_id = 3;
+  if (this->automaton_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->automaton_id().data(), static_cast<int>(this->automaton_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.StartAutomatonMultiRequest.automaton_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->automaton_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.logic.v3.StartAutomatonMultiRequest)
+  return target;
+}
+
+size_t StartAutomatonMultiRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.logic.v3.StartAutomatonMultiRequest)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated string object_ids = 2;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->object_ids_size());
+  for (int i = 0, n = this->object_ids_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->object_ids(i));
+  }
+
+  // string automaton_id = 3;
+  if (this->automaton_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->automaton_id());
+  }
+
+  // .ric.logic.v3.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *ctx_);
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void StartAutomatonMultiRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.logic.v3.StartAutomatonMultiRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const StartAutomatonMultiRequest* source =
+      ::google::protobuf::DynamicCastToGenerated<StartAutomatonMultiRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.logic.v3.StartAutomatonMultiRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.logic.v3.StartAutomatonMultiRequest)
+    MergeFrom(*source);
+  }
+}
+
+void StartAutomatonMultiRequest::MergeFrom(const StartAutomatonMultiRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.logic.v3.StartAutomatonMultiRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  object_ids_.MergeFrom(from.object_ids_);
+  if (from.automaton_id().size() > 0) {
+
+    automaton_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.automaton_id_);
+  }
+  if (from.has_ctx()) {
+    mutable_ctx()->::ric::logic::v3::UserContext::MergeFrom(from.ctx());
+  }
+}
+
+void StartAutomatonMultiRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.logic.v3.StartAutomatonMultiRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void StartAutomatonMultiRequest::CopyFrom(const StartAutomatonMultiRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.logic.v3.StartAutomatonMultiRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool StartAutomatonMultiRequest::IsInitialized() const {
+  return true;
+}
+
+void StartAutomatonMultiRequest::Swap(StartAutomatonMultiRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void StartAutomatonMultiRequest::InternalSwap(StartAutomatonMultiRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  object_ids_.InternalSwap(CastToBase(&other->object_ids_));
+  automaton_id_.Swap(&other->automaton_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(ctx_, other->ctx_);
+}
+
+::google::protobuf::Metadata StartAutomatonMultiRequest::GetMetadata() const {
   ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto);
   return ::file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[kIndexInFileMessages];
 }
@@ -7000,6 +8555,43 @@ void StopAutomatonRequest::InternalSwap(StopAutomatonRequest* other) {
 
 // ===================================================================
 
+RunAutomatonRequest_VarsEntry_DoNotUse::RunAutomatonRequest_VarsEntry_DoNotUse() {}
+RunAutomatonRequest_VarsEntry_DoNotUse::RunAutomatonRequest_VarsEntry_DoNotUse(::google::protobuf::Arena* arena)
+    : SuperType(arena) {}
+void RunAutomatonRequest_VarsEntry_DoNotUse::MergeFrom(const RunAutomatonRequest_VarsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::google::protobuf::Metadata RunAutomatonRequest_VarsEntry_DoNotUse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto);
+  return ::file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[16];
+}
+void RunAutomatonRequest_VarsEntry_DoNotUse::MergeFrom(
+    const ::google::protobuf::Message& other) {
+  ::google::protobuf::Message::MergeFrom(other);
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool RunAutomatonRequest_VarsEntry_DoNotUse::_ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx) {
+  using MF = ::google::protobuf::internal::MapField<
+      RunAutomatonRequest_VarsEntry_DoNotUse, EntryKeyType, EntryValueType,
+      kEntryKeyFieldType, kEntryValueFieldType,
+      kEntryDefaultEnumValue>;
+  auto mf = static_cast<MF*>(object);
+  Parser<MF, ::google::protobuf::Map<EntryKeyType, EntryValueType>> parser(mf);
+#define DO_(x) if (!(x)) return false
+  DO_(parser.ParseMap(begin, end));
+  DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+    parser.key().data(), static_cast<int>(parser.key().length()),
+    ::google::protobuf::internal::WireFormatLite::PARSE,
+    "ric.logic.v3.RunAutomatonRequest.VarsEntry.key"));
+#undef DO_
+  return true;
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+
+// ===================================================================
+
 void RunAutomatonRequest::InitAsDefaultInstance() {
   ::ric::logic::v3::_RunAutomatonRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::logic::v3::UserContext*>(
       ::ric::logic::v3::UserContext::internal_default_instance());
@@ -7020,6 +8612,7 @@ const int RunAutomatonRequest::kAutomatonIdFieldNumber;
 const int RunAutomatonRequest::kWaitFinalFieldNumber;
 const int RunAutomatonRequest::kWaitTimeoutFieldNumber;
 const int RunAutomatonRequest::kOnRunningFieldNumber;
+const int RunAutomatonRequest::kVarsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 RunAutomatonRequest::RunAutomatonRequest()
@@ -7031,6 +8624,7 @@ RunAutomatonRequest::RunAutomatonRequest(const RunAutomatonRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  vars_.MergeFrom(from.vars_);
   object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.object_id().size() > 0) {
     object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
@@ -7092,6 +8686,7 @@ void RunAutomatonRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  vars_.Clear();
   object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   automaton_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   on_running_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -7191,6 +8786,25 @@ const char* RunAutomatonRequest::_InternalParse(const char* begin, const char* e
         GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
         ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
         ptr += size;
+        break;
+      }
+      // map<string, .ric.logic.v3.AutomatonVarValue> vars = 7;
+      case 7: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 58) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::google::protobuf::internal::SlowMapEntryParser;
+          auto parse_map = ::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse::_ParseMap;
+          ctx->extra_parse_data().payload.clear();
+          ctx->extra_parse_data().parse_map = parse_map;
+          object = &msg->vars_;
+          if (size > end - ptr) goto len_delim_till_end;
+          auto newend = ptr + size;
+          GOOGLE_PROTOBUF_PARSER_ASSERT(parse_map(ptr, newend, object, ctx));
+          ptr = newend;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 58 && (ptr += 1));
         break;
       }
       default: {
@@ -7309,6 +8923,28 @@ bool RunAutomatonRequest::MergePartialFromCodedStream(
         break;
       }
 
+      // map<string, .ric.logic.v3.AutomatonVarValue> vars = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (58 & 0xFF)) {
+          RunAutomatonRequest_VarsEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
+              RunAutomatonRequest_VarsEntry_DoNotUse,
+              ::std::string, ::ric::logic::v3::AutomatonVarValue,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+              0 >,
+            ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue > > parser(&vars_);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, &parser));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.key().data(), static_cast<int>(parser.key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.logic.v3.RunAutomatonRequest.VarsEntry.key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -7382,6 +9018,51 @@ void RunAutomatonRequest::SerializeWithCachedSizes(
       6, this->on_running(), output);
   }
 
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 7;
+  if (!this->vars().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.logic.v3.RunAutomatonRequest.VarsEntry.key");
+      }
+    };
+
+    if (output->IsSerializationDeterministic() &&
+        this->vars().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->vars().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<RunAutomatonRequest_VarsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(vars_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(7, *entry, output);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<RunAutomatonRequest_VarsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it) {
+        entry.reset(vars_.NewEntryWrapper(it->first, it->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(7, *entry, output);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -7445,6 +9126,51 @@ void RunAutomatonRequest::SerializeWithCachedSizes(
         6, this->on_running(), target);
   }
 
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 7;
+  if (!this->vars().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.logic.v3.RunAutomatonRequest.VarsEntry.key");
+      }
+    };
+
+    if (false &&
+        this->vars().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->vars().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<RunAutomatonRequest_VarsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(vars_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(7, *entry, target);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<RunAutomatonRequest_VarsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it) {
+        entry.reset(vars_.NewEntryWrapper(it->first, it->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(7, *entry, target);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -7465,6 +9191,20 @@ size_t RunAutomatonRequest::ByteSizeLong() const {
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 7;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->vars_size());
+  {
+    ::std::unique_ptr<RunAutomatonRequest_VarsEntry_DoNotUse> entry;
+    for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+        it = this->vars().begin();
+        it != this->vars().end(); ++it) {
+      entry.reset(vars_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
+    }
+  }
 
   // string object_id = 2;
   if (this->object_id().size() > 0) {
@@ -7533,6 +9273,7 @@ void RunAutomatonRequest::MergeFrom(const RunAutomatonRequest& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  vars_.MergeFrom(from.vars_);
   if (from.object_id().size() > 0) {
 
     object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
@@ -7581,6 +9322,7 @@ void RunAutomatonRequest::Swap(RunAutomatonRequest* other) {
 void RunAutomatonRequest::InternalSwap(RunAutomatonRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  vars_.Swap(&other->vars_);
   object_id_.Swap(&other->object_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   automaton_id_.Swap(&other->automaton_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
@@ -9776,6 +11518,1037 @@ void GetRuntimeInfoRequest::InternalSwap(GetRuntimeInfoRequest* other) {
 }
 
 
+// ===================================================================
+
+UpdateAutomatonVarsRequest_VarsEntry_DoNotUse::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse() {}
+UpdateAutomatonVarsRequest_VarsEntry_DoNotUse::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse(::google::protobuf::Arena* arena)
+    : SuperType(arena) {}
+void UpdateAutomatonVarsRequest_VarsEntry_DoNotUse::MergeFrom(const UpdateAutomatonVarsRequest_VarsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::google::protobuf::Metadata UpdateAutomatonVarsRequest_VarsEntry_DoNotUse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto);
+  return ::file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[24];
+}
+void UpdateAutomatonVarsRequest_VarsEntry_DoNotUse::MergeFrom(
+    const ::google::protobuf::Message& other) {
+  ::google::protobuf::Message::MergeFrom(other);
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool UpdateAutomatonVarsRequest_VarsEntry_DoNotUse::_ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx) {
+  using MF = ::google::protobuf::internal::MapField<
+      UpdateAutomatonVarsRequest_VarsEntry_DoNotUse, EntryKeyType, EntryValueType,
+      kEntryKeyFieldType, kEntryValueFieldType,
+      kEntryDefaultEnumValue>;
+  auto mf = static_cast<MF*>(object);
+  Parser<MF, ::google::protobuf::Map<EntryKeyType, EntryValueType>> parser(mf);
+#define DO_(x) if (!(x)) return false
+  DO_(parser.ParseMap(begin, end));
+  DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+    parser.key().data(), static_cast<int>(parser.key().length()),
+    ::google::protobuf::internal::WireFormatLite::PARSE,
+    "ric.logic.v3.UpdateAutomatonVarsRequest.VarsEntry.key"));
+#undef DO_
+  return true;
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+
+// ===================================================================
+
+void UpdateAutomatonVarsRequest::InitAsDefaultInstance() {
+  ::ric::logic::v3::_UpdateAutomatonVarsRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::logic::v3::UserContext*>(
+      ::ric::logic::v3::UserContext::internal_default_instance());
+}
+class UpdateAutomatonVarsRequest::HasBitSetters {
+ public:
+  static const ::ric::logic::v3::UserContext& ctx(const UpdateAutomatonVarsRequest* msg);
+};
+
+const ::ric::logic::v3::UserContext&
+UpdateAutomatonVarsRequest::HasBitSetters::ctx(const UpdateAutomatonVarsRequest* msg) {
+  return *msg->ctx_;
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UpdateAutomatonVarsRequest::kCtxFieldNumber;
+const int UpdateAutomatonVarsRequest::kObjectIdFieldNumber;
+const int UpdateAutomatonVarsRequest::kAutomatonIdFieldNumber;
+const int UpdateAutomatonVarsRequest::kVarsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+UpdateAutomatonVarsRequest::UpdateAutomatonVarsRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.logic.v3.UpdateAutomatonVarsRequest)
+}
+UpdateAutomatonVarsRequest::UpdateAutomatonVarsRequest(const UpdateAutomatonVarsRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  vars_.MergeFrom(from.vars_);
+  object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.object_id().size() > 0) {
+    object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
+  }
+  automaton_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.automaton_id().size() > 0) {
+    automaton_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.automaton_id_);
+  }
+  if (from.has_ctx()) {
+    ctx_ = new ::ric::logic::v3::UserContext(*from.ctx_);
+  } else {
+    ctx_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.logic.v3.UpdateAutomatonVarsRequest)
+}
+
+void UpdateAutomatonVarsRequest::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_UpdateAutomatonVarsRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  automaton_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ctx_ = nullptr;
+}
+
+UpdateAutomatonVarsRequest::~UpdateAutomatonVarsRequest() {
+  // @@protoc_insertion_point(destructor:ric.logic.v3.UpdateAutomatonVarsRequest)
+  SharedDtor();
+}
+
+void UpdateAutomatonVarsRequest::SharedDtor() {
+  object_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  automaton_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete ctx_;
+}
+
+void UpdateAutomatonVarsRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const UpdateAutomatonVarsRequest& UpdateAutomatonVarsRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_UpdateAutomatonVarsRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void UpdateAutomatonVarsRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.logic.v3.UpdateAutomatonVarsRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  vars_.Clear();
+  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  automaton_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
+    delete ctx_;
+  }
+  ctx_ = nullptr;
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* UpdateAutomatonVarsRequest::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<UpdateAutomatonVarsRequest*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // .ric.logic.v3.UserContext ctx = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::ric::logic::v3::UserContext::_InternalParse;
+        object = msg->mutable_ctx();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // string object_id = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.logic.v3.UpdateAutomatonVarsRequest.object_id");
+        object = msg->mutable_object_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string automaton_id = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.logic.v3.UpdateAutomatonVarsRequest.automaton_id");
+        object = msg->mutable_automaton_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // map<string, .ric.logic.v3.AutomatonVarValue> vars = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::google::protobuf::internal::SlowMapEntryParser;
+          auto parse_map = ::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse::_ParseMap;
+          ctx->extra_parse_data().payload.clear();
+          ctx->extra_parse_data().parse_map = parse_map;
+          object = &msg->vars_;
+          if (size > end - ptr) goto len_delim_till_end;
+          auto newend = ptr + size;
+          GOOGLE_PROTOBUF_PARSER_ASSERT(parse_map(ptr, newend, object, ctx));
+          ptr = newend;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 34 && (ptr += 1));
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool UpdateAutomatonVarsRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.logic.v3.UpdateAutomatonVarsRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .ric.logic.v3.UserContext ctx = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_ctx()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string object_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_object_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->object_id().data(), static_cast<int>(this->object_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.logic.v3.UpdateAutomatonVarsRequest.object_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string automaton_id = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_automaton_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->automaton_id().data(), static_cast<int>(this->automaton_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.logic.v3.UpdateAutomatonVarsRequest.automaton_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // map<string, .ric.logic.v3.AutomatonVarValue> vars = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          UpdateAutomatonVarsRequest_VarsEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
+              UpdateAutomatonVarsRequest_VarsEntry_DoNotUse,
+              ::std::string, ::ric::logic::v3::AutomatonVarValue,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+              0 >,
+            ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue > > parser(&vars_);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, &parser));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.key().data(), static_cast<int>(parser.key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.logic.v3.UpdateAutomatonVarsRequest.VarsEntry.key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.logic.v3.UpdateAutomatonVarsRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.logic.v3.UpdateAutomatonVarsRequest)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void UpdateAutomatonVarsRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.logic.v3.UpdateAutomatonVarsRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ric.logic.v3.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, HasBitSetters::ctx(this), output);
+  }
+
+  // string object_id = 2;
+  if (this->object_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->object_id().data(), static_cast<int>(this->object_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.UpdateAutomatonVarsRequest.object_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->object_id(), output);
+  }
+
+  // string automaton_id = 3;
+  if (this->automaton_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->automaton_id().data(), static_cast<int>(this->automaton_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.UpdateAutomatonVarsRequest.automaton_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->automaton_id(), output);
+  }
+
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 4;
+  if (!this->vars().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.logic.v3.UpdateAutomatonVarsRequest.VarsEntry.key");
+      }
+    };
+
+    if (output->IsSerializationDeterministic() &&
+        this->vars().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->vars().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<UpdateAutomatonVarsRequest_VarsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(vars_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(4, *entry, output);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<UpdateAutomatonVarsRequest_VarsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it) {
+        entry.reset(vars_.NewEntryWrapper(it->first, it->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(4, *entry, output);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.logic.v3.UpdateAutomatonVarsRequest)
+}
+
+::google::protobuf::uint8* UpdateAutomatonVarsRequest::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.logic.v3.UpdateAutomatonVarsRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ric.logic.v3.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, HasBitSetters::ctx(this), target);
+  }
+
+  // string object_id = 2;
+  if (this->object_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->object_id().data(), static_cast<int>(this->object_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.UpdateAutomatonVarsRequest.object_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->object_id(), target);
+  }
+
+  // string automaton_id = 3;
+  if (this->automaton_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->automaton_id().data(), static_cast<int>(this->automaton_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.UpdateAutomatonVarsRequest.automaton_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->automaton_id(), target);
+  }
+
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 4;
+  if (!this->vars().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.logic.v3.UpdateAutomatonVarsRequest.VarsEntry.key");
+      }
+    };
+
+    if (false &&
+        this->vars().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->vars().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<UpdateAutomatonVarsRequest_VarsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(vars_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(4, *entry, target);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<UpdateAutomatonVarsRequest_VarsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it) {
+        entry.reset(vars_.NewEntryWrapper(it->first, it->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(4, *entry, target);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.logic.v3.UpdateAutomatonVarsRequest)
+  return target;
+}
+
+size_t UpdateAutomatonVarsRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.logic.v3.UpdateAutomatonVarsRequest)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 4;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->vars_size());
+  {
+    ::std::unique_ptr<UpdateAutomatonVarsRequest_VarsEntry_DoNotUse> entry;
+    for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+        it = this->vars().begin();
+        it != this->vars().end(); ++it) {
+      entry.reset(vars_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
+    }
+  }
+
+  // string object_id = 2;
+  if (this->object_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->object_id());
+  }
+
+  // string automaton_id = 3;
+  if (this->automaton_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->automaton_id());
+  }
+
+  // .ric.logic.v3.UserContext ctx = 1;
+  if (this->has_ctx()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *ctx_);
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void UpdateAutomatonVarsRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.logic.v3.UpdateAutomatonVarsRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const UpdateAutomatonVarsRequest* source =
+      ::google::protobuf::DynamicCastToGenerated<UpdateAutomatonVarsRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.logic.v3.UpdateAutomatonVarsRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.logic.v3.UpdateAutomatonVarsRequest)
+    MergeFrom(*source);
+  }
+}
+
+void UpdateAutomatonVarsRequest::MergeFrom(const UpdateAutomatonVarsRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.logic.v3.UpdateAutomatonVarsRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  vars_.MergeFrom(from.vars_);
+  if (from.object_id().size() > 0) {
+
+    object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
+  }
+  if (from.automaton_id().size() > 0) {
+
+    automaton_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.automaton_id_);
+  }
+  if (from.has_ctx()) {
+    mutable_ctx()->::ric::logic::v3::UserContext::MergeFrom(from.ctx());
+  }
+}
+
+void UpdateAutomatonVarsRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.logic.v3.UpdateAutomatonVarsRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UpdateAutomatonVarsRequest::CopyFrom(const UpdateAutomatonVarsRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.logic.v3.UpdateAutomatonVarsRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UpdateAutomatonVarsRequest::IsInitialized() const {
+  return true;
+}
+
+void UpdateAutomatonVarsRequest::Swap(UpdateAutomatonVarsRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void UpdateAutomatonVarsRequest::InternalSwap(UpdateAutomatonVarsRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  vars_.Swap(&other->vars_);
+  object_id_.Swap(&other->object_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  automaton_id_.Swap(&other->automaton_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(ctx_, other->ctx_);
+}
+
+::google::protobuf::Metadata UpdateAutomatonVarsRequest::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto);
+  return ::file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+UpdateAutomatonVarsResponse_VarsEntry_DoNotUse::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse() {}
+UpdateAutomatonVarsResponse_VarsEntry_DoNotUse::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse(::google::protobuf::Arena* arena)
+    : SuperType(arena) {}
+void UpdateAutomatonVarsResponse_VarsEntry_DoNotUse::MergeFrom(const UpdateAutomatonVarsResponse_VarsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::google::protobuf::Metadata UpdateAutomatonVarsResponse_VarsEntry_DoNotUse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto);
+  return ::file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[26];
+}
+void UpdateAutomatonVarsResponse_VarsEntry_DoNotUse::MergeFrom(
+    const ::google::protobuf::Message& other) {
+  ::google::protobuf::Message::MergeFrom(other);
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool UpdateAutomatonVarsResponse_VarsEntry_DoNotUse::_ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx) {
+  using MF = ::google::protobuf::internal::MapField<
+      UpdateAutomatonVarsResponse_VarsEntry_DoNotUse, EntryKeyType, EntryValueType,
+      kEntryKeyFieldType, kEntryValueFieldType,
+      kEntryDefaultEnumValue>;
+  auto mf = static_cast<MF*>(object);
+  Parser<MF, ::google::protobuf::Map<EntryKeyType, EntryValueType>> parser(mf);
+#define DO_(x) if (!(x)) return false
+  DO_(parser.ParseMap(begin, end));
+  DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+    parser.key().data(), static_cast<int>(parser.key().length()),
+    ::google::protobuf::internal::WireFormatLite::PARSE,
+    "ric.logic.v3.UpdateAutomatonVarsResponse.VarsEntry.key"));
+#undef DO_
+  return true;
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+
+// ===================================================================
+
+void UpdateAutomatonVarsResponse::InitAsDefaultInstance() {
+}
+class UpdateAutomatonVarsResponse::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UpdateAutomatonVarsResponse::kVarsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+UpdateAutomatonVarsResponse::UpdateAutomatonVarsResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.logic.v3.UpdateAutomatonVarsResponse)
+}
+UpdateAutomatonVarsResponse::UpdateAutomatonVarsResponse(const UpdateAutomatonVarsResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  vars_.MergeFrom(from.vars_);
+  // @@protoc_insertion_point(copy_constructor:ric.logic.v3.UpdateAutomatonVarsResponse)
+}
+
+void UpdateAutomatonVarsResponse::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_UpdateAutomatonVarsResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+}
+
+UpdateAutomatonVarsResponse::~UpdateAutomatonVarsResponse() {
+  // @@protoc_insertion_point(destructor:ric.logic.v3.UpdateAutomatonVarsResponse)
+  SharedDtor();
+}
+
+void UpdateAutomatonVarsResponse::SharedDtor() {
+}
+
+void UpdateAutomatonVarsResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const UpdateAutomatonVarsResponse& UpdateAutomatonVarsResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_UpdateAutomatonVarsResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void UpdateAutomatonVarsResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.logic.v3.UpdateAutomatonVarsResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  vars_.Clear();
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* UpdateAutomatonVarsResponse::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<UpdateAutomatonVarsResponse*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // map<string, .ric.logic.v3.AutomatonVarValue> vars = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::google::protobuf::internal::SlowMapEntryParser;
+          auto parse_map = ::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse::_ParseMap;
+          ctx->extra_parse_data().payload.clear();
+          ctx->extra_parse_data().parse_map = parse_map;
+          object = &msg->vars_;
+          if (size > end - ptr) goto len_delim_till_end;
+          auto newend = ptr + size;
+          GOOGLE_PROTOBUF_PARSER_ASSERT(parse_map(ptr, newend, object, ctx));
+          ptr = newend;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 10 && (ptr += 1));
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool UpdateAutomatonVarsResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.logic.v3.UpdateAutomatonVarsResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // map<string, .ric.logic.v3.AutomatonVarValue> vars = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          UpdateAutomatonVarsResponse_VarsEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
+              UpdateAutomatonVarsResponse_VarsEntry_DoNotUse,
+              ::std::string, ::ric::logic::v3::AutomatonVarValue,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+              0 >,
+            ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue > > parser(&vars_);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, &parser));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.key().data(), static_cast<int>(parser.key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.logic.v3.UpdateAutomatonVarsResponse.VarsEntry.key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.logic.v3.UpdateAutomatonVarsResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.logic.v3.UpdateAutomatonVarsResponse)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void UpdateAutomatonVarsResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.logic.v3.UpdateAutomatonVarsResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 1;
+  if (!this->vars().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.logic.v3.UpdateAutomatonVarsResponse.VarsEntry.key");
+      }
+    };
+
+    if (output->IsSerializationDeterministic() &&
+        this->vars().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->vars().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<UpdateAutomatonVarsResponse_VarsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(vars_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(1, *entry, output);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<UpdateAutomatonVarsResponse_VarsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it) {
+        entry.reset(vars_.NewEntryWrapper(it->first, it->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(1, *entry, output);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.logic.v3.UpdateAutomatonVarsResponse)
+}
+
+::google::protobuf::uint8* UpdateAutomatonVarsResponse::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.logic.v3.UpdateAutomatonVarsResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 1;
+  if (!this->vars().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.logic.v3.UpdateAutomatonVarsResponse.VarsEntry.key");
+      }
+    };
+
+    if (false &&
+        this->vars().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->vars().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<UpdateAutomatonVarsResponse_VarsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(vars_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(1, *entry, target);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<UpdateAutomatonVarsResponse_VarsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+          it = this->vars().begin();
+          it != this->vars().end(); ++it) {
+        entry.reset(vars_.NewEntryWrapper(it->first, it->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(1, *entry, target);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.logic.v3.UpdateAutomatonVarsResponse)
+  return target;
+}
+
+size_t UpdateAutomatonVarsResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.logic.v3.UpdateAutomatonVarsResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 1;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->vars_size());
+  {
+    ::std::unique_ptr<UpdateAutomatonVarsResponse_VarsEntry_DoNotUse> entry;
+    for (::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_iterator
+        it = this->vars().begin();
+        it != this->vars().end(); ++it) {
+      entry.reset(vars_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void UpdateAutomatonVarsResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.logic.v3.UpdateAutomatonVarsResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const UpdateAutomatonVarsResponse* source =
+      ::google::protobuf::DynamicCastToGenerated<UpdateAutomatonVarsResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.logic.v3.UpdateAutomatonVarsResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.logic.v3.UpdateAutomatonVarsResponse)
+    MergeFrom(*source);
+  }
+}
+
+void UpdateAutomatonVarsResponse::MergeFrom(const UpdateAutomatonVarsResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.logic.v3.UpdateAutomatonVarsResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  vars_.MergeFrom(from.vars_);
+}
+
+void UpdateAutomatonVarsResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.logic.v3.UpdateAutomatonVarsResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UpdateAutomatonVarsResponse::CopyFrom(const UpdateAutomatonVarsResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.logic.v3.UpdateAutomatonVarsResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UpdateAutomatonVarsResponse::IsInitialized() const {
+  return true;
+}
+
+void UpdateAutomatonVarsResponse::Swap(UpdateAutomatonVarsResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void UpdateAutomatonVarsResponse::InternalSwap(UpdateAutomatonVarsResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  vars_.Swap(&other->vars_);
+}
+
+::google::protobuf::Metadata UpdateAutomatonVarsResponse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto);
+  return ::file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[kIndexInFileMessages];
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace v3
 }  // namespace logic
@@ -9790,6 +12563,12 @@ template<> PROTOBUF_NOINLINE ::ric::logic::v3::StatsCounter* Arena::CreateMaybeM
 }
 template<> PROTOBUF_NOINLINE ::ric::logic::v3::AutomatonStats* Arena::CreateMaybeMessage< ::ric::logic::v3::AutomatonStats >(Arena* arena) {
   return Arena::CreateInternal< ::ric::logic::v3::AutomatonStats >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::logic::v3::AutomatonVarValue* Arena::CreateMaybeMessage< ::ric::logic::v3::AutomatonVarValue >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::logic::v3::AutomatonVarValue >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::logic::v3::AutomatonInfo_VarsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ric::logic::v3::AutomatonInfo_VarsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::logic::v3::AutomatonInfo_VarsEntry_DoNotUse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::logic::v3::AutomatonInfo* Arena::CreateMaybeMessage< ::ric::logic::v3::AutomatonInfo >(Arena* arena) {
   return Arena::CreateInternal< ::ric::logic::v3::AutomatonInfo >(arena);
@@ -9809,14 +12588,23 @@ template<> PROTOBUF_NOINLINE ::ric::logic::v3::GetInstanceInfoRequest* Arena::Cr
 template<> PROTOBUF_NOINLINE ::ric::logic::v3::GetInstanceInfoResponse* Arena::CreateMaybeMessage< ::ric::logic::v3::GetInstanceInfoResponse >(Arena* arena) {
   return Arena::CreateInternal< ::ric::logic::v3::GetInstanceInfoResponse >(arena);
 }
+template<> PROTOBUF_NOINLINE ::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse >(arena);
+}
 template<> PROTOBUF_NOINLINE ::ric::logic::v3::StartAutomatonRequest* Arena::CreateMaybeMessage< ::ric::logic::v3::StartAutomatonRequest >(Arena* arena) {
   return Arena::CreateInternal< ::ric::logic::v3::StartAutomatonRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::logic::v3::StartAutomatonMultiRequest* Arena::CreateMaybeMessage< ::ric::logic::v3::StartAutomatonMultiRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::logic::v3::StartAutomatonMultiRequest >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::logic::v3::StartAutomatonResponse* Arena::CreateMaybeMessage< ::ric::logic::v3::StartAutomatonResponse >(Arena* arena) {
   return Arena::CreateInternal< ::ric::logic::v3::StartAutomatonResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::logic::v3::StopAutomatonRequest* Arena::CreateMaybeMessage< ::ric::logic::v3::StopAutomatonRequest >(Arena* arena) {
   return Arena::CreateInternal< ::ric::logic::v3::StopAutomatonRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::logic::v3::RunAutomatonRequest* Arena::CreateMaybeMessage< ::ric::logic::v3::RunAutomatonRequest >(Arena* arena) {
   return Arena::CreateInternal< ::ric::logic::v3::RunAutomatonRequest >(arena);
@@ -9838,6 +12626,18 @@ template<> PROTOBUF_NOINLINE ::ric::logic::v3::EmitEventResponse* Arena::CreateM
 }
 template<> PROTOBUF_NOINLINE ::ric::logic::v3::GetRuntimeInfoRequest* Arena::CreateMaybeMessage< ::ric::logic::v3::GetRuntimeInfoRequest >(Arena* arena) {
   return Arena::CreateInternal< ::ric::logic::v3::GetRuntimeInfoRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::logic::v3::UpdateAutomatonVarsRequest* Arena::CreateMaybeMessage< ::ric::logic::v3::UpdateAutomatonVarsRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::logic::v3::UpdateAutomatonVarsRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::logic::v3::UpdateAutomatonVarsResponse* Arena::CreateMaybeMessage< ::ric::logic::v3::UpdateAutomatonVarsResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::logic::v3::UpdateAutomatonVarsResponse >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

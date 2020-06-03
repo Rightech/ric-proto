@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ric.tasks;
 
-option go_package = "rictasks";
+option go_package = "./ric-tasks;rictasks";
 
 import "google/protobuf/wrappers.proto";
 

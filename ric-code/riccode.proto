@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ric.code;
 
-option go_package = "riccode";
+option go_package = "./ric-code;riccode";
 
 service RicCode {
   rpc TranspileEs6(TranspileRequest) returns (TranspileResponse);

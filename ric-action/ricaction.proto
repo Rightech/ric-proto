@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ric.action;
 
-option go_package = "ricaction";
+option go_package = "./ric-action;ricaction";
 
 service FunctionControl {
   rpc Call(CallRequest) returns (CallResponse);

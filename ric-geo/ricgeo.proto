@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ric.geo;
 
-option go_package = "ricgeo";
+option go_package = "./ric-geo;ricgeo";
 
 service Watch {
   option deprecated = true;

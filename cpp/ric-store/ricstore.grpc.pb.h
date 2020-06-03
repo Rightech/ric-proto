@@ -7,24 +7,25 @@
 #include "ric-store/ricstore.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
 #include <grpcpp/impl/codegen/async_generic_service.h>
 #include <grpcpp/impl/codegen/async_stream.h>
 #include <grpcpp/impl/codegen/async_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/client_context.h>
-#include <grpcpp/impl/codegen/completion_queue.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/method_handler_impl.h>
 #include <grpcpp/impl/codegen/proto_utils.h>
 #include <grpcpp/impl/codegen/rpc_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/status.h>
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
+
+namespace grpc {
+class CompletionQueue;
+class Channel;
+class ServerCompletionQueue;
+class ServerContext;
+}  // namespace grpc
 
 namespace ric {
 namespace store {
@@ -93,83 +94,19 @@ class RicStore final {
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void Insert(::grpc::ClientContext* context, ::ric::store::EmptyRespone* response, ::grpc::ClientWriteReactor< ::ric::store::Packet>* reactor) = 0;
-      #else
       virtual void Insert(::grpc::ClientContext* context, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientWriteReactor< ::ric::store::Packet>* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void Query(::grpc::ClientContext* context, ::ric::store::QueryRequest* request, ::grpc::ClientReadReactor< ::ric::store::Packet>* reactor) = 0;
-      #else
       virtual void Query(::grpc::ClientContext* context, ::ric::store::QueryRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::store::Packet>* reactor) = 0;
-      #endif
       virtual void Status(::grpc::ClientContext* context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::StatusResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void Status(::grpc::ClientContext* context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void Status(::grpc::ClientContext* context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::StatusResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::StatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void CreateCollection(::grpc::ClientContext* context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) = 0;
       virtual void CreateCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void CreateCollection(::grpc::ClientContext* context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void CreateCollection(::grpc::ClientContext* context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void CreateCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void CreateCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void RemoveCollection(::grpc::ClientContext* context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) = 0;
       virtual void RemoveCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void RemoveCollection(::grpc::ClientContext* context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void RemoveCollection(::grpc::ClientContext* context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void RemoveCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void RemoveCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void CreateDatabase(::grpc::ClientContext* context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) = 0;
       virtual void CreateDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void CreateDatabase(::grpc::ClientContext* context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void CreateDatabase(::grpc::ClientContext* context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void CreateDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void CreateDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void RemoveDatabase(::grpc::ClientContext* context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) = 0;
       virtual void RemoveDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void RemoveDatabase(::grpc::ClientContext* context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void RemoveDatabase(::grpc::ClientContext* context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void RemoveDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void RemoveDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientWriterInterface< ::ric::store::Packet>* InsertRaw(::grpc::ClientContext* context, ::ric::store::EmptyRespone* response) = 0;
@@ -248,76 +185,18 @@ class RicStore final {
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void Insert(::grpc::ClientContext* context, ::ric::store::EmptyRespone* response, ::grpc::ClientWriteReactor< ::ric::store::Packet>* reactor) override;
-      #else
       void Insert(::grpc::ClientContext* context, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientWriteReactor< ::ric::store::Packet>* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void Query(::grpc::ClientContext* context, ::ric::store::QueryRequest* request, ::grpc::ClientReadReactor< ::ric::store::Packet>* reactor) override;
-      #else
       void Query(::grpc::ClientContext* context, ::ric::store::QueryRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::store::Packet>* reactor) override;
-      #endif
       void Status(::grpc::ClientContext* context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response, std::function<void(::grpc::Status)>) override;
       void Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::StatusResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void Status(::grpc::ClientContext* context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void Status(::grpc::ClientContext* context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::StatusResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::StatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void CreateCollection(::grpc::ClientContext* context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) override;
       void CreateCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void CreateCollection(::grpc::ClientContext* context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void CreateCollection(::grpc::ClientContext* context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void CreateCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void CreateCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void RemoveCollection(::grpc::ClientContext* context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) override;
       void RemoveCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void RemoveCollection(::grpc::ClientContext* context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void RemoveCollection(::grpc::ClientContext* context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void RemoveCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void RemoveCollection(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void CreateDatabase(::grpc::ClientContext* context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) override;
       void CreateDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void CreateDatabase(::grpc::ClientContext* context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void CreateDatabase(::grpc::ClientContext* context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void CreateDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void CreateDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void RemoveDatabase(::grpc::ClientContext* context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) override;
       void RemoveDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void RemoveDatabase(::grpc::ClientContext* context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void RemoveDatabase(::grpc::ClientContext* context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void RemoveDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void RemoveDatabase(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -370,7 +249,7 @@ class RicStore final {
   template <class BaseClass>
   class WithAsyncMethod_Insert : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_Insert() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -379,7 +258,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Insert(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ric::store::Packet>* /*reader*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status Insert(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::store::Packet>* reader, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -390,7 +269,7 @@ class RicStore final {
   template <class BaseClass>
   class WithAsyncMethod_Query : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_Query() {
       ::grpc::Service::MarkMethodAsync(1);
@@ -399,7 +278,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Query(::grpc::ServerContext* /*context*/, const ::ric::store::QueryRequest* /*request*/, ::grpc::ServerWriter< ::ric::store::Packet>* /*writer*/) override {
+    ::grpc::Status Query(::grpc::ServerContext* context, const ::ric::store::QueryRequest* request, ::grpc::ServerWriter< ::ric::store::Packet>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -410,7 +289,7 @@ class RicStore final {
   template <class BaseClass>
   class WithAsyncMethod_Status : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_Status() {
       ::grpc::Service::MarkMethodAsync(2);
@@ -419,7 +298,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Status(::grpc::ServerContext* /*context*/, const ::ric::store::StatusRequest* /*request*/, ::ric::store::StatusResponse* /*response*/) override {
+    ::grpc::Status Status(::grpc::ServerContext* context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -430,7 +309,7 @@ class RicStore final {
   template <class BaseClass>
   class WithAsyncMethod_CreateCollection : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_CreateCollection() {
       ::grpc::Service::MarkMethodAsync(3);
@@ -439,7 +318,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateCollection(::grpc::ServerContext* /*context*/, const ::ric::store::CreateCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status CreateCollection(::grpc::ServerContext* context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -450,7 +329,7 @@ class RicStore final {
   template <class BaseClass>
   class WithAsyncMethod_RemoveCollection : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_RemoveCollection() {
       ::grpc::Service::MarkMethodAsync(4);
@@ -459,7 +338,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RemoveCollection(::grpc::ServerContext* /*context*/, const ::ric::store::RemoveCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status RemoveCollection(::grpc::ServerContext* context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -470,7 +349,7 @@ class RicStore final {
   template <class BaseClass>
   class WithAsyncMethod_CreateDatabase : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_CreateDatabase() {
       ::grpc::Service::MarkMethodAsync(5);
@@ -479,7 +358,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateDatabase(::grpc::ServerContext* /*context*/, const ::ric::store::CreateDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status CreateDatabase(::grpc::ServerContext* context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -490,7 +369,7 @@ class RicStore final {
   template <class BaseClass>
   class WithAsyncMethod_RemoveDatabase : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_RemoveDatabase() {
       ::grpc::Service::MarkMethodAsync(6);
@@ -499,7 +378,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RemoveDatabase(::grpc::ServerContext* /*context*/, const ::ric::store::RemoveDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status RemoveDatabase(::grpc::ServerContext* context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -511,323 +390,177 @@ class RicStore final {
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Insert : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_Insert() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
-          new ::grpc_impl::internal::CallbackClientStreamingHandler< ::ric::store::Packet, ::ric::store::EmptyRespone>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, ::ric::store::EmptyRespone* response) { return this->Insert(context, response); }));
+      ::grpc::Service::experimental().MarkMethodCallback(0,
+        new ::grpc::internal::CallbackClientStreamingHandler< ::ric::store::Packet, ::ric::store::EmptyRespone>(
+          [this] { return this->Insert(); }));
     }
     ~ExperimentalWithCallbackMethod_Insert() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Insert(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ric::store::Packet>* /*reader*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status Insert(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::store::Packet>* reader, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerReadReactor< ::ric::store::Packet>* Insert(
-      ::grpc::CallbackServerContext* /*context*/, ::ric::store::EmptyRespone* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerReadReactor< ::ric::store::Packet>* Insert(
-      ::grpc::experimental::CallbackServerContext* /*context*/, ::ric::store::EmptyRespone* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual ::grpc::experimental::ServerReadReactor< ::ric::store::Packet, ::ric::store::EmptyRespone>* Insert() {
+      return new ::grpc::internal::UnimplementedReadReactor<
+        ::ric::store::Packet, ::ric::store::EmptyRespone>;}
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Query : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_Query() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(1,
-          new ::grpc_impl::internal::CallbackServerStreamingHandler< ::ric::store::QueryRequest, ::ric::store::Packet>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::store::QueryRequest* request) { return this->Query(context, request); }));
+      ::grpc::Service::experimental().MarkMethodCallback(1,
+        new ::grpc::internal::CallbackServerStreamingHandler< ::ric::store::QueryRequest, ::ric::store::Packet>(
+          [this] { return this->Query(); }));
     }
     ~ExperimentalWithCallbackMethod_Query() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Query(::grpc::ServerContext* /*context*/, const ::ric::store::QueryRequest* /*request*/, ::grpc::ServerWriter< ::ric::store::Packet>* /*writer*/) override {
+    ::grpc::Status Query(::grpc::ServerContext* context, const ::ric::store::QueryRequest* request, ::grpc::ServerWriter< ::ric::store::Packet>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerWriteReactor< ::ric::store::Packet>* Query(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::store::QueryRequest* /*request*/)
-    #else
-    virtual ::grpc::experimental::ServerWriteReactor< ::ric::store::Packet>* Query(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::store::QueryRequest* /*request*/)
-    #endif
-      { return nullptr; }
+    virtual ::grpc::experimental::ServerWriteReactor< ::ric::store::QueryRequest, ::ric::store::Packet>* Query() {
+      return new ::grpc::internal::UnimplementedWriteReactor<
+        ::ric::store::QueryRequest, ::ric::store::Packet>;}
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Status : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_Status() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(2,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::store::StatusRequest, ::ric::store::StatusResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response) { return this->Status(context, request, response); }));}
-    void SetMessageAllocatorFor_Status(
-        ::grpc::experimental::MessageAllocator< ::ric::store::StatusRequest, ::ric::store::StatusResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::store::StatusRequest, ::ric::store::StatusResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::store::StatusRequest, ::ric::store::StatusResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::store::StatusRequest* request,
+                 ::ric::store::StatusResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->Status(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_Status() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Status(::grpc::ServerContext* /*context*/, const ::ric::store::StatusRequest* /*request*/, ::ric::store::StatusResponse* /*response*/) override {
+    ::grpc::Status Status(::grpc::ServerContext* context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* Status(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::store::StatusRequest* /*request*/, ::ric::store::StatusResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* Status(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::store::StatusRequest* /*request*/, ::ric::store::StatusResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void Status(::grpc::ServerContext* context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_CreateCollection : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_CreateCollection() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(3,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::store::CreateCollectionRequest, ::ric::store::EmptyRespone>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response) { return this->CreateCollection(context, request, response); }));}
-    void SetMessageAllocatorFor_CreateCollection(
-        ::grpc::experimental::MessageAllocator< ::ric::store::CreateCollectionRequest, ::ric::store::EmptyRespone>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::store::CreateCollectionRequest, ::ric::store::EmptyRespone>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(3,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::store::CreateCollectionRequest, ::ric::store::EmptyRespone>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::store::CreateCollectionRequest* request,
+                 ::ric::store::EmptyRespone* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->CreateCollection(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_CreateCollection() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateCollection(::grpc::ServerContext* /*context*/, const ::ric::store::CreateCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status CreateCollection(::grpc::ServerContext* context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* CreateCollection(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::store::CreateCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CreateCollection(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::store::CreateCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void CreateCollection(::grpc::ServerContext* context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_RemoveCollection : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_RemoveCollection() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(4,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::store::RemoveCollectionRequest, ::ric::store::EmptyRespone>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response) { return this->RemoveCollection(context, request, response); }));}
-    void SetMessageAllocatorFor_RemoveCollection(
-        ::grpc::experimental::MessageAllocator< ::ric::store::RemoveCollectionRequest, ::ric::store::EmptyRespone>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::store::RemoveCollectionRequest, ::ric::store::EmptyRespone>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(4,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::store::RemoveCollectionRequest, ::ric::store::EmptyRespone>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::store::RemoveCollectionRequest* request,
+                 ::ric::store::EmptyRespone* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->RemoveCollection(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_RemoveCollection() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RemoveCollection(::grpc::ServerContext* /*context*/, const ::ric::store::RemoveCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status RemoveCollection(::grpc::ServerContext* context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* RemoveCollection(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::store::RemoveCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* RemoveCollection(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::store::RemoveCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void RemoveCollection(::grpc::ServerContext* context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_CreateDatabase : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_CreateDatabase() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(5,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::store::CreateDatabaseRequest, ::ric::store::EmptyRespone>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response) { return this->CreateDatabase(context, request, response); }));}
-    void SetMessageAllocatorFor_CreateDatabase(
-        ::grpc::experimental::MessageAllocator< ::ric::store::CreateDatabaseRequest, ::ric::store::EmptyRespone>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::store::CreateDatabaseRequest, ::ric::store::EmptyRespone>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(5,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::store::CreateDatabaseRequest, ::ric::store::EmptyRespone>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::store::CreateDatabaseRequest* request,
+                 ::ric::store::EmptyRespone* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->CreateDatabase(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_CreateDatabase() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateDatabase(::grpc::ServerContext* /*context*/, const ::ric::store::CreateDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status CreateDatabase(::grpc::ServerContext* context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* CreateDatabase(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::store::CreateDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CreateDatabase(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::store::CreateDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void CreateDatabase(::grpc::ServerContext* context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_RemoveDatabase : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_RemoveDatabase() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(6,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::store::RemoveDatabaseRequest, ::ric::store::EmptyRespone>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response) { return this->RemoveDatabase(context, request, response); }));}
-    void SetMessageAllocatorFor_RemoveDatabase(
-        ::grpc::experimental::MessageAllocator< ::ric::store::RemoveDatabaseRequest, ::ric::store::EmptyRespone>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::store::RemoveDatabaseRequest, ::ric::store::EmptyRespone>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(6,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::store::RemoveDatabaseRequest, ::ric::store::EmptyRespone>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::store::RemoveDatabaseRequest* request,
+                 ::ric::store::EmptyRespone* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->RemoveDatabase(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_RemoveDatabase() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RemoveDatabase(::grpc::ServerContext* /*context*/, const ::ric::store::RemoveDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status RemoveDatabase(::grpc::ServerContext* context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* RemoveDatabase(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::store::RemoveDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* RemoveDatabase(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::store::RemoveDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void RemoveDatabase(::grpc::ServerContext* context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_Insert<ExperimentalWithCallbackMethod_Query<ExperimentalWithCallbackMethod_Status<ExperimentalWithCallbackMethod_CreateCollection<ExperimentalWithCallbackMethod_RemoveCollection<ExperimentalWithCallbackMethod_CreateDatabase<ExperimentalWithCallbackMethod_RemoveDatabase<Service > > > > > > > CallbackService;
-  #endif
-
   typedef ExperimentalWithCallbackMethod_Insert<ExperimentalWithCallbackMethod_Query<ExperimentalWithCallbackMethod_Status<ExperimentalWithCallbackMethod_CreateCollection<ExperimentalWithCallbackMethod_RemoveCollection<ExperimentalWithCallbackMethod_CreateDatabase<ExperimentalWithCallbackMethod_RemoveDatabase<Service > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Insert : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_Insert() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -836,7 +569,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Insert(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ric::store::Packet>* /*reader*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status Insert(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::store::Packet>* reader, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -844,7 +577,7 @@ class RicStore final {
   template <class BaseClass>
   class WithGenericMethod_Query : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_Query() {
       ::grpc::Service::MarkMethodGeneric(1);
@@ -853,7 +586,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Query(::grpc::ServerContext* /*context*/, const ::ric::store::QueryRequest* /*request*/, ::grpc::ServerWriter< ::ric::store::Packet>* /*writer*/) override {
+    ::grpc::Status Query(::grpc::ServerContext* context, const ::ric::store::QueryRequest* request, ::grpc::ServerWriter< ::ric::store::Packet>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -861,7 +594,7 @@ class RicStore final {
   template <class BaseClass>
   class WithGenericMethod_Status : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_Status() {
       ::grpc::Service::MarkMethodGeneric(2);
@@ -870,7 +603,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Status(::grpc::ServerContext* /*context*/, const ::ric::store::StatusRequest* /*request*/, ::ric::store::StatusResponse* /*response*/) override {
+    ::grpc::Status Status(::grpc::ServerContext* context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -878,7 +611,7 @@ class RicStore final {
   template <class BaseClass>
   class WithGenericMethod_CreateCollection : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_CreateCollection() {
       ::grpc::Service::MarkMethodGeneric(3);
@@ -887,7 +620,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateCollection(::grpc::ServerContext* /*context*/, const ::ric::store::CreateCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status CreateCollection(::grpc::ServerContext* context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -895,7 +628,7 @@ class RicStore final {
   template <class BaseClass>
   class WithGenericMethod_RemoveCollection : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_RemoveCollection() {
       ::grpc::Service::MarkMethodGeneric(4);
@@ -904,7 +637,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RemoveCollection(::grpc::ServerContext* /*context*/, const ::ric::store::RemoveCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status RemoveCollection(::grpc::ServerContext* context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -912,7 +645,7 @@ class RicStore final {
   template <class BaseClass>
   class WithGenericMethod_CreateDatabase : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_CreateDatabase() {
       ::grpc::Service::MarkMethodGeneric(5);
@@ -921,7 +654,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateDatabase(::grpc::ServerContext* /*context*/, const ::ric::store::CreateDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status CreateDatabase(::grpc::ServerContext* context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -929,7 +662,7 @@ class RicStore final {
   template <class BaseClass>
   class WithGenericMethod_RemoveDatabase : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_RemoveDatabase() {
       ::grpc::Service::MarkMethodGeneric(6);
@@ -938,7 +671,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RemoveDatabase(::grpc::ServerContext* /*context*/, const ::ric::store::RemoveDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status RemoveDatabase(::grpc::ServerContext* context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -946,7 +679,7 @@ class RicStore final {
   template <class BaseClass>
   class WithRawMethod_Insert : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_Insert() {
       ::grpc::Service::MarkMethodRaw(0);
@@ -955,7 +688,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Insert(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ric::store::Packet>* /*reader*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status Insert(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::store::Packet>* reader, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -966,7 +699,7 @@ class RicStore final {
   template <class BaseClass>
   class WithRawMethod_Query : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_Query() {
       ::grpc::Service::MarkMethodRaw(1);
@@ -975,7 +708,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Query(::grpc::ServerContext* /*context*/, const ::ric::store::QueryRequest* /*request*/, ::grpc::ServerWriter< ::ric::store::Packet>* /*writer*/) override {
+    ::grpc::Status Query(::grpc::ServerContext* context, const ::ric::store::QueryRequest* request, ::grpc::ServerWriter< ::ric::store::Packet>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -986,7 +719,7 @@ class RicStore final {
   template <class BaseClass>
   class WithRawMethod_Status : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_Status() {
       ::grpc::Service::MarkMethodRaw(2);
@@ -995,7 +728,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Status(::grpc::ServerContext* /*context*/, const ::ric::store::StatusRequest* /*request*/, ::ric::store::StatusResponse* /*response*/) override {
+    ::grpc::Status Status(::grpc::ServerContext* context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1006,7 +739,7 @@ class RicStore final {
   template <class BaseClass>
   class WithRawMethod_CreateCollection : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_CreateCollection() {
       ::grpc::Service::MarkMethodRaw(3);
@@ -1015,7 +748,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateCollection(::grpc::ServerContext* /*context*/, const ::ric::store::CreateCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status CreateCollection(::grpc::ServerContext* context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1026,7 +759,7 @@ class RicStore final {
   template <class BaseClass>
   class WithRawMethod_RemoveCollection : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_RemoveCollection() {
       ::grpc::Service::MarkMethodRaw(4);
@@ -1035,7 +768,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RemoveCollection(::grpc::ServerContext* /*context*/, const ::ric::store::RemoveCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status RemoveCollection(::grpc::ServerContext* context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1046,7 +779,7 @@ class RicStore final {
   template <class BaseClass>
   class WithRawMethod_CreateDatabase : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_CreateDatabase() {
       ::grpc::Service::MarkMethodRaw(5);
@@ -1055,7 +788,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateDatabase(::grpc::ServerContext* /*context*/, const ::ric::store::CreateDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status CreateDatabase(::grpc::ServerContext* context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1066,7 +799,7 @@ class RicStore final {
   template <class BaseClass>
   class WithRawMethod_RemoveDatabase : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_RemoveDatabase() {
       ::grpc::Service::MarkMethodRaw(6);
@@ -1075,7 +808,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RemoveDatabase(::grpc::ServerContext* /*context*/, const ::ric::store::RemoveDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status RemoveDatabase(::grpc::ServerContext* context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1086,273 +819,176 @@ class RicStore final {
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Insert : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_Insert() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
-          new ::grpc_impl::internal::CallbackClientStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, ::grpc::ByteBuffer* response) { return this->Insert(context, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(0,
+        new ::grpc::internal::CallbackClientStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this] { return this->Insert(); }));
     }
     ~ExperimentalWithRawCallbackMethod_Insert() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Insert(::grpc::ServerContext* /*context*/, ::grpc::ServerReader< ::ric::store::Packet>* /*reader*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status Insert(::grpc::ServerContext* context, ::grpc::ServerReader< ::ric::store::Packet>* reader, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerReadReactor< ::grpc::ByteBuffer>* Insert(
-      ::grpc::CallbackServerContext* /*context*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerReadReactor< ::grpc::ByteBuffer>* Insert(
-      ::grpc::experimental::CallbackServerContext* /*context*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual ::grpc::experimental::ServerReadReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* Insert() {
+      return new ::grpc::internal::UnimplementedReadReactor<
+        ::grpc::ByteBuffer, ::grpc::ByteBuffer>;}
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Query : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_Query() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(1,
-          new ::grpc_impl::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const::grpc::ByteBuffer* request) { return this->Query(context, request); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(1,
+        new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this] { return this->Query(); }));
     }
     ~ExperimentalWithRawCallbackMethod_Query() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Query(::grpc::ServerContext* /*context*/, const ::ric::store::QueryRequest* /*request*/, ::grpc::ServerWriter< ::ric::store::Packet>* /*writer*/) override {
+    ::grpc::Status Query(::grpc::ServerContext* context, const ::ric::store::QueryRequest* request, ::grpc::ServerWriter< ::ric::store::Packet>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* Query(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
-    #else
-    virtual ::grpc::experimental::ServerWriteReactor< ::grpc::ByteBuffer>* Query(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
-    #endif
-      { return nullptr; }
+    virtual ::grpc::experimental::ServerWriteReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* Query() {
+      return new ::grpc::internal::UnimplementedWriteReactor<
+        ::grpc::ByteBuffer, ::grpc::ByteBuffer>;}
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Status : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_Status() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(2,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Status(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->Status(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_Status() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Status(::grpc::ServerContext* /*context*/, const ::ric::store::StatusRequest* /*request*/, ::ric::store::StatusResponse* /*response*/) override {
+    ::grpc::Status Status(::grpc::ServerContext* context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* Status(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* Status(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void Status(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_CreateCollection : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_CreateCollection() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(3,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CreateCollection(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(3,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->CreateCollection(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_CreateCollection() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateCollection(::grpc::ServerContext* /*context*/, const ::ric::store::CreateCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status CreateCollection(::grpc::ServerContext* context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* CreateCollection(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CreateCollection(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void CreateCollection(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_RemoveCollection : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_RemoveCollection() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(4,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->RemoveCollection(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(4,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->RemoveCollection(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_RemoveCollection() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RemoveCollection(::grpc::ServerContext* /*context*/, const ::ric::store::RemoveCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status RemoveCollection(::grpc::ServerContext* context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* RemoveCollection(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* RemoveCollection(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void RemoveCollection(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_CreateDatabase : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_CreateDatabase() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(5,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CreateDatabase(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(5,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->CreateDatabase(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_CreateDatabase() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateDatabase(::grpc::ServerContext* /*context*/, const ::ric::store::CreateDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status CreateDatabase(::grpc::ServerContext* context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* CreateDatabase(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CreateDatabase(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void CreateDatabase(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_RemoveDatabase : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_RemoveDatabase() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(6,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->RemoveDatabase(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(6,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->RemoveDatabase(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_RemoveDatabase() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RemoveDatabase(::grpc::ServerContext* /*context*/, const ::ric::store::RemoveDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status RemoveDatabase(::grpc::ServerContext* context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* RemoveDatabase(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* RemoveDatabase(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void RemoveDatabase(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Status : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_Status() {
       ::grpc::Service::MarkMethodStreamed(2,
@@ -1362,7 +998,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Status(::grpc::ServerContext* /*context*/, const ::ric::store::StatusRequest* /*request*/, ::ric::store::StatusResponse* /*response*/) override {
+    ::grpc::Status Status(::grpc::ServerContext* context, const ::ric::store::StatusRequest* request, ::ric::store::StatusResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1372,7 +1008,7 @@ class RicStore final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_CreateCollection : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_CreateCollection() {
       ::grpc::Service::MarkMethodStreamed(3,
@@ -1382,7 +1018,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status CreateCollection(::grpc::ServerContext* /*context*/, const ::ric::store::CreateCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status CreateCollection(::grpc::ServerContext* context, const ::ric::store::CreateCollectionRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1392,7 +1028,7 @@ class RicStore final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_RemoveCollection : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_RemoveCollection() {
       ::grpc::Service::MarkMethodStreamed(4,
@@ -1402,7 +1038,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status RemoveCollection(::grpc::ServerContext* /*context*/, const ::ric::store::RemoveCollectionRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status RemoveCollection(::grpc::ServerContext* context, const ::ric::store::RemoveCollectionRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1412,7 +1048,7 @@ class RicStore final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_CreateDatabase : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_CreateDatabase() {
       ::grpc::Service::MarkMethodStreamed(5,
@@ -1422,7 +1058,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status CreateDatabase(::grpc::ServerContext* /*context*/, const ::ric::store::CreateDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status CreateDatabase(::grpc::ServerContext* context, const ::ric::store::CreateDatabaseRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1432,7 +1068,7 @@ class RicStore final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_RemoveDatabase : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_RemoveDatabase() {
       ::grpc::Service::MarkMethodStreamed(6,
@@ -1442,7 +1078,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status RemoveDatabase(::grpc::ServerContext* /*context*/, const ::ric::store::RemoveDatabaseRequest* /*request*/, ::ric::store::EmptyRespone* /*response*/) override {
+    ::grpc::Status RemoveDatabase(::grpc::ServerContext* context, const ::ric::store::RemoveDatabaseRequest* request, ::ric::store::EmptyRespone* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1453,7 +1089,7 @@ class RicStore final {
   template <class BaseClass>
   class WithSplitStreamingMethod_Query : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithSplitStreamingMethod_Query() {
       ::grpc::Service::MarkMethodStreamed(1,
@@ -1463,7 +1099,7 @@ class RicStore final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Query(::grpc::ServerContext* /*context*/, const ::ric::store::QueryRequest* /*request*/, ::grpc::ServerWriter< ::ric::store::Packet>* /*writer*/) override {
+    ::grpc::Status Query(::grpc::ServerContext* context, const ::ric::store::QueryRequest* request, ::grpc::ServerWriter< ::ric::store::Packet>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

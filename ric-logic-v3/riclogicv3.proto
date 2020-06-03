@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ric.logic.v3;
 
-option go_package = "riclogicv3";
+option go_package = "./ric-logic-v3;riclogicv3";
 
 service RicLogicV3 {
   rpc GetInstanceInfo(GetInstanceInfoRequest) returns (GetInstanceInfoResponse);

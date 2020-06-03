@@ -11,12 +11,9 @@
 #include <grpcpp/impl/codegen/channel_interface.h>
 #include <grpcpp/impl/codegen/client_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/method_handler_impl.h>
 #include <grpcpp/impl/codegen/rpc_service_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
 namespace ric {
@@ -45,27 +42,19 @@ SMPP::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
 }
 
 void SMPP::Stub::experimental_async::Send(::grpc::ClientContext* context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Send_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Send_, context, request, response, std::move(f));
 }
 
 void SMPP::Stub::experimental_async::Send(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::SendResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Send_, context, request, response, std::move(f));
-}
-
-void SMPP::Stub::experimental_async::Send(::grpc::ClientContext* context, const ::ric::smpp::SendRequest* request, ::ric::smpp::SendResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Send_, context, request, response, reactor);
-}
-
-void SMPP::Stub::experimental_async::Send(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::SendResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Send_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Send_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::smpp::SendResponse>* SMPP::Stub::AsyncSendRaw(::grpc::ClientContext* context, const ::ric::smpp::SendRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::smpp::SendResponse>::Create(channel_.get(), cq, rpcmethod_Send_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::smpp::SendResponse>::Create(channel_.get(), cq, rpcmethod_Send_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::smpp::SendResponse>* SMPP::Stub::PrepareAsyncSendRaw(::grpc::ClientContext* context, const ::ric::smpp::SendRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::smpp::SendResponse>::Create(channel_.get(), cq, rpcmethod_Send_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::smpp::SendResponse>::Create(channel_.get(), cq, rpcmethod_Send_, context, request, false);
 }
 
 ::grpc::Status SMPP::Stub::Status(::grpc::ClientContext* context, const ::ric::smpp::StatusRequest& request, ::ric::smpp::StatusResponse* response) {
@@ -73,27 +62,19 @@ void SMPP::Stub::experimental_async::Send(::grpc::ClientContext* context, const 
 }
 
 void SMPP::Stub::experimental_async::Status(::grpc::ClientContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Status_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Status_, context, request, response, std::move(f));
 }
 
 void SMPP::Stub::experimental_async::Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::StatusResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Status_, context, request, response, std::move(f));
-}
-
-void SMPP::Stub::experimental_async::Status(::grpc::ClientContext* context, const ::ric::smpp::StatusRequest* request, ::ric::smpp::StatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Status_, context, request, response, reactor);
-}
-
-void SMPP::Stub::experimental_async::Status(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::StatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Status_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Status_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::smpp::StatusResponse>* SMPP::Stub::AsyncStatusRaw(::grpc::ClientContext* context, const ::ric::smpp::StatusRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::smpp::StatusResponse>::Create(channel_.get(), cq, rpcmethod_Status_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::smpp::StatusResponse>::Create(channel_.get(), cq, rpcmethod_Status_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::smpp::StatusResponse>* SMPP::Stub::PrepareAsyncStatusRaw(::grpc::ClientContext* context, const ::ric::smpp::StatusRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::smpp::StatusResponse>::Create(channel_.get(), cq, rpcmethod_Status_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::smpp::StatusResponse>::Create(channel_.get(), cq, rpcmethod_Status_, context, request, false);
 }
 
 ::grpc::Status SMPP::Stub::GatewayInfo(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest& request, ::ric::smpp::GatewayInfoResponse* response) {
@@ -101,27 +82,19 @@ void SMPP::Stub::experimental_async::Status(::grpc::ClientContext* context, cons
 }
 
 void SMPP::Stub::experimental_async::GatewayInfo(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GatewayInfo_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GatewayInfo_, context, request, response, std::move(f));
 }
 
 void SMPP::Stub::experimental_async::GatewayInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::GatewayInfoResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GatewayInfo_, context, request, response, std::move(f));
-}
-
-void SMPP::Stub::experimental_async::GatewayInfo(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest* request, ::ric::smpp::GatewayInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GatewayInfo_, context, request, response, reactor);
-}
-
-void SMPP::Stub::experimental_async::GatewayInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::smpp::GatewayInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GatewayInfo_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GatewayInfo_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::smpp::GatewayInfoResponse>* SMPP::Stub::AsyncGatewayInfoRaw(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::smpp::GatewayInfoResponse>::Create(channel_.get(), cq, rpcmethod_GatewayInfo_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::smpp::GatewayInfoResponse>::Create(channel_.get(), cq, rpcmethod_GatewayInfo_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::smpp::GatewayInfoResponse>* SMPP::Stub::PrepareAsyncGatewayInfoRaw(::grpc::ClientContext* context, const ::ric::smpp::GatewayInfoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::smpp::GatewayInfoResponse>::Create(channel_.get(), cq, rpcmethod_GatewayInfo_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::smpp::GatewayInfoResponse>::Create(channel_.get(), cq, rpcmethod_GatewayInfo_, context, request, false);
 }
 
 SMPP::Service::Service() {

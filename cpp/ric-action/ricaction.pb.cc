@@ -686,13 +686,13 @@ const char descriptor_table_protodef_ric_2daction_2fricaction_2eproto[] =
   "nse2\223\001\n\tPublicAPI\022D\n\007History\022\032.ric.actio"
   "n.HistoryRequest\032\033.ric.action.HistoryRes"
   "ponse0\001\022@\n\tSendEvent\022\030.ric.action.EventR"
-  "equest\032\031.ric.action.EmptyResponseB\013Z\tric"
-  "actionb\006proto3"
+  "equest\032\031.ric.action.EmptyResponseB\030Z\026./r"
+  "ic-action;ricactionb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2daction_2fricaction_2eproto = {
   false, InitDefaults_ric_2daction_2fricaction_2eproto, 
   descriptor_table_protodef_ric_2daction_2fricaction_2eproto,
-  "ric-action/ricaction.proto", &assign_descriptors_table_ric_2daction_2fricaction_2eproto, 2094,
+  "ric-action/ricaction.proto", &assign_descriptors_table_ric_2daction_2fricaction_2eproto, 2107,
 };
 
 void AddDescriptors_ric_2daction_2fricaction_2eproto() {

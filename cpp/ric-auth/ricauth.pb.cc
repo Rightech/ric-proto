@@ -185,12 +185,13 @@ const char descriptor_table_protodef_ric_2dauth_2fricauth_2eproto[] =
   "ta_type\030\002 \001(\t\022\021\n\treference\030\003 \001(\t\022\016\n\006pars"
   "er\030\004 \001(\t2R\n\007RicAuth\022G\n\nAuthObject\022\033.ric."
   "auth.AuthObjectRequest\032\034.ric.auth.AuthOb"
-  "jectResponseB\tZ\007ricauthb\006proto3"
+  "jectResponseB\024Z\022./ric-auth;ricauthb\006prot"
+  "o3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dauth_2fricauth_2eproto = {
   false, InitDefaults_ric_2dauth_2fricauth_2eproto, 
   descriptor_table_protodef_ric_2dauth_2fricauth_2eproto,
-  "ric-auth/ricauth.proto", &assign_descriptors_table_ric_2dauth_2fricauth_2eproto, 631,
+  "ric-auth/ricauth.proto", &assign_descriptors_table_ric_2dauth_2fricauth_2eproto, 642,
 };
 
 void AddDescriptors_ric_2dauth_2fricauth_2eproto() {

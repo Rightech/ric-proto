@@ -241,12 +241,13 @@ const char descriptor_table_protodef_ric_2dcode_2friccode_2eproto[] =
   "quest\022\014\n\004name\030\001 \001(\t\022\016\n\006semver\030\002 \001(\t\022\r\n\005l"
   "ocal\030\003 \001(\0102R\n\007RicCode\022G\n\014TranspileEs6\022\032."
   "ric.code.TranspileRequest\032\033.ric.code.Tra"
-  "nspileResponseB\tZ\007riccodeb\006proto3"
+  "nspileResponseB\024Z\022./ric-code;riccodeb\006pr"
+  "oto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dcode_2friccode_2eproto = {
   false, InitDefaults_ric_2dcode_2friccode_2eproto, 
   descriptor_table_protodef_ric_2dcode_2friccode_2eproto,
-  "ric-code/riccode.proto", &assign_descriptors_table_ric_2dcode_2friccode_2eproto, 633,
+  "ric-code/riccode.proto", &assign_descriptors_table_ric_2dcode_2friccode_2eproto, 644,
 };
 
 void AddDescriptors_ric_2dcode_2friccode_2eproto() {

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ric.bots;
 
-option go_package = "ricbots";
+option go_package = "./ric-bots;ricbots";
 
 service Bots {
   rpc Start(StartRequest) returns (EmptyResponse);

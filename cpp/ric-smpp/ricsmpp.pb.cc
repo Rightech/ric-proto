@@ -297,12 +297,12 @@ const char descriptor_table_protodef_ric_2dsmpp_2fricsmpp_2eproto[] =
   "\027.ric.smpp.StatusRequest\032\030.ric.smpp.Stat"
   "usResponse\022J\n\013GatewayInfo\022\034.ric.smpp.Gat"
   "ewayInfoRequest\032\035.ric.smpp.GatewayInfoRe"
-  "sponseB\tZ\007ricsmppb\006proto3"
+  "sponseB\024Z\022./ric-smpp;ricsmppb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dsmpp_2fricsmpp_2eproto = {
   false, InitDefaults_ric_2dsmpp_2fricsmpp_2eproto, 
   descriptor_table_protodef_ric_2dsmpp_2fricsmpp_2eproto,
-  "ric-smpp/ricsmpp.proto", &assign_descriptors_table_ric_2dsmpp_2fricsmpp_2eproto, 945,
+  "ric-smpp/ricsmpp.proto", &assign_descriptors_table_ric_2dsmpp_2fricsmpp_2eproto, 956,
 };
 
 void AddDescriptors_ric_2dsmpp_2fricsmpp_2eproto() {

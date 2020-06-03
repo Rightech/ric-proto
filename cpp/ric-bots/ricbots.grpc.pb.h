@@ -7,24 +7,25 @@
 #include "ric-bots/ricbots.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
 #include <grpcpp/impl/codegen/async_generic_service.h>
 #include <grpcpp/impl/codegen/async_stream.h>
 #include <grpcpp/impl/codegen/async_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/client_context.h>
-#include <grpcpp/impl/codegen/completion_queue.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/method_handler_impl.h>
 #include <grpcpp/impl/codegen/proto_utils.h>
 #include <grpcpp/impl/codegen/rpc_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/status.h>
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
+
+namespace grpc {
+class CompletionQueue;
+class Channel;
+class ServerCompletionQueue;
+class ServerContext;
+}  // namespace grpc
 
 namespace ric {
 namespace bots {
@@ -105,119 +106,23 @@ class Bots final {
       virtual ~experimental_async_interface() {}
       virtual void Start(::grpc::ClientContext* context, const ::ric::bots::StartRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Start(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void Start(::grpc::ClientContext* context, const ::ric::bots::StartRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void Start(::grpc::ClientContext* context, const ::ric::bots::StartRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void Start(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void Start(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void Stop(::grpc::ClientContext* context, const ::ric::bots::StopRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void Stop(::grpc::ClientContext* context, const ::ric::bots::StopRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void Stop(::grpc::ClientContext* context, const ::ric::bots::StopRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void SetState(::grpc::ClientContext* context, const ::ric::bots::SetStateRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SetState(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void SetState(::grpc::ClientContext* context, const ::ric::bots::SetStateRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SetState(::grpc::ClientContext* context, const ::ric::bots::SetStateRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void SetState(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SetState(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void SetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SetGeoConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void SetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void SetGeoConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SetGeoConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void PauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void PauseStopGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void PauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void PauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void PauseStopGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void PauseStopGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void StartGeo(::grpc::ClientContext* context, const ::ric::bots::StartGeoRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void StartGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void StartGeo(::grpc::ClientContext* context, const ::ric::bots::StartGeoRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void StartGeo(::grpc::ClientContext* context, const ::ric::bots::StartGeoRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void StartGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void StartGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void AddToGenConfig(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void AddToGenConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void AddToGenConfig(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void AddToGenConfig(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void AddToGenConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void AddToGenConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void RemoveFromGenConfig(::grpc::ClientContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void RemoveFromGenConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void RemoveFromGenConfig(::grpc::ClientContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void RemoveFromGenConfig(::grpc::ClientContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void RemoveFromGenConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void RemoveFromGenConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
       virtual void SetBotConfig(::grpc::ClientContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SetBotConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void SetBotConfig(::grpc::ClientContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SetBotConfig(::grpc::ClientContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void SetBotConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void SetBotConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bots::EmptyResponse>* AsyncStartRaw(::grpc::ClientContext* context, const ::ric::bots::StartRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -310,112 +215,22 @@ class Bots final {
      public:
       void Start(::grpc::ClientContext* context, const ::ric::bots::StartRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void Start(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void Start(::grpc::ClientContext* context, const ::ric::bots::StartRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void Start(::grpc::ClientContext* context, const ::ric::bots::StartRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void Start(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void Start(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void Stop(::grpc::ClientContext* context, const ::ric::bots::StopRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void Stop(::grpc::ClientContext* context, const ::ric::bots::StopRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void Stop(::grpc::ClientContext* context, const ::ric::bots::StopRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void SetState(::grpc::ClientContext* context, const ::ric::bots::SetStateRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SetState(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void SetState(::grpc::ClientContext* context, const ::ric::bots::SetStateRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SetState(::grpc::ClientContext* context, const ::ric::bots::SetStateRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void SetState(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SetState(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void SetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SetGeoConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void SetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SetGeoConfig(::grpc::ClientContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void SetGeoConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SetGeoConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void PauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void PauseStopGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void PauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void PauseStopGeo(::grpc::ClientContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void PauseStopGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void PauseStopGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void StartGeo(::grpc::ClientContext* context, const ::ric::bots::StartGeoRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void StartGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void StartGeo(::grpc::ClientContext* context, const ::ric::bots::StartGeoRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void StartGeo(::grpc::ClientContext* context, const ::ric::bots::StartGeoRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void StartGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void StartGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void AddToGenConfig(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void AddToGenConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void AddToGenConfig(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void AddToGenConfig(::grpc::ClientContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void AddToGenConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void AddToGenConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void RemoveFromGenConfig(::grpc::ClientContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void RemoveFromGenConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void RemoveFromGenConfig(::grpc::ClientContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void RemoveFromGenConfig(::grpc::ClientContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void RemoveFromGenConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void RemoveFromGenConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void SetBotConfig(::grpc::ClientContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void SetBotConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void SetBotConfig(::grpc::ClientContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SetBotConfig(::grpc::ClientContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void SetBotConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void SetBotConfig(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -474,7 +289,7 @@ class Bots final {
   template <class BaseClass>
   class WithAsyncMethod_Start : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_Start() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -483,7 +298,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Start(::grpc::ServerContext* /*context*/, const ::ric::bots::StartRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status Start(::grpc::ServerContext* context, const ::ric::bots::StartRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -494,7 +309,7 @@ class Bots final {
   template <class BaseClass>
   class WithAsyncMethod_Stop : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_Stop() {
       ::grpc::Service::MarkMethodAsync(1);
@@ -503,7 +318,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Stop(::grpc::ServerContext* /*context*/, const ::ric::bots::StopRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status Stop(::grpc::ServerContext* context, const ::ric::bots::StopRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -514,7 +329,7 @@ class Bots final {
   template <class BaseClass>
   class WithAsyncMethod_SetState : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_SetState() {
       ::grpc::Service::MarkMethodAsync(2);
@@ -523,7 +338,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetState(::grpc::ServerContext* /*context*/, const ::ric::bots::SetStateRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetState(::grpc::ServerContext* context, const ::ric::bots::SetStateRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -534,7 +349,7 @@ class Bots final {
   template <class BaseClass>
   class WithAsyncMethod_SetGeoConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_SetGeoConfig() {
       ::grpc::Service::MarkMethodAsync(3);
@@ -543,7 +358,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetGeoConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::SetGeoConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -554,7 +369,7 @@ class Bots final {
   template <class BaseClass>
   class WithAsyncMethod_PauseStopGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_PauseStopGeo() {
       ::grpc::Service::MarkMethodAsync(4);
@@ -563,7 +378,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PauseStopGeo(::grpc::ServerContext* /*context*/, const ::ric::bots::PauseStopGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -574,7 +389,7 @@ class Bots final {
   template <class BaseClass>
   class WithAsyncMethod_StartGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_StartGeo() {
       ::grpc::Service::MarkMethodAsync(5);
@@ -583,7 +398,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StartGeo(::grpc::ServerContext* /*context*/, const ::ric::bots::StartGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status StartGeo(::grpc::ServerContext* context, const ::ric::bots::StartGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -594,7 +409,7 @@ class Bots final {
   template <class BaseClass>
   class WithAsyncMethod_AddToGenConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_AddToGenConfig() {
       ::grpc::Service::MarkMethodAsync(6);
@@ -603,7 +418,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AddToGenConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::AddToGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status AddToGenConfig(::grpc::ServerContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -614,7 +429,7 @@ class Bots final {
   template <class BaseClass>
   class WithAsyncMethod_RemoveFromGenConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_RemoveFromGenConfig() {
       ::grpc::Service::MarkMethodAsync(7);
@@ -623,7 +438,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RemoveFromGenConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::RemoveFromGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status RemoveFromGenConfig(::grpc::ServerContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -634,7 +449,7 @@ class Bots final {
   template <class BaseClass>
   class WithAsyncMethod_SetBotConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_SetBotConfig() {
       ::grpc::Service::MarkMethodAsync(8);
@@ -643,7 +458,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetBotConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::SetBotConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetBotConfig(::grpc::ServerContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -655,435 +470,233 @@ class Bots final {
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Start : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_Start() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::StartRequest, ::ric::bots::EmptyResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::bots::StartRequest* request, ::ric::bots::EmptyResponse* response) { return this->Start(context, request, response); }));}
-    void SetMessageAllocatorFor_Start(
-        ::grpc::experimental::MessageAllocator< ::ric::bots::StartRequest, ::ric::bots::EmptyResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::StartRequest, ::ric::bots::EmptyResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(0,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bots::StartRequest, ::ric::bots::EmptyResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bots::StartRequest* request,
+                 ::ric::bots::EmptyResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->Start(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_Start() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Start(::grpc::ServerContext* /*context*/, const ::ric::bots::StartRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status Start(::grpc::ServerContext* context, const ::ric::bots::StartRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* Start(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::bots::StartRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* Start(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::bots::StartRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void Start(::grpc::ServerContext* context, const ::ric::bots::StartRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Stop : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_Stop() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(1,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::StopRequest, ::ric::bots::EmptyResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::bots::StopRequest* request, ::ric::bots::EmptyResponse* response) { return this->Stop(context, request, response); }));}
-    void SetMessageAllocatorFor_Stop(
-        ::grpc::experimental::MessageAllocator< ::ric::bots::StopRequest, ::ric::bots::EmptyResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::StopRequest, ::ric::bots::EmptyResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bots::StopRequest, ::ric::bots::EmptyResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bots::StopRequest* request,
+                 ::ric::bots::EmptyResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->Stop(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_Stop() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Stop(::grpc::ServerContext* /*context*/, const ::ric::bots::StopRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status Stop(::grpc::ServerContext* context, const ::ric::bots::StopRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* Stop(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::bots::StopRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* Stop(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::bots::StopRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void Stop(::grpc::ServerContext* context, const ::ric::bots::StopRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_SetState : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_SetState() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(2,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::SetStateRequest, ::ric::bots::EmptyResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::bots::SetStateRequest* request, ::ric::bots::EmptyResponse* response) { return this->SetState(context, request, response); }));}
-    void SetMessageAllocatorFor_SetState(
-        ::grpc::experimental::MessageAllocator< ::ric::bots::SetStateRequest, ::ric::bots::EmptyResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::SetStateRequest, ::ric::bots::EmptyResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bots::SetStateRequest, ::ric::bots::EmptyResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bots::SetStateRequest* request,
+                 ::ric::bots::EmptyResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->SetState(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_SetState() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetState(::grpc::ServerContext* /*context*/, const ::ric::bots::SetStateRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetState(::grpc::ServerContext* context, const ::ric::bots::SetStateRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* SetState(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::bots::SetStateRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SetState(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::bots::SetStateRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void SetState(::grpc::ServerContext* context, const ::ric::bots::SetStateRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_SetGeoConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_SetGeoConfig() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(3,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::SetGeoConfigRequest, ::ric::bots::EmptyResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response) { return this->SetGeoConfig(context, request, response); }));}
-    void SetMessageAllocatorFor_SetGeoConfig(
-        ::grpc::experimental::MessageAllocator< ::ric::bots::SetGeoConfigRequest, ::ric::bots::EmptyResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::SetGeoConfigRequest, ::ric::bots::EmptyResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(3,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bots::SetGeoConfigRequest, ::ric::bots::EmptyResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bots::SetGeoConfigRequest* request,
+                 ::ric::bots::EmptyResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->SetGeoConfig(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_SetGeoConfig() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetGeoConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::SetGeoConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* SetGeoConfig(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::bots::SetGeoConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SetGeoConfig(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::bots::SetGeoConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void SetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_PauseStopGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_PauseStopGeo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(4,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::PauseStopGeoRequest, ::ric::bots::EmptyResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response) { return this->PauseStopGeo(context, request, response); }));}
-    void SetMessageAllocatorFor_PauseStopGeo(
-        ::grpc::experimental::MessageAllocator< ::ric::bots::PauseStopGeoRequest, ::ric::bots::EmptyResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::PauseStopGeoRequest, ::ric::bots::EmptyResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(4,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bots::PauseStopGeoRequest, ::ric::bots::EmptyResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bots::PauseStopGeoRequest* request,
+                 ::ric::bots::EmptyResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->PauseStopGeo(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_PauseStopGeo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PauseStopGeo(::grpc::ServerContext* /*context*/, const ::ric::bots::PauseStopGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* PauseStopGeo(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::bots::PauseStopGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* PauseStopGeo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::bots::PauseStopGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_StartGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_StartGeo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(5,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::StartGeoRequest, ::ric::bots::EmptyResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::bots::StartGeoRequest* request, ::ric::bots::EmptyResponse* response) { return this->StartGeo(context, request, response); }));}
-    void SetMessageAllocatorFor_StartGeo(
-        ::grpc::experimental::MessageAllocator< ::ric::bots::StartGeoRequest, ::ric::bots::EmptyResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::StartGeoRequest, ::ric::bots::EmptyResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(5,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bots::StartGeoRequest, ::ric::bots::EmptyResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bots::StartGeoRequest* request,
+                 ::ric::bots::EmptyResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->StartGeo(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_StartGeo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StartGeo(::grpc::ServerContext* /*context*/, const ::ric::bots::StartGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status StartGeo(::grpc::ServerContext* context, const ::ric::bots::StartGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* StartGeo(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::bots::StartGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* StartGeo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::bots::StartGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void StartGeo(::grpc::ServerContext* context, const ::ric::bots::StartGeoRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_AddToGenConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_AddToGenConfig() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(6,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::AddToGenConfigRequest, ::ric::bots::EmptyResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response) { return this->AddToGenConfig(context, request, response); }));}
-    void SetMessageAllocatorFor_AddToGenConfig(
-        ::grpc::experimental::MessageAllocator< ::ric::bots::AddToGenConfigRequest, ::ric::bots::EmptyResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::AddToGenConfigRequest, ::ric::bots::EmptyResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(6,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bots::AddToGenConfigRequest, ::ric::bots::EmptyResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bots::AddToGenConfigRequest* request,
+                 ::ric::bots::EmptyResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->AddToGenConfig(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_AddToGenConfig() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AddToGenConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::AddToGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status AddToGenConfig(::grpc::ServerContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* AddToGenConfig(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::bots::AddToGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* AddToGenConfig(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::bots::AddToGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void AddToGenConfig(::grpc::ServerContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_RemoveFromGenConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_RemoveFromGenConfig() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(7,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::RemoveFromGenConfigRequest, ::ric::bots::EmptyResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response) { return this->RemoveFromGenConfig(context, request, response); }));}
-    void SetMessageAllocatorFor_RemoveFromGenConfig(
-        ::grpc::experimental::MessageAllocator< ::ric::bots::RemoveFromGenConfigRequest, ::ric::bots::EmptyResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(7);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::RemoveFromGenConfigRequest, ::ric::bots::EmptyResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(7,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bots::RemoveFromGenConfigRequest, ::ric::bots::EmptyResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bots::RemoveFromGenConfigRequest* request,
+                 ::ric::bots::EmptyResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->RemoveFromGenConfig(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_RemoveFromGenConfig() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RemoveFromGenConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::RemoveFromGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status RemoveFromGenConfig(::grpc::ServerContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* RemoveFromGenConfig(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::bots::RemoveFromGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* RemoveFromGenConfig(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::bots::RemoveFromGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void RemoveFromGenConfig(::grpc::ServerContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_SetBotConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_SetBotConfig() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(8,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::SetBotConfigRequest, ::ric::bots::EmptyResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response) { return this->SetBotConfig(context, request, response); }));}
-    void SetMessageAllocatorFor_SetBotConfig(
-        ::grpc::experimental::MessageAllocator< ::ric::bots::SetBotConfigRequest, ::ric::bots::EmptyResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(8);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::bots::SetBotConfigRequest, ::ric::bots::EmptyResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(8,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bots::SetBotConfigRequest, ::ric::bots::EmptyResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bots::SetBotConfigRequest* request,
+                 ::ric::bots::EmptyResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->SetBotConfig(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_SetBotConfig() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetBotConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::SetBotConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetBotConfig(::grpc::ServerContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* SetBotConfig(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::bots::SetBotConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SetBotConfig(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::bots::SetBotConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void SetBotConfig(::grpc::ServerContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_Start<ExperimentalWithCallbackMethod_Stop<ExperimentalWithCallbackMethod_SetState<ExperimentalWithCallbackMethod_SetGeoConfig<ExperimentalWithCallbackMethod_PauseStopGeo<ExperimentalWithCallbackMethod_StartGeo<ExperimentalWithCallbackMethod_AddToGenConfig<ExperimentalWithCallbackMethod_RemoveFromGenConfig<ExperimentalWithCallbackMethod_SetBotConfig<Service > > > > > > > > > CallbackService;
-  #endif
-
   typedef ExperimentalWithCallbackMethod_Start<ExperimentalWithCallbackMethod_Stop<ExperimentalWithCallbackMethod_SetState<ExperimentalWithCallbackMethod_SetGeoConfig<ExperimentalWithCallbackMethod_PauseStopGeo<ExperimentalWithCallbackMethod_StartGeo<ExperimentalWithCallbackMethod_AddToGenConfig<ExperimentalWithCallbackMethod_RemoveFromGenConfig<ExperimentalWithCallbackMethod_SetBotConfig<Service > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Start : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_Start() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -1092,7 +705,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Start(::grpc::ServerContext* /*context*/, const ::ric::bots::StartRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status Start(::grpc::ServerContext* context, const ::ric::bots::StartRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1100,7 +713,7 @@ class Bots final {
   template <class BaseClass>
   class WithGenericMethod_Stop : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_Stop() {
       ::grpc::Service::MarkMethodGeneric(1);
@@ -1109,7 +722,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Stop(::grpc::ServerContext* /*context*/, const ::ric::bots::StopRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status Stop(::grpc::ServerContext* context, const ::ric::bots::StopRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1117,7 +730,7 @@ class Bots final {
   template <class BaseClass>
   class WithGenericMethod_SetState : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_SetState() {
       ::grpc::Service::MarkMethodGeneric(2);
@@ -1126,7 +739,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetState(::grpc::ServerContext* /*context*/, const ::ric::bots::SetStateRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetState(::grpc::ServerContext* context, const ::ric::bots::SetStateRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1134,7 +747,7 @@ class Bots final {
   template <class BaseClass>
   class WithGenericMethod_SetGeoConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_SetGeoConfig() {
       ::grpc::Service::MarkMethodGeneric(3);
@@ -1143,7 +756,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetGeoConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::SetGeoConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1151,7 +764,7 @@ class Bots final {
   template <class BaseClass>
   class WithGenericMethod_PauseStopGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_PauseStopGeo() {
       ::grpc::Service::MarkMethodGeneric(4);
@@ -1160,7 +773,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PauseStopGeo(::grpc::ServerContext* /*context*/, const ::ric::bots::PauseStopGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1168,7 +781,7 @@ class Bots final {
   template <class BaseClass>
   class WithGenericMethod_StartGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_StartGeo() {
       ::grpc::Service::MarkMethodGeneric(5);
@@ -1177,7 +790,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StartGeo(::grpc::ServerContext* /*context*/, const ::ric::bots::StartGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status StartGeo(::grpc::ServerContext* context, const ::ric::bots::StartGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1185,7 +798,7 @@ class Bots final {
   template <class BaseClass>
   class WithGenericMethod_AddToGenConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_AddToGenConfig() {
       ::grpc::Service::MarkMethodGeneric(6);
@@ -1194,7 +807,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AddToGenConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::AddToGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status AddToGenConfig(::grpc::ServerContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1202,7 +815,7 @@ class Bots final {
   template <class BaseClass>
   class WithGenericMethod_RemoveFromGenConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_RemoveFromGenConfig() {
       ::grpc::Service::MarkMethodGeneric(7);
@@ -1211,7 +824,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RemoveFromGenConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::RemoveFromGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status RemoveFromGenConfig(::grpc::ServerContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1219,7 +832,7 @@ class Bots final {
   template <class BaseClass>
   class WithGenericMethod_SetBotConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_SetBotConfig() {
       ::grpc::Service::MarkMethodGeneric(8);
@@ -1228,7 +841,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetBotConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::SetBotConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetBotConfig(::grpc::ServerContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1236,7 +849,7 @@ class Bots final {
   template <class BaseClass>
   class WithRawMethod_Start : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_Start() {
       ::grpc::Service::MarkMethodRaw(0);
@@ -1245,7 +858,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Start(::grpc::ServerContext* /*context*/, const ::ric::bots::StartRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status Start(::grpc::ServerContext* context, const ::ric::bots::StartRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1256,7 +869,7 @@ class Bots final {
   template <class BaseClass>
   class WithRawMethod_Stop : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_Stop() {
       ::grpc::Service::MarkMethodRaw(1);
@@ -1265,7 +878,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Stop(::grpc::ServerContext* /*context*/, const ::ric::bots::StopRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status Stop(::grpc::ServerContext* context, const ::ric::bots::StopRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1276,7 +889,7 @@ class Bots final {
   template <class BaseClass>
   class WithRawMethod_SetState : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_SetState() {
       ::grpc::Service::MarkMethodRaw(2);
@@ -1285,7 +898,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetState(::grpc::ServerContext* /*context*/, const ::ric::bots::SetStateRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetState(::grpc::ServerContext* context, const ::ric::bots::SetStateRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1296,7 +909,7 @@ class Bots final {
   template <class BaseClass>
   class WithRawMethod_SetGeoConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_SetGeoConfig() {
       ::grpc::Service::MarkMethodRaw(3);
@@ -1305,7 +918,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetGeoConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::SetGeoConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1316,7 +929,7 @@ class Bots final {
   template <class BaseClass>
   class WithRawMethod_PauseStopGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_PauseStopGeo() {
       ::grpc::Service::MarkMethodRaw(4);
@@ -1325,7 +938,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PauseStopGeo(::grpc::ServerContext* /*context*/, const ::ric::bots::PauseStopGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1336,7 +949,7 @@ class Bots final {
   template <class BaseClass>
   class WithRawMethod_StartGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_StartGeo() {
       ::grpc::Service::MarkMethodRaw(5);
@@ -1345,7 +958,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StartGeo(::grpc::ServerContext* /*context*/, const ::ric::bots::StartGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status StartGeo(::grpc::ServerContext* context, const ::ric::bots::StartGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1356,7 +969,7 @@ class Bots final {
   template <class BaseClass>
   class WithRawMethod_AddToGenConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_AddToGenConfig() {
       ::grpc::Service::MarkMethodRaw(6);
@@ -1365,7 +978,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AddToGenConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::AddToGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status AddToGenConfig(::grpc::ServerContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1376,7 +989,7 @@ class Bots final {
   template <class BaseClass>
   class WithRawMethod_RemoveFromGenConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_RemoveFromGenConfig() {
       ::grpc::Service::MarkMethodRaw(7);
@@ -1385,7 +998,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RemoveFromGenConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::RemoveFromGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status RemoveFromGenConfig(::grpc::ServerContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1396,7 +1009,7 @@ class Bots final {
   template <class BaseClass>
   class WithRawMethod_SetBotConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_SetBotConfig() {
       ::grpc::Service::MarkMethodRaw(8);
@@ -1405,7 +1018,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetBotConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::SetBotConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetBotConfig(::grpc::ServerContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1416,349 +1029,232 @@ class Bots final {
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Start : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_Start() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Start(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(0,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->Start(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_Start() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Start(::grpc::ServerContext* /*context*/, const ::ric::bots::StartRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status Start(::grpc::ServerContext* context, const ::ric::bots::StartRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* Start(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* Start(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void Start(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Stop : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_Stop() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(1,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Stop(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->Stop(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_Stop() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Stop(::grpc::ServerContext* /*context*/, const ::ric::bots::StopRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status Stop(::grpc::ServerContext* context, const ::ric::bots::StopRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* Stop(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* Stop(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void Stop(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_SetState : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_SetState() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(2,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SetState(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->SetState(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_SetState() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetState(::grpc::ServerContext* /*context*/, const ::ric::bots::SetStateRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetState(::grpc::ServerContext* context, const ::ric::bots::SetStateRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* SetState(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SetState(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void SetState(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_SetGeoConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_SetGeoConfig() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(3,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SetGeoConfig(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(3,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->SetGeoConfig(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_SetGeoConfig() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetGeoConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::SetGeoConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* SetGeoConfig(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SetGeoConfig(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void SetGeoConfig(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_PauseStopGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_PauseStopGeo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(4,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PauseStopGeo(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(4,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->PauseStopGeo(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_PauseStopGeo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PauseStopGeo(::grpc::ServerContext* /*context*/, const ::ric::bots::PauseStopGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* PauseStopGeo(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* PauseStopGeo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void PauseStopGeo(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_StartGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_StartGeo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(5,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->StartGeo(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(5,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->StartGeo(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_StartGeo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StartGeo(::grpc::ServerContext* /*context*/, const ::ric::bots::StartGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status StartGeo(::grpc::ServerContext* context, const ::ric::bots::StartGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* StartGeo(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* StartGeo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void StartGeo(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_AddToGenConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_AddToGenConfig() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(6,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->AddToGenConfig(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(6,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->AddToGenConfig(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_AddToGenConfig() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AddToGenConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::AddToGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status AddToGenConfig(::grpc::ServerContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* AddToGenConfig(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* AddToGenConfig(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void AddToGenConfig(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_RemoveFromGenConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_RemoveFromGenConfig() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(7,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->RemoveFromGenConfig(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(7,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->RemoveFromGenConfig(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_RemoveFromGenConfig() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RemoveFromGenConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::RemoveFromGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status RemoveFromGenConfig(::grpc::ServerContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* RemoveFromGenConfig(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* RemoveFromGenConfig(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void RemoveFromGenConfig(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_SetBotConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_SetBotConfig() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(8,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SetBotConfig(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(8,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->SetBotConfig(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_SetBotConfig() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetBotConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::SetBotConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetBotConfig(::grpc::ServerContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* SetBotConfig(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* SetBotConfig(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void SetBotConfig(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_Start : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_Start() {
       ::grpc::Service::MarkMethodStreamed(0,
@@ -1768,7 +1264,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Start(::grpc::ServerContext* /*context*/, const ::ric::bots::StartRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status Start(::grpc::ServerContext* context, const ::ric::bots::StartRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1778,7 +1274,7 @@ class Bots final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_Stop : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_Stop() {
       ::grpc::Service::MarkMethodStreamed(1,
@@ -1788,7 +1284,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Stop(::grpc::ServerContext* /*context*/, const ::ric::bots::StopRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status Stop(::grpc::ServerContext* context, const ::ric::bots::StopRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1798,7 +1294,7 @@ class Bots final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_SetState : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_SetState() {
       ::grpc::Service::MarkMethodStreamed(2,
@@ -1808,7 +1304,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SetState(::grpc::ServerContext* /*context*/, const ::ric::bots::SetStateRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetState(::grpc::ServerContext* context, const ::ric::bots::SetStateRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1818,7 +1314,7 @@ class Bots final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_SetGeoConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_SetGeoConfig() {
       ::grpc::Service::MarkMethodStreamed(3,
@@ -1828,7 +1324,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SetGeoConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::SetGeoConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetGeoConfig(::grpc::ServerContext* context, const ::ric::bots::SetGeoConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1838,7 +1334,7 @@ class Bots final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_PauseStopGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_PauseStopGeo() {
       ::grpc::Service::MarkMethodStreamed(4,
@@ -1848,7 +1344,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status PauseStopGeo(::grpc::ServerContext* /*context*/, const ::ric::bots::PauseStopGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status PauseStopGeo(::grpc::ServerContext* context, const ::ric::bots::PauseStopGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1858,7 +1354,7 @@ class Bots final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_StartGeo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_StartGeo() {
       ::grpc::Service::MarkMethodStreamed(5,
@@ -1868,7 +1364,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status StartGeo(::grpc::ServerContext* /*context*/, const ::ric::bots::StartGeoRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status StartGeo(::grpc::ServerContext* context, const ::ric::bots::StartGeoRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1878,7 +1374,7 @@ class Bots final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_AddToGenConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_AddToGenConfig() {
       ::grpc::Service::MarkMethodStreamed(6,
@@ -1888,7 +1384,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status AddToGenConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::AddToGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status AddToGenConfig(::grpc::ServerContext* context, const ::ric::bots::AddToGenConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1898,7 +1394,7 @@ class Bots final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_RemoveFromGenConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_RemoveFromGenConfig() {
       ::grpc::Service::MarkMethodStreamed(7,
@@ -1908,7 +1404,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status RemoveFromGenConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::RemoveFromGenConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status RemoveFromGenConfig(::grpc::ServerContext* context, const ::ric::bots::RemoveFromGenConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1918,7 +1414,7 @@ class Bots final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_SetBotConfig : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_SetBotConfig() {
       ::grpc::Service::MarkMethodStreamed(8,
@@ -1928,7 +1424,7 @@ class Bots final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SetBotConfig(::grpc::ServerContext* /*context*/, const ::ric::bots::SetBotConfigRequest* /*request*/, ::ric::bots::EmptyResponse* /*response*/) override {
+    ::grpc::Status SetBotConfig(::grpc::ServerContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
