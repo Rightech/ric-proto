@@ -9,7 +9,7 @@ service Billing {
   rpc VerifyAccount(SetupRequest) returns (SetupResponse);
   rpc CloseAccount(SetupRequest) returns (SetupResponse);
 
-  rpc CreatePayment(PaymentRequest) returns (PaymentResponse);
+  rpc CreateSubscription(SubscriptionRequest) returns (SubscriptionResponse);
 }
 
 message UserContext {
@@ -28,6 +28,12 @@ message SetupResponse {
 }
 
 
-message PaymentRequest {}
+message SubscriptionRequest {
+  UserContext ctx = 1;
+  string license_id = 2;
+}
 
-message PaymentResponse {}
+message SubscriptionResponse {
+  string payment_id = 1;
+  string job_id = 2;
+}

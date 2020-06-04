@@ -2,7 +2,7 @@ export interface Billing {
   SetupAccount(request: SetupRequest): Promise<SetupResponse>;
   VerifyAccount(request: SetupRequest): Promise<SetupResponse>;
   CloseAccount(request: SetupRequest): Promise<SetupResponse>;
-  CreatePayment(request: PaymentRequest): Promise<PaymentResponse>;
+  CreateSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
 }
 
 export interface UserContext {
@@ -20,10 +20,12 @@ export interface SetupResponse {
   widgetParams?: string;
 }
 
-export interface PaymentRequest {
-
+export interface SubscriptionRequest {
+  ctx?: UserContext;
+  licenseId?: string;
 }
 
-export interface PaymentResponse {
-
+export interface SubscriptionResponse {
+  paymentId?: string;
+  jobId?: string;
 }
