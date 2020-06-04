@@ -7,24 +7,25 @@
 #include "ric-logic-v3/riclogicv3.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
 #include <grpcpp/impl/codegen/async_generic_service.h>
 #include <grpcpp/impl/codegen/async_stream.h>
 #include <grpcpp/impl/codegen/async_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/client_context.h>
-#include <grpcpp/impl/codegen/completion_queue.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/method_handler_impl.h>
 #include <grpcpp/impl/codegen/proto_utils.h>
 #include <grpcpp/impl/codegen/rpc_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/status.h>
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
+
+namespace grpc {
+class CompletionQueue;
+class Channel;
+class ServerCompletionQueue;
+class ServerContext;
+}  // namespace grpc
 
 namespace ric {
 namespace logic {
@@ -61,6 +62,13 @@ class RicLogicV3 final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StartAutomatonResponse>> PrepareAsyncStartAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StartAutomatonResponse>>(PrepareAsyncStartAutomatonRaw(context, request, cq));
     }
+    virtual ::grpc::Status StartAutomatonMulti(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest& request, ::ric::logic::v3::StartAutomatonResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StartAutomatonResponse>> AsyncStartAutomatonMulti(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StartAutomatonResponse>>(AsyncStartAutomatonMultiRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StartAutomatonResponse>> PrepareAsyncStartAutomatonMulti(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StartAutomatonResponse>>(PrepareAsyncStartAutomatonMultiRaw(context, request, cq));
+    }
     virtual ::grpc::Status StopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::ric::logic::v3::StopAutomatonResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StopAutomatonResponse>> AsyncStopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StopAutomatonResponse>>(AsyncStopAutomatonRaw(context, request, cq));
@@ -84,74 +92,31 @@ class RicLogicV3 final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::EmitEventResponse>> PrepareAsyncEmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::EmitEventResponse>>(PrepareAsyncEmitEventRaw(context, request, cq));
     }
+    virtual ::grpc::Status UpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::UpdateAutomatonVarsResponse>> AsyncUpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::UpdateAutomatonVarsResponse>>(AsyncUpdateAutomatonVarsRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::UpdateAutomatonVarsResponse>> PrepareAsyncUpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::UpdateAutomatonVarsResponse>>(PrepareAsyncUpdateAutomatonVarsRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
       virtual void GetInstanceInfo(::grpc::ClientContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetInstanceInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::GetInstanceInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void GetInstanceInfo(::grpc::ClientContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GetInstanceInfo(::grpc::ClientContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void GetInstanceInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::GetInstanceInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GetInstanceInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::GetInstanceInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void GetAutomatons(::grpc::ClientContext* context, ::ric::logic::v3::GetAutomatonsRequest* request, ::grpc::ClientReadReactor< ::ric::logic::v3::AutomatonInfo>* reactor) = 0;
-      #else
       virtual void GetAutomatons(::grpc::ClientContext* context, ::ric::logic::v3::GetAutomatonsRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::logic::v3::AutomatonInfo>* reactor) = 0;
-      #endif
       virtual void StartAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void StartAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StartAutomatonResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void StartAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void StartAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void StartAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StartAutomatonResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void StartAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StartAutomatonResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
+      virtual void StartAutomatonMulti(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest* request, ::ric::logic::v3::StartAutomatonResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void StartAutomatonMulti(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StartAutomatonResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void StopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void StopAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StopAutomatonResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void StopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void StopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void StopAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StopAutomatonResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void StopAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StopAutomatonResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void RunAutomaton(::grpc::ClientContext* context, ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ClientReadReactor< ::ric::logic::v3::AutomatonInfo>* reactor) = 0;
-      #else
       virtual void RunAutomaton(::grpc::ClientContext* context, ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::logic::v3::AutomatonInfo>* reactor) = 0;
-      #endif
       virtual void EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void EmitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::EmitEventResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void EmitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::EmitEventResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void EmitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::EmitEventResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
+      virtual void UpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void UpdateAutomatonVars(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::GetInstanceInfoResponse>* AsyncGetInstanceInfoRaw(::grpc::ClientContext* context, const ::ric::logic::v3::GetInstanceInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -161,6 +126,8 @@ class RicLogicV3 final {
     virtual ::grpc::ClientAsyncReaderInterface< ::ric::logic::v3::AutomatonInfo>* PrepareAsyncGetAutomatonsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::GetAutomatonsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StartAutomatonResponse>* AsyncStartAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StartAutomatonResponse>* PrepareAsyncStartAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StartAutomatonResponse>* AsyncStartAutomatonMultiRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StartAutomatonResponse>* PrepareAsyncStartAutomatonMultiRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StopAutomatonResponse>* AsyncStopAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::StopAutomatonResponse>* PrepareAsyncStopAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientReaderInterface< ::ric::logic::v3::AutomatonInfo>* RunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request) = 0;
@@ -168,6 +135,8 @@ class RicLogicV3 final {
     virtual ::grpc::ClientAsyncReaderInterface< ::ric::logic::v3::AutomatonInfo>* PrepareAsyncRunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::EmitEventResponse>* AsyncEmitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::EmitEventResponse>* PrepareAsyncEmitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::UpdateAutomatonVarsResponse>* AsyncUpdateAutomatonVarsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::UpdateAutomatonVarsResponse>* PrepareAsyncUpdateAutomatonVarsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -195,6 +164,13 @@ class RicLogicV3 final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StartAutomatonResponse>> PrepareAsyncStartAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StartAutomatonResponse>>(PrepareAsyncStartAutomatonRaw(context, request, cq));
     }
+    ::grpc::Status StartAutomatonMulti(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest& request, ::ric::logic::v3::StartAutomatonResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StartAutomatonResponse>> AsyncStartAutomatonMulti(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StartAutomatonResponse>>(AsyncStartAutomatonMultiRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StartAutomatonResponse>> PrepareAsyncStartAutomatonMulti(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StartAutomatonResponse>>(PrepareAsyncStartAutomatonMultiRaw(context, request, cq));
+    }
     ::grpc::Status StopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::ric::logic::v3::StopAutomatonResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StopAutomatonResponse>> AsyncStopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StopAutomatonResponse>>(AsyncStopAutomatonRaw(context, request, cq));
@@ -218,67 +194,30 @@ class RicLogicV3 final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::EmitEventResponse>> PrepareAsyncEmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::EmitEventResponse>>(PrepareAsyncEmitEventRaw(context, request, cq));
     }
+    ::grpc::Status UpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::UpdateAutomatonVarsResponse>> AsyncUpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::UpdateAutomatonVarsResponse>>(AsyncUpdateAutomatonVarsRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::UpdateAutomatonVarsResponse>> PrepareAsyncUpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::UpdateAutomatonVarsResponse>>(PrepareAsyncUpdateAutomatonVarsRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
       void GetInstanceInfo(::grpc::ClientContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response, std::function<void(::grpc::Status)>) override;
       void GetInstanceInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::GetInstanceInfoResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void GetInstanceInfo(::grpc::ClientContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GetInstanceInfo(::grpc::ClientContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void GetInstanceInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::GetInstanceInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GetInstanceInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::GetInstanceInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void GetAutomatons(::grpc::ClientContext* context, ::ric::logic::v3::GetAutomatonsRequest* request, ::grpc::ClientReadReactor< ::ric::logic::v3::AutomatonInfo>* reactor) override;
-      #else
       void GetAutomatons(::grpc::ClientContext* context, ::ric::logic::v3::GetAutomatonsRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::logic::v3::AutomatonInfo>* reactor) override;
-      #endif
       void StartAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response, std::function<void(::grpc::Status)>) override;
       void StartAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StartAutomatonResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void StartAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void StartAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void StartAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StartAutomatonResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void StartAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StartAutomatonResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
+      void StartAutomatonMulti(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest* request, ::ric::logic::v3::StartAutomatonResponse* response, std::function<void(::grpc::Status)>) override;
+      void StartAutomatonMulti(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StartAutomatonResponse* response, std::function<void(::grpc::Status)>) override;
       void StopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response, std::function<void(::grpc::Status)>) override;
       void StopAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StopAutomatonResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void StopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void StopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void StopAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StopAutomatonResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void StopAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StopAutomatonResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void RunAutomaton(::grpc::ClientContext* context, ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ClientReadReactor< ::ric::logic::v3::AutomatonInfo>* reactor) override;
-      #else
       void RunAutomaton(::grpc::ClientContext* context, ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::logic::v3::AutomatonInfo>* reactor) override;
-      #endif
       void EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response, std::function<void(::grpc::Status)>) override;
       void EmitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::EmitEventResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void EmitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::EmitEventResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void EmitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::EmitEventResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
+      void UpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response, std::function<void(::grpc::Status)>) override;
+      void UpdateAutomatonVars(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response, std::function<void(::grpc::Status)>) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -297,6 +236,8 @@ class RicLogicV3 final {
     ::grpc::ClientAsyncReader< ::ric::logic::v3::AutomatonInfo>* PrepareAsyncGetAutomatonsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::GetAutomatonsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StartAutomatonResponse>* AsyncStartAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StartAutomatonResponse>* PrepareAsyncStartAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StartAutomatonResponse>* AsyncStartAutomatonMultiRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StartAutomatonResponse>* PrepareAsyncStartAutomatonMultiRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StopAutomatonResponse>* AsyncStopAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StopAutomatonResponse>* PrepareAsyncStopAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientReader< ::ric::logic::v3::AutomatonInfo>* RunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request) override;
@@ -304,12 +245,16 @@ class RicLogicV3 final {
     ::grpc::ClientAsyncReader< ::ric::logic::v3::AutomatonInfo>* PrepareAsyncRunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::EmitEventResponse>* AsyncEmitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::EmitEventResponse>* PrepareAsyncEmitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::UpdateAutomatonVarsResponse>* AsyncUpdateAutomatonVarsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::UpdateAutomatonVarsResponse>* PrepareAsyncUpdateAutomatonVarsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetInstanceInfo_;
     const ::grpc::internal::RpcMethod rpcmethod_GetAutomatons_;
     const ::grpc::internal::RpcMethod rpcmethod_StartAutomaton_;
+    const ::grpc::internal::RpcMethod rpcmethod_StartAutomatonMulti_;
     const ::grpc::internal::RpcMethod rpcmethod_StopAutomaton_;
     const ::grpc::internal::RpcMethod rpcmethod_RunAutomaton_;
     const ::grpc::internal::RpcMethod rpcmethod_EmitEvent_;
+    const ::grpc::internal::RpcMethod rpcmethod_UpdateAutomatonVars_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -320,14 +265,16 @@ class RicLogicV3 final {
     virtual ::grpc::Status GetInstanceInfo(::grpc::ServerContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response);
     virtual ::grpc::Status GetAutomatons(::grpc::ServerContext* context, const ::ric::logic::v3::GetAutomatonsRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer);
     virtual ::grpc::Status StartAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response);
+    virtual ::grpc::Status StartAutomatonMulti(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest* request, ::ric::logic::v3::StartAutomatonResponse* response);
     virtual ::grpc::Status StopAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response);
     virtual ::grpc::Status RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer);
     virtual ::grpc::Status EmitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response);
+    virtual ::grpc::Status UpdateAutomatonVars(::grpc::ServerContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GetInstanceInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_GetInstanceInfo() {
       ::grpc::Service::MarkMethodAsync(0);
@@ -336,7 +283,7 @@ class RicLogicV3 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetInstanceInfo(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::GetInstanceInfoRequest* /*request*/, ::ric::logic::v3::GetInstanceInfoResponse* /*response*/) override {
+    ::grpc::Status GetInstanceInfo(::grpc::ServerContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -347,7 +294,7 @@ class RicLogicV3 final {
   template <class BaseClass>
   class WithAsyncMethod_GetAutomatons : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_GetAutomatons() {
       ::grpc::Service::MarkMethodAsync(1);
@@ -356,7 +303,7 @@ class RicLogicV3 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetAutomatons(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::GetAutomatonsRequest* /*request*/, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* /*writer*/) override {
+    ::grpc::Status GetAutomatons(::grpc::ServerContext* context, const ::ric::logic::v3::GetAutomatonsRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -367,7 +314,7 @@ class RicLogicV3 final {
   template <class BaseClass>
   class WithAsyncMethod_StartAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_StartAutomaton() {
       ::grpc::Service::MarkMethodAsync(2);
@@ -376,7 +323,7 @@ class RicLogicV3 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StartAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::StartAutomatonRequest* /*request*/, ::ric::logic::v3::StartAutomatonResponse* /*response*/) override {
+    ::grpc::Status StartAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -385,339 +332,305 @@ class RicLogicV3 final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_StartAutomatonMulti : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_StartAutomatonMulti() {
+      ::grpc::Service::MarkMethodAsync(3);
+    }
+    ~WithAsyncMethod_StartAutomatonMulti() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status StartAutomatonMulti(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest* request, ::ric::logic::v3::StartAutomatonResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestStartAutomatonMulti(::grpc::ServerContext* context, ::ric::logic::v3::StartAutomatonMultiRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::logic::v3::StartAutomatonResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_StopAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_StopAutomaton() {
-      ::grpc::Service::MarkMethodAsync(3);
+      ::grpc::Service::MarkMethodAsync(4);
     }
     ~WithAsyncMethod_StopAutomaton() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::StopAutomatonRequest* /*request*/, ::ric::logic::v3::StopAutomatonResponse* /*response*/) override {
+    ::grpc::Status StopAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestStopAutomaton(::grpc::ServerContext* context, ::ric::logic::v3::StopAutomatonRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::logic::v3::StopAutomatonResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
   class WithAsyncMethod_RunAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_RunAutomaton() {
-      ::grpc::Service::MarkMethodAsync(4);
+      ::grpc::Service::MarkMethodAsync(5);
     }
     ~WithAsyncMethod_RunAutomaton() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RunAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::RunAutomatonRequest* /*request*/, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* /*writer*/) override {
+    ::grpc::Status RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRunAutomaton(::grpc::ServerContext* context, ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerAsyncWriter< ::ric::logic::v3::AutomatonInfo>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncServerStreaming(4, context, request, writer, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncServerStreaming(5, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
   class WithAsyncMethod_EmitEvent : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_EmitEvent() {
-      ::grpc::Service::MarkMethodAsync(5);
+      ::grpc::Service::MarkMethodAsync(6);
     }
     ~WithAsyncMethod_EmitEvent() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status EmitEvent(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::EmitEventRequest* /*request*/, ::ric::logic::v3::EmitEventResponse* /*response*/) override {
+    ::grpc::Status EmitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestEmitEvent(::grpc::ServerContext* context, ::ric::logic::v3::EmitEventRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::logic::v3::EmitEventResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetInstanceInfo<WithAsyncMethod_GetAutomatons<WithAsyncMethod_StartAutomaton<WithAsyncMethod_StopAutomaton<WithAsyncMethod_RunAutomaton<WithAsyncMethod_EmitEvent<Service > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_UpdateAutomatonVars : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_UpdateAutomatonVars() {
+      ::grpc::Service::MarkMethodAsync(7);
+    }
+    ~WithAsyncMethod_UpdateAutomatonVars() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateAutomatonVars(::grpc::ServerContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestUpdateAutomatonVars(::grpc::ServerContext* context, ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::logic::v3::UpdateAutomatonVarsResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_GetInstanceInfo<WithAsyncMethod_GetAutomatons<WithAsyncMethod_StartAutomaton<WithAsyncMethod_StartAutomatonMulti<WithAsyncMethod_StopAutomaton<WithAsyncMethod_RunAutomaton<WithAsyncMethod_EmitEvent<WithAsyncMethod_UpdateAutomatonVars<Service > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_GetInstanceInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_GetInstanceInfo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::logic::v3::GetInstanceInfoRequest, ::ric::logic::v3::GetInstanceInfoResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response) { return this->GetInstanceInfo(context, request, response); }));}
-    void SetMessageAllocatorFor_GetInstanceInfo(
-        ::grpc::experimental::MessageAllocator< ::ric::logic::v3::GetInstanceInfoRequest, ::ric::logic::v3::GetInstanceInfoResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::logic::v3::GetInstanceInfoRequest, ::ric::logic::v3::GetInstanceInfoResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(0,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::logic::v3::GetInstanceInfoRequest, ::ric::logic::v3::GetInstanceInfoResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::logic::v3::GetInstanceInfoRequest* request,
+                 ::ric::logic::v3::GetInstanceInfoResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->GetInstanceInfo(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_GetInstanceInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetInstanceInfo(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::GetInstanceInfoRequest* /*request*/, ::ric::logic::v3::GetInstanceInfoResponse* /*response*/) override {
+    ::grpc::Status GetInstanceInfo(::grpc::ServerContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* GetInstanceInfo(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::logic::v3::GetInstanceInfoRequest* /*request*/, ::ric::logic::v3::GetInstanceInfoResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetInstanceInfo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::logic::v3::GetInstanceInfoRequest* /*request*/, ::ric::logic::v3::GetInstanceInfoResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void GetInstanceInfo(::grpc::ServerContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_GetAutomatons : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_GetAutomatons() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(1,
-          new ::grpc_impl::internal::CallbackServerStreamingHandler< ::ric::logic::v3::GetAutomatonsRequest, ::ric::logic::v3::AutomatonInfo>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::logic::v3::GetAutomatonsRequest* request) { return this->GetAutomatons(context, request); }));
+      ::grpc::Service::experimental().MarkMethodCallback(1,
+        new ::grpc::internal::CallbackServerStreamingHandler< ::ric::logic::v3::GetAutomatonsRequest, ::ric::logic::v3::AutomatonInfo>(
+          [this] { return this->GetAutomatons(); }));
     }
     ~ExperimentalWithCallbackMethod_GetAutomatons() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetAutomatons(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::GetAutomatonsRequest* /*request*/, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* /*writer*/) override {
+    ::grpc::Status GetAutomatons(::grpc::ServerContext* context, const ::ric::logic::v3::GetAutomatonsRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerWriteReactor< ::ric::logic::v3::AutomatonInfo>* GetAutomatons(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::logic::v3::GetAutomatonsRequest* /*request*/)
-    #else
-    virtual ::grpc::experimental::ServerWriteReactor< ::ric::logic::v3::AutomatonInfo>* GetAutomatons(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::logic::v3::GetAutomatonsRequest* /*request*/)
-    #endif
-      { return nullptr; }
+    virtual ::grpc::experimental::ServerWriteReactor< ::ric::logic::v3::GetAutomatonsRequest, ::ric::logic::v3::AutomatonInfo>* GetAutomatons() {
+      return new ::grpc::internal::UnimplementedWriteReactor<
+        ::ric::logic::v3::GetAutomatonsRequest, ::ric::logic::v3::AutomatonInfo>;}
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_StartAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_StartAutomaton() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(2,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::logic::v3::StartAutomatonRequest, ::ric::logic::v3::StartAutomatonResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response) { return this->StartAutomaton(context, request, response); }));}
-    void SetMessageAllocatorFor_StartAutomaton(
-        ::grpc::experimental::MessageAllocator< ::ric::logic::v3::StartAutomatonRequest, ::ric::logic::v3::StartAutomatonResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(2);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::logic::v3::StartAutomatonRequest, ::ric::logic::v3::StartAutomatonResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::logic::v3::StartAutomatonRequest, ::ric::logic::v3::StartAutomatonResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::logic::v3::StartAutomatonRequest* request,
+                 ::ric::logic::v3::StartAutomatonResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->StartAutomaton(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_StartAutomaton() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StartAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::StartAutomatonRequest* /*request*/, ::ric::logic::v3::StartAutomatonResponse* /*response*/) override {
+    ::grpc::Status StartAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* StartAutomaton(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::logic::v3::StartAutomatonRequest* /*request*/, ::ric::logic::v3::StartAutomatonResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* StartAutomaton(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::logic::v3::StartAutomatonRequest* /*request*/, ::ric::logic::v3::StartAutomatonResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void StartAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_StartAutomatonMulti : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_StartAutomatonMulti() {
+      ::grpc::Service::experimental().MarkMethodCallback(3,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::logic::v3::StartAutomatonMultiRequest, ::ric::logic::v3::StartAutomatonResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::logic::v3::StartAutomatonMultiRequest* request,
+                 ::ric::logic::v3::StartAutomatonResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->StartAutomatonMulti(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_StartAutomatonMulti() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status StartAutomatonMulti(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest* request, ::ric::logic::v3::StartAutomatonResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void StartAutomatonMulti(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest* request, ::ric::logic::v3::StartAutomatonResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_StopAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_StopAutomaton() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(3,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::logic::v3::StopAutomatonRequest, ::ric::logic::v3::StopAutomatonResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response) { return this->StopAutomaton(context, request, response); }));}
-    void SetMessageAllocatorFor_StopAutomaton(
-        ::grpc::experimental::MessageAllocator< ::ric::logic::v3::StopAutomatonRequest, ::ric::logic::v3::StopAutomatonResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::logic::v3::StopAutomatonRequest, ::ric::logic::v3::StopAutomatonResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(4,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::logic::v3::StopAutomatonRequest, ::ric::logic::v3::StopAutomatonResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::logic::v3::StopAutomatonRequest* request,
+                 ::ric::logic::v3::StopAutomatonResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->StopAutomaton(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_StopAutomaton() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::StopAutomatonRequest* /*request*/, ::ric::logic::v3::StopAutomatonResponse* /*response*/) override {
+    ::grpc::Status StopAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* StopAutomaton(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::logic::v3::StopAutomatonRequest* /*request*/, ::ric::logic::v3::StopAutomatonResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* StopAutomaton(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::logic::v3::StopAutomatonRequest* /*request*/, ::ric::logic::v3::StopAutomatonResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void StopAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_RunAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_RunAutomaton() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(4,
-          new ::grpc_impl::internal::CallbackServerStreamingHandler< ::ric::logic::v3::RunAutomatonRequest, ::ric::logic::v3::AutomatonInfo>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::logic::v3::RunAutomatonRequest* request) { return this->RunAutomaton(context, request); }));
+      ::grpc::Service::experimental().MarkMethodCallback(5,
+        new ::grpc::internal::CallbackServerStreamingHandler< ::ric::logic::v3::RunAutomatonRequest, ::ric::logic::v3::AutomatonInfo>(
+          [this] { return this->RunAutomaton(); }));
     }
     ~ExperimentalWithCallbackMethod_RunAutomaton() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RunAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::RunAutomatonRequest* /*request*/, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* /*writer*/) override {
+    ::grpc::Status RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerWriteReactor< ::ric::logic::v3::AutomatonInfo>* RunAutomaton(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::logic::v3::RunAutomatonRequest* /*request*/)
-    #else
-    virtual ::grpc::experimental::ServerWriteReactor< ::ric::logic::v3::AutomatonInfo>* RunAutomaton(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::logic::v3::RunAutomatonRequest* /*request*/)
-    #endif
-      { return nullptr; }
+    virtual ::grpc::experimental::ServerWriteReactor< ::ric::logic::v3::RunAutomatonRequest, ::ric::logic::v3::AutomatonInfo>* RunAutomaton() {
+      return new ::grpc::internal::UnimplementedWriteReactor<
+        ::ric::logic::v3::RunAutomatonRequest, ::ric::logic::v3::AutomatonInfo>;}
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_EmitEvent : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_EmitEvent() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(5,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::logic::v3::EmitEventRequest, ::ric::logic::v3::EmitEventResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response) { return this->EmitEvent(context, request, response); }));}
-    void SetMessageAllocatorFor_EmitEvent(
-        ::grpc::experimental::MessageAllocator< ::ric::logic::v3::EmitEventRequest, ::ric::logic::v3::EmitEventResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::logic::v3::EmitEventRequest, ::ric::logic::v3::EmitEventResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(6,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::logic::v3::EmitEventRequest, ::ric::logic::v3::EmitEventResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::logic::v3::EmitEventRequest* request,
+                 ::ric::logic::v3::EmitEventResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->EmitEvent(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_EmitEvent() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status EmitEvent(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::EmitEventRequest* /*request*/, ::ric::logic::v3::EmitEventResponse* /*response*/) override {
+    ::grpc::Status EmitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* EmitEvent(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::logic::v3::EmitEventRequest* /*request*/, ::ric::logic::v3::EmitEventResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* EmitEvent(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::logic::v3::EmitEventRequest* /*request*/, ::ric::logic::v3::EmitEventResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void EmitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_GetInstanceInfo<ExperimentalWithCallbackMethod_GetAutomatons<ExperimentalWithCallbackMethod_StartAutomaton<ExperimentalWithCallbackMethod_StopAutomaton<ExperimentalWithCallbackMethod_RunAutomaton<ExperimentalWithCallbackMethod_EmitEvent<Service > > > > > > CallbackService;
-  #endif
-
-  typedef ExperimentalWithCallbackMethod_GetInstanceInfo<ExperimentalWithCallbackMethod_GetAutomatons<ExperimentalWithCallbackMethod_StartAutomaton<ExperimentalWithCallbackMethod_StopAutomaton<ExperimentalWithCallbackMethod_RunAutomaton<ExperimentalWithCallbackMethod_EmitEvent<Service > > > > > > ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_UpdateAutomatonVars : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_UpdateAutomatonVars() {
+      ::grpc::Service::experimental().MarkMethodCallback(7,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::logic::v3::UpdateAutomatonVarsRequest, ::ric::logic::v3::UpdateAutomatonVarsResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::logic::v3::UpdateAutomatonVarsRequest* request,
+                 ::ric::logic::v3::UpdateAutomatonVarsResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->UpdateAutomatonVars(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_UpdateAutomatonVars() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateAutomatonVars(::grpc::ServerContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void UpdateAutomatonVars(::grpc::ServerContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  typedef ExperimentalWithCallbackMethod_GetInstanceInfo<ExperimentalWithCallbackMethod_GetAutomatons<ExperimentalWithCallbackMethod_StartAutomaton<ExperimentalWithCallbackMethod_StartAutomatonMulti<ExperimentalWithCallbackMethod_StopAutomaton<ExperimentalWithCallbackMethod_RunAutomaton<ExperimentalWithCallbackMethod_EmitEvent<ExperimentalWithCallbackMethod_UpdateAutomatonVars<Service > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GetInstanceInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_GetInstanceInfo() {
       ::grpc::Service::MarkMethodGeneric(0);
@@ -726,7 +639,7 @@ class RicLogicV3 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetInstanceInfo(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::GetInstanceInfoRequest* /*request*/, ::ric::logic::v3::GetInstanceInfoResponse* /*response*/) override {
+    ::grpc::Status GetInstanceInfo(::grpc::ServerContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -734,7 +647,7 @@ class RicLogicV3 final {
   template <class BaseClass>
   class WithGenericMethod_GetAutomatons : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_GetAutomatons() {
       ::grpc::Service::MarkMethodGeneric(1);
@@ -743,7 +656,7 @@ class RicLogicV3 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetAutomatons(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::GetAutomatonsRequest* /*request*/, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* /*writer*/) override {
+    ::grpc::Status GetAutomatons(::grpc::ServerContext* context, const ::ric::logic::v3::GetAutomatonsRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -751,7 +664,7 @@ class RicLogicV3 final {
   template <class BaseClass>
   class WithGenericMethod_StartAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_StartAutomaton() {
       ::grpc::Service::MarkMethodGeneric(2);
@@ -760,7 +673,24 @@ class RicLogicV3 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StartAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::StartAutomatonRequest* /*request*/, ::ric::logic::v3::StartAutomatonResponse* /*response*/) override {
+    ::grpc::Status StartAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_StartAutomatonMulti : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_StartAutomatonMulti() {
+      ::grpc::Service::MarkMethodGeneric(3);
+    }
+    ~WithGenericMethod_StartAutomatonMulti() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status StartAutomatonMulti(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest* request, ::ric::logic::v3::StartAutomatonResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -768,16 +698,16 @@ class RicLogicV3 final {
   template <class BaseClass>
   class WithGenericMethod_StopAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_StopAutomaton() {
-      ::grpc::Service::MarkMethodGeneric(3);
+      ::grpc::Service::MarkMethodGeneric(4);
     }
     ~WithGenericMethod_StopAutomaton() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::StopAutomatonRequest* /*request*/, ::ric::logic::v3::StopAutomatonResponse* /*response*/) override {
+    ::grpc::Status StopAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -785,16 +715,16 @@ class RicLogicV3 final {
   template <class BaseClass>
   class WithGenericMethod_RunAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_RunAutomaton() {
-      ::grpc::Service::MarkMethodGeneric(4);
+      ::grpc::Service::MarkMethodGeneric(5);
     }
     ~WithGenericMethod_RunAutomaton() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RunAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::RunAutomatonRequest* /*request*/, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* /*writer*/) override {
+    ::grpc::Status RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -802,16 +732,33 @@ class RicLogicV3 final {
   template <class BaseClass>
   class WithGenericMethod_EmitEvent : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_EmitEvent() {
-      ::grpc::Service::MarkMethodGeneric(5);
+      ::grpc::Service::MarkMethodGeneric(6);
     }
     ~WithGenericMethod_EmitEvent() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status EmitEvent(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::EmitEventRequest* /*request*/, ::ric::logic::v3::EmitEventResponse* /*response*/) override {
+    ::grpc::Status EmitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_UpdateAutomatonVars : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_UpdateAutomatonVars() {
+      ::grpc::Service::MarkMethodGeneric(7);
+    }
+    ~WithGenericMethod_UpdateAutomatonVars() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateAutomatonVars(::grpc::ServerContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -819,7 +766,7 @@ class RicLogicV3 final {
   template <class BaseClass>
   class WithRawMethod_GetInstanceInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_GetInstanceInfo() {
       ::grpc::Service::MarkMethodRaw(0);
@@ -828,7 +775,7 @@ class RicLogicV3 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetInstanceInfo(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::GetInstanceInfoRequest* /*request*/, ::ric::logic::v3::GetInstanceInfoResponse* /*response*/) override {
+    ::grpc::Status GetInstanceInfo(::grpc::ServerContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -839,7 +786,7 @@ class RicLogicV3 final {
   template <class BaseClass>
   class WithRawMethod_GetAutomatons : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_GetAutomatons() {
       ::grpc::Service::MarkMethodRaw(1);
@@ -848,7 +795,7 @@ class RicLogicV3 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetAutomatons(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::GetAutomatonsRequest* /*request*/, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* /*writer*/) override {
+    ::grpc::Status GetAutomatons(::grpc::ServerContext* context, const ::ric::logic::v3::GetAutomatonsRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -859,7 +806,7 @@ class RicLogicV3 final {
   template <class BaseClass>
   class WithRawMethod_StartAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_StartAutomaton() {
       ::grpc::Service::MarkMethodRaw(2);
@@ -868,7 +815,7 @@ class RicLogicV3 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StartAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::StartAutomatonRequest* /*request*/, ::ric::logic::v3::StartAutomatonResponse* /*response*/) override {
+    ::grpc::Status StartAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -877,297 +824,303 @@ class RicLogicV3 final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_StartAutomatonMulti : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_StartAutomatonMulti() {
+      ::grpc::Service::MarkMethodRaw(3);
+    }
+    ~WithRawMethod_StartAutomatonMulti() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status StartAutomatonMulti(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest* request, ::ric::logic::v3::StartAutomatonResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestStartAutomatonMulti(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_StopAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_StopAutomaton() {
-      ::grpc::Service::MarkMethodRaw(3);
+      ::grpc::Service::MarkMethodRaw(4);
     }
     ~WithRawMethod_StopAutomaton() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::StopAutomatonRequest* /*request*/, ::ric::logic::v3::StopAutomatonResponse* /*response*/) override {
+    ::grpc::Status StopAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestStopAutomaton(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
   class WithRawMethod_RunAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_RunAutomaton() {
-      ::grpc::Service::MarkMethodRaw(4);
+      ::grpc::Service::MarkMethodRaw(5);
     }
     ~WithRawMethod_RunAutomaton() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RunAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::RunAutomatonRequest* /*request*/, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* /*writer*/) override {
+    ::grpc::Status RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRunAutomaton(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncServerStreaming(4, context, request, writer, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncServerStreaming(5, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
   class WithRawMethod_EmitEvent : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_EmitEvent() {
-      ::grpc::Service::MarkMethodRaw(5);
+      ::grpc::Service::MarkMethodRaw(6);
     }
     ~WithRawMethod_EmitEvent() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status EmitEvent(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::EmitEventRequest* /*request*/, ::ric::logic::v3::EmitEventResponse* /*response*/) override {
+    ::grpc::Status EmitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestEmitEvent(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_UpdateAutomatonVars : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_UpdateAutomatonVars() {
+      ::grpc::Service::MarkMethodRaw(7);
+    }
+    ~WithRawMethod_UpdateAutomatonVars() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateAutomatonVars(::grpc::ServerContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestUpdateAutomatonVars(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_GetInstanceInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_GetInstanceInfo() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetInstanceInfo(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(0,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->GetInstanceInfo(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_GetInstanceInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetInstanceInfo(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::GetInstanceInfoRequest* /*request*/, ::ric::logic::v3::GetInstanceInfoResponse* /*response*/) override {
+    ::grpc::Status GetInstanceInfo(::grpc::ServerContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* GetInstanceInfo(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetInstanceInfo(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void GetInstanceInfo(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_GetAutomatons : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_GetAutomatons() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(1,
-          new ::grpc_impl::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const::grpc::ByteBuffer* request) { return this->GetAutomatons(context, request); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(1,
+        new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this] { return this->GetAutomatons(); }));
     }
     ~ExperimentalWithRawCallbackMethod_GetAutomatons() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetAutomatons(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::GetAutomatonsRequest* /*request*/, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* /*writer*/) override {
+    ::grpc::Status GetAutomatons(::grpc::ServerContext* context, const ::ric::logic::v3::GetAutomatonsRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* GetAutomatons(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
-    #else
-    virtual ::grpc::experimental::ServerWriteReactor< ::grpc::ByteBuffer>* GetAutomatons(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
-    #endif
-      { return nullptr; }
+    virtual ::grpc::experimental::ServerWriteReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* GetAutomatons() {
+      return new ::grpc::internal::UnimplementedWriteReactor<
+        ::grpc::ByteBuffer, ::grpc::ByteBuffer>;}
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_StartAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_StartAutomaton() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(2,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->StartAutomaton(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->StartAutomaton(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_StartAutomaton() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StartAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::StartAutomatonRequest* /*request*/, ::ric::logic::v3::StartAutomatonResponse* /*response*/) override {
+    ::grpc::Status StartAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* StartAutomaton(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* StartAutomaton(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void StartAutomaton(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_StartAutomatonMulti : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_StartAutomatonMulti() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(3,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->StartAutomatonMulti(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_StartAutomatonMulti() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status StartAutomatonMulti(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest* request, ::ric::logic::v3::StartAutomatonResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void StartAutomatonMulti(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_StopAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_StopAutomaton() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(3,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->StopAutomaton(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(4,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->StopAutomaton(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_StopAutomaton() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status StopAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::StopAutomatonRequest* /*request*/, ::ric::logic::v3::StopAutomatonResponse* /*response*/) override {
+    ::grpc::Status StopAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* StopAutomaton(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* StopAutomaton(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void StopAutomaton(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_RunAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_RunAutomaton() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(4,
-          new ::grpc_impl::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const::grpc::ByteBuffer* request) { return this->RunAutomaton(context, request); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(5,
+        new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this] { return this->RunAutomaton(); }));
     }
     ~ExperimentalWithRawCallbackMethod_RunAutomaton() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status RunAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::RunAutomatonRequest* /*request*/, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* /*writer*/) override {
+    ::grpc::Status RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* RunAutomaton(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
-    #else
-    virtual ::grpc::experimental::ServerWriteReactor< ::grpc::ByteBuffer>* RunAutomaton(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)
-    #endif
-      { return nullptr; }
+    virtual ::grpc::experimental::ServerWriteReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* RunAutomaton() {
+      return new ::grpc::internal::UnimplementedWriteReactor<
+        ::grpc::ByteBuffer, ::grpc::ByteBuffer>;}
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_EmitEvent : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_EmitEvent() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(5,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->EmitEvent(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(6,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->EmitEvent(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_EmitEvent() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status EmitEvent(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::EmitEventRequest* /*request*/, ::ric::logic::v3::EmitEventResponse* /*response*/) override {
+    ::grpc::Status EmitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* EmitEvent(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* EmitEvent(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void EmitEvent(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_UpdateAutomatonVars : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_UpdateAutomatonVars() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(7,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->UpdateAutomatonVars(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_UpdateAutomatonVars() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateAutomatonVars(::grpc::ServerContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void UpdateAutomatonVars(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetInstanceInfo : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_GetInstanceInfo() {
       ::grpc::Service::MarkMethodStreamed(0,
@@ -1177,7 +1130,7 @@ class RicLogicV3 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetInstanceInfo(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::GetInstanceInfoRequest* /*request*/, ::ric::logic::v3::GetInstanceInfoResponse* /*response*/) override {
+    ::grpc::Status GetInstanceInfo(::grpc::ServerContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1187,7 +1140,7 @@ class RicLogicV3 final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_StartAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_StartAutomaton() {
       ::grpc::Service::MarkMethodStreamed(2,
@@ -1197,7 +1150,7 @@ class RicLogicV3 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status StartAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::StartAutomatonRequest* /*request*/, ::ric::logic::v3::StartAutomatonResponse* /*response*/) override {
+    ::grpc::Status StartAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1205,19 +1158,39 @@ class RicLogicV3 final {
     virtual ::grpc::Status StreamedStartAutomaton(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::logic::v3::StartAutomatonRequest,::ric::logic::v3::StartAutomatonResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_StartAutomatonMulti : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_StartAutomatonMulti() {
+      ::grpc::Service::MarkMethodStreamed(3,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::logic::v3::StartAutomatonMultiRequest, ::ric::logic::v3::StartAutomatonResponse>(std::bind(&WithStreamedUnaryMethod_StartAutomatonMulti<BaseClass>::StreamedStartAutomatonMulti, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_StartAutomatonMulti() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status StartAutomatonMulti(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest* request, ::ric::logic::v3::StartAutomatonResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedStartAutomatonMulti(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::logic::v3::StartAutomatonMultiRequest,::ric::logic::v3::StartAutomatonResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_StopAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_StopAutomaton() {
-      ::grpc::Service::MarkMethodStreamed(3,
+      ::grpc::Service::MarkMethodStreamed(4,
         new ::grpc::internal::StreamedUnaryHandler< ::ric::logic::v3::StopAutomatonRequest, ::ric::logic::v3::StopAutomatonResponse>(std::bind(&WithStreamedUnaryMethod_StopAutomaton<BaseClass>::StreamedStopAutomaton, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_StopAutomaton() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status StopAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::StopAutomatonRequest* /*request*/, ::ric::logic::v3::StopAutomatonResponse* /*response*/) override {
+    ::grpc::Status StopAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1227,28 +1200,48 @@ class RicLogicV3 final {
   template <class BaseClass>
   class WithStreamedUnaryMethod_EmitEvent : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_EmitEvent() {
-      ::grpc::Service::MarkMethodStreamed(5,
+      ::grpc::Service::MarkMethodStreamed(6,
         new ::grpc::internal::StreamedUnaryHandler< ::ric::logic::v3::EmitEventRequest, ::ric::logic::v3::EmitEventResponse>(std::bind(&WithStreamedUnaryMethod_EmitEvent<BaseClass>::StreamedEmitEvent, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_EmitEvent() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status EmitEvent(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::EmitEventRequest* /*request*/, ::ric::logic::v3::EmitEventResponse* /*response*/) override {
+    ::grpc::Status EmitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedEmitEvent(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::logic::v3::EmitEventRequest,::ric::logic::v3::EmitEventResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_GetInstanceInfo<WithStreamedUnaryMethod_StartAutomaton<WithStreamedUnaryMethod_StopAutomaton<WithStreamedUnaryMethod_EmitEvent<Service > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_UpdateAutomatonVars : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_UpdateAutomatonVars() {
+      ::grpc::Service::MarkMethodStreamed(7,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::logic::v3::UpdateAutomatonVarsRequest, ::ric::logic::v3::UpdateAutomatonVarsResponse>(std::bind(&WithStreamedUnaryMethod_UpdateAutomatonVars<BaseClass>::StreamedUpdateAutomatonVars, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_UpdateAutomatonVars() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status UpdateAutomatonVars(::grpc::ServerContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedUpdateAutomatonVars(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::logic::v3::UpdateAutomatonVarsRequest,::ric::logic::v3::UpdateAutomatonVarsResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_GetInstanceInfo<WithStreamedUnaryMethod_StartAutomaton<WithStreamedUnaryMethod_StartAutomatonMulti<WithStreamedUnaryMethod_StopAutomaton<WithStreamedUnaryMethod_EmitEvent<WithStreamedUnaryMethod_UpdateAutomatonVars<Service > > > > > > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_GetAutomatons : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithSplitStreamingMethod_GetAutomatons() {
       ::grpc::Service::MarkMethodStreamed(1,
@@ -1258,7 +1251,7 @@ class RicLogicV3 final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetAutomatons(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::GetAutomatonsRequest* /*request*/, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* /*writer*/) override {
+    ::grpc::Status GetAutomatons(::grpc::ServerContext* context, const ::ric::logic::v3::GetAutomatonsRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1268,17 +1261,17 @@ class RicLogicV3 final {
   template <class BaseClass>
   class WithSplitStreamingMethod_RunAutomaton : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithSplitStreamingMethod_RunAutomaton() {
-      ::grpc::Service::MarkMethodStreamed(4,
+      ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::SplitServerStreamingHandler< ::ric::logic::v3::RunAutomatonRequest, ::ric::logic::v3::AutomatonInfo>(std::bind(&WithSplitStreamingMethod_RunAutomaton<BaseClass>::StreamedRunAutomaton, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithSplitStreamingMethod_RunAutomaton() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status RunAutomaton(::grpc::ServerContext* /*context*/, const ::ric::logic::v3::RunAutomatonRequest* /*request*/, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* /*writer*/) override {
+    ::grpc::Status RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1286,7 +1279,7 @@ class RicLogicV3 final {
     virtual ::grpc::Status StreamedRunAutomaton(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::ric::logic::v3::RunAutomatonRequest,::ric::logic::v3::AutomatonInfo>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_GetAutomatons<WithSplitStreamingMethod_RunAutomaton<Service > > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GetInstanceInfo<WithSplitStreamingMethod_GetAutomatons<WithStreamedUnaryMethod_StartAutomaton<WithStreamedUnaryMethod_StopAutomaton<WithSplitStreamingMethod_RunAutomaton<WithStreamedUnaryMethod_EmitEvent<Service > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_GetInstanceInfo<WithSplitStreamingMethod_GetAutomatons<WithStreamedUnaryMethod_StartAutomaton<WithStreamedUnaryMethod_StartAutomatonMulti<WithStreamedUnaryMethod_StopAutomaton<WithSplitStreamingMethod_RunAutomaton<WithStreamedUnaryMethod_EmitEvent<WithStreamedUnaryMethod_UpdateAutomatonVars<Service > > > > > > > > StreamedService;
 };
 
 }  // namespace v3

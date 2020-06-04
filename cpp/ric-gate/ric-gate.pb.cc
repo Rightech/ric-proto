@@ -329,13 +329,13 @@ const char descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto[] =
   "sponse\022@\n\013SendOffline\022\030.ric.gate.Offline"
   "Request\032\027.ric.gate.EmptyResponse2J\n\013Gate"
   "Command\022;\n\007SendRpc\022\021.ric.gate.Command\032\035."
-  "ric.gate.CommandReplyRequestB\tZ\007ricgateb"
-  "\006proto3"
+  "ric.gate.CommandReplyRequestB\024Z\022./ric-ga"
+  "te;ricgateb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dgate_2fric_2dgate_2eproto = {
   false, InitDefaults_ric_2dgate_2fric_2dgate_2eproto, 
   descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto,
-  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1247,
+  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1258,
 };
 
 void AddDescriptors_ric_2dgate_2fric_2dgate_2eproto() {

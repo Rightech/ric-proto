@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+package ric.notify;
+
+option go_package = "./ric-notify;ricnotify";
+
+service SMPP {
+  rpc Send(SMPPSendRequest) returns (SMPPSendResponse);
+  rpc Status(SMPPStatusRequest) returns (SMPPStatusResponse);
+  rpc GatewayInfo(SMPPGatewayInfoRequest) returns (SMPPGatewayInfoResponse);
+}
+
+service SMTP {
+  rpc Send(SMTPSendRequest) returns (SMTPSendResponse);
+  rpc GatewayInfo(SMTPGatewayInfoRequest) returns (SMTPGatewayInfoResponse);
+}
+
+message UserContext {
+  string group_id = 1;
+  string user_id = 2;
+  string span_id = 3;
+}
+
+message SMPPSendRequest {
+  UserContext ctx = 1;
+  string gateway_id = 2;
+  string phone = 3;
+  string message = 4;
+}
+
+message SMPPSendResponse {
+  string message_id = 1;
+}
+
+message SMPPStatusRequest {
+  string gateway_id = 1;
+  string message_id = 2;
+}
+
+message SMPPStatusResponse {
+  enum State {
+    UNKNOWN = 0;
+    SCHEDULE = 1;
+    SEND_ERROR = 2;
+    MAX_RETRIES_EXCEEDED = 3;
+    SENT = 4;
+    ERROR = 5;
+  }
+  message SMPPStatus {
+    string msg_id = 1;
+    string msg_state = 2;
+    string final_date = 3;
+    int32 err_code = 4;
+  }
+  State state = 1;
+  string description = 2;
+  SMPPStatus smpp_status = 3;
+}
+
+message SMPPGatewayInfoRequest {
+  string gateway_id = 1;
+}
+
+message SMPPGatewayInfoResponse {
+  bool online = 1;
+  int64 uptime = 2;
+}
+
+message SMTPCredentials {
+  repeated string to = 1;
+  string sender = 2;
+  string subject = 3;
+  // default value "text/plain; charset=UTF-8"
+  string content_type = 4;
+  string body = 5;
+  string server = 6;
+  string password = 7;
+  bool use_tls = 8;
+}
+
+message SMTPSendRequest {
+  UserContext ctx = 1;
+  string gateway_id = 2;
+  // override default gateway info
+  SMTPCredentials request = 3;
+}
+
+message SMTPSendResponse {}
+
+message SMTPGatewayInfoRequest {
+  string gateway_id = 1;
+}
+
+message SMTPGatewayInfoResponse {
+  // default gateway info
+  SMTPCredentials info = 1;
+}

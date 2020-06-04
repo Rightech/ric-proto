@@ -11,18 +11,18 @@
 #include <grpcpp/impl/codegen/channel_interface.h>
 #include <grpcpp/impl/codegen/client_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/method_handler_impl.h>
 #include <grpcpp/impl/codegen/rpc_service_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
 namespace ric {
 namespace bill {
 
 static const char* Billing_method_names[] = {
+  "/ric.bill.Billing/SetupAccount",
+  "/ric.bill.Billing/VerifyAccount",
+  "/ric.bill.Billing/CloseAccount",
   "/ric.bill.Billing/CreatePayment",
 };
 
@@ -33,46 +33,137 @@ std::unique_ptr< Billing::Stub> Billing::NewStub(const std::shared_ptr< ::grpc::
 }
 
 Billing::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_CreatePayment_(Billing_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_SetupAccount_(Billing_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_VerifyAccount_(Billing_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CloseAccount_(Billing_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CreatePayment_(Billing_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
+
+::grpc::Status Billing::Stub::SetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::ric::bill::SetupResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SetupAccount_, context, request, response);
+}
+
+void Billing::Stub::experimental_async::SetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SetupAccount_, context, request, response, std::move(f));
+}
+
+void Billing::Stub::experimental_async::SetupAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SetupAccount_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* Billing::Stub::AsyncSetupAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::SetupResponse>::Create(channel_.get(), cq, rpcmethod_SetupAccount_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* Billing::Stub::PrepareAsyncSetupAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::SetupResponse>::Create(channel_.get(), cq, rpcmethod_SetupAccount_, context, request, false);
+}
+
+::grpc::Status Billing::Stub::VerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::ric::bill::SetupResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_VerifyAccount_, context, request, response);
+}
+
+void Billing::Stub::experimental_async::VerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_VerifyAccount_, context, request, response, std::move(f));
+}
+
+void Billing::Stub::experimental_async::VerifyAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_VerifyAccount_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* Billing::Stub::AsyncVerifyAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::SetupResponse>::Create(channel_.get(), cq, rpcmethod_VerifyAccount_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* Billing::Stub::PrepareAsyncVerifyAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::SetupResponse>::Create(channel_.get(), cq, rpcmethod_VerifyAccount_, context, request, false);
+}
+
+::grpc::Status Billing::Stub::CloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::ric::bill::SetupResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_CloseAccount_, context, request, response);
+}
+
+void Billing::Stub::experimental_async::CloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CloseAccount_, context, request, response, std::move(f));
+}
+
+void Billing::Stub::experimental_async::CloseAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CloseAccount_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* Billing::Stub::AsyncCloseAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::SetupResponse>::Create(channel_.get(), cq, rpcmethod_CloseAccount_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* Billing::Stub::PrepareAsyncCloseAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::SetupResponse>::Create(channel_.get(), cq, rpcmethod_CloseAccount_, context, request, false);
+}
 
 ::grpc::Status Billing::Stub::CreatePayment(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest& request, ::ric::bill::PaymentResponse* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_CreatePayment_, context, request, response);
 }
 
 void Billing::Stub::experimental_async::CreatePayment(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CreatePayment_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CreatePayment_, context, request, response, std::move(f));
 }
 
 void Billing::Stub::experimental_async::CreatePayment(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::PaymentResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CreatePayment_, context, request, response, std::move(f));
-}
-
-void Billing::Stub::experimental_async::CreatePayment(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_CreatePayment_, context, request, response, reactor);
-}
-
-void Billing::Stub::experimental_async::CreatePayment(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::PaymentResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_CreatePayment_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CreatePayment_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::bill::PaymentResponse>* Billing::Stub::AsyncCreatePaymentRaw(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::bill::PaymentResponse>::Create(channel_.get(), cq, rpcmethod_CreatePayment_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::PaymentResponse>::Create(channel_.get(), cq, rpcmethod_CreatePayment_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::bill::PaymentResponse>* Billing::Stub::PrepareAsyncCreatePaymentRaw(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::bill::PaymentResponse>::Create(channel_.get(), cq, rpcmethod_CreatePayment_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::PaymentResponse>::Create(channel_.get(), cq, rpcmethod_CreatePayment_, context, request, false);
 }
 
 Billing::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Billing_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Billing::Service, ::ric::bill::SetupRequest, ::ric::bill::SetupResponse>(
+          std::mem_fn(&Billing::Service::SetupAccount), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Billing_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Billing::Service, ::ric::bill::SetupRequest, ::ric::bill::SetupResponse>(
+          std::mem_fn(&Billing::Service::VerifyAccount), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Billing_method_names[2],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Billing::Service, ::ric::bill::SetupRequest, ::ric::bill::SetupResponse>(
+          std::mem_fn(&Billing::Service::CloseAccount), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Billing_method_names[3],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Billing::Service, ::ric::bill::PaymentRequest, ::ric::bill::PaymentResponse>(
           std::mem_fn(&Billing::Service::CreatePayment), this)));
 }
 
 Billing::Service::~Service() {
+}
+
+::grpc::Status Billing::Service::SetupAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Billing::Service::VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Billing::Service::CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
 ::grpc::Status Billing::Service::CreatePayment(::grpc::ServerContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response) {

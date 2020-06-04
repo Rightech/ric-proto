@@ -556,13 +556,13 @@ const char descriptor_table_protodef_ric_2dbots_2fricbots_2eproto[] =
   "veFromGenConfig\022$.ric.bots.RemoveFromGen"
   "ConfigRequest\032\027.ric.bots.EmptyResponse\022F"
   "\n\014SetBotConfig\022\035.ric.bots.SetBotConfigRe"
-  "quest\032\027.ric.bots.EmptyResponseB\tZ\007ricbot"
-  "sb\006proto3"
+  "quest\032\027.ric.bots.EmptyResponseB\024Z\022./ric-"
+  "bots;ricbotsb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dbots_2fricbots_2eproto = {
   false, InitDefaults_ric_2dbots_2fricbots_2eproto, 
   descriptor_table_protodef_ric_2dbots_2fricbots_2eproto,
-  "ric-bots/ricbots.proto", &assign_descriptors_table_ric_2dbots_2fricbots_2eproto, 1849,
+  "ric-bots/ricbots.proto", &assign_descriptors_table_ric_2dbots_2fricbots_2eproto, 1860,
 };
 
 void AddDescriptors_ric_2dbots_2fricbots_2eproto() {

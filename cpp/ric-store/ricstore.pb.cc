@@ -329,12 +329,13 @@ const char descriptor_table_protodef_ric_2dstore_2fricstore_2eproto[] =
   "se\022 .ric.store.CreateDatabaseRequest\032\027.r"
   "ic.store.EmptyRespone\022K\n\016RemoveDatabase\022"
   " .ric.store.RemoveDatabaseRequest\032\027.ric."
-  "store.EmptyResponeB\nZ\010ricstoreb\006proto3"
+  "store.EmptyResponeB\026Z\024./ric-store;ricsto"
+  "reb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dstore_2fricstore_2eproto = {
   false, InitDefaults_ric_2dstore_2fricstore_2eproto, 
   descriptor_table_protodef_ric_2dstore_2fricstore_2eproto,
-  "ric-store/ricstore.proto", &assign_descriptors_table_ric_2dstore_2fricstore_2eproto, 1158,
+  "ric-store/ricstore.proto", &assign_descriptors_table_ric_2dstore_2fricstore_2eproto, 1170,
 };
 
 void AddDescriptors_ric_2dstore_2fricstore_2eproto() {

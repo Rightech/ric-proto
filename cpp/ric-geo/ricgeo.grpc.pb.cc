@@ -11,12 +11,9 @@
 #include <grpcpp/impl/codegen/channel_interface.h>
 #include <grpcpp/impl/codegen/client_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/method_handler_impl.h>
 #include <grpcpp/impl/codegen/rpc_service_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
 namespace ric {
@@ -55,27 +52,19 @@ Watch::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
 }
 
 void Watch::Stub::experimental_async::WatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_WatchGeofence_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_WatchGeofence_, context, request, response, std::move(f));
 }
 
 void Watch::Stub::experimental_async::WatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_WatchGeofence_, context, request, response, std::move(f));
-}
-
-void Watch::Stub::experimental_async::WatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_WatchGeofence_, context, request, response, reactor);
-}
-
-void Watch::Stub::experimental_async::WatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_WatchGeofence_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_WatchGeofence_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* Watch::Stub::AsyncWatchGeofenceRaw(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_WatchGeofence_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_WatchGeofence_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* Watch::Stub::PrepareAsyncWatchGeofenceRaw(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_WatchGeofence_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_WatchGeofence_, context, request, false);
 }
 
 ::grpc::Status Watch::Stub::StopWatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest& request, ::ric::geo::EmptyResponse* response) {
@@ -83,27 +72,19 @@ void Watch::Stub::experimental_async::WatchGeofence(::grpc::ClientContext* conte
 }
 
 void Watch::Stub::experimental_async::StopWatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopWatchGeofence_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopWatchGeofence_, context, request, response, std::move(f));
 }
 
 void Watch::Stub::experimental_async::StopWatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopWatchGeofence_, context, request, response, std::move(f));
-}
-
-void Watch::Stub::experimental_async::StopWatchGeofence(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_StopWatchGeofence_, context, request, response, reactor);
-}
-
-void Watch::Stub::experimental_async::StopWatchGeofence(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_StopWatchGeofence_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopWatchGeofence_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* Watch::Stub::AsyncStopWatchGeofenceRaw(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_StopWatchGeofence_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_StopWatchGeofence_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* Watch::Stub::PrepareAsyncStopWatchGeofenceRaw(::grpc::ClientContext* context, const ::ric::geo::WatchGeofenceRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_StopWatchGeofence_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_StopWatchGeofence_, context, request, false);
 }
 
 ::grpc::Status Watch::Stub::WatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest& request, ::ric::geo::EmptyResponse* response) {
@@ -111,27 +92,19 @@ void Watch::Stub::experimental_async::StopWatchGeofence(::grpc::ClientContext* c
 }
 
 void Watch::Stub::experimental_async::WatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_WatchRoom_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_WatchRoom_, context, request, response, std::move(f));
 }
 
 void Watch::Stub::experimental_async::WatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_WatchRoom_, context, request, response, std::move(f));
-}
-
-void Watch::Stub::experimental_async::WatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_WatchRoom_, context, request, response, reactor);
-}
-
-void Watch::Stub::experimental_async::WatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_WatchRoom_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_WatchRoom_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* Watch::Stub::AsyncWatchRoomRaw(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_WatchRoom_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_WatchRoom_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* Watch::Stub::PrepareAsyncWatchRoomRaw(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_WatchRoom_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_WatchRoom_, context, request, false);
 }
 
 ::grpc::Status Watch::Stub::StopWatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest& request, ::ric::geo::EmptyResponse* response) {
@@ -139,27 +112,19 @@ void Watch::Stub::experimental_async::WatchRoom(::grpc::ClientContext* context, 
 }
 
 void Watch::Stub::experimental_async::StopWatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopWatchRoom_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopWatchRoom_, context, request, response, std::move(f));
 }
 
 void Watch::Stub::experimental_async::StopWatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopWatchRoom_, context, request, response, std::move(f));
-}
-
-void Watch::Stub::experimental_async::StopWatchRoom(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_StopWatchRoom_, context, request, response, reactor);
-}
-
-void Watch::Stub::experimental_async::StopWatchRoom(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_StopWatchRoom_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopWatchRoom_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* Watch::Stub::AsyncStopWatchRoomRaw(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_StopWatchRoom_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_StopWatchRoom_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* Watch::Stub::PrepareAsyncStopWatchRoomRaw(::grpc::ClientContext* context, const ::ric::geo::WatchRoomRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_StopWatchRoom_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_StopWatchRoom_, context, request, false);
 }
 
 ::grpc::Status Watch::Stub::WatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest& request, ::ric::geo::EmptyResponse* response) {
@@ -167,27 +132,19 @@ void Watch::Stub::experimental_async::StopWatchRoom(::grpc::ClientContext* conte
 }
 
 void Watch::Stub::experimental_async::WatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_WatchRoute_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_WatchRoute_, context, request, response, std::move(f));
 }
 
 void Watch::Stub::experimental_async::WatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_WatchRoute_, context, request, response, std::move(f));
-}
-
-void Watch::Stub::experimental_async::WatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_WatchRoute_, context, request, response, reactor);
-}
-
-void Watch::Stub::experimental_async::WatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_WatchRoute_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_WatchRoute_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* Watch::Stub::AsyncWatchRouteRaw(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_WatchRoute_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_WatchRoute_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* Watch::Stub::PrepareAsyncWatchRouteRaw(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_WatchRoute_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_WatchRoute_, context, request, false);
 }
 
 ::grpc::Status Watch::Stub::StopWatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest& request, ::ric::geo::EmptyResponse* response) {
@@ -195,27 +152,19 @@ void Watch::Stub::experimental_async::WatchRoute(::grpc::ClientContext* context,
 }
 
 void Watch::Stub::experimental_async::StopWatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopWatchRoute_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopWatchRoute_, context, request, response, std::move(f));
 }
 
 void Watch::Stub::experimental_async::StopWatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopWatchRoute_, context, request, response, std::move(f));
-}
-
-void Watch::Stub::experimental_async::StopWatchRoute(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_StopWatchRoute_, context, request, response, reactor);
-}
-
-void Watch::Stub::experimental_async::StopWatchRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_StopWatchRoute_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopWatchRoute_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* Watch::Stub::AsyncStopWatchRouteRaw(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_StopWatchRoute_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_StopWatchRoute_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* Watch::Stub::PrepareAsyncStopWatchRouteRaw(::grpc::ClientContext* context, const ::ric::geo::WatchRouteRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_StopWatchRoute_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_StopWatchRoute_, context, request, false);
 }
 
 ::grpc::Status Watch::Stub::UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest& request, ::ric::geo::EmptyResponse* response) {
@@ -223,27 +172,19 @@ void Watch::Stub::experimental_async::StopWatchRoute(::grpc::ClientContext* cont
 }
 
 void Watch::Stub::experimental_async::UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateGeo_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateGeo_, context, request, response, std::move(f));
 }
 
 void Watch::Stub::experimental_async::UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateGeo_, context, request, response, std::move(f));
-}
-
-void Watch::Stub::experimental_async::UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_UpdateGeo_, context, request, response, reactor);
-}
-
-void Watch::Stub::experimental_async::UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_UpdateGeo_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateGeo_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* Watch::Stub::AsyncUpdateGeoRaw(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_UpdateGeo_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_UpdateGeo_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* Watch::Stub::PrepareAsyncUpdateGeoRaw(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_UpdateGeo_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_UpdateGeo_, context, request, false);
 }
 
 ::grpc::Status Watch::Stub::GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::ric::geo::GetObjectInfoResponse* response) {
@@ -251,27 +192,19 @@ void Watch::Stub::experimental_async::UpdateGeo(::grpc::ClientContext* context, 
 }
 
 void Watch::Stub::experimental_async::GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetObjectInfo_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetObjectInfo_, context, request, response, std::move(f));
 }
 
 void Watch::Stub::experimental_async::GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetObjectInfo_, context, request, response, std::move(f));
-}
-
-void Watch::Stub::experimental_async::GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GetObjectInfo_, context, request, response, reactor);
-}
-
-void Watch::Stub::experimental_async::GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GetObjectInfo_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetObjectInfo_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::GetObjectInfoResponse>* Watch::Stub::AsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::GetObjectInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetObjectInfo_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::GetObjectInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetObjectInfo_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::GetObjectInfoResponse>* Watch::Stub::PrepareAsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::GetObjectInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetObjectInfo_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::GetObjectInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetObjectInfo_, context, request, false);
 }
 
 Watch::Service::Service() {
@@ -402,27 +335,19 @@ WatchV2::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
 }
 
 void WatchV2::Stub::experimental_async::Watch(::grpc::ClientContext* context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Watch_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Watch_, context, request, response, std::move(f));
 }
 
 void WatchV2::Stub::experimental_async::Watch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Watch_, context, request, response, std::move(f));
-}
-
-void WatchV2::Stub::experimental_async::Watch(::grpc::ClientContext* context, const ::ric::geo::WatchRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Watch_, context, request, response, reactor);
-}
-
-void WatchV2::Stub::experimental_async::Watch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Watch_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Watch_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* WatchV2::Stub::AsyncWatchRaw(::grpc::ClientContext* context, const ::ric::geo::WatchRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Watch_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Watch_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* WatchV2::Stub::PrepareAsyncWatchRaw(::grpc::ClientContext* context, const ::ric::geo::WatchRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Watch_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Watch_, context, request, false);
 }
 
 ::grpc::Status WatchV2::Stub::Stop(::grpc::ClientContext* context, const ::ric::geo::StopRequest& request, ::ric::geo::EmptyResponse* response) {
@@ -430,27 +355,19 @@ void WatchV2::Stub::experimental_async::Watch(::grpc::ClientContext* context, co
 }
 
 void WatchV2::Stub::experimental_async::Stop(::grpc::ClientContext* context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Stop_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Stop_, context, request, response, std::move(f));
 }
 
 void WatchV2::Stub::experimental_async::Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Stop_, context, request, response, std::move(f));
-}
-
-void WatchV2::Stub::experimental_async::Stop(::grpc::ClientContext* context, const ::ric::geo::StopRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Stop_, context, request, response, reactor);
-}
-
-void WatchV2::Stub::experimental_async::Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Stop_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Stop_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* WatchV2::Stub::AsyncStopRaw(::grpc::ClientContext* context, const ::ric::geo::StopRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Stop_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Stop_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* WatchV2::Stub::PrepareAsyncStopRaw(::grpc::ClientContext* context, const ::ric::geo::StopRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Stop_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Stop_, context, request, false);
 }
 
 ::grpc::Status WatchV2::Stub::UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest& request, ::ric::geo::EmptyResponse* response) {
@@ -458,27 +375,19 @@ void WatchV2::Stub::experimental_async::Stop(::grpc::ClientContext* context, con
 }
 
 void WatchV2::Stub::experimental_async::UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateGeo_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateGeo_, context, request, response, std::move(f));
 }
 
 void WatchV2::Stub::experimental_async::UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateGeo_, context, request, response, std::move(f));
-}
-
-void WatchV2::Stub::experimental_async::UpdateGeo(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_UpdateGeo_, context, request, response, reactor);
-}
-
-void WatchV2::Stub::experimental_async::UpdateGeo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_UpdateGeo_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateGeo_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* WatchV2::Stub::AsyncUpdateGeoRaw(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_UpdateGeo_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_UpdateGeo_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* WatchV2::Stub::PrepareAsyncUpdateGeoRaw(::grpc::ClientContext* context, const ::ric::geo::UpdateGeoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_UpdateGeo_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_UpdateGeo_, context, request, false);
 }
 
 ::grpc::Status WatchV2::Stub::GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::ric::geo::GetObjectInfoResponse* response) {
@@ -486,27 +395,19 @@ void WatchV2::Stub::experimental_async::UpdateGeo(::grpc::ClientContext* context
 }
 
 void WatchV2::Stub::experimental_async::GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetObjectInfo_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetObjectInfo_, context, request, response, std::move(f));
 }
 
 void WatchV2::Stub::experimental_async::GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetObjectInfo_, context, request, response, std::move(f));
-}
-
-void WatchV2::Stub::experimental_async::GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GetObjectInfo_, context, request, response, reactor);
-}
-
-void WatchV2::Stub::experimental_async::GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GetObjectInfo_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetObjectInfo_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::GetObjectInfoResponse>* WatchV2::Stub::AsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::GetObjectInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetObjectInfo_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::GetObjectInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetObjectInfo_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::GetObjectInfoResponse>* WatchV2::Stub::PrepareAsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::GetObjectInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetObjectInfo_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::GetObjectInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetObjectInfo_, context, request, false);
 }
 
 WatchV2::Service::Service() {
@@ -583,27 +484,19 @@ AttendanceControl::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& 
 }
 
 void AttendanceControl::Stub::experimental_async::Control(::grpc::ClientContext* context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Control_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Control_, context, request, response, std::move(f));
 }
 
 void AttendanceControl::Stub::experimental_async::Control(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Control_, context, request, response, std::move(f));
-}
-
-void AttendanceControl::Stub::experimental_async::Control(::grpc::ClientContext* context, const ::ric::geo::ControlRequest* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Control_, context, request, response, reactor);
-}
-
-void AttendanceControl::Stub::experimental_async::Control(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::EmptyResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Control_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Control_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* AttendanceControl::Stub::AsyncControlRaw(::grpc::ClientContext* context, const ::ric::geo::ControlRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Control_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Control_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::EmptyResponse>* AttendanceControl::Stub::PrepareAsyncControlRaw(::grpc::ClientContext* context, const ::ric::geo::ControlRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Control_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Control_, context, request, false);
 }
 
 AttendanceControl::Service::Service() {
@@ -648,27 +541,19 @@ Osm::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
 }
 
 void Osm::Stub::experimental_async::Geocode(::grpc::ClientContext* context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Geocode_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Geocode_, context, request, response, std::move(f));
 }
 
 void Osm::Stub::experimental_async::Geocode(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Geocode_, context, request, response, std::move(f));
-}
-
-void Osm::Stub::experimental_async::Geocode(::grpc::ClientContext* context, const ::ric::geo::GeocodeRequest* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Geocode_, context, request, response, reactor);
-}
-
-void Osm::Stub::experimental_async::Geocode(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Geocode_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Geocode_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::OsmResponse>* Osm::Stub::AsyncGeocodeRaw(::grpc::ClientContext* context, const ::ric::geo::GeocodeRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::OsmResponse>::Create(channel_.get(), cq, rpcmethod_Geocode_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::OsmResponse>::Create(channel_.get(), cq, rpcmethod_Geocode_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::OsmResponse>* Osm::Stub::PrepareAsyncGeocodeRaw(::grpc::ClientContext* context, const ::ric::geo::GeocodeRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::OsmResponse>::Create(channel_.get(), cq, rpcmethod_Geocode_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::OsmResponse>::Create(channel_.get(), cq, rpcmethod_Geocode_, context, request, false);
 }
 
 ::grpc::Status Osm::Stub::GeocodeReverse(::grpc::ClientContext* context, const ::ric::geo::GeocodeReverseRequest& request, ::ric::geo::OsmResponse* response) {
@@ -676,27 +561,19 @@ void Osm::Stub::experimental_async::Geocode(::grpc::ClientContext* context, cons
 }
 
 void Osm::Stub::experimental_async::GeocodeReverse(::grpc::ClientContext* context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GeocodeReverse_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GeocodeReverse_, context, request, response, std::move(f));
 }
 
 void Osm::Stub::experimental_async::GeocodeReverse(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GeocodeReverse_, context, request, response, std::move(f));
-}
-
-void Osm::Stub::experimental_async::GeocodeReverse(::grpc::ClientContext* context, const ::ric::geo::GeocodeReverseRequest* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GeocodeReverse_, context, request, response, reactor);
-}
-
-void Osm::Stub::experimental_async::GeocodeReverse(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GeocodeReverse_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GeocodeReverse_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::OsmResponse>* Osm::Stub::AsyncGeocodeReverseRaw(::grpc::ClientContext* context, const ::ric::geo::GeocodeReverseRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::OsmResponse>::Create(channel_.get(), cq, rpcmethod_GeocodeReverse_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::OsmResponse>::Create(channel_.get(), cq, rpcmethod_GeocodeReverse_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::OsmResponse>* Osm::Stub::PrepareAsyncGeocodeReverseRaw(::grpc::ClientContext* context, const ::ric::geo::GeocodeReverseRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::OsmResponse>::Create(channel_.get(), cq, rpcmethod_GeocodeReverse_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::OsmResponse>::Create(channel_.get(), cq, rpcmethod_GeocodeReverse_, context, request, false);
 }
 
 ::grpc::Status Osm::Stub::GetRoute(::grpc::ClientContext* context, const ::ric::geo::GetRouteRequest& request, ::ric::geo::OsmResponse* response) {
@@ -704,27 +581,19 @@ void Osm::Stub::experimental_async::GeocodeReverse(::grpc::ClientContext* contex
 }
 
 void Osm::Stub::experimental_async::GetRoute(::grpc::ClientContext* context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetRoute_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetRoute_, context, request, response, std::move(f));
 }
 
 void Osm::Stub::experimental_async::GetRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetRoute_, context, request, response, std::move(f));
-}
-
-void Osm::Stub::experimental_async::GetRoute(::grpc::ClientContext* context, const ::ric::geo::GetRouteRequest* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GetRoute_, context, request, response, reactor);
-}
-
-void Osm::Stub::experimental_async::GetRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::OsmResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GetRoute_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetRoute_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::OsmResponse>* Osm::Stub::AsyncGetRouteRaw(::grpc::ClientContext* context, const ::ric::geo::GetRouteRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::OsmResponse>::Create(channel_.get(), cq, rpcmethod_GetRoute_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::OsmResponse>::Create(channel_.get(), cq, rpcmethod_GetRoute_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::OsmResponse>* Osm::Stub::PrepareAsyncGetRouteRaw(::grpc::ClientContext* context, const ::ric::geo::GetRouteRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::OsmResponse>::Create(channel_.get(), cq, rpcmethod_GetRoute_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::OsmResponse>::Create(channel_.get(), cq, rpcmethod_GetRoute_, context, request, false);
 }
 
 Osm::Service::Service() {
@@ -789,27 +658,19 @@ Check::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
 }
 
 void Check::Stub::experimental_async::CheckIn(::grpc::ClientContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CheckIn_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CheckIn_, context, request, response, std::move(f));
 }
 
 void Check::Stub::experimental_async::CheckIn(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::CheckInResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CheckIn_, context, request, response, std::move(f));
-}
-
-void Check::Stub::experimental_async::CheckIn(::grpc::ClientContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_CheckIn_, context, request, response, reactor);
-}
-
-void Check::Stub::experimental_async::CheckIn(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::CheckInResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_CheckIn_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CheckIn_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::CheckInResponse>* Check::Stub::AsyncCheckInRaw(::grpc::ClientContext* context, const ::ric::geo::CheckInRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::CheckInResponse>::Create(channel_.get(), cq, rpcmethod_CheckIn_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::CheckInResponse>::Create(channel_.get(), cq, rpcmethod_CheckIn_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::geo::CheckInResponse>* Check::Stub::PrepareAsyncCheckInRaw(::grpc::ClientContext* context, const ::ric::geo::CheckInRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::geo::CheckInResponse>::Create(channel_.get(), cq, rpcmethod_CheckIn_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::CheckInResponse>::Create(channel_.get(), cq, rpcmethod_CheckIn_, context, request, false);
 }
 
 Check::Service::Service() {

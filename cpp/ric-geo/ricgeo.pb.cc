@@ -863,12 +863,13 @@ const char descriptor_table_protodef_ric_2dgeo_2fricgeo_2eproto[] =
   "sponse\022:\n\010GetRoute\022\030.ric.geo.GetRouteReq"
   "uest\032\024.ric.geo.OsmResponse2E\n\005Check\022<\n\007C"
   "heckIn\022\027.ric.geo.CheckInRequest\032\030.ric.ge"
-  "o.CheckInResponseB\010Z\006ricgeob\006proto3"
+  "o.CheckInResponseB\022Z\020./ric-geo;ricgeob\006p"
+  "roto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dgeo_2fricgeo_2eproto = {
   false, InitDefaults_ric_2dgeo_2fricgeo_2eproto, 
   descriptor_table_protodef_ric_2dgeo_2fricgeo_2eproto,
-  "ric-geo/ricgeo.proto", &assign_descriptors_table_ric_2dgeo_2fricgeo_2eproto, 3515,
+  "ric-geo/ricgeo.proto", &assign_descriptors_table_ric_2dgeo_2fricgeo_2eproto, 3525,
 };
 
 void AddDescriptors_ric_2dgeo_2fricgeo_2eproto() {

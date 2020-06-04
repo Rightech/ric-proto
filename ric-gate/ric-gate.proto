@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ric.gate;
 
-option go_package = "ricgate";
+option go_package = "./ric-gate;ricgate";
 
 // Methods for edge inlet and gate interaction
 service GateInlet {

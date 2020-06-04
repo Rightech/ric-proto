@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ric.auth;
 
-option go_package = "ricauth";
+option go_package = "./ric-auth;ricauth";
 
 service RicAuth {
   rpc AuthObject(AuthObjectRequest) returns (AuthObjectResponse);

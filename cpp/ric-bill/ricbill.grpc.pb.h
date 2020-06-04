@@ -7,24 +7,25 @@
 #include "ric-bill/ricbill.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
 #include <grpcpp/impl/codegen/async_generic_service.h>
 #include <grpcpp/impl/codegen/async_stream.h>
 #include <grpcpp/impl/codegen/async_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/client_context.h>
-#include <grpcpp/impl/codegen/completion_queue.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/method_handler_impl.h>
 #include <grpcpp/impl/codegen/proto_utils.h>
 #include <grpcpp/impl/codegen/rpc_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/status.h>
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
+
+namespace grpc {
+class CompletionQueue;
+class Channel;
+class ServerCompletionQueue;
+class ServerContext;
+}  // namespace grpc
 
 namespace ric {
 namespace bill {
@@ -37,6 +38,27 @@ class Billing final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
+    virtual ::grpc::Status SetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::ric::bill::SetupResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>> AsyncSetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>>(AsyncSetupAccountRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>> PrepareAsyncSetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>>(PrepareAsyncSetupAccountRaw(context, request, cq));
+    }
+    virtual ::grpc::Status VerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::ric::bill::SetupResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>> AsyncVerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>>(AsyncVerifyAccountRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>> PrepareAsyncVerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>>(PrepareAsyncVerifyAccountRaw(context, request, cq));
+    }
+    virtual ::grpc::Status CloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::ric::bill::SetupResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>> AsyncCloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>>(AsyncCloseAccountRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>> PrepareAsyncCloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>>(PrepareAsyncCloseAccountRaw(context, request, cq));
+    }
     virtual ::grpc::Status CreatePayment(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest& request, ::ric::bill::PaymentResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::PaymentResponse>> AsyncCreatePayment(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::PaymentResponse>>(AsyncCreatePaymentRaw(context, request, cq));
@@ -47,33 +69,50 @@ class Billing final {
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
+      virtual void SetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SetupAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void VerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void VerifyAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void CloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void CloseAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void CreatePayment(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void CreatePayment(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::PaymentResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void CreatePayment(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void CreatePayment(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void CreatePayment(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::PaymentResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void CreatePayment(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::PaymentResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>* AsyncSetupAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>* PrepareAsyncSetupAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>* AsyncVerifyAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>* PrepareAsyncVerifyAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>* AsyncCloseAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>* PrepareAsyncCloseAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::PaymentResponse>* AsyncCreatePaymentRaw(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::PaymentResponse>* PrepareAsyncCreatePaymentRaw(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    ::grpc::Status SetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::ric::bill::SetupResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>> AsyncSetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>>(AsyncSetupAccountRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>> PrepareAsyncSetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>>(PrepareAsyncSetupAccountRaw(context, request, cq));
+    }
+    ::grpc::Status VerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::ric::bill::SetupResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>> AsyncVerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>>(AsyncVerifyAccountRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>> PrepareAsyncVerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>>(PrepareAsyncVerifyAccountRaw(context, request, cq));
+    }
+    ::grpc::Status CloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::ric::bill::SetupResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>> AsyncCloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>>(AsyncCloseAccountRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>> PrepareAsyncCloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>>(PrepareAsyncCloseAccountRaw(context, request, cq));
+    }
     ::grpc::Status CreatePayment(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest& request, ::ric::bill::PaymentResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::PaymentResponse>> AsyncCreatePayment(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::PaymentResponse>>(AsyncCreatePaymentRaw(context, request, cq));
@@ -84,18 +123,14 @@ class Billing final {
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
+      void SetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) override;
+      void SetupAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) override;
+      void VerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) override;
+      void VerifyAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) override;
+      void CloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) override;
+      void CloseAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) override;
       void CreatePayment(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response, std::function<void(::grpc::Status)>) override;
       void CreatePayment(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::PaymentResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void CreatePayment(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void CreatePayment(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void CreatePayment(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::PaymentResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void CreatePayment(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::PaymentResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -107,8 +142,17 @@ class Billing final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* AsyncSetupAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* PrepareAsyncSetupAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* AsyncVerifyAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* PrepareAsyncVerifyAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* AsyncCloseAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* PrepareAsyncCloseAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::bill::PaymentResponse>* AsyncCreatePaymentRaw(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::bill::PaymentResponse>* PrepareAsyncCreatePaymentRaw(::grpc::ClientContext* context, const ::ric::bill::PaymentRequest& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_SetupAccount_;
+    const ::grpc::internal::RpcMethod rpcmethod_VerifyAccount_;
+    const ::grpc::internal::RpcMethod rpcmethod_CloseAccount_;
     const ::grpc::internal::RpcMethod rpcmethod_CreatePayment_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -117,179 +161,524 @@ class Billing final {
    public:
     Service();
     virtual ~Service();
+    virtual ::grpc::Status SetupAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response);
+    virtual ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response);
+    virtual ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response);
     virtual ::grpc::Status CreatePayment(::grpc::ServerContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response);
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_SetupAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_SetupAccount() {
+      ::grpc::Service::MarkMethodAsync(0);
+    }
+    ~WithAsyncMethod_SetupAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetupAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSetupAccount(::grpc::ServerContext* context, ::ric::bill::SetupRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::bill::SetupResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_VerifyAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_VerifyAccount() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_VerifyAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestVerifyAccount(::grpc::ServerContext* context, ::ric::bill::SetupRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::bill::SetupResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_CloseAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_CloseAccount() {
+      ::grpc::Service::MarkMethodAsync(2);
+    }
+    ~WithAsyncMethod_CloseAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestCloseAccount(::grpc::ServerContext* context, ::ric::bill::SetupRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::bill::SetupResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
   };
   template <class BaseClass>
   class WithAsyncMethod_CreatePayment : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_CreatePayment() {
-      ::grpc::Service::MarkMethodAsync(0);
+      ::grpc::Service::MarkMethodAsync(3);
     }
     ~WithAsyncMethod_CreatePayment() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreatePayment(::grpc::ServerContext* /*context*/, const ::ric::bill::PaymentRequest* /*request*/, ::ric::bill::PaymentResponse* /*response*/) override {
+    ::grpc::Status CreatePayment(::grpc::ServerContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestCreatePayment(::grpc::ServerContext* context, ::ric::bill::PaymentRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::bill::PaymentResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_CreatePayment<Service > AsyncService;
+  typedef WithAsyncMethod_SetupAccount<WithAsyncMethod_VerifyAccount<WithAsyncMethod_CloseAccount<WithAsyncMethod_CreatePayment<Service > > > > AsyncService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SetupAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_SetupAccount() {
+      ::grpc::Service::experimental().MarkMethodCallback(0,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bill::SetupRequest, ::ric::bill::SetupResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bill::SetupRequest* request,
+                 ::ric::bill::SetupResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->SetupAccount(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_SetupAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetupAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void SetupAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_VerifyAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_VerifyAccount() {
+      ::grpc::Service::experimental().MarkMethodCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bill::SetupRequest, ::ric::bill::SetupResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bill::SetupRequest* request,
+                 ::ric::bill::SetupResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->VerifyAccount(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_VerifyAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_CloseAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_CloseAccount() {
+      ::grpc::Service::experimental().MarkMethodCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bill::SetupRequest, ::ric::bill::SetupResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bill::SetupRequest* request,
+                 ::ric::bill::SetupResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->CloseAccount(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_CloseAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_CreatePayment : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_CreatePayment() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::ric::bill::PaymentRequest, ::ric::bill::PaymentResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response) { return this->CreatePayment(context, request, response); }));}
-    void SetMessageAllocatorFor_CreatePayment(
-        ::grpc::experimental::MessageAllocator< ::ric::bill::PaymentRequest, ::ric::bill::PaymentResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
-    #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::ric::bill::PaymentRequest, ::ric::bill::PaymentResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+      ::grpc::Service::experimental().MarkMethodCallback(3,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bill::PaymentRequest, ::ric::bill::PaymentResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bill::PaymentRequest* request,
+                 ::ric::bill::PaymentResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->CreatePayment(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithCallbackMethod_CreatePayment() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreatePayment(::grpc::ServerContext* /*context*/, const ::ric::bill::PaymentRequest* /*request*/, ::ric::bill::PaymentResponse* /*response*/) override {
+    ::grpc::Status CreatePayment(::grpc::ServerContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* CreatePayment(
-      ::grpc::CallbackServerContext* /*context*/, const ::ric::bill::PaymentRequest* /*request*/, ::ric::bill::PaymentResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CreatePayment(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::ric::bill::PaymentRequest* /*request*/, ::ric::bill::PaymentResponse* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void CreatePayment(::grpc::ServerContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_CreatePayment<Service > CallbackService;
-  #endif
-
-  typedef ExperimentalWithCallbackMethod_CreatePayment<Service > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_SetupAccount<ExperimentalWithCallbackMethod_VerifyAccount<ExperimentalWithCallbackMethod_CloseAccount<ExperimentalWithCallbackMethod_CreatePayment<Service > > > > ExperimentalCallbackService;
+  template <class BaseClass>
+  class WithGenericMethod_SetupAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_SetupAccount() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_SetupAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetupAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_VerifyAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_VerifyAccount() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_VerifyAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_CloseAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_CloseAccount() {
+      ::grpc::Service::MarkMethodGeneric(2);
+    }
+    ~WithGenericMethod_CloseAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
   template <class BaseClass>
   class WithGenericMethod_CreatePayment : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_CreatePayment() {
-      ::grpc::Service::MarkMethodGeneric(0);
+      ::grpc::Service::MarkMethodGeneric(3);
     }
     ~WithGenericMethod_CreatePayment() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreatePayment(::grpc::ServerContext* /*context*/, const ::ric::bill::PaymentRequest* /*request*/, ::ric::bill::PaymentResponse* /*response*/) override {
+    ::grpc::Status CreatePayment(::grpc::ServerContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SetupAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_SetupAccount() {
+      ::grpc::Service::MarkMethodRaw(0);
+    }
+    ~WithRawMethod_SetupAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetupAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSetupAccount(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_VerifyAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_VerifyAccount() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_VerifyAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestVerifyAccount(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_CloseAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_CloseAccount() {
+      ::grpc::Service::MarkMethodRaw(2);
+    }
+    ~WithRawMethod_CloseAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestCloseAccount(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
   class WithRawMethod_CreatePayment : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_CreatePayment() {
-      ::grpc::Service::MarkMethodRaw(0);
+      ::grpc::Service::MarkMethodRaw(3);
     }
     ~WithRawMethod_CreatePayment() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreatePayment(::grpc::ServerContext* /*context*/, const ::ric::bill::PaymentRequest* /*request*/, ::ric::bill::PaymentResponse* /*response*/) override {
+    ::grpc::Status CreatePayment(::grpc::ServerContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestCreatePayment(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SetupAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SetupAccount() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(0,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->SetupAccount(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SetupAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetupAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void SetupAccount(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_VerifyAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_VerifyAccount() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->VerifyAccount(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_VerifyAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void VerifyAccount(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_CloseAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_CloseAccount() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->CloseAccount(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_CloseAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void CloseAccount(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_CreatePayment : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_CreatePayment() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CreatePayment(context, request, response); }));
+      ::grpc::Service::experimental().MarkMethodRawCallback(3,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->CreatePayment(context, request, response, controller);
+                 }));
     }
     ~ExperimentalWithRawCallbackMethod_CreatePayment() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreatePayment(::grpc::ServerContext* /*context*/, const ::ric::bill::PaymentRequest* /*request*/, ::ric::bill::PaymentResponse* /*response*/) override {
+    ::grpc::Status CreatePayment(::grpc::ServerContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* CreatePayment(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* CreatePayment(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+    virtual void CreatePayment(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SetupAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_SetupAccount() {
+      ::grpc::Service::MarkMethodStreamed(0,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::bill::SetupRequest, ::ric::bill::SetupResponse>(std::bind(&WithStreamedUnaryMethod_SetupAccount<BaseClass>::StreamedSetupAccount, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_SetupAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SetupAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSetupAccount(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bill::SetupRequest,::ric::bill::SetupResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_VerifyAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_VerifyAccount() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::bill::SetupRequest, ::ric::bill::SetupResponse>(std::bind(&WithStreamedUnaryMethod_VerifyAccount<BaseClass>::StreamedVerifyAccount, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_VerifyAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedVerifyAccount(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bill::SetupRequest,::ric::bill::SetupResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_CloseAccount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_CloseAccount() {
+      ::grpc::Service::MarkMethodStreamed(2,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::bill::SetupRequest, ::ric::bill::SetupResponse>(std::bind(&WithStreamedUnaryMethod_CloseAccount<BaseClass>::StreamedCloseAccount, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_CloseAccount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedCloseAccount(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bill::SetupRequest,::ric::bill::SetupResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_CreatePayment : public BaseClass {
    private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_CreatePayment() {
-      ::grpc::Service::MarkMethodStreamed(0,
+      ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler< ::ric::bill::PaymentRequest, ::ric::bill::PaymentResponse>(std::bind(&WithStreamedUnaryMethod_CreatePayment<BaseClass>::StreamedCreatePayment, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_CreatePayment() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status CreatePayment(::grpc::ServerContext* /*context*/, const ::ric::bill::PaymentRequest* /*request*/, ::ric::bill::PaymentResponse* /*response*/) override {
+    ::grpc::Status CreatePayment(::grpc::ServerContext* context, const ::ric::bill::PaymentRequest* request, ::ric::bill::PaymentResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedCreatePayment(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bill::PaymentRequest,::ric::bill::PaymentResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_CreatePayment<Service > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_SetupAccount<WithStreamedUnaryMethod_VerifyAccount<WithStreamedUnaryMethod_CloseAccount<WithStreamedUnaryMethod_CreatePayment<Service > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_CreatePayment<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_SetupAccount<WithStreamedUnaryMethod_VerifyAccount<WithStreamedUnaryMethod_CloseAccount<WithStreamedUnaryMethod_CreatePayment<Service > > > > StreamedService;
 };
 
 }  // namespace bill

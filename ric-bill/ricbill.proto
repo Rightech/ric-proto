@@ -2,13 +2,12 @@ syntax = "proto3";
 
 package ric.bill;
 
-option go_package = "ricbill";
+option go_package = "./ric-bill;ricbill";
 
 service Billing {
   rpc SetupAccount(SetupRequest) returns (SetupResponse);
   rpc VerifyAccount(SetupRequest) returns (SetupResponse);
   rpc CloseAccount(SetupRequest) returns (SetupResponse);
-
   rpc CreateSubscription(SubscriptionRequest) returns (SubscriptionResponse);
 }
 
@@ -24,9 +23,8 @@ message SetupRequest {
 
 message SetupResponse {
   string binding_id = 1;
-  string widget_params = 2; 
+  string widget_params = 2;
 }
-
 
 message SubscriptionRequest {
   UserContext ctx = 1;

@@ -11,12 +11,9 @@
 #include <grpcpp/impl/codegen/channel_interface.h>
 #include <grpcpp/impl/codegen/client_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/method_handler_impl.h>
 #include <grpcpp/impl/codegen/rpc_service_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
 namespace ric {
@@ -51,27 +48,19 @@ Tasks::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
 }
 
 void Tasks::Stub::experimental_async::Create(::grpc::ClientContext* context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Create_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Create_, context, request, response, std::move(f));
 }
 
 void Tasks::Stub::experimental_async::Create(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::CreateResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Create_, context, request, response, std::move(f));
-}
-
-void Tasks::Stub::experimental_async::Create(::grpc::ClientContext* context, const ::ric::tasks::CreateRequest* request, ::ric::tasks::CreateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Create_, context, request, response, reactor);
-}
-
-void Tasks::Stub::experimental_async::Create(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::CreateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Create_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Create_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::tasks::CreateResponse>* Tasks::Stub::AsyncCreateRaw(::grpc::ClientContext* context, const ::ric::tasks::CreateRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::CreateResponse>::Create(channel_.get(), cq, rpcmethod_Create_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::CreateResponse>::Create(channel_.get(), cq, rpcmethod_Create_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::tasks::CreateResponse>* Tasks::Stub::PrepareAsyncCreateRaw(::grpc::ClientContext* context, const ::ric::tasks::CreateRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::CreateResponse>::Create(channel_.get(), cq, rpcmethod_Create_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::CreateResponse>::Create(channel_.get(), cq, rpcmethod_Create_, context, request, false);
 }
 
 ::grpc::Status Tasks::Stub::Get(::grpc::ClientContext* context, const ::ric::tasks::GetRequest& request, ::ric::tasks::GetResponse* response) {
@@ -79,27 +68,19 @@ void Tasks::Stub::experimental_async::Create(::grpc::ClientContext* context, con
 }
 
 void Tasks::Stub::experimental_async::Get(::grpc::ClientContext* context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Get_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Get_, context, request, response, std::move(f));
 }
 
 void Tasks::Stub::experimental_async::Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::GetResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Get_, context, request, response, std::move(f));
-}
-
-void Tasks::Stub::experimental_async::Get(::grpc::ClientContext* context, const ::ric::tasks::GetRequest* request, ::ric::tasks::GetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Get_, context, request, response, reactor);
-}
-
-void Tasks::Stub::experimental_async::Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::GetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Get_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Get_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::tasks::GetResponse>* Tasks::Stub::AsyncGetRaw(::grpc::ClientContext* context, const ::ric::tasks::GetRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::GetResponse>::Create(channel_.get(), cq, rpcmethod_Get_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::GetResponse>::Create(channel_.get(), cq, rpcmethod_Get_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::tasks::GetResponse>* Tasks::Stub::PrepareAsyncGetRaw(::grpc::ClientContext* context, const ::ric::tasks::GetRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::GetResponse>::Create(channel_.get(), cq, rpcmethod_Get_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::GetResponse>::Create(channel_.get(), cq, rpcmethod_Get_, context, request, false);
 }
 
 ::grpc::Status Tasks::Stub::Update(::grpc::ClientContext* context, const ::ric::tasks::UpdateRequest& request, ::ric::tasks::UpdateResponse* response) {
@@ -107,27 +88,19 @@ void Tasks::Stub::experimental_async::Get(::grpc::ClientContext* context, const 
 }
 
 void Tasks::Stub::experimental_async::Update(::grpc::ClientContext* context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Update_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Update_, context, request, response, std::move(f));
 }
 
 void Tasks::Stub::experimental_async::Update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Update_, context, request, response, std::move(f));
-}
-
-void Tasks::Stub::experimental_async::Update(::grpc::ClientContext* context, const ::ric::tasks::UpdateRequest* request, ::ric::tasks::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Update_, context, request, response, reactor);
-}
-
-void Tasks::Stub::experimental_async::Update(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Update_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Update_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::tasks::UpdateResponse>* Tasks::Stub::AsyncUpdateRaw(::grpc::ClientContext* context, const ::ric::tasks::UpdateRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_Update_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_Update_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::tasks::UpdateResponse>* Tasks::Stub::PrepareAsyncUpdateRaw(::grpc::ClientContext* context, const ::ric::tasks::UpdateRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_Update_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::UpdateResponse>::Create(channel_.get(), cq, rpcmethod_Update_, context, request, false);
 }
 
 ::grpc::Status Tasks::Stub::Delete(::grpc::ClientContext* context, const ::ric::tasks::DeleteRequest& request, ::ric::tasks::DeleteResponse* response) {
@@ -135,27 +108,19 @@ void Tasks::Stub::experimental_async::Update(::grpc::ClientContext* context, con
 }
 
 void Tasks::Stub::experimental_async::Delete(::grpc::ClientContext* context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Delete_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Delete_, context, request, response, std::move(f));
 }
 
 void Tasks::Stub::experimental_async::Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::DeleteResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Delete_, context, request, response, std::move(f));
-}
-
-void Tasks::Stub::experimental_async::Delete(::grpc::ClientContext* context, const ::ric::tasks::DeleteRequest* request, ::ric::tasks::DeleteResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Delete_, context, request, response, reactor);
-}
-
-void Tasks::Stub::experimental_async::Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::DeleteResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Delete_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Delete_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::tasks::DeleteResponse>* Tasks::Stub::AsyncDeleteRaw(::grpc::ClientContext* context, const ::ric::tasks::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::DeleteResponse>::Create(channel_.get(), cq, rpcmethod_Delete_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::DeleteResponse>::Create(channel_.get(), cq, rpcmethod_Delete_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::tasks::DeleteResponse>* Tasks::Stub::PrepareAsyncDeleteRaw(::grpc::ClientContext* context, const ::ric::tasks::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::DeleteResponse>::Create(channel_.get(), cq, rpcmethod_Delete_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::DeleteResponse>::Create(channel_.get(), cq, rpcmethod_Delete_, context, request, false);
 }
 
 ::grpc::Status Tasks::Stub::UpdateOrder(::grpc::ClientContext* context, const ::ric::tasks::UpdateOrderRequest& request, ::ric::tasks::UpdateOrderResponse* response) {
@@ -163,27 +128,19 @@ void Tasks::Stub::experimental_async::Delete(::grpc::ClientContext* context, con
 }
 
 void Tasks::Stub::experimental_async::UpdateOrder(::grpc::ClientContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateOrder_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateOrder_, context, request, response, std::move(f));
 }
 
 void Tasks::Stub::experimental_async::UpdateOrder(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateOrderResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateOrder_, context, request, response, std::move(f));
-}
-
-void Tasks::Stub::experimental_async::UpdateOrder(::grpc::ClientContext* context, const ::ric::tasks::UpdateOrderRequest* request, ::ric::tasks::UpdateOrderResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_UpdateOrder_, context, request, response, reactor);
-}
-
-void Tasks::Stub::experimental_async::UpdateOrder(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::UpdateOrderResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_UpdateOrder_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateOrder_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::tasks::UpdateOrderResponse>* Tasks::Stub::AsyncUpdateOrderRaw(::grpc::ClientContext* context, const ::ric::tasks::UpdateOrderRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::UpdateOrderResponse>::Create(channel_.get(), cq, rpcmethod_UpdateOrder_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::UpdateOrderResponse>::Create(channel_.get(), cq, rpcmethod_UpdateOrder_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::tasks::UpdateOrderResponse>* Tasks::Stub::PrepareAsyncUpdateOrderRaw(::grpc::ClientContext* context, const ::ric::tasks::UpdateOrderRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::UpdateOrderResponse>::Create(channel_.get(), cq, rpcmethod_UpdateOrder_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::UpdateOrderResponse>::Create(channel_.get(), cq, rpcmethod_UpdateOrder_, context, request, false);
 }
 
 ::grpc::Status Tasks::Stub::ChangeStatus(::grpc::ClientContext* context, const ::ric::tasks::ChangeStatusRequest& request, ::ric::tasks::ChangeStatusResponse* response) {
@@ -191,27 +148,19 @@ void Tasks::Stub::experimental_async::UpdateOrder(::grpc::ClientContext* context
 }
 
 void Tasks::Stub::experimental_async::ChangeStatus(::grpc::ClientContext* context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_ChangeStatus_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_ChangeStatus_, context, request, response, std::move(f));
 }
 
 void Tasks::Stub::experimental_async::ChangeStatus(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::ChangeStatusResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_ChangeStatus_, context, request, response, std::move(f));
-}
-
-void Tasks::Stub::experimental_async::ChangeStatus(::grpc::ClientContext* context, const ::ric::tasks::ChangeStatusRequest* request, ::ric::tasks::ChangeStatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_ChangeStatus_, context, request, response, reactor);
-}
-
-void Tasks::Stub::experimental_async::ChangeStatus(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::tasks::ChangeStatusResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_ChangeStatus_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_ChangeStatus_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::tasks::ChangeStatusResponse>* Tasks::Stub::AsyncChangeStatusRaw(::grpc::ClientContext* context, const ::ric::tasks::ChangeStatusRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::ChangeStatusResponse>::Create(channel_.get(), cq, rpcmethod_ChangeStatus_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::ChangeStatusResponse>::Create(channel_.get(), cq, rpcmethod_ChangeStatus_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::tasks::ChangeStatusResponse>* Tasks::Stub::PrepareAsyncChangeStatusRaw(::grpc::ClientContext* context, const ::ric::tasks::ChangeStatusRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::ChangeStatusResponse>::Create(channel_.get(), cq, rpcmethod_ChangeStatus_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::tasks::ChangeStatusResponse>::Create(channel_.get(), cq, rpcmethod_ChangeStatus_, context, request, false);
 }
 
 Tasks::Service::Service() {

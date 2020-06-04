@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ric.store;
 
-option go_package = "ricstore";
+option go_package = "./ric-store;ricstore";
 
 service RicStore {
   rpc Insert(stream Packet) returns (EmptyRespone);

@@ -1,7 +1,8 @@
 # Paths to exclude when searching for Protobuf files.
 # These can either be file or directory names.
 # If there is a directory name, that directory and all sub-directories will be excluded.
-#excludes:
+excludes:
+  - node_modules
 #  - path/to/a
 #  - path/to/b/file.proto
 

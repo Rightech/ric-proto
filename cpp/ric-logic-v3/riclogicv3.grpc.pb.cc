@@ -11,12 +11,9 @@
 #include <grpcpp/impl/codegen/channel_interface.h>
 #include <grpcpp/impl/codegen/client_unary_call.h>
 #include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
+#include <grpcpp/impl/codegen/method_handler_impl.h>
 #include <grpcpp/impl/codegen/rpc_service_method.h>
 #include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
 namespace ric {
@@ -27,9 +24,11 @@ static const char* RicLogicV3_method_names[] = {
   "/ric.logic.v3.RicLogicV3/GetInstanceInfo",
   "/ric.logic.v3.RicLogicV3/GetAutomatons",
   "/ric.logic.v3.RicLogicV3/StartAutomaton",
+  "/ric.logic.v3.RicLogicV3/StartAutomatonMulti",
   "/ric.logic.v3.RicLogicV3/StopAutomaton",
   "/ric.logic.v3.RicLogicV3/RunAutomaton",
   "/ric.logic.v3.RicLogicV3/EmitEvent",
+  "/ric.logic.v3.RicLogicV3/UpdateAutomatonVars",
 };
 
 std::unique_ptr< RicLogicV3::Stub> RicLogicV3::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -42,9 +41,11 @@ RicLogicV3::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel
   : channel_(channel), rpcmethod_GetInstanceInfo_(RicLogicV3_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetAutomatons_(RicLogicV3_method_names[1], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
   , rpcmethod_StartAutomaton_(RicLogicV3_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_StopAutomaton_(RicLogicV3_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_RunAutomaton_(RicLogicV3_method_names[4], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
-  , rpcmethod_EmitEvent_(RicLogicV3_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_StartAutomatonMulti_(RicLogicV3_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_StopAutomaton_(RicLogicV3_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_RunAutomaton_(RicLogicV3_method_names[5], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_EmitEvent_(RicLogicV3_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UpdateAutomatonVars_(RicLogicV3_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status RicLogicV3::Stub::GetInstanceInfo(::grpc::ClientContext* context, const ::ric::logic::v3::GetInstanceInfoRequest& request, ::ric::logic::v3::GetInstanceInfoResponse* response) {
@@ -52,43 +53,35 @@ RicLogicV3::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel
 }
 
 void RicLogicV3::Stub::experimental_async::GetInstanceInfo(::grpc::ClientContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetInstanceInfo_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetInstanceInfo_, context, request, response, std::move(f));
 }
 
 void RicLogicV3::Stub::experimental_async::GetInstanceInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::GetInstanceInfoResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetInstanceInfo_, context, request, response, std::move(f));
-}
-
-void RicLogicV3::Stub::experimental_async::GetInstanceInfo(::grpc::ClientContext* context, const ::ric::logic::v3::GetInstanceInfoRequest* request, ::ric::logic::v3::GetInstanceInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GetInstanceInfo_, context, request, response, reactor);
-}
-
-void RicLogicV3::Stub::experimental_async::GetInstanceInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::GetInstanceInfoResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GetInstanceInfo_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetInstanceInfo_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::GetInstanceInfoResponse>* RicLogicV3::Stub::AsyncGetInstanceInfoRaw(::grpc::ClientContext* context, const ::ric::logic::v3::GetInstanceInfoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::GetInstanceInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetInstanceInfo_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::GetInstanceInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetInstanceInfo_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::GetInstanceInfoResponse>* RicLogicV3::Stub::PrepareAsyncGetInstanceInfoRaw(::grpc::ClientContext* context, const ::ric::logic::v3::GetInstanceInfoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::GetInstanceInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetInstanceInfo_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::GetInstanceInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetInstanceInfo_, context, request, false);
 }
 
 ::grpc::ClientReader< ::ric::logic::v3::AutomatonInfo>* RicLogicV3::Stub::GetAutomatonsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::GetAutomatonsRequest& request) {
-  return ::grpc_impl::internal::ClientReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(channel_.get(), rpcmethod_GetAutomatons_, context, request);
+  return ::grpc::internal::ClientReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(channel_.get(), rpcmethod_GetAutomatons_, context, request);
 }
 
 void RicLogicV3::Stub::experimental_async::GetAutomatons(::grpc::ClientContext* context, ::ric::logic::v3::GetAutomatonsRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::logic::v3::AutomatonInfo>* reactor) {
-  ::grpc_impl::internal::ClientCallbackReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(stub_->channel_.get(), stub_->rpcmethod_GetAutomatons_, context, request, reactor);
+  ::grpc::internal::ClientCallbackReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(stub_->channel_.get(), stub_->rpcmethod_GetAutomatons_, context, request, reactor);
 }
 
 ::grpc::ClientAsyncReader< ::ric::logic::v3::AutomatonInfo>* RicLogicV3::Stub::AsyncGetAutomatonsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::GetAutomatonsRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc_impl::internal::ClientAsyncReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(channel_.get(), cq, rpcmethod_GetAutomatons_, context, request, true, tag);
+  return ::grpc::internal::ClientAsyncReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(channel_.get(), cq, rpcmethod_GetAutomatons_, context, request, true, tag);
 }
 
 ::grpc::ClientAsyncReader< ::ric::logic::v3::AutomatonInfo>* RicLogicV3::Stub::PrepareAsyncGetAutomatonsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::GetAutomatonsRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(channel_.get(), cq, rpcmethod_GetAutomatons_, context, request, false, nullptr);
+  return ::grpc::internal::ClientAsyncReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(channel_.get(), cq, rpcmethod_GetAutomatons_, context, request, false, nullptr);
 }
 
 ::grpc::Status RicLogicV3::Stub::StartAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest& request, ::ric::logic::v3::StartAutomatonResponse* response) {
@@ -96,27 +89,39 @@ void RicLogicV3::Stub::experimental_async::GetAutomatons(::grpc::ClientContext* 
 }
 
 void RicLogicV3::Stub::experimental_async::StartAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StartAutomaton_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StartAutomaton_, context, request, response, std::move(f));
 }
 
 void RicLogicV3::Stub::experimental_async::StartAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StartAutomatonResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StartAutomaton_, context, request, response, std::move(f));
-}
-
-void RicLogicV3::Stub::experimental_async::StartAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest* request, ::ric::logic::v3::StartAutomatonResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_StartAutomaton_, context, request, response, reactor);
-}
-
-void RicLogicV3::Stub::experimental_async::StartAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StartAutomatonResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_StartAutomaton_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StartAutomaton_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StartAutomatonResponse>* RicLogicV3::Stub::AsyncStartAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::StartAutomatonResponse>::Create(channel_.get(), cq, rpcmethod_StartAutomaton_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::StartAutomatonResponse>::Create(channel_.get(), cq, rpcmethod_StartAutomaton_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StartAutomatonResponse>* RicLogicV3::Stub::PrepareAsyncStartAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::StartAutomatonResponse>::Create(channel_.get(), cq, rpcmethod_StartAutomaton_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::StartAutomatonResponse>::Create(channel_.get(), cq, rpcmethod_StartAutomaton_, context, request, false);
+}
+
+::grpc::Status RicLogicV3::Stub::StartAutomatonMulti(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest& request, ::ric::logic::v3::StartAutomatonResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_StartAutomatonMulti_, context, request, response);
+}
+
+void RicLogicV3::Stub::experimental_async::StartAutomatonMulti(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest* request, ::ric::logic::v3::StartAutomatonResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StartAutomatonMulti_, context, request, response, std::move(f));
+}
+
+void RicLogicV3::Stub::experimental_async::StartAutomatonMulti(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StartAutomatonResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StartAutomatonMulti_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StartAutomatonResponse>* RicLogicV3::Stub::AsyncStartAutomatonMultiRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::StartAutomatonResponse>::Create(channel_.get(), cq, rpcmethod_StartAutomatonMulti_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StartAutomatonResponse>* RicLogicV3::Stub::PrepareAsyncStartAutomatonMultiRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::StartAutomatonResponse>::Create(channel_.get(), cq, rpcmethod_StartAutomatonMulti_, context, request, false);
 }
 
 ::grpc::Status RicLogicV3::Stub::StopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::ric::logic::v3::StopAutomatonResponse* response) {
@@ -124,43 +129,35 @@ void RicLogicV3::Stub::experimental_async::StartAutomaton(::grpc::ClientContext*
 }
 
 void RicLogicV3::Stub::experimental_async::StopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopAutomaton_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopAutomaton_, context, request, response, std::move(f));
 }
 
 void RicLogicV3::Stub::experimental_async::StopAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StopAutomatonResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopAutomaton_, context, request, response, std::move(f));
-}
-
-void RicLogicV3::Stub::experimental_async::StopAutomaton(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_StopAutomaton_, context, request, response, reactor);
-}
-
-void RicLogicV3::Stub::experimental_async::StopAutomaton(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::StopAutomatonResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_StopAutomaton_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_StopAutomaton_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StopAutomatonResponse>* RicLogicV3::Stub::AsyncStopAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::StopAutomatonResponse>::Create(channel_.get(), cq, rpcmethod_StopAutomaton_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::StopAutomatonResponse>::Create(channel_.get(), cq, rpcmethod_StopAutomaton_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::StopAutomatonResponse>* RicLogicV3::Stub::PrepareAsyncStopAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::StopAutomatonRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::StopAutomatonResponse>::Create(channel_.get(), cq, rpcmethod_StopAutomaton_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::StopAutomatonResponse>::Create(channel_.get(), cq, rpcmethod_StopAutomaton_, context, request, false);
 }
 
 ::grpc::ClientReader< ::ric::logic::v3::AutomatonInfo>* RicLogicV3::Stub::RunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request) {
-  return ::grpc_impl::internal::ClientReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(channel_.get(), rpcmethod_RunAutomaton_, context, request);
+  return ::grpc::internal::ClientReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(channel_.get(), rpcmethod_RunAutomaton_, context, request);
 }
 
 void RicLogicV3::Stub::experimental_async::RunAutomaton(::grpc::ClientContext* context, ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::logic::v3::AutomatonInfo>* reactor) {
-  ::grpc_impl::internal::ClientCallbackReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(stub_->channel_.get(), stub_->rpcmethod_RunAutomaton_, context, request, reactor);
+  ::grpc::internal::ClientCallbackReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(stub_->channel_.get(), stub_->rpcmethod_RunAutomaton_, context, request, reactor);
 }
 
 ::grpc::ClientAsyncReader< ::ric::logic::v3::AutomatonInfo>* RicLogicV3::Stub::AsyncRunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc_impl::internal::ClientAsyncReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(channel_.get(), cq, rpcmethod_RunAutomaton_, context, request, true, tag);
+  return ::grpc::internal::ClientAsyncReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(channel_.get(), cq, rpcmethod_RunAutomaton_, context, request, true, tag);
 }
 
 ::grpc::ClientAsyncReader< ::ric::logic::v3::AutomatonInfo>* RicLogicV3::Stub::PrepareAsyncRunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(channel_.get(), cq, rpcmethod_RunAutomaton_, context, request, false, nullptr);
+  return ::grpc::internal::ClientAsyncReaderFactory< ::ric::logic::v3::AutomatonInfo>::Create(channel_.get(), cq, rpcmethod_RunAutomaton_, context, request, false, nullptr);
 }
 
 ::grpc::Status RicLogicV3::Stub::EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::ric::logic::v3::EmitEventResponse* response) {
@@ -168,27 +165,39 @@ void RicLogicV3::Stub::experimental_async::RunAutomaton(::grpc::ClientContext* c
 }
 
 void RicLogicV3::Stub::experimental_async::EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_EmitEvent_, context, request, response, std::move(f));
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_EmitEvent_, context, request, response, std::move(f));
 }
 
 void RicLogicV3::Stub::experimental_async::EmitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::EmitEventResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_EmitEvent_, context, request, response, std::move(f));
-}
-
-void RicLogicV3::Stub::experimental_async::EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_EmitEvent_, context, request, response, reactor);
-}
-
-void RicLogicV3::Stub::experimental_async::EmitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::EmitEventResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_EmitEvent_, context, request, response, reactor);
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_EmitEvent_, context, request, response, std::move(f));
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::EmitEventResponse>* RicLogicV3::Stub::AsyncEmitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::EmitEventResponse>::Create(channel_.get(), cq, rpcmethod_EmitEvent_, context, request, true);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::EmitEventResponse>::Create(channel_.get(), cq, rpcmethod_EmitEvent_, context, request, true);
 }
 
 ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::EmitEventResponse>* RicLogicV3::Stub::PrepareAsyncEmitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::EmitEventResponse>::Create(channel_.get(), cq, rpcmethod_EmitEvent_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::EmitEventResponse>::Create(channel_.get(), cq, rpcmethod_EmitEvent_, context, request, false);
+}
+
+::grpc::Status RicLogicV3::Stub::UpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_UpdateAutomatonVars_, context, request, response);
+}
+
+void RicLogicV3::Stub::experimental_async::UpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateAutomatonVars_, context, request, response, std::move(f));
+}
+
+void RicLogicV3::Stub::experimental_async::UpdateAutomatonVars(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateAutomatonVars_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::logic::v3::UpdateAutomatonVarsResponse>* RicLogicV3::Stub::AsyncUpdateAutomatonVarsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::UpdateAutomatonVarsResponse>::Create(channel_.get(), cq, rpcmethod_UpdateAutomatonVars_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::logic::v3::UpdateAutomatonVarsResponse>* RicLogicV3::Stub::PrepareAsyncUpdateAutomatonVarsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::UpdateAutomatonVarsResponse>::Create(channel_.get(), cq, rpcmethod_UpdateAutomatonVars_, context, request, false);
 }
 
 RicLogicV3::Service::Service() {
@@ -210,18 +219,28 @@ RicLogicV3::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RicLogicV3_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RicLogicV3::Service, ::ric::logic::v3::StartAutomatonMultiRequest, ::ric::logic::v3::StartAutomatonResponse>(
+          std::mem_fn(&RicLogicV3::Service::StartAutomatonMulti), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RicLogicV3_method_names[4],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< RicLogicV3::Service, ::ric::logic::v3::StopAutomatonRequest, ::ric::logic::v3::StopAutomatonResponse>(
           std::mem_fn(&RicLogicV3::Service::StopAutomaton), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      RicLogicV3_method_names[4],
+      RicLogicV3_method_names[5],
       ::grpc::internal::RpcMethod::SERVER_STREAMING,
       new ::grpc::internal::ServerStreamingHandler< RicLogicV3::Service, ::ric::logic::v3::RunAutomatonRequest, ::ric::logic::v3::AutomatonInfo>(
           std::mem_fn(&RicLogicV3::Service::RunAutomaton), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      RicLogicV3_method_names[5],
+      RicLogicV3_method_names[6],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< RicLogicV3::Service, ::ric::logic::v3::EmitEventRequest, ::ric::logic::v3::EmitEventResponse>(
           std::mem_fn(&RicLogicV3::Service::EmitEvent), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RicLogicV3_method_names[7],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RicLogicV3::Service, ::ric::logic::v3::UpdateAutomatonVarsRequest, ::ric::logic::v3::UpdateAutomatonVarsResponse>(
+          std::mem_fn(&RicLogicV3::Service::UpdateAutomatonVars), this)));
 }
 
 RicLogicV3::Service::~Service() {
@@ -248,6 +267,13 @@ RicLogicV3::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
+::grpc::Status RicLogicV3::Service::StartAutomatonMulti(::grpc::ServerContext* context, const ::ric::logic::v3::StartAutomatonMultiRequest* request, ::ric::logic::v3::StartAutomatonResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
 ::grpc::Status RicLogicV3::Service::StopAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response) {
   (void) context;
   (void) request;
@@ -263,6 +289,13 @@ RicLogicV3::Service::~Service() {
 }
 
 ::grpc::Status RicLogicV3::Service::EmitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RicLogicV3::Service::UpdateAutomatonVars(::grpc::ServerContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response) {
   (void) context;
   (void) request;
   (void) response;
