@@ -1,20 +1,10 @@
 # ric-proto
 gRPC/Protocol Buffers protofiles for ric services
 
-## dependencies
-
-- [uber prototool](https://github.com/uber/prototool)
-- [protoc-go-inject-tag](https://github.com/favadi/protoc-go-inject-tag)
-
-## generate
+## compile
 
 ```bash
-$ ./compile.sh
+$ docker run -it --rm -v (pwd):/ric-proto docker.pkg.github.com/rightech/ric-proto-compiler/compiler:latest
 ```
 
-## lint && format
-
-```bash
-$ prototool lint
-$ prototool format -w
-```
+To access docker image you shoult generate [github token](https://github.com/settings/tokens) with scope: `repo`, `write:packages`,`read:packages`. 
