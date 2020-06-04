@@ -60,7 +60,7 @@
                 "dev": 15080
             }
         },
-        "ric-smpp": {
+        "ric-notify": {
             "port": {
                 "dev": 15081
             }
