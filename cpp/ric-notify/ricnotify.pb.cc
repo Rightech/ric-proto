@@ -358,6 +358,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dnotify_2fricnotify_2eproto::o
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPCredentials, server_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPCredentials, password_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPCredentials, use_tls_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPCredentials, use_ssl_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -394,10 +395,10 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 47, -1, sizeof(::ric::notify::SMPPGatewayInfoRequest)},
   { 53, -1, sizeof(::ric::notify::SMPPGatewayInfoResponse)},
   { 60, -1, sizeof(::ric::notify::SMTPCredentials)},
-  { 73, -1, sizeof(::ric::notify::SMTPSendRequest)},
-  { 81, -1, sizeof(::ric::notify::SMTPSendResponse)},
-  { 86, -1, sizeof(::ric::notify::SMTPGatewayInfoRequest)},
-  { 92, -1, sizeof(::ric::notify::SMTPGatewayInfoResponse)},
+  { 74, -1, sizeof(::ric::notify::SMTPSendRequest)},
+  { 82, -1, sizeof(::ric::notify::SMTPSendResponse)},
+  { 87, -1, sizeof(::ric::notify::SMTPGatewayInfoRequest)},
+  { 93, -1, sizeof(::ric::notify::SMTPGatewayInfoResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -443,33 +444,34 @@ const char descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto[] =
   "ENT\020\004\022\t\n\005ERROR\020\005\",\n\026SMPPGatewayInfoReque"
   "st\022\022\n\ngateway_id\030\001 \001(\t\"9\n\027SMPPGatewayInf"
   "oResponse\022\016\n\006online\030\001 \001(\010\022\016\n\006uptime\030\002 \001("
-  "\003\"\261\001\n\017SMTPCredentials\022\n\n\002to\030\001 \003(\t\022\016\n\006sen"
+  "\003\"\336\001\n\017SMTPCredentials\022\n\n\002to\030\001 \003(\t\022\016\n\006sen"
   "der\030\002 \001(\t\022\017\n\007subject\030\003 \001(\t\022\024\n\014content_ty"
   "pe\030\004 \001(\t\022\014\n\004body\030\005 \001(\t\022\016\n\006server\030\006 \001(\t\022\020"
   "\n\010password\030\007 \001(\t\022+\n\007use_tls\030\010 \001(\0132\032.goog"
-  "le.protobuf.BoolValue\"y\n\017SMTPSendRequest"
-  "\022$\n\003ctx\030\001 \001(\0132\027.ric.notify.UserContext\022\022"
-  "\n\ngateway_id\030\002 \001(\t\022,\n\007request\030\003 \001(\0132\033.ri"
-  "c.notify.SMTPCredentials\"\022\n\020SMTPSendResp"
-  "onse\",\n\026SMTPGatewayInfoRequest\022\022\n\ngatewa"
-  "y_id\030\001 \001(\t\"D\n\027SMTPGatewayInfoResponse\022)\n"
-  "\004info\030\001 \001(\0132\033.ric.notify.SMTPCredentials"
-  "2\352\001\n\004SMPP\022A\n\004Send\022\033.ric.notify.SMPPSendR"
-  "equest\032\034.ric.notify.SMPPSendResponse\022G\n\006"
-  "Status\022\035.ric.notify.SMPPStatusRequest\032\036."
-  "ric.notify.SMPPStatusResponse\022V\n\013Gateway"
-  "Info\022\".ric.notify.SMPPGatewayInfoRequest"
-  "\032#.ric.notify.SMPPGatewayInfoResponse2\241\001"
-  "\n\004SMTP\022A\n\004Send\022\033.ric.notify.SMTPSendRequ"
-  "est\032\034.ric.notify.SMTPSendResponse\022V\n\013Gat"
-  "ewayInfo\022\".ric.notify.SMTPGatewayInfoReq"
-  "uest\032#.ric.notify.SMTPGatewayInfoRespons"
-  "eB\030Z\026./ric-notify;ricnotifyb\006proto3"
+  "le.protobuf.BoolValue\022+\n\007use_ssl\030\t \001(\0132\032"
+  ".google.protobuf.BoolValue\"y\n\017SMTPSendRe"
+  "quest\022$\n\003ctx\030\001 \001(\0132\027.ric.notify.UserCont"
+  "ext\022\022\n\ngateway_id\030\002 \001(\t\022,\n\007request\030\003 \001(\013"
+  "2\033.ric.notify.SMTPCredentials\"\022\n\020SMTPSen"
+  "dResponse\",\n\026SMTPGatewayInfoRequest\022\022\n\ng"
+  "ateway_id\030\001 \001(\t\"D\n\027SMTPGatewayInfoRespon"
+  "se\022)\n\004info\030\001 \001(\0132\033.ric.notify.SMTPCreden"
+  "tials2\352\001\n\004SMPP\022A\n\004Send\022\033.ric.notify.SMPP"
+  "SendRequest\032\034.ric.notify.SMPPSendRespons"
+  "e\022G\n\006Status\022\035.ric.notify.SMPPStatusReque"
+  "st\032\036.ric.notify.SMPPStatusResponse\022V\n\013Ga"
+  "tewayInfo\022\".ric.notify.SMPPGatewayInfoRe"
+  "quest\032#.ric.notify.SMPPGatewayInfoRespon"
+  "se2\241\001\n\004SMTP\022A\n\004Send\022\033.ric.notify.SMTPSen"
+  "dRequest\032\034.ric.notify.SMTPSendResponse\022V"
+  "\n\013GatewayInfo\022\".ric.notify.SMTPGatewayIn"
+  "foRequest\032#.ric.notify.SMTPGatewayInfoRe"
+  "sponseB\030Z\026./ric-notify;ricnotifyb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dnotify_2fricnotify_2eproto = {
   false, InitDefaults_ric_2dnotify_2fricnotify_2eproto, 
   descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto,
-  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 1675,
+  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 1720,
 };
 
 void AddDescriptors_ric_2dnotify_2fricnotify_2eproto() {
@@ -3643,21 +3645,34 @@ void SMPPGatewayInfoResponse::InternalSwap(SMPPGatewayInfoResponse* other) {
 void SMTPCredentials::InitAsDefaultInstance() {
   ::ric::notify::_SMTPCredentials_default_instance_._instance.get_mutable()->use_tls_ = const_cast< ::google::protobuf::BoolValue*>(
       ::google::protobuf::BoolValue::internal_default_instance());
+  ::ric::notify::_SMTPCredentials_default_instance_._instance.get_mutable()->use_ssl_ = const_cast< ::google::protobuf::BoolValue*>(
+      ::google::protobuf::BoolValue::internal_default_instance());
 }
 class SMTPCredentials::HasBitSetters {
  public:
   static const ::google::protobuf::BoolValue& use_tls(const SMTPCredentials* msg);
+  static const ::google::protobuf::BoolValue& use_ssl(const SMTPCredentials* msg);
 };
 
 const ::google::protobuf::BoolValue&
 SMTPCredentials::HasBitSetters::use_tls(const SMTPCredentials* msg) {
   return *msg->use_tls_;
 }
+const ::google::protobuf::BoolValue&
+SMTPCredentials::HasBitSetters::use_ssl(const SMTPCredentials* msg) {
+  return *msg->use_ssl_;
+}
 void SMTPCredentials::clear_use_tls() {
   if (GetArenaNoVirtual() == nullptr && use_tls_ != nullptr) {
     delete use_tls_;
   }
   use_tls_ = nullptr;
+}
+void SMTPCredentials::clear_use_ssl() {
+  if (GetArenaNoVirtual() == nullptr && use_ssl_ != nullptr) {
+    delete use_ssl_;
+  }
+  use_ssl_ = nullptr;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SMTPCredentials::kToFieldNumber;
@@ -3668,6 +3683,7 @@ const int SMTPCredentials::kBodyFieldNumber;
 const int SMTPCredentials::kServerFieldNumber;
 const int SMTPCredentials::kPasswordFieldNumber;
 const int SMTPCredentials::kUseTlsFieldNumber;
+const int SMTPCredentials::kUseSslFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SMTPCredentials::SMTPCredentials()
@@ -3709,6 +3725,11 @@ SMTPCredentials::SMTPCredentials(const SMTPCredentials& from)
   } else {
     use_tls_ = nullptr;
   }
+  if (from.has_use_ssl()) {
+    use_ssl_ = new ::google::protobuf::BoolValue(*from.use_ssl_);
+  } else {
+    use_ssl_ = nullptr;
+  }
   // @@protoc_insertion_point(copy_constructor:ric.notify.SMTPCredentials)
 }
 
@@ -3721,7 +3742,9 @@ void SMTPCredentials::SharedCtor() {
   body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   server_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  use_tls_ = nullptr;
+  ::memset(&use_tls_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&use_ssl_) -
+      reinterpret_cast<char*>(&use_tls_)) + sizeof(use_ssl_));
 }
 
 SMTPCredentials::~SMTPCredentials() {
@@ -3737,6 +3760,7 @@ void SMTPCredentials::SharedDtor() {
   server_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete use_tls_;
+  if (this != internal_default_instance()) delete use_ssl_;
 }
 
 void SMTPCredentials::SetCachedSize(int size) const {
@@ -3765,6 +3789,10 @@ void SMTPCredentials::Clear() {
     delete use_tls_;
   }
   use_tls_ = nullptr;
+  if (GetArenaNoVirtual() == nullptr && use_ssl_ != nullptr) {
+    delete use_ssl_;
+  }
+  use_ssl_ = nullptr;
   _internal_metadata_.Clear();
 }
 
@@ -3903,6 +3931,19 @@ const char* SMTPCredentials::_InternalParse(const char* begin, const char* end, 
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::google::protobuf::BoolValue::_InternalParse;
         object = msg->mutable_use_tls();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // .google.protobuf.BoolValue use_ssl = 9;
+      case 9: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 74) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::google::protobuf::BoolValue::_InternalParse;
+        object = msg->mutable_use_ssl();
         if (size > end - ptr) goto len_delim_till_end;
         ptr += size;
         GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
@@ -4060,6 +4101,17 @@ bool SMTPCredentials::MergePartialFromCodedStream(
         break;
       }
 
+      // .google.protobuf.BoolValue use_ssl = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (74 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_use_ssl()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -4163,6 +4215,12 @@ void SMTPCredentials::SerializeWithCachedSizes(
       8, HasBitSetters::use_tls(this), output);
   }
 
+  // .google.protobuf.BoolValue use_ssl = 9;
+  if (this->has_use_ssl()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      9, HasBitSetters::use_ssl(this), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -4259,6 +4317,13 @@ void SMTPCredentials::SerializeWithCachedSizes(
         8, HasBitSetters::use_tls(this), target);
   }
 
+  // .google.protobuf.BoolValue use_ssl = 9;
+  if (this->has_use_ssl()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        9, HasBitSetters::use_ssl(this), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -4337,6 +4402,13 @@ size_t SMTPCredentials::ByteSizeLong() const {
         *use_tls_);
   }
 
+  // .google.protobuf.BoolValue use_ssl = 9;
+  if (this->has_use_ssl()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *use_ssl_);
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -4392,6 +4464,9 @@ void SMTPCredentials::MergeFrom(const SMTPCredentials& from) {
   if (from.has_use_tls()) {
     mutable_use_tls()->::google::protobuf::BoolValue::MergeFrom(from.use_tls());
   }
+  if (from.has_use_ssl()) {
+    mutable_use_ssl()->::google::protobuf::BoolValue::MergeFrom(from.use_ssl());
+  }
 }
 
 void SMTPCredentials::CopyFrom(const ::google::protobuf::Message& from) {
@@ -4433,6 +4508,7 @@ void SMTPCredentials::InternalSwap(SMTPCredentials* other) {
   password_.Swap(&other->password_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(use_tls_, other->use_tls_);
+  swap(use_ssl_, other->use_ssl_);
 }
 
 ::google::protobuf::Metadata SMTPCredentials::GetMetadata() const {

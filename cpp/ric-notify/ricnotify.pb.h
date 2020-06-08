@@ -1484,6 +1484,15 @@ class SMTPCredentials final :
   ::google::protobuf::BoolValue* mutable_use_tls();
   void set_allocated_use_tls(::google::protobuf::BoolValue* use_tls);
 
+  // .google.protobuf.BoolValue use_ssl = 9;
+  bool has_use_ssl() const;
+  void clear_use_ssl();
+  static const int kUseSslFieldNumber = 9;
+  const ::google::protobuf::BoolValue& use_ssl() const;
+  ::google::protobuf::BoolValue* release_use_ssl();
+  ::google::protobuf::BoolValue* mutable_use_ssl();
+  void set_allocated_use_ssl(::google::protobuf::BoolValue* use_ssl);
+
   // @@protoc_insertion_point(class_scope:ric.notify.SMTPCredentials)
  private:
   class HasBitSetters;
@@ -1497,6 +1506,7 @@ class SMTPCredentials final :
   ::google::protobuf::internal::ArenaStringPtr server_;
   ::google::protobuf::internal::ArenaStringPtr password_;
   ::google::protobuf::BoolValue* use_tls_;
+  ::google::protobuf::BoolValue* use_ssl_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
 };
@@ -3354,6 +3364,52 @@ inline void SMTPCredentials::set_allocated_use_tls(::google::protobuf::BoolValue
   }
   use_tls_ = use_tls;
   // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPCredentials.use_tls)
+}
+
+// .google.protobuf.BoolValue use_ssl = 9;
+inline bool SMTPCredentials::has_use_ssl() const {
+  return this != internal_default_instance() && use_ssl_ != nullptr;
+}
+inline const ::google::protobuf::BoolValue& SMTPCredentials::use_ssl() const {
+  const ::google::protobuf::BoolValue* p = use_ssl_;
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPCredentials.use_ssl)
+  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::BoolValue*>(
+      &::google::protobuf::_BoolValue_default_instance_);
+}
+inline ::google::protobuf::BoolValue* SMTPCredentials::release_use_ssl() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPCredentials.use_ssl)
+  
+  ::google::protobuf::BoolValue* temp = use_ssl_;
+  use_ssl_ = nullptr;
+  return temp;
+}
+inline ::google::protobuf::BoolValue* SMTPCredentials::mutable_use_ssl() {
+  
+  if (use_ssl_ == nullptr) {
+    auto* p = CreateMaybeMessage<::google::protobuf::BoolValue>(GetArenaNoVirtual());
+    use_ssl_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPCredentials.use_ssl)
+  return use_ssl_;
+}
+inline void SMTPCredentials::set_allocated_use_ssl(::google::protobuf::BoolValue* use_ssl) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(use_ssl_);
+  }
+  if (use_ssl) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(use_ssl)->GetArena();
+    if (message_arena != submessage_arena) {
+      use_ssl = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, use_ssl, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  use_ssl_ = use_ssl;
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPCredentials.use_ssl)
 }
 
 // -------------------------------------------------------------------

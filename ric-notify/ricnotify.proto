@@ -78,6 +78,7 @@ message SMTPCredentials {
   string server = 6;
   string password = 7;
   google.protobuf.BoolValue use_tls = 8;
+  google.protobuf.BoolValue use_ssl = 9;
 }
 
 message SMTPSendRequest {
