@@ -16,9 +16,10 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 
+extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2fwrappers_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_BoolValue_google_2fprotobuf_2fwrappers_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_SMPPStatusResponse_SMPPStatus_ric_2dnotify_2fricnotify_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_SMTPCredentials_ric_2dnotify_2fricnotify_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_UserContext_ric_2dnotify_2fricnotify_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_SMTPCredentials_ric_2dnotify_2fricnotify_2eproto;
 namespace ric {
 namespace notify {
 class UserContextDefaultTypeInternal {
@@ -200,8 +201,9 @@ static void InitDefaultsSMTPCredentials_ric_2dnotify_2fricnotify_2eproto() {
   ::ric::notify::SMTPCredentials::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_SMTPCredentials_ric_2dnotify_2fricnotify_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSMTPCredentials_ric_2dnotify_2fricnotify_2eproto}, {}};
+::google::protobuf::internal::SCCInfo<1> scc_info_SMTPCredentials_ric_2dnotify_2fricnotify_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsSMTPCredentials_ric_2dnotify_2fricnotify_2eproto}, {
+      &scc_info_BoolValue_google_2fprotobuf_2fwrappers_2eproto.base,}};
 
 static void InitDefaultsSMTPSendRequest_ric_2dnotify_2fricnotify_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -422,58 +424,60 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 
 const char descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto[] =
   "\n\032ric-notify/ricnotify.proto\022\nric.notify"
-  "\"A\n\013UserContext\022\020\n\010group_id\030\001 \001(\t\022\017\n\007use"
-  "r_id\030\002 \001(\t\022\017\n\007span_id\030\003 \001(\t\"k\n\017SMPPSendR"
-  "equest\022$\n\003ctx\030\001 \001(\0132\027.ric.notify.UserCon"
-  "text\022\022\n\ngateway_id\030\002 \001(\t\022\r\n\005phone\030\003 \001(\t\022"
-  "\017\n\007message\030\004 \001(\t\"&\n\020SMPPSendResponse\022\022\n\n"
-  "message_id\030\001 \001(\t\";\n\021SMPPStatusRequest\022\022\n"
-  "\ngateway_id\030\001 \001(\t\022\022\n\nmessage_id\030\002 \001(\t\"\330\002"
-  "\n\022SMPPStatusResponse\0223\n\005state\030\001 \001(\0162$.ri"
-  "c.notify.SMPPStatusResponse.State\022\023\n\013des"
-  "cription\030\002 \001(\t\022>\n\013smpp_status\030\003 \001(\0132).ri"
-  "c.notify.SMPPStatusResponse.SMPPStatus\032U"
-  "\n\nSMPPStatus\022\016\n\006msg_id\030\001 \001(\t\022\021\n\tmsg_stat"
-  "e\030\002 \001(\t\022\022\n\nfinal_date\030\003 \001(\t\022\020\n\010err_code\030"
-  "\004 \001(\005\"a\n\005State\022\013\n\007UNKNOWN\020\000\022\014\n\010SCHEDULE\020"
-  "\001\022\016\n\nSEND_ERROR\020\002\022\030\n\024MAX_RETRIES_EXCEEDE"
-  "D\020\003\022\010\n\004SENT\020\004\022\t\n\005ERROR\020\005\",\n\026SMPPGatewayI"
-  "nfoRequest\022\022\n\ngateway_id\030\001 \001(\t\"9\n\027SMPPGa"
-  "tewayInfoResponse\022\016\n\006online\030\001 \001(\010\022\016\n\006upt"
-  "ime\030\002 \001(\003\"\225\001\n\017SMTPCredentials\022\n\n\002to\030\001 \003("
-  "\t\022\016\n\006sender\030\002 \001(\t\022\017\n\007subject\030\003 \001(\t\022\024\n\014co"
-  "ntent_type\030\004 \001(\t\022\014\n\004body\030\005 \001(\t\022\016\n\006server"
-  "\030\006 \001(\t\022\020\n\010password\030\007 \001(\t\022\017\n\007use_tls\030\010 \001("
-  "\010\"y\n\017SMTPSendRequest\022$\n\003ctx\030\001 \001(\0132\027.ric."
-  "notify.UserContext\022\022\n\ngateway_id\030\002 \001(\t\022,"
-  "\n\007request\030\003 \001(\0132\033.ric.notify.SMTPCredent"
-  "ials\"\022\n\020SMTPSendResponse\",\n\026SMTPGatewayI"
-  "nfoRequest\022\022\n\ngateway_id\030\001 \001(\t\"D\n\027SMTPGa"
-  "tewayInfoResponse\022)\n\004info\030\001 \001(\0132\033.ric.no"
-  "tify.SMTPCredentials2\352\001\n\004SMPP\022A\n\004Send\022\033."
-  "ric.notify.SMPPSendRequest\032\034.ric.notify."
-  "SMPPSendResponse\022G\n\006Status\022\035.ric.notify."
-  "SMPPStatusRequest\032\036.ric.notify.SMPPStatu"
-  "sResponse\022V\n\013GatewayInfo\022\".ric.notify.SM"
-  "PPGatewayInfoRequest\032#.ric.notify.SMPPGa"
-  "tewayInfoResponse2\241\001\n\004SMTP\022A\n\004Send\022\033.ric"
-  ".notify.SMTPSendRequest\032\034.ric.notify.SMT"
-  "PSendResponse\022V\n\013GatewayInfo\022\".ric.notif"
-  "y.SMTPGatewayInfoRequest\032#.ric.notify.SM"
-  "TPGatewayInfoResponseB\030Z\026./ric-notify;ri"
-  "cnotifyb\006proto3"
+  "\032\036google/protobuf/wrappers.proto\"A\n\013User"
+  "Context\022\020\n\010group_id\030\001 \001(\t\022\017\n\007user_id\030\002 \001"
+  "(\t\022\017\n\007span_id\030\003 \001(\t\"k\n\017SMPPSendRequest\022$"
+  "\n\003ctx\030\001 \001(\0132\027.ric.notify.UserContext\022\022\n\n"
+  "gateway_id\030\002 \001(\t\022\r\n\005phone\030\003 \001(\t\022\017\n\007messa"
+  "ge\030\004 \001(\t\"&\n\020SMPPSendResponse\022\022\n\nmessage_"
+  "id\030\001 \001(\t\";\n\021SMPPStatusRequest\022\022\n\ngateway"
+  "_id\030\001 \001(\t\022\022\n\nmessage_id\030\002 \001(\t\"\330\002\n\022SMPPSt"
+  "atusResponse\0223\n\005state\030\001 \001(\0162$.ric.notify"
+  ".SMPPStatusResponse.State\022\023\n\013description"
+  "\030\002 \001(\t\022>\n\013smpp_status\030\003 \001(\0132).ric.notify"
+  ".SMPPStatusResponse.SMPPStatus\032U\n\nSMPPSt"
+  "atus\022\016\n\006msg_id\030\001 \001(\t\022\021\n\tmsg_state\030\002 \001(\t\022"
+  "\022\n\nfinal_date\030\003 \001(\t\022\020\n\010err_code\030\004 \001(\005\"a\n"
+  "\005State\022\013\n\007UNKNOWN\020\000\022\014\n\010SCHEDULE\020\001\022\016\n\nSEN"
+  "D_ERROR\020\002\022\030\n\024MAX_RETRIES_EXCEEDED\020\003\022\010\n\004S"
+  "ENT\020\004\022\t\n\005ERROR\020\005\",\n\026SMPPGatewayInfoReque"
+  "st\022\022\n\ngateway_id\030\001 \001(\t\"9\n\027SMPPGatewayInf"
+  "oResponse\022\016\n\006online\030\001 \001(\010\022\016\n\006uptime\030\002 \001("
+  "\003\"\261\001\n\017SMTPCredentials\022\n\n\002to\030\001 \003(\t\022\016\n\006sen"
+  "der\030\002 \001(\t\022\017\n\007subject\030\003 \001(\t\022\024\n\014content_ty"
+  "pe\030\004 \001(\t\022\014\n\004body\030\005 \001(\t\022\016\n\006server\030\006 \001(\t\022\020"
+  "\n\010password\030\007 \001(\t\022+\n\007use_tls\030\010 \001(\0132\032.goog"
+  "le.protobuf.BoolValue\"y\n\017SMTPSendRequest"
+  "\022$\n\003ctx\030\001 \001(\0132\027.ric.notify.UserContext\022\022"
+  "\n\ngateway_id\030\002 \001(\t\022,\n\007request\030\003 \001(\0132\033.ri"
+  "c.notify.SMTPCredentials\"\022\n\020SMTPSendResp"
+  "onse\",\n\026SMTPGatewayInfoRequest\022\022\n\ngatewa"
+  "y_id\030\001 \001(\t\"D\n\027SMTPGatewayInfoResponse\022)\n"
+  "\004info\030\001 \001(\0132\033.ric.notify.SMTPCredentials"
+  "2\352\001\n\004SMPP\022A\n\004Send\022\033.ric.notify.SMPPSendR"
+  "equest\032\034.ric.notify.SMPPSendResponse\022G\n\006"
+  "Status\022\035.ric.notify.SMPPStatusRequest\032\036."
+  "ric.notify.SMPPStatusResponse\022V\n\013Gateway"
+  "Info\022\".ric.notify.SMPPGatewayInfoRequest"
+  "\032#.ric.notify.SMPPGatewayInfoResponse2\241\001"
+  "\n\004SMTP\022A\n\004Send\022\033.ric.notify.SMTPSendRequ"
+  "est\032\034.ric.notify.SMTPSendResponse\022V\n\013Gat"
+  "ewayInfo\022\".ric.notify.SMTPGatewayInfoReq"
+  "uest\032#.ric.notify.SMTPGatewayInfoRespons"
+  "eB\030Z\026./ric-notify;ricnotifyb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dnotify_2fricnotify_2eproto = {
   false, InitDefaults_ric_2dnotify_2fricnotify_2eproto, 
   descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto,
-  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 1615,
+  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 1675,
 };
 
 void AddDescriptors_ric_2dnotify_2fricnotify_2eproto() {
   static constexpr ::google::protobuf::internal::InitFunc deps[1] =
   {
+    ::AddDescriptors_google_2fprotobuf_2fwrappers_2eproto,
   };
- ::google::protobuf::internal::AddDescriptors(&descriptor_table_ric_2dnotify_2fricnotify_2eproto, deps, 0);
+ ::google::protobuf::internal::AddDescriptors(&descriptor_table_ric_2dnotify_2fricnotify_2eproto, deps, 1);
 }
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -3637,11 +3641,24 @@ void SMPPGatewayInfoResponse::InternalSwap(SMPPGatewayInfoResponse* other) {
 // ===================================================================
 
 void SMTPCredentials::InitAsDefaultInstance() {
+  ::ric::notify::_SMTPCredentials_default_instance_._instance.get_mutable()->use_tls_ = const_cast< ::google::protobuf::BoolValue*>(
+      ::google::protobuf::BoolValue::internal_default_instance());
 }
 class SMTPCredentials::HasBitSetters {
  public:
+  static const ::google::protobuf::BoolValue& use_tls(const SMTPCredentials* msg);
 };
 
+const ::google::protobuf::BoolValue&
+SMTPCredentials::HasBitSetters::use_tls(const SMTPCredentials* msg) {
+  return *msg->use_tls_;
+}
+void SMTPCredentials::clear_use_tls() {
+  if (GetArenaNoVirtual() == nullptr && use_tls_ != nullptr) {
+    delete use_tls_;
+  }
+  use_tls_ = nullptr;
+}
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SMTPCredentials::kToFieldNumber;
 const int SMTPCredentials::kSenderFieldNumber;
@@ -3687,7 +3704,11 @@ SMTPCredentials::SMTPCredentials(const SMTPCredentials& from)
   if (from.password().size() > 0) {
     password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
   }
-  use_tls_ = from.use_tls_;
+  if (from.has_use_tls()) {
+    use_tls_ = new ::google::protobuf::BoolValue(*from.use_tls_);
+  } else {
+    use_tls_ = nullptr;
+  }
   // @@protoc_insertion_point(copy_constructor:ric.notify.SMTPCredentials)
 }
 
@@ -3700,7 +3721,7 @@ void SMTPCredentials::SharedCtor() {
   body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   server_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  use_tls_ = false;
+  use_tls_ = nullptr;
 }
 
 SMTPCredentials::~SMTPCredentials() {
@@ -3715,6 +3736,7 @@ void SMTPCredentials::SharedDtor() {
   body_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   server_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete use_tls_;
 }
 
 void SMTPCredentials::SetCachedSize(int size) const {
@@ -3739,7 +3761,10 @@ void SMTPCredentials::Clear() {
   body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   server_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  use_tls_ = false;
+  if (GetArenaNoVirtual() == nullptr && use_tls_ != nullptr) {
+    delete use_tls_;
+  }
+  use_tls_ = nullptr;
   _internal_metadata_.Clear();
 }
 
@@ -3871,11 +3896,17 @@ const char* SMTPCredentials::_InternalParse(const char* begin, const char* end, 
         ptr += size;
         break;
       }
-      // bool use_tls = 8;
+      // .google.protobuf.BoolValue use_tls = 8;
       case 8: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 64) goto handle_unusual;
-        msg->set_use_tls(::google::protobuf::internal::ReadVarint(&ptr));
+        if (static_cast<::google::protobuf::uint8>(tag) != 66) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::google::protobuf::BoolValue::_InternalParse;
+        object = msg->mutable_use_tls();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
         break;
       }
       default: {
@@ -4018,13 +4049,11 @@ bool SMTPCredentials::MergePartialFromCodedStream(
         break;
       }
 
-      // bool use_tls = 8;
+      // .google.protobuf.BoolValue use_tls = 8;
       case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (64 & 0xFF)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &use_tls_)));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (66 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_use_tls()));
         } else {
           goto handle_unusual;
         }
@@ -4128,9 +4157,10 @@ void SMTPCredentials::SerializeWithCachedSizes(
       7, this->password(), output);
   }
 
-  // bool use_tls = 8;
-  if (this->use_tls() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(8, this->use_tls(), output);
+  // .google.protobuf.BoolValue use_tls = 8;
+  if (this->has_use_tls()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      8, HasBitSetters::use_tls(this), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4222,9 +4252,11 @@ void SMTPCredentials::SerializeWithCachedSizes(
         7, this->password(), target);
   }
 
-  // bool use_tls = 8;
-  if (this->use_tls() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(8, this->use_tls(), target);
+  // .google.protobuf.BoolValue use_tls = 8;
+  if (this->has_use_tls()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        8, HasBitSetters::use_tls(this), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4298,9 +4330,11 @@ size_t SMTPCredentials::ByteSizeLong() const {
         this->password());
   }
 
-  // bool use_tls = 8;
-  if (this->use_tls() != 0) {
-    total_size += 1 + 1;
+  // .google.protobuf.BoolValue use_tls = 8;
+  if (this->has_use_tls()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *use_tls_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -4355,8 +4389,8 @@ void SMTPCredentials::MergeFrom(const SMTPCredentials& from) {
 
     password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
   }
-  if (from.use_tls() != 0) {
-    set_use_tls(from.use_tls());
+  if (from.has_use_tls()) {
+    mutable_use_tls()->::google::protobuf::BoolValue::MergeFrom(from.use_tls());
   }
 }
 
