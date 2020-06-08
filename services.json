@@ -60,12 +60,12 @@
                 "dev": 15080
             }
         },
-        "ric-notify.smpp": {
+        "ric-notify.SMPP": {
             "port": {
                 "dev": 15081
             }
         },
-        "ric-notify.smtp": {
+        "ric-notify.SMTP": {
             "port": {
                 "k8s": 5072,
                 "dev": 15082

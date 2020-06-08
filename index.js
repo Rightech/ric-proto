@@ -256,7 +256,8 @@ class Registry {
     return Object.assign(
       {},
       this.meta.default || {},
-      this.meta.services[name.service] || {}
+      this.meta.services[name.service] || {},
+      this.meta.services[name.full] || {}
     );
   }
 
