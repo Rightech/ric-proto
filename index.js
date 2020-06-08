@@ -188,7 +188,8 @@ class GrpcClient {
         //const hostname = `${this.name.full}-${instanceName}`;
         //return `${hostname}.${this.name.full}`
       }
-      return this.name.full;
+      return this.name.service;
+      //return this.name.full;
     }
     if (devHost && !isLocal) {
       return devHost;
