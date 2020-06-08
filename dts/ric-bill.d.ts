@@ -3,6 +3,7 @@ export interface Billing {
   VerifyAccount(request: SetupRequest): Promise<SetupResponse>;
   CloseAccount(request: SetupRequest): Promise<SetupResponse>;
   CreateSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
+  UpdateSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
 }
 
 export interface UserContext {
@@ -23,6 +24,7 @@ export interface SetupResponse {
 export interface SubscriptionRequest {
   ctx?: UserContext;
   licenseId?: string;
+  params?: string;
 }
 
 export interface SubscriptionResponse {

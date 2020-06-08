@@ -9,6 +9,7 @@ service Billing {
   rpc VerifyAccount(SetupRequest) returns (SetupResponse);
   rpc CloseAccount(SetupRequest) returns (SetupResponse);
   rpc CreateSubscription(SubscriptionRequest) returns (SubscriptionResponse);
+  rpc UpdateSubscription(SubscriptionRequest) returns (SubscriptionResponse);
 }
 
 message UserContext {
@@ -29,6 +30,7 @@ message SetupResponse {
 message SubscriptionRequest {
   UserContext ctx = 1;
   string license_id = 2;
+  string params = 3;
 }
 
 message SubscriptionResponse {
