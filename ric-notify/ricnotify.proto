@@ -4,6 +4,8 @@ package ric.notify;
 
 option go_package = "./ric-notify;ricnotify";
 
+import "google/protobuf/wrappers.proto";
+
 service SMPP {
   rpc Send(SMPPSendRequest) returns (SMPPSendResponse);
   rpc Status(SMPPStatusRequest) returns (SMPPStatusResponse);
@@ -75,7 +77,7 @@ message SMTPCredentials {
   string body = 5;
   string server = 6;
   string password = 7;
-  bool use_tls = 8;
+  google.protobuf.BoolValue use_tls = 8;
 }
 
 message SMTPSendRequest {

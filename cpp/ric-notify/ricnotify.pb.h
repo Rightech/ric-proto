@@ -32,6 +32,7 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include <google/protobuf/wrappers.pb.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto
@@ -1474,11 +1475,14 @@ class SMTPCredentials final :
   ::std::string* release_password();
   void set_allocated_password(::std::string* password);
 
-  // bool use_tls = 8;
+  // .google.protobuf.BoolValue use_tls = 8;
+  bool has_use_tls() const;
   void clear_use_tls();
   static const int kUseTlsFieldNumber = 8;
-  bool use_tls() const;
-  void set_use_tls(bool value);
+  const ::google::protobuf::BoolValue& use_tls() const;
+  ::google::protobuf::BoolValue* release_use_tls();
+  ::google::protobuf::BoolValue* mutable_use_tls();
+  void set_allocated_use_tls(::google::protobuf::BoolValue* use_tls);
 
   // @@protoc_insertion_point(class_scope:ric.notify.SMTPCredentials)
  private:
@@ -1492,7 +1496,7 @@ class SMTPCredentials final :
   ::google::protobuf::internal::ArenaStringPtr body_;
   ::google::protobuf::internal::ArenaStringPtr server_;
   ::google::protobuf::internal::ArenaStringPtr password_;
-  bool use_tls_;
+  ::google::protobuf::BoolValue* use_tls_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
 };
@@ -3306,18 +3310,50 @@ inline void SMTPCredentials::set_allocated_password(::std::string* password) {
   // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPCredentials.password)
 }
 
-// bool use_tls = 8;
-inline void SMTPCredentials::clear_use_tls() {
-  use_tls_ = false;
+// .google.protobuf.BoolValue use_tls = 8;
+inline bool SMTPCredentials::has_use_tls() const {
+  return this != internal_default_instance() && use_tls_ != nullptr;
 }
-inline bool SMTPCredentials::use_tls() const {
+inline const ::google::protobuf::BoolValue& SMTPCredentials::use_tls() const {
+  const ::google::protobuf::BoolValue* p = use_tls_;
   // @@protoc_insertion_point(field_get:ric.notify.SMTPCredentials.use_tls)
+  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::BoolValue*>(
+      &::google::protobuf::_BoolValue_default_instance_);
+}
+inline ::google::protobuf::BoolValue* SMTPCredentials::release_use_tls() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPCredentials.use_tls)
+  
+  ::google::protobuf::BoolValue* temp = use_tls_;
+  use_tls_ = nullptr;
+  return temp;
+}
+inline ::google::protobuf::BoolValue* SMTPCredentials::mutable_use_tls() {
+  
+  if (use_tls_ == nullptr) {
+    auto* p = CreateMaybeMessage<::google::protobuf::BoolValue>(GetArenaNoVirtual());
+    use_tls_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPCredentials.use_tls)
   return use_tls_;
 }
-inline void SMTPCredentials::set_use_tls(bool value) {
-  
-  use_tls_ = value;
-  // @@protoc_insertion_point(field_set:ric.notify.SMTPCredentials.use_tls)
+inline void SMTPCredentials::set_allocated_use_tls(::google::protobuf::BoolValue* use_tls) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(use_tls_);
+  }
+  if (use_tls) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(use_tls)->GetArena();
+    if (message_arena != submessage_arena) {
+      use_tls = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, use_tls, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  use_tls_ = use_tls;
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPCredentials.use_tls)
 }
 
 // -------------------------------------------------------------------

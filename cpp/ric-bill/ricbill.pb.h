@@ -50,18 +50,18 @@ struct TableStruct_ric_2dbill_2fricbill_2eproto {
 void AddDescriptors_ric_2dbill_2fricbill_2eproto();
 namespace ric {
 namespace bill {
-class PaymentRequest;
-class PaymentRequestDefaultTypeInternal;
-extern PaymentRequestDefaultTypeInternal _PaymentRequest_default_instance_;
-class PaymentResponse;
-class PaymentResponseDefaultTypeInternal;
-extern PaymentResponseDefaultTypeInternal _PaymentResponse_default_instance_;
 class SetupRequest;
 class SetupRequestDefaultTypeInternal;
 extern SetupRequestDefaultTypeInternal _SetupRequest_default_instance_;
 class SetupResponse;
 class SetupResponseDefaultTypeInternal;
 extern SetupResponseDefaultTypeInternal _SetupResponse_default_instance_;
+class SubscriptionRequest;
+class SubscriptionRequestDefaultTypeInternal;
+extern SubscriptionRequestDefaultTypeInternal _SubscriptionRequest_default_instance_;
+class SubscriptionResponse;
+class SubscriptionResponseDefaultTypeInternal;
+extern SubscriptionResponseDefaultTypeInternal _SubscriptionResponse_default_instance_;
 class UserContext;
 class UserContextDefaultTypeInternal;
 extern UserContextDefaultTypeInternal _UserContext_default_instance_;
@@ -69,10 +69,10 @@ extern UserContextDefaultTypeInternal _UserContext_default_instance_;
 }  // namespace ric
 namespace google {
 namespace protobuf {
-template<> ::ric::bill::PaymentRequest* Arena::CreateMaybeMessage<::ric::bill::PaymentRequest>(Arena*);
-template<> ::ric::bill::PaymentResponse* Arena::CreateMaybeMessage<::ric::bill::PaymentResponse>(Arena*);
 template<> ::ric::bill::SetupRequest* Arena::CreateMaybeMessage<::ric::bill::SetupRequest>(Arena*);
 template<> ::ric::bill::SetupResponse* Arena::CreateMaybeMessage<::ric::bill::SetupResponse>(Arena*);
+template<> ::ric::bill::SubscriptionRequest* Arena::CreateMaybeMessage<::ric::bill::SubscriptionRequest>(Arena*);
+template<> ::ric::bill::SubscriptionResponse* Arena::CreateMaybeMessage<::ric::bill::SubscriptionResponse>(Arena*);
 template<> ::ric::bill::UserContext* Arena::CreateMaybeMessage<::ric::bill::UserContext>(Arena*);
 }  // namespace protobuf
 }  // namespace google
@@ -481,25 +481,25 @@ class SetupResponse final :
 };
 // -------------------------------------------------------------------
 
-class PaymentRequest final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.bill.PaymentRequest) */ {
+class SubscriptionRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.bill.SubscriptionRequest) */ {
  public:
-  PaymentRequest();
-  virtual ~PaymentRequest();
+  SubscriptionRequest();
+  virtual ~SubscriptionRequest();
 
-  PaymentRequest(const PaymentRequest& from);
+  SubscriptionRequest(const SubscriptionRequest& from);
 
-  inline PaymentRequest& operator=(const PaymentRequest& from) {
+  inline SubscriptionRequest& operator=(const SubscriptionRequest& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  PaymentRequest(PaymentRequest&& from) noexcept
-    : PaymentRequest() {
+  SubscriptionRequest(SubscriptionRequest&& from) noexcept
+    : SubscriptionRequest() {
     *this = ::std::move(from);
   }
 
-  inline PaymentRequest& operator=(PaymentRequest&& from) noexcept {
+  inline SubscriptionRequest& operator=(SubscriptionRequest&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -511,34 +511,34 @@ class PaymentRequest final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const PaymentRequest& default_instance();
+  static const SubscriptionRequest& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const PaymentRequest* internal_default_instance() {
-    return reinterpret_cast<const PaymentRequest*>(
-               &_PaymentRequest_default_instance_);
+  static inline const SubscriptionRequest* internal_default_instance() {
+    return reinterpret_cast<const SubscriptionRequest*>(
+               &_SubscriptionRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     3;
 
-  void Swap(PaymentRequest* other);
-  friend void swap(PaymentRequest& a, PaymentRequest& b) {
+  void Swap(SubscriptionRequest* other);
+  friend void swap(SubscriptionRequest& a, SubscriptionRequest& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline PaymentRequest* New() const final {
-    return CreateMaybeMessage<PaymentRequest>(nullptr);
+  inline SubscriptionRequest* New() const final {
+    return CreateMaybeMessage<SubscriptionRequest>(nullptr);
   }
 
-  PaymentRequest* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<PaymentRequest>(arena);
+  SubscriptionRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<SubscriptionRequest>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const PaymentRequest& from);
-  void MergeFrom(const PaymentRequest& from);
+  void CopyFrom(const SubscriptionRequest& from);
+  void MergeFrom(const SubscriptionRequest& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -560,7 +560,7 @@ class PaymentRequest final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(PaymentRequest* other);
+  void InternalSwap(SubscriptionRequest* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -576,35 +576,60 @@ class PaymentRequest final :
 
   // accessors -------------------------------------------------------
 
-  // @@protoc_insertion_point(class_scope:ric.bill.PaymentRequest)
+  // string license_id = 2;
+  void clear_license_id();
+  static const int kLicenseIdFieldNumber = 2;
+  const ::std::string& license_id() const;
+  void set_license_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_license_id(::std::string&& value);
+  #endif
+  void set_license_id(const char* value);
+  void set_license_id(const char* value, size_t size);
+  ::std::string* mutable_license_id();
+  ::std::string* release_license_id();
+  void set_allocated_license_id(::std::string* license_id);
+
+  // .ric.bill.UserContext ctx = 1;
+  bool has_ctx() const;
+  void clear_ctx();
+  static const int kCtxFieldNumber = 1;
+  const ::ric::bill::UserContext& ctx() const;
+  ::ric::bill::UserContext* release_ctx();
+  ::ric::bill::UserContext* mutable_ctx();
+  void set_allocated_ctx(::ric::bill::UserContext* ctx);
+
+  // @@protoc_insertion_point(class_scope:ric.bill.SubscriptionRequest)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr license_id_;
+  ::ric::bill::UserContext* ctx_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dbill_2fricbill_2eproto;
 };
 // -------------------------------------------------------------------
 
-class PaymentResponse final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.bill.PaymentResponse) */ {
+class SubscriptionResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.bill.SubscriptionResponse) */ {
  public:
-  PaymentResponse();
-  virtual ~PaymentResponse();
+  SubscriptionResponse();
+  virtual ~SubscriptionResponse();
 
-  PaymentResponse(const PaymentResponse& from);
+  SubscriptionResponse(const SubscriptionResponse& from);
 
-  inline PaymentResponse& operator=(const PaymentResponse& from) {
+  inline SubscriptionResponse& operator=(const SubscriptionResponse& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  PaymentResponse(PaymentResponse&& from) noexcept
-    : PaymentResponse() {
+  SubscriptionResponse(SubscriptionResponse&& from) noexcept
+    : SubscriptionResponse() {
     *this = ::std::move(from);
   }
 
-  inline PaymentResponse& operator=(PaymentResponse&& from) noexcept {
+  inline SubscriptionResponse& operator=(SubscriptionResponse&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -616,34 +641,34 @@ class PaymentResponse final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const PaymentResponse& default_instance();
+  static const SubscriptionResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const PaymentResponse* internal_default_instance() {
-    return reinterpret_cast<const PaymentResponse*>(
-               &_PaymentResponse_default_instance_);
+  static inline const SubscriptionResponse* internal_default_instance() {
+    return reinterpret_cast<const SubscriptionResponse*>(
+               &_SubscriptionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     4;
 
-  void Swap(PaymentResponse* other);
-  friend void swap(PaymentResponse& a, PaymentResponse& b) {
+  void Swap(SubscriptionResponse* other);
+  friend void swap(SubscriptionResponse& a, SubscriptionResponse& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline PaymentResponse* New() const final {
-    return CreateMaybeMessage<PaymentResponse>(nullptr);
+  inline SubscriptionResponse* New() const final {
+    return CreateMaybeMessage<SubscriptionResponse>(nullptr);
   }
 
-  PaymentResponse* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<PaymentResponse>(arena);
+  SubscriptionResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<SubscriptionResponse>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const PaymentResponse& from);
-  void MergeFrom(const PaymentResponse& from);
+  void CopyFrom(const SubscriptionResponse& from);
+  void MergeFrom(const SubscriptionResponse& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -665,7 +690,7 @@ class PaymentResponse final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(PaymentResponse* other);
+  void InternalSwap(SubscriptionResponse* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -681,11 +706,41 @@ class PaymentResponse final :
 
   // accessors -------------------------------------------------------
 
-  // @@protoc_insertion_point(class_scope:ric.bill.PaymentResponse)
+  // string payment_id = 1;
+  void clear_payment_id();
+  static const int kPaymentIdFieldNumber = 1;
+  const ::std::string& payment_id() const;
+  void set_payment_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_payment_id(::std::string&& value);
+  #endif
+  void set_payment_id(const char* value);
+  void set_payment_id(const char* value, size_t size);
+  ::std::string* mutable_payment_id();
+  ::std::string* release_payment_id();
+  void set_allocated_payment_id(::std::string* payment_id);
+
+  // string job_id = 2;
+  void clear_job_id();
+  static const int kJobIdFieldNumber = 2;
+  const ::std::string& job_id() const;
+  void set_job_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_job_id(::std::string&& value);
+  #endif
+  void set_job_id(const char* value);
+  void set_job_id(const char* value, size_t size);
+  ::std::string* mutable_job_id();
+  ::std::string* release_job_id();
+  void set_allocated_job_id(::std::string* job_id);
+
+  // @@protoc_insertion_point(class_scope:ric.bill.SubscriptionResponse)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr payment_id_;
+  ::google::protobuf::internal::ArenaStringPtr job_id_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dbill_2fricbill_2eproto;
 };
@@ -1026,11 +1081,221 @@ inline void SetupResponse::set_allocated_widget_params(::std::string* widget_par
 
 // -------------------------------------------------------------------
 
-// PaymentRequest
+// SubscriptionRequest
+
+// .ric.bill.UserContext ctx = 1;
+inline bool SubscriptionRequest::has_ctx() const {
+  return this != internal_default_instance() && ctx_ != nullptr;
+}
+inline void SubscriptionRequest::clear_ctx() {
+  if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
+    delete ctx_;
+  }
+  ctx_ = nullptr;
+}
+inline const ::ric::bill::UserContext& SubscriptionRequest::ctx() const {
+  const ::ric::bill::UserContext* p = ctx_;
+  // @@protoc_insertion_point(field_get:ric.bill.SubscriptionRequest.ctx)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::bill::UserContext*>(
+      &::ric::bill::_UserContext_default_instance_);
+}
+inline ::ric::bill::UserContext* SubscriptionRequest::release_ctx() {
+  // @@protoc_insertion_point(field_release:ric.bill.SubscriptionRequest.ctx)
+  
+  ::ric::bill::UserContext* temp = ctx_;
+  ctx_ = nullptr;
+  return temp;
+}
+inline ::ric::bill::UserContext* SubscriptionRequest::mutable_ctx() {
+  
+  if (ctx_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::bill::UserContext>(GetArenaNoVirtual());
+    ctx_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.bill.SubscriptionRequest.ctx)
+  return ctx_;
+}
+inline void SubscriptionRequest::set_allocated_ctx(::ric::bill::UserContext* ctx) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete ctx_;
+  }
+  if (ctx) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      ctx = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, ctx, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  ctx_ = ctx;
+  // @@protoc_insertion_point(field_set_allocated:ric.bill.SubscriptionRequest.ctx)
+}
+
+// string license_id = 2;
+inline void SubscriptionRequest::clear_license_id() {
+  license_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SubscriptionRequest::license_id() const {
+  // @@protoc_insertion_point(field_get:ric.bill.SubscriptionRequest.license_id)
+  return license_id_.GetNoArena();
+}
+inline void SubscriptionRequest::set_license_id(const ::std::string& value) {
+  
+  license_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.bill.SubscriptionRequest.license_id)
+}
+#if LANG_CXX11
+inline void SubscriptionRequest::set_license_id(::std::string&& value) {
+  
+  license_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.bill.SubscriptionRequest.license_id)
+}
+#endif
+inline void SubscriptionRequest::set_license_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  license_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.bill.SubscriptionRequest.license_id)
+}
+inline void SubscriptionRequest::set_license_id(const char* value, size_t size) {
+  
+  license_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.bill.SubscriptionRequest.license_id)
+}
+inline ::std::string* SubscriptionRequest::mutable_license_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.bill.SubscriptionRequest.license_id)
+  return license_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SubscriptionRequest::release_license_id() {
+  // @@protoc_insertion_point(field_release:ric.bill.SubscriptionRequest.license_id)
+  
+  return license_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubscriptionRequest::set_allocated_license_id(::std::string* license_id) {
+  if (license_id != nullptr) {
+    
+  } else {
+    
+  }
+  license_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), license_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.bill.SubscriptionRequest.license_id)
+}
 
 // -------------------------------------------------------------------
 
-// PaymentResponse
+// SubscriptionResponse
+
+// string payment_id = 1;
+inline void SubscriptionResponse::clear_payment_id() {
+  payment_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SubscriptionResponse::payment_id() const {
+  // @@protoc_insertion_point(field_get:ric.bill.SubscriptionResponse.payment_id)
+  return payment_id_.GetNoArena();
+}
+inline void SubscriptionResponse::set_payment_id(const ::std::string& value) {
+  
+  payment_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.bill.SubscriptionResponse.payment_id)
+}
+#if LANG_CXX11
+inline void SubscriptionResponse::set_payment_id(::std::string&& value) {
+  
+  payment_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.bill.SubscriptionResponse.payment_id)
+}
+#endif
+inline void SubscriptionResponse::set_payment_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  payment_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.bill.SubscriptionResponse.payment_id)
+}
+inline void SubscriptionResponse::set_payment_id(const char* value, size_t size) {
+  
+  payment_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.bill.SubscriptionResponse.payment_id)
+}
+inline ::std::string* SubscriptionResponse::mutable_payment_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.bill.SubscriptionResponse.payment_id)
+  return payment_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SubscriptionResponse::release_payment_id() {
+  // @@protoc_insertion_point(field_release:ric.bill.SubscriptionResponse.payment_id)
+  
+  return payment_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubscriptionResponse::set_allocated_payment_id(::std::string* payment_id) {
+  if (payment_id != nullptr) {
+    
+  } else {
+    
+  }
+  payment_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), payment_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.bill.SubscriptionResponse.payment_id)
+}
+
+// string job_id = 2;
+inline void SubscriptionResponse::clear_job_id() {
+  job_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SubscriptionResponse::job_id() const {
+  // @@protoc_insertion_point(field_get:ric.bill.SubscriptionResponse.job_id)
+  return job_id_.GetNoArena();
+}
+inline void SubscriptionResponse::set_job_id(const ::std::string& value) {
+  
+  job_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.bill.SubscriptionResponse.job_id)
+}
+#if LANG_CXX11
+inline void SubscriptionResponse::set_job_id(::std::string&& value) {
+  
+  job_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.bill.SubscriptionResponse.job_id)
+}
+#endif
+inline void SubscriptionResponse::set_job_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  job_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.bill.SubscriptionResponse.job_id)
+}
+inline void SubscriptionResponse::set_job_id(const char* value, size_t size) {
+  
+  job_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.bill.SubscriptionResponse.job_id)
+}
+inline ::std::string* SubscriptionResponse::mutable_job_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.bill.SubscriptionResponse.job_id)
+  return job_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SubscriptionResponse::release_job_id() {
+  // @@protoc_insertion_point(field_release:ric.bill.SubscriptionResponse.job_id)
+  
+  return job_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubscriptionResponse::set_allocated_job_id(::std::string* job_id) {
+  if (job_id != nullptr) {
+    
+  } else {
+    
+  }
+  job_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), job_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.bill.SubscriptionResponse.job_id)
+}
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
