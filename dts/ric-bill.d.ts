@@ -4,6 +4,7 @@ export interface Billing {
   CloseAccount(request: SetupRequest): Promise<SetupResponse>;
   CreateSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
   UpdateSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
+  CancelSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
 }
 
 export interface UserContext {
@@ -24,6 +25,7 @@ export interface SetupResponse {
 export interface SubscriptionRequest {
   ctx?: UserContext;
   licenseId?: string;
+  dryRun?: boolean;
   params?: string;
 }
 
