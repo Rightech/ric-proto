@@ -24,6 +24,8 @@ static const char* Billing_method_names[] = {
   "/ric.bill.Billing/VerifyAccount",
   "/ric.bill.Billing/CloseAccount",
   "/ric.bill.Billing/CreateSubscription",
+  "/ric.bill.Billing/UpdateSubscription",
+  "/ric.bill.Billing/CancelSubscription",
 };
 
 std::unique_ptr< Billing::Stub> Billing::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -37,6 +39,8 @@ Billing::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   , rpcmethod_VerifyAccount_(Billing_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_CloseAccount_(Billing_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_CreateSubscription_(Billing_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UpdateSubscription_(Billing_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CancelSubscription_(Billing_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Billing::Stub::SetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::ric::bill::SetupResponse* response) {
@@ -119,6 +123,46 @@ void Billing::Stub::experimental_async::CreateSubscription(::grpc::ClientContext
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::SubscriptionResponse>::Create(channel_.get(), cq, rpcmethod_CreateSubscription_, context, request, false);
 }
 
+::grpc::Status Billing::Stub::UpdateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::ric::bill::SubscriptionResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_UpdateSubscription_, context, request, response);
+}
+
+void Billing::Stub::experimental_async::UpdateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateSubscription_, context, request, response, std::move(f));
+}
+
+void Billing::Stub::experimental_async::UpdateSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_UpdateSubscription_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>* Billing::Stub::AsyncUpdateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::SubscriptionResponse>::Create(channel_.get(), cq, rpcmethod_UpdateSubscription_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>* Billing::Stub::PrepareAsyncUpdateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::SubscriptionResponse>::Create(channel_.get(), cq, rpcmethod_UpdateSubscription_, context, request, false);
+}
+
+::grpc::Status Billing::Stub::CancelSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::ric::bill::SubscriptionResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_CancelSubscription_, context, request, response);
+}
+
+void Billing::Stub::experimental_async::CancelSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CancelSubscription_, context, request, response, std::move(f));
+}
+
+void Billing::Stub::experimental_async::CancelSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CancelSubscription_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>* Billing::Stub::AsyncCancelSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::SubscriptionResponse>::Create(channel_.get(), cq, rpcmethod_CancelSubscription_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>* Billing::Stub::PrepareAsyncCancelSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::SubscriptionResponse>::Create(channel_.get(), cq, rpcmethod_CancelSubscription_, context, request, false);
+}
+
 Billing::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Billing_method_names[0],
@@ -140,6 +184,16 @@ Billing::Service::Service() {
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Billing::Service, ::ric::bill::SubscriptionRequest, ::ric::bill::SubscriptionResponse>(
           std::mem_fn(&Billing::Service::CreateSubscription), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Billing_method_names[4],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Billing::Service, ::ric::bill::SubscriptionRequest, ::ric::bill::SubscriptionResponse>(
+          std::mem_fn(&Billing::Service::UpdateSubscription), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Billing_method_names[5],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Billing::Service, ::ric::bill::SubscriptionRequest, ::ric::bill::SubscriptionResponse>(
+          std::mem_fn(&Billing::Service::CancelSubscription), this)));
 }
 
 Billing::Service::~Service() {
@@ -167,6 +221,20 @@ Billing::Service::~Service() {
 }
 
 ::grpc::Status Billing::Service::CreateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Billing::Service::UpdateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Billing::Service::CancelSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) {
   (void) context;
   (void) request;
   (void) response;

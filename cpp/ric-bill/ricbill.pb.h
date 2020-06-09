@@ -590,6 +590,20 @@ class SubscriptionRequest final :
   ::std::string* release_license_id();
   void set_allocated_license_id(::std::string* license_id);
 
+  // string params = 4;
+  void clear_params();
+  static const int kParamsFieldNumber = 4;
+  const ::std::string& params() const;
+  void set_params(const ::std::string& value);
+  #if LANG_CXX11
+  void set_params(::std::string&& value);
+  #endif
+  void set_params(const char* value);
+  void set_params(const char* value, size_t size);
+  ::std::string* mutable_params();
+  ::std::string* release_params();
+  void set_allocated_params(::std::string* params);
+
   // .ric.bill.UserContext ctx = 1;
   bool has_ctx() const;
   void clear_ctx();
@@ -599,13 +613,21 @@ class SubscriptionRequest final :
   ::ric::bill::UserContext* mutable_ctx();
   void set_allocated_ctx(::ric::bill::UserContext* ctx);
 
+  // bool dry_run = 3;
+  void clear_dry_run();
+  static const int kDryRunFieldNumber = 3;
+  bool dry_run() const;
+  void set_dry_run(bool value);
+
   // @@protoc_insertion_point(class_scope:ric.bill.SubscriptionRequest)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr license_id_;
+  ::google::protobuf::internal::ArenaStringPtr params_;
   ::ric::bill::UserContext* ctx_;
+  bool dry_run_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dbill_2fricbill_2eproto;
 };
@@ -1185,6 +1207,73 @@ inline void SubscriptionRequest::set_allocated_license_id(::std::string* license
   }
   license_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), license_id);
   // @@protoc_insertion_point(field_set_allocated:ric.bill.SubscriptionRequest.license_id)
+}
+
+// bool dry_run = 3;
+inline void SubscriptionRequest::clear_dry_run() {
+  dry_run_ = false;
+}
+inline bool SubscriptionRequest::dry_run() const {
+  // @@protoc_insertion_point(field_get:ric.bill.SubscriptionRequest.dry_run)
+  return dry_run_;
+}
+inline void SubscriptionRequest::set_dry_run(bool value) {
+  
+  dry_run_ = value;
+  // @@protoc_insertion_point(field_set:ric.bill.SubscriptionRequest.dry_run)
+}
+
+// string params = 4;
+inline void SubscriptionRequest::clear_params() {
+  params_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SubscriptionRequest::params() const {
+  // @@protoc_insertion_point(field_get:ric.bill.SubscriptionRequest.params)
+  return params_.GetNoArena();
+}
+inline void SubscriptionRequest::set_params(const ::std::string& value) {
+  
+  params_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.bill.SubscriptionRequest.params)
+}
+#if LANG_CXX11
+inline void SubscriptionRequest::set_params(::std::string&& value) {
+  
+  params_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.bill.SubscriptionRequest.params)
+}
+#endif
+inline void SubscriptionRequest::set_params(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  params_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.bill.SubscriptionRequest.params)
+}
+inline void SubscriptionRequest::set_params(const char* value, size_t size) {
+  
+  params_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.bill.SubscriptionRequest.params)
+}
+inline ::std::string* SubscriptionRequest::mutable_params() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.bill.SubscriptionRequest.params)
+  return params_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SubscriptionRequest::release_params() {
+  // @@protoc_insertion_point(field_release:ric.bill.SubscriptionRequest.params)
+  
+  return params_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubscriptionRequest::set_allocated_params(::std::string* params) {
+  if (params != nullptr) {
+    
+  } else {
+    
+  }
+  params_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), params);
+  // @@protoc_insertion_point(field_set_allocated:ric.bill.SubscriptionRequest.params)
 }
 
 // -------------------------------------------------------------------

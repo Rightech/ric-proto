@@ -154,6 +154,8 @@ const ::google::protobuf::uint32 TableStruct_ric_2dbill_2fricbill_2eproto::offse
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionRequest, ctx_),
   PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionRequest, license_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionRequest, dry_run_),
+  PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionRequest, params_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -167,7 +169,7 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 8, -1, sizeof(::ric::bill::SetupRequest)},
   { 14, -1, sizeof(::ric::bill::SetupResponse)},
   { 21, -1, sizeof(::ric::bill::SubscriptionRequest)},
-  { 28, -1, sizeof(::ric::bill::SubscriptionResponse)},
+  { 30, -1, sizeof(::ric::bill::SubscriptionResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -190,23 +192,28 @@ const char descriptor_table_protodef_ric_2dbill_2fricbill_2eproto[] =
   " \001(\t\022\017\n\007span_id\030\003 \001(\t\"2\n\014SetupRequest\022\"\n"
   "\003ctx\030\001 \001(\0132\025.ric.bill.UserContext\":\n\rSet"
   "upResponse\022\022\n\nbinding_id\030\001 \001(\t\022\025\n\rwidget"
-  "_params\030\002 \001(\t\"M\n\023SubscriptionRequest\022\"\n\003"
+  "_params\030\002 \001(\t\"n\n\023SubscriptionRequest\022\"\n\003"
   "ctx\030\001 \001(\0132\025.ric.bill.UserContext\022\022\n\nlice"
-  "nse_id\030\002 \001(\t\":\n\024SubscriptionResponse\022\022\n\n"
-  "payment_id\030\001 \001(\t\022\016\n\006job_id\030\002 \001(\t2\242\002\n\007Bil"
-  "ling\022\?\n\014SetupAccount\022\026.ric.bill.SetupReq"
-  "uest\032\027.ric.bill.SetupResponse\022@\n\rVerifyA"
-  "ccount\022\026.ric.bill.SetupRequest\032\027.ric.bil"
-  "l.SetupResponse\022\?\n\014CloseAccount\022\026.ric.bi"
-  "ll.SetupRequest\032\027.ric.bill.SetupResponse"
-  "\022S\n\022CreateSubscription\022\035.ric.bill.Subscr"
-  "iptionRequest\032\036.ric.bill.SubscriptionRes"
-  "ponseB\024Z\022./ric-bill;ricbillb\006proto3"
+  "nse_id\030\002 \001(\t\022\017\n\007dry_run\030\003 \001(\010\022\016\n\006params\030"
+  "\004 \001(\t\":\n\024SubscriptionResponse\022\022\n\npayment"
+  "_id\030\001 \001(\t\022\016\n\006job_id\030\002 \001(\t2\314\003\n\007Billing\022\?\n"
+  "\014SetupAccount\022\026.ric.bill.SetupRequest\032\027."
+  "ric.bill.SetupResponse\022@\n\rVerifyAccount\022"
+  "\026.ric.bill.SetupRequest\032\027.ric.bill.Setup"
+  "Response\022\?\n\014CloseAccount\022\026.ric.bill.Setu"
+  "pRequest\032\027.ric.bill.SetupResponse\022S\n\022Cre"
+  "ateSubscription\022\035.ric.bill.SubscriptionR"
+  "equest\032\036.ric.bill.SubscriptionResponse\022S"
+  "\n\022UpdateSubscription\022\035.ric.bill.Subscrip"
+  "tionRequest\032\036.ric.bill.SubscriptionRespo"
+  "nse\022S\n\022CancelSubscription\022\035.ric.bill.Sub"
+  "scriptionRequest\032\036.ric.bill.Subscription"
+  "ResponseB\024Z\022./ric-bill;ricbillb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dbill_2fricbill_2eproto = {
   false, InitDefaults_ric_2dbill_2fricbill_2eproto, 
   descriptor_table_protodef_ric_2dbill_2fricbill_2eproto,
-  "ric-bill/ricbill.proto", &assign_descriptors_table_ric_2dbill_2fricbill_2eproto, 675,
+  "ric-bill/ricbill.proto", &assign_descriptors_table_ric_2dbill_2fricbill_2eproto, 878,
 };
 
 void AddDescriptors_ric_2dbill_2fricbill_2eproto() {
@@ -1339,6 +1346,8 @@ SubscriptionRequest::HasBitSetters::ctx(const SubscriptionRequest* msg) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SubscriptionRequest::kCtxFieldNumber;
 const int SubscriptionRequest::kLicenseIdFieldNumber;
+const int SubscriptionRequest::kDryRunFieldNumber;
+const int SubscriptionRequest::kParamsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SubscriptionRequest::SubscriptionRequest()
@@ -1354,11 +1363,16 @@ SubscriptionRequest::SubscriptionRequest(const SubscriptionRequest& from)
   if (from.license_id().size() > 0) {
     license_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.license_id_);
   }
+  params_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.params().size() > 0) {
+    params_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.params_);
+  }
   if (from.has_ctx()) {
     ctx_ = new ::ric::bill::UserContext(*from.ctx_);
   } else {
     ctx_ = nullptr;
   }
+  dry_run_ = from.dry_run_;
   // @@protoc_insertion_point(copy_constructor:ric.bill.SubscriptionRequest)
 }
 
@@ -1366,7 +1380,10 @@ void SubscriptionRequest::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_SubscriptionRequest_ric_2dbill_2fricbill_2eproto.base);
   license_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ctx_ = nullptr;
+  params_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&ctx_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&dry_run_) -
+      reinterpret_cast<char*>(&ctx_)) + sizeof(dry_run_));
 }
 
 SubscriptionRequest::~SubscriptionRequest() {
@@ -1376,6 +1393,7 @@ SubscriptionRequest::~SubscriptionRequest() {
 
 void SubscriptionRequest::SharedDtor() {
   license_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  params_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete ctx_;
 }
 
@@ -1395,10 +1413,12 @@ void SubscriptionRequest::Clear() {
   (void) cached_has_bits;
 
   license_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  params_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
     delete ctx_;
   }
   ctx_ = nullptr;
+  dry_run_ = false;
   _internal_metadata_.Clear();
 }
 
@@ -1435,6 +1455,29 @@ const char* SubscriptionRequest::_InternalParse(const char* begin, const char* e
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         ctx->extra_parse_data().SetFieldName("ric.bill.SubscriptionRequest.license_id");
         object = msg->mutable_license_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // bool dry_run = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
+        msg->set_dry_run(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // string params = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.bill.SubscriptionRequest.params");
+        object = msg->mutable_params();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -1504,6 +1547,34 @@ bool SubscriptionRequest::MergePartialFromCodedStream(
         break;
       }
 
+      // bool dry_run = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &dry_run_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string params = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_params()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->params().data(), static_cast<int>(this->params().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.bill.SubscriptionRequest.params"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -1547,6 +1618,21 @@ void SubscriptionRequest::SerializeWithCachedSizes(
       2, this->license_id(), output);
   }
 
+  // bool dry_run = 3;
+  if (this->dry_run() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->dry_run(), output);
+  }
+
+  // string params = 4;
+  if (this->params().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->params().data(), static_cast<int>(this->params().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.bill.SubscriptionRequest.params");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->params(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -1578,6 +1664,22 @@ void SubscriptionRequest::SerializeWithCachedSizes(
         2, this->license_id(), target);
   }
 
+  // bool dry_run = 3;
+  if (this->dry_run() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->dry_run(), target);
+  }
+
+  // string params = 4;
+  if (this->params().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->params().data(), static_cast<int>(this->params().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.bill.SubscriptionRequest.params");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->params(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -1606,11 +1708,23 @@ size_t SubscriptionRequest::ByteSizeLong() const {
         this->license_id());
   }
 
+  // string params = 4;
+  if (this->params().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->params());
+  }
+
   // .ric.bill.UserContext ctx = 1;
   if (this->has_ctx()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
         *ctx_);
+  }
+
+  // bool dry_run = 3;
+  if (this->dry_run() != 0) {
+    total_size += 1 + 1;
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1644,8 +1758,15 @@ void SubscriptionRequest::MergeFrom(const SubscriptionRequest& from) {
 
     license_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.license_id_);
   }
+  if (from.params().size() > 0) {
+
+    params_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.params_);
+  }
   if (from.has_ctx()) {
     mutable_ctx()->::ric::bill::UserContext::MergeFrom(from.ctx());
+  }
+  if (from.dry_run() != 0) {
+    set_dry_run(from.dry_run());
   }
 }
 
@@ -1676,7 +1797,10 @@ void SubscriptionRequest::InternalSwap(SubscriptionRequest* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
   license_id_.Swap(&other->license_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  params_.Swap(&other->params_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   swap(ctx_, other->ctx_);
+  swap(dry_run_, other->dry_run_);
 }
 
 ::google::protobuf::Metadata SubscriptionRequest::GetMetadata() const {
