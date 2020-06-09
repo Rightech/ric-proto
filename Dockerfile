@@ -44,21 +44,17 @@ FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y g++
 
-RUN adduser --disabled-password --gecos "" user
-
 COPY --from=builder /grpc/cmake/build /grpc
 COPY --from=builder /root/go/bin/protoc-go-inject-tag /usr/local/bin/
 COPY --from=builder /root/go/bin/protoc-gen-go /usr/local/bin/
 COPY --from=builder /usr/bin/node /usr/bin/node
 COPY --from=builder /node /node
-COPY --from=builder --chown=user:user /root/.cache/prototool /home/user/.cache/prototool
+COPY --from=builder /root/.cache/prototool /root/.cache/prototool
 COPY --from=builder /usr/local/bin/prototool /usr/local/bin/
 
 ENV PATH=/grpc:$PATH
 ENV LD_LIBRARY_PATH=/grpc:/grpc/third_party/protobuf:$LD_LIBRARY_PATH
 
 COPY docker-entrypoint.sh .
-
-USER user
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
