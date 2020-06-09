@@ -1,0 +1,24 @@
+name: Build compiler
+
+on:
+  push:
+    paths:
+      - docker-entrypoint.sh
+      - Dockerfile
+      - package.json
+      - package-lock.json
+
+jobs:
+  build_compiler:
+    name: Build compiler
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+            submodules: true
+      - name: login to registry
+        run:  echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u inn0kenty --password-stdin
+      - name: build image
+        run: docker build -t docker.pkg.github.com/rightech/ric-proto/compiler:latest .
+      - name: push image
+        run: docker push docker.pkg.github.com/rightech/ric-proto/compiler:latest
