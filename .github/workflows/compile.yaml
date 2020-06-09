@@ -25,6 +25,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: login to registry
         run:  echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+      - name: pull compiler image
+        run: docker pull docker.pkg.github.com/rightech/ric-proto/compiler:latest
       - name: compile
         run: docker run --rm -v $(pwd):/ric-proto docker.pkg.github.com/rightech/ric-proto/compiler:latest
       - name: commit changes
