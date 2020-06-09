@@ -1,6 +1,7 @@
 #!/bin/sh
 
-rm -rf /ric-proto/node_modules
+# backup original node_modules
+mv /ric-proto/node_modules /node/node_modules.back || true
 
 ln -s /node/node_modules /ric-proto/node_modules
 
@@ -15,5 +16,8 @@ mv .env .env.back || true
 mv .env.back .env || true
 
 rm node_modules
+
+# restore original modules
+mv /node/node_modules.back /ric-proto/node_modules || true
 
 find . -mindepth 1 -maxdepth 1 -type d -not -name '.git*' -print0 | xargs -0 chown -R 1000:1000
