@@ -1,4 +1,4 @@
-FROM ubuntu:18.04 as builder
+FROM ubuntu:18.10 as builder
 
 RUN apt-get update \
     && apt-get install -y build-essential autoconf libtool pkg-config cmake git curl
@@ -40,7 +40,7 @@ RUN curl -sSL \
 
 RUN prototool cache update --config-data '{"protoc":{"version":"3.7.0"}}'
 
-FROM ubuntu:18.04
+FROM ubuntu:18.10
 
 RUN apt-get update && apt-get install -y g++
 
