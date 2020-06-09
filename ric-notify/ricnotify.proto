@@ -71,7 +71,6 @@ message SMPPGatewayInfoResponse {
 message SMTPSendRequest {
   UserContext ctx = 1;
   string gateway_id = 2;
-
   // following fields override default gateway info
   repeated string to = 3;
   string sender = 4;
