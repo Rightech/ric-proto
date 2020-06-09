@@ -19,7 +19,6 @@
 extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2fwrappers_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_BoolValue_google_2fprotobuf_2fwrappers_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_SMPPStatusResponse_SMPPStatus_ric_2dnotify_2fricnotify_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_UserContext_ric_2dnotify_2fricnotify_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_SMTPCredentials_ric_2dnotify_2fricnotify_2eproto;
 namespace ric {
 namespace notify {
 class UserContextDefaultTypeInternal {
@@ -54,10 +53,6 @@ class SMPPGatewayInfoResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<SMPPGatewayInfoResponse> _instance;
 } _SMPPGatewayInfoResponse_default_instance_;
-class SMTPCredentialsDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<SMTPCredentials> _instance;
-} _SMTPCredentials_default_instance_;
 class SMTPSendRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<SMTPSendRequest> _instance;
@@ -190,21 +185,6 @@ static void InitDefaultsSMPPGatewayInfoResponse_ric_2dnotify_2fricnotify_2eproto
 ::google::protobuf::internal::SCCInfo<0> scc_info_SMPPGatewayInfoResponse_ric_2dnotify_2fricnotify_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSMPPGatewayInfoResponse_ric_2dnotify_2fricnotify_2eproto}, {}};
 
-static void InitDefaultsSMTPCredentials_ric_2dnotify_2fricnotify_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ric::notify::_SMTPCredentials_default_instance_;
-    new (ptr) ::ric::notify::SMTPCredentials();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::ric::notify::SMTPCredentials::InitAsDefaultInstance();
-}
-
-::google::protobuf::internal::SCCInfo<1> scc_info_SMTPCredentials_ric_2dnotify_2fricnotify_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsSMTPCredentials_ric_2dnotify_2fricnotify_2eproto}, {
-      &scc_info_BoolValue_google_2fprotobuf_2fwrappers_2eproto.base,}};
-
 static void InitDefaultsSMTPSendRequest_ric_2dnotify_2fricnotify_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -219,7 +199,7 @@ static void InitDefaultsSMTPSendRequest_ric_2dnotify_2fricnotify_2eproto() {
 ::google::protobuf::internal::SCCInfo<2> scc_info_SMTPSendRequest_ric_2dnotify_2fricnotify_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsSMTPSendRequest_ric_2dnotify_2fricnotify_2eproto}, {
       &scc_info_UserContext_ric_2dnotify_2fricnotify_2eproto.base,
-      &scc_info_SMTPCredentials_ric_2dnotify_2fricnotify_2eproto.base,}};
+      &scc_info_BoolValue_google_2fprotobuf_2fwrappers_2eproto.base,}};
 
 static void InitDefaultsSMTPSendResponse_ric_2dnotify_2fricnotify_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -262,7 +242,7 @@ static void InitDefaultsSMTPGatewayInfoResponse_ric_2dnotify_2fricnotify_2eproto
 
 ::google::protobuf::internal::SCCInfo<1> scc_info_SMTPGatewayInfoResponse_ric_2dnotify_2fricnotify_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsSMTPGatewayInfoResponse_ric_2dnotify_2fricnotify_2eproto}, {
-      &scc_info_SMTPCredentials_ric_2dnotify_2fricnotify_2eproto.base,}};
+      &scc_info_BoolValue_google_2fprotobuf_2fwrappers_2eproto.base,}};
 
 void InitDefaults_ric_2dnotify_2fricnotify_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_UserContext_ric_2dnotify_2fricnotify_2eproto.base);
@@ -273,14 +253,13 @@ void InitDefaults_ric_2dnotify_2fricnotify_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_SMPPStatusResponse_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SMPPGatewayInfoRequest_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SMPPGatewayInfoResponse_ric_2dnotify_2fricnotify_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_SMTPCredentials_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SMTPSendRequest_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SMTPSendResponse_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SMTPGatewayInfoRequest_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SMTPGatewayInfoResponse_ric_2dnotify_2fricnotify_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dnotify_2fricnotify_2eproto[13];
+::google::protobuf::Metadata file_level_metadata_ric_2dnotify_2fricnotify_2eproto[12];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors_ric_2dnotify_2fricnotify_2eproto[1];
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dnotify_2fricnotify_2eproto = nullptr;
 
@@ -346,27 +325,21 @@ const ::google::protobuf::uint32 TableStruct_ric_2dnotify_2fricnotify_2eproto::o
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMPPGatewayInfoResponse, online_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMPPGatewayInfoResponse, uptime_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPCredentials, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPCredentials, to_),
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPCredentials, sender_),
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPCredentials, subject_),
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPCredentials, content_type_),
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPCredentials, body_),
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPCredentials, server_),
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPCredentials, password_),
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPCredentials, use_tls_),
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPCredentials, use_ssl_),
-  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, ctx_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, gateway_id_),
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, request_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, to_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, sender_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, subject_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, content_type_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, body_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, server_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, password_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, use_tls_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, use_ssl_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -383,7 +356,16 @@ const ::google::protobuf::uint32 TableStruct_ric_2dnotify_2fricnotify_2eproto::o
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, info_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, gateway_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, to_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, sender_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, subject_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, content_type_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, body_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, server_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, password_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, use_tls_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, use_ssl_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ric::notify::UserContext)},
@@ -394,11 +376,10 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 39, -1, sizeof(::ric::notify::SMPPStatusResponse)},
   { 47, -1, sizeof(::ric::notify::SMPPGatewayInfoRequest)},
   { 53, -1, sizeof(::ric::notify::SMPPGatewayInfoResponse)},
-  { 60, -1, sizeof(::ric::notify::SMTPCredentials)},
-  { 74, -1, sizeof(::ric::notify::SMTPSendRequest)},
-  { 82, -1, sizeof(::ric::notify::SMTPSendResponse)},
-  { 87, -1, sizeof(::ric::notify::SMTPGatewayInfoRequest)},
-  { 93, -1, sizeof(::ric::notify::SMTPGatewayInfoResponse)},
+  { 60, -1, sizeof(::ric::notify::SMTPSendRequest)},
+  { 76, -1, sizeof(::ric::notify::SMTPSendResponse)},
+  { 81, -1, sizeof(::ric::notify::SMTPGatewayInfoRequest)},
+  { 87, -1, sizeof(::ric::notify::SMTPGatewayInfoResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -410,7 +391,6 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_SMPPStatusResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_SMPPGatewayInfoRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_SMPPGatewayInfoResponse_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_SMTPCredentials_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_SMTPSendRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_SMTPSendResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_SMTPGatewayInfoRequest_default_instance_),
@@ -420,7 +400,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto = {
   {}, AddDescriptors_ric_2dnotify_2fricnotify_2eproto, "ric-notify/ricnotify.proto", schemas,
   file_default_instances, TableStruct_ric_2dnotify_2fricnotify_2eproto::offsets,
-  file_level_metadata_ric_2dnotify_2fricnotify_2eproto, 13, file_level_enum_descriptors_ric_2dnotify_2fricnotify_2eproto, file_level_service_descriptors_ric_2dnotify_2fricnotify_2eproto,
+  file_level_metadata_ric_2dnotify_2fricnotify_2eproto, 12, file_level_enum_descriptors_ric_2dnotify_2fricnotify_2eproto, file_level_service_descriptors_ric_2dnotify_2fricnotify_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto[] =
@@ -444,34 +424,37 @@ const char descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto[] =
   "ENT\020\004\022\t\n\005ERROR\020\005\",\n\026SMPPGatewayInfoReque"
   "st\022\022\n\ngateway_id\030\001 \001(\t\"9\n\027SMPPGatewayInf"
   "oResponse\022\016\n\006online\030\001 \001(\010\022\016\n\006uptime\030\002 \001("
-  "\003\"\336\001\n\017SMTPCredentials\022\n\n\002to\030\001 \003(\t\022\016\n\006sen"
-  "der\030\002 \001(\t\022\017\n\007subject\030\003 \001(\t\022\024\n\014content_ty"
-  "pe\030\004 \001(\t\022\014\n\004body\030\005 \001(\t\022\016\n\006server\030\006 \001(\t\022\020"
-  "\n\010password\030\007 \001(\t\022+\n\007use_tls\030\010 \001(\0132\032.goog"
-  "le.protobuf.BoolValue\022+\n\007use_ssl\030\t \001(\0132\032"
-  ".google.protobuf.BoolValue\"y\n\017SMTPSendRe"
-  "quest\022$\n\003ctx\030\001 \001(\0132\027.ric.notify.UserCont"
-  "ext\022\022\n\ngateway_id\030\002 \001(\t\022,\n\007request\030\003 \001(\013"
-  "2\033.ric.notify.SMTPCredentials\"\022\n\020SMTPSen"
-  "dResponse\",\n\026SMTPGatewayInfoRequest\022\022\n\ng"
-  "ateway_id\030\001 \001(\t\"D\n\027SMTPGatewayInfoRespon"
-  "se\022)\n\004info\030\001 \001(\0132\033.ric.notify.SMTPCreden"
-  "tials2\352\001\n\004SMPP\022A\n\004Send\022\033.ric.notify.SMPP"
-  "SendRequest\032\034.ric.notify.SMPPSendRespons"
-  "e\022G\n\006Status\022\035.ric.notify.SMPPStatusReque"
-  "st\032\036.ric.notify.SMPPStatusResponse\022V\n\013Ga"
-  "tewayInfo\022\".ric.notify.SMPPGatewayInfoRe"
-  "quest\032#.ric.notify.SMPPGatewayInfoRespon"
-  "se2\241\001\n\004SMTP\022A\n\004Send\022\033.ric.notify.SMTPSen"
-  "dRequest\032\034.ric.notify.SMTPSendResponse\022V"
-  "\n\013GatewayInfo\022\".ric.notify.SMTPGatewayIn"
-  "foRequest\032#.ric.notify.SMTPGatewayInfoRe"
-  "sponseB\030Z\026./ric-notify;ricnotifyb\006proto3"
+  "\003\"\230\002\n\017SMTPSendRequest\022$\n\003ctx\030\001 \001(\0132\027.ric"
+  ".notify.UserContext\022\022\n\ngateway_id\030\002 \001(\t\022"
+  "\n\n\002to\030\003 \003(\t\022\016\n\006sender\030\004 \001(\t\022\017\n\007subject\030\005"
+  " \001(\t\022\024\n\014content_type\030\006 \001(\t\022\014\n\004body\030\007 \001(\t"
+  "\022\016\n\006server\030\010 \001(\t\022\020\n\010password\030\t \001(\t\022+\n\007us"
+  "e_tls\030\n \001(\0132\032.google.protobuf.BoolValue\022"
+  "+\n\007use_ssl\030\013 \001(\0132\032.google.protobuf.BoolV"
+  "alue\"\022\n\020SMTPSendResponse\",\n\026SMTPGatewayI"
+  "nfoRequest\022\022\n\ngateway_id\030\001 \001(\t\"\372\001\n\027SMTPG"
+  "atewayInfoResponse\022\022\n\ngateway_id\030\001 \001(\t\022\n"
+  "\n\002to\030\002 \003(\t\022\016\n\006sender\030\003 \001(\t\022\017\n\007subject\030\004 "
+  "\001(\t\022\024\n\014content_type\030\005 \001(\t\022\014\n\004body\030\006 \001(\t\022"
+  "\016\n\006server\030\007 \001(\t\022\020\n\010password\030\010 \001(\t\022+\n\007use"
+  "_tls\030\t \001(\0132\032.google.protobuf.BoolValue\022+"
+  "\n\007use_ssl\030\n \001(\0132\032.google.protobuf.BoolVa"
+  "lue2\352\001\n\004SMPP\022A\n\004Send\022\033.ric.notify.SMPPSe"
+  "ndRequest\032\034.ric.notify.SMPPSendResponse\022"
+  "G\n\006Status\022\035.ric.notify.SMPPStatusRequest"
+  "\032\036.ric.notify.SMPPStatusResponse\022V\n\013Gate"
+  "wayInfo\022\".ric.notify.SMPPGatewayInfoRequ"
+  "est\032#.ric.notify.SMPPGatewayInfoResponse"
+  "2\241\001\n\004SMTP\022A\n\004Send\022\033.ric.notify.SMTPSendR"
+  "equest\032\034.ric.notify.SMTPSendResponse\022V\n\013"
+  "GatewayInfo\022\".ric.notify.SMTPGatewayInfo"
+  "Request\032#.ric.notify.SMTPGatewayInfoResp"
+  "onseB\030Z\026./ric-notify;ricnotifyb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dnotify_2fricnotify_2eproto = {
   false, InitDefaults_ric_2dnotify_2fricnotify_2eproto, 
   descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto,
-  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 1720,
+  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 1838,
 };
 
 void AddDescriptors_ric_2dnotify_2fricnotify_2eproto() {
@@ -3642,60 +3625,73 @@ void SMPPGatewayInfoResponse::InternalSwap(SMPPGatewayInfoResponse* other) {
 
 // ===================================================================
 
-void SMTPCredentials::InitAsDefaultInstance() {
-  ::ric::notify::_SMTPCredentials_default_instance_._instance.get_mutable()->use_tls_ = const_cast< ::google::protobuf::BoolValue*>(
+void SMTPSendRequest::InitAsDefaultInstance() {
+  ::ric::notify::_SMTPSendRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::notify::UserContext*>(
+      ::ric::notify::UserContext::internal_default_instance());
+  ::ric::notify::_SMTPSendRequest_default_instance_._instance.get_mutable()->use_tls_ = const_cast< ::google::protobuf::BoolValue*>(
       ::google::protobuf::BoolValue::internal_default_instance());
-  ::ric::notify::_SMTPCredentials_default_instance_._instance.get_mutable()->use_ssl_ = const_cast< ::google::protobuf::BoolValue*>(
+  ::ric::notify::_SMTPSendRequest_default_instance_._instance.get_mutable()->use_ssl_ = const_cast< ::google::protobuf::BoolValue*>(
       ::google::protobuf::BoolValue::internal_default_instance());
 }
-class SMTPCredentials::HasBitSetters {
+class SMTPSendRequest::HasBitSetters {
  public:
-  static const ::google::protobuf::BoolValue& use_tls(const SMTPCredentials* msg);
-  static const ::google::protobuf::BoolValue& use_ssl(const SMTPCredentials* msg);
+  static const ::ric::notify::UserContext& ctx(const SMTPSendRequest* msg);
+  static const ::google::protobuf::BoolValue& use_tls(const SMTPSendRequest* msg);
+  static const ::google::protobuf::BoolValue& use_ssl(const SMTPSendRequest* msg);
 };
 
+const ::ric::notify::UserContext&
+SMTPSendRequest::HasBitSetters::ctx(const SMTPSendRequest* msg) {
+  return *msg->ctx_;
+}
 const ::google::protobuf::BoolValue&
-SMTPCredentials::HasBitSetters::use_tls(const SMTPCredentials* msg) {
+SMTPSendRequest::HasBitSetters::use_tls(const SMTPSendRequest* msg) {
   return *msg->use_tls_;
 }
 const ::google::protobuf::BoolValue&
-SMTPCredentials::HasBitSetters::use_ssl(const SMTPCredentials* msg) {
+SMTPSendRequest::HasBitSetters::use_ssl(const SMTPSendRequest* msg) {
   return *msg->use_ssl_;
 }
-void SMTPCredentials::clear_use_tls() {
+void SMTPSendRequest::clear_use_tls() {
   if (GetArenaNoVirtual() == nullptr && use_tls_ != nullptr) {
     delete use_tls_;
   }
   use_tls_ = nullptr;
 }
-void SMTPCredentials::clear_use_ssl() {
+void SMTPSendRequest::clear_use_ssl() {
   if (GetArenaNoVirtual() == nullptr && use_ssl_ != nullptr) {
     delete use_ssl_;
   }
   use_ssl_ = nullptr;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int SMTPCredentials::kToFieldNumber;
-const int SMTPCredentials::kSenderFieldNumber;
-const int SMTPCredentials::kSubjectFieldNumber;
-const int SMTPCredentials::kContentTypeFieldNumber;
-const int SMTPCredentials::kBodyFieldNumber;
-const int SMTPCredentials::kServerFieldNumber;
-const int SMTPCredentials::kPasswordFieldNumber;
-const int SMTPCredentials::kUseTlsFieldNumber;
-const int SMTPCredentials::kUseSslFieldNumber;
+const int SMTPSendRequest::kCtxFieldNumber;
+const int SMTPSendRequest::kGatewayIdFieldNumber;
+const int SMTPSendRequest::kToFieldNumber;
+const int SMTPSendRequest::kSenderFieldNumber;
+const int SMTPSendRequest::kSubjectFieldNumber;
+const int SMTPSendRequest::kContentTypeFieldNumber;
+const int SMTPSendRequest::kBodyFieldNumber;
+const int SMTPSendRequest::kServerFieldNumber;
+const int SMTPSendRequest::kPasswordFieldNumber;
+const int SMTPSendRequest::kUseTlsFieldNumber;
+const int SMTPSendRequest::kUseSslFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-SMTPCredentials::SMTPCredentials()
+SMTPSendRequest::SMTPSendRequest()
   : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:ric.notify.SMTPCredentials)
+  // @@protoc_insertion_point(constructor:ric.notify.SMTPSendRequest)
 }
-SMTPCredentials::SMTPCredentials(const SMTPCredentials& from)
+SMTPSendRequest::SMTPSendRequest(const SMTPSendRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr),
       to_(from.to_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  gateway_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.gateway_id().size() > 0) {
+    gateway_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.gateway_id_);
+  }
   sender_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.sender().size() > 0) {
     sender_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sender_);
@@ -3719,6 +3715,11 @@ SMTPCredentials::SMTPCredentials(const SMTPCredentials& from)
   password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.password().size() > 0) {
     password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
+  }
+  if (from.has_ctx()) {
+    ctx_ = new ::ric::notify::UserContext(*from.ctx_);
+  } else {
+    ctx_ = nullptr;
   }
   if (from.has_use_tls()) {
     use_tls_ = new ::google::protobuf::BoolValue(*from.use_tls_);
@@ -3730,844 +3731,6 @@ SMTPCredentials::SMTPCredentials(const SMTPCredentials& from)
   } else {
     use_ssl_ = nullptr;
   }
-  // @@protoc_insertion_point(copy_constructor:ric.notify.SMTPCredentials)
-}
-
-void SMTPCredentials::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_SMTPCredentials_ric_2dnotify_2fricnotify_2eproto.base);
-  sender_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  subject_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  content_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  server_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&use_tls_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&use_ssl_) -
-      reinterpret_cast<char*>(&use_tls_)) + sizeof(use_ssl_));
-}
-
-SMTPCredentials::~SMTPCredentials() {
-  // @@protoc_insertion_point(destructor:ric.notify.SMTPCredentials)
-  SharedDtor();
-}
-
-void SMTPCredentials::SharedDtor() {
-  sender_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  subject_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  content_type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  body_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  server_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete use_tls_;
-  if (this != internal_default_instance()) delete use_ssl_;
-}
-
-void SMTPCredentials::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const SMTPCredentials& SMTPCredentials::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_SMTPCredentials_ric_2dnotify_2fricnotify_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void SMTPCredentials::Clear() {
-// @@protoc_insertion_point(message_clear_start:ric.notify.SMTPCredentials)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  to_.Clear();
-  sender_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  subject_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  content_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  server_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (GetArenaNoVirtual() == nullptr && use_tls_ != nullptr) {
-    delete use_tls_;
-  }
-  use_tls_ = nullptr;
-  if (GetArenaNoVirtual() == nullptr && use_ssl_ != nullptr) {
-    delete use_ssl_;
-  }
-  use_ssl_ = nullptr;
-  _internal_metadata_.Clear();
-}
-
-#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* SMTPCredentials::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<SMTPCredentials*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-    switch (tag >> 3) {
-      // repeated string to = 1;
-      case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
-        do {
-          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-          ctx->extra_parse_data().SetFieldName("ric.notify.SMTPCredentials.to");
-          object = msg->add_to();
-          if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-            parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-            goto string_till_end;
-          }
-          GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-          ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-          ptr += size;
-          if (ptr >= end) break;
-        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 10 && (ptr += 1));
-        break;
-      }
-      // string sender = 2;
-      case 2: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPCredentials.sender");
-        object = msg->mutable_sender();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // string subject = 3;
-      case 3: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPCredentials.subject");
-        object = msg->mutable_subject();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // string content_type = 4;
-      case 4: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPCredentials.content_type");
-        object = msg->mutable_content_type();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // string body = 5;
-      case 5: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 42) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPCredentials.body");
-        object = msg->mutable_body();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // string server = 6;
-      case 6: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPCredentials.server");
-        object = msg->mutable_server();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // string password = 7;
-      case 7: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 58) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPCredentials.password");
-        object = msg->mutable_password();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // .google.protobuf.BoolValue use_tls = 8;
-      case 8: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 66) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::google::protobuf::BoolValue::_InternalParse;
-        object = msg->mutable_use_tls();
-        if (size > end - ptr) goto len_delim_till_end;
-        ptr += size;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
-            {parser_till_end, object}, ptr - size, ptr));
-        break;
-      }
-      // .google.protobuf.BoolValue use_ssl = 9;
-      case 9: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 74) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::google::protobuf::BoolValue::_InternalParse;
-        object = msg->mutable_use_ssl();
-        if (size > end - ptr) goto len_delim_till_end;
-        ptr += size;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
-            {parser_till_end, object}, ptr - size, ptr));
-        break;
-      }
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
-        }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
-      }
-    }  // switch
-  }  // while
-  return ptr;
-string_till_end:
-  static_cast<::std::string*>(object)->clear();
-  static_cast<::std::string*>(object)->reserve(size);
-  goto len_delim_till_end;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
-}
-#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool SMTPCredentials::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:ric.notify.SMTPCredentials)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated string to = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->add_to()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->to(this->to_size() - 1).data(),
-            static_cast<int>(this->to(this->to_size() - 1).length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.notify.SMTPCredentials.to"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string sender = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_sender()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->sender().data(), static_cast<int>(this->sender().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.notify.SMTPCredentials.sender"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string subject = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_subject()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->subject().data(), static_cast<int>(this->subject().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.notify.SMTPCredentials.subject"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string content_type = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_content_type()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->content_type().data(), static_cast<int>(this->content_type().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.notify.SMTPCredentials.content_type"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string body = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (42 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_body()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->body().data(), static_cast<int>(this->body().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.notify.SMTPCredentials.body"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string server = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_server()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->server().data(), static_cast<int>(this->server().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.notify.SMTPCredentials.server"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string password = 7;
-      case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (58 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_password()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->password().data(), static_cast<int>(this->password().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.notify.SMTPCredentials.password"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // .google.protobuf.BoolValue use_tls = 8;
-      case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (66 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_use_tls()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // .google.protobuf.BoolValue use_ssl = 9;
-      case 9: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (74 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_use_ssl()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:ric.notify.SMTPCredentials)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:ric.notify.SMTPCredentials)
-  return false;
-#undef DO_
-}
-#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-
-void SMTPCredentials::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:ric.notify.SMTPCredentials)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated string to = 1;
-  for (int i = 0, n = this->to_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->to(i).data(), static_cast<int>(this->to(i).length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPCredentials.to");
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->to(i), output);
-  }
-
-  // string sender = 2;
-  if (this->sender().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->sender().data(), static_cast<int>(this->sender().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPCredentials.sender");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->sender(), output);
-  }
-
-  // string subject = 3;
-  if (this->subject().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->subject().data(), static_cast<int>(this->subject().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPCredentials.subject");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->subject(), output);
-  }
-
-  // string content_type = 4;
-  if (this->content_type().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->content_type().data(), static_cast<int>(this->content_type().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPCredentials.content_type");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->content_type(), output);
-  }
-
-  // string body = 5;
-  if (this->body().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->body().data(), static_cast<int>(this->body().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPCredentials.body");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->body(), output);
-  }
-
-  // string server = 6;
-  if (this->server().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->server().data(), static_cast<int>(this->server().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPCredentials.server");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      6, this->server(), output);
-  }
-
-  // string password = 7;
-  if (this->password().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->password().data(), static_cast<int>(this->password().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPCredentials.password");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      7, this->password(), output);
-  }
-
-  // .google.protobuf.BoolValue use_tls = 8;
-  if (this->has_use_tls()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      8, HasBitSetters::use_tls(this), output);
-  }
-
-  // .google.protobuf.BoolValue use_ssl = 9;
-  if (this->has_use_ssl()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      9, HasBitSetters::use_ssl(this), output);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:ric.notify.SMTPCredentials)
-}
-
-::google::protobuf::uint8* SMTPCredentials::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ric.notify.SMTPCredentials)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated string to = 1;
-  for (int i = 0, n = this->to_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->to(i).data(), static_cast<int>(this->to(i).length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPCredentials.to");
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(1, this->to(i), target);
-  }
-
-  // string sender = 2;
-  if (this->sender().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->sender().data(), static_cast<int>(this->sender().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPCredentials.sender");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->sender(), target);
-  }
-
-  // string subject = 3;
-  if (this->subject().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->subject().data(), static_cast<int>(this->subject().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPCredentials.subject");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->subject(), target);
-  }
-
-  // string content_type = 4;
-  if (this->content_type().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->content_type().data(), static_cast<int>(this->content_type().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPCredentials.content_type");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->content_type(), target);
-  }
-
-  // string body = 5;
-  if (this->body().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->body().data(), static_cast<int>(this->body().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPCredentials.body");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->body(), target);
-  }
-
-  // string server = 6;
-  if (this->server().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->server().data(), static_cast<int>(this->server().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPCredentials.server");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        6, this->server(), target);
-  }
-
-  // string password = 7;
-  if (this->password().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->password().data(), static_cast<int>(this->password().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPCredentials.password");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        7, this->password(), target);
-  }
-
-  // .google.protobuf.BoolValue use_tls = 8;
-  if (this->has_use_tls()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        8, HasBitSetters::use_tls(this), target);
-  }
-
-  // .google.protobuf.BoolValue use_ssl = 9;
-  if (this->has_use_ssl()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        9, HasBitSetters::use_ssl(this), target);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ric.notify.SMTPCredentials)
-  return target;
-}
-
-size_t SMTPCredentials::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ric.notify.SMTPCredentials)
-  size_t total_size = 0;
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated string to = 1;
-  total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->to_size());
-  for (int i = 0, n = this->to_size(); i < n; i++) {
-    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-      this->to(i));
-  }
-
-  // string sender = 2;
-  if (this->sender().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->sender());
-  }
-
-  // string subject = 3;
-  if (this->subject().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->subject());
-  }
-
-  // string content_type = 4;
-  if (this->content_type().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->content_type());
-  }
-
-  // string body = 5;
-  if (this->body().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->body());
-  }
-
-  // string server = 6;
-  if (this->server().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->server());
-  }
-
-  // string password = 7;
-  if (this->password().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->password());
-  }
-
-  // .google.protobuf.BoolValue use_tls = 8;
-  if (this->has_use_tls()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *use_tls_);
-  }
-
-  // .google.protobuf.BoolValue use_ssl = 9;
-  if (this->has_use_ssl()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *use_ssl_);
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void SMTPCredentials::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ric.notify.SMTPCredentials)
-  GOOGLE_DCHECK_NE(&from, this);
-  const SMTPCredentials* source =
-      ::google::protobuf::DynamicCastToGenerated<SMTPCredentials>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.notify.SMTPCredentials)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.notify.SMTPCredentials)
-    MergeFrom(*source);
-  }
-}
-
-void SMTPCredentials::MergeFrom(const SMTPCredentials& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ric.notify.SMTPCredentials)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  to_.MergeFrom(from.to_);
-  if (from.sender().size() > 0) {
-
-    sender_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sender_);
-  }
-  if (from.subject().size() > 0) {
-
-    subject_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.subject_);
-  }
-  if (from.content_type().size() > 0) {
-
-    content_type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.content_type_);
-  }
-  if (from.body().size() > 0) {
-
-    body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.body_);
-  }
-  if (from.server().size() > 0) {
-
-    server_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.server_);
-  }
-  if (from.password().size() > 0) {
-
-    password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
-  }
-  if (from.has_use_tls()) {
-    mutable_use_tls()->::google::protobuf::BoolValue::MergeFrom(from.use_tls());
-  }
-  if (from.has_use_ssl()) {
-    mutable_use_ssl()->::google::protobuf::BoolValue::MergeFrom(from.use_ssl());
-  }
-}
-
-void SMTPCredentials::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ric.notify.SMTPCredentials)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void SMTPCredentials::CopyFrom(const SMTPCredentials& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ric.notify.SMTPCredentials)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SMTPCredentials::IsInitialized() const {
-  return true;
-}
-
-void SMTPCredentials::Swap(SMTPCredentials* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void SMTPCredentials::InternalSwap(SMTPCredentials* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  to_.InternalSwap(CastToBase(&other->to_));
-  sender_.Swap(&other->sender_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  subject_.Swap(&other->subject_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  content_type_.Swap(&other->content_type_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  body_.Swap(&other->body_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  server_.Swap(&other->server_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  password_.Swap(&other->password_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  swap(use_tls_, other->use_tls_);
-  swap(use_ssl_, other->use_ssl_);
-}
-
-::google::protobuf::Metadata SMTPCredentials::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto);
-  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-void SMTPSendRequest::InitAsDefaultInstance() {
-  ::ric::notify::_SMTPSendRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::notify::UserContext*>(
-      ::ric::notify::UserContext::internal_default_instance());
-  ::ric::notify::_SMTPSendRequest_default_instance_._instance.get_mutable()->request_ = const_cast< ::ric::notify::SMTPCredentials*>(
-      ::ric::notify::SMTPCredentials::internal_default_instance());
-}
-class SMTPSendRequest::HasBitSetters {
- public:
-  static const ::ric::notify::UserContext& ctx(const SMTPSendRequest* msg);
-  static const ::ric::notify::SMTPCredentials& request(const SMTPSendRequest* msg);
-};
-
-const ::ric::notify::UserContext&
-SMTPSendRequest::HasBitSetters::ctx(const SMTPSendRequest* msg) {
-  return *msg->ctx_;
-}
-const ::ric::notify::SMTPCredentials&
-SMTPSendRequest::HasBitSetters::request(const SMTPSendRequest* msg) {
-  return *msg->request_;
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int SMTPSendRequest::kCtxFieldNumber;
-const int SMTPSendRequest::kGatewayIdFieldNumber;
-const int SMTPSendRequest::kRequestFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-SMTPSendRequest::SMTPSendRequest()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:ric.notify.SMTPSendRequest)
-}
-SMTPSendRequest::SMTPSendRequest(const SMTPSendRequest& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(nullptr) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  gateway_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.gateway_id().size() > 0) {
-    gateway_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.gateway_id_);
-  }
-  if (from.has_ctx()) {
-    ctx_ = new ::ric::notify::UserContext(*from.ctx_);
-  } else {
-    ctx_ = nullptr;
-  }
-  if (from.has_request()) {
-    request_ = new ::ric::notify::SMTPCredentials(*from.request_);
-  } else {
-    request_ = nullptr;
-  }
   // @@protoc_insertion_point(copy_constructor:ric.notify.SMTPSendRequest)
 }
 
@@ -4575,9 +3738,15 @@ void SMTPSendRequest::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_SMTPSendRequest_ric_2dnotify_2fricnotify_2eproto.base);
   gateway_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  sender_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  subject_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  content_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  server_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&ctx_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&request_) -
-      reinterpret_cast<char*>(&ctx_)) + sizeof(request_));
+      reinterpret_cast<char*>(&use_ssl_) -
+      reinterpret_cast<char*>(&ctx_)) + sizeof(use_ssl_));
 }
 
 SMTPSendRequest::~SMTPSendRequest() {
@@ -4587,8 +3756,15 @@ SMTPSendRequest::~SMTPSendRequest() {
 
 void SMTPSendRequest::SharedDtor() {
   gateway_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  sender_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  subject_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  content_type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  body_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  server_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete ctx_;
-  if (this != internal_default_instance()) delete request_;
+  if (this != internal_default_instance()) delete use_tls_;
+  if (this != internal_default_instance()) delete use_ssl_;
 }
 
 void SMTPSendRequest::SetCachedSize(int size) const {
@@ -4606,15 +3782,26 @@ void SMTPSendRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  to_.Clear();
   gateway_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  sender_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  subject_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  content_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  server_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
     delete ctx_;
   }
   ctx_ = nullptr;
-  if (GetArenaNoVirtual() == nullptr && request_ != nullptr) {
-    delete request_;
+  if (GetArenaNoVirtual() == nullptr && use_tls_ != nullptr) {
+    delete use_tls_;
   }
-  request_ = nullptr;
+  use_tls_ = nullptr;
+  if (GetArenaNoVirtual() == nullptr && use_ssl_ != nullptr) {
+    delete use_ssl_;
+  }
+  use_ssl_ = nullptr;
   _internal_metadata_.Clear();
 }
 
@@ -4660,13 +3847,141 @@ const char* SMTPSendRequest::_InternalParse(const char* begin, const char* end, 
         ptr += size;
         break;
       }
-      // .ric.notify.SMTPCredentials request = 3;
+      // repeated string to = 3;
       case 3: {
         if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          ctx->extra_parse_data().SetFieldName("ric.notify.SMTPSendRequest.to");
+          object = msg->add_to();
+          if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+            parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+            goto string_till_end;
+          }
+          GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+          ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+          ptr += size;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 26 && (ptr += 1));
+        break;
+      }
+      // string sender = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::ric::notify::SMTPCredentials::_InternalParse;
-        object = msg->mutable_request();
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPSendRequest.sender");
+        object = msg->mutable_sender();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string subject = 5;
+      case 5: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 42) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPSendRequest.subject");
+        object = msg->mutable_subject();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string content_type = 6;
+      case 6: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPSendRequest.content_type");
+        object = msg->mutable_content_type();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string body = 7;
+      case 7: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 58) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPSendRequest.body");
+        object = msg->mutable_body();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string server = 8;
+      case 8: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 66) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPSendRequest.server");
+        object = msg->mutable_server();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string password = 9;
+      case 9: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 74) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPSendRequest.password");
+        object = msg->mutable_password();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // .google.protobuf.BoolValue use_tls = 10;
+      case 10: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 82) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::google::protobuf::BoolValue::_InternalParse;
+        object = msg->mutable_use_tls();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // .google.protobuf.BoolValue use_ssl = 11;
+      case 11: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 90) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::google::protobuf::BoolValue::_InternalParse;
+        object = msg->mutable_use_ssl();
         if (size > end - ptr) goto len_delim_till_end;
         ptr += size;
         GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
@@ -4733,11 +4048,128 @@ bool SMTPSendRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // .ric.notify.SMTPCredentials request = 3;
+      // repeated string to = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_to()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->to(this->to_size() - 1).data(),
+            static_cast<int>(this->to(this->to_size() - 1).length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.SMTPSendRequest.to"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string sender = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_sender()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->sender().data(), static_cast<int>(this->sender().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.SMTPSendRequest.sender"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string subject = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (42 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_subject()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->subject().data(), static_cast<int>(this->subject().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.SMTPSendRequest.subject"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string content_type = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_content_type()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->content_type().data(), static_cast<int>(this->content_type().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.SMTPSendRequest.content_type"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string body = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (58 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_body()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->body().data(), static_cast<int>(this->body().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.SMTPSendRequest.body"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string server = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (66 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_server()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->server().data(), static_cast<int>(this->server().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.SMTPSendRequest.server"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string password = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (74 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_password()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->password().data(), static_cast<int>(this->password().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.SMTPSendRequest.password"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .google.protobuf.BoolValue use_tls = 10;
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (82 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_request()));
+               input, mutable_use_tls()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .google.protobuf.BoolValue use_ssl = 11;
+      case 11: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (90 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_use_ssl()));
         } else {
           goto handle_unusual;
         }
@@ -4787,10 +4219,86 @@ void SMTPSendRequest::SerializeWithCachedSizes(
       2, this->gateway_id(), output);
   }
 
-  // .ric.notify.SMTPCredentials request = 3;
-  if (this->has_request()) {
+  // repeated string to = 3;
+  for (int i = 0, n = this->to_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->to(i).data(), static_cast<int>(this->to(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPSendRequest.to");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->to(i), output);
+  }
+
+  // string sender = 4;
+  if (this->sender().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->sender().data(), static_cast<int>(this->sender().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPSendRequest.sender");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->sender(), output);
+  }
+
+  // string subject = 5;
+  if (this->subject().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->subject().data(), static_cast<int>(this->subject().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPSendRequest.subject");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->subject(), output);
+  }
+
+  // string content_type = 6;
+  if (this->content_type().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->content_type().data(), static_cast<int>(this->content_type().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPSendRequest.content_type");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      6, this->content_type(), output);
+  }
+
+  // string body = 7;
+  if (this->body().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->body().data(), static_cast<int>(this->body().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPSendRequest.body");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      7, this->body(), output);
+  }
+
+  // string server = 8;
+  if (this->server().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->server().data(), static_cast<int>(this->server().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPSendRequest.server");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      8, this->server(), output);
+  }
+
+  // string password = 9;
+  if (this->password().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->password().data(), static_cast<int>(this->password().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPSendRequest.password");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      9, this->password(), output);
+  }
+
+  // .google.protobuf.BoolValue use_tls = 10;
+  if (this->has_use_tls()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, HasBitSetters::request(this), output);
+      10, HasBitSetters::use_tls(this), output);
+  }
+
+  // .google.protobuf.BoolValue use_ssl = 11;
+  if (this->has_use_ssl()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      11, HasBitSetters::use_ssl(this), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4824,11 +4332,94 @@ void SMTPSendRequest::SerializeWithCachedSizes(
         2, this->gateway_id(), target);
   }
 
-  // .ric.notify.SMTPCredentials request = 3;
-  if (this->has_request()) {
+  // repeated string to = 3;
+  for (int i = 0, n = this->to_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->to(i).data(), static_cast<int>(this->to(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPSendRequest.to");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(3, this->to(i), target);
+  }
+
+  // string sender = 4;
+  if (this->sender().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->sender().data(), static_cast<int>(this->sender().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPSendRequest.sender");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->sender(), target);
+  }
+
+  // string subject = 5;
+  if (this->subject().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->subject().data(), static_cast<int>(this->subject().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPSendRequest.subject");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->subject(), target);
+  }
+
+  // string content_type = 6;
+  if (this->content_type().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->content_type().data(), static_cast<int>(this->content_type().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPSendRequest.content_type");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->content_type(), target);
+  }
+
+  // string body = 7;
+  if (this->body().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->body().data(), static_cast<int>(this->body().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPSendRequest.body");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        7, this->body(), target);
+  }
+
+  // string server = 8;
+  if (this->server().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->server().data(), static_cast<int>(this->server().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPSendRequest.server");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        8, this->server(), target);
+  }
+
+  // string password = 9;
+  if (this->password().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->password().data(), static_cast<int>(this->password().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPSendRequest.password");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        9, this->password(), target);
+  }
+
+  // .google.protobuf.BoolValue use_tls = 10;
+  if (this->has_use_tls()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        3, HasBitSetters::request(this), target);
+        10, HasBitSetters::use_tls(this), target);
+  }
+
+  // .google.protobuf.BoolValue use_ssl = 11;
+  if (this->has_use_ssl()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        11, HasBitSetters::use_ssl(this), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -4852,11 +4443,61 @@ size_t SMTPSendRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // repeated string to = 3;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->to_size());
+  for (int i = 0, n = this->to_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->to(i));
+  }
+
   // string gateway_id = 2;
   if (this->gateway_id().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->gateway_id());
+  }
+
+  // string sender = 4;
+  if (this->sender().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->sender());
+  }
+
+  // string subject = 5;
+  if (this->subject().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->subject());
+  }
+
+  // string content_type = 6;
+  if (this->content_type().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->content_type());
+  }
+
+  // string body = 7;
+  if (this->body().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->body());
+  }
+
+  // string server = 8;
+  if (this->server().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->server());
+  }
+
+  // string password = 9;
+  if (this->password().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->password());
   }
 
   // .ric.notify.UserContext ctx = 1;
@@ -4866,11 +4507,18 @@ size_t SMTPSendRequest::ByteSizeLong() const {
         *ctx_);
   }
 
-  // .ric.notify.SMTPCredentials request = 3;
-  if (this->has_request()) {
+  // .google.protobuf.BoolValue use_tls = 10;
+  if (this->has_use_tls()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *request_);
+        *use_tls_);
+  }
+
+  // .google.protobuf.BoolValue use_ssl = 11;
+  if (this->has_use_ssl()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *use_ssl_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -4900,15 +4548,43 @@ void SMTPSendRequest::MergeFrom(const SMTPSendRequest& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  to_.MergeFrom(from.to_);
   if (from.gateway_id().size() > 0) {
 
     gateway_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.gateway_id_);
   }
+  if (from.sender().size() > 0) {
+
+    sender_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sender_);
+  }
+  if (from.subject().size() > 0) {
+
+    subject_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.subject_);
+  }
+  if (from.content_type().size() > 0) {
+
+    content_type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.content_type_);
+  }
+  if (from.body().size() > 0) {
+
+    body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.body_);
+  }
+  if (from.server().size() > 0) {
+
+    server_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.server_);
+  }
+  if (from.password().size() > 0) {
+
+    password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
+  }
   if (from.has_ctx()) {
     mutable_ctx()->::ric::notify::UserContext::MergeFrom(from.ctx());
   }
-  if (from.has_request()) {
-    mutable_request()->::ric::notify::SMTPCredentials::MergeFrom(from.request());
+  if (from.has_use_tls()) {
+    mutable_use_tls()->::google::protobuf::BoolValue::MergeFrom(from.use_tls());
+  }
+  if (from.has_use_ssl()) {
+    mutable_use_ssl()->::google::protobuf::BoolValue::MergeFrom(from.use_ssl());
   }
 }
 
@@ -4937,10 +4613,24 @@ void SMTPSendRequest::Swap(SMTPSendRequest* other) {
 void SMTPSendRequest::InternalSwap(SMTPSendRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  to_.InternalSwap(CastToBase(&other->to_));
   gateway_id_.Swap(&other->gateway_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  sender_.Swap(&other->sender_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  subject_.Swap(&other->subject_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  content_type_.Swap(&other->content_type_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  body_.Swap(&other->body_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  server_.Swap(&other->server_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  password_.Swap(&other->password_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   swap(ctx_, other->ctx_);
-  swap(request_, other->request_);
+  swap(use_tls_, other->use_tls_);
+  swap(use_ssl_, other->use_ssl_);
 }
 
 ::google::protobuf::Metadata SMTPSendRequest::GetMetadata() const {
@@ -5458,20 +5148,48 @@ void SMTPGatewayInfoRequest::InternalSwap(SMTPGatewayInfoRequest* other) {
 // ===================================================================
 
 void SMTPGatewayInfoResponse::InitAsDefaultInstance() {
-  ::ric::notify::_SMTPGatewayInfoResponse_default_instance_._instance.get_mutable()->info_ = const_cast< ::ric::notify::SMTPCredentials*>(
-      ::ric::notify::SMTPCredentials::internal_default_instance());
+  ::ric::notify::_SMTPGatewayInfoResponse_default_instance_._instance.get_mutable()->use_tls_ = const_cast< ::google::protobuf::BoolValue*>(
+      ::google::protobuf::BoolValue::internal_default_instance());
+  ::ric::notify::_SMTPGatewayInfoResponse_default_instance_._instance.get_mutable()->use_ssl_ = const_cast< ::google::protobuf::BoolValue*>(
+      ::google::protobuf::BoolValue::internal_default_instance());
 }
 class SMTPGatewayInfoResponse::HasBitSetters {
  public:
-  static const ::ric::notify::SMTPCredentials& info(const SMTPGatewayInfoResponse* msg);
+  static const ::google::protobuf::BoolValue& use_tls(const SMTPGatewayInfoResponse* msg);
+  static const ::google::protobuf::BoolValue& use_ssl(const SMTPGatewayInfoResponse* msg);
 };
 
-const ::ric::notify::SMTPCredentials&
-SMTPGatewayInfoResponse::HasBitSetters::info(const SMTPGatewayInfoResponse* msg) {
-  return *msg->info_;
+const ::google::protobuf::BoolValue&
+SMTPGatewayInfoResponse::HasBitSetters::use_tls(const SMTPGatewayInfoResponse* msg) {
+  return *msg->use_tls_;
+}
+const ::google::protobuf::BoolValue&
+SMTPGatewayInfoResponse::HasBitSetters::use_ssl(const SMTPGatewayInfoResponse* msg) {
+  return *msg->use_ssl_;
+}
+void SMTPGatewayInfoResponse::clear_use_tls() {
+  if (GetArenaNoVirtual() == nullptr && use_tls_ != nullptr) {
+    delete use_tls_;
+  }
+  use_tls_ = nullptr;
+}
+void SMTPGatewayInfoResponse::clear_use_ssl() {
+  if (GetArenaNoVirtual() == nullptr && use_ssl_ != nullptr) {
+    delete use_ssl_;
+  }
+  use_ssl_ = nullptr;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int SMTPGatewayInfoResponse::kInfoFieldNumber;
+const int SMTPGatewayInfoResponse::kGatewayIdFieldNumber;
+const int SMTPGatewayInfoResponse::kToFieldNumber;
+const int SMTPGatewayInfoResponse::kSenderFieldNumber;
+const int SMTPGatewayInfoResponse::kSubjectFieldNumber;
+const int SMTPGatewayInfoResponse::kContentTypeFieldNumber;
+const int SMTPGatewayInfoResponse::kBodyFieldNumber;
+const int SMTPGatewayInfoResponse::kServerFieldNumber;
+const int SMTPGatewayInfoResponse::kPasswordFieldNumber;
+const int SMTPGatewayInfoResponse::kUseTlsFieldNumber;
+const int SMTPGatewayInfoResponse::kUseSslFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SMTPGatewayInfoResponse::SMTPGatewayInfoResponse()
@@ -5481,12 +5199,46 @@ SMTPGatewayInfoResponse::SMTPGatewayInfoResponse()
 }
 SMTPGatewayInfoResponse::SMTPGatewayInfoResponse(const SMTPGatewayInfoResponse& from)
   : ::google::protobuf::Message(),
-      _internal_metadata_(nullptr) {
+      _internal_metadata_(nullptr),
+      to_(from.to_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from.has_info()) {
-    info_ = new ::ric::notify::SMTPCredentials(*from.info_);
+  gateway_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.gateway_id().size() > 0) {
+    gateway_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.gateway_id_);
+  }
+  sender_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.sender().size() > 0) {
+    sender_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sender_);
+  }
+  subject_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.subject().size() > 0) {
+    subject_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.subject_);
+  }
+  content_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.content_type().size() > 0) {
+    content_type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.content_type_);
+  }
+  body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.body().size() > 0) {
+    body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.body_);
+  }
+  server_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.server().size() > 0) {
+    server_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.server_);
+  }
+  password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.password().size() > 0) {
+    password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
+  }
+  if (from.has_use_tls()) {
+    use_tls_ = new ::google::protobuf::BoolValue(*from.use_tls_);
   } else {
-    info_ = nullptr;
+    use_tls_ = nullptr;
+  }
+  if (from.has_use_ssl()) {
+    use_ssl_ = new ::google::protobuf::BoolValue(*from.use_ssl_);
+  } else {
+    use_ssl_ = nullptr;
   }
   // @@protoc_insertion_point(copy_constructor:ric.notify.SMTPGatewayInfoResponse)
 }
@@ -5494,7 +5246,16 @@ SMTPGatewayInfoResponse::SMTPGatewayInfoResponse(const SMTPGatewayInfoResponse& 
 void SMTPGatewayInfoResponse::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_SMTPGatewayInfoResponse_ric_2dnotify_2fricnotify_2eproto.base);
-  info_ = nullptr;
+  gateway_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  sender_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  subject_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  content_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  server_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&use_tls_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&use_ssl_) -
+      reinterpret_cast<char*>(&use_tls_)) + sizeof(use_ssl_));
 }
 
 SMTPGatewayInfoResponse::~SMTPGatewayInfoResponse() {
@@ -5503,7 +5264,15 @@ SMTPGatewayInfoResponse::~SMTPGatewayInfoResponse() {
 }
 
 void SMTPGatewayInfoResponse::SharedDtor() {
-  if (this != internal_default_instance()) delete info_;
+  gateway_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  sender_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  subject_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  content_type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  body_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  server_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete use_tls_;
+  if (this != internal_default_instance()) delete use_ssl_;
 }
 
 void SMTPGatewayInfoResponse::SetCachedSize(int size) const {
@@ -5521,10 +5290,22 @@ void SMTPGatewayInfoResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaNoVirtual() == nullptr && info_ != nullptr) {
-    delete info_;
+  to_.Clear();
+  gateway_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  sender_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  subject_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  content_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  server_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == nullptr && use_tls_ != nullptr) {
+    delete use_tls_;
   }
-  info_ = nullptr;
+  use_tls_ = nullptr;
+  if (GetArenaNoVirtual() == nullptr && use_ssl_ != nullptr) {
+    delete use_ssl_;
+  }
+  use_ssl_ = nullptr;
   _internal_metadata_.Clear();
 }
 
@@ -5541,13 +5322,157 @@ const char* SMTPGatewayInfoResponse::_InternalParse(const char* begin, const cha
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // .ric.notify.SMTPCredentials info = 1;
+      // string gateway_id = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::ric::notify::SMTPCredentials::_InternalParse;
-        object = msg->mutable_info();
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPGatewayInfoResponse.gateway_id");
+        object = msg->mutable_gateway_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // repeated string to = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          ctx->extra_parse_data().SetFieldName("ric.notify.SMTPGatewayInfoResponse.to");
+          object = msg->add_to();
+          if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+            parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+            goto string_till_end;
+          }
+          GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+          ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+          ptr += size;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 18 && (ptr += 1));
+        break;
+      }
+      // string sender = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPGatewayInfoResponse.sender");
+        object = msg->mutable_sender();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string subject = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPGatewayInfoResponse.subject");
+        object = msg->mutable_subject();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string content_type = 5;
+      case 5: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 42) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPGatewayInfoResponse.content_type");
+        object = msg->mutable_content_type();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string body = 6;
+      case 6: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPGatewayInfoResponse.body");
+        object = msg->mutable_body();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string server = 7;
+      case 7: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 58) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPGatewayInfoResponse.server");
+        object = msg->mutable_server();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string password = 8;
+      case 8: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 66) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPGatewayInfoResponse.password");
+        object = msg->mutable_password();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // .google.protobuf.BoolValue use_tls = 9;
+      case 9: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 74) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::google::protobuf::BoolValue::_InternalParse;
+        object = msg->mutable_use_tls();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // .google.protobuf.BoolValue use_ssl = 10;
+      case 10: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 82) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::google::protobuf::BoolValue::_InternalParse;
+        object = msg->mutable_use_ssl();
         if (size > end - ptr) goto len_delim_till_end;
         ptr += size;
         GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
@@ -5569,6 +5494,10 @@ const char* SMTPGatewayInfoResponse::_InternalParse(const char* begin, const cha
     }  // switch
   }  // while
   return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
 len_delim_till_end:
   return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
                                {parser_till_end, object}, size);
@@ -5584,11 +5513,143 @@ bool SMTPGatewayInfoResponse::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .ric.notify.SMTPCredentials info = 1;
+      // string gateway_id = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_gateway_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->gateway_id().data(), static_cast<int>(this->gateway_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.SMTPGatewayInfoResponse.gateway_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated string to = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_to()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->to(this->to_size() - 1).data(),
+            static_cast<int>(this->to(this->to_size() - 1).length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.SMTPGatewayInfoResponse.to"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string sender = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_sender()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->sender().data(), static_cast<int>(this->sender().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.SMTPGatewayInfoResponse.sender"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string subject = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_subject()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->subject().data(), static_cast<int>(this->subject().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.SMTPGatewayInfoResponse.subject"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string content_type = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (42 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_content_type()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->content_type().data(), static_cast<int>(this->content_type().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.SMTPGatewayInfoResponse.content_type"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string body = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_body()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->body().data(), static_cast<int>(this->body().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.SMTPGatewayInfoResponse.body"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string server = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (58 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_server()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->server().data(), static_cast<int>(this->server().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.SMTPGatewayInfoResponse.server"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string password = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (66 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_password()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->password().data(), static_cast<int>(this->password().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.SMTPGatewayInfoResponse.password"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .google.protobuf.BoolValue use_tls = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (74 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_info()));
+               input, mutable_use_tls()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .google.protobuf.BoolValue use_ssl = 10;
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (82 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_use_ssl()));
         } else {
           goto handle_unusual;
         }
@@ -5622,10 +5683,96 @@ void SMTPGatewayInfoResponse::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.notify.SMTPCredentials info = 1;
-  if (this->has_info()) {
+  // string gateway_id = 1;
+  if (this->gateway_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->gateway_id().data(), static_cast<int>(this->gateway_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.gateway_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->gateway_id(), output);
+  }
+
+  // repeated string to = 2;
+  for (int i = 0, n = this->to_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->to(i).data(), static_cast<int>(this->to(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.to");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->to(i), output);
+  }
+
+  // string sender = 3;
+  if (this->sender().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->sender().data(), static_cast<int>(this->sender().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.sender");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->sender(), output);
+  }
+
+  // string subject = 4;
+  if (this->subject().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->subject().data(), static_cast<int>(this->subject().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.subject");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->subject(), output);
+  }
+
+  // string content_type = 5;
+  if (this->content_type().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->content_type().data(), static_cast<int>(this->content_type().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.content_type");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->content_type(), output);
+  }
+
+  // string body = 6;
+  if (this->body().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->body().data(), static_cast<int>(this->body().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.body");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      6, this->body(), output);
+  }
+
+  // string server = 7;
+  if (this->server().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->server().data(), static_cast<int>(this->server().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.server");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      7, this->server(), output);
+  }
+
+  // string password = 8;
+  if (this->password().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->password().data(), static_cast<int>(this->password().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.password");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      8, this->password(), output);
+  }
+
+  // .google.protobuf.BoolValue use_tls = 9;
+  if (this->has_use_tls()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, HasBitSetters::info(this), output);
+      9, HasBitSetters::use_tls(this), output);
+  }
+
+  // .google.protobuf.BoolValue use_ssl = 10;
+  if (this->has_use_ssl()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      10, HasBitSetters::use_ssl(this), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -5641,11 +5788,105 @@ void SMTPGatewayInfoResponse::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.notify.SMTPCredentials info = 1;
-  if (this->has_info()) {
+  // string gateway_id = 1;
+  if (this->gateway_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->gateway_id().data(), static_cast<int>(this->gateway_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.gateway_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->gateway_id(), target);
+  }
+
+  // repeated string to = 2;
+  for (int i = 0, n = this->to_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->to(i).data(), static_cast<int>(this->to(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.to");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(2, this->to(i), target);
+  }
+
+  // string sender = 3;
+  if (this->sender().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->sender().data(), static_cast<int>(this->sender().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.sender");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->sender(), target);
+  }
+
+  // string subject = 4;
+  if (this->subject().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->subject().data(), static_cast<int>(this->subject().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.subject");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->subject(), target);
+  }
+
+  // string content_type = 5;
+  if (this->content_type().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->content_type().data(), static_cast<int>(this->content_type().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.content_type");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->content_type(), target);
+  }
+
+  // string body = 6;
+  if (this->body().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->body().data(), static_cast<int>(this->body().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.body");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->body(), target);
+  }
+
+  // string server = 7;
+  if (this->server().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->server().data(), static_cast<int>(this->server().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.server");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        7, this->server(), target);
+  }
+
+  // string password = 8;
+  if (this->password().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->password().data(), static_cast<int>(this->password().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.SMTPGatewayInfoResponse.password");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        8, this->password(), target);
+  }
+
+  // .google.protobuf.BoolValue use_tls = 9;
+  if (this->has_use_tls()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, HasBitSetters::info(this), target);
+        9, HasBitSetters::use_tls(this), target);
+  }
+
+  // .google.protobuf.BoolValue use_ssl = 10;
+  if (this->has_use_ssl()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        10, HasBitSetters::use_ssl(this), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -5669,11 +5910,75 @@ size_t SMTPGatewayInfoResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .ric.notify.SMTPCredentials info = 1;
-  if (this->has_info()) {
+  // repeated string to = 2;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->to_size());
+  for (int i = 0, n = this->to_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->to(i));
+  }
+
+  // string gateway_id = 1;
+  if (this->gateway_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->gateway_id());
+  }
+
+  // string sender = 3;
+  if (this->sender().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->sender());
+  }
+
+  // string subject = 4;
+  if (this->subject().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->subject());
+  }
+
+  // string content_type = 5;
+  if (this->content_type().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->content_type());
+  }
+
+  // string body = 6;
+  if (this->body().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->body());
+  }
+
+  // string server = 7;
+  if (this->server().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->server());
+  }
+
+  // string password = 8;
+  if (this->password().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->password());
+  }
+
+  // .google.protobuf.BoolValue use_tls = 9;
+  if (this->has_use_tls()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *info_);
+        *use_tls_);
+  }
+
+  // .google.protobuf.BoolValue use_ssl = 10;
+  if (this->has_use_ssl()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *use_ssl_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -5703,8 +6008,40 @@ void SMTPGatewayInfoResponse::MergeFrom(const SMTPGatewayInfoResponse& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_info()) {
-    mutable_info()->::ric::notify::SMTPCredentials::MergeFrom(from.info());
+  to_.MergeFrom(from.to_);
+  if (from.gateway_id().size() > 0) {
+
+    gateway_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.gateway_id_);
+  }
+  if (from.sender().size() > 0) {
+
+    sender_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sender_);
+  }
+  if (from.subject().size() > 0) {
+
+    subject_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.subject_);
+  }
+  if (from.content_type().size() > 0) {
+
+    content_type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.content_type_);
+  }
+  if (from.body().size() > 0) {
+
+    body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.body_);
+  }
+  if (from.server().size() > 0) {
+
+    server_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.server_);
+  }
+  if (from.password().size() > 0) {
+
+    password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
+  }
+  if (from.has_use_tls()) {
+    mutable_use_tls()->::google::protobuf::BoolValue::MergeFrom(from.use_tls());
+  }
+  if (from.has_use_ssl()) {
+    mutable_use_ssl()->::google::protobuf::BoolValue::MergeFrom(from.use_ssl());
   }
 }
 
@@ -5733,7 +6070,23 @@ void SMTPGatewayInfoResponse::Swap(SMTPGatewayInfoResponse* other) {
 void SMTPGatewayInfoResponse::InternalSwap(SMTPGatewayInfoResponse* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(info_, other->info_);
+  to_.InternalSwap(CastToBase(&other->to_));
+  gateway_id_.Swap(&other->gateway_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  sender_.Swap(&other->sender_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  subject_.Swap(&other->subject_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  content_type_.Swap(&other->content_type_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  body_.Swap(&other->body_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  server_.Swap(&other->server_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  password_.Swap(&other->password_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(use_tls_, other->use_tls_);
+  swap(use_ssl_, other->use_ssl_);
 }
 
 ::google::protobuf::Metadata SMTPGatewayInfoResponse::GetMetadata() const {
@@ -5770,9 +6123,6 @@ template<> PROTOBUF_NOINLINE ::ric::notify::SMPPGatewayInfoRequest* Arena::Creat
 }
 template<> PROTOBUF_NOINLINE ::ric::notify::SMPPGatewayInfoResponse* Arena::CreateMaybeMessage< ::ric::notify::SMPPGatewayInfoResponse >(Arena* arena) {
   return Arena::CreateInternal< ::ric::notify::SMPPGatewayInfoResponse >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ric::notify::SMTPCredentials* Arena::CreateMaybeMessage< ::ric::notify::SMTPCredentials >(Arena* arena) {
-  return Arena::CreateInternal< ::ric::notify::SMTPCredentials >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::notify::SMTPSendRequest* Arena::CreateMaybeMessage< ::ric::notify::SMTPSendRequest >(Arena* arena) {
   return Arena::CreateInternal< ::ric::notify::SMTPSendRequest >(arena);

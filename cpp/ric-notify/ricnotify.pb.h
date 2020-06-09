@@ -43,7 +43,7 @@ struct TableStruct_ric_2dnotify_2fricnotify_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[13]
+  static const ::google::protobuf::internal::ParseTable schema[12]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -73,9 +73,6 @@ extern SMPPStatusResponseDefaultTypeInternal _SMPPStatusResponse_default_instanc
 class SMPPStatusResponse_SMPPStatus;
 class SMPPStatusResponse_SMPPStatusDefaultTypeInternal;
 extern SMPPStatusResponse_SMPPStatusDefaultTypeInternal _SMPPStatusResponse_SMPPStatus_default_instance_;
-class SMTPCredentials;
-class SMTPCredentialsDefaultTypeInternal;
-extern SMTPCredentialsDefaultTypeInternal _SMTPCredentials_default_instance_;
 class SMTPGatewayInfoRequest;
 class SMTPGatewayInfoRequestDefaultTypeInternal;
 extern SMTPGatewayInfoRequestDefaultTypeInternal _SMTPGatewayInfoRequest_default_instance_;
@@ -102,7 +99,6 @@ template<> ::ric::notify::SMPPSendResponse* Arena::CreateMaybeMessage<::ric::not
 template<> ::ric::notify::SMPPStatusRequest* Arena::CreateMaybeMessage<::ric::notify::SMPPStatusRequest>(Arena*);
 template<> ::ric::notify::SMPPStatusResponse* Arena::CreateMaybeMessage<::ric::notify::SMPPStatusResponse>(Arena*);
 template<> ::ric::notify::SMPPStatusResponse_SMPPStatus* Arena::CreateMaybeMessage<::ric::notify::SMPPStatusResponse_SMPPStatus>(Arena*);
-template<> ::ric::notify::SMTPCredentials* Arena::CreateMaybeMessage<::ric::notify::SMTPCredentials>(Arena*);
 template<> ::ric::notify::SMTPGatewayInfoRequest* Arena::CreateMaybeMessage<::ric::notify::SMTPGatewayInfoRequest>(Arena*);
 template<> ::ric::notify::SMTPGatewayInfoResponse* Arena::CreateMaybeMessage<::ric::notify::SMTPGatewayInfoResponse>(Arena*);
 template<> ::ric::notify::SMTPSendRequest* Arena::CreateMaybeMessage<::ric::notify::SMTPSendRequest>(Arena*);
@@ -1274,244 +1270,6 @@ class SMPPGatewayInfoResponse final :
 };
 // -------------------------------------------------------------------
 
-class SMTPCredentials final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.SMTPCredentials) */ {
- public:
-  SMTPCredentials();
-  virtual ~SMTPCredentials();
-
-  SMTPCredentials(const SMTPCredentials& from);
-
-  inline SMTPCredentials& operator=(const SMTPCredentials& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  SMTPCredentials(SMTPCredentials&& from) noexcept
-    : SMTPCredentials() {
-    *this = ::std::move(from);
-  }
-
-  inline SMTPCredentials& operator=(SMTPCredentials&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return default_instance().GetDescriptor();
-  }
-  static const SMTPCredentials& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const SMTPCredentials* internal_default_instance() {
-    return reinterpret_cast<const SMTPCredentials*>(
-               &_SMTPCredentials_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    8;
-
-  void Swap(SMTPCredentials* other);
-  friend void swap(SMTPCredentials& a, SMTPCredentials& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline SMTPCredentials* New() const final {
-    return CreateMaybeMessage<SMTPCredentials>(nullptr);
-  }
-
-  SMTPCredentials* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<SMTPCredentials>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const SMTPCredentials& from);
-  void MergeFrom(const SMTPCredentials& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
-  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
-  #else
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
-  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      ::google::protobuf::uint8* target) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SMTPCredentials* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated string to = 1;
-  int to_size() const;
-  void clear_to();
-  static const int kToFieldNumber = 1;
-  const ::std::string& to(int index) const;
-  ::std::string* mutable_to(int index);
-  void set_to(int index, const ::std::string& value);
-  #if LANG_CXX11
-  void set_to(int index, ::std::string&& value);
-  #endif
-  void set_to(int index, const char* value);
-  void set_to(int index, const char* value, size_t size);
-  ::std::string* add_to();
-  void add_to(const ::std::string& value);
-  #if LANG_CXX11
-  void add_to(::std::string&& value);
-  #endif
-  void add_to(const char* value);
-  void add_to(const char* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField<::std::string>& to() const;
-  ::google::protobuf::RepeatedPtrField<::std::string>* mutable_to();
-
-  // string sender = 2;
-  void clear_sender();
-  static const int kSenderFieldNumber = 2;
-  const ::std::string& sender() const;
-  void set_sender(const ::std::string& value);
-  #if LANG_CXX11
-  void set_sender(::std::string&& value);
-  #endif
-  void set_sender(const char* value);
-  void set_sender(const char* value, size_t size);
-  ::std::string* mutable_sender();
-  ::std::string* release_sender();
-  void set_allocated_sender(::std::string* sender);
-
-  // string subject = 3;
-  void clear_subject();
-  static const int kSubjectFieldNumber = 3;
-  const ::std::string& subject() const;
-  void set_subject(const ::std::string& value);
-  #if LANG_CXX11
-  void set_subject(::std::string&& value);
-  #endif
-  void set_subject(const char* value);
-  void set_subject(const char* value, size_t size);
-  ::std::string* mutable_subject();
-  ::std::string* release_subject();
-  void set_allocated_subject(::std::string* subject);
-
-  // string content_type = 4;
-  void clear_content_type();
-  static const int kContentTypeFieldNumber = 4;
-  const ::std::string& content_type() const;
-  void set_content_type(const ::std::string& value);
-  #if LANG_CXX11
-  void set_content_type(::std::string&& value);
-  #endif
-  void set_content_type(const char* value);
-  void set_content_type(const char* value, size_t size);
-  ::std::string* mutable_content_type();
-  ::std::string* release_content_type();
-  void set_allocated_content_type(::std::string* content_type);
-
-  // string body = 5;
-  void clear_body();
-  static const int kBodyFieldNumber = 5;
-  const ::std::string& body() const;
-  void set_body(const ::std::string& value);
-  #if LANG_CXX11
-  void set_body(::std::string&& value);
-  #endif
-  void set_body(const char* value);
-  void set_body(const char* value, size_t size);
-  ::std::string* mutable_body();
-  ::std::string* release_body();
-  void set_allocated_body(::std::string* body);
-
-  // string server = 6;
-  void clear_server();
-  static const int kServerFieldNumber = 6;
-  const ::std::string& server() const;
-  void set_server(const ::std::string& value);
-  #if LANG_CXX11
-  void set_server(::std::string&& value);
-  #endif
-  void set_server(const char* value);
-  void set_server(const char* value, size_t size);
-  ::std::string* mutable_server();
-  ::std::string* release_server();
-  void set_allocated_server(::std::string* server);
-
-  // string password = 7;
-  void clear_password();
-  static const int kPasswordFieldNumber = 7;
-  const ::std::string& password() const;
-  void set_password(const ::std::string& value);
-  #if LANG_CXX11
-  void set_password(::std::string&& value);
-  #endif
-  void set_password(const char* value);
-  void set_password(const char* value, size_t size);
-  ::std::string* mutable_password();
-  ::std::string* release_password();
-  void set_allocated_password(::std::string* password);
-
-  // .google.protobuf.BoolValue use_tls = 8;
-  bool has_use_tls() const;
-  void clear_use_tls();
-  static const int kUseTlsFieldNumber = 8;
-  const ::google::protobuf::BoolValue& use_tls() const;
-  ::google::protobuf::BoolValue* release_use_tls();
-  ::google::protobuf::BoolValue* mutable_use_tls();
-  void set_allocated_use_tls(::google::protobuf::BoolValue* use_tls);
-
-  // .google.protobuf.BoolValue use_ssl = 9;
-  bool has_use_ssl() const;
-  void clear_use_ssl();
-  static const int kUseSslFieldNumber = 9;
-  const ::google::protobuf::BoolValue& use_ssl() const;
-  ::google::protobuf::BoolValue* release_use_ssl();
-  ::google::protobuf::BoolValue* mutable_use_ssl();
-  void set_allocated_use_ssl(::google::protobuf::BoolValue* use_ssl);
-
-  // @@protoc_insertion_point(class_scope:ric.notify.SMTPCredentials)
- private:
-  class HasBitSetters;
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField<::std::string> to_;
-  ::google::protobuf::internal::ArenaStringPtr sender_;
-  ::google::protobuf::internal::ArenaStringPtr subject_;
-  ::google::protobuf::internal::ArenaStringPtr content_type_;
-  ::google::protobuf::internal::ArenaStringPtr body_;
-  ::google::protobuf::internal::ArenaStringPtr server_;
-  ::google::protobuf::internal::ArenaStringPtr password_;
-  ::google::protobuf::BoolValue* use_tls_;
-  ::google::protobuf::BoolValue* use_ssl_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
-};
-// -------------------------------------------------------------------
-
 class SMTPSendRequest final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.SMTPSendRequest) */ {
  public:
@@ -1550,7 +1308,7 @@ class SMTPSendRequest final :
                &_SMTPSendRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    8;
 
   void Swap(SMTPSendRequest* other);
   friend void swap(SMTPSendRequest& a, SMTPSendRequest& b) {
@@ -1607,6 +1365,28 @@ class SMTPSendRequest final :
 
   // accessors -------------------------------------------------------
 
+  // repeated string to = 3;
+  int to_size() const;
+  void clear_to();
+  static const int kToFieldNumber = 3;
+  const ::std::string& to(int index) const;
+  ::std::string* mutable_to(int index);
+  void set_to(int index, const ::std::string& value);
+  #if LANG_CXX11
+  void set_to(int index, ::std::string&& value);
+  #endif
+  void set_to(int index, const char* value);
+  void set_to(int index, const char* value, size_t size);
+  ::std::string* add_to();
+  void add_to(const ::std::string& value);
+  #if LANG_CXX11
+  void add_to(::std::string&& value);
+  #endif
+  void add_to(const char* value);
+  void add_to(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField<::std::string>& to() const;
+  ::google::protobuf::RepeatedPtrField<::std::string>* mutable_to();
+
   // string gateway_id = 2;
   void clear_gateway_id();
   static const int kGatewayIdFieldNumber = 2;
@@ -1621,6 +1401,90 @@ class SMTPSendRequest final :
   ::std::string* release_gateway_id();
   void set_allocated_gateway_id(::std::string* gateway_id);
 
+  // string sender = 4;
+  void clear_sender();
+  static const int kSenderFieldNumber = 4;
+  const ::std::string& sender() const;
+  void set_sender(const ::std::string& value);
+  #if LANG_CXX11
+  void set_sender(::std::string&& value);
+  #endif
+  void set_sender(const char* value);
+  void set_sender(const char* value, size_t size);
+  ::std::string* mutable_sender();
+  ::std::string* release_sender();
+  void set_allocated_sender(::std::string* sender);
+
+  // string subject = 5;
+  void clear_subject();
+  static const int kSubjectFieldNumber = 5;
+  const ::std::string& subject() const;
+  void set_subject(const ::std::string& value);
+  #if LANG_CXX11
+  void set_subject(::std::string&& value);
+  #endif
+  void set_subject(const char* value);
+  void set_subject(const char* value, size_t size);
+  ::std::string* mutable_subject();
+  ::std::string* release_subject();
+  void set_allocated_subject(::std::string* subject);
+
+  // string content_type = 6;
+  void clear_content_type();
+  static const int kContentTypeFieldNumber = 6;
+  const ::std::string& content_type() const;
+  void set_content_type(const ::std::string& value);
+  #if LANG_CXX11
+  void set_content_type(::std::string&& value);
+  #endif
+  void set_content_type(const char* value);
+  void set_content_type(const char* value, size_t size);
+  ::std::string* mutable_content_type();
+  ::std::string* release_content_type();
+  void set_allocated_content_type(::std::string* content_type);
+
+  // string body = 7;
+  void clear_body();
+  static const int kBodyFieldNumber = 7;
+  const ::std::string& body() const;
+  void set_body(const ::std::string& value);
+  #if LANG_CXX11
+  void set_body(::std::string&& value);
+  #endif
+  void set_body(const char* value);
+  void set_body(const char* value, size_t size);
+  ::std::string* mutable_body();
+  ::std::string* release_body();
+  void set_allocated_body(::std::string* body);
+
+  // string server = 8;
+  void clear_server();
+  static const int kServerFieldNumber = 8;
+  const ::std::string& server() const;
+  void set_server(const ::std::string& value);
+  #if LANG_CXX11
+  void set_server(::std::string&& value);
+  #endif
+  void set_server(const char* value);
+  void set_server(const char* value, size_t size);
+  ::std::string* mutable_server();
+  ::std::string* release_server();
+  void set_allocated_server(::std::string* server);
+
+  // string password = 9;
+  void clear_password();
+  static const int kPasswordFieldNumber = 9;
+  const ::std::string& password() const;
+  void set_password(const ::std::string& value);
+  #if LANG_CXX11
+  void set_password(::std::string&& value);
+  #endif
+  void set_password(const char* value);
+  void set_password(const char* value, size_t size);
+  ::std::string* mutable_password();
+  ::std::string* release_password();
+  void set_allocated_password(::std::string* password);
+
   // .ric.notify.UserContext ctx = 1;
   bool has_ctx() const;
   void clear_ctx();
@@ -1630,23 +1494,40 @@ class SMTPSendRequest final :
   ::ric::notify::UserContext* mutable_ctx();
   void set_allocated_ctx(::ric::notify::UserContext* ctx);
 
-  // .ric.notify.SMTPCredentials request = 3;
-  bool has_request() const;
-  void clear_request();
-  static const int kRequestFieldNumber = 3;
-  const ::ric::notify::SMTPCredentials& request() const;
-  ::ric::notify::SMTPCredentials* release_request();
-  ::ric::notify::SMTPCredentials* mutable_request();
-  void set_allocated_request(::ric::notify::SMTPCredentials* request);
+  // .google.protobuf.BoolValue use_tls = 10;
+  bool has_use_tls() const;
+  void clear_use_tls();
+  static const int kUseTlsFieldNumber = 10;
+  const ::google::protobuf::BoolValue& use_tls() const;
+  ::google::protobuf::BoolValue* release_use_tls();
+  ::google::protobuf::BoolValue* mutable_use_tls();
+  void set_allocated_use_tls(::google::protobuf::BoolValue* use_tls);
+
+  // .google.protobuf.BoolValue use_ssl = 11;
+  bool has_use_ssl() const;
+  void clear_use_ssl();
+  static const int kUseSslFieldNumber = 11;
+  const ::google::protobuf::BoolValue& use_ssl() const;
+  ::google::protobuf::BoolValue* release_use_ssl();
+  ::google::protobuf::BoolValue* mutable_use_ssl();
+  void set_allocated_use_ssl(::google::protobuf::BoolValue* use_ssl);
 
   // @@protoc_insertion_point(class_scope:ric.notify.SMTPSendRequest)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField<::std::string> to_;
   ::google::protobuf::internal::ArenaStringPtr gateway_id_;
+  ::google::protobuf::internal::ArenaStringPtr sender_;
+  ::google::protobuf::internal::ArenaStringPtr subject_;
+  ::google::protobuf::internal::ArenaStringPtr content_type_;
+  ::google::protobuf::internal::ArenaStringPtr body_;
+  ::google::protobuf::internal::ArenaStringPtr server_;
+  ::google::protobuf::internal::ArenaStringPtr password_;
   ::ric::notify::UserContext* ctx_;
-  ::ric::notify::SMTPCredentials* request_;
+  ::google::protobuf::BoolValue* use_tls_;
+  ::google::protobuf::BoolValue* use_ssl_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
 };
@@ -1690,7 +1571,7 @@ class SMTPSendResponse final :
                &_SMTPSendResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    9;
 
   void Swap(SMTPSendResponse* other);
   friend void swap(SMTPSendResponse& a, SMTPSendResponse& b) {
@@ -1795,7 +1676,7 @@ class SMTPGatewayInfoRequest final :
                &_SMTPGatewayInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    10;
 
   void Swap(SMTPGatewayInfoRequest* other);
   friend void swap(SMTPGatewayInfoRequest& a, SMTPGatewayInfoRequest& b) {
@@ -1915,7 +1796,7 @@ class SMTPGatewayInfoResponse final :
                &_SMTPGatewayInfoResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    11;
 
   void Swap(SMTPGatewayInfoResponse* other);
   friend void swap(SMTPGatewayInfoResponse& a, SMTPGatewayInfoResponse& b) {
@@ -1972,21 +1853,159 @@ class SMTPGatewayInfoResponse final :
 
   // accessors -------------------------------------------------------
 
-  // .ric.notify.SMTPCredentials info = 1;
-  bool has_info() const;
-  void clear_info();
-  static const int kInfoFieldNumber = 1;
-  const ::ric::notify::SMTPCredentials& info() const;
-  ::ric::notify::SMTPCredentials* release_info();
-  ::ric::notify::SMTPCredentials* mutable_info();
-  void set_allocated_info(::ric::notify::SMTPCredentials* info);
+  // repeated string to = 2;
+  int to_size() const;
+  void clear_to();
+  static const int kToFieldNumber = 2;
+  const ::std::string& to(int index) const;
+  ::std::string* mutable_to(int index);
+  void set_to(int index, const ::std::string& value);
+  #if LANG_CXX11
+  void set_to(int index, ::std::string&& value);
+  #endif
+  void set_to(int index, const char* value);
+  void set_to(int index, const char* value, size_t size);
+  ::std::string* add_to();
+  void add_to(const ::std::string& value);
+  #if LANG_CXX11
+  void add_to(::std::string&& value);
+  #endif
+  void add_to(const char* value);
+  void add_to(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField<::std::string>& to() const;
+  ::google::protobuf::RepeatedPtrField<::std::string>* mutable_to();
+
+  // string gateway_id = 1;
+  void clear_gateway_id();
+  static const int kGatewayIdFieldNumber = 1;
+  const ::std::string& gateway_id() const;
+  void set_gateway_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_gateway_id(::std::string&& value);
+  #endif
+  void set_gateway_id(const char* value);
+  void set_gateway_id(const char* value, size_t size);
+  ::std::string* mutable_gateway_id();
+  ::std::string* release_gateway_id();
+  void set_allocated_gateway_id(::std::string* gateway_id);
+
+  // string sender = 3;
+  void clear_sender();
+  static const int kSenderFieldNumber = 3;
+  const ::std::string& sender() const;
+  void set_sender(const ::std::string& value);
+  #if LANG_CXX11
+  void set_sender(::std::string&& value);
+  #endif
+  void set_sender(const char* value);
+  void set_sender(const char* value, size_t size);
+  ::std::string* mutable_sender();
+  ::std::string* release_sender();
+  void set_allocated_sender(::std::string* sender);
+
+  // string subject = 4;
+  void clear_subject();
+  static const int kSubjectFieldNumber = 4;
+  const ::std::string& subject() const;
+  void set_subject(const ::std::string& value);
+  #if LANG_CXX11
+  void set_subject(::std::string&& value);
+  #endif
+  void set_subject(const char* value);
+  void set_subject(const char* value, size_t size);
+  ::std::string* mutable_subject();
+  ::std::string* release_subject();
+  void set_allocated_subject(::std::string* subject);
+
+  // string content_type = 5;
+  void clear_content_type();
+  static const int kContentTypeFieldNumber = 5;
+  const ::std::string& content_type() const;
+  void set_content_type(const ::std::string& value);
+  #if LANG_CXX11
+  void set_content_type(::std::string&& value);
+  #endif
+  void set_content_type(const char* value);
+  void set_content_type(const char* value, size_t size);
+  ::std::string* mutable_content_type();
+  ::std::string* release_content_type();
+  void set_allocated_content_type(::std::string* content_type);
+
+  // string body = 6;
+  void clear_body();
+  static const int kBodyFieldNumber = 6;
+  const ::std::string& body() const;
+  void set_body(const ::std::string& value);
+  #if LANG_CXX11
+  void set_body(::std::string&& value);
+  #endif
+  void set_body(const char* value);
+  void set_body(const char* value, size_t size);
+  ::std::string* mutable_body();
+  ::std::string* release_body();
+  void set_allocated_body(::std::string* body);
+
+  // string server = 7;
+  void clear_server();
+  static const int kServerFieldNumber = 7;
+  const ::std::string& server() const;
+  void set_server(const ::std::string& value);
+  #if LANG_CXX11
+  void set_server(::std::string&& value);
+  #endif
+  void set_server(const char* value);
+  void set_server(const char* value, size_t size);
+  ::std::string* mutable_server();
+  ::std::string* release_server();
+  void set_allocated_server(::std::string* server);
+
+  // string password = 8;
+  void clear_password();
+  static const int kPasswordFieldNumber = 8;
+  const ::std::string& password() const;
+  void set_password(const ::std::string& value);
+  #if LANG_CXX11
+  void set_password(::std::string&& value);
+  #endif
+  void set_password(const char* value);
+  void set_password(const char* value, size_t size);
+  ::std::string* mutable_password();
+  ::std::string* release_password();
+  void set_allocated_password(::std::string* password);
+
+  // .google.protobuf.BoolValue use_tls = 9;
+  bool has_use_tls() const;
+  void clear_use_tls();
+  static const int kUseTlsFieldNumber = 9;
+  const ::google::protobuf::BoolValue& use_tls() const;
+  ::google::protobuf::BoolValue* release_use_tls();
+  ::google::protobuf::BoolValue* mutable_use_tls();
+  void set_allocated_use_tls(::google::protobuf::BoolValue* use_tls);
+
+  // .google.protobuf.BoolValue use_ssl = 10;
+  bool has_use_ssl() const;
+  void clear_use_ssl();
+  static const int kUseSslFieldNumber = 10;
+  const ::google::protobuf::BoolValue& use_ssl() const;
+  ::google::protobuf::BoolValue* release_use_ssl();
+  ::google::protobuf::BoolValue* mutable_use_ssl();
+  void set_allocated_use_ssl(::google::protobuf::BoolValue* use_ssl);
 
   // @@protoc_insertion_point(class_scope:ric.notify.SMTPGatewayInfoResponse)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::ric::notify::SMTPCredentials* info_;
+  ::google::protobuf::RepeatedPtrField<::std::string> to_;
+  ::google::protobuf::internal::ArenaStringPtr gateway_id_;
+  ::google::protobuf::internal::ArenaStringPtr sender_;
+  ::google::protobuf::internal::ArenaStringPtr subject_;
+  ::google::protobuf::internal::ArenaStringPtr content_type_;
+  ::google::protobuf::internal::ArenaStringPtr body_;
+  ::google::protobuf::internal::ArenaStringPtr server_;
+  ::google::protobuf::internal::ArenaStringPtr password_;
+  ::google::protobuf::BoolValue* use_tls_;
+  ::google::protobuf::BoolValue* use_ssl_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
 };
@@ -2931,489 +2950,6 @@ inline void SMPPGatewayInfoResponse::set_uptime(::google::protobuf::int64 value)
 
 // -------------------------------------------------------------------
 
-// SMTPCredentials
-
-// repeated string to = 1;
-inline int SMTPCredentials::to_size() const {
-  return to_.size();
-}
-inline void SMTPCredentials::clear_to() {
-  to_.Clear();
-}
-inline const ::std::string& SMTPCredentials::to(int index) const {
-  // @@protoc_insertion_point(field_get:ric.notify.SMTPCredentials.to)
-  return to_.Get(index);
-}
-inline ::std::string* SMTPCredentials::mutable_to(int index) {
-  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPCredentials.to)
-  return to_.Mutable(index);
-}
-inline void SMTPCredentials::set_to(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:ric.notify.SMTPCredentials.to)
-  to_.Mutable(index)->assign(value);
-}
-#if LANG_CXX11
-inline void SMTPCredentials::set_to(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:ric.notify.SMTPCredentials.to)
-  to_.Mutable(index)->assign(std::move(value));
-}
-#endif
-inline void SMTPCredentials::set_to(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  to_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPCredentials.to)
-}
-inline void SMTPCredentials::set_to(int index, const char* value, size_t size) {
-  to_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPCredentials.to)
-}
-inline ::std::string* SMTPCredentials::add_to() {
-  // @@protoc_insertion_point(field_add_mutable:ric.notify.SMTPCredentials.to)
-  return to_.Add();
-}
-inline void SMTPCredentials::add_to(const ::std::string& value) {
-  to_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:ric.notify.SMTPCredentials.to)
-}
-#if LANG_CXX11
-inline void SMTPCredentials::add_to(::std::string&& value) {
-  to_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:ric.notify.SMTPCredentials.to)
-}
-#endif
-inline void SMTPCredentials::add_to(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  to_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:ric.notify.SMTPCredentials.to)
-}
-inline void SMTPCredentials::add_to(const char* value, size_t size) {
-  to_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:ric.notify.SMTPCredentials.to)
-}
-inline const ::google::protobuf::RepeatedPtrField<::std::string>&
-SMTPCredentials::to() const {
-  // @@protoc_insertion_point(field_list:ric.notify.SMTPCredentials.to)
-  return to_;
-}
-inline ::google::protobuf::RepeatedPtrField<::std::string>*
-SMTPCredentials::mutable_to() {
-  // @@protoc_insertion_point(field_mutable_list:ric.notify.SMTPCredentials.to)
-  return &to_;
-}
-
-// string sender = 2;
-inline void SMTPCredentials::clear_sender() {
-  sender_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& SMTPCredentials::sender() const {
-  // @@protoc_insertion_point(field_get:ric.notify.SMTPCredentials.sender)
-  return sender_.GetNoArena();
-}
-inline void SMTPCredentials::set_sender(const ::std::string& value) {
-  
-  sender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.notify.SMTPCredentials.sender)
-}
-#if LANG_CXX11
-inline void SMTPCredentials::set_sender(::std::string&& value) {
-  
-  sender_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPCredentials.sender)
-}
-#endif
-inline void SMTPCredentials::set_sender(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  sender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPCredentials.sender)
-}
-inline void SMTPCredentials::set_sender(const char* value, size_t size) {
-  
-  sender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPCredentials.sender)
-}
-inline ::std::string* SMTPCredentials::mutable_sender() {
-  
-  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPCredentials.sender)
-  return sender_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SMTPCredentials::release_sender() {
-  // @@protoc_insertion_point(field_release:ric.notify.SMTPCredentials.sender)
-  
-  return sender_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SMTPCredentials::set_allocated_sender(::std::string* sender) {
-  if (sender != nullptr) {
-    
-  } else {
-    
-  }
-  sender_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sender);
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPCredentials.sender)
-}
-
-// string subject = 3;
-inline void SMTPCredentials::clear_subject() {
-  subject_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& SMTPCredentials::subject() const {
-  // @@protoc_insertion_point(field_get:ric.notify.SMTPCredentials.subject)
-  return subject_.GetNoArena();
-}
-inline void SMTPCredentials::set_subject(const ::std::string& value) {
-  
-  subject_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.notify.SMTPCredentials.subject)
-}
-#if LANG_CXX11
-inline void SMTPCredentials::set_subject(::std::string&& value) {
-  
-  subject_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPCredentials.subject)
-}
-#endif
-inline void SMTPCredentials::set_subject(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  subject_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPCredentials.subject)
-}
-inline void SMTPCredentials::set_subject(const char* value, size_t size) {
-  
-  subject_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPCredentials.subject)
-}
-inline ::std::string* SMTPCredentials::mutable_subject() {
-  
-  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPCredentials.subject)
-  return subject_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SMTPCredentials::release_subject() {
-  // @@protoc_insertion_point(field_release:ric.notify.SMTPCredentials.subject)
-  
-  return subject_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SMTPCredentials::set_allocated_subject(::std::string* subject) {
-  if (subject != nullptr) {
-    
-  } else {
-    
-  }
-  subject_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), subject);
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPCredentials.subject)
-}
-
-// string content_type = 4;
-inline void SMTPCredentials::clear_content_type() {
-  content_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& SMTPCredentials::content_type() const {
-  // @@protoc_insertion_point(field_get:ric.notify.SMTPCredentials.content_type)
-  return content_type_.GetNoArena();
-}
-inline void SMTPCredentials::set_content_type(const ::std::string& value) {
-  
-  content_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.notify.SMTPCredentials.content_type)
-}
-#if LANG_CXX11
-inline void SMTPCredentials::set_content_type(::std::string&& value) {
-  
-  content_type_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPCredentials.content_type)
-}
-#endif
-inline void SMTPCredentials::set_content_type(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  content_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPCredentials.content_type)
-}
-inline void SMTPCredentials::set_content_type(const char* value, size_t size) {
-  
-  content_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPCredentials.content_type)
-}
-inline ::std::string* SMTPCredentials::mutable_content_type() {
-  
-  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPCredentials.content_type)
-  return content_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SMTPCredentials::release_content_type() {
-  // @@protoc_insertion_point(field_release:ric.notify.SMTPCredentials.content_type)
-  
-  return content_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SMTPCredentials::set_allocated_content_type(::std::string* content_type) {
-  if (content_type != nullptr) {
-    
-  } else {
-    
-  }
-  content_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), content_type);
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPCredentials.content_type)
-}
-
-// string body = 5;
-inline void SMTPCredentials::clear_body() {
-  body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& SMTPCredentials::body() const {
-  // @@protoc_insertion_point(field_get:ric.notify.SMTPCredentials.body)
-  return body_.GetNoArena();
-}
-inline void SMTPCredentials::set_body(const ::std::string& value) {
-  
-  body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.notify.SMTPCredentials.body)
-}
-#if LANG_CXX11
-inline void SMTPCredentials::set_body(::std::string&& value) {
-  
-  body_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPCredentials.body)
-}
-#endif
-inline void SMTPCredentials::set_body(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPCredentials.body)
-}
-inline void SMTPCredentials::set_body(const char* value, size_t size) {
-  
-  body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPCredentials.body)
-}
-inline ::std::string* SMTPCredentials::mutable_body() {
-  
-  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPCredentials.body)
-  return body_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SMTPCredentials::release_body() {
-  // @@protoc_insertion_point(field_release:ric.notify.SMTPCredentials.body)
-  
-  return body_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SMTPCredentials::set_allocated_body(::std::string* body) {
-  if (body != nullptr) {
-    
-  } else {
-    
-  }
-  body_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), body);
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPCredentials.body)
-}
-
-// string server = 6;
-inline void SMTPCredentials::clear_server() {
-  server_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& SMTPCredentials::server() const {
-  // @@protoc_insertion_point(field_get:ric.notify.SMTPCredentials.server)
-  return server_.GetNoArena();
-}
-inline void SMTPCredentials::set_server(const ::std::string& value) {
-  
-  server_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.notify.SMTPCredentials.server)
-}
-#if LANG_CXX11
-inline void SMTPCredentials::set_server(::std::string&& value) {
-  
-  server_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPCredentials.server)
-}
-#endif
-inline void SMTPCredentials::set_server(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  server_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPCredentials.server)
-}
-inline void SMTPCredentials::set_server(const char* value, size_t size) {
-  
-  server_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPCredentials.server)
-}
-inline ::std::string* SMTPCredentials::mutable_server() {
-  
-  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPCredentials.server)
-  return server_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SMTPCredentials::release_server() {
-  // @@protoc_insertion_point(field_release:ric.notify.SMTPCredentials.server)
-  
-  return server_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SMTPCredentials::set_allocated_server(::std::string* server) {
-  if (server != nullptr) {
-    
-  } else {
-    
-  }
-  server_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), server);
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPCredentials.server)
-}
-
-// string password = 7;
-inline void SMTPCredentials::clear_password() {
-  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& SMTPCredentials::password() const {
-  // @@protoc_insertion_point(field_get:ric.notify.SMTPCredentials.password)
-  return password_.GetNoArena();
-}
-inline void SMTPCredentials::set_password(const ::std::string& value) {
-  
-  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.notify.SMTPCredentials.password)
-}
-#if LANG_CXX11
-inline void SMTPCredentials::set_password(::std::string&& value) {
-  
-  password_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPCredentials.password)
-}
-#endif
-inline void SMTPCredentials::set_password(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPCredentials.password)
-}
-inline void SMTPCredentials::set_password(const char* value, size_t size) {
-  
-  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPCredentials.password)
-}
-inline ::std::string* SMTPCredentials::mutable_password() {
-  
-  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPCredentials.password)
-  return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SMTPCredentials::release_password() {
-  // @@protoc_insertion_point(field_release:ric.notify.SMTPCredentials.password)
-  
-  return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SMTPCredentials::set_allocated_password(::std::string* password) {
-  if (password != nullptr) {
-    
-  } else {
-    
-  }
-  password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPCredentials.password)
-}
-
-// .google.protobuf.BoolValue use_tls = 8;
-inline bool SMTPCredentials::has_use_tls() const {
-  return this != internal_default_instance() && use_tls_ != nullptr;
-}
-inline const ::google::protobuf::BoolValue& SMTPCredentials::use_tls() const {
-  const ::google::protobuf::BoolValue* p = use_tls_;
-  // @@protoc_insertion_point(field_get:ric.notify.SMTPCredentials.use_tls)
-  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::BoolValue*>(
-      &::google::protobuf::_BoolValue_default_instance_);
-}
-inline ::google::protobuf::BoolValue* SMTPCredentials::release_use_tls() {
-  // @@protoc_insertion_point(field_release:ric.notify.SMTPCredentials.use_tls)
-  
-  ::google::protobuf::BoolValue* temp = use_tls_;
-  use_tls_ = nullptr;
-  return temp;
-}
-inline ::google::protobuf::BoolValue* SMTPCredentials::mutable_use_tls() {
-  
-  if (use_tls_ == nullptr) {
-    auto* p = CreateMaybeMessage<::google::protobuf::BoolValue>(GetArenaNoVirtual());
-    use_tls_ = p;
-  }
-  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPCredentials.use_tls)
-  return use_tls_;
-}
-inline void SMTPCredentials::set_allocated_use_tls(::google::protobuf::BoolValue* use_tls) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::google::protobuf::MessageLite*>(use_tls_);
-  }
-  if (use_tls) {
-    ::google::protobuf::Arena* submessage_arena =
-      reinterpret_cast<::google::protobuf::MessageLite*>(use_tls)->GetArena();
-    if (message_arena != submessage_arena) {
-      use_tls = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, use_tls, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  use_tls_ = use_tls;
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPCredentials.use_tls)
-}
-
-// .google.protobuf.BoolValue use_ssl = 9;
-inline bool SMTPCredentials::has_use_ssl() const {
-  return this != internal_default_instance() && use_ssl_ != nullptr;
-}
-inline const ::google::protobuf::BoolValue& SMTPCredentials::use_ssl() const {
-  const ::google::protobuf::BoolValue* p = use_ssl_;
-  // @@protoc_insertion_point(field_get:ric.notify.SMTPCredentials.use_ssl)
-  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::BoolValue*>(
-      &::google::protobuf::_BoolValue_default_instance_);
-}
-inline ::google::protobuf::BoolValue* SMTPCredentials::release_use_ssl() {
-  // @@protoc_insertion_point(field_release:ric.notify.SMTPCredentials.use_ssl)
-  
-  ::google::protobuf::BoolValue* temp = use_ssl_;
-  use_ssl_ = nullptr;
-  return temp;
-}
-inline ::google::protobuf::BoolValue* SMTPCredentials::mutable_use_ssl() {
-  
-  if (use_ssl_ == nullptr) {
-    auto* p = CreateMaybeMessage<::google::protobuf::BoolValue>(GetArenaNoVirtual());
-    use_ssl_ = p;
-  }
-  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPCredentials.use_ssl)
-  return use_ssl_;
-}
-inline void SMTPCredentials::set_allocated_use_ssl(::google::protobuf::BoolValue* use_ssl) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::google::protobuf::MessageLite*>(use_ssl_);
-  }
-  if (use_ssl) {
-    ::google::protobuf::Arena* submessage_arena =
-      reinterpret_cast<::google::protobuf::MessageLite*>(use_ssl)->GetArena();
-    if (message_arena != submessage_arena) {
-      use_ssl = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, use_ssl, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  use_ssl_ = use_ssl;
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPCredentials.use_ssl)
-}
-
-// -------------------------------------------------------------------
-
 // SMTPSendRequest
 
 // .ric.notify.UserContext ctx = 1;
@@ -3520,55 +3056,483 @@ inline void SMTPSendRequest::set_allocated_gateway_id(::std::string* gateway_id)
   // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPSendRequest.gateway_id)
 }
 
-// .ric.notify.SMTPCredentials request = 3;
-inline bool SMTPSendRequest::has_request() const {
-  return this != internal_default_instance() && request_ != nullptr;
+// repeated string to = 3;
+inline int SMTPSendRequest::to_size() const {
+  return to_.size();
 }
-inline void SMTPSendRequest::clear_request() {
-  if (GetArenaNoVirtual() == nullptr && request_ != nullptr) {
-    delete request_;
-  }
-  request_ = nullptr;
+inline void SMTPSendRequest::clear_to() {
+  to_.Clear();
 }
-inline const ::ric::notify::SMTPCredentials& SMTPSendRequest::request() const {
-  const ::ric::notify::SMTPCredentials* p = request_;
-  // @@protoc_insertion_point(field_get:ric.notify.SMTPSendRequest.request)
-  return p != nullptr ? *p : *reinterpret_cast<const ::ric::notify::SMTPCredentials*>(
-      &::ric::notify::_SMTPCredentials_default_instance_);
+inline const ::std::string& SMTPSendRequest::to(int index) const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPSendRequest.to)
+  return to_.Get(index);
 }
-inline ::ric::notify::SMTPCredentials* SMTPSendRequest::release_request() {
-  // @@protoc_insertion_point(field_release:ric.notify.SMTPSendRequest.request)
+inline ::std::string* SMTPSendRequest::mutable_to(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPSendRequest.to)
+  return to_.Mutable(index);
+}
+inline void SMTPSendRequest::set_to(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPSendRequest.to)
+  to_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+inline void SMTPSendRequest::set_to(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPSendRequest.to)
+  to_.Mutable(index)->assign(std::move(value));
+}
+#endif
+inline void SMTPSendRequest::set_to(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  to_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPSendRequest.to)
+}
+inline void SMTPSendRequest::set_to(int index, const char* value, size_t size) {
+  to_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPSendRequest.to)
+}
+inline ::std::string* SMTPSendRequest::add_to() {
+  // @@protoc_insertion_point(field_add_mutable:ric.notify.SMTPSendRequest.to)
+  return to_.Add();
+}
+inline void SMTPSendRequest::add_to(const ::std::string& value) {
+  to_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ric.notify.SMTPSendRequest.to)
+}
+#if LANG_CXX11
+inline void SMTPSendRequest::add_to(::std::string&& value) {
+  to_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ric.notify.SMTPSendRequest.to)
+}
+#endif
+inline void SMTPSendRequest::add_to(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  to_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ric.notify.SMTPSendRequest.to)
+}
+inline void SMTPSendRequest::add_to(const char* value, size_t size) {
+  to_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ric.notify.SMTPSendRequest.to)
+}
+inline const ::google::protobuf::RepeatedPtrField<::std::string>&
+SMTPSendRequest::to() const {
+  // @@protoc_insertion_point(field_list:ric.notify.SMTPSendRequest.to)
+  return to_;
+}
+inline ::google::protobuf::RepeatedPtrField<::std::string>*
+SMTPSendRequest::mutable_to() {
+  // @@protoc_insertion_point(field_mutable_list:ric.notify.SMTPSendRequest.to)
+  return &to_;
+}
+
+// string sender = 4;
+inline void SMTPSendRequest::clear_sender() {
+  sender_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SMTPSendRequest::sender() const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPSendRequest.sender)
+  return sender_.GetNoArena();
+}
+inline void SMTPSendRequest::set_sender(const ::std::string& value) {
   
-  ::ric::notify::SMTPCredentials* temp = request_;
-  request_ = nullptr;
+  sender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPSendRequest.sender)
+}
+#if LANG_CXX11
+inline void SMTPSendRequest::set_sender(::std::string&& value) {
+  
+  sender_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPSendRequest.sender)
+}
+#endif
+inline void SMTPSendRequest::set_sender(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  sender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPSendRequest.sender)
+}
+inline void SMTPSendRequest::set_sender(const char* value, size_t size) {
+  
+  sender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPSendRequest.sender)
+}
+inline ::std::string* SMTPSendRequest::mutable_sender() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPSendRequest.sender)
+  return sender_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SMTPSendRequest::release_sender() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPSendRequest.sender)
+  
+  return sender_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SMTPSendRequest::set_allocated_sender(::std::string* sender) {
+  if (sender != nullptr) {
+    
+  } else {
+    
+  }
+  sender_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sender);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPSendRequest.sender)
+}
+
+// string subject = 5;
+inline void SMTPSendRequest::clear_subject() {
+  subject_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SMTPSendRequest::subject() const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPSendRequest.subject)
+  return subject_.GetNoArena();
+}
+inline void SMTPSendRequest::set_subject(const ::std::string& value) {
+  
+  subject_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPSendRequest.subject)
+}
+#if LANG_CXX11
+inline void SMTPSendRequest::set_subject(::std::string&& value) {
+  
+  subject_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPSendRequest.subject)
+}
+#endif
+inline void SMTPSendRequest::set_subject(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  subject_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPSendRequest.subject)
+}
+inline void SMTPSendRequest::set_subject(const char* value, size_t size) {
+  
+  subject_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPSendRequest.subject)
+}
+inline ::std::string* SMTPSendRequest::mutable_subject() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPSendRequest.subject)
+  return subject_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SMTPSendRequest::release_subject() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPSendRequest.subject)
+  
+  return subject_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SMTPSendRequest::set_allocated_subject(::std::string* subject) {
+  if (subject != nullptr) {
+    
+  } else {
+    
+  }
+  subject_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), subject);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPSendRequest.subject)
+}
+
+// string content_type = 6;
+inline void SMTPSendRequest::clear_content_type() {
+  content_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SMTPSendRequest::content_type() const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPSendRequest.content_type)
+  return content_type_.GetNoArena();
+}
+inline void SMTPSendRequest::set_content_type(const ::std::string& value) {
+  
+  content_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPSendRequest.content_type)
+}
+#if LANG_CXX11
+inline void SMTPSendRequest::set_content_type(::std::string&& value) {
+  
+  content_type_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPSendRequest.content_type)
+}
+#endif
+inline void SMTPSendRequest::set_content_type(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  content_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPSendRequest.content_type)
+}
+inline void SMTPSendRequest::set_content_type(const char* value, size_t size) {
+  
+  content_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPSendRequest.content_type)
+}
+inline ::std::string* SMTPSendRequest::mutable_content_type() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPSendRequest.content_type)
+  return content_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SMTPSendRequest::release_content_type() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPSendRequest.content_type)
+  
+  return content_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SMTPSendRequest::set_allocated_content_type(::std::string* content_type) {
+  if (content_type != nullptr) {
+    
+  } else {
+    
+  }
+  content_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), content_type);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPSendRequest.content_type)
+}
+
+// string body = 7;
+inline void SMTPSendRequest::clear_body() {
+  body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SMTPSendRequest::body() const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPSendRequest.body)
+  return body_.GetNoArena();
+}
+inline void SMTPSendRequest::set_body(const ::std::string& value) {
+  
+  body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPSendRequest.body)
+}
+#if LANG_CXX11
+inline void SMTPSendRequest::set_body(::std::string&& value) {
+  
+  body_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPSendRequest.body)
+}
+#endif
+inline void SMTPSendRequest::set_body(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPSendRequest.body)
+}
+inline void SMTPSendRequest::set_body(const char* value, size_t size) {
+  
+  body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPSendRequest.body)
+}
+inline ::std::string* SMTPSendRequest::mutable_body() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPSendRequest.body)
+  return body_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SMTPSendRequest::release_body() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPSendRequest.body)
+  
+  return body_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SMTPSendRequest::set_allocated_body(::std::string* body) {
+  if (body != nullptr) {
+    
+  } else {
+    
+  }
+  body_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), body);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPSendRequest.body)
+}
+
+// string server = 8;
+inline void SMTPSendRequest::clear_server() {
+  server_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SMTPSendRequest::server() const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPSendRequest.server)
+  return server_.GetNoArena();
+}
+inline void SMTPSendRequest::set_server(const ::std::string& value) {
+  
+  server_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPSendRequest.server)
+}
+#if LANG_CXX11
+inline void SMTPSendRequest::set_server(::std::string&& value) {
+  
+  server_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPSendRequest.server)
+}
+#endif
+inline void SMTPSendRequest::set_server(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  server_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPSendRequest.server)
+}
+inline void SMTPSendRequest::set_server(const char* value, size_t size) {
+  
+  server_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPSendRequest.server)
+}
+inline ::std::string* SMTPSendRequest::mutable_server() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPSendRequest.server)
+  return server_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SMTPSendRequest::release_server() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPSendRequest.server)
+  
+  return server_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SMTPSendRequest::set_allocated_server(::std::string* server) {
+  if (server != nullptr) {
+    
+  } else {
+    
+  }
+  server_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), server);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPSendRequest.server)
+}
+
+// string password = 9;
+inline void SMTPSendRequest::clear_password() {
+  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SMTPSendRequest::password() const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPSendRequest.password)
+  return password_.GetNoArena();
+}
+inline void SMTPSendRequest::set_password(const ::std::string& value) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPSendRequest.password)
+}
+#if LANG_CXX11
+inline void SMTPSendRequest::set_password(::std::string&& value) {
+  
+  password_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPSendRequest.password)
+}
+#endif
+inline void SMTPSendRequest::set_password(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPSendRequest.password)
+}
+inline void SMTPSendRequest::set_password(const char* value, size_t size) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPSendRequest.password)
+}
+inline ::std::string* SMTPSendRequest::mutable_password() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPSendRequest.password)
+  return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SMTPSendRequest::release_password() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPSendRequest.password)
+  
+  return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SMTPSendRequest::set_allocated_password(::std::string* password) {
+  if (password != nullptr) {
+    
+  } else {
+    
+  }
+  password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPSendRequest.password)
+}
+
+// .google.protobuf.BoolValue use_tls = 10;
+inline bool SMTPSendRequest::has_use_tls() const {
+  return this != internal_default_instance() && use_tls_ != nullptr;
+}
+inline const ::google::protobuf::BoolValue& SMTPSendRequest::use_tls() const {
+  const ::google::protobuf::BoolValue* p = use_tls_;
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPSendRequest.use_tls)
+  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::BoolValue*>(
+      &::google::protobuf::_BoolValue_default_instance_);
+}
+inline ::google::protobuf::BoolValue* SMTPSendRequest::release_use_tls() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPSendRequest.use_tls)
+  
+  ::google::protobuf::BoolValue* temp = use_tls_;
+  use_tls_ = nullptr;
   return temp;
 }
-inline ::ric::notify::SMTPCredentials* SMTPSendRequest::mutable_request() {
+inline ::google::protobuf::BoolValue* SMTPSendRequest::mutable_use_tls() {
   
-  if (request_ == nullptr) {
-    auto* p = CreateMaybeMessage<::ric::notify::SMTPCredentials>(GetArenaNoVirtual());
-    request_ = p;
+  if (use_tls_ == nullptr) {
+    auto* p = CreateMaybeMessage<::google::protobuf::BoolValue>(GetArenaNoVirtual());
+    use_tls_ = p;
   }
-  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPSendRequest.request)
-  return request_;
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPSendRequest.use_tls)
+  return use_tls_;
 }
-inline void SMTPSendRequest::set_allocated_request(::ric::notify::SMTPCredentials* request) {
+inline void SMTPSendRequest::set_allocated_use_tls(::google::protobuf::BoolValue* use_tls) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
-    delete request_;
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(use_tls_);
   }
-  if (request) {
-    ::google::protobuf::Arena* submessage_arena = nullptr;
+  if (use_tls) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(use_tls)->GetArena();
     if (message_arena != submessage_arena) {
-      request = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, request, submessage_arena);
+      use_tls = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, use_tls, submessage_arena);
     }
     
   } else {
     
   }
-  request_ = request;
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPSendRequest.request)
+  use_tls_ = use_tls;
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPSendRequest.use_tls)
+}
+
+// .google.protobuf.BoolValue use_ssl = 11;
+inline bool SMTPSendRequest::has_use_ssl() const {
+  return this != internal_default_instance() && use_ssl_ != nullptr;
+}
+inline const ::google::protobuf::BoolValue& SMTPSendRequest::use_ssl() const {
+  const ::google::protobuf::BoolValue* p = use_ssl_;
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPSendRequest.use_ssl)
+  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::BoolValue*>(
+      &::google::protobuf::_BoolValue_default_instance_);
+}
+inline ::google::protobuf::BoolValue* SMTPSendRequest::release_use_ssl() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPSendRequest.use_ssl)
+  
+  ::google::protobuf::BoolValue* temp = use_ssl_;
+  use_ssl_ = nullptr;
+  return temp;
+}
+inline ::google::protobuf::BoolValue* SMTPSendRequest::mutable_use_ssl() {
+  
+  if (use_ssl_ == nullptr) {
+    auto* p = CreateMaybeMessage<::google::protobuf::BoolValue>(GetArenaNoVirtual());
+    use_ssl_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPSendRequest.use_ssl)
+  return use_ssl_;
+}
+inline void SMTPSendRequest::set_allocated_use_ssl(::google::protobuf::BoolValue* use_ssl) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(use_ssl_);
+  }
+  if (use_ssl) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(use_ssl)->GetArena();
+    if (message_arena != submessage_arena) {
+      use_ssl = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, use_ssl, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  use_ssl_ = use_ssl;
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPSendRequest.use_ssl)
 }
 
 // -------------------------------------------------------------------
@@ -3636,62 +3600,541 @@ inline void SMTPGatewayInfoRequest::set_allocated_gateway_id(::std::string* gate
 
 // SMTPGatewayInfoResponse
 
-// .ric.notify.SMTPCredentials info = 1;
-inline bool SMTPGatewayInfoResponse::has_info() const {
-  return this != internal_default_instance() && info_ != nullptr;
+// string gateway_id = 1;
+inline void SMTPGatewayInfoResponse::clear_gateway_id() {
+  gateway_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void SMTPGatewayInfoResponse::clear_info() {
-  if (GetArenaNoVirtual() == nullptr && info_ != nullptr) {
-    delete info_;
-  }
-  info_ = nullptr;
+inline const ::std::string& SMTPGatewayInfoResponse::gateway_id() const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPGatewayInfoResponse.gateway_id)
+  return gateway_id_.GetNoArena();
 }
-inline const ::ric::notify::SMTPCredentials& SMTPGatewayInfoResponse::info() const {
-  const ::ric::notify::SMTPCredentials* p = info_;
-  // @@protoc_insertion_point(field_get:ric.notify.SMTPGatewayInfoResponse.info)
-  return p != nullptr ? *p : *reinterpret_cast<const ::ric::notify::SMTPCredentials*>(
-      &::ric::notify::_SMTPCredentials_default_instance_);
-}
-inline ::ric::notify::SMTPCredentials* SMTPGatewayInfoResponse::release_info() {
-  // @@protoc_insertion_point(field_release:ric.notify.SMTPGatewayInfoResponse.info)
+inline void SMTPGatewayInfoResponse::set_gateway_id(const ::std::string& value) {
   
-  ::ric::notify::SMTPCredentials* temp = info_;
-  info_ = nullptr;
+  gateway_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPGatewayInfoResponse.gateway_id)
+}
+#if LANG_CXX11
+inline void SMTPGatewayInfoResponse::set_gateway_id(::std::string&& value) {
+  
+  gateway_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPGatewayInfoResponse.gateway_id)
+}
+#endif
+inline void SMTPGatewayInfoResponse::set_gateway_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  gateway_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPGatewayInfoResponse.gateway_id)
+}
+inline void SMTPGatewayInfoResponse::set_gateway_id(const char* value, size_t size) {
+  
+  gateway_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPGatewayInfoResponse.gateway_id)
+}
+inline ::std::string* SMTPGatewayInfoResponse::mutable_gateway_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPGatewayInfoResponse.gateway_id)
+  return gateway_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SMTPGatewayInfoResponse::release_gateway_id() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPGatewayInfoResponse.gateway_id)
+  
+  return gateway_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SMTPGatewayInfoResponse::set_allocated_gateway_id(::std::string* gateway_id) {
+  if (gateway_id != nullptr) {
+    
+  } else {
+    
+  }
+  gateway_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), gateway_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPGatewayInfoResponse.gateway_id)
+}
+
+// repeated string to = 2;
+inline int SMTPGatewayInfoResponse::to_size() const {
+  return to_.size();
+}
+inline void SMTPGatewayInfoResponse::clear_to() {
+  to_.Clear();
+}
+inline const ::std::string& SMTPGatewayInfoResponse::to(int index) const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPGatewayInfoResponse.to)
+  return to_.Get(index);
+}
+inline ::std::string* SMTPGatewayInfoResponse::mutable_to(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPGatewayInfoResponse.to)
+  return to_.Mutable(index);
+}
+inline void SMTPGatewayInfoResponse::set_to(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPGatewayInfoResponse.to)
+  to_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+inline void SMTPGatewayInfoResponse::set_to(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPGatewayInfoResponse.to)
+  to_.Mutable(index)->assign(std::move(value));
+}
+#endif
+inline void SMTPGatewayInfoResponse::set_to(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  to_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPGatewayInfoResponse.to)
+}
+inline void SMTPGatewayInfoResponse::set_to(int index, const char* value, size_t size) {
+  to_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPGatewayInfoResponse.to)
+}
+inline ::std::string* SMTPGatewayInfoResponse::add_to() {
+  // @@protoc_insertion_point(field_add_mutable:ric.notify.SMTPGatewayInfoResponse.to)
+  return to_.Add();
+}
+inline void SMTPGatewayInfoResponse::add_to(const ::std::string& value) {
+  to_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ric.notify.SMTPGatewayInfoResponse.to)
+}
+#if LANG_CXX11
+inline void SMTPGatewayInfoResponse::add_to(::std::string&& value) {
+  to_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ric.notify.SMTPGatewayInfoResponse.to)
+}
+#endif
+inline void SMTPGatewayInfoResponse::add_to(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  to_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ric.notify.SMTPGatewayInfoResponse.to)
+}
+inline void SMTPGatewayInfoResponse::add_to(const char* value, size_t size) {
+  to_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ric.notify.SMTPGatewayInfoResponse.to)
+}
+inline const ::google::protobuf::RepeatedPtrField<::std::string>&
+SMTPGatewayInfoResponse::to() const {
+  // @@protoc_insertion_point(field_list:ric.notify.SMTPGatewayInfoResponse.to)
+  return to_;
+}
+inline ::google::protobuf::RepeatedPtrField<::std::string>*
+SMTPGatewayInfoResponse::mutable_to() {
+  // @@protoc_insertion_point(field_mutable_list:ric.notify.SMTPGatewayInfoResponse.to)
+  return &to_;
+}
+
+// string sender = 3;
+inline void SMTPGatewayInfoResponse::clear_sender() {
+  sender_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SMTPGatewayInfoResponse::sender() const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPGatewayInfoResponse.sender)
+  return sender_.GetNoArena();
+}
+inline void SMTPGatewayInfoResponse::set_sender(const ::std::string& value) {
+  
+  sender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPGatewayInfoResponse.sender)
+}
+#if LANG_CXX11
+inline void SMTPGatewayInfoResponse::set_sender(::std::string&& value) {
+  
+  sender_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPGatewayInfoResponse.sender)
+}
+#endif
+inline void SMTPGatewayInfoResponse::set_sender(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  sender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPGatewayInfoResponse.sender)
+}
+inline void SMTPGatewayInfoResponse::set_sender(const char* value, size_t size) {
+  
+  sender_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPGatewayInfoResponse.sender)
+}
+inline ::std::string* SMTPGatewayInfoResponse::mutable_sender() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPGatewayInfoResponse.sender)
+  return sender_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SMTPGatewayInfoResponse::release_sender() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPGatewayInfoResponse.sender)
+  
+  return sender_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SMTPGatewayInfoResponse::set_allocated_sender(::std::string* sender) {
+  if (sender != nullptr) {
+    
+  } else {
+    
+  }
+  sender_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sender);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPGatewayInfoResponse.sender)
+}
+
+// string subject = 4;
+inline void SMTPGatewayInfoResponse::clear_subject() {
+  subject_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SMTPGatewayInfoResponse::subject() const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPGatewayInfoResponse.subject)
+  return subject_.GetNoArena();
+}
+inline void SMTPGatewayInfoResponse::set_subject(const ::std::string& value) {
+  
+  subject_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPGatewayInfoResponse.subject)
+}
+#if LANG_CXX11
+inline void SMTPGatewayInfoResponse::set_subject(::std::string&& value) {
+  
+  subject_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPGatewayInfoResponse.subject)
+}
+#endif
+inline void SMTPGatewayInfoResponse::set_subject(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  subject_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPGatewayInfoResponse.subject)
+}
+inline void SMTPGatewayInfoResponse::set_subject(const char* value, size_t size) {
+  
+  subject_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPGatewayInfoResponse.subject)
+}
+inline ::std::string* SMTPGatewayInfoResponse::mutable_subject() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPGatewayInfoResponse.subject)
+  return subject_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SMTPGatewayInfoResponse::release_subject() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPGatewayInfoResponse.subject)
+  
+  return subject_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SMTPGatewayInfoResponse::set_allocated_subject(::std::string* subject) {
+  if (subject != nullptr) {
+    
+  } else {
+    
+  }
+  subject_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), subject);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPGatewayInfoResponse.subject)
+}
+
+// string content_type = 5;
+inline void SMTPGatewayInfoResponse::clear_content_type() {
+  content_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SMTPGatewayInfoResponse::content_type() const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPGatewayInfoResponse.content_type)
+  return content_type_.GetNoArena();
+}
+inline void SMTPGatewayInfoResponse::set_content_type(const ::std::string& value) {
+  
+  content_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPGatewayInfoResponse.content_type)
+}
+#if LANG_CXX11
+inline void SMTPGatewayInfoResponse::set_content_type(::std::string&& value) {
+  
+  content_type_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPGatewayInfoResponse.content_type)
+}
+#endif
+inline void SMTPGatewayInfoResponse::set_content_type(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  content_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPGatewayInfoResponse.content_type)
+}
+inline void SMTPGatewayInfoResponse::set_content_type(const char* value, size_t size) {
+  
+  content_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPGatewayInfoResponse.content_type)
+}
+inline ::std::string* SMTPGatewayInfoResponse::mutable_content_type() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPGatewayInfoResponse.content_type)
+  return content_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SMTPGatewayInfoResponse::release_content_type() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPGatewayInfoResponse.content_type)
+  
+  return content_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SMTPGatewayInfoResponse::set_allocated_content_type(::std::string* content_type) {
+  if (content_type != nullptr) {
+    
+  } else {
+    
+  }
+  content_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), content_type);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPGatewayInfoResponse.content_type)
+}
+
+// string body = 6;
+inline void SMTPGatewayInfoResponse::clear_body() {
+  body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SMTPGatewayInfoResponse::body() const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPGatewayInfoResponse.body)
+  return body_.GetNoArena();
+}
+inline void SMTPGatewayInfoResponse::set_body(const ::std::string& value) {
+  
+  body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPGatewayInfoResponse.body)
+}
+#if LANG_CXX11
+inline void SMTPGatewayInfoResponse::set_body(::std::string&& value) {
+  
+  body_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPGatewayInfoResponse.body)
+}
+#endif
+inline void SMTPGatewayInfoResponse::set_body(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPGatewayInfoResponse.body)
+}
+inline void SMTPGatewayInfoResponse::set_body(const char* value, size_t size) {
+  
+  body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPGatewayInfoResponse.body)
+}
+inline ::std::string* SMTPGatewayInfoResponse::mutable_body() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPGatewayInfoResponse.body)
+  return body_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SMTPGatewayInfoResponse::release_body() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPGatewayInfoResponse.body)
+  
+  return body_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SMTPGatewayInfoResponse::set_allocated_body(::std::string* body) {
+  if (body != nullptr) {
+    
+  } else {
+    
+  }
+  body_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), body);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPGatewayInfoResponse.body)
+}
+
+// string server = 7;
+inline void SMTPGatewayInfoResponse::clear_server() {
+  server_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SMTPGatewayInfoResponse::server() const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPGatewayInfoResponse.server)
+  return server_.GetNoArena();
+}
+inline void SMTPGatewayInfoResponse::set_server(const ::std::string& value) {
+  
+  server_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPGatewayInfoResponse.server)
+}
+#if LANG_CXX11
+inline void SMTPGatewayInfoResponse::set_server(::std::string&& value) {
+  
+  server_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPGatewayInfoResponse.server)
+}
+#endif
+inline void SMTPGatewayInfoResponse::set_server(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  server_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPGatewayInfoResponse.server)
+}
+inline void SMTPGatewayInfoResponse::set_server(const char* value, size_t size) {
+  
+  server_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPGatewayInfoResponse.server)
+}
+inline ::std::string* SMTPGatewayInfoResponse::mutable_server() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPGatewayInfoResponse.server)
+  return server_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SMTPGatewayInfoResponse::release_server() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPGatewayInfoResponse.server)
+  
+  return server_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SMTPGatewayInfoResponse::set_allocated_server(::std::string* server) {
+  if (server != nullptr) {
+    
+  } else {
+    
+  }
+  server_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), server);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPGatewayInfoResponse.server)
+}
+
+// string password = 8;
+inline void SMTPGatewayInfoResponse::clear_password() {
+  password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SMTPGatewayInfoResponse::password() const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPGatewayInfoResponse.password)
+  return password_.GetNoArena();
+}
+inline void SMTPGatewayInfoResponse::set_password(const ::std::string& value) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPGatewayInfoResponse.password)
+}
+#if LANG_CXX11
+inline void SMTPGatewayInfoResponse::set_password(::std::string&& value) {
+  
+  password_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPGatewayInfoResponse.password)
+}
+#endif
+inline void SMTPGatewayInfoResponse::set_password(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPGatewayInfoResponse.password)
+}
+inline void SMTPGatewayInfoResponse::set_password(const char* value, size_t size) {
+  
+  password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPGatewayInfoResponse.password)
+}
+inline ::std::string* SMTPGatewayInfoResponse::mutable_password() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPGatewayInfoResponse.password)
+  return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SMTPGatewayInfoResponse::release_password() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPGatewayInfoResponse.password)
+  
+  return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SMTPGatewayInfoResponse::set_allocated_password(::std::string* password) {
+  if (password != nullptr) {
+    
+  } else {
+    
+  }
+  password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPGatewayInfoResponse.password)
+}
+
+// .google.protobuf.BoolValue use_tls = 9;
+inline bool SMTPGatewayInfoResponse::has_use_tls() const {
+  return this != internal_default_instance() && use_tls_ != nullptr;
+}
+inline const ::google::protobuf::BoolValue& SMTPGatewayInfoResponse::use_tls() const {
+  const ::google::protobuf::BoolValue* p = use_tls_;
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPGatewayInfoResponse.use_tls)
+  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::BoolValue*>(
+      &::google::protobuf::_BoolValue_default_instance_);
+}
+inline ::google::protobuf::BoolValue* SMTPGatewayInfoResponse::release_use_tls() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPGatewayInfoResponse.use_tls)
+  
+  ::google::protobuf::BoolValue* temp = use_tls_;
+  use_tls_ = nullptr;
   return temp;
 }
-inline ::ric::notify::SMTPCredentials* SMTPGatewayInfoResponse::mutable_info() {
+inline ::google::protobuf::BoolValue* SMTPGatewayInfoResponse::mutable_use_tls() {
   
-  if (info_ == nullptr) {
-    auto* p = CreateMaybeMessage<::ric::notify::SMTPCredentials>(GetArenaNoVirtual());
-    info_ = p;
+  if (use_tls_ == nullptr) {
+    auto* p = CreateMaybeMessage<::google::protobuf::BoolValue>(GetArenaNoVirtual());
+    use_tls_ = p;
   }
-  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPGatewayInfoResponse.info)
-  return info_;
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPGatewayInfoResponse.use_tls)
+  return use_tls_;
 }
-inline void SMTPGatewayInfoResponse::set_allocated_info(::ric::notify::SMTPCredentials* info) {
+inline void SMTPGatewayInfoResponse::set_allocated_use_tls(::google::protobuf::BoolValue* use_tls) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
-    delete info_;
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(use_tls_);
   }
-  if (info) {
-    ::google::protobuf::Arena* submessage_arena = nullptr;
+  if (use_tls) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(use_tls)->GetArena();
     if (message_arena != submessage_arena) {
-      info = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, info, submessage_arena);
+      use_tls = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, use_tls, submessage_arena);
     }
     
   } else {
     
   }
-  info_ = info;
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPGatewayInfoResponse.info)
+  use_tls_ = use_tls;
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPGatewayInfoResponse.use_tls)
+}
+
+// .google.protobuf.BoolValue use_ssl = 10;
+inline bool SMTPGatewayInfoResponse::has_use_ssl() const {
+  return this != internal_default_instance() && use_ssl_ != nullptr;
+}
+inline const ::google::protobuf::BoolValue& SMTPGatewayInfoResponse::use_ssl() const {
+  const ::google::protobuf::BoolValue* p = use_ssl_;
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPGatewayInfoResponse.use_ssl)
+  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::BoolValue*>(
+      &::google::protobuf::_BoolValue_default_instance_);
+}
+inline ::google::protobuf::BoolValue* SMTPGatewayInfoResponse::release_use_ssl() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPGatewayInfoResponse.use_ssl)
+  
+  ::google::protobuf::BoolValue* temp = use_ssl_;
+  use_ssl_ = nullptr;
+  return temp;
+}
+inline ::google::protobuf::BoolValue* SMTPGatewayInfoResponse::mutable_use_ssl() {
+  
+  if (use_ssl_ == nullptr) {
+    auto* p = CreateMaybeMessage<::google::protobuf::BoolValue>(GetArenaNoVirtual());
+    use_ssl_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPGatewayInfoResponse.use_ssl)
+  return use_ssl_;
+}
+inline void SMTPGatewayInfoResponse::set_allocated_use_ssl(::google::protobuf::BoolValue* use_ssl) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(use_ssl_);
+  }
+  if (use_ssl) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(use_ssl)->GetArena();
+    if (message_arena != submessage_arena) {
+      use_ssl = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, use_ssl, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  use_ssl_ = use_ssl;
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPGatewayInfoResponse.use_ssl)
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
