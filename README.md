@@ -4,7 +4,7 @@ gRPC/Protocol Buffers protofiles for ric services
 ## compile
 
 ```bash
-$ docker run -it --rm -v $(pwd):/ric-proto docker.pkg.github.com/rightech/ric-proto/compiler:latest
+$ docker run --rm -v $(pwd):/ric-proto docker.pkg.github.com/rightech/ric-proto/compiler:latest
 ```
 
 To access docker image you should generate [github token](https://github.com/settings/tokens) with scope: `repo`, `write:packages`,`read:packages`.
