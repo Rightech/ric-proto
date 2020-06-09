@@ -3,8 +3,16 @@ gRPC/Protocol Buffers protofiles for ric services
 
 ## compile
 
+Just commit to master!
+
+## compile via docker
+
 ```bash
-$ docker run --rm -v $(pwd):/ric-proto docker.pkg.github.com/rightech/ric-proto/compiler:latest
+$ docker run --rm -v $(pwd):/ric-proto rightechiot/ric-proto-compiler:latest
 ```
 
-To access docker image you should generate [github token](https://github.com/settings/tokens) with scope: `repo`,`read:packages`.
+## compile manual
+
+```bash
+$ ./compile.sh
+```

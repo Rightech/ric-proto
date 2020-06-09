@@ -24,16 +24,23 @@ jobs:
           docker pull docker.pkg.github.com/rightech/ric-proto/compiler:latest || true
       - name: build image
         run: |
-          docker build -t docker.pkg.github.com/rightech/ric-proto/cmp-builder:latest \
+          docker build --pull \
+            -t docker.pkg.github.com/rightech/ric-proto/cmp-builder:latest \
             --cache-from docker.pkg.github.com/rightech/ric-proto/cmp-builder:latest \
             --target builder .
-          docker build -t docker.pkg.github.com/rightech/ric-proto/compiler:latest \
+          docker build --pull \
+            -t docker.pkg.github.com/rightech/ric-proto/compiler:latest \
+            -t rightechiot/ric-proto-compiler:latest \
             --cache-from docker.pkg.github.com/rightech/ric-proto/cmp-builder:latest \
             --cache-from docker.pkg.github.com/rightech/ric-proto/compiler:latest .
       - name: push image
         run: |
           docker push docker.pkg.github.com/rightech/ric-proto/compiler:latest
           docker push docker.pkg.github.com/rightech/ric-proto/cmp-builder:latest
+      - name: login to DockerHub
+        run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
+      - name: push to DockerHub
+        run: docker push rightechiot/ric-proto-compiler:latest
   compile:
     name: Compile
     needs: build_compiler
