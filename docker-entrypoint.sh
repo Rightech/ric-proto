@@ -9,5 +9,3 @@ cd ric-proto
 ./compile.sh
 
 rm node_modules
-
-chown -R 1000:1000 .

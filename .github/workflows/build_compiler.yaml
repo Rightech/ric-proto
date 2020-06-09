@@ -19,7 +19,19 @@ jobs:
       - uses: actions/checkout@v2
       - name: login to registry
         run:  echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u inn0kenty --password-stdin
+      - name: pull cache
+        run: |
+          docker pull docker.pkg.github.com/rightech/ric-proto/cmp-builder:latest || true
+          docker pull docker.pkg.github.com/rightech/ric-proto/compiler:latest || true
       - name: build image
-        run: docker build -t docker.pkg.github.com/rightech/ric-proto/compiler:latest .
+        run: |
+          docker build -t docker.pkg.github.com/rightech/ric-proto/cmp-builder:latest \
+            --cache-from docker.pkg.github.com/rightech/ric-proto/cmp-builder:latest \
+            --target builder .
+          docker build -t docker.pkg.github.com/rightech/ric-proto/compiler:latest \
+            --cache-from docker.pkg.github.com/rightech/ric-proto/cmp-builder:latest \
+            --cache-from docker.pkg.github.com/rightech/ric-proto/compiler:latest .
       - name: push image
-        run: docker push docker.pkg.github.com/rightech/ric-proto/compiler:latest
+        run: |
+          docker push docker.pkg.github.com/rightech/ric-proto/compiler:latest
+          docker push docker.pkg.github.com/rightech/ric-proto/cmp-builder:latest
