@@ -10,4 +10,4 @@ cd ric-proto
 
 rm node_modules
 
-chown -R 1000:1000 .
+find . -mindepth 1 -maxdepth 1 -type d -not -name '.git*' -print0 | xargs -0 chown -R 1000:1000
