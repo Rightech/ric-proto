@@ -55,6 +55,4 @@ COPY --from=builder /usr/local/bin/prototool /usr/local/bin/
 ENV PATH=/grpc:$PATH
 ENV LD_LIBRARY_PATH=/grpc:/grpc/third_party/protobuf:$LD_LIBRARY_PATH
 
-COPY docker-entrypoint.sh .
-
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/ric-proto/docker-entrypoint.sh"]

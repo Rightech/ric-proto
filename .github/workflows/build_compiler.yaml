@@ -3,7 +3,6 @@ name: Build compiler
 on:
   push:
     paths:
-      - docker-entrypoint.sh
       - Dockerfile
       - package.json
       - package-lock.json
