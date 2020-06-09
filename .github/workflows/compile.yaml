@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths-ignore:
-      - .github/**
+      - .github/workflows/build_compiler.yaml
       - go/**
       - dts/**
       - cpp/**
@@ -19,14 +19,14 @@ on:
 
 jobs:
   compile:
-    name: Build compiler
+    name: Compile
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: login to registry
         run:  echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
       - name: compile
-        run: docker run -it --rm -v $(pwd):/ric-proto docker.pkg.github.com/rightech/ric-proto/compiler:latest
+        run: docker run --rm -v $(pwd):/ric-proto docker.pkg.github.com/rightech/ric-proto/compiler:latest
       - name: commit changes
         uses: EndBug/add-and-commit@v4
         env:
