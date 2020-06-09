@@ -68,24 +68,21 @@ message SMPPGatewayInfoResponse {
   int64 uptime = 2;
 }
 
-message SMTPCredentials {
-  repeated string to = 1;
-  string sender = 2;
-  string subject = 3;
-  // default value "text/plain; charset=UTF-8"
-  string content_type = 4;
-  string body = 5;
-  string server = 6;
-  string password = 7;
-  google.protobuf.BoolValue use_tls = 8;
-  google.protobuf.BoolValue use_ssl = 9;
-}
-
 message SMTPSendRequest {
   UserContext ctx = 1;
   string gateway_id = 2;
-  // override default gateway info
-  SMTPCredentials request = 3;
+
+  // following fields override default gateway info
+  repeated string to = 3;
+  string sender = 4;
+  string subject = 5;
+  // default value "text/plain; charset=UTF-8"
+  string content_type = 6;
+  string body = 7;
+  string server = 8;
+  string password = 9;
+  google.protobuf.BoolValue use_tls = 10;
+  google.protobuf.BoolValue use_ssl = 11;
 }
 
 message SMTPSendResponse {}
@@ -96,5 +93,15 @@ message SMTPGatewayInfoRequest {
 
 message SMTPGatewayInfoResponse {
   // default gateway info
-  SMTPCredentials info = 1;
+  string gateway_id = 1;
+  repeated string to = 2;
+  string sender = 3;
+  string subject = 4;
+  // default value "text/plain; charset=UTF-8"
+  string content_type = 5;
+  string body = 6;
+  string server = 7;
+  string password = 8;
+  google.protobuf.BoolValue use_tls = 9;
+  google.protobuf.BoolValue use_ssl = 10;
 }
