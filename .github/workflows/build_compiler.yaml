@@ -47,6 +47,10 @@ jobs:
         run: docker pull docker.pkg.github.com/rightech/ric-proto/compiler:latest
       - name: compile
         run: docker run --rm -v $(pwd):/ric-proto docker.pkg.github.com/rightech/ric-proto/compiler:latest
+      - name: test
+        run: |
+          git status
+          cat ric-notify/ricnotify.proto
       - name: commit changes
         uses: EndBug/add-and-commit@v4
         env:
