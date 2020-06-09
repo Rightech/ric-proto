@@ -87,10 +87,12 @@ interface GrpcStream<T> extends Stream {
   on(event: 'data', listener: (chunk: T) => void): this;
 }`;
 
-for (const service of Object.keys(registry.meta.services)) {
-  if (service.includes('.')) {
-    continue;
-  }
+const services = Object.keys(registry.meta.services).map((name) => {
+  const [first] = name.split('.');
+  return first;
+});
+
+for (const service of [...new Set(services)]) {
   const typings = [];
   const services = [];
   const def = registry.loadDef(service);
