@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: login to registry
-        run:  echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ GITHUB_ACTOR }} --password-stdin
+        run:  echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
       - name: pull cache
         run: |
           docker pull docker.pkg.github.com/rightech/ric-proto/cmp-builder:latest || true
