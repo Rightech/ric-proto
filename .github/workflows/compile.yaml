@@ -1,0 +1,33 @@
+name: Compile proto
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - .github/**
+      - go/**
+      - dts/**
+      - cpp/**
+      - .clang-format
+      - .gitignore
+      - docker-entrypoint.sh
+      - Dockerfile
+      - package.json
+      - package-lock.json
+      - README.md
+
+jobs:
+  compile:
+    name: Build compiler
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: login to registry
+        run:  echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+      - name: compile
+        run: docker run -it --rm -v $(pwd):/ric-proto docker.pkg.github.com/rightech/ric-proto/compiler:latest
+      - name: commit changes
+        uses: EndBug/add-and-commit@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
