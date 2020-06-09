@@ -35,3 +35,17 @@ jobs:
         run: |
           docker push docker.pkg.github.com/rightech/ric-proto/compiler:latest
           docker push docker.pkg.github.com/rightech/ric-proto/cmp-builder:latest
+  compile:
+    name: Compile
+    needs: build_compiler
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: login to registry
+        run:  echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+      - name: compile
+        run: docker run --rm -v $(pwd):/ric-proto docker.pkg.github.com/rightech/ric-proto/compiler:latest
+      - name: commit changes
+        uses: EndBug/add-and-commit@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
