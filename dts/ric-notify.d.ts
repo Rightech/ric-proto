@@ -53,7 +53,9 @@ export interface SMPPGatewayInfoResponse {
   uptime?: number;
 }
 
-export interface SMTPCredentials {
+export interface SMTPSendRequest {
+  ctx?: UserContext;
+  gatewayId?: string;
   to?: string[];
   sender?: string;
   subject?: string;
@@ -62,12 +64,7 @@ export interface SMTPCredentials {
   server?: string;
   password?: string;
   useTls?: boolean;
-}
-
-export interface SMTPSendRequest {
-  ctx?: UserContext;
-  gatewayId?: string;
-  request?: SMTPCredentials;
+  useSsl?: boolean;
 }
 
 export interface SMTPSendResponse {
@@ -79,5 +76,14 @@ export interface SMTPGatewayInfoRequest {
 }
 
 export interface SMTPGatewayInfoResponse {
-  info?: SMTPCredentials;
+  gatewayId?: string;
+  to?: string[];
+  sender?: string;
+  subject?: string;
+  contentType?: string;
+  body?: string;
+  server?: string;
+  password?: string;
+  useTls?: boolean;
+  useSsl?: boolean;
 }
