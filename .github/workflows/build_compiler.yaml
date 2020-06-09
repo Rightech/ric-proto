@@ -7,6 +7,7 @@ on:
       - Dockerfile
       - package.json
       - package-lock.json
+      - .github/workflows/build_compiler.yaml
     branches:
       - master
 
@@ -16,8 +17,6 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-        with:
-            submodules: true
       - name: login to registry
         run:  echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u inn0kenty --password-stdin
       - name: build image
