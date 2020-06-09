@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # backup original node_modules
 mv /ric-proto/node_modules /node/node_modules.back || true
