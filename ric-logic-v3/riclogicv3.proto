@@ -54,7 +54,6 @@ message AutomatonInfo {
   string state = 6;
   string prev_state = 7;
   string prev_event = 8;
-
   AutomatonStats stats = 9;
   repeated LogEntry logs = 10;
   map<string, AutomatonVarValue> vars = 11;

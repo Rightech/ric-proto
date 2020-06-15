@@ -58,6 +58,7 @@ export interface AutomatonInfo {
   status?: string;
   state?: string;
   prevState?: string;
+  prevEvent?: string;
   stats?: AutomatonStats;
   logs?: LogEntry[];
   vars?: Vars[];
