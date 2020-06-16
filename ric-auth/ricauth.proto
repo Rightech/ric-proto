@@ -6,6 +6,7 @@ option go_package = "./ric-auth;ricauth";
 
 service RicAuth {
   rpc AuthObject(AuthObjectRequest) returns (AuthObjectResponse);
+  rpc SendOffline(SendOfflineRequest) returns (SendOfflineResponse);
 }
 
 message AuthObjectRequest {
@@ -38,3 +39,9 @@ message AuthObjectArgument {
   string reference = 3;
   string parser = 4;
 }
+
+message SendOfflineRequest {
+  string object_id = 1;
+}
+
+message SendOfflineResponse {}
