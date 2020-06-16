@@ -44,5 +44,4 @@ message SendOfflineRequest {
   string object_id = 1;
 }
 
-message SendOfflineResponse {
-}
+message SendOfflineResponse {}
