@@ -59,8 +59,8 @@ export interface SMTPSendRequest {
   to?: string[];
   sender?: string;
   subject?: string;
-  contentType?: string;
-  body?: string;
+  textBody?: string;
+  htmlBody?: string;
   server?: string;
   password?: string;
   useTls?: boolean;
@@ -80,8 +80,8 @@ export interface SMTPGatewayInfoResponse {
   to?: string[];
   sender?: string;
   subject?: string;
-  contentType?: string;
-  body?: string;
+  textBody?: string;
+  htmlBody?: string;
   server?: string;
   password?: string;
   useTls?: boolean;
