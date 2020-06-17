@@ -34,13 +34,15 @@ jobs:
             --env USER_ID=$(id -u) \
             --env USER_GROUP=$(id -g) \
             docker.pkg.github.com/rightech/ric-proto/compiler:latest
-      - name: update event json
-        run: |
-          jq '. + .client_payload' $GITHUB_EVENT_PATH > "$GITHUB_EVENT_PATH.tmp"
-          mv "$GITHUB_EVENT_PATH.tmp" $GITHUB_EVENT_PATH
-      - name: show json
-        run: cat $GITHUB_EVENT_PATH
+      - name: set credentials
+      - run: |
+          export AUTHOR_NAME=$(jq '.client_payload.author_name' $GITHUB_EVENT_PATH)
+          export AUTHOR_EMAIL=$(jq '.client_payload.author_email' $GITHUB_EVENT_PATH)
+          echo "::set-env name=AUTHOR_NAME::$AUTHOR_NAME"
       - name: commit changes
         uses: EndBug/add-and-commit@v4
+        with:
+          author_name: $AUTHOR_NAME
+          author_email: $AUTHOR_EMAIL
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
