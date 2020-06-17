@@ -35,7 +35,7 @@ jobs:
             --env USER_GROUP=$(id -g) \
             docker.pkg.github.com/rightech/ric-proto/compiler:latest
       - name: set credentials
-      - run: |
+        run: |
           export AUTHOR_NAME=$(jq '.client_payload.author_name' $GITHUB_EVENT_PATH)
           export AUTHOR_EMAIL=$(jq '.client_payload.author_email' $GITHUB_EVENT_PATH)
           echo "::set-env name=AUTHOR_NAME::$AUTHOR_NAME"
