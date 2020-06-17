@@ -35,7 +35,9 @@ jobs:
             --env USER_GROUP=$(id -g) \
             docker.pkg.github.com/rightech/ric-proto/compiler:latest
       - name: update event json
-        run: jq '. + .client_payload' $GITHUB_EVENT_PATH > $GITHUB_EVENT_PATH
+        run: |
+          jq '. + .client_payload' $GITHUB_EVENT_PATH > "$GITHUB_EVENT_PATH.tmp"
+          mv "$GITHUB_EVENT_PATH.tmp" $GITHUB_EVENT_PATH
       - name: show json
         run: cat $GITHUB_EVENT_PATH
       - name: commit changes
