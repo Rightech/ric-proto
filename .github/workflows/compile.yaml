@@ -16,7 +16,7 @@ on:
       - package-lock.json
       - README.md
   repository_dispatch:
-    types: ["image-update"]
+    types: ["After image update"]
 
 jobs:
   compile:
@@ -34,6 +34,8 @@ jobs:
             --env USER_ID=$(id -u) \
             --env USER_GROUP=$(id -g) \
             docker.pkg.github.com/rightech/ric-proto/compiler:latest
+      - name: show json
+        run: cat $GITHUB_EVENT_PATH
       - name: commit changes
         uses: EndBug/add-and-commit@v4
         env:
