@@ -37,12 +37,8 @@ jobs:
       - name: set credentials
         run: |
           cat $GITHUB_EVENT_PATH
-          export AUTHOR_NAME=$(jq '. | if (.head_commit == null) then \
-            .client_payload.author_name else .head_commit.author.name end' \
-            $GITHUB_EVENT_PATH)
-          export AUTHOR_EMAIL=$(jq '. | if (.head_commit == null) then \
-            .client_payload.author_email else .head_commit.author.email end' \
-            $GITHUB_EVENT_PATH)
+          export AUTHOR_NAME=$(jq '. | if (.head_commit == null) then .client_payload.author_name else .head_commit.author.name end' $GITHUB_EVENT_PATH)
+          export AUTHOR_EMAIL=$(jq '. | if (.head_commit == null) then .client_payload.author_email else .head_commit.author.email end' $GITHUB_EVENT_PATH)
           echo $AUTHOR_NAME
           echo $AUTHOR_EMAIL
           echo "::set-env name=AUTHOR_NAME::$AUTHOR_NAME"
