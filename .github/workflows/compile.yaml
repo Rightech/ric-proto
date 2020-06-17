@@ -27,7 +27,11 @@ jobs:
       - name: pull compiler image
         run: docker pull docker.pkg.github.com/rightech/ric-proto/compiler:latest
       - name: compile
-        run: docker run --rm -v $(pwd):/ric-proto docker.pkg.github.com/rightech/ric-proto/compiler:latest
+        run: |
+          docker run --rm -v $(pwd):/ric-proto \
+            --env USER_ID=$(id -u) \
+            --env USER_GROUP=$(id -g) \
+            docker.pkg.github.com/rightech/ric-proto/compiler:latest
       - name: commit changes
         uses: EndBug/add-and-commit@v4
         env:
