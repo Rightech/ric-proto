@@ -36,6 +36,14 @@ class AuthObjectArgumentDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<AuthObjectArgument> _instance;
 } _AuthObjectArgument_default_instance_;
+class SendOfflineRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<SendOfflineRequest> _instance;
+} _SendOfflineRequest_default_instance_;
+class SendOfflineResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<SendOfflineResponse> _instance;
+} _SendOfflineResponse_default_instance_;
 }  // namespace auth
 }  // namespace ric
 static void InitDefaultsAuthObjectRequest_AuthObjectCert_ric_2dauth_2fricauth_2eproto() {
@@ -96,14 +104,44 @@ static void InitDefaultsAuthObjectArgument_ric_2dauth_2fricauth_2eproto() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_AuthObjectArgument_ric_2dauth_2fricauth_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsAuthObjectArgument_ric_2dauth_2fricauth_2eproto}, {}};
 
+static void InitDefaultsSendOfflineRequest_ric_2dauth_2fricauth_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::auth::_SendOfflineRequest_default_instance_;
+    new (ptr) ::ric::auth::SendOfflineRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::auth::SendOfflineRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_SendOfflineRequest_ric_2dauth_2fricauth_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSendOfflineRequest_ric_2dauth_2fricauth_2eproto}, {}};
+
+static void InitDefaultsSendOfflineResponse_ric_2dauth_2fricauth_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::auth::_SendOfflineResponse_default_instance_;
+    new (ptr) ::ric::auth::SendOfflineResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::auth::SendOfflineResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_SendOfflineResponse_ric_2dauth_2fricauth_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSendOfflineResponse_ric_2dauth_2fricauth_2eproto}, {}};
+
 void InitDefaults_ric_2dauth_2fricauth_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_AuthObjectRequest_AuthObjectCert_ric_2dauth_2fricauth_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_AuthObjectRequest_ric_2dauth_2fricauth_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_AuthObjectResponse_ric_2dauth_2fricauth_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_AuthObjectArgument_ric_2dauth_2fricauth_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_SendOfflineRequest_ric_2dauth_2fricauth_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_SendOfflineResponse_ric_2dauth_2fricauth_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dauth_2fricauth_2eproto[4];
+::google::protobuf::Metadata file_level_metadata_ric_2dauth_2fricauth_2eproto[6];
 constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_ric_2dauth_2fricauth_2eproto = nullptr;
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dauth_2fricauth_2eproto = nullptr;
 
@@ -148,12 +186,25 @@ const ::google::protobuf::uint32 TableStruct_ric_2dauth_2fricauth_2eproto::offse
   PROTOBUF_FIELD_OFFSET(::ric::auth::AuthObjectArgument, data_type_),
   PROTOBUF_FIELD_OFFSET(::ric::auth::AuthObjectArgument, reference_),
   PROTOBUF_FIELD_OFFSET(::ric::auth::AuthObjectArgument, parser_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::auth::SendOfflineRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::auth::SendOfflineRequest, object_id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::auth::SendOfflineResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ric::auth::AuthObjectRequest_AuthObjectCert)},
   { 6, -1, sizeof(::ric::auth::AuthObjectRequest)},
   { 19, -1, sizeof(::ric::auth::AuthObjectResponse)},
   { 31, -1, sizeof(::ric::auth::AuthObjectArgument)},
+  { 40, -1, sizeof(::ric::auth::SendOfflineRequest)},
+  { 46, -1, sizeof(::ric::auth::SendOfflineResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -161,12 +212,14 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_AuthObjectRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_AuthObjectResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_AuthObjectArgument_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_SendOfflineRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_SendOfflineResponse_default_instance_),
 };
 
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dauth_2fricauth_2eproto = {
   {}, AddDescriptors_ric_2dauth_2fricauth_2eproto, "ric-auth/ricauth.proto", schemas,
   file_default_instances, TableStruct_ric_2dauth_2fricauth_2eproto::offsets,
-  file_level_metadata_ric_2dauth_2fricauth_2eproto, 4, file_level_enum_descriptors_ric_2dauth_2fricauth_2eproto, file_level_service_descriptors_ric_2dauth_2fricauth_2eproto,
+  file_level_metadata_ric_2dauth_2fricauth_2eproto, 6, file_level_enum_descriptors_ric_2dauth_2fricauth_2eproto, file_level_service_descriptors_ric_2dauth_2fricauth_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dauth_2fricauth_2eproto[] =
@@ -183,15 +236,18 @@ const char descriptor_table_protodef_ric_2dauth_2fricauth_2eproto[] =
   ".auth.AuthObjectArgument\022\016\n\006config\030\007 \001(\t"
   "\"V\n\022AuthObjectArgument\022\n\n\002id\030\001 \001(\t\022\021\n\tda"
   "ta_type\030\002 \001(\t\022\021\n\treference\030\003 \001(\t\022\016\n\006pars"
-  "er\030\004 \001(\t2R\n\007RicAuth\022G\n\nAuthObject\022\033.ric."
-  "auth.AuthObjectRequest\032\034.ric.auth.AuthOb"
-  "jectResponseB\024Z\022./ric-auth;ricauthb\006prot"
-  "o3"
+  "er\030\004 \001(\t\"\'\n\022SendOfflineRequest\022\021\n\tobject"
+  "_id\030\001 \001(\t\"\025\n\023SendOfflineResponse2\236\001\n\007Ric"
+  "Auth\022G\n\nAuthObject\022\033.ric.auth.AuthObject"
+  "Request\032\034.ric.auth.AuthObjectResponse\022J\n"
+  "\013SendOffline\022\034.ric.auth.SendOfflineReque"
+  "st\032\035.ric.auth.SendOfflineResponseB\024Z\022./r"
+  "ic-auth;ricauthb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dauth_2fricauth_2eproto = {
   false, InitDefaults_ric_2dauth_2fricauth_2eproto, 
   descriptor_table_protodef_ric_2dauth_2fricauth_2eproto,
-  "ric-auth/ricauth.proto", &assign_descriptors_table_ric_2dauth_2fricauth_2eproto, 642,
+  "ric-auth/ricauth.proto", &assign_descriptors_table_ric_2dauth_2fricauth_2eproto, 783,
 };
 
 void AddDescriptors_ric_2dauth_2fricauth_2eproto() {
@@ -2543,6 +2599,512 @@ void AuthObjectArgument::InternalSwap(AuthObjectArgument* other) {
 }
 
 
+// ===================================================================
+
+void SendOfflineRequest::InitAsDefaultInstance() {
+}
+class SendOfflineRequest::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int SendOfflineRequest::kObjectIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SendOfflineRequest::SendOfflineRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.auth.SendOfflineRequest)
+}
+SendOfflineRequest::SendOfflineRequest(const SendOfflineRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.object_id().size() > 0) {
+    object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.auth.SendOfflineRequest)
+}
+
+void SendOfflineRequest::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_SendOfflineRequest_ric_2dauth_2fricauth_2eproto.base);
+  object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+SendOfflineRequest::~SendOfflineRequest() {
+  // @@protoc_insertion_point(destructor:ric.auth.SendOfflineRequest)
+  SharedDtor();
+}
+
+void SendOfflineRequest::SharedDtor() {
+  object_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void SendOfflineRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const SendOfflineRequest& SendOfflineRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_SendOfflineRequest_ric_2dauth_2fricauth_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void SendOfflineRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.auth.SendOfflineRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* SendOfflineRequest::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<SendOfflineRequest*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // string object_id = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.auth.SendOfflineRequest.object_id");
+        object = msg->mutable_object_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool SendOfflineRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.auth.SendOfflineRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string object_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_object_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->object_id().data(), static_cast<int>(this->object_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.SendOfflineRequest.object_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.auth.SendOfflineRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.auth.SendOfflineRequest)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void SendOfflineRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.auth.SendOfflineRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string object_id = 1;
+  if (this->object_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->object_id().data(), static_cast<int>(this->object_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.SendOfflineRequest.object_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->object_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.auth.SendOfflineRequest)
+}
+
+::google::protobuf::uint8* SendOfflineRequest::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.auth.SendOfflineRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string object_id = 1;
+  if (this->object_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->object_id().data(), static_cast<int>(this->object_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.SendOfflineRequest.object_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->object_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.auth.SendOfflineRequest)
+  return target;
+}
+
+size_t SendOfflineRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.auth.SendOfflineRequest)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string object_id = 1;
+  if (this->object_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->object_id());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void SendOfflineRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.auth.SendOfflineRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SendOfflineRequest* source =
+      ::google::protobuf::DynamicCastToGenerated<SendOfflineRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.auth.SendOfflineRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.auth.SendOfflineRequest)
+    MergeFrom(*source);
+  }
+}
+
+void SendOfflineRequest::MergeFrom(const SendOfflineRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.auth.SendOfflineRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.object_id().size() > 0) {
+
+    object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
+  }
+}
+
+void SendOfflineRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.auth.SendOfflineRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SendOfflineRequest::CopyFrom(const SendOfflineRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.auth.SendOfflineRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SendOfflineRequest::IsInitialized() const {
+  return true;
+}
+
+void SendOfflineRequest::Swap(SendOfflineRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SendOfflineRequest::InternalSwap(SendOfflineRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  object_id_.Swap(&other->object_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+}
+
+::google::protobuf::Metadata SendOfflineRequest::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dauth_2fricauth_2eproto);
+  return ::file_level_metadata_ric_2dauth_2fricauth_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void SendOfflineResponse::InitAsDefaultInstance() {
+}
+class SendOfflineResponse::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SendOfflineResponse::SendOfflineResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.auth.SendOfflineResponse)
+}
+SendOfflineResponse::SendOfflineResponse(const SendOfflineResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:ric.auth.SendOfflineResponse)
+}
+
+void SendOfflineResponse::SharedCtor() {
+}
+
+SendOfflineResponse::~SendOfflineResponse() {
+  // @@protoc_insertion_point(destructor:ric.auth.SendOfflineResponse)
+  SharedDtor();
+}
+
+void SendOfflineResponse::SharedDtor() {
+}
+
+void SendOfflineResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const SendOfflineResponse& SendOfflineResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_SendOfflineResponse_ric_2dauth_2fricauth_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void SendOfflineResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.auth.SendOfflineResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* SendOfflineResponse::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<SendOfflineResponse*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      default: {
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool SendOfflineResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.auth.SendOfflineResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0) {
+      goto success;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, _internal_metadata_.mutable_unknown_fields()));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.auth.SendOfflineResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.auth.SendOfflineResponse)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void SendOfflineResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.auth.SendOfflineResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.auth.SendOfflineResponse)
+}
+
+::google::protobuf::uint8* SendOfflineResponse::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.auth.SendOfflineResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.auth.SendOfflineResponse)
+  return target;
+}
+
+size_t SendOfflineResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.auth.SendOfflineResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void SendOfflineResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.auth.SendOfflineResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SendOfflineResponse* source =
+      ::google::protobuf::DynamicCastToGenerated<SendOfflineResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.auth.SendOfflineResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.auth.SendOfflineResponse)
+    MergeFrom(*source);
+  }
+}
+
+void SendOfflineResponse::MergeFrom(const SendOfflineResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.auth.SendOfflineResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void SendOfflineResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.auth.SendOfflineResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SendOfflineResponse::CopyFrom(const SendOfflineResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.auth.SendOfflineResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SendOfflineResponse::IsInitialized() const {
+  return true;
+}
+
+void SendOfflineResponse::Swap(SendOfflineResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SendOfflineResponse::InternalSwap(SendOfflineResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata SendOfflineResponse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dauth_2fricauth_2eproto);
+  return ::file_level_metadata_ric_2dauth_2fricauth_2eproto[kIndexInFileMessages];
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace auth
 }  // namespace ric
@@ -2559,6 +3121,12 @@ template<> PROTOBUF_NOINLINE ::ric::auth::AuthObjectResponse* Arena::CreateMaybe
 }
 template<> PROTOBUF_NOINLINE ::ric::auth::AuthObjectArgument* Arena::CreateMaybeMessage< ::ric::auth::AuthObjectArgument >(Arena* arena) {
   return Arena::CreateInternal< ::ric::auth::AuthObjectArgument >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::auth::SendOfflineRequest* Arena::CreateMaybeMessage< ::ric::auth::SendOfflineRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::auth::SendOfflineRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::auth::SendOfflineResponse* Arena::CreateMaybeMessage< ::ric::auth::SendOfflineResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::auth::SendOfflineResponse >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

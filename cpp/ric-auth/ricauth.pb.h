@@ -41,7 +41,7 @@ struct TableStruct_ric_2dauth_2fricauth_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[4]
+  static const ::google::protobuf::internal::ParseTable schema[6]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -62,6 +62,12 @@ extern AuthObjectRequest_AuthObjectCertDefaultTypeInternal _AuthObjectRequest_Au
 class AuthObjectResponse;
 class AuthObjectResponseDefaultTypeInternal;
 extern AuthObjectResponseDefaultTypeInternal _AuthObjectResponse_default_instance_;
+class SendOfflineRequest;
+class SendOfflineRequestDefaultTypeInternal;
+extern SendOfflineRequestDefaultTypeInternal _SendOfflineRequest_default_instance_;
+class SendOfflineResponse;
+class SendOfflineResponseDefaultTypeInternal;
+extern SendOfflineResponseDefaultTypeInternal _SendOfflineResponse_default_instance_;
 }  // namespace auth
 }  // namespace ric
 namespace google {
@@ -70,6 +76,8 @@ template<> ::ric::auth::AuthObjectArgument* Arena::CreateMaybeMessage<::ric::aut
 template<> ::ric::auth::AuthObjectRequest* Arena::CreateMaybeMessage<::ric::auth::AuthObjectRequest>(Arena*);
 template<> ::ric::auth::AuthObjectRequest_AuthObjectCert* Arena::CreateMaybeMessage<::ric::auth::AuthObjectRequest_AuthObjectCert>(Arena*);
 template<> ::ric::auth::AuthObjectResponse* Arena::CreateMaybeMessage<::ric::auth::AuthObjectResponse>(Arena*);
+template<> ::ric::auth::SendOfflineRequest* Arena::CreateMaybeMessage<::ric::auth::SendOfflineRequest>(Arena*);
+template<> ::ric::auth::SendOfflineResponse* Arena::CreateMaybeMessage<::ric::auth::SendOfflineResponse>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace ric {
@@ -787,6 +795,231 @@ class AuthObjectArgument final :
   ::google::protobuf::internal::ArenaStringPtr data_type_;
   ::google::protobuf::internal::ArenaStringPtr reference_;
   ::google::protobuf::internal::ArenaStringPtr parser_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dauth_2fricauth_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SendOfflineRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.auth.SendOfflineRequest) */ {
+ public:
+  SendOfflineRequest();
+  virtual ~SendOfflineRequest();
+
+  SendOfflineRequest(const SendOfflineRequest& from);
+
+  inline SendOfflineRequest& operator=(const SendOfflineRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SendOfflineRequest(SendOfflineRequest&& from) noexcept
+    : SendOfflineRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline SendOfflineRequest& operator=(SendOfflineRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const SendOfflineRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SendOfflineRequest* internal_default_instance() {
+    return reinterpret_cast<const SendOfflineRequest*>(
+               &_SendOfflineRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  void Swap(SendOfflineRequest* other);
+  friend void swap(SendOfflineRequest& a, SendOfflineRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SendOfflineRequest* New() const final {
+    return CreateMaybeMessage<SendOfflineRequest>(nullptr);
+  }
+
+  SendOfflineRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<SendOfflineRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const SendOfflineRequest& from);
+  void MergeFrom(const SendOfflineRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SendOfflineRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string object_id = 1;
+  void clear_object_id();
+  static const int kObjectIdFieldNumber = 1;
+  const ::std::string& object_id() const;
+  void set_object_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_object_id(::std::string&& value);
+  #endif
+  void set_object_id(const char* value);
+  void set_object_id(const char* value, size_t size);
+  ::std::string* mutable_object_id();
+  ::std::string* release_object_id();
+  void set_allocated_object_id(::std::string* object_id);
+
+  // @@protoc_insertion_point(class_scope:ric.auth.SendOfflineRequest)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr object_id_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dauth_2fricauth_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SendOfflineResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.auth.SendOfflineResponse) */ {
+ public:
+  SendOfflineResponse();
+  virtual ~SendOfflineResponse();
+
+  SendOfflineResponse(const SendOfflineResponse& from);
+
+  inline SendOfflineResponse& operator=(const SendOfflineResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SendOfflineResponse(SendOfflineResponse&& from) noexcept
+    : SendOfflineResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline SendOfflineResponse& operator=(SendOfflineResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const SendOfflineResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SendOfflineResponse* internal_default_instance() {
+    return reinterpret_cast<const SendOfflineResponse*>(
+               &_SendOfflineResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  void Swap(SendOfflineResponse* other);
+  friend void swap(SendOfflineResponse& a, SendOfflineResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SendOfflineResponse* New() const final {
+    return CreateMaybeMessage<SendOfflineResponse>(nullptr);
+  }
+
+  SendOfflineResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<SendOfflineResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const SendOfflineResponse& from);
+  void MergeFrom(const SendOfflineResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SendOfflineResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:ric.auth.SendOfflineResponse)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dauth_2fricauth_2eproto;
 };
@@ -1848,9 +2081,74 @@ inline void AuthObjectArgument::set_allocated_parser(::std::string* parser) {
   // @@protoc_insertion_point(field_set_allocated:ric.auth.AuthObjectArgument.parser)
 }
 
+// -------------------------------------------------------------------
+
+// SendOfflineRequest
+
+// string object_id = 1;
+inline void SendOfflineRequest::clear_object_id() {
+  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SendOfflineRequest::object_id() const {
+  // @@protoc_insertion_point(field_get:ric.auth.SendOfflineRequest.object_id)
+  return object_id_.GetNoArena();
+}
+inline void SendOfflineRequest::set_object_id(const ::std::string& value) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.auth.SendOfflineRequest.object_id)
+}
+#if LANG_CXX11
+inline void SendOfflineRequest::set_object_id(::std::string&& value) {
+  
+  object_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.auth.SendOfflineRequest.object_id)
+}
+#endif
+inline void SendOfflineRequest::set_object_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.auth.SendOfflineRequest.object_id)
+}
+inline void SendOfflineRequest::set_object_id(const char* value, size_t size) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.SendOfflineRequest.object_id)
+}
+inline ::std::string* SendOfflineRequest::mutable_object_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.auth.SendOfflineRequest.object_id)
+  return object_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SendOfflineRequest::release_object_id() {
+  // @@protoc_insertion_point(field_release:ric.auth.SendOfflineRequest.object_id)
+  
+  return object_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SendOfflineRequest::set_allocated_object_id(::std::string* object_id) {
+  if (object_id != nullptr) {
+    
+  } else {
+    
+  }
+  object_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), object_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.auth.SendOfflineRequest.object_id)
+}
+
+// -------------------------------------------------------------------
+
+// SendOfflineResponse
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

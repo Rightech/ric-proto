@@ -656,6 +656,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dlogic_2dv3_2friclogicv3_2epro
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo, status_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo, state_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo, prev_state_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo, prev_event_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo, stats_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo, logs_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::AutomatonInfo, vars_),
@@ -855,28 +856,28 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 28, -1, sizeof(::ric::logic::v3::AutomatonVarValue)},
   { 37, 44, sizeof(::ric::logic::v3::AutomatonInfo_VarsEntry_DoNotUse)},
   { 46, -1, sizeof(::ric::logic::v3::AutomatonInfo)},
-  { 61, -1, sizeof(::ric::logic::v3::AutomatonEvent)},
-  { 68, -1, sizeof(::ric::logic::v3::ActionResult)},
-  { 76, -1, sizeof(::ric::logic::v3::LogEntry)},
-  { 95, -1, sizeof(::ric::logic::v3::GetInstanceInfoRequest)},
-  { 100, -1, sizeof(::ric::logic::v3::GetInstanceInfoResponse)},
-  { 112, 119, sizeof(::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse)},
-  { 121, -1, sizeof(::ric::logic::v3::StartAutomatonRequest)},
-  { 130, -1, sizeof(::ric::logic::v3::StartAutomatonMultiRequest)},
-  { 138, -1, sizeof(::ric::logic::v3::StartAutomatonResponse)},
-  { 144, -1, sizeof(::ric::logic::v3::StopAutomatonRequest)},
-  { 152, 159, sizeof(::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse)},
-  { 161, -1, sizeof(::ric::logic::v3::RunAutomatonRequest)},
-  { 173, -1, sizeof(::ric::logic::v3::StopAutomatonResponse)},
-  { 179, -1, sizeof(::ric::logic::v3::GetAutomatonsRequest)},
-  { 188, -1, sizeof(::ric::logic::v3::GetAutomatonsResponse)},
-  { 194, -1, sizeof(::ric::logic::v3::EmitEventRequest)},
-  { 204, -1, sizeof(::ric::logic::v3::EmitEventResponse)},
-  { 209, -1, sizeof(::ric::logic::v3::GetRuntimeInfoRequest)},
-  { 216, 223, sizeof(::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse)},
-  { 225, -1, sizeof(::ric::logic::v3::UpdateAutomatonVarsRequest)},
-  { 234, 241, sizeof(::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse)},
-  { 243, -1, sizeof(::ric::logic::v3::UpdateAutomatonVarsResponse)},
+  { 62, -1, sizeof(::ric::logic::v3::AutomatonEvent)},
+  { 69, -1, sizeof(::ric::logic::v3::ActionResult)},
+  { 77, -1, sizeof(::ric::logic::v3::LogEntry)},
+  { 96, -1, sizeof(::ric::logic::v3::GetInstanceInfoRequest)},
+  { 101, -1, sizeof(::ric::logic::v3::GetInstanceInfoResponse)},
+  { 113, 120, sizeof(::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse)},
+  { 122, -1, sizeof(::ric::logic::v3::StartAutomatonRequest)},
+  { 131, -1, sizeof(::ric::logic::v3::StartAutomatonMultiRequest)},
+  { 139, -1, sizeof(::ric::logic::v3::StartAutomatonResponse)},
+  { 145, -1, sizeof(::ric::logic::v3::StopAutomatonRequest)},
+  { 153, 160, sizeof(::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse)},
+  { 162, -1, sizeof(::ric::logic::v3::RunAutomatonRequest)},
+  { 174, -1, sizeof(::ric::logic::v3::StopAutomatonResponse)},
+  { 180, -1, sizeof(::ric::logic::v3::GetAutomatonsRequest)},
+  { 189, -1, sizeof(::ric::logic::v3::GetAutomatonsResponse)},
+  { 195, -1, sizeof(::ric::logic::v3::EmitEventRequest)},
+  { 205, -1, sizeof(::ric::logic::v3::EmitEventResponse)},
+  { 210, -1, sizeof(::ric::logic::v3::GetRuntimeInfoRequest)},
+  { 217, 224, sizeof(::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse)},
+  { 226, -1, sizeof(::ric::logic::v3::UpdateAutomatonVarsRequest)},
+  { 235, 242, sizeof(::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse)},
+  { 244, -1, sizeof(::ric::logic::v3::UpdateAutomatonVarsResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -930,100 +931,101 @@ const char descriptor_table_protodef_ric_2dlogic_2dv3_2friclogicv3_2eproto[] =
   "ic.logic.v3.StatsCounter\022\016\n\006halted\030\010 \001(\t"
   "\"[\n\021AutomatonVarValue\022\024\n\nstring_val\030\001 \001("
   "\tH\000\022\024\n\ndouble_val\030\002 \001(\001H\000\022\022\n\010bool_val\030\003 "
-  "\001(\010H\000B\006\n\004type\"\344\002\n\rAutomatonInfo\022\021\n\tobjec"
+  "\001(\010H\000B\006\n\004type\"\370\002\n\rAutomatonInfo\022\021\n\tobjec"
   "t_id\030\001 \001(\t\022\024\n\014automaton_id\030\002 \001(\t\022\017\n\007hash"
   "_id\030\003 \001(\t\022\020\n\010revision\030\004 \001(\t\022\016\n\006status\030\005 "
-  "\001(\t\022\r\n\005state\030\006 \001(\t\022\022\n\nprev_state\030\007 \001(\t\022+"
-  "\n\005stats\030\010 \001(\0132\034.ric.logic.v3.AutomatonSt"
-  "ats\022$\n\004logs\030\t \003(\0132\026.ric.logic.v3.LogEntr"
-  "y\0223\n\004vars\030\n \003(\0132%.ric.logic.v3.Automaton"
-  "Info.VarsEntry\032L\n\tVarsEntry\022\013\n\003key\030\001 \001(\t"
-  "\022.\n\005value\030\002 \001(\0132\037.ric.logic.v3.Automaton"
-  "VarValue:\0028\001\"/\n\016AutomatonEvent\022\014\n\004type\030\001"
-  " \001(\t\022\017\n\007payload\030\002 \001(\t\";\n\014ActionResult\022\016\n"
-  "\006status\030\001 \001(\t\022\017\n\007payload\030\002 \001(\t\022\n\n\002ms\030\003 \001"
-  "(\005\"\307\002\n\010LogEntry\022\n\n\002id\030\001 \001(\t\022\n\n\002ts\030\002 \001(\003\022"
-  "\021\n\tobject_id\030\003 \001(\t\022\024\n\014automaton_id\030\004 \001(\t"
-  "\022\017\n\007hash_id\030\005 \001(\t\022\020\n\010revision\030\006 \001(\t\022\020\n\010i"
-  "nstance\030\007 \001(\t\022\020\n\010category\030\010 \001(\t\022\017\n\007messa"
-  "ge\030\t \001(\t\022+\n\005event\030\n \001(\0132\034.ric.logic.v3.A"
-  "utomatonEvent\022\r\n\005state\030\013 \001(\t\022\022\n\nprev_sta"
-  "te\030\014 \001(\t\022&\n\003ctx\030\r \001(\0132\031.ric.logic.v3.Use"
-  "rContext\022*\n\006result\030\016 \001(\0132\032.ric.logic.v3."
-  "ActionResult\"\030\n\026GetInstanceInfoRequest\"\260"
-  "\001\n\027GetInstanceInfoResponse\022\020\n\010hostname\030\001"
-  " \001(\t\022\016\n\006status\030\002 \001(\t\022\022\n\nstarted_at\030\003 \001(\003"
-  "\022\025\n\robjects_total\030\004 \001(\003\022\030\n\020containers_to"
-  "tal\030\005 \001(\003\022\032\n\022containers_running\030\006 \001(\003\022\022\n"
-  "\nobject_ids\030\007 \003(\t\"\363\001\n\025StartAutomatonRequ"
-  "est\022&\n\003ctx\030\001 \001(\0132\031.ric.logic.v3.UserCont"
-  "ext\022\021\n\tobject_id\030\002 \001(\t\022\024\n\014automaton_id\030\003"
-  " \001(\t\022;\n\004vars\030\004 \003(\0132-.ric.logic.v3.StartA"
-  "utomatonRequest.VarsEntry\032L\n\tVarsEntry\022\013"
-  "\n\003key\030\001 \001(\t\022.\n\005value\030\002 \001(\0132\037.ric.logic.v"
-  "3.AutomatonVarValue:\0028\001\"n\n\032StartAutomato"
-  "nMultiRequest\022&\n\003ctx\030\001 \001(\0132\031.ric.logic.v"
-  "3.UserContext\022\022\n\nobject_ids\030\002 \003(\t\022\024\n\014aut"
-  "omaton_id\030\003 \001(\t\"H\n\026StartAutomatonRespons"
-  "e\022.\n\tautomaton\030\001 \001(\0132\033.ric.logic.v3.Auto"
-  "matonInfo\"g\n\024StopAutomatonRequest\022&\n\003ctx"
-  "\030\001 \001(\0132\031.ric.logic.v3.UserContext\022\021\n\tobj"
-  "ect_id\030\002 \001(\t\022\024\n\014automaton_id\030\003 \001(\t\"\255\002\n\023R"
-  "unAutomatonRequest\022&\n\003ctx\030\001 \001(\0132\031.ric.lo"
-  "gic.v3.UserContext\022\021\n\tobject_id\030\002 \001(\t\022\024\n"
-  "\014automaton_id\030\003 \001(\t\022\022\n\nwait_final\030\004 \001(\010\022"
-  "\024\n\014wait_timeout\030\005 \001(\005\022\022\n\non_running\030\006 \001("
-  "\t\0229\n\004vars\030\007 \003(\0132+.ric.logic.v3.RunAutoma"
-  "tonRequest.VarsEntry\032L\n\tVarsEntry\022\013\n\003key"
-  "\030\001 \001(\t\022.\n\005value\030\002 \001(\0132\037.ric.logic.v3.Aut"
-  "omatonVarValue:\0028\001\"G\n\025StopAutomatonRespo"
-  "nse\022.\n\tautomaton\030\001 \001(\0132\033.ric.logic.v3.Au"
-  "tomatonInfo\"c\n\024GetAutomatonsRequest\022\022\n\no"
-  "bject_ids\030\001 \003(\t\022\025\n\rautomaton_ids\030\002 \003(\t\022\021"
-  "\n\twith_logs\030\003 \001(\010\022\r\n\005watch\030\004 \001(\010\"H\n\025GetA"
-  "utomatonsResponse\022/\n\nautomatons\030\001 \003(\0132\033."
-  "ric.logic.v3.AutomatonInfo\"\203\001\n\020EmitEvent"
-  "Request\022&\n\003ctx\030\001 \001(\0132\031.ric.logic.v3.User"
-  "Context\022\021\n\tobject_id\030\002 \001(\t\022\024\n\014automaton_"
-  "id\030\003 \001(\t\022\r\n\005event\030\004 \001(\t\022\017\n\007payload\030\005 \001(\t"
-  "\"\023\n\021EmitEventResponse\"@\n\025GetRuntimeInfoR"
-  "equest\022\021\n\tobject_id\030\001 \001(\t\022\024\n\014automaton_i"
-  "d\030\002 \001(\t\"\375\001\n\032UpdateAutomatonVarsRequest\022&"
+  "\001(\t\022\r\n\005state\030\006 \001(\t\022\022\n\nprev_state\030\007 \001(\t\022\022"
+  "\n\nprev_event\030\010 \001(\t\022+\n\005stats\030\t \001(\0132\034.ric."
+  "logic.v3.AutomatonStats\022$\n\004logs\030\n \003(\0132\026."
+  "ric.logic.v3.LogEntry\0223\n\004vars\030\013 \003(\0132%.ri"
+  "c.logic.v3.AutomatonInfo.VarsEntry\032L\n\tVa"
+  "rsEntry\022\013\n\003key\030\001 \001(\t\022.\n\005value\030\002 \001(\0132\037.ri"
+  "c.logic.v3.AutomatonVarValue:\0028\001\"/\n\016Auto"
+  "matonEvent\022\014\n\004type\030\001 \001(\t\022\017\n\007payload\030\002 \001("
+  "\t\";\n\014ActionResult\022\016\n\006status\030\001 \001(\t\022\017\n\007pay"
+  "load\030\002 \001(\t\022\n\n\002ms\030\003 \001(\005\"\307\002\n\010LogEntry\022\n\n\002i"
+  "d\030\001 \001(\t\022\n\n\002ts\030\002 \001(\003\022\021\n\tobject_id\030\003 \001(\t\022\024"
+  "\n\014automaton_id\030\004 \001(\t\022\017\n\007hash_id\030\005 \001(\t\022\020\n"
+  "\010revision\030\006 \001(\t\022\020\n\010instance\030\007 \001(\t\022\020\n\010cat"
+  "egory\030\010 \001(\t\022\017\n\007message\030\t \001(\t\022+\n\005event\030\n "
+  "\001(\0132\034.ric.logic.v3.AutomatonEvent\022\r\n\005sta"
+  "te\030\013 \001(\t\022\022\n\nprev_state\030\014 \001(\t\022&\n\003ctx\030\r \001("
+  "\0132\031.ric.logic.v3.UserContext\022*\n\006result\030\016"
+  " \001(\0132\032.ric.logic.v3.ActionResult\"\030\n\026GetI"
+  "nstanceInfoRequest\"\260\001\n\027GetInstanceInfoRe"
+  "sponse\022\020\n\010hostname\030\001 \001(\t\022\016\n\006status\030\002 \001(\t"
+  "\022\022\n\nstarted_at\030\003 \001(\003\022\025\n\robjects_total\030\004 "
+  "\001(\003\022\030\n\020containers_total\030\005 \001(\003\022\032\n\022contain"
+  "ers_running\030\006 \001(\003\022\022\n\nobject_ids\030\007 \003(\t\"\363\001"
+  "\n\025StartAutomatonRequest\022&\n\003ctx\030\001 \001(\0132\031.r"
+  "ic.logic.v3.UserContext\022\021\n\tobject_id\030\002 \001"
+  "(\t\022\024\n\014automaton_id\030\003 \001(\t\022;\n\004vars\030\004 \003(\0132-"
+  ".ric.logic.v3.StartAutomatonRequest.Vars"
+  "Entry\032L\n\tVarsEntry\022\013\n\003key\030\001 \001(\t\022.\n\005value"
+  "\030\002 \001(\0132\037.ric.logic.v3.AutomatonVarValue:"
+  "\0028\001\"n\n\032StartAutomatonMultiRequest\022&\n\003ctx"
+  "\030\001 \001(\0132\031.ric.logic.v3.UserContext\022\022\n\nobj"
+  "ect_ids\030\002 \003(\t\022\024\n\014automaton_id\030\003 \001(\t\"H\n\026S"
+  "tartAutomatonResponse\022.\n\tautomaton\030\001 \001(\013"
+  "2\033.ric.logic.v3.AutomatonInfo\"g\n\024StopAut"
+  "omatonRequest\022&\n\003ctx\030\001 \001(\0132\031.ric.logic.v"
+  "3.UserContext\022\021\n\tobject_id\030\002 \001(\t\022\024\n\014auto"
+  "maton_id\030\003 \001(\t\"\255\002\n\023RunAutomatonRequest\022&"
   "\n\003ctx\030\001 \001(\0132\031.ric.logic.v3.UserContext\022\021"
   "\n\tobject_id\030\002 \001(\t\022\024\n\014automaton_id\030\003 \001(\t\022"
-  "@\n\004vars\030\004 \003(\01322.ric.logic.v3.UpdateAutom"
-  "atonVarsRequest.VarsEntry\032L\n\tVarsEntry\022\013"
-  "\n\003key\030\001 \001(\t\022.\n\005value\030\002 \001(\0132\037.ric.logic.v"
-  "3.AutomatonVarValue:\0028\001\"\256\001\n\033UpdateAutoma"
-  "tonVarsResponse\022A\n\004vars\030\001 \003(\01323.ric.logi"
-  "c.v3.UpdateAutomatonVarsResponse.VarsEnt"
-  "ry\032L\n\tVarsEntry\022\013\n\003key\030\001 \001(\t\022.\n\005value\030\002 "
-  "\001(\0132\037.ric.logic.v3.AutomatonVarValue:\0028\001"
-  "2\352\005\n\nRicLogicV3\022^\n\017GetInstanceInfo\022$.ric"
-  ".logic.v3.GetInstanceInfoRequest\032%.ric.l"
-  "ogic.v3.GetInstanceInfoResponse\022R\n\rGetAu"
-  "tomatons\022\".ric.logic.v3.GetAutomatonsReq"
-  "uest\032\033.ric.logic.v3.AutomatonInfo0\001\022[\n\016S"
-  "tartAutomaton\022#.ric.logic.v3.StartAutoma"
-  "tonRequest\032$.ric.logic.v3.StartAutomaton"
-  "Response\022e\n\023StartAutomatonMulti\022(.ric.lo"
-  "gic.v3.StartAutomatonMultiRequest\032$.ric."
-  "logic.v3.StartAutomatonResponse\022X\n\rStopA"
-  "utomaton\022\".ric.logic.v3.StopAutomatonReq"
-  "uest\032#.ric.logic.v3.StopAutomatonRespons"
-  "e\022P\n\014RunAutomaton\022!.ric.logic.v3.RunAuto"
-  "matonRequest\032\033.ric.logic.v3.AutomatonInf"
-  "o0\001\022L\n\tEmitEvent\022\036.ric.logic.v3.EmitEven"
-  "tRequest\032\037.ric.logic.v3.EmitEventRespons"
-  "e\022j\n\023UpdateAutomatonVars\022(.ric.logic.v3."
-  "UpdateAutomatonVarsRequest\032).ric.logic.v"
-  "3.UpdateAutomatonVarsResponseB\033Z\031./ric-l"
-  "ogic-v3;riclogicv3b\006proto3"
+  "\022\n\nwait_final\030\004 \001(\010\022\024\n\014wait_timeout\030\005 \001("
+  "\005\022\022\n\non_running\030\006 \001(\t\0229\n\004vars\030\007 \003(\0132+.ri"
+  "c.logic.v3.RunAutomatonRequest.VarsEntry"
+  "\032L\n\tVarsEntry\022\013\n\003key\030\001 \001(\t\022.\n\005value\030\002 \001("
+  "\0132\037.ric.logic.v3.AutomatonVarValue:\0028\001\"G"
+  "\n\025StopAutomatonResponse\022.\n\tautomaton\030\001 \001"
+  "(\0132\033.ric.logic.v3.AutomatonInfo\"c\n\024GetAu"
+  "tomatonsRequest\022\022\n\nobject_ids\030\001 \003(\t\022\025\n\ra"
+  "utomaton_ids\030\002 \003(\t\022\021\n\twith_logs\030\003 \001(\010\022\r\n"
+  "\005watch\030\004 \001(\010\"H\n\025GetAutomatonsResponse\022/\n"
+  "\nautomatons\030\001 \003(\0132\033.ric.logic.v3.Automat"
+  "onInfo\"\203\001\n\020EmitEventRequest\022&\n\003ctx\030\001 \001(\013"
+  "2\031.ric.logic.v3.UserContext\022\021\n\tobject_id"
+  "\030\002 \001(\t\022\024\n\014automaton_id\030\003 \001(\t\022\r\n\005event\030\004 "
+  "\001(\t\022\017\n\007payload\030\005 \001(\t\"\023\n\021EmitEventRespons"
+  "e\"@\n\025GetRuntimeInfoRequest\022\021\n\tobject_id\030"
+  "\001 \001(\t\022\024\n\014automaton_id\030\002 \001(\t\"\375\001\n\032UpdateAu"
+  "tomatonVarsRequest\022&\n\003ctx\030\001 \001(\0132\031.ric.lo"
+  "gic.v3.UserContext\022\021\n\tobject_id\030\002 \001(\t\022\024\n"
+  "\014automaton_id\030\003 \001(\t\022@\n\004vars\030\004 \003(\01322.ric."
+  "logic.v3.UpdateAutomatonVarsRequest.Vars"
+  "Entry\032L\n\tVarsEntry\022\013\n\003key\030\001 \001(\t\022.\n\005value"
+  "\030\002 \001(\0132\037.ric.logic.v3.AutomatonVarValue:"
+  "\0028\001\"\256\001\n\033UpdateAutomatonVarsResponse\022A\n\004v"
+  "ars\030\001 \003(\01323.ric.logic.v3.UpdateAutomaton"
+  "VarsResponse.VarsEntry\032L\n\tVarsEntry\022\013\n\003k"
+  "ey\030\001 \001(\t\022.\n\005value\030\002 \001(\0132\037.ric.logic.v3.A"
+  "utomatonVarValue:\0028\0012\352\005\n\nRicLogicV3\022^\n\017G"
+  "etInstanceInfo\022$.ric.logic.v3.GetInstanc"
+  "eInfoRequest\032%.ric.logic.v3.GetInstanceI"
+  "nfoResponse\022R\n\rGetAutomatons\022\".ric.logic"
+  ".v3.GetAutomatonsRequest\032\033.ric.logic.v3."
+  "AutomatonInfo0\001\022[\n\016StartAutomaton\022#.ric."
+  "logic.v3.StartAutomatonRequest\032$.ric.log"
+  "ic.v3.StartAutomatonResponse\022e\n\023StartAut"
+  "omatonMulti\022(.ric.logic.v3.StartAutomato"
+  "nMultiRequest\032$.ric.logic.v3.StartAutoma"
+  "tonResponse\022X\n\rStopAutomaton\022\".ric.logic"
+  ".v3.StopAutomatonRequest\032#.ric.logic.v3."
+  "StopAutomatonResponse\022P\n\014RunAutomaton\022!."
+  "ric.logic.v3.RunAutomatonRequest\032\033.ric.l"
+  "ogic.v3.AutomatonInfo0\001\022L\n\tEmitEvent\022\036.r"
+  "ic.logic.v3.EmitEventRequest\032\037.ric.logic"
+  ".v3.EmitEventResponse\022j\n\023UpdateAutomaton"
+  "Vars\022(.ric.logic.v3.UpdateAutomatonVarsR"
+  "equest\032).ric.logic.v3.UpdateAutomatonVar"
+  "sResponseB\033Z\031./ric-logic-v3;riclogicv3b\006"
+  "proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dlogic_2dv3_2friclogicv3_2eproto = {
   false, InitDefaults_ric_2dlogic_2dv3_2friclogicv3_2eproto, 
   descriptor_table_protodef_ric_2dlogic_2dv3_2friclogicv3_2eproto,
-  "ric-logic-v3/riclogicv3.proto", &assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto, 4066,
+  "ric-logic-v3/riclogicv3.proto", &assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto, 4086,
 };
 
 void AddDescriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
@@ -2976,6 +2978,7 @@ const int AutomatonInfo::kRevisionFieldNumber;
 const int AutomatonInfo::kStatusFieldNumber;
 const int AutomatonInfo::kStateFieldNumber;
 const int AutomatonInfo::kPrevStateFieldNumber;
+const int AutomatonInfo::kPrevEventFieldNumber;
 const int AutomatonInfo::kStatsFieldNumber;
 const int AutomatonInfo::kLogsFieldNumber;
 const int AutomatonInfo::kVarsFieldNumber;
@@ -3020,6 +3023,10 @@ AutomatonInfo::AutomatonInfo(const AutomatonInfo& from)
   if (from.prev_state().size() > 0) {
     prev_state_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.prev_state_);
   }
+  prev_event_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.prev_event().size() > 0) {
+    prev_event_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.prev_event_);
+  }
   if (from.has_stats()) {
     stats_ = new ::ric::logic::v3::AutomatonStats(*from.stats_);
   } else {
@@ -3038,6 +3045,7 @@ void AutomatonInfo::SharedCtor() {
   status_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   state_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   prev_state_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  prev_event_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   stats_ = nullptr;
 }
 
@@ -3054,6 +3062,7 @@ void AutomatonInfo::SharedDtor() {
   status_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   state_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   prev_state_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  prev_event_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete stats_;
 }
 
@@ -3081,6 +3090,7 @@ void AutomatonInfo::Clear() {
   status_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   state_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   prev_state_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  prev_event_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && stats_ != nullptr) {
     delete stats_;
   }
@@ -3213,9 +3223,25 @@ const char* AutomatonInfo::_InternalParse(const char* begin, const char* end, vo
         ptr += size;
         break;
       }
-      // .ric.logic.v3.AutomatonStats stats = 8;
+      // string prev_event = 8;
       case 8: {
         if (static_cast<::google::protobuf::uint8>(tag) != 66) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.logic.v3.AutomatonInfo.prev_event");
+        object = msg->mutable_prev_event();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // .ric.logic.v3.AutomatonStats stats = 9;
+      case 9: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 74) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::ric::logic::v3::AutomatonStats::_InternalParse;
@@ -3226,9 +3252,9 @@ const char* AutomatonInfo::_InternalParse(const char* begin, const char* end, vo
             {parser_till_end, object}, ptr - size, ptr));
         break;
       }
-      // repeated .ric.logic.v3.LogEntry logs = 9;
-      case 9: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 74) goto handle_unusual;
+      // repeated .ric.logic.v3.LogEntry logs = 10;
+      case 10: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 82) goto handle_unusual;
         do {
           ptr = ::google::protobuf::io::ReadSize(ptr, &size);
           GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
@@ -3239,12 +3265,12 @@ const char* AutomatonInfo::_InternalParse(const char* begin, const char* end, vo
           GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
               {parser_till_end, object}, ptr - size, ptr));
           if (ptr >= end) break;
-        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 74 && (ptr += 1));
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 82 && (ptr += 1));
         break;
       }
-      // map<string, .ric.logic.v3.AutomatonVarValue> vars = 10;
-      case 10: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 82) goto handle_unusual;
+      // map<string, .ric.logic.v3.AutomatonVarValue> vars = 11;
+      case 11: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 90) goto handle_unusual;
         do {
           ptr = ::google::protobuf::io::ReadSize(ptr, &size);
           GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
@@ -3258,7 +3284,7 @@ const char* AutomatonInfo::_InternalParse(const char* begin, const char* end, vo
           GOOGLE_PROTOBUF_PARSER_ASSERT(parse_map(ptr, newend, object, ctx));
           ptr = newend;
           if (ptr >= end) break;
-        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 82 && (ptr += 1));
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 90 && (ptr += 1));
         break;
       }
       default: {
@@ -3400,9 +3426,24 @@ bool AutomatonInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // .ric.logic.v3.AutomatonStats stats = 8;
+      // string prev_event = 8;
       case 8: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (66 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_prev_event()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->prev_event().data(), static_cast<int>(this->prev_event().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.logic.v3.AutomatonInfo.prev_event"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .ric.logic.v3.AutomatonStats stats = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (74 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_stats()));
         } else {
@@ -3411,9 +3452,9 @@ bool AutomatonInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .ric.logic.v3.LogEntry logs = 9;
-      case 9: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (74 & 0xFF)) {
+      // repeated .ric.logic.v3.LogEntry logs = 10;
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (82 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                 input, add_logs()));
         } else {
@@ -3422,9 +3463,9 @@ bool AutomatonInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // map<string, .ric.logic.v3.AutomatonVarValue> vars = 10;
-      case 10: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (82 & 0xFF)) {
+      // map<string, .ric.logic.v3.AutomatonVarValue> vars = 11;
+      case 11: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (90 & 0xFF)) {
           AutomatonInfo_VarsEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
               AutomatonInfo_VarsEntry_DoNotUse,
               ::std::string, ::ric::logic::v3::AutomatonVarValue,
@@ -3541,22 +3582,32 @@ void AutomatonInfo::SerializeWithCachedSizes(
       7, this->prev_state(), output);
   }
 
-  // .ric.logic.v3.AutomatonStats stats = 8;
-  if (this->has_stats()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      8, HasBitSetters::stats(this), output);
+  // string prev_event = 8;
+  if (this->prev_event().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->prev_event().data(), static_cast<int>(this->prev_event().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.AutomatonInfo.prev_event");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      8, this->prev_event(), output);
   }
 
-  // repeated .ric.logic.v3.LogEntry logs = 9;
+  // .ric.logic.v3.AutomatonStats stats = 9;
+  if (this->has_stats()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      9, HasBitSetters::stats(this), output);
+  }
+
+  // repeated .ric.logic.v3.LogEntry logs = 10;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->logs_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      9,
+      10,
       this->logs(static_cast<int>(i)),
       output);
   }
 
-  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 10;
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 11;
   if (!this->vars().empty()) {
     typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_pointer
         ConstPtr;
@@ -3586,7 +3637,7 @@ void AutomatonInfo::SerializeWithCachedSizes(
       ::std::unique_ptr<AutomatonInfo_VarsEntry_DoNotUse> entry;
       for (size_type i = 0; i < n; i++) {
         entry.reset(vars_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(10, *entry, output);
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(11, *entry, output);
         Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
       }
     } else {
@@ -3595,7 +3646,7 @@ void AutomatonInfo::SerializeWithCachedSizes(
           it = this->vars().begin();
           it != this->vars().end(); ++it) {
         entry.reset(vars_.NewEntryWrapper(it->first, it->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(10, *entry, output);
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(11, *entry, output);
         Utf8Check::Check(&(*it));
       }
     }
@@ -3691,22 +3742,33 @@ void AutomatonInfo::SerializeWithCachedSizes(
         7, this->prev_state(), target);
   }
 
-  // .ric.logic.v3.AutomatonStats stats = 8;
+  // string prev_event = 8;
+  if (this->prev_event().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->prev_event().data(), static_cast<int>(this->prev_event().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.AutomatonInfo.prev_event");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        8, this->prev_event(), target);
+  }
+
+  // .ric.logic.v3.AutomatonStats stats = 9;
   if (this->has_stats()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        8, HasBitSetters::stats(this), target);
+        9, HasBitSetters::stats(this), target);
   }
 
-  // repeated .ric.logic.v3.LogEntry logs = 9;
+  // repeated .ric.logic.v3.LogEntry logs = 10;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->logs_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        9, this->logs(static_cast<int>(i)), target);
+        10, this->logs(static_cast<int>(i)), target);
   }
 
-  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 10;
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 11;
   if (!this->vars().empty()) {
     typedef ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >::const_pointer
         ConstPtr;
@@ -3736,7 +3798,7 @@ void AutomatonInfo::SerializeWithCachedSizes(
       ::std::unique_ptr<AutomatonInfo_VarsEntry_DoNotUse> entry;
       for (size_type i = 0; i < n; i++) {
         entry.reset(vars_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
-        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(10, *entry, target);
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(11, *entry, target);
         Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
       }
     } else {
@@ -3745,7 +3807,7 @@ void AutomatonInfo::SerializeWithCachedSizes(
           it = this->vars().begin();
           it != this->vars().end(); ++it) {
         entry.reset(vars_.NewEntryWrapper(it->first, it->second));
-        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(10, *entry, target);
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(11, *entry, target);
         Utf8Check::Check(&(*it));
       }
     }
@@ -3772,7 +3834,7 @@ size_t AutomatonInfo::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .ric.logic.v3.LogEntry logs = 9;
+  // repeated .ric.logic.v3.LogEntry logs = 10;
   {
     unsigned int count = static_cast<unsigned int>(this->logs_size());
     total_size += 1UL * count;
@@ -3783,7 +3845,7 @@ size_t AutomatonInfo::ByteSizeLong() const {
     }
   }
 
-  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 10;
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 11;
   total_size += 1 *
       ::google::protobuf::internal::FromIntSize(this->vars_size());
   {
@@ -3846,7 +3908,14 @@ size_t AutomatonInfo::ByteSizeLong() const {
         this->prev_state());
   }
 
-  // .ric.logic.v3.AutomatonStats stats = 8;
+  // string prev_event = 8;
+  if (this->prev_event().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->prev_event());
+  }
+
+  // .ric.logic.v3.AutomatonStats stats = 9;
   if (this->has_stats()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -3910,6 +3979,10 @@ void AutomatonInfo::MergeFrom(const AutomatonInfo& from) {
 
     prev_state_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.prev_state_);
   }
+  if (from.prev_event().size() > 0) {
+
+    prev_event_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.prev_event_);
+  }
   if (from.has_stats()) {
     mutable_stats()->::ric::logic::v3::AutomatonStats::MergeFrom(from.stats());
   }
@@ -3955,6 +4028,8 @@ void AutomatonInfo::InternalSwap(AutomatonInfo* other) {
   state_.Swap(&other->state_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   prev_state_.Swap(&other->prev_state_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  prev_event_.Swap(&other->prev_event_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(stats_, other->stats_);
 }
