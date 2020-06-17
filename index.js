@@ -159,6 +159,9 @@ class GrpcClient {
     this.def = def;
 
     this.serviceCtor = Object.values(this.def).find((x) => !!x.service);
+    if (this.name.namespace && this.def[this.name.namespace]) {
+      this.serviceCtor = this.def[this.name.namespace];
+    }
     this.serviceDef = this.serviceCtor.service;
 
     this.createRef();

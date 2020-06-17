@@ -1,5 +1,6 @@
 export interface RicAuth {
   AuthObject(request: AuthObjectRequest): Promise<AuthObjectResponse>;
+  SendOffline(request: SendOfflineRequest): Promise<SendOfflineResponse>;
 }
 
 export interface AuthObjectRequest {
@@ -32,4 +33,12 @@ export interface AuthObjectArgument {
   dataType?: string;
   reference?: string;
   parser?: string;
+}
+
+export interface SendOfflineRequest {
+  objectId?: string;
+}
+
+export interface SendOfflineResponse {
+
 }
