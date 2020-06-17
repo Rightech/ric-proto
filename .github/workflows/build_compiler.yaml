@@ -48,8 +48,14 @@ jobs:
     steps:
       - name: trigger event
         run: |
-          curl -v --request POST \
+          curl --request POST \
             --url https://api.github.com/repos/${{ github.repository }}/dispatches \
-            --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+            --header 'authorization: Bearer ${{ secrets.REPO_ACCESS_TOKEN }}' \
             --header 'content-type: application/json' \
-            --data '{"event_type":"image-update"}'
+            --data '{
+                "event_type":"After image update",
+                "client_payload":{
+                  "author_name":'$(jq ".head_commit.author.name" $GITHUB_EVENT_PATH)',
+                  "author_email":'$(jq ".head_commit.author.email" $GITHUB_EVENT_PATH)'
+                }
+              }'
