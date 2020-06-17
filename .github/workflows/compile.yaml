@@ -39,6 +39,7 @@ jobs:
           export AUTHOR_NAME=$(jq '.client_payload.author_name' $GITHUB_EVENT_PATH)
           export AUTHOR_EMAIL=$(jq '.client_payload.author_email' $GITHUB_EVENT_PATH)
           echo "::set-env name=AUTHOR_NAME::$AUTHOR_NAME"
+          echo "::set-env name=AUTHOR_EMAIL::$AUTHOR_EMAIL"
       - name: commit changes
         uses: EndBug/add-and-commit@v4
         with:
