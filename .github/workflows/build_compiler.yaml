@@ -9,6 +9,8 @@ on:
       - .github/workflows/build_compiler.yaml
     branches:
       - master
+  schedule:
+    - cron: '0 7 * * SAT'
 
 jobs:
   build_compiler:
