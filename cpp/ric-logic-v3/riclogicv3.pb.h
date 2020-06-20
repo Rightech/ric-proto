@@ -912,10 +912,10 @@ class AutomatonInfo final :
 
   // accessors -------------------------------------------------------
 
-  // repeated .ric.logic.v3.LogEntry logs = 9;
+  // repeated .ric.logic.v3.LogEntry logs = 10;
   int logs_size() const;
   void clear_logs();
-  static const int kLogsFieldNumber = 9;
+  static const int kLogsFieldNumber = 10;
   ::ric::logic::v3::LogEntry* mutable_logs(int index);
   ::google::protobuf::RepeatedPtrField< ::ric::logic::v3::LogEntry >*
       mutable_logs();
@@ -924,10 +924,10 @@ class AutomatonInfo final :
   const ::google::protobuf::RepeatedPtrField< ::ric::logic::v3::LogEntry >&
       logs() const;
 
-  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 10;
+  // map<string, .ric.logic.v3.AutomatonVarValue> vars = 11;
   int vars_size() const;
   void clear_vars();
-  static const int kVarsFieldNumber = 10;
+  static const int kVarsFieldNumber = 11;
   const ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >&
       vars() const;
   ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarValue >*
@@ -1031,10 +1031,24 @@ class AutomatonInfo final :
   ::std::string* release_prev_state();
   void set_allocated_prev_state(::std::string* prev_state);
 
-  // .ric.logic.v3.AutomatonStats stats = 8;
+  // string prev_event = 8;
+  void clear_prev_event();
+  static const int kPrevEventFieldNumber = 8;
+  const ::std::string& prev_event() const;
+  void set_prev_event(const ::std::string& value);
+  #if LANG_CXX11
+  void set_prev_event(::std::string&& value);
+  #endif
+  void set_prev_event(const char* value);
+  void set_prev_event(const char* value, size_t size);
+  ::std::string* mutable_prev_event();
+  ::std::string* release_prev_event();
+  void set_allocated_prev_event(::std::string* prev_event);
+
+  // .ric.logic.v3.AutomatonStats stats = 9;
   bool has_stats() const;
   void clear_stats();
-  static const int kStatsFieldNumber = 8;
+  static const int kStatsFieldNumber = 9;
   const ::ric::logic::v3::AutomatonStats& stats() const;
   ::ric::logic::v3::AutomatonStats* release_stats();
   ::ric::logic::v3::AutomatonStats* mutable_stats();
@@ -1059,6 +1073,7 @@ class AutomatonInfo final :
   ::google::protobuf::internal::ArenaStringPtr status_;
   ::google::protobuf::internal::ArenaStringPtr state_;
   ::google::protobuf::internal::ArenaStringPtr prev_state_;
+  ::google::protobuf::internal::ArenaStringPtr prev_event_;
   ::ric::logic::v3::AutomatonStats* stats_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto;
@@ -4923,7 +4938,60 @@ inline void AutomatonInfo::set_allocated_prev_state(::std::string* prev_state) {
   // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.AutomatonInfo.prev_state)
 }
 
-// .ric.logic.v3.AutomatonStats stats = 8;
+// string prev_event = 8;
+inline void AutomatonInfo::clear_prev_event() {
+  prev_event_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& AutomatonInfo::prev_event() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.AutomatonInfo.prev_event)
+  return prev_event_.GetNoArena();
+}
+inline void AutomatonInfo::set_prev_event(const ::std::string& value) {
+  
+  prev_event_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.AutomatonInfo.prev_event)
+}
+#if LANG_CXX11
+inline void AutomatonInfo::set_prev_event(::std::string&& value) {
+  
+  prev_event_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.logic.v3.AutomatonInfo.prev_event)
+}
+#endif
+inline void AutomatonInfo::set_prev_event(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  prev_event_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.logic.v3.AutomatonInfo.prev_event)
+}
+inline void AutomatonInfo::set_prev_event(const char* value, size_t size) {
+  
+  prev_event_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.logic.v3.AutomatonInfo.prev_event)
+}
+inline ::std::string* AutomatonInfo::mutable_prev_event() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.AutomatonInfo.prev_event)
+  return prev_event_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* AutomatonInfo::release_prev_event() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.AutomatonInfo.prev_event)
+  
+  return prev_event_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AutomatonInfo::set_allocated_prev_event(::std::string* prev_event) {
+  if (prev_event != nullptr) {
+    
+  } else {
+    
+  }
+  prev_event_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), prev_event);
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.AutomatonInfo.prev_event)
+}
+
+// .ric.logic.v3.AutomatonStats stats = 9;
 inline bool AutomatonInfo::has_stats() const {
   return this != internal_default_instance() && stats_ != nullptr;
 }
@@ -4974,7 +5042,7 @@ inline void AutomatonInfo::set_allocated_stats(::ric::logic::v3::AutomatonStats*
   // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.AutomatonInfo.stats)
 }
 
-// repeated .ric.logic.v3.LogEntry logs = 9;
+// repeated .ric.logic.v3.LogEntry logs = 10;
 inline int AutomatonInfo::logs_size() const {
   return logs_.size();
 }
@@ -5004,7 +5072,7 @@ AutomatonInfo::logs() const {
   return logs_;
 }
 
-// map<string, .ric.logic.v3.AutomatonVarValue> vars = 10;
+// map<string, .ric.logic.v3.AutomatonVarValue> vars = 11;
 inline int AutomatonInfo::vars_size() const {
   return vars_.size();
 }

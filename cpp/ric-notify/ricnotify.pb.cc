@@ -334,8 +334,8 @@ const ::google::protobuf::uint32 TableStruct_ric_2dnotify_2fricnotify_2eproto::o
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, to_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, sender_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, subject_),
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, content_type_),
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, body_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, text_body_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, html_body_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, server_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, password_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPSendRequest, use_tls_),
@@ -360,8 +360,8 @@ const ::google::protobuf::uint32 TableStruct_ric_2dnotify_2fricnotify_2eproto::o
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, to_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, sender_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, subject_),
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, content_type_),
-  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, body_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, text_body_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, html_body_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, server_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, password_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMTPGatewayInfoResponse, use_tls_),
@@ -424,37 +424,38 @@ const char descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto[] =
   "ENT\020\004\022\t\n\005ERROR\020\005\",\n\026SMPPGatewayInfoReque"
   "st\022\022\n\ngateway_id\030\001 \001(\t\"9\n\027SMPPGatewayInf"
   "oResponse\022\016\n\006online\030\001 \001(\010\022\016\n\006uptime\030\002 \001("
-  "\003\"\230\002\n\017SMTPSendRequest\022$\n\003ctx\030\001 \001(\0132\027.ric"
+  "\003\"\232\002\n\017SMTPSendRequest\022$\n\003ctx\030\001 \001(\0132\027.ric"
   ".notify.UserContext\022\022\n\ngateway_id\030\002 \001(\t\022"
   "\n\n\002to\030\003 \003(\t\022\016\n\006sender\030\004 \001(\t\022\017\n\007subject\030\005"
-  " \001(\t\022\024\n\014content_type\030\006 \001(\t\022\014\n\004body\030\007 \001(\t"
-  "\022\016\n\006server\030\010 \001(\t\022\020\n\010password\030\t \001(\t\022+\n\007us"
-  "e_tls\030\n \001(\0132\032.google.protobuf.BoolValue\022"
-  "+\n\007use_ssl\030\013 \001(\0132\032.google.protobuf.BoolV"
-  "alue\"\022\n\020SMTPSendResponse\",\n\026SMTPGatewayI"
-  "nfoRequest\022\022\n\ngateway_id\030\001 \001(\t\"\372\001\n\027SMTPG"
-  "atewayInfoResponse\022\022\n\ngateway_id\030\001 \001(\t\022\n"
-  "\n\002to\030\002 \003(\t\022\016\n\006sender\030\003 \001(\t\022\017\n\007subject\030\004 "
-  "\001(\t\022\024\n\014content_type\030\005 \001(\t\022\014\n\004body\030\006 \001(\t\022"
-  "\016\n\006server\030\007 \001(\t\022\020\n\010password\030\010 \001(\t\022+\n\007use"
-  "_tls\030\t \001(\0132\032.google.protobuf.BoolValue\022+"
-  "\n\007use_ssl\030\n \001(\0132\032.google.protobuf.BoolVa"
-  "lue2\352\001\n\004SMPP\022A\n\004Send\022\033.ric.notify.SMPPSe"
-  "ndRequest\032\034.ric.notify.SMPPSendResponse\022"
-  "G\n\006Status\022\035.ric.notify.SMPPStatusRequest"
-  "\032\036.ric.notify.SMPPStatusResponse\022V\n\013Gate"
-  "wayInfo\022\".ric.notify.SMPPGatewayInfoRequ"
-  "est\032#.ric.notify.SMPPGatewayInfoResponse"
-  "2\241\001\n\004SMTP\022A\n\004Send\022\033.ric.notify.SMTPSendR"
-  "equest\032\034.ric.notify.SMTPSendResponse\022V\n\013"
-  "GatewayInfo\022\".ric.notify.SMTPGatewayInfo"
-  "Request\032#.ric.notify.SMTPGatewayInfoResp"
-  "onseB\030Z\026./ric-notify;ricnotifyb\006proto3"
+  " \001(\t\022\021\n\ttext_body\030\006 \001(\t\022\021\n\thtml_body\030\007 \001"
+  "(\t\022\016\n\006server\030\010 \001(\t\022\020\n\010password\030\t \001(\t\022+\n\007"
+  "use_tls\030\n \001(\0132\032.google.protobuf.BoolValu"
+  "e\022+\n\007use_ssl\030\013 \001(\0132\032.google.protobuf.Boo"
+  "lValue\"\022\n\020SMTPSendResponse\",\n\026SMTPGatewa"
+  "yInfoRequest\022\022\n\ngateway_id\030\001 \001(\t\"\374\001\n\027SMT"
+  "PGatewayInfoResponse\022\022\n\ngateway_id\030\001 \001(\t"
+  "\022\n\n\002to\030\002 \003(\t\022\016\n\006sender\030\003 \001(\t\022\017\n\007subject\030"
+  "\004 \001(\t\022\021\n\ttext_body\030\005 \001(\t\022\021\n\thtml_body\030\006 "
+  "\001(\t\022\016\n\006server\030\007 \001(\t\022\020\n\010password\030\010 \001(\t\022+\n"
+  "\007use_tls\030\t \001(\0132\032.google.protobuf.BoolVal"
+  "ue\022+\n\007use_ssl\030\n \001(\0132\032.google.protobuf.Bo"
+  "olValue2\352\001\n\004SMPP\022A\n\004Send\022\033.ric.notify.SM"
+  "PPSendRequest\032\034.ric.notify.SMPPSendRespo"
+  "nse\022G\n\006Status\022\035.ric.notify.SMPPStatusReq"
+  "uest\032\036.ric.notify.SMPPStatusResponse\022V\n\013"
+  "GatewayInfo\022\".ric.notify.SMPPGatewayInfo"
+  "Request\032#.ric.notify.SMPPGatewayInfoResp"
+  "onse2\241\001\n\004SMTP\022A\n\004Send\022\033.ric.notify.SMTPS"
+  "endRequest\032\034.ric.notify.SMTPSendResponse"
+  "\022V\n\013GatewayInfo\022\".ric.notify.SMTPGateway"
+  "InfoRequest\032#.ric.notify.SMTPGatewayInfo"
+  "ResponseB\030Z\026./ric-notify;ricnotifyb\006prot"
+  "o3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dnotify_2fricnotify_2eproto = {
   false, InitDefaults_ric_2dnotify_2fricnotify_2eproto, 
   descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto,
-  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 1838,
+  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 1842,
 };
 
 void AddDescriptors_ric_2dnotify_2fricnotify_2eproto() {
@@ -3670,8 +3671,8 @@ const int SMTPSendRequest::kGatewayIdFieldNumber;
 const int SMTPSendRequest::kToFieldNumber;
 const int SMTPSendRequest::kSenderFieldNumber;
 const int SMTPSendRequest::kSubjectFieldNumber;
-const int SMTPSendRequest::kContentTypeFieldNumber;
-const int SMTPSendRequest::kBodyFieldNumber;
+const int SMTPSendRequest::kTextBodyFieldNumber;
+const int SMTPSendRequest::kHtmlBodyFieldNumber;
 const int SMTPSendRequest::kServerFieldNumber;
 const int SMTPSendRequest::kPasswordFieldNumber;
 const int SMTPSendRequest::kUseTlsFieldNumber;
@@ -3700,13 +3701,13 @@ SMTPSendRequest::SMTPSendRequest(const SMTPSendRequest& from)
   if (from.subject().size() > 0) {
     subject_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.subject_);
   }
-  content_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.content_type().size() > 0) {
-    content_type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.content_type_);
+  text_body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.text_body().size() > 0) {
+    text_body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.text_body_);
   }
-  body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.body().size() > 0) {
-    body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.body_);
+  html_body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.html_body().size() > 0) {
+    html_body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.html_body_);
   }
   server_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.server().size() > 0) {
@@ -3740,8 +3741,8 @@ void SMTPSendRequest::SharedCtor() {
   gateway_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   sender_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   subject_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  content_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  text_body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  html_body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   server_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&ctx_, 0, static_cast<size_t>(
@@ -3758,8 +3759,8 @@ void SMTPSendRequest::SharedDtor() {
   gateway_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   sender_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   subject_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  content_type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  body_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  text_body_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  html_body_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   server_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete ctx_;
@@ -3786,8 +3787,8 @@ void SMTPSendRequest::Clear() {
   gateway_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   sender_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   subject_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  content_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  text_body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  html_body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   server_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
@@ -3898,13 +3899,13 @@ const char* SMTPSendRequest::_InternalParse(const char* begin, const char* end, 
         ptr += size;
         break;
       }
-      // string content_type = 6;
+      // string text_body = 6;
       case 6: {
         if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPSendRequest.content_type");
-        object = msg->mutable_content_type();
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPSendRequest.text_body");
+        object = msg->mutable_text_body();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -3914,13 +3915,13 @@ const char* SMTPSendRequest::_InternalParse(const char* begin, const char* end, 
         ptr += size;
         break;
       }
-      // string body = 7;
+      // string html_body = 7;
       case 7: {
         if (static_cast<::google::protobuf::uint8>(tag) != 58) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPSendRequest.body");
-        object = msg->mutable_body();
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPSendRequest.html_body");
+        object = msg->mutable_html_body();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -4094,30 +4095,30 @@ bool SMTPSendRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // string content_type = 6;
+      // string text_body = 6;
       case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_content_type()));
+                input, this->mutable_text_body()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->content_type().data(), static_cast<int>(this->content_type().length()),
+            this->text_body().data(), static_cast<int>(this->text_body().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.notify.SMTPSendRequest.content_type"));
+            "ric.notify.SMTPSendRequest.text_body"));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // string body = 7;
+      // string html_body = 7;
       case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (58 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_body()));
+                input, this->mutable_html_body()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->body().data(), static_cast<int>(this->body().length()),
+            this->html_body().data(), static_cast<int>(this->html_body().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.notify.SMTPSendRequest.body"));
+            "ric.notify.SMTPSendRequest.html_body"));
         } else {
           goto handle_unusual;
         }
@@ -4249,24 +4250,24 @@ void SMTPSendRequest::SerializeWithCachedSizes(
       5, this->subject(), output);
   }
 
-  // string content_type = 6;
-  if (this->content_type().size() > 0) {
+  // string text_body = 6;
+  if (this->text_body().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->content_type().data(), static_cast<int>(this->content_type().length()),
+      this->text_body().data(), static_cast<int>(this->text_body().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPSendRequest.content_type");
+      "ric.notify.SMTPSendRequest.text_body");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      6, this->content_type(), output);
+      6, this->text_body(), output);
   }
 
-  // string body = 7;
-  if (this->body().size() > 0) {
+  // string html_body = 7;
+  if (this->html_body().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->body().data(), static_cast<int>(this->body().length()),
+      this->html_body().data(), static_cast<int>(this->html_body().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPSendRequest.body");
+      "ric.notify.SMTPSendRequest.html_body");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      7, this->body(), output);
+      7, this->html_body(), output);
   }
 
   // string server = 8;
@@ -4364,26 +4365,26 @@ void SMTPSendRequest::SerializeWithCachedSizes(
         5, this->subject(), target);
   }
 
-  // string content_type = 6;
-  if (this->content_type().size() > 0) {
+  // string text_body = 6;
+  if (this->text_body().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->content_type().data(), static_cast<int>(this->content_type().length()),
+      this->text_body().data(), static_cast<int>(this->text_body().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPSendRequest.content_type");
+      "ric.notify.SMTPSendRequest.text_body");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        6, this->content_type(), target);
+        6, this->text_body(), target);
   }
 
-  // string body = 7;
-  if (this->body().size() > 0) {
+  // string html_body = 7;
+  if (this->html_body().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->body().data(), static_cast<int>(this->body().length()),
+      this->html_body().data(), static_cast<int>(this->html_body().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPSendRequest.body");
+      "ric.notify.SMTPSendRequest.html_body");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        7, this->body(), target);
+        7, this->html_body(), target);
   }
 
   // string server = 8;
@@ -4472,18 +4473,18 @@ size_t SMTPSendRequest::ByteSizeLong() const {
         this->subject());
   }
 
-  // string content_type = 6;
-  if (this->content_type().size() > 0) {
+  // string text_body = 6;
+  if (this->text_body().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->content_type());
+        this->text_body());
   }
 
-  // string body = 7;
-  if (this->body().size() > 0) {
+  // string html_body = 7;
+  if (this->html_body().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->body());
+        this->html_body());
   }
 
   // string server = 8;
@@ -4561,13 +4562,13 @@ void SMTPSendRequest::MergeFrom(const SMTPSendRequest& from) {
 
     subject_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.subject_);
   }
-  if (from.content_type().size() > 0) {
+  if (from.text_body().size() > 0) {
 
-    content_type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.content_type_);
+    text_body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.text_body_);
   }
-  if (from.body().size() > 0) {
+  if (from.html_body().size() > 0) {
 
-    body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.body_);
+    html_body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.html_body_);
   }
   if (from.server().size() > 0) {
 
@@ -4620,9 +4621,9 @@ void SMTPSendRequest::InternalSwap(SMTPSendRequest* other) {
     GetArenaNoVirtual());
   subject_.Swap(&other->subject_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  content_type_.Swap(&other->content_type_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  text_body_.Swap(&other->text_body_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  body_.Swap(&other->body_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  html_body_.Swap(&other->html_body_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   server_.Swap(&other->server_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
@@ -5184,8 +5185,8 @@ const int SMTPGatewayInfoResponse::kGatewayIdFieldNumber;
 const int SMTPGatewayInfoResponse::kToFieldNumber;
 const int SMTPGatewayInfoResponse::kSenderFieldNumber;
 const int SMTPGatewayInfoResponse::kSubjectFieldNumber;
-const int SMTPGatewayInfoResponse::kContentTypeFieldNumber;
-const int SMTPGatewayInfoResponse::kBodyFieldNumber;
+const int SMTPGatewayInfoResponse::kTextBodyFieldNumber;
+const int SMTPGatewayInfoResponse::kHtmlBodyFieldNumber;
 const int SMTPGatewayInfoResponse::kServerFieldNumber;
 const int SMTPGatewayInfoResponse::kPasswordFieldNumber;
 const int SMTPGatewayInfoResponse::kUseTlsFieldNumber;
@@ -5214,13 +5215,13 @@ SMTPGatewayInfoResponse::SMTPGatewayInfoResponse(const SMTPGatewayInfoResponse& 
   if (from.subject().size() > 0) {
     subject_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.subject_);
   }
-  content_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.content_type().size() > 0) {
-    content_type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.content_type_);
+  text_body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.text_body().size() > 0) {
+    text_body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.text_body_);
   }
-  body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.body().size() > 0) {
-    body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.body_);
+  html_body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.html_body().size() > 0) {
+    html_body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.html_body_);
   }
   server_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.server().size() > 0) {
@@ -5249,8 +5250,8 @@ void SMTPGatewayInfoResponse::SharedCtor() {
   gateway_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   sender_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   subject_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  content_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  text_body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  html_body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   server_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&use_tls_, 0, static_cast<size_t>(
@@ -5267,8 +5268,8 @@ void SMTPGatewayInfoResponse::SharedDtor() {
   gateway_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   sender_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   subject_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  content_type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  body_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  text_body_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  html_body_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   server_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete use_tls_;
@@ -5294,8 +5295,8 @@ void SMTPGatewayInfoResponse::Clear() {
   gateway_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   sender_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   subject_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  content_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  text_body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  html_body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   server_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && use_tls_ != nullptr) {
@@ -5389,13 +5390,13 @@ const char* SMTPGatewayInfoResponse::_InternalParse(const char* begin, const cha
         ptr += size;
         break;
       }
-      // string content_type = 5;
+      // string text_body = 5;
       case 5: {
         if (static_cast<::google::protobuf::uint8>(tag) != 42) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPGatewayInfoResponse.content_type");
-        object = msg->mutable_content_type();
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPGatewayInfoResponse.text_body");
+        object = msg->mutable_text_body();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -5405,13 +5406,13 @@ const char* SMTPGatewayInfoResponse::_InternalParse(const char* begin, const cha
         ptr += size;
         break;
       }
-      // string body = 6;
+      // string html_body = 6;
       case 6: {
         if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPGatewayInfoResponse.body");
-        object = msg->mutable_body();
+        ctx->extra_parse_data().SetFieldName("ric.notify.SMTPGatewayInfoResponse.html_body");
+        object = msg->mutable_html_body();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -5574,30 +5575,30 @@ bool SMTPGatewayInfoResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // string content_type = 5;
+      // string text_body = 5;
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (42 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_content_type()));
+                input, this->mutable_text_body()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->content_type().data(), static_cast<int>(this->content_type().length()),
+            this->text_body().data(), static_cast<int>(this->text_body().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.notify.SMTPGatewayInfoResponse.content_type"));
+            "ric.notify.SMTPGatewayInfoResponse.text_body"));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // string body = 6;
+      // string html_body = 6;
       case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_body()));
+                input, this->mutable_html_body()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->body().data(), static_cast<int>(this->body().length()),
+            this->html_body().data(), static_cast<int>(this->html_body().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.notify.SMTPGatewayInfoResponse.body"));
+            "ric.notify.SMTPGatewayInfoResponse.html_body"));
         } else {
           goto handle_unusual;
         }
@@ -5723,24 +5724,24 @@ void SMTPGatewayInfoResponse::SerializeWithCachedSizes(
       4, this->subject(), output);
   }
 
-  // string content_type = 5;
-  if (this->content_type().size() > 0) {
+  // string text_body = 5;
+  if (this->text_body().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->content_type().data(), static_cast<int>(this->content_type().length()),
+      this->text_body().data(), static_cast<int>(this->text_body().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPGatewayInfoResponse.content_type");
+      "ric.notify.SMTPGatewayInfoResponse.text_body");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->content_type(), output);
+      5, this->text_body(), output);
   }
 
-  // string body = 6;
-  if (this->body().size() > 0) {
+  // string html_body = 6;
+  if (this->html_body().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->body().data(), static_cast<int>(this->body().length()),
+      this->html_body().data(), static_cast<int>(this->html_body().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPGatewayInfoResponse.body");
+      "ric.notify.SMTPGatewayInfoResponse.html_body");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      6, this->body(), output);
+      6, this->html_body(), output);
   }
 
   // string server = 7;
@@ -5831,26 +5832,26 @@ void SMTPGatewayInfoResponse::SerializeWithCachedSizes(
         4, this->subject(), target);
   }
 
-  // string content_type = 5;
-  if (this->content_type().size() > 0) {
+  // string text_body = 5;
+  if (this->text_body().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->content_type().data(), static_cast<int>(this->content_type().length()),
+      this->text_body().data(), static_cast<int>(this->text_body().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPGatewayInfoResponse.content_type");
+      "ric.notify.SMTPGatewayInfoResponse.text_body");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->content_type(), target);
+        5, this->text_body(), target);
   }
 
-  // string body = 6;
-  if (this->body().size() > 0) {
+  // string html_body = 6;
+  if (this->html_body().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->body().data(), static_cast<int>(this->body().length()),
+      this->html_body().data(), static_cast<int>(this->html_body().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.SMTPGatewayInfoResponse.body");
+      "ric.notify.SMTPGatewayInfoResponse.html_body");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        6, this->body(), target);
+        6, this->html_body(), target);
   }
 
   // string server = 7;
@@ -5939,18 +5940,18 @@ size_t SMTPGatewayInfoResponse::ByteSizeLong() const {
         this->subject());
   }
 
-  // string content_type = 5;
-  if (this->content_type().size() > 0) {
+  // string text_body = 5;
+  if (this->text_body().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->content_type());
+        this->text_body());
   }
 
-  // string body = 6;
-  if (this->body().size() > 0) {
+  // string html_body = 6;
+  if (this->html_body().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->body());
+        this->html_body());
   }
 
   // string server = 7;
@@ -6021,13 +6022,13 @@ void SMTPGatewayInfoResponse::MergeFrom(const SMTPGatewayInfoResponse& from) {
 
     subject_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.subject_);
   }
-  if (from.content_type().size() > 0) {
+  if (from.text_body().size() > 0) {
 
-    content_type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.content_type_);
+    text_body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.text_body_);
   }
-  if (from.body().size() > 0) {
+  if (from.html_body().size() > 0) {
 
-    body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.body_);
+    html_body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.html_body_);
   }
   if (from.server().size() > 0) {
 
@@ -6077,9 +6078,9 @@ void SMTPGatewayInfoResponse::InternalSwap(SMTPGatewayInfoResponse* other) {
     GetArenaNoVirtual());
   subject_.Swap(&other->subject_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  content_type_.Swap(&other->content_type_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  text_body_.Swap(&other->text_body_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  body_.Swap(&other->body_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  html_body_.Swap(&other->html_body_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   server_.Swap(&other->server_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());

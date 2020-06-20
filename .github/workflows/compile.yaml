@@ -15,6 +15,8 @@ on:
       - package.json
       - package-lock.json
       - README.md
+  repository_dispatch:
+    types: ["After image update"]
 
 jobs:
   compile:
@@ -27,8 +29,21 @@ jobs:
       - name: pull compiler image
         run: docker pull docker.pkg.github.com/rightech/ric-proto/compiler:latest
       - name: compile
-        run: docker run --rm -v $(pwd):/ric-proto docker.pkg.github.com/rightech/ric-proto/compiler:latest
+        run: |
+          docker run --rm -v $(pwd):/ric-proto \
+            --env USER_ID=$(id -u) \
+            --env USER_GROUP=$(id -g) \
+            docker.pkg.github.com/rightech/ric-proto/compiler:latest
+      - name: set credentials
+        run: |
+          export AUTHOR_NAME=$(jq '. | if (.head_commit == null) then .client_payload.author_name else .head_commit.author.name end' $GITHUB_EVENT_PATH | xargs)
+          export AUTHOR_EMAIL=$(jq '. | if (.head_commit == null) then .client_payload.author_email else .head_commit.author.email end' $GITHUB_EVENT_PATH | xargs)
+          echo "::set-env name=AUTHOR_NAME::$AUTHOR_NAME"
+          echo "::set-env name=AUTHOR_EMAIL::$AUTHOR_EMAIL"
       - name: commit changes
         uses: EndBug/add-and-commit@v4
+        with:
+          author_name: ${{ env.AUTHOR_NAME }}
+          author_email: ${{ env.AUTHOR_EMAIL }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

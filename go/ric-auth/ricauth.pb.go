@@ -298,6 +298,91 @@ func (x *AuthObjectArgument) GetParser() string {
 	return ""
 }
 
+type SendOfflineRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ObjectId string `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
+}
+
+func (x *SendOfflineRequest) Reset() {
+	*x = SendOfflineRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_ric_auth_ricauth_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SendOfflineRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendOfflineRequest) ProtoMessage() {}
+
+func (x *SendOfflineRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_ric_auth_ricauth_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendOfflineRequest.ProtoReflect.Descriptor instead.
+func (*SendOfflineRequest) Descriptor() ([]byte, []int) {
+	return file_ric_auth_ricauth_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *SendOfflineRequest) GetObjectId() string {
+	if x != nil {
+		return x.ObjectId
+	}
+	return ""
+}
+
+type SendOfflineResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *SendOfflineResponse) Reset() {
+	*x = SendOfflineResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_ric_auth_ricauth_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SendOfflineResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendOfflineResponse) ProtoMessage() {}
+
+func (x *SendOfflineResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_ric_auth_ricauth_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendOfflineResponse.ProtoReflect.Descriptor instead.
+func (*SendOfflineResponse) Descriptor() ([]byte, []int) {
+	return file_ric_auth_ricauth_proto_rawDescGZIP(), []int{4}
+}
+
 type AuthObjectRequest_AuthObjectCert struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -309,7 +394,7 @@ type AuthObjectRequest_AuthObjectCert struct {
 func (x *AuthObjectRequest_AuthObjectCert) Reset() {
 	*x = AuthObjectRequest_AuthObjectCert{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_ric_auth_ricauth_proto_msgTypes[3]
+		mi := &file_ric_auth_ricauth_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -322,7 +407,7 @@ func (x *AuthObjectRequest_AuthObjectCert) String() string {
 func (*AuthObjectRequest_AuthObjectCert) ProtoMessage() {}
 
 func (x *AuthObjectRequest_AuthObjectCert) ProtoReflect() protoreflect.Message {
-	mi := &file_ric_auth_ricauth_proto_msgTypes[3]
+	mi := &file_ric_auth_ricauth_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -391,14 +476,24 @@ var file_ric_auth_ricauth_proto_rawDesc = []byte{
 	0x79, 0x70, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x72, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65,
 	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x72, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63,
 	0x65, 0x12, 0x16, 0x0a, 0x06, 0x70, 0x61, 0x72, 0x73, 0x65, 0x72, 0x18, 0x04, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x06, 0x70, 0x61, 0x72, 0x73, 0x65, 0x72, 0x32, 0x52, 0x0a, 0x07, 0x52, 0x69, 0x63,
-	0x41, 0x75, 0x74, 0x68, 0x12, 0x47, 0x0a, 0x0a, 0x41, 0x75, 0x74, 0x68, 0x4f, 0x62, 0x6a, 0x65,
-	0x63, 0x74, 0x12, 0x1b, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x75,
-	0x74, 0x68, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
-	0x1c, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x75, 0x74, 0x68, 0x4f,
-	0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x14, 0x5a,
-	0x12, 0x2e, 0x2f, 0x72, 0x69, 0x63, 0x2d, 0x61, 0x75, 0x74, 0x68, 0x3b, 0x72, 0x69, 0x63, 0x61,
-	0x75, 0x74, 0x68, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x09, 0x52, 0x06, 0x70, 0x61, 0x72, 0x73, 0x65, 0x72, 0x22, 0x31, 0x0a, 0x12, 0x53, 0x65, 0x6e,
+	0x64, 0x4f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x1b, 0x0a, 0x09, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x08, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x22, 0x15, 0x0a, 0x13,
+	0x53, 0x65, 0x6e, 0x64, 0x4f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x32, 0x9e, 0x01, 0x0a, 0x07, 0x52, 0x69, 0x63, 0x41, 0x75, 0x74, 0x68, 0x12,
+	0x47, 0x0a, 0x0a, 0x41, 0x75, 0x74, 0x68, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x12, 0x1b, 0x2e,
+	0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x75, 0x74, 0x68, 0x4f, 0x62, 0x6a,
+	0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1c, 0x2e, 0x72, 0x69, 0x63,
+	0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x75, 0x74, 0x68, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4a, 0x0a, 0x0b, 0x53, 0x65, 0x6e, 0x64,
+	0x4f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x12, 0x1c, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75,
+	0x74, 0x68, 0x2e, 0x53, 0x65, 0x6e, 0x64, 0x4f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68,
+	0x2e, 0x53, 0x65, 0x6e, 0x64, 0x4f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x42, 0x14, 0x5a, 0x12, 0x2e, 0x2f, 0x72, 0x69, 0x63, 0x2d, 0x61, 0x75,
+	0x74, 0x68, 0x3b, 0x72, 0x69, 0x63, 0x61, 0x75, 0x74, 0x68, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
@@ -413,20 +508,24 @@ func file_ric_auth_ricauth_proto_rawDescGZIP() []byte {
 	return file_ric_auth_ricauth_proto_rawDescData
 }
 
-var file_ric_auth_ricauth_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_ric_auth_ricauth_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_ric_auth_ricauth_proto_goTypes = []interface{}{
 	(*AuthObjectRequest)(nil),                // 0: ric.auth.AuthObjectRequest
 	(*AuthObjectResponse)(nil),               // 1: ric.auth.AuthObjectResponse
 	(*AuthObjectArgument)(nil),               // 2: ric.auth.AuthObjectArgument
-	(*AuthObjectRequest_AuthObjectCert)(nil), // 3: ric.auth.AuthObjectRequest.AuthObjectCert
+	(*SendOfflineRequest)(nil),               // 3: ric.auth.SendOfflineRequest
+	(*SendOfflineResponse)(nil),              // 4: ric.auth.SendOfflineResponse
+	(*AuthObjectRequest_AuthObjectCert)(nil), // 5: ric.auth.AuthObjectRequest.AuthObjectCert
 }
 var file_ric_auth_ricauth_proto_depIdxs = []int32{
-	3, // 0: ric.auth.AuthObjectRequest.cert:type_name -> ric.auth.AuthObjectRequest.AuthObjectCert
+	5, // 0: ric.auth.AuthObjectRequest.cert:type_name -> ric.auth.AuthObjectRequest.AuthObjectCert
 	2, // 1: ric.auth.AuthObjectResponse.arguments:type_name -> ric.auth.AuthObjectArgument
 	0, // 2: ric.auth.RicAuth.AuthObject:input_type -> ric.auth.AuthObjectRequest
-	1, // 3: ric.auth.RicAuth.AuthObject:output_type -> ric.auth.AuthObjectResponse
-	3, // [3:4] is the sub-list for method output_type
-	2, // [2:3] is the sub-list for method input_type
+	3, // 3: ric.auth.RicAuth.SendOffline:input_type -> ric.auth.SendOfflineRequest
+	1, // 4: ric.auth.RicAuth.AuthObject:output_type -> ric.auth.AuthObjectResponse
+	4, // 5: ric.auth.RicAuth.SendOffline:output_type -> ric.auth.SendOfflineResponse
+	4, // [4:6] is the sub-list for method output_type
+	2, // [2:4] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
 	2, // [2:2] is the sub-list for extension extendee
 	0, // [0:2] is the sub-list for field type_name
@@ -475,6 +574,30 @@ func file_ric_auth_ricauth_proto_init() {
 			}
 		}
 		file_ric_auth_ricauth_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SendOfflineRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_ric_auth_ricauth_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SendOfflineResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_ric_auth_ricauth_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*AuthObjectRequest_AuthObjectCert); i {
 			case 0:
 				return &v.state
@@ -493,7 +616,7 @@ func file_ric_auth_ricauth_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_ric_auth_ricauth_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -520,6 +643,7 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type RicAuthClient interface {
 	AuthObject(ctx context.Context, in *AuthObjectRequest, opts ...grpc.CallOption) (*AuthObjectResponse, error)
+	SendOffline(ctx context.Context, in *SendOfflineRequest, opts ...grpc.CallOption) (*SendOfflineResponse, error)
 }
 
 type ricAuthClient struct {
@@ -539,9 +663,19 @@ func (c *ricAuthClient) AuthObject(ctx context.Context, in *AuthObjectRequest, o
 	return out, nil
 }
 
+func (c *ricAuthClient) SendOffline(ctx context.Context, in *SendOfflineRequest, opts ...grpc.CallOption) (*SendOfflineResponse, error) {
+	out := new(SendOfflineResponse)
+	err := c.cc.Invoke(ctx, "/ric.auth.RicAuth/SendOffline", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // RicAuthServer is the server API for RicAuth service.
 type RicAuthServer interface {
 	AuthObject(context.Context, *AuthObjectRequest) (*AuthObjectResponse, error)
+	SendOffline(context.Context, *SendOfflineRequest) (*SendOfflineResponse, error)
 }
 
 // UnimplementedRicAuthServer can be embedded to have forward compatible implementations.
@@ -550,6 +684,9 @@ type UnimplementedRicAuthServer struct {
 
 func (*UnimplementedRicAuthServer) AuthObject(context.Context, *AuthObjectRequest) (*AuthObjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AuthObject not implemented")
+}
+func (*UnimplementedRicAuthServer) SendOffline(context.Context, *SendOfflineRequest) (*SendOfflineResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendOffline not implemented")
 }
 
 func RegisterRicAuthServer(s *grpc.Server, srv RicAuthServer) {
@@ -574,6 +711,24 @@ func _RicAuth_AuthObject_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RicAuth_SendOffline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendOfflineRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RicAuthServer).SendOffline(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ric.auth.RicAuth/SendOffline",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RicAuthServer).SendOffline(ctx, req.(*SendOfflineRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _RicAuth_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "ric.auth.RicAuth",
 	HandlerType: (*RicAuthServer)(nil),
@@ -581,6 +736,10 @@ var _RicAuth_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AuthObject",
 			Handler:    _RicAuth_AuthObject_Handler,
+		},
+		{
+			MethodName: "SendOffline",
+			Handler:    _RicAuth_SendOffline_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

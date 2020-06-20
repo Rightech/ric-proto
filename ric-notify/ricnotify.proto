@@ -75,9 +75,8 @@ message SMTPSendRequest {
   repeated string to = 3;
   string sender = 4;
   string subject = 5;
-  // default value "text/plain; charset=UTF-8"
-  string content_type = 6;
-  string body = 7;
+  string text_body = 6;
+  string html_body = 7;
   string server = 8;
   string password = 9;
   google.protobuf.BoolValue use_tls = 10;
@@ -96,9 +95,8 @@ message SMTPGatewayInfoResponse {
   repeated string to = 2;
   string sender = 3;
   string subject = 4;
-  // default value "text/plain; charset=UTF-8"
-  string content_type = 5;
-  string body = 6;
+  string text_body = 5;
+  string html_body = 6;
   string server = 7;
   string password = 8;
   google.protobuf.BoolValue use_tls = 9;
