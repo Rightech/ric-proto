@@ -80,6 +80,20 @@ class Billing final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>> PrepareAsyncCancelSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>>(PrepareAsyncCancelSubscriptionRaw(context, request, cq));
     }
+    virtual ::grpc::Status ActivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::ric::bill::SubscriptionResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>> AsyncActivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>>(AsyncActivateSubscriptionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>> PrepareAsyncActivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>>(PrepareAsyncActivateSubscriptionRaw(context, request, cq));
+    }
+    virtual ::grpc::Status DeactivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::ric::bill::SubscriptionResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>> AsyncDeactivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>>(AsyncDeactivateSubscriptionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>> PrepareAsyncDeactivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>>(PrepareAsyncDeactivateSubscriptionRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
@@ -95,6 +109,10 @@ class Billing final {
       virtual void UpdateSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void CancelSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void CancelSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ActivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ActivateSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void DeactivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void DeactivateSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
@@ -110,6 +128,10 @@ class Billing final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>* PrepareAsyncUpdateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>* AsyncCancelSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>* PrepareAsyncCancelSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>* AsyncActivateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>* PrepareAsyncActivateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>* AsyncDeactivateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>* PrepareAsyncDeactivateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -156,6 +178,20 @@ class Billing final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>> PrepareAsyncCancelSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>>(PrepareAsyncCancelSubscriptionRaw(context, request, cq));
     }
+    ::grpc::Status ActivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::ric::bill::SubscriptionResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>> AsyncActivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>>(AsyncActivateSubscriptionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>> PrepareAsyncActivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>>(PrepareAsyncActivateSubscriptionRaw(context, request, cq));
+    }
+    ::grpc::Status DeactivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::ric::bill::SubscriptionResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>> AsyncDeactivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>>(AsyncDeactivateSubscriptionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>> PrepareAsyncDeactivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>>(PrepareAsyncDeactivateSubscriptionRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
@@ -171,6 +207,10 @@ class Billing final {
       void UpdateSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) override;
       void CancelSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) override;
       void CancelSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) override;
+      void ActivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) override;
+      void ActivateSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) override;
+      void DeactivateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) override;
+      void DeactivateSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -194,12 +234,18 @@ class Billing final {
     ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>* PrepareAsyncUpdateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>* AsyncCancelSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>* PrepareAsyncCancelSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>* AsyncActivateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>* PrepareAsyncActivateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>* AsyncDeactivateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>* PrepareAsyncDeactivateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_SetupAccount_;
     const ::grpc::internal::RpcMethod rpcmethod_VerifyAccount_;
     const ::grpc::internal::RpcMethod rpcmethod_CloseAccount_;
     const ::grpc::internal::RpcMethod rpcmethod_CreateSubscription_;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateSubscription_;
     const ::grpc::internal::RpcMethod rpcmethod_CancelSubscription_;
+    const ::grpc::internal::RpcMethod rpcmethod_ActivateSubscription_;
+    const ::grpc::internal::RpcMethod rpcmethod_DeactivateSubscription_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -213,6 +259,8 @@ class Billing final {
     virtual ::grpc::Status CreateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response);
     virtual ::grpc::Status UpdateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response);
     virtual ::grpc::Status CancelSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response);
+    virtual ::grpc::Status ActivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response);
+    virtual ::grpc::Status DeactivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_SetupAccount : public BaseClass {
@@ -334,7 +382,47 @@ class Billing final {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_SetupAccount<WithAsyncMethod_VerifyAccount<WithAsyncMethod_CloseAccount<WithAsyncMethod_CreateSubscription<WithAsyncMethod_UpdateSubscription<WithAsyncMethod_CancelSubscription<Service > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_ActivateSubscription : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_ActivateSubscription() {
+      ::grpc::Service::MarkMethodAsync(6);
+    }
+    ~WithAsyncMethod_ActivateSubscription() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ActivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestActivateSubscription(::grpc::ServerContext* context, ::ric::bill::SubscriptionRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::bill::SubscriptionResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_DeactivateSubscription : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_DeactivateSubscription() {
+      ::grpc::Service::MarkMethodAsync(7);
+    }
+    ~WithAsyncMethod_DeactivateSubscription() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeactivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDeactivateSubscription(::grpc::ServerContext* context, ::ric::bill::SubscriptionRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::bill::SubscriptionResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_SetupAccount<WithAsyncMethod_VerifyAccount<WithAsyncMethod_CloseAccount<WithAsyncMethod_CreateSubscription<WithAsyncMethod_UpdateSubscription<WithAsyncMethod_CancelSubscription<WithAsyncMethod_ActivateSubscription<WithAsyncMethod_DeactivateSubscription<Service > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_SetupAccount : public BaseClass {
    private:
@@ -485,7 +573,57 @@ class Billing final {
     }
     virtual void CancelSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_SetupAccount<ExperimentalWithCallbackMethod_VerifyAccount<ExperimentalWithCallbackMethod_CloseAccount<ExperimentalWithCallbackMethod_CreateSubscription<ExperimentalWithCallbackMethod_UpdateSubscription<ExperimentalWithCallbackMethod_CancelSubscription<Service > > > > > > ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_ActivateSubscription : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_ActivateSubscription() {
+      ::grpc::Service::experimental().MarkMethodCallback(6,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bill::SubscriptionRequest, ::ric::bill::SubscriptionResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bill::SubscriptionRequest* request,
+                 ::ric::bill::SubscriptionResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->ActivateSubscription(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_ActivateSubscription() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ActivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void ActivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_DeactivateSubscription : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_DeactivateSubscription() {
+      ::grpc::Service::experimental().MarkMethodCallback(7,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bill::SubscriptionRequest, ::ric::bill::SubscriptionResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bill::SubscriptionRequest* request,
+                 ::ric::bill::SubscriptionResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->DeactivateSubscription(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_DeactivateSubscription() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeactivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void DeactivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  typedef ExperimentalWithCallbackMethod_SetupAccount<ExperimentalWithCallbackMethod_VerifyAccount<ExperimentalWithCallbackMethod_CloseAccount<ExperimentalWithCallbackMethod_CreateSubscription<ExperimentalWithCallbackMethod_UpdateSubscription<ExperimentalWithCallbackMethod_CancelSubscription<ExperimentalWithCallbackMethod_ActivateSubscription<ExperimentalWithCallbackMethod_DeactivateSubscription<Service > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_SetupAccount : public BaseClass {
    private:
@@ -584,6 +722,40 @@ class Billing final {
     }
     // disable synchronous version of this method
     ::grpc::Status CancelSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_ActivateSubscription : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_ActivateSubscription() {
+      ::grpc::Service::MarkMethodGeneric(6);
+    }
+    ~WithGenericMethod_ActivateSubscription() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ActivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_DeactivateSubscription : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_DeactivateSubscription() {
+      ::grpc::Service::MarkMethodGeneric(7);
+    }
+    ~WithGenericMethod_DeactivateSubscription() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeactivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -706,6 +878,46 @@ class Billing final {
     }
     void RequestCancelSubscription(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_ActivateSubscription : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_ActivateSubscription() {
+      ::grpc::Service::MarkMethodRaw(6);
+    }
+    ~WithRawMethod_ActivateSubscription() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ActivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestActivateSubscription(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_DeactivateSubscription : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_DeactivateSubscription() {
+      ::grpc::Service::MarkMethodRaw(7);
+    }
+    ~WithRawMethod_DeactivateSubscription() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeactivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestDeactivateSubscription(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -859,6 +1071,56 @@ class Billing final {
     virtual void CancelSubscription(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_ActivateSubscription : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_ActivateSubscription() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(6,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->ActivateSubscription(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_ActivateSubscription() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ActivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void ActivateSubscription(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_DeactivateSubscription : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_DeactivateSubscription() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(7,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->DeactivateSubscription(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_DeactivateSubscription() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status DeactivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void DeactivateSubscription(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_SetupAccount : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
@@ -978,9 +1240,49 @@ class Billing final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedCancelSubscription(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bill::SubscriptionRequest,::ric::bill::SubscriptionResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_SetupAccount<WithStreamedUnaryMethod_VerifyAccount<WithStreamedUnaryMethod_CloseAccount<WithStreamedUnaryMethod_CreateSubscription<WithStreamedUnaryMethod_UpdateSubscription<WithStreamedUnaryMethod_CancelSubscription<Service > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_ActivateSubscription : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_ActivateSubscription() {
+      ::grpc::Service::MarkMethodStreamed(6,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::bill::SubscriptionRequest, ::ric::bill::SubscriptionResponse>(std::bind(&WithStreamedUnaryMethod_ActivateSubscription<BaseClass>::StreamedActivateSubscription, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_ActivateSubscription() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ActivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedActivateSubscription(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bill::SubscriptionRequest,::ric::bill::SubscriptionResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_DeactivateSubscription : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_DeactivateSubscription() {
+      ::grpc::Service::MarkMethodStreamed(7,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::bill::SubscriptionRequest, ::ric::bill::SubscriptionResponse>(std::bind(&WithStreamedUnaryMethod_DeactivateSubscription<BaseClass>::StreamedDeactivateSubscription, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_DeactivateSubscription() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status DeactivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedDeactivateSubscription(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bill::SubscriptionRequest,::ric::bill::SubscriptionResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_SetupAccount<WithStreamedUnaryMethod_VerifyAccount<WithStreamedUnaryMethod_CloseAccount<WithStreamedUnaryMethod_CreateSubscription<WithStreamedUnaryMethod_UpdateSubscription<WithStreamedUnaryMethod_CancelSubscription<WithStreamedUnaryMethod_ActivateSubscription<WithStreamedUnaryMethod_DeactivateSubscription<Service > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_SetupAccount<WithStreamedUnaryMethod_VerifyAccount<WithStreamedUnaryMethod_CloseAccount<WithStreamedUnaryMethod_CreateSubscription<WithStreamedUnaryMethod_UpdateSubscription<WithStreamedUnaryMethod_CancelSubscription<Service > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_SetupAccount<WithStreamedUnaryMethod_VerifyAccount<WithStreamedUnaryMethod_CloseAccount<WithStreamedUnaryMethod_CreateSubscription<WithStreamedUnaryMethod_UpdateSubscription<WithStreamedUnaryMethod_CancelSubscription<WithStreamedUnaryMethod_ActivateSubscription<WithStreamedUnaryMethod_DeactivateSubscription<Service > > > > > > > > StreamedService;
 };
 
 }  // namespace bill

@@ -353,7 +353,7 @@ var file_ric_bill_ricbill_proto_rawDesc = []byte{
 	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1d, 0x0a, 0x0a, 0x70, 0x61, 0x79, 0x6d, 0x65, 0x6e, 0x74,
 	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x70, 0x61, 0x79, 0x6d, 0x65,
 	0x6e, 0x74, 0x49, 0x64, 0x12, 0x15, 0x0a, 0x06, 0x6a, 0x6f, 0x62, 0x5f, 0x69, 0x64, 0x18, 0x02,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x6a, 0x6f, 0x62, 0x49, 0x64, 0x32, 0xcc, 0x03, 0x0a, 0x07,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x6a, 0x6f, 0x62, 0x49, 0x64, 0x32, 0xfc, 0x04, 0x0a, 0x07,
 	0x42, 0x69, 0x6c, 0x6c, 0x69, 0x6e, 0x67, 0x12, 0x3f, 0x0a, 0x0c, 0x53, 0x65, 0x74, 0x75, 0x70,
 	0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x12, 0x16, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x62, 0x69,
 	0x6c, 0x6c, 0x2e, 0x53, 0x65, 0x74, 0x75, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
@@ -378,6 +378,17 @@ var file_ric_bill_ricbill_proto_rawDesc = []byte{
 	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1e, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x62, 0x69, 0x6c, 0x6c,
 	0x2e, 0x53, 0x75, 0x62, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73,
 	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x53, 0x0a, 0x12, 0x43, 0x61, 0x6e, 0x63, 0x65, 0x6c, 0x53,
+	0x75, 0x62, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x1d, 0x2e, 0x72, 0x69,
+	0x63, 0x2e, 0x62, 0x69, 0x6c, 0x6c, 0x2e, 0x53, 0x75, 0x62, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74,
+	0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1e, 0x2e, 0x72, 0x69, 0x63,
+	0x2e, 0x62, 0x69, 0x6c, 0x6c, 0x2e, 0x53, 0x75, 0x62, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69,
+	0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x55, 0x0a, 0x14, 0x41, 0x63,
+	0x74, 0x69, 0x76, 0x61, 0x74, 0x65, 0x53, 0x75, 0x62, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69,
+	0x6f, 0x6e, 0x12, 0x1d, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x62, 0x69, 0x6c, 0x6c, 0x2e, 0x53, 0x75,
+	0x62, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x1e, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x62, 0x69, 0x6c, 0x6c, 0x2e, 0x53, 0x75, 0x62,
+	0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x57, 0x0a, 0x16, 0x44, 0x65, 0x61, 0x63, 0x74, 0x69, 0x76, 0x61, 0x74, 0x65, 0x53,
 	0x75, 0x62, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x1d, 0x2e, 0x72, 0x69,
 	0x63, 0x2e, 0x62, 0x69, 0x6c, 0x6c, 0x2e, 0x53, 0x75, 0x62, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74,
 	0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1e, 0x2e, 0x72, 0x69, 0x63,
@@ -408,25 +419,29 @@ var file_ric_bill_ricbill_proto_goTypes = []interface{}{
 	(*SubscriptionResponse)(nil), // 4: ric.bill.SubscriptionResponse
 }
 var file_ric_bill_ricbill_proto_depIdxs = []int32{
-	0, // 0: ric.bill.SetupRequest.ctx:type_name -> ric.bill.UserContext
-	0, // 1: ric.bill.SubscriptionRequest.ctx:type_name -> ric.bill.UserContext
-	1, // 2: ric.bill.Billing.SetupAccount:input_type -> ric.bill.SetupRequest
-	1, // 3: ric.bill.Billing.VerifyAccount:input_type -> ric.bill.SetupRequest
-	1, // 4: ric.bill.Billing.CloseAccount:input_type -> ric.bill.SetupRequest
-	3, // 5: ric.bill.Billing.CreateSubscription:input_type -> ric.bill.SubscriptionRequest
-	3, // 6: ric.bill.Billing.UpdateSubscription:input_type -> ric.bill.SubscriptionRequest
-	3, // 7: ric.bill.Billing.CancelSubscription:input_type -> ric.bill.SubscriptionRequest
-	2, // 8: ric.bill.Billing.SetupAccount:output_type -> ric.bill.SetupResponse
-	2, // 9: ric.bill.Billing.VerifyAccount:output_type -> ric.bill.SetupResponse
-	2, // 10: ric.bill.Billing.CloseAccount:output_type -> ric.bill.SetupResponse
-	4, // 11: ric.bill.Billing.CreateSubscription:output_type -> ric.bill.SubscriptionResponse
-	4, // 12: ric.bill.Billing.UpdateSubscription:output_type -> ric.bill.SubscriptionResponse
-	4, // 13: ric.bill.Billing.CancelSubscription:output_type -> ric.bill.SubscriptionResponse
-	8, // [8:14] is the sub-list for method output_type
-	2, // [2:8] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	0,  // 0: ric.bill.SetupRequest.ctx:type_name -> ric.bill.UserContext
+	0,  // 1: ric.bill.SubscriptionRequest.ctx:type_name -> ric.bill.UserContext
+	1,  // 2: ric.bill.Billing.SetupAccount:input_type -> ric.bill.SetupRequest
+	1,  // 3: ric.bill.Billing.VerifyAccount:input_type -> ric.bill.SetupRequest
+	1,  // 4: ric.bill.Billing.CloseAccount:input_type -> ric.bill.SetupRequest
+	3,  // 5: ric.bill.Billing.CreateSubscription:input_type -> ric.bill.SubscriptionRequest
+	3,  // 6: ric.bill.Billing.UpdateSubscription:input_type -> ric.bill.SubscriptionRequest
+	3,  // 7: ric.bill.Billing.CancelSubscription:input_type -> ric.bill.SubscriptionRequest
+	3,  // 8: ric.bill.Billing.ActivateSubscription:input_type -> ric.bill.SubscriptionRequest
+	3,  // 9: ric.bill.Billing.DeactivateSubscription:input_type -> ric.bill.SubscriptionRequest
+	2,  // 10: ric.bill.Billing.SetupAccount:output_type -> ric.bill.SetupResponse
+	2,  // 11: ric.bill.Billing.VerifyAccount:output_type -> ric.bill.SetupResponse
+	2,  // 12: ric.bill.Billing.CloseAccount:output_type -> ric.bill.SetupResponse
+	4,  // 13: ric.bill.Billing.CreateSubscription:output_type -> ric.bill.SubscriptionResponse
+	4,  // 14: ric.bill.Billing.UpdateSubscription:output_type -> ric.bill.SubscriptionResponse
+	4,  // 15: ric.bill.Billing.CancelSubscription:output_type -> ric.bill.SubscriptionResponse
+	4,  // 16: ric.bill.Billing.ActivateSubscription:output_type -> ric.bill.SubscriptionResponse
+	4,  // 17: ric.bill.Billing.DeactivateSubscription:output_type -> ric.bill.SubscriptionResponse
+	10, // [10:18] is the sub-list for method output_type
+	2,  // [2:10] is the sub-list for method input_type
+	2,  // [2:2] is the sub-list for extension type_name
+	2,  // [2:2] is the sub-list for extension extendee
+	0,  // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_ric_bill_ricbill_proto_init() }
@@ -534,6 +549,8 @@ type BillingClient interface {
 	CreateSubscription(ctx context.Context, in *SubscriptionRequest, opts ...grpc.CallOption) (*SubscriptionResponse, error)
 	UpdateSubscription(ctx context.Context, in *SubscriptionRequest, opts ...grpc.CallOption) (*SubscriptionResponse, error)
 	CancelSubscription(ctx context.Context, in *SubscriptionRequest, opts ...grpc.CallOption) (*SubscriptionResponse, error)
+	ActivateSubscription(ctx context.Context, in *SubscriptionRequest, opts ...grpc.CallOption) (*SubscriptionResponse, error)
+	DeactivateSubscription(ctx context.Context, in *SubscriptionRequest, opts ...grpc.CallOption) (*SubscriptionResponse, error)
 }
 
 type billingClient struct {
@@ -598,6 +615,24 @@ func (c *billingClient) CancelSubscription(ctx context.Context, in *Subscription
 	return out, nil
 }
 
+func (c *billingClient) ActivateSubscription(ctx context.Context, in *SubscriptionRequest, opts ...grpc.CallOption) (*SubscriptionResponse, error) {
+	out := new(SubscriptionResponse)
+	err := c.cc.Invoke(ctx, "/ric.bill.Billing/ActivateSubscription", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *billingClient) DeactivateSubscription(ctx context.Context, in *SubscriptionRequest, opts ...grpc.CallOption) (*SubscriptionResponse, error) {
+	out := new(SubscriptionResponse)
+	err := c.cc.Invoke(ctx, "/ric.bill.Billing/DeactivateSubscription", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // BillingServer is the server API for Billing service.
 type BillingServer interface {
 	SetupAccount(context.Context, *SetupRequest) (*SetupResponse, error)
@@ -606,6 +641,8 @@ type BillingServer interface {
 	CreateSubscription(context.Context, *SubscriptionRequest) (*SubscriptionResponse, error)
 	UpdateSubscription(context.Context, *SubscriptionRequest) (*SubscriptionResponse, error)
 	CancelSubscription(context.Context, *SubscriptionRequest) (*SubscriptionResponse, error)
+	ActivateSubscription(context.Context, *SubscriptionRequest) (*SubscriptionResponse, error)
+	DeactivateSubscription(context.Context, *SubscriptionRequest) (*SubscriptionResponse, error)
 }
 
 // UnimplementedBillingServer can be embedded to have forward compatible implementations.
@@ -629,6 +666,12 @@ func (*UnimplementedBillingServer) UpdateSubscription(context.Context, *Subscrip
 }
 func (*UnimplementedBillingServer) CancelSubscription(context.Context, *SubscriptionRequest) (*SubscriptionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CancelSubscription not implemented")
+}
+func (*UnimplementedBillingServer) ActivateSubscription(context.Context, *SubscriptionRequest) (*SubscriptionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ActivateSubscription not implemented")
+}
+func (*UnimplementedBillingServer) DeactivateSubscription(context.Context, *SubscriptionRequest) (*SubscriptionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeactivateSubscription not implemented")
 }
 
 func RegisterBillingServer(s *grpc.Server, srv BillingServer) {
@@ -743,6 +786,42 @@ func _Billing_CancelSubscription_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Billing_ActivateSubscription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SubscriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BillingServer).ActivateSubscription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ric.bill.Billing/ActivateSubscription",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BillingServer).ActivateSubscription(ctx, req.(*SubscriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Billing_DeactivateSubscription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SubscriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BillingServer).DeactivateSubscription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ric.bill.Billing/DeactivateSubscription",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BillingServer).DeactivateSubscription(ctx, req.(*SubscriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Billing_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "ric.bill.Billing",
 	HandlerType: (*BillingServer)(nil),
@@ -770,6 +849,14 @@ var _Billing_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CancelSubscription",
 			Handler:    _Billing_CancelSubscription_Handler,
+		},
+		{
+			MethodName: "ActivateSubscription",
+			Handler:    _Billing_ActivateSubscription_Handler,
+		},
+		{
+			MethodName: "DeactivateSubscription",
+			Handler:    _Billing_DeactivateSubscription_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
