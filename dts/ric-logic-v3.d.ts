@@ -2,16 +2,19 @@
 import { Stream } from 'stream';
 
 interface GrpcStream<T> extends Stream {
+  write(chunk: T): boolean;
   on(event: 'data', listener: (chunk: T) => void): this;
 }
 
 export interface RicLogicV3 {
   GetInstanceInfo(request: GetInstanceInfoRequest): Promise<GetInstanceInfoResponse>;
+  GetAutomatons(request: GetAutomatonsRequest, clientCall?: GrpcStream<AutomatonInfo>): any;
   StartAutomaton(request: StartAutomatonRequest): Promise<StartAutomatonResponse>;
   StopAutomaton(request: StopAutomatonRequest): Promise<StopAutomatonResponse>;
+  RunAutomaton(request: RunAutomatonRequest, clientCall?: GrpcStream<AutomatonInfo>): any;
   EmitEvent(request: EmitEventRequest): Promise<EmitEventResponse>;
 
-  streamed(): {
+  streamed?(): {
     GetAutomatons(request: GetAutomatonsRequest): GrpcStream<AutomatonInfo>;
     RunAutomaton(request: RunAutomatonRequest): GrpcStream<AutomatonInfo>;
   };

@@ -64,13 +64,13 @@ function serviceTyping(name, def) {
 
     if (call.responseStream) {
       streamed.push(`    ${name}(request: ${req}): GrpcStream<${res}>;`);
-      return null;
+      return `  ${name}(request: ${req}, clientCall?: GrpcStream<${res}>): any;`;
     }
     return `  ${name}(request: ${req}): Promise<${res}>;`;
   }).filter(x=> !!x);
 
   if (streamed.length) {
-    streamed = `\n\n  streamed(): {\n${streamed.join('\n')}\n  };`;
+    streamed = `\n\n  streamed?(): {\n${streamed.join('\n')}\n  };`;
   } else {
     streamed = '';
   }
@@ -83,13 +83,16 @@ const streamImport = `
 import { Stream } from 'stream';
 
 interface GrpcStream<T> extends Stream {
+  write(chunk: T): boolean;
   on(event: 'data', listener: (chunk: T) => void): this;
 }`;
 
-for (const service of Object.keys(registry.meta.services)) {
-  if (service.includes('.')) {
-    continue;
-  }
+const services = Object.keys(registry.meta.services).map((name) => {
+  const [first] = name.split('.');
+  return first;
+});
+
+for (const service of [...new Set(services)]) {
   const typings = [];
   const services = [];
   const def = registry.loadDef(service);
@@ -112,7 +115,7 @@ for (const service of Object.keys(registry.meta.services)) {
   }
 
   let content = typings.join('\n\n');
-  if (content.includes('streamed(): {')) {
+  if (content.includes('streamed?(): {')) {
     content = `${streamImport}\n\n${content}`;
   }
   fs.writeFileSync(`./dts/${service}.d.ts`, content);
@@ -127,7 +130,7 @@ let servers = [];
 for (const { service, services } of index) {
   let importsCode = `import { ${services
     .map(({ name }) => name)
-    .join(', ')} } from './dts/${service}';`;
+    .join(', ')} } from './${service}';`;
 
   let clientsCode = [];
   let serversCode = [];
@@ -162,6 +165,6 @@ export default index;
 export type { GrpcRegistry };
 `;
 
-fs.writeFileSync(`./index.d.ts`, indexDts);
+fs.writeFileSync(`./dts/index.d.ts`, indexDts);
 
 //console.log(indexDts);
