@@ -11,6 +11,7 @@ service Billing {
   rpc CreateSubscription(SubscriptionRequest) returns (SubscriptionResponse);
   rpc UpdateSubscription(SubscriptionRequest) returns (SubscriptionResponse);
   rpc CancelSubscription(SubscriptionRequest) returns (SubscriptionResponse);
+  rpc ResumeSubscription(SubscriptionRequest) returns (SubscriptionResponse);
   rpc ActivateSubscription(SubscriptionRequest) returns (SubscriptionResponse);
   rpc DeactivateSubscription(SubscriptionRequest) returns (SubscriptionResponse);
 }
