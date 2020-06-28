@@ -196,7 +196,7 @@ const char descriptor_table_protodef_ric_2dbill_2fricbill_2eproto[] =
   "ctx\030\001 \001(\0132\025.ric.bill.UserContext\022\022\n\nlice"
   "nse_id\030\002 \001(\t\022\017\n\007dry_run\030\003 \001(\010\022\016\n\006params\030"
   "\004 \001(\t\":\n\024SubscriptionResponse\022\022\n\npayment"
-  "_id\030\001 \001(\t\022\016\n\006job_id\030\002 \001(\t2\374\004\n\007Billing\022\?\n"
+  "_id\030\001 \001(\t\022\016\n\006job_id\030\002 \001(\t2\321\005\n\007Billing\022\?\n"
   "\014SetupAccount\022\026.ric.bill.SetupRequest\032\027."
   "ric.bill.SetupResponse\022@\n\rVerifyAccount\022"
   "\026.ric.bill.SetupRequest\032\027.ric.bill.Setup"
@@ -208,17 +208,19 @@ const char descriptor_table_protodef_ric_2dbill_2fricbill_2eproto[] =
   "tionRequest\032\036.ric.bill.SubscriptionRespo"
   "nse\022S\n\022CancelSubscription\022\035.ric.bill.Sub"
   "scriptionRequest\032\036.ric.bill.Subscription"
-  "Response\022U\n\024ActivateSubscription\022\035.ric.b"
-  "ill.SubscriptionRequest\032\036.ric.bill.Subsc"
-  "riptionResponse\022W\n\026DeactivateSubscriptio"
-  "n\022\035.ric.bill.SubscriptionRequest\032\036.ric.b"
-  "ill.SubscriptionResponseB\024Z\022./ric-bill;r"
-  "icbillb\006proto3"
+  "Response\022S\n\022ResumeSubscription\022\035.ric.bil"
+  "l.SubscriptionRequest\032\036.ric.bill.Subscri"
+  "ptionResponse\022U\n\024ActivateSubscription\022\035."
+  "ric.bill.SubscriptionRequest\032\036.ric.bill."
+  "SubscriptionResponse\022W\n\026DeactivateSubscr"
+  "iption\022\035.ric.bill.SubscriptionRequest\032\036."
+  "ric.bill.SubscriptionResponseB\024Z\022./ric-b"
+  "ill;ricbillb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dbill_2fricbill_2eproto = {
   false, InitDefaults_ric_2dbill_2fricbill_2eproto, 
   descriptor_table_protodef_ric_2dbill_2fricbill_2eproto,
-  "ric-bill/ricbill.proto", &assign_descriptors_table_ric_2dbill_2fricbill_2eproto, 1054,
+  "ric-bill/ricbill.proto", &assign_descriptors_table_ric_2dbill_2fricbill_2eproto, 1139,
 };
 
 void AddDescriptors_ric_2dbill_2fricbill_2eproto() {

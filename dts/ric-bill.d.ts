@@ -5,6 +5,7 @@ export interface Billing {
   CreateSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
   UpdateSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
   CancelSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
+  ResumeSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
   ActivateSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
   DeactivateSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
 }
