@@ -35,7 +35,7 @@ message DryRun {
   string amount = 1;
   string currency = 2;
   int64  next_pay = 3;
-  repeated messages = 4;
+  repeated string messages = 4;
 }
 
 message SubscriptionRequest {
