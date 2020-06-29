@@ -31,6 +31,13 @@ message SetupResponse {
   string widget_params = 2;
 }
 
+message DryRun {
+  string amount = 1;
+  string currency = 2;
+  int64  next_pay = 3;
+  repeated messages = 4;
+}
+
 message SubscriptionRequest {
   UserContext ctx = 1;
   string license_id = 2;
@@ -41,4 +48,5 @@ message SubscriptionRequest {
 message SubscriptionResponse {
   string payment_id = 1;
   string job_id = 2;
+  DryRun dry_run = 3;
 }
