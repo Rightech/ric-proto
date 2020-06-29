@@ -34,7 +34,7 @@ message SetupResponse {
 message DryRun {
   string amount = 1;
   string currency = 2;
-  int64  next_pay = 3;
+  int64 next_pay = 3;
   repeated string messages = 4;
 }
 
