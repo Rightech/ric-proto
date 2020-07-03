@@ -9,6 +9,7 @@ const { log } = require('@rightech/utils');
 
 const PROTO_DIR = path.join(__dirname, '.');
 const IN_KUBE = !!process.env.KUBERNETES_PORT;
+const IS_DEV = process.env.NODE_ENV === 'development';
 
 const DEFAULT_KUBE_PORT = 5071;
 const CALL_DEBUG = Symbol('log');
@@ -144,6 +145,9 @@ class GrpcServer {
     if (step === 'err') stepSymbol = '!';
 
     log.debug(json, `${stepSymbol} ${info.method} ${info.id} [${this.name.service}]`);
+    if (IS_DEV && step === 'err') {
+      log.error(res);
+    }
   }
 
   withLogEnabled() {
