@@ -73,10 +73,10 @@ message Ping {
 message CommandReplyRequest {
   enum Stage {
     UNKNOWN = 0; // default stage
-    ERROR = 1;   // wrong command
-    INLET = 2;   // inlet got command
-    OBJECT = 3;  // device got command
-    PACKET = 4;  // packet from device
+    ERROR = 1; // wrong command
+    INLET = 2; // inlet got command
+    OBJECT = 3; // device got command
+    PACKET = 4; // packet from device
   }
   string command_id = 1;
   string object_id = 2;

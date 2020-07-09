@@ -42,7 +42,7 @@ struct TableStruct_ric_2dgate_2fric_2dgate_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[9]
+  static const ::google::protobuf::internal::ParseTable schema[10]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -72,6 +72,9 @@ extern EmptyResponseDefaultTypeInternal _EmptyResponse_default_instance_;
 class InitRequest;
 class InitRequestDefaultTypeInternal;
 extern InitRequestDefaultTypeInternal _InitRequest_default_instance_;
+class LimitingParams;
+class LimitingParamsDefaultTypeInternal;
+extern LimitingParamsDefaultTypeInternal _LimitingParams_default_instance_;
 class OfflineRequest;
 class OfflineRequestDefaultTypeInternal;
 extern OfflineRequestDefaultTypeInternal _OfflineRequest_default_instance_;
@@ -89,6 +92,7 @@ template<> ::ric::gate::CommandReplyRequest* Arena::CreateMaybeMessage<::ric::ga
 template<> ::ric::gate::DataRequest* Arena::CreateMaybeMessage<::ric::gate::DataRequest>(Arena*);
 template<> ::ric::gate::EmptyResponse* Arena::CreateMaybeMessage<::ric::gate::EmptyResponse>(Arena*);
 template<> ::ric::gate::InitRequest* Arena::CreateMaybeMessage<::ric::gate::InitRequest>(Arena*);
+template<> ::ric::gate::LimitingParams* Arena::CreateMaybeMessage<::ric::gate::LimitingParams>(Arena*);
 template<> ::ric::gate::OfflineRequest* Arena::CreateMaybeMessage<::ric::gate::OfflineRequest>(Arena*);
 template<> ::ric::gate::Ping* Arena::CreateMaybeMessage<::ric::gate::Ping>(Arena*);
 }  // namespace protobuf
@@ -100,12 +104,14 @@ enum DataRequest_DataType {
   DataRequest_DataType_UNKNOWN = 0,
   DataRequest_DataType_PARAMS = 1,
   DataRequest_DataType_FILE = 2,
+  DataRequest_DataType_EVENT = 3,
+  DataRequest_DataType_RPC = 4,
   DataRequest_DataType_DataRequest_DataType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::min(),
   DataRequest_DataType_DataRequest_DataType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::max()
 };
 bool DataRequest_DataType_IsValid(int value);
 const DataRequest_DataType DataRequest_DataType_DataType_MIN = DataRequest_DataType_UNKNOWN;
-const DataRequest_DataType DataRequest_DataType_DataType_MAX = DataRequest_DataType_FILE;
+const DataRequest_DataType DataRequest_DataType_DataType_MAX = DataRequest_DataType_RPC;
 const int DataRequest_DataType_DataType_ARRAYSIZE = DataRequest_DataType_DataType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* DataRequest_DataType_descriptor();
@@ -415,6 +421,12 @@ class AuthRequest final :
   ::std::string* release_password();
   void set_allocated_password(::std::string* password);
 
+  // bool is_bot = 5;
+  void clear_is_bot();
+  static const int kIsBotFieldNumber = 5;
+  bool is_bot() const;
+  void set_is_bot(bool value);
+
   // @@protoc_insertion_point(class_scope:ric.gate.AuthRequest)
  private:
   class HasBitSetters;
@@ -424,6 +436,147 @@ class AuthRequest final :
   ::google::protobuf::internal::ArenaStringPtr id_;
   ::google::protobuf::internal::ArenaStringPtr login_;
   ::google::protobuf::internal::ArenaStringPtr password_;
+  bool is_bot_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dgate_2fric_2dgate_2eproto;
+};
+// -------------------------------------------------------------------
+
+class LimitingParams final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.gate.LimitingParams) */ {
+ public:
+  LimitingParams();
+  virtual ~LimitingParams();
+
+  LimitingParams(const LimitingParams& from);
+
+  inline LimitingParams& operator=(const LimitingParams& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  LimitingParams(LimitingParams&& from) noexcept
+    : LimitingParams() {
+    *this = ::std::move(from);
+  }
+
+  inline LimitingParams& operator=(LimitingParams&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const LimitingParams& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const LimitingParams* internal_default_instance() {
+    return reinterpret_cast<const LimitingParams*>(
+               &_LimitingParams_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  void Swap(LimitingParams* other);
+  friend void swap(LimitingParams& a, LimitingParams& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline LimitingParams* New() const final {
+    return CreateMaybeMessage<LimitingParams>(nullptr);
+  }
+
+  LimitingParams* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<LimitingParams>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const LimitingParams& from);
+  void MergeFrom(const LimitingParams& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(LimitingParams* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // float packet_size = 1;
+  void clear_packet_size();
+  static const int kPacketSizeFieldNumber = 1;
+  float packet_size() const;
+  void set_packet_size(float value);
+
+  // float packet_frequency = 2;
+  void clear_packet_frequency();
+  static const int kPacketFrequencyFieldNumber = 2;
+  float packet_frequency() const;
+  void set_packet_frequency(float value);
+
+  // float excesses_allowed = 3;
+  void clear_excesses_allowed();
+  static const int kExcessesAllowedFieldNumber = 3;
+  float excesses_allowed() const;
+  void set_excesses_allowed(float value);
+
+  // float current_packets = 4;
+  void clear_current_packets();
+  static const int kCurrentPacketsFieldNumber = 4;
+  float current_packets() const;
+  void set_current_packets(float value);
+
+  // float current_excesses = 5;
+  void clear_current_excesses();
+  static const int kCurrentExcessesFieldNumber = 5;
+  float current_excesses() const;
+  void set_current_excesses(float value);
+
+  // @@protoc_insertion_point(class_scope:ric.gate.LimitingParams)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  float packet_size_;
+  float packet_frequency_;
+  float excesses_allowed_;
+  float current_packets_;
+  float current_excesses_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dgate_2fric_2dgate_2eproto;
 };
@@ -467,7 +620,7 @@ class AuthResponse final :
                &_AuthResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   void Swap(AuthResponse* other);
   friend void swap(AuthResponse& a, AuthResponse& b) {
@@ -538,9 +691,23 @@ class AuthResponse final :
   ::std::string* release_object_id();
   void set_allocated_object_id(::std::string* object_id);
 
-  // bytes config = 2;
+  // string group_id = 2;
+  void clear_group_id();
+  static const int kGroupIdFieldNumber = 2;
+  const ::std::string& group_id() const;
+  void set_group_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_group_id(::std::string&& value);
+  #endif
+  void set_group_id(const char* value);
+  void set_group_id(const char* value, size_t size);
+  ::std::string* mutable_group_id();
+  ::std::string* release_group_id();
+  void set_allocated_group_id(::std::string* group_id);
+
+  // bytes config = 3;
   void clear_config();
-  static const int kConfigFieldNumber = 2;
+  static const int kConfigFieldNumber = 3;
   const ::std::string& config() const;
   void set_config(const ::std::string& value);
   #if LANG_CXX11
@@ -552,13 +719,24 @@ class AuthResponse final :
   ::std::string* release_config();
   void set_allocated_config(::std::string* config);
 
+  // .ric.gate.LimitingParams limits = 4;
+  bool has_limits() const;
+  void clear_limits();
+  static const int kLimitsFieldNumber = 4;
+  const ::ric::gate::LimitingParams& limits() const;
+  ::ric::gate::LimitingParams* release_limits();
+  ::ric::gate::LimitingParams* mutable_limits();
+  void set_allocated_limits(::ric::gate::LimitingParams* limits);
+
   // @@protoc_insertion_point(class_scope:ric.gate.AuthResponse)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr object_id_;
+  ::google::protobuf::internal::ArenaStringPtr group_id_;
   ::google::protobuf::internal::ArenaStringPtr config_;
+  ::ric::gate::LimitingParams* limits_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dgate_2fric_2dgate_2eproto;
 };
@@ -602,7 +780,7 @@ class DataRequest final :
                &_DataRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   void Swap(DataRequest* other);
   friend void swap(DataRequest& a, DataRequest& b) {
@@ -664,6 +842,10 @@ class DataRequest final :
     DataRequest_DataType_PARAMS;
   static const DataType FILE =
     DataRequest_DataType_FILE;
+  static const DataType EVENT =
+    DataRequest_DataType_EVENT;
+  static const DataType RPC =
+    DataRequest_DataType_RPC;
   static inline bool DataType_IsValid(int value) {
     return DataRequest_DataType_IsValid(value);
   }
@@ -787,7 +969,7 @@ class Ping final :
                &_Ping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   void Swap(Ping* other);
   friend void swap(Ping& a, Ping& b) {
@@ -907,7 +1089,7 @@ class CommandReplyRequest final :
                &_CommandReplyRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   void Swap(CommandReplyRequest* other);
   friend void swap(CommandReplyRequest& a, CommandReplyRequest& b) {
@@ -1111,7 +1293,7 @@ class OfflineRequest final :
                &_OfflineRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   void Swap(OfflineRequest* other);
   friend void swap(OfflineRequest& a, OfflineRequest& b) {
@@ -1246,7 +1428,7 @@ class Command final :
                &_Command_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   void Swap(Command* other);
   friend void swap(Command& a, Command& b) {
@@ -1411,7 +1593,7 @@ class EmptyResponse final :
                &_EmptyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   void Swap(EmptyResponse* other);
   friend void swap(EmptyResponse& a, EmptyResponse& b) {
@@ -1756,6 +1938,94 @@ inline void AuthRequest::set_allocated_password(::std::string* password) {
   // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthRequest.password)
 }
 
+// bool is_bot = 5;
+inline void AuthRequest::clear_is_bot() {
+  is_bot_ = false;
+}
+inline bool AuthRequest::is_bot() const {
+  // @@protoc_insertion_point(field_get:ric.gate.AuthRequest.is_bot)
+  return is_bot_;
+}
+inline void AuthRequest::set_is_bot(bool value) {
+  
+  is_bot_ = value;
+  // @@protoc_insertion_point(field_set:ric.gate.AuthRequest.is_bot)
+}
+
+// -------------------------------------------------------------------
+
+// LimitingParams
+
+// float packet_size = 1;
+inline void LimitingParams::clear_packet_size() {
+  packet_size_ = 0;
+}
+inline float LimitingParams::packet_size() const {
+  // @@protoc_insertion_point(field_get:ric.gate.LimitingParams.packet_size)
+  return packet_size_;
+}
+inline void LimitingParams::set_packet_size(float value) {
+  
+  packet_size_ = value;
+  // @@protoc_insertion_point(field_set:ric.gate.LimitingParams.packet_size)
+}
+
+// float packet_frequency = 2;
+inline void LimitingParams::clear_packet_frequency() {
+  packet_frequency_ = 0;
+}
+inline float LimitingParams::packet_frequency() const {
+  // @@protoc_insertion_point(field_get:ric.gate.LimitingParams.packet_frequency)
+  return packet_frequency_;
+}
+inline void LimitingParams::set_packet_frequency(float value) {
+  
+  packet_frequency_ = value;
+  // @@protoc_insertion_point(field_set:ric.gate.LimitingParams.packet_frequency)
+}
+
+// float excesses_allowed = 3;
+inline void LimitingParams::clear_excesses_allowed() {
+  excesses_allowed_ = 0;
+}
+inline float LimitingParams::excesses_allowed() const {
+  // @@protoc_insertion_point(field_get:ric.gate.LimitingParams.excesses_allowed)
+  return excesses_allowed_;
+}
+inline void LimitingParams::set_excesses_allowed(float value) {
+  
+  excesses_allowed_ = value;
+  // @@protoc_insertion_point(field_set:ric.gate.LimitingParams.excesses_allowed)
+}
+
+// float current_packets = 4;
+inline void LimitingParams::clear_current_packets() {
+  current_packets_ = 0;
+}
+inline float LimitingParams::current_packets() const {
+  // @@protoc_insertion_point(field_get:ric.gate.LimitingParams.current_packets)
+  return current_packets_;
+}
+inline void LimitingParams::set_current_packets(float value) {
+  
+  current_packets_ = value;
+  // @@protoc_insertion_point(field_set:ric.gate.LimitingParams.current_packets)
+}
+
+// float current_excesses = 5;
+inline void LimitingParams::clear_current_excesses() {
+  current_excesses_ = 0;
+}
+inline float LimitingParams::current_excesses() const {
+  // @@protoc_insertion_point(field_get:ric.gate.LimitingParams.current_excesses)
+  return current_excesses_;
+}
+inline void LimitingParams::set_current_excesses(float value) {
+  
+  current_excesses_ = value;
+  // @@protoc_insertion_point(field_set:ric.gate.LimitingParams.current_excesses)
+}
+
 // -------------------------------------------------------------------
 
 // AuthResponse
@@ -1813,7 +2083,60 @@ inline void AuthResponse::set_allocated_object_id(::std::string* object_id) {
   // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthResponse.object_id)
 }
 
-// bytes config = 2;
+// string group_id = 2;
+inline void AuthResponse::clear_group_id() {
+  group_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& AuthResponse::group_id() const {
+  // @@protoc_insertion_point(field_get:ric.gate.AuthResponse.group_id)
+  return group_id_.GetNoArena();
+}
+inline void AuthResponse::set_group_id(const ::std::string& value) {
+  
+  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.gate.AuthResponse.group_id)
+}
+#if LANG_CXX11
+inline void AuthResponse::set_group_id(::std::string&& value) {
+  
+  group_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.gate.AuthResponse.group_id)
+}
+#endif
+inline void AuthResponse::set_group_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.gate.AuthResponse.group_id)
+}
+inline void AuthResponse::set_group_id(const char* value, size_t size) {
+  
+  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.gate.AuthResponse.group_id)
+}
+inline ::std::string* AuthResponse::mutable_group_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.gate.AuthResponse.group_id)
+  return group_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* AuthResponse::release_group_id() {
+  // @@protoc_insertion_point(field_release:ric.gate.AuthResponse.group_id)
+  
+  return group_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AuthResponse::set_allocated_group_id(::std::string* group_id) {
+  if (group_id != nullptr) {
+    
+  } else {
+    
+  }
+  group_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthResponse.group_id)
+}
+
+// bytes config = 3;
 inline void AuthResponse::clear_config() {
   config_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1864,6 +2187,57 @@ inline void AuthResponse::set_allocated_config(::std::string* config) {
   }
   config_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), config);
   // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthResponse.config)
+}
+
+// .ric.gate.LimitingParams limits = 4;
+inline bool AuthResponse::has_limits() const {
+  return this != internal_default_instance() && limits_ != nullptr;
+}
+inline void AuthResponse::clear_limits() {
+  if (GetArenaNoVirtual() == nullptr && limits_ != nullptr) {
+    delete limits_;
+  }
+  limits_ = nullptr;
+}
+inline const ::ric::gate::LimitingParams& AuthResponse::limits() const {
+  const ::ric::gate::LimitingParams* p = limits_;
+  // @@protoc_insertion_point(field_get:ric.gate.AuthResponse.limits)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::gate::LimitingParams*>(
+      &::ric::gate::_LimitingParams_default_instance_);
+}
+inline ::ric::gate::LimitingParams* AuthResponse::release_limits() {
+  // @@protoc_insertion_point(field_release:ric.gate.AuthResponse.limits)
+  
+  ::ric::gate::LimitingParams* temp = limits_;
+  limits_ = nullptr;
+  return temp;
+}
+inline ::ric::gate::LimitingParams* AuthResponse::mutable_limits() {
+  
+  if (limits_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::gate::LimitingParams>(GetArenaNoVirtual());
+    limits_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.gate.AuthResponse.limits)
+  return limits_;
+}
+inline void AuthResponse::set_allocated_limits(::ric::gate::LimitingParams* limits) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete limits_;
+  }
+  if (limits) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      limits = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, limits, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  limits_ = limits;
+  // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthResponse.limits)
 }
 
 // -------------------------------------------------------------------
@@ -2663,6 +3037,8 @@ inline void Command::set_allocated_params(::std::string* params) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -16,6 +16,7 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dgate_2fric_2dgate_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_LimitingParams_ric_2dgate_2fric_2dgate_2eproto;
 namespace ric {
 namespace gate {
 class InitRequestDefaultTypeInternal {
@@ -26,6 +27,10 @@ class AuthRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<AuthRequest> _instance;
 } _AuthRequest_default_instance_;
+class LimitingParamsDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<LimitingParams> _instance;
+} _LimitingParams_default_instance_;
 class AuthResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<AuthResponse> _instance;
@@ -84,6 +89,20 @@ static void InitDefaultsAuthRequest_ric_2dgate_2fric_2dgate_2eproto() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_AuthRequest_ric_2dgate_2fric_2dgate_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsAuthRequest_ric_2dgate_2fric_2dgate_2eproto}, {}};
 
+static void InitDefaultsLimitingParams_ric_2dgate_2fric_2dgate_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::gate::_LimitingParams_default_instance_;
+    new (ptr) ::ric::gate::LimitingParams();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::gate::LimitingParams::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_LimitingParams_ric_2dgate_2fric_2dgate_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsLimitingParams_ric_2dgate_2fric_2dgate_2eproto}, {}};
+
 static void InitDefaultsAuthResponse_ric_2dgate_2fric_2dgate_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -95,8 +114,9 @@ static void InitDefaultsAuthResponse_ric_2dgate_2fric_2dgate_2eproto() {
   ::ric::gate::AuthResponse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_AuthResponse_ric_2dgate_2fric_2dgate_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsAuthResponse_ric_2dgate_2fric_2dgate_2eproto}, {}};
+::google::protobuf::internal::SCCInfo<1> scc_info_AuthResponse_ric_2dgate_2fric_2dgate_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsAuthResponse_ric_2dgate_2fric_2dgate_2eproto}, {
+      &scc_info_LimitingParams_ric_2dgate_2fric_2dgate_2eproto.base,}};
 
 static void InitDefaultsDataRequest_ric_2dgate_2fric_2dgate_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -185,6 +205,7 @@ static void InitDefaultsEmptyResponse_ric_2dgate_2fric_2dgate_2eproto() {
 void InitDefaults_ric_2dgate_2fric_2dgate_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_InitRequest_ric_2dgate_2fric_2dgate_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_AuthRequest_ric_2dgate_2fric_2dgate_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_LimitingParams_ric_2dgate_2fric_2dgate_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_AuthResponse_ric_2dgate_2fric_2dgate_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_DataRequest_ric_2dgate_2fric_2dgate_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_Ping_ric_2dgate_2fric_2dgate_2eproto.base);
@@ -194,7 +215,7 @@ void InitDefaults_ric_2dgate_2fric_2dgate_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_EmptyResponse_ric_2dgate_2fric_2dgate_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dgate_2fric_2dgate_2eproto[9];
+::google::protobuf::Metadata file_level_metadata_ric_2dgate_2fric_2dgate_2eproto[10];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors_ric_2dgate_2fric_2dgate_2eproto[2];
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dgate_2fric_2dgate_2eproto = nullptr;
 
@@ -214,13 +235,26 @@ const ::google::protobuf::uint32 TableStruct_ric_2dgate_2fric_2dgate_2eproto::of
   PROTOBUF_FIELD_OFFSET(::ric::gate::AuthRequest, id_),
   PROTOBUF_FIELD_OFFSET(::ric::gate::AuthRequest, login_),
   PROTOBUF_FIELD_OFFSET(::ric::gate::AuthRequest, password_),
+  PROTOBUF_FIELD_OFFSET(::ric::gate::AuthRequest, is_bot_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::gate::LimitingParams, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::gate::LimitingParams, packet_size_),
+  PROTOBUF_FIELD_OFFSET(::ric::gate::LimitingParams, packet_frequency_),
+  PROTOBUF_FIELD_OFFSET(::ric::gate::LimitingParams, excesses_allowed_),
+  PROTOBUF_FIELD_OFFSET(::ric::gate::LimitingParams, current_packets_),
+  PROTOBUF_FIELD_OFFSET(::ric::gate::LimitingParams, current_excesses_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::gate::AuthResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::gate::AuthResponse, object_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::gate::AuthResponse, group_id_),
   PROTOBUF_FIELD_OFFSET(::ric::gate::AuthResponse, config_),
+  PROTOBUF_FIELD_OFFSET(::ric::gate::AuthResponse, limits_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::gate::DataRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -271,18 +305,20 @@ const ::google::protobuf::uint32 TableStruct_ric_2dgate_2fric_2dgate_2eproto::of
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ric::gate::InitRequest)},
   { 6, -1, sizeof(::ric::gate::AuthRequest)},
-  { 15, -1, sizeof(::ric::gate::AuthResponse)},
-  { 22, -1, sizeof(::ric::gate::DataRequest)},
-  { 31, -1, sizeof(::ric::gate::Ping)},
-  { 37, -1, sizeof(::ric::gate::CommandReplyRequest)},
-  { 47, -1, sizeof(::ric::gate::OfflineRequest)},
-  { 54, -1, sizeof(::ric::gate::Command)},
-  { 63, -1, sizeof(::ric::gate::EmptyResponse)},
+  { 16, -1, sizeof(::ric::gate::LimitingParams)},
+  { 26, -1, sizeof(::ric::gate::AuthResponse)},
+  { 35, -1, sizeof(::ric::gate::DataRequest)},
+  { 44, -1, sizeof(::ric::gate::Ping)},
+  { 50, -1, sizeof(::ric::gate::CommandReplyRequest)},
+  { 60, -1, sizeof(::ric::gate::OfflineRequest)},
+  { 67, -1, sizeof(::ric::gate::Command)},
+  { 76, -1, sizeof(::ric::gate::EmptyResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::gate::_InitRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::gate::_AuthRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::gate::_LimitingParams_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::gate::_AuthResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::gate::_DataRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::gate::_Ping_default_instance_),
@@ -295,47 +331,53 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto = {
   {}, AddDescriptors_ric_2dgate_2fric_2dgate_2eproto, "ric-gate/ric-gate.proto", schemas,
   file_default_instances, TableStruct_ric_2dgate_2fric_2dgate_2eproto::offsets,
-  file_level_metadata_ric_2dgate_2fric_2dgate_2eproto, 9, file_level_enum_descriptors_ric_2dgate_2fric_2dgate_2eproto, file_level_service_descriptors_ric_2dgate_2fric_2dgate_2eproto,
+  file_level_metadata_ric_2dgate_2fric_2dgate_2eproto, 10, file_level_enum_descriptors_ric_2dgate_2fric_2dgate_2eproto, file_level_service_descriptors_ric_2dgate_2fric_2dgate_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto[] =
   "\n\027ric-gate/ric-gate.proto\022\010ric.gate\"\"\n\013I"
-  "nitRequest\022\023\n\013instance_id\030\001 \001(\t\"O\n\013AuthR"
+  "nitRequest\022\023\n\013instance_id\030\001 \001(\t\"_\n\013AuthR"
   "equest\022\023\n\013instance_id\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\022"
-  "\r\n\005login\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\"1\n\014Auth"
-  "Response\022\021\n\tobject_id\030\001 \001(\t\022\016\n\006config\030\002 "
-  "\001(\014\"\245\001\n\013DataRequest\022\023\n\013instance_id\030\001 \001(\t"
-  "\022\021\n\tobject_id\030\002 \001(\t\022\014\n\004data\030\003 \001(\014\0221\n\tdat"
-  "a_type\030\004 \001(\0162\036.ric.gate.DataRequest.Data"
-  "Type\"-\n\010DataType\022\013\n\007UNKNOWN\020\000\022\n\n\006PARAMS\020"
-  "\001\022\010\n\004FILE\020\002\"\033\n\004Ping\022\023\n\013instance_id\030\001 \001(\t"
-  "\"\321\001\n\023CommandReplyRequest\022\022\n\ncommand_id\030\001"
-  " \001(\t\022\021\n\tobject_id\030\002 \001(\t\022\014\n\004data\030\003 \001(\014\0222\n"
-  "\005stage\030\004 \001(\0162#.ric.gate.CommandReplyRequ"
-  "est.Stage\022\r\n\005error\030\005 \001(\t\"B\n\005Stage\022\013\n\007UNK"
-  "NOWN\020\000\022\t\n\005ERROR\020\001\022\t\n\005INLET\020\002\022\n\n\006OBJECT\020\003"
-  "\022\n\n\006PACKET\020\004\"8\n\016OfflineRequest\022\023\n\013instan"
-  "ce_id\030\001 \001(\t\022\021\n\tobject_id\030\002 \001(\t\"P\n\007Comman"
-  "d\022\022\n\ncommand_id\030\001 \001(\t\022\021\n\tobject_id\030\002 \001(\t"
-  "\022\016\n\006method\030\003 \001(\t\022\016\n\006params\030\004 \001(\014\"\017\n\rEmpt"
-  "yResponse2\374\002\n\tGateInlet\0222\n\004Init\022\025.ric.ga"
-  "te.InitRequest\032\021.ric.gate.Command0\001\0225\n\004A"
-  "uth\022\025.ric.gate.AuthRequest\032\026.ric.gate.Au"
-  "thResponse\022:\n\010SendData\022\025.ric.gate.DataRe"
-  "quest\032\027.ric.gate.EmptyResponse\022:\n\rSendHe"
-  "artbeat\022\016.ric.gate.Ping\032\027.ric.gate.Empty"
-  "Response(\001\022J\n\020SendCommandReply\022\035.ric.gat"
-  "e.CommandReplyRequest\032\027.ric.gate.EmptyRe"
-  "sponse\022@\n\013SendOffline\022\030.ric.gate.Offline"
-  "Request\032\027.ric.gate.EmptyResponse2J\n\013Gate"
-  "Command\022;\n\007SendRpc\022\021.ric.gate.Command\032\035."
-  "ric.gate.CommandReplyRequestB\024Z\022./ric-ga"
-  "te;ricgateb\006proto3"
+  "\r\n\005login\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\022\016\n\006is_b"
+  "ot\030\005 \001(\010\"\214\001\n\016LimitingParams\022\023\n\013packet_si"
+  "ze\030\001 \001(\002\022\030\n\020packet_frequency\030\002 \001(\002\022\030\n\020ex"
+  "cesses_allowed\030\003 \001(\002\022\027\n\017current_packets\030"
+  "\004 \001(\002\022\030\n\020current_excesses\030\005 \001(\002\"m\n\014AuthR"
+  "esponse\022\021\n\tobject_id\030\001 \001(\t\022\020\n\010group_id\030\002"
+  " \001(\t\022\016\n\006config\030\003 \001(\014\022(\n\006limits\030\004 \001(\0132\030.r"
+  "ic.gate.LimitingParams\"\271\001\n\013DataRequest\022\023"
+  "\n\013instance_id\030\001 \001(\t\022\021\n\tobject_id\030\002 \001(\t\022\014"
+  "\n\004data\030\003 \001(\014\0221\n\tdata_type\030\004 \001(\0162\036.ric.ga"
+  "te.DataRequest.DataType\"A\n\010DataType\022\013\n\007U"
+  "NKNOWN\020\000\022\n\n\006PARAMS\020\001\022\010\n\004FILE\020\002\022\t\n\005EVENT\020"
+  "\003\022\007\n\003RPC\020\004\"\033\n\004Ping\022\023\n\013instance_id\030\001 \001(\t\""
+  "\321\001\n\023CommandReplyRequest\022\022\n\ncommand_id\030\001 "
+  "\001(\t\022\021\n\tobject_id\030\002 \001(\t\022\014\n\004data\030\003 \001(\014\0222\n\005"
+  "stage\030\004 \001(\0162#.ric.gate.CommandReplyReque"
+  "st.Stage\022\r\n\005error\030\005 \001(\t\"B\n\005Stage\022\013\n\007UNKN"
+  "OWN\020\000\022\t\n\005ERROR\020\001\022\t\n\005INLET\020\002\022\n\n\006OBJECT\020\003\022"
+  "\n\n\006PACKET\020\004\"8\n\016OfflineRequest\022\023\n\013instanc"
+  "e_id\030\001 \001(\t\022\021\n\tobject_id\030\002 \001(\t\"P\n\007Command"
+  "\022\022\n\ncommand_id\030\001 \001(\t\022\021\n\tobject_id\030\002 \001(\t\022"
+  "\016\n\006method\030\003 \001(\t\022\016\n\006params\030\004 \001(\014\"\017\n\rEmpty"
+  "Response2\374\002\n\tGateInlet\0222\n\004Init\022\025.ric.gat"
+  "e.InitRequest\032\021.ric.gate.Command0\001\0225\n\004Au"
+  "th\022\025.ric.gate.AuthRequest\032\026.ric.gate.Aut"
+  "hResponse\022:\n\010SendData\022\025.ric.gate.DataReq"
+  "uest\032\027.ric.gate.EmptyResponse\022:\n\rSendHea"
+  "rtbeat\022\016.ric.gate.Ping\032\027.ric.gate.EmptyR"
+  "esponse(\001\022J\n\020SendCommandReply\022\035.ric.gate"
+  ".CommandReplyRequest\032\027.ric.gate.EmptyRes"
+  "ponse\022@\n\013SendOffline\022\030.ric.gate.OfflineR"
+  "equest\032\027.ric.gate.EmptyResponse2J\n\013GateC"
+  "ommand\022;\n\007SendRpc\022\021.ric.gate.Command\032\035.r"
+  "ic.gate.CommandReplyRequestB\024Z\022./ric-gat"
+  "e;ricgateb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dgate_2fric_2dgate_2eproto = {
   false, InitDefaults_ric_2dgate_2fric_2dgate_2eproto, 
   descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto,
-  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1258,
+  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1497,
 };
 
 void AddDescriptors_ric_2dgate_2fric_2dgate_2eproto() {
@@ -358,6 +400,8 @@ bool DataRequest_DataType_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+    case 3:
+    case 4:
       return true;
     default:
       return false;
@@ -368,6 +412,8 @@ bool DataRequest_DataType_IsValid(int value) {
 const DataRequest_DataType DataRequest::UNKNOWN;
 const DataRequest_DataType DataRequest::PARAMS;
 const DataRequest_DataType DataRequest::FILE;
+const DataRequest_DataType DataRequest::EVENT;
+const DataRequest_DataType DataRequest::RPC;
 const DataRequest_DataType DataRequest::DataType_MIN;
 const DataRequest_DataType DataRequest::DataType_MAX;
 const int DataRequest::DataType_ARRAYSIZE;
@@ -710,6 +756,7 @@ const int AuthRequest::kInstanceIdFieldNumber;
 const int AuthRequest::kIdFieldNumber;
 const int AuthRequest::kLoginFieldNumber;
 const int AuthRequest::kPasswordFieldNumber;
+const int AuthRequest::kIsBotFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 AuthRequest::AuthRequest()
@@ -737,6 +784,7 @@ AuthRequest::AuthRequest(const AuthRequest& from)
   if (from.password().size() > 0) {
     password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
   }
+  is_bot_ = from.is_bot_;
   // @@protoc_insertion_point(copy_constructor:ric.gate.AuthRequest)
 }
 
@@ -747,6 +795,7 @@ void AuthRequest::SharedCtor() {
   id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   login_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  is_bot_ = false;
 }
 
 AuthRequest::~AuthRequest() {
@@ -780,6 +829,7 @@ void AuthRequest::Clear() {
   id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   login_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  is_bot_ = false;
   _internal_metadata_.Clear();
 }
 
@@ -858,6 +908,13 @@ const char* AuthRequest::_InternalParse(const char* begin, const char* end, void
         GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
         ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
         ptr += size;
+        break;
+      }
+      // bool is_bot = 5;
+      case 5: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 40) goto handle_unusual;
+        msg->set_is_bot(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
       default: {
@@ -954,6 +1011,19 @@ bool AuthRequest::MergePartialFromCodedStream(
         break;
       }
 
+      // bool is_bot = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (40 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &is_bot_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -1021,6 +1091,11 @@ void AuthRequest::SerializeWithCachedSizes(
       4, this->password(), output);
   }
 
+  // bool is_bot = 5;
+  if (this->is_bot() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->is_bot(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -1078,6 +1153,11 @@ void AuthRequest::SerializeWithCachedSizes(
         4, this->password(), target);
   }
 
+  // bool is_bot = 5;
+  if (this->is_bot() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->is_bot(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -1127,6 +1207,11 @@ size_t AuthRequest::ByteSizeLong() const {
         this->password());
   }
 
+  // bool is_bot = 5;
+  if (this->is_bot() != 0) {
+    total_size += 1 + 1;
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -1170,6 +1255,9 @@ void AuthRequest::MergeFrom(const AuthRequest& from) {
 
     password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
   }
+  if (from.is_bot() != 0) {
+    set_is_bot(from.is_bot());
+  }
 }
 
 void AuthRequest::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1205,6 +1293,7 @@ void AuthRequest::InternalSwap(AuthRequest* other) {
     GetArenaNoVirtual());
   password_.Swap(&other->password_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  swap(is_bot_, other->is_bot_);
 }
 
 ::google::protobuf::Metadata AuthRequest::GetMetadata() const {
@@ -1215,15 +1304,448 @@ void AuthRequest::InternalSwap(AuthRequest* other) {
 
 // ===================================================================
 
-void AuthResponse::InitAsDefaultInstance() {
+void LimitingParams::InitAsDefaultInstance() {
 }
-class AuthResponse::HasBitSetters {
+class LimitingParams::HasBitSetters {
  public:
 };
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int LimitingParams::kPacketSizeFieldNumber;
+const int LimitingParams::kPacketFrequencyFieldNumber;
+const int LimitingParams::kExcessesAllowedFieldNumber;
+const int LimitingParams::kCurrentPacketsFieldNumber;
+const int LimitingParams::kCurrentExcessesFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+LimitingParams::LimitingParams()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.gate.LimitingParams)
+}
+LimitingParams::LimitingParams(const LimitingParams& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&packet_size_, &from.packet_size_,
+    static_cast<size_t>(reinterpret_cast<char*>(&current_excesses_) -
+    reinterpret_cast<char*>(&packet_size_)) + sizeof(current_excesses_));
+  // @@protoc_insertion_point(copy_constructor:ric.gate.LimitingParams)
+}
+
+void LimitingParams::SharedCtor() {
+  ::memset(&packet_size_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&current_excesses_) -
+      reinterpret_cast<char*>(&packet_size_)) + sizeof(current_excesses_));
+}
+
+LimitingParams::~LimitingParams() {
+  // @@protoc_insertion_point(destructor:ric.gate.LimitingParams)
+  SharedDtor();
+}
+
+void LimitingParams::SharedDtor() {
+}
+
+void LimitingParams::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const LimitingParams& LimitingParams::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_LimitingParams_ric_2dgate_2fric_2dgate_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void LimitingParams::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.gate.LimitingParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&packet_size_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&current_excesses_) -
+      reinterpret_cast<char*>(&packet_size_)) + sizeof(current_excesses_));
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* LimitingParams::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<LimitingParams*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // float packet_size = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 13) goto handle_unusual;
+        msg->set_packet_size(::google::protobuf::io::UnalignedLoad<float>(ptr));
+        ptr += sizeof(float);
+        break;
+      }
+      // float packet_frequency = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 21) goto handle_unusual;
+        msg->set_packet_frequency(::google::protobuf::io::UnalignedLoad<float>(ptr));
+        ptr += sizeof(float);
+        break;
+      }
+      // float excesses_allowed = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 29) goto handle_unusual;
+        msg->set_excesses_allowed(::google::protobuf::io::UnalignedLoad<float>(ptr));
+        ptr += sizeof(float);
+        break;
+      }
+      // float current_packets = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 37) goto handle_unusual;
+        msg->set_current_packets(::google::protobuf::io::UnalignedLoad<float>(ptr));
+        ptr += sizeof(float);
+        break;
+      }
+      // float current_excesses = 5;
+      case 5: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 45) goto handle_unusual;
+        msg->set_current_excesses(::google::protobuf::io::UnalignedLoad<float>(ptr));
+        ptr += sizeof(float);
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool LimitingParams::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.gate.LimitingParams)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // float packet_size = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (13 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &packet_size_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // float packet_frequency = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (21 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &packet_frequency_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // float excesses_allowed = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (29 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &excesses_allowed_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // float current_packets = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (37 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &current_packets_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // float current_excesses = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (45 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &current_excesses_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.gate.LimitingParams)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.gate.LimitingParams)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void LimitingParams::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.gate.LimitingParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // float packet_size = 1;
+  if (this->packet_size() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(1, this->packet_size(), output);
+  }
+
+  // float packet_frequency = 2;
+  if (this->packet_frequency() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->packet_frequency(), output);
+  }
+
+  // float excesses_allowed = 3;
+  if (this->excesses_allowed() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->excesses_allowed(), output);
+  }
+
+  // float current_packets = 4;
+  if (this->current_packets() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->current_packets(), output);
+  }
+
+  // float current_excesses = 5;
+  if (this->current_excesses() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->current_excesses(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.gate.LimitingParams)
+}
+
+::google::protobuf::uint8* LimitingParams::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.gate.LimitingParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // float packet_size = 1;
+  if (this->packet_size() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(1, this->packet_size(), target);
+  }
+
+  // float packet_frequency = 2;
+  if (this->packet_frequency() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->packet_frequency(), target);
+  }
+
+  // float excesses_allowed = 3;
+  if (this->excesses_allowed() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->excesses_allowed(), target);
+  }
+
+  // float current_packets = 4;
+  if (this->current_packets() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->current_packets(), target);
+  }
+
+  // float current_excesses = 5;
+  if (this->current_excesses() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->current_excesses(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.gate.LimitingParams)
+  return target;
+}
+
+size_t LimitingParams::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.gate.LimitingParams)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // float packet_size = 1;
+  if (this->packet_size() != 0) {
+    total_size += 1 + 4;
+  }
+
+  // float packet_frequency = 2;
+  if (this->packet_frequency() != 0) {
+    total_size += 1 + 4;
+  }
+
+  // float excesses_allowed = 3;
+  if (this->excesses_allowed() != 0) {
+    total_size += 1 + 4;
+  }
+
+  // float current_packets = 4;
+  if (this->current_packets() != 0) {
+    total_size += 1 + 4;
+  }
+
+  // float current_excesses = 5;
+  if (this->current_excesses() != 0) {
+    total_size += 1 + 4;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void LimitingParams::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.gate.LimitingParams)
+  GOOGLE_DCHECK_NE(&from, this);
+  const LimitingParams* source =
+      ::google::protobuf::DynamicCastToGenerated<LimitingParams>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.gate.LimitingParams)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.gate.LimitingParams)
+    MergeFrom(*source);
+  }
+}
+
+void LimitingParams::MergeFrom(const LimitingParams& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.gate.LimitingParams)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.packet_size() != 0) {
+    set_packet_size(from.packet_size());
+  }
+  if (from.packet_frequency() != 0) {
+    set_packet_frequency(from.packet_frequency());
+  }
+  if (from.excesses_allowed() != 0) {
+    set_excesses_allowed(from.excesses_allowed());
+  }
+  if (from.current_packets() != 0) {
+    set_current_packets(from.current_packets());
+  }
+  if (from.current_excesses() != 0) {
+    set_current_excesses(from.current_excesses());
+  }
+}
+
+void LimitingParams::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.gate.LimitingParams)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void LimitingParams::CopyFrom(const LimitingParams& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.gate.LimitingParams)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LimitingParams::IsInitialized() const {
+  return true;
+}
+
+void LimitingParams::Swap(LimitingParams* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void LimitingParams::InternalSwap(LimitingParams* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(packet_size_, other->packet_size_);
+  swap(packet_frequency_, other->packet_frequency_);
+  swap(excesses_allowed_, other->excesses_allowed_);
+  swap(current_packets_, other->current_packets_);
+  swap(current_excesses_, other->current_excesses_);
+}
+
+::google::protobuf::Metadata LimitingParams::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto);
+  return ::file_level_metadata_ric_2dgate_2fric_2dgate_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void AuthResponse::InitAsDefaultInstance() {
+  ::ric::gate::_AuthResponse_default_instance_._instance.get_mutable()->limits_ = const_cast< ::ric::gate::LimitingParams*>(
+      ::ric::gate::LimitingParams::internal_default_instance());
+}
+class AuthResponse::HasBitSetters {
+ public:
+  static const ::ric::gate::LimitingParams& limits(const AuthResponse* msg);
+};
+
+const ::ric::gate::LimitingParams&
+AuthResponse::HasBitSetters::limits(const AuthResponse* msg) {
+  return *msg->limits_;
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int AuthResponse::kObjectIdFieldNumber;
+const int AuthResponse::kGroupIdFieldNumber;
 const int AuthResponse::kConfigFieldNumber;
+const int AuthResponse::kLimitsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 AuthResponse::AuthResponse()
@@ -1239,9 +1761,18 @@ AuthResponse::AuthResponse(const AuthResponse& from)
   if (from.object_id().size() > 0) {
     object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
   }
+  group_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.group_id().size() > 0) {
+    group_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_id_);
+  }
   config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.config().size() > 0) {
     config_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.config_);
+  }
+  if (from.has_limits()) {
+    limits_ = new ::ric::gate::LimitingParams(*from.limits_);
+  } else {
+    limits_ = nullptr;
   }
   // @@protoc_insertion_point(copy_constructor:ric.gate.AuthResponse)
 }
@@ -1250,7 +1781,9 @@ void AuthResponse::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_AuthResponse_ric_2dgate_2fric_2dgate_2eproto.base);
   object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  group_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  limits_ = nullptr;
 }
 
 AuthResponse::~AuthResponse() {
@@ -1260,7 +1793,9 @@ AuthResponse::~AuthResponse() {
 
 void AuthResponse::SharedDtor() {
   object_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  group_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete limits_;
 }
 
 void AuthResponse::SetCachedSize(int size) const {
@@ -1279,7 +1814,12 @@ void AuthResponse::Clear() {
   (void) cached_has_bits;
 
   object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  group_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   config_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == nullptr && limits_ != nullptr) {
+    delete limits_;
+  }
+  limits_ = nullptr;
   _internal_metadata_.Clear();
 }
 
@@ -1312,9 +1852,25 @@ const char* AuthResponse::_InternalParse(const char* begin, const char* end, voi
         ptr += size;
         break;
       }
-      // bytes config = 2;
+      // string group_id = 2;
       case 2: {
         if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.gate.AuthResponse.group_id");
+        object = msg->mutable_group_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // bytes config = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         object = msg->mutable_config();
@@ -1325,6 +1881,19 @@ const char* AuthResponse::_InternalParse(const char* begin, const char* end, voi
         GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
         ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
         ptr += size;
+        break;
+      }
+      // .ric.gate.LimitingParams limits = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::ric::gate::LimitingParams::_InternalParse;
+        object = msg->mutable_limits();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
         break;
       }
       default: {
@@ -1376,11 +1945,37 @@ bool AuthResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // bytes config = 2;
+      // string group_id = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_group_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->group_id().data(), static_cast<int>(this->group_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.gate.AuthResponse.group_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes config = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_config()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .ric.gate.LimitingParams limits = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_limits()));
         } else {
           goto handle_unusual;
         }
@@ -1424,10 +2019,26 @@ void AuthResponse::SerializeWithCachedSizes(
       1, this->object_id(), output);
   }
 
-  // bytes config = 2;
+  // string group_id = 2;
+  if (this->group_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->group_id().data(), static_cast<int>(this->group_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.gate.AuthResponse.group_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->group_id(), output);
+  }
+
+  // bytes config = 3;
   if (this->config().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      2, this->config(), output);
+      3, this->config(), output);
+  }
+
+  // .ric.gate.LimitingParams limits = 4;
+  if (this->has_limits()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, HasBitSetters::limits(this), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1454,11 +2065,29 @@ void AuthResponse::SerializeWithCachedSizes(
         1, this->object_id(), target);
   }
 
-  // bytes config = 2;
+  // string group_id = 2;
+  if (this->group_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->group_id().data(), static_cast<int>(this->group_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.gate.AuthResponse.group_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->group_id(), target);
+  }
+
+  // bytes config = 3;
   if (this->config().size() > 0) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        2, this->config(), target);
+        3, this->config(), target);
+  }
+
+  // .ric.gate.LimitingParams limits = 4;
+  if (this->has_limits()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        4, HasBitSetters::limits(this), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1489,11 +2118,25 @@ size_t AuthResponse::ByteSizeLong() const {
         this->object_id());
   }
 
-  // bytes config = 2;
+  // string group_id = 2;
+  if (this->group_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->group_id());
+  }
+
+  // bytes config = 3;
   if (this->config().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->config());
+  }
+
+  // .ric.gate.LimitingParams limits = 4;
+  if (this->has_limits()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *limits_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1527,9 +2170,16 @@ void AuthResponse::MergeFrom(const AuthResponse& from) {
 
     object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
   }
+  if (from.group_id().size() > 0) {
+
+    group_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_id_);
+  }
   if (from.config().size() > 0) {
 
     config_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.config_);
+  }
+  if (from.has_limits()) {
+    mutable_limits()->::ric::gate::LimitingParams::MergeFrom(from.limits());
   }
 }
 
@@ -1560,8 +2210,11 @@ void AuthResponse::InternalSwap(AuthResponse* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
   object_id_.Swap(&other->object_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  group_id_.Swap(&other->group_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   config_.Swap(&other->config_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  swap(limits_, other->limits_);
 }
 
 ::google::protobuf::Metadata AuthResponse::GetMetadata() const {
@@ -3988,6 +4641,9 @@ template<> PROTOBUF_NOINLINE ::ric::gate::InitRequest* Arena::CreateMaybeMessage
 }
 template<> PROTOBUF_NOINLINE ::ric::gate::AuthRequest* Arena::CreateMaybeMessage< ::ric::gate::AuthRequest >(Arena* arena) {
   return Arena::CreateInternal< ::ric::gate::AuthRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::gate::LimitingParams* Arena::CreateMaybeMessage< ::ric::gate::LimitingParams >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::gate::LimitingParams >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::gate::AuthResponse* Arena::CreateMaybeMessage< ::ric::gate::AuthResponse >(Arena* arena) {
   return Arena::CreateInternal< ::ric::gate::AuthResponse >(arena);
