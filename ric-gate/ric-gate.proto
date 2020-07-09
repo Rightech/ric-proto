@@ -34,11 +34,22 @@ message AuthRequest {
   string id = 2;
   string login = 3;
   string password = 4;
+  bool is_bot = 5;
+}
+
+message LimitingParams {
+  float packet_size = 1;
+  float packet_frequency = 2;
+  float excesses_allowed = 3;
+  float current_packets = 4;
+  float current_excesses = 5;
 }
 
 message AuthResponse {
   string object_id = 1;
-  bytes config = 2;
+  string group_id = 2;
+  bytes config = 3;
+  LimitingParams limits = 4;
 }
 
 message DataRequest {
@@ -46,6 +57,8 @@ message DataRequest {
     UNKNOWN = 0; // default
     PARAMS = 1;
     FILE = 2;
+    EVENT = 3;
+    RPC = 4;
   }
   string instance_id = 1;
   string object_id = 2;
@@ -60,14 +73,14 @@ message Ping {
 message CommandReplyRequest {
   enum Stage {
     UNKNOWN = 0; // default stage
-    ERROR = 1; // wrong command
-    INLET = 2; // inlet got command
-    OBJECT = 3; // device got command
-    PACKET = 4; // packet from device
+    ERROR = 1;   // wrong command
+    INLET = 2;   // inlet got command
+    OBJECT = 3;  // device got command
+    PACKET = 4;  // packet from device
   }
   string command_id = 1;
   string object_id = 2;
-  bytes data = 3;
+  bytes data = 3; // show answer in command interface
   Stage stage = 4;
   string error = 5;
 }
