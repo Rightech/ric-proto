@@ -29,14 +29,15 @@ class ServiceName {
   }
 
   parse() {
-    const [path, name] = this.full.split('/');
-    this.path = path;
+    const [name, path] = this.full.split('/');
     this.name = name;
+    this.path = path;
 
-    const [service, namespace] = this.path.split('.');
+    const [service, namespace] = this.name.split('.');
     this.service = service;
     this.namespace = namespace || '';
     this.fileName = `${service.replace(/-/gi, '')}.proto`;
+    
     const parts = service.split('-');
     const [, subpackage] = parts;
     this.subpackage = subpackage;
@@ -167,8 +168,8 @@ class GrpcClient {
     this.def = def;
 
     this.serviceCtor = Object.values(this.def).find((x) => !!x.service);
-    if (this.name.name && this.def[this.name.name]) {
-      this.serviceCtor = this.def[this.name.name];
+    if (this.name.path && this.def[this.name.path]) {
+      this.serviceCtor = this.def[this.name.path];
     }
     this.serviceDef = this.serviceCtor.service;
 
