@@ -11,11 +11,17 @@
             }
         },
         "ric-action": {
+            "ns": {
+                "k8s": "kubeless"
+            },
             "port": {
                 "dev": 15072
             }
         },
-        "ric-action.PublicAPI": {
+        "ric-action/PublicAPI": {
+            "ns": {
+                "k8s": "kubeless"
+            },
             "port": {
                 "k8s": 5072,
                 "dev": 15073
@@ -60,12 +66,12 @@
                 "dev": 15080
             }
         },
-        "ric-notify.SMPP": {
+        "ric-notify/SMPP": {
             "port": {
                 "dev": 15081
             }
         },
-        "ric-notify.SMTP": {
+        "ric-notify/SMTP": {
             "port": {
                 "k8s": 5072,
                 "dev": 15082

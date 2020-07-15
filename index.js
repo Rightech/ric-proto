@@ -29,7 +29,11 @@ class ServiceName {
   }
 
   parse() {
-    const [service, namespace] = this.full.split('.');
+    const [path, name] = this.full.split('/');
+    this.path = path;
+    this.name = name;
+
+    const [service, namespace] = this.path.split('.');
     this.service = service;
     this.namespace = namespace || '';
     this.fileName = `${service.replace(/-/gi, '')}.proto`;
@@ -163,8 +167,8 @@ class GrpcClient {
     this.def = def;
 
     this.serviceCtor = Object.values(this.def).find((x) => !!x.service);
-    if (this.name.namespace && this.def[this.name.namespace]) {
-      this.serviceCtor = this.def[this.name.namespace];
+    if (this.name.name && this.def[this.name.name]) {
+      this.serviceCtor = this.def[this.name.name];
     }
     this.serviceDef = this.serviceCtor.service;
 
@@ -190,13 +194,16 @@ class GrpcClient {
     const devHost = process.env.RIC_GRPC_DEV_HOST;
     const isLocal = (process.env.RIC_GRPC_LOCAL_SVCS || '').includes(this.name.service);
     if (IN_KUBE) {
+      let hostname = this.name.service;
       if (this.meta.stateful) {
         //const instanceName = this.instanceName || '0';
         //const hostname = `${this.name.full}-${instanceName}`;
         //return `${hostname}.${this.name.full}`
       }
-      return this.name.service;
-      //return this.name.full;
+      if (this.meta.ns && this.meta.ns.k8s) {
+        hostname = `${hostname}.${this.meta.ns.k8s}`;
+      }
+      return hostname;
     }
     if (devHost && !isLocal) {
       return devHost;
