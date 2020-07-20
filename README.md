@@ -8,7 +8,7 @@ Just commit to master!
 ## compile via docker
 
 ```bash
-$ docker run --rm -v $(pwd):/ric-proto rightechiot/ric-proto-compiler:latest
+$ docker run --rm -v $(pwd):/ric-proto rightechiot/ric-proto/compiler:latest
 ```
 
 ## compile manual
