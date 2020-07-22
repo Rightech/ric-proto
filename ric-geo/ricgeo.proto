@@ -162,6 +162,7 @@ message OsmResponse {
 
 message GeocodeRequest {
   string query = 1;
+  string language = 2;
 }
 
 message Point {
@@ -171,6 +172,7 @@ message Point {
 
 message GeocodeReverseRequest {
   Point point = 1;
+  string language = 2;
 }
 
 message GetRouteRequest {
