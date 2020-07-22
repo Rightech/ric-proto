@@ -33,6 +33,12 @@
                 "dev": 15074
             }
         },
+        "ric-geo/Osm": {
+            "port": {
+                "k8s": 5073,
+                "dev": 15074
+            }
+        },
         "ric-auth": {
             "port": {
                 "dev": 15075
