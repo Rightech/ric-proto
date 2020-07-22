@@ -648,6 +648,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dgeo_2fricgeo_2eproto::offsets
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::geo::GeocodeRequest, query_),
+  PROTOBUF_FIELD_OFFSET(::ric::geo::GeocodeRequest, language_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::geo::Point, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -661,6 +662,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dgeo_2fricgeo_2eproto::offsets
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::geo::GeocodeReverseRequest, point_),
+  PROTOBUF_FIELD_OFFSET(::ric::geo::GeocodeReverseRequest, language_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::geo::GetRouteRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -730,15 +732,15 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 102, -1, sizeof(::ric::geo::Circle)},
   { 110, -1, sizeof(::ric::geo::OsmResponse)},
   { 116, -1, sizeof(::ric::geo::GeocodeRequest)},
-  { 122, -1, sizeof(::ric::geo::Point)},
-  { 129, -1, sizeof(::ric::geo::GeocodeReverseRequest)},
-  { 135, -1, sizeof(::ric::geo::GetRouteRequest)},
-  { 142, -1, sizeof(::ric::geo::IndoorCircle)},
-  { 151, -1, sizeof(::ric::geo::Zone)},
-  { 158, -1, sizeof(::ric::geo::IndoorPoint)},
-  { 166, -1, sizeof(::ric::geo::Position)},
-  { 173, -1, sizeof(::ric::geo::CheckInRequest)},
-  { 180, -1, sizeof(::ric::geo::CheckInResponse)},
+  { 123, -1, sizeof(::ric::geo::Point)},
+  { 130, -1, sizeof(::ric::geo::GeocodeReverseRequest)},
+  { 137, -1, sizeof(::ric::geo::GetRouteRequest)},
+  { 144, -1, sizeof(::ric::geo::IndoorCircle)},
+  { 153, -1, sizeof(::ric::geo::Zone)},
+  { 160, -1, sizeof(::ric::geo::IndoorPoint)},
+  { 168, -1, sizeof(::ric::geo::Position)},
+  { 175, -1, sizeof(::ric::geo::CheckInRequest)},
+  { 182, -1, sizeof(::ric::geo::CheckInResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -817,59 +819,60 @@ const char descriptor_table_protodef_ric_2dgeo_2fricgeo_2eproto[] =
   "ircle\022\014\n\004tags\030\004 \003(\t\"\'\n\004Time\022\r\n\005start\030\001 \001"
   "(\003\022\020\n\010interval\030\002 \001(\003\"2\n\006Circle\022\013\n\003lat\030\001 "
   "\001(\001\022\013\n\003lon\030\002 \001(\001\022\016\n\006radius\030\003 \001(\001\"\033\n\013OsmR"
-  "esponse\022\014\n\004data\030\001 \001(\014\"\037\n\016GeocodeRequest\022"
-  "\r\n\005query\030\001 \001(\t\"!\n\005Point\022\013\n\003lat\030\001 \001(\001\022\013\n\003"
-  "lon\030\002 \001(\001\"6\n\025GeocodeReverseRequest\022\035\n\005po"
-  "int\030\001 \001(\0132\016.ric.geo.Point\"G\n\017GetRouteReq"
-  "uest\022#\n\013coordinates\030\001 \003(\0132\016.ric.geo.Poin"
-  "t\022\017\n\007options\030\002 \001(\014\"\?\n\014IndoorCircle\022\t\n\001x\030"
-  "\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\016\n\006radius\030\004 "
-  "\001(\001\"U\n\004Zone\022\037\n\006circle\030\001 \001(\0132\017.ric.geo.Ci"
-  "rcle\022,\n\rindoor_circle\030\002 \001(\0132\025.ric.geo.In"
-  "doorCircle\".\n\013IndoorPoint\022\t\n\001x\030\001 \001(\001\022\t\n\001"
-  "y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\"[\n\010Position\022 \n\010locati"
-  "on\030\001 \001(\0132\016.ric.geo.Point\022-\n\017indoor_locat"
-  "ion\030\002 \001(\0132\024.ric.geo.IndoorPoint\"R\n\016Check"
-  "InRequest\022#\n\010position\030\001 \001(\0132\021.ric.geo.Po"
-  "sition\022\033\n\004zone\030\002 \001(\0132\r.ric.geo.Zone\"\035\n\017C"
-  "heckInResponse\022\n\n\002in\030\001 \001(\0102\344\004\n\005Watch\022K\n\r"
-  "WatchGeofence\022\035.ric.geo.WatchGeofenceReq"
-  "uest\032\026.ric.geo.EmptyResponse\"\003\210\002\001\022O\n\021Sto"
-  "pWatchGeofence\022\035.ric.geo.WatchGeofenceRe"
-  "quest\032\026.ric.geo.EmptyResponse\"\003\210\002\001\022C\n\tWa"
-  "tchRoom\022\031.ric.geo.WatchRoomRequest\032\026.ric"
-  ".geo.EmptyResponse\"\003\210\002\001\022G\n\rStopWatchRoom"
-  "\022\031.ric.geo.WatchRoomRequest\032\026.ric.geo.Em"
-  "ptyResponse\"\003\210\002\001\022E\n\nWatchRoute\022\032.ric.geo"
-  ".WatchRouteRequest\032\026.ric.geo.EmptyRespon"
-  "se\"\003\210\002\001\022I\n\016StopWatchRoute\022\032.ric.geo.Watc"
-  "hRouteRequest\032\026.ric.geo.EmptyResponse\"\003\210"
-  "\002\001\022C\n\tUpdateGeo\022\031.ric.geo.UpdateGeoReque"
-  "st\032\026.ric.geo.EmptyResponse\"\003\210\002\001\022S\n\rGetOb"
-  "jectInfo\022\035.ric.geo.GetObjectInfoRequest\032"
-  "\036.ric.geo.GetObjectInfoResponse\"\003\210\002\001\032\003\210\002"
-  "\0012\207\002\n\007WatchV2\0226\n\005Watch\022\025.ric.geo.WatchRe"
-  "quest\032\026.ric.geo.EmptyResponse\0224\n\004Stop\022\024."
-  "ric.geo.StopRequest\032\026.ric.geo.EmptyRespo"
-  "nse\022>\n\tUpdateGeo\022\031.ric.geo.UpdateGeoRequ"
-  "est\032\026.ric.geo.EmptyResponse\022N\n\rGetObject"
+  "esponse\022\014\n\004data\030\001 \001(\014\"1\n\016GeocodeRequest\022"
+  "\r\n\005query\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\"!\n\005Poin"
+  "t\022\013\n\003lat\030\001 \001(\001\022\013\n\003lon\030\002 \001(\001\"H\n\025GeocodeRe"
+  "verseRequest\022\035\n\005point\030\001 \001(\0132\016.ric.geo.Po"
+  "int\022\020\n\010language\030\002 \001(\t\"G\n\017GetRouteRequest"
+  "\022#\n\013coordinates\030\001 \003(\0132\016.ric.geo.Point\022\017\n"
+  "\007options\030\002 \001(\014\"\?\n\014IndoorCircle\022\t\n\001x\030\001 \001("
+  "\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\016\n\006radius\030\004 \001(\001\""
+  "U\n\004Zone\022\037\n\006circle\030\001 \001(\0132\017.ric.geo.Circle"
+  "\022,\n\rindoor_circle\030\002 \001(\0132\025.ric.geo.Indoor"
+  "Circle\".\n\013IndoorPoint\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 "
+  "\001(\001\022\t\n\001z\030\003 \001(\001\"[\n\010Position\022 \n\010location\030\001"
+  " \001(\0132\016.ric.geo.Point\022-\n\017indoor_location\030"
+  "\002 \001(\0132\024.ric.geo.IndoorPoint\"R\n\016CheckInRe"
+  "quest\022#\n\010position\030\001 \001(\0132\021.ric.geo.Positi"
+  "on\022\033\n\004zone\030\002 \001(\0132\r.ric.geo.Zone\"\035\n\017Check"
+  "InResponse\022\n\n\002in\030\001 \001(\0102\344\004\n\005Watch\022K\n\rWatc"
+  "hGeofence\022\035.ric.geo.WatchGeofenceRequest"
+  "\032\026.ric.geo.EmptyResponse\"\003\210\002\001\022O\n\021StopWat"
+  "chGeofence\022\035.ric.geo.WatchGeofenceReques"
+  "t\032\026.ric.geo.EmptyResponse\"\003\210\002\001\022C\n\tWatchR"
+  "oom\022\031.ric.geo.WatchRoomRequest\032\026.ric.geo"
+  ".EmptyResponse\"\003\210\002\001\022G\n\rStopWatchRoom\022\031.r"
+  "ic.geo.WatchRoomRequest\032\026.ric.geo.EmptyR"
+  "esponse\"\003\210\002\001\022E\n\nWatchRoute\022\032.ric.geo.Wat"
+  "chRouteRequest\032\026.ric.geo.EmptyResponse\"\003"
+  "\210\002\001\022I\n\016StopWatchRoute\022\032.ric.geo.WatchRou"
+  "teRequest\032\026.ric.geo.EmptyResponse\"\003\210\002\001\022C"
+  "\n\tUpdateGeo\022\031.ric.geo.UpdateGeoRequest\032\026"
+  ".ric.geo.EmptyResponse\"\003\210\002\001\022S\n\rGetObject"
   "Info\022\035.ric.geo.GetObjectInfoRequest\032\036.ri"
-  "c.geo.GetObjectInfoResponse2O\n\021Attendanc"
-  "eControl\022:\n\007Control\022\027.ric.geo.ControlReq"
-  "uest\032\026.ric.geo.EmptyResponse2\303\001\n\003Osm\0228\n\007"
-  "Geocode\022\027.ric.geo.GeocodeRequest\032\024.ric.g"
-  "eo.OsmResponse\022F\n\016GeocodeReverse\022\036.ric.g"
-  "eo.GeocodeReverseRequest\032\024.ric.geo.OsmRe"
-  "sponse\022:\n\010GetRoute\022\030.ric.geo.GetRouteReq"
-  "uest\032\024.ric.geo.OsmResponse2E\n\005Check\022<\n\007C"
-  "heckIn\022\027.ric.geo.CheckInRequest\032\030.ric.ge"
-  "o.CheckInResponseB\022Z\020./ric-geo;ricgeob\006p"
-  "roto3"
+  "c.geo.GetObjectInfoResponse\"\003\210\002\001\032\003\210\002\0012\207\002"
+  "\n\007WatchV2\0226\n\005Watch\022\025.ric.geo.WatchReques"
+  "t\032\026.ric.geo.EmptyResponse\0224\n\004Stop\022\024.ric."
+  "geo.StopRequest\032\026.ric.geo.EmptyResponse\022"
+  ">\n\tUpdateGeo\022\031.ric.geo.UpdateGeoRequest\032"
+  "\026.ric.geo.EmptyResponse\022N\n\rGetObjectInfo"
+  "\022\035.ric.geo.GetObjectInfoRequest\032\036.ric.ge"
+  "o.GetObjectInfoResponse2O\n\021AttendanceCon"
+  "trol\022:\n\007Control\022\027.ric.geo.ControlRequest"
+  "\032\026.ric.geo.EmptyResponse2\303\001\n\003Osm\0228\n\007Geoc"
+  "ode\022\027.ric.geo.GeocodeRequest\032\024.ric.geo.O"
+  "smResponse\022F\n\016GeocodeReverse\022\036.ric.geo.G"
+  "eocodeReverseRequest\032\024.ric.geo.OsmRespon"
+  "se\022:\n\010GetRoute\022\030.ric.geo.GetRouteRequest"
+  "\032\024.ric.geo.OsmResponse2E\n\005Check\022<\n\007Check"
+  "In\022\027.ric.geo.CheckInRequest\032\030.ric.geo.Ch"
+  "eckInResponseB\022Z\020./ric-geo;ricgeob\006proto"
+  "3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dgeo_2fricgeo_2eproto = {
   false, InitDefaults_ric_2dgeo_2fricgeo_2eproto, 
   descriptor_table_protodef_ric_2dgeo_2fricgeo_2eproto,
-  "ric-geo/ricgeo.proto", &assign_descriptors_table_ric_2dgeo_2fricgeo_2eproto, 3525,
+  "ric-geo/ricgeo.proto", &assign_descriptors_table_ric_2dgeo_2fricgeo_2eproto, 3561,
 };
 
 void AddDescriptors_ric_2dgeo_2fricgeo_2eproto() {
@@ -6840,6 +6843,7 @@ class GeocodeRequest::HasBitSetters {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int GeocodeRequest::kQueryFieldNumber;
+const int GeocodeRequest::kLanguageFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 GeocodeRequest::GeocodeRequest()
@@ -6855,6 +6859,10 @@ GeocodeRequest::GeocodeRequest(const GeocodeRequest& from)
   if (from.query().size() > 0) {
     query_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.query_);
   }
+  language_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.language().size() > 0) {
+    language_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.language_);
+  }
   // @@protoc_insertion_point(copy_constructor:ric.geo.GeocodeRequest)
 }
 
@@ -6862,6 +6870,7 @@ void GeocodeRequest::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_GeocodeRequest_ric_2dgeo_2fricgeo_2eproto.base);
   query_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  language_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 GeocodeRequest::~GeocodeRequest() {
@@ -6871,6 +6880,7 @@ GeocodeRequest::~GeocodeRequest() {
 
 void GeocodeRequest::SharedDtor() {
   query_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  language_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void GeocodeRequest::SetCachedSize(int size) const {
@@ -6889,6 +6899,7 @@ void GeocodeRequest::Clear() {
   (void) cached_has_bits;
 
   query_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
@@ -6912,6 +6923,22 @@ const char* GeocodeRequest::_InternalParse(const char* begin, const char* end, v
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         ctx->extra_parse_data().SetFieldName("ric.geo.GeocodeRequest.query");
         object = msg->mutable_query();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string language = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.geo.GeocodeRequest.language");
+        object = msg->mutable_language();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -6970,6 +6997,21 @@ bool GeocodeRequest::MergePartialFromCodedStream(
         break;
       }
 
+      // string language = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_language()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->language().data(), static_cast<int>(this->language().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.geo.GeocodeRequest.language"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -7007,6 +7049,16 @@ void GeocodeRequest::SerializeWithCachedSizes(
       1, this->query(), output);
   }
 
+  // string language = 2;
+  if (this->language().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->language().data(), static_cast<int>(this->language().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.geo.GeocodeRequest.language");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->language(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -7029,6 +7081,17 @@ void GeocodeRequest::SerializeWithCachedSizes(
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->query(), target);
+  }
+
+  // string language = 2;
+  if (this->language().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->language().data(), static_cast<int>(this->language().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.geo.GeocodeRequest.language");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->language(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -7057,6 +7120,13 @@ size_t GeocodeRequest::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->query());
+  }
+
+  // string language = 2;
+  if (this->language().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->language());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -7090,6 +7160,10 @@ void GeocodeRequest::MergeFrom(const GeocodeRequest& from) {
 
     query_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.query_);
   }
+  if (from.language().size() > 0) {
+
+    language_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.language_);
+  }
 }
 
 void GeocodeRequest::CopyFrom(const ::google::protobuf::Message& from) {
@@ -7118,6 +7192,8 @@ void GeocodeRequest::InternalSwap(GeocodeRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   query_.Swap(&other->query_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  language_.Swap(&other->language_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
 }
 
@@ -7448,6 +7524,7 @@ GeocodeReverseRequest::HasBitSetters::point(const GeocodeReverseRequest* msg) {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int GeocodeReverseRequest::kPointFieldNumber;
+const int GeocodeReverseRequest::kLanguageFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 GeocodeReverseRequest::GeocodeReverseRequest()
@@ -7459,6 +7536,10 @@ GeocodeReverseRequest::GeocodeReverseRequest(const GeocodeReverseRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  language_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.language().size() > 0) {
+    language_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.language_);
+  }
   if (from.has_point()) {
     point_ = new ::ric::geo::Point(*from.point_);
   } else {
@@ -7470,6 +7551,7 @@ GeocodeReverseRequest::GeocodeReverseRequest(const GeocodeReverseRequest& from)
 void GeocodeReverseRequest::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_GeocodeReverseRequest_ric_2dgeo_2fricgeo_2eproto.base);
+  language_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   point_ = nullptr;
 }
 
@@ -7479,6 +7561,7 @@ GeocodeReverseRequest::~GeocodeReverseRequest() {
 }
 
 void GeocodeReverseRequest::SharedDtor() {
+  language_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete point_;
 }
 
@@ -7497,6 +7580,7 @@ void GeocodeReverseRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && point_ != nullptr) {
     delete point_;
   }
@@ -7530,6 +7614,22 @@ const char* GeocodeReverseRequest::_InternalParse(const char* begin, const char*
             {parser_till_end, object}, ptr - size, ptr));
         break;
       }
+      // string language = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.geo.GeocodeReverseRequest.language");
+        object = msg->mutable_language();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -7545,6 +7645,10 @@ const char* GeocodeReverseRequest::_InternalParse(const char* begin, const char*
     }  // switch
   }  // while
   return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
 len_delim_till_end:
   return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
                                {parser_till_end, object}, size);
@@ -7565,6 +7669,21 @@ bool GeocodeReverseRequest::MergePartialFromCodedStream(
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_point()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string language = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_language()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->language().data(), static_cast<int>(this->language().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.geo.GeocodeReverseRequest.language"));
         } else {
           goto handle_unusual;
         }
@@ -7604,6 +7723,16 @@ void GeocodeReverseRequest::SerializeWithCachedSizes(
       1, HasBitSetters::point(this), output);
   }
 
+  // string language = 2;
+  if (this->language().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->language().data(), static_cast<int>(this->language().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.geo.GeocodeReverseRequest.language");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->language(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -7622,6 +7751,17 @@ void GeocodeReverseRequest::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
         1, HasBitSetters::point(this), target);
+  }
+
+  // string language = 2;
+  if (this->language().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->language().data(), static_cast<int>(this->language().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.geo.GeocodeReverseRequest.language");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->language(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -7644,6 +7784,13 @@ size_t GeocodeReverseRequest::ByteSizeLong() const {
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // string language = 2;
+  if (this->language().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->language());
+  }
 
   // .ric.geo.Point point = 1;
   if (this->has_point()) {
@@ -7679,6 +7826,10 @@ void GeocodeReverseRequest::MergeFrom(const GeocodeReverseRequest& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.language().size() > 0) {
+
+    language_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.language_);
+  }
   if (from.has_point()) {
     mutable_point()->::ric::geo::Point::MergeFrom(from.point());
   }
@@ -7709,6 +7860,8 @@ void GeocodeReverseRequest::Swap(GeocodeReverseRequest* other) {
 void GeocodeReverseRequest::InternalSwap(GeocodeReverseRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  language_.Swap(&other->language_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   swap(point_, other->point_);
 }
 

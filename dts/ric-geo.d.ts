@@ -115,6 +115,7 @@ export interface OsmResponse {
 
 export interface GeocodeRequest {
   query?: string;
+  language?: string;
 }
 
 export interface Point {
@@ -124,6 +125,7 @@ export interface Point {
 
 export interface GeocodeReverseRequest {
   point?: Point;
+  language?: string;
 }
 
 export interface GetRouteRequest {

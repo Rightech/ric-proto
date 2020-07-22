@@ -2626,12 +2626,27 @@ class GeocodeRequest final :
   ::std::string* release_query();
   void set_allocated_query(::std::string* query);
 
+  // string language = 2;
+  void clear_language();
+  static const int kLanguageFieldNumber = 2;
+  const ::std::string& language() const;
+  void set_language(const ::std::string& value);
+  #if LANG_CXX11
+  void set_language(::std::string&& value);
+  #endif
+  void set_language(const char* value);
+  void set_language(const char* value, size_t size);
+  ::std::string* mutable_language();
+  ::std::string* release_language();
+  void set_allocated_language(::std::string* language);
+
   // @@protoc_insertion_point(class_scope:ric.geo.GeocodeRequest)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr query_;
+  ::google::protobuf::internal::ArenaStringPtr language_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dgeo_2fricgeo_2eproto;
 };
@@ -2851,6 +2866,20 @@ class GeocodeReverseRequest final :
 
   // accessors -------------------------------------------------------
 
+  // string language = 2;
+  void clear_language();
+  static const int kLanguageFieldNumber = 2;
+  const ::std::string& language() const;
+  void set_language(const ::std::string& value);
+  #if LANG_CXX11
+  void set_language(::std::string&& value);
+  #endif
+  void set_language(const char* value);
+  void set_language(const char* value, size_t size);
+  ::std::string* mutable_language();
+  ::std::string* release_language();
+  void set_allocated_language(::std::string* language);
+
   // .ric.geo.Point point = 1;
   bool has_point() const;
   void clear_point();
@@ -2865,6 +2894,7 @@ class GeocodeReverseRequest final :
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr language_;
   ::ric::geo::Point* point_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dgeo_2fricgeo_2eproto;
@@ -5570,6 +5600,59 @@ inline void GeocodeRequest::set_allocated_query(::std::string* query) {
   // @@protoc_insertion_point(field_set_allocated:ric.geo.GeocodeRequest.query)
 }
 
+// string language = 2;
+inline void GeocodeRequest::clear_language() {
+  language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& GeocodeRequest::language() const {
+  // @@protoc_insertion_point(field_get:ric.geo.GeocodeRequest.language)
+  return language_.GetNoArena();
+}
+inline void GeocodeRequest::set_language(const ::std::string& value) {
+  
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.geo.GeocodeRequest.language)
+}
+#if LANG_CXX11
+inline void GeocodeRequest::set_language(::std::string&& value) {
+  
+  language_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.geo.GeocodeRequest.language)
+}
+#endif
+inline void GeocodeRequest::set_language(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.geo.GeocodeRequest.language)
+}
+inline void GeocodeRequest::set_language(const char* value, size_t size) {
+  
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.geo.GeocodeRequest.language)
+}
+inline ::std::string* GeocodeRequest::mutable_language() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.geo.GeocodeRequest.language)
+  return language_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* GeocodeRequest::release_language() {
+  // @@protoc_insertion_point(field_release:ric.geo.GeocodeRequest.language)
+  
+  return language_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GeocodeRequest::set_allocated_language(::std::string* language) {
+  if (language != nullptr) {
+    
+  } else {
+    
+  }
+  language_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), language);
+  // @@protoc_insertion_point(field_set_allocated:ric.geo.GeocodeRequest.language)
+}
+
 // -------------------------------------------------------------------
 
 // Point
@@ -5655,6 +5738,59 @@ inline void GeocodeReverseRequest::set_allocated_point(::ric::geo::Point* point)
   }
   point_ = point;
   // @@protoc_insertion_point(field_set_allocated:ric.geo.GeocodeReverseRequest.point)
+}
+
+// string language = 2;
+inline void GeocodeReverseRequest::clear_language() {
+  language_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& GeocodeReverseRequest::language() const {
+  // @@protoc_insertion_point(field_get:ric.geo.GeocodeReverseRequest.language)
+  return language_.GetNoArena();
+}
+inline void GeocodeReverseRequest::set_language(const ::std::string& value) {
+  
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.geo.GeocodeReverseRequest.language)
+}
+#if LANG_CXX11
+inline void GeocodeReverseRequest::set_language(::std::string&& value) {
+  
+  language_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.geo.GeocodeReverseRequest.language)
+}
+#endif
+inline void GeocodeReverseRequest::set_language(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.geo.GeocodeReverseRequest.language)
+}
+inline void GeocodeReverseRequest::set_language(const char* value, size_t size) {
+  
+  language_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.geo.GeocodeReverseRequest.language)
+}
+inline ::std::string* GeocodeReverseRequest::mutable_language() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.geo.GeocodeReverseRequest.language)
+  return language_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* GeocodeReverseRequest::release_language() {
+  // @@protoc_insertion_point(field_release:ric.geo.GeocodeReverseRequest.language)
+  
+  return language_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GeocodeReverseRequest::set_allocated_language(::std::string* language) {
+  if (language != nullptr) {
+    
+  } else {
+    
+  }
+  language_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), language);
+  // @@protoc_insertion_point(field_set_allocated:ric.geo.GeocodeReverseRequest.language)
 }
 
 // -------------------------------------------------------------------
