@@ -63,7 +63,8 @@ message DataRequest {
   string instance_id = 1;
   string object_id = 2;
   bytes data = 3;
-  DataType data_type = 4;
+  bytes binary_data = 4;
+  DataType data_type = 5;
 }
 
 message Ping {
