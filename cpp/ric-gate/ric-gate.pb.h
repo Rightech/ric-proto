@@ -911,9 +911,23 @@ class DataRequest final :
   ::std::string* release_data();
   void set_allocated_data(::std::string* data);
 
-  // .ric.gate.DataRequest.DataType data_type = 4;
+  // bytes binary_data = 4;
+  void clear_binary_data();
+  static const int kBinaryDataFieldNumber = 4;
+  const ::std::string& binary_data() const;
+  void set_binary_data(const ::std::string& value);
+  #if LANG_CXX11
+  void set_binary_data(::std::string&& value);
+  #endif
+  void set_binary_data(const char* value);
+  void set_binary_data(const void* value, size_t size);
+  ::std::string* mutable_binary_data();
+  ::std::string* release_binary_data();
+  void set_allocated_binary_data(::std::string* binary_data);
+
+  // .ric.gate.DataRequest.DataType data_type = 5;
   void clear_data_type();
-  static const int kDataTypeFieldNumber = 4;
+  static const int kDataTypeFieldNumber = 5;
   ::ric::gate::DataRequest_DataType data_type() const;
   void set_data_type(::ric::gate::DataRequest_DataType value);
 
@@ -925,6 +939,7 @@ class DataRequest final :
   ::google::protobuf::internal::ArenaStringPtr instance_id_;
   ::google::protobuf::internal::ArenaStringPtr object_id_;
   ::google::protobuf::internal::ArenaStringPtr data_;
+  ::google::protobuf::internal::ArenaStringPtr binary_data_;
   int data_type_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dgate_2fric_2dgate_2eproto;
@@ -2403,7 +2418,60 @@ inline void DataRequest::set_allocated_data(::std::string* data) {
   // @@protoc_insertion_point(field_set_allocated:ric.gate.DataRequest.data)
 }
 
-// .ric.gate.DataRequest.DataType data_type = 4;
+// bytes binary_data = 4;
+inline void DataRequest::clear_binary_data() {
+  binary_data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& DataRequest::binary_data() const {
+  // @@protoc_insertion_point(field_get:ric.gate.DataRequest.binary_data)
+  return binary_data_.GetNoArena();
+}
+inline void DataRequest::set_binary_data(const ::std::string& value) {
+  
+  binary_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.gate.DataRequest.binary_data)
+}
+#if LANG_CXX11
+inline void DataRequest::set_binary_data(::std::string&& value) {
+  
+  binary_data_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.gate.DataRequest.binary_data)
+}
+#endif
+inline void DataRequest::set_binary_data(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  binary_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.gate.DataRequest.binary_data)
+}
+inline void DataRequest::set_binary_data(const void* value, size_t size) {
+  
+  binary_data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.gate.DataRequest.binary_data)
+}
+inline ::std::string* DataRequest::mutable_binary_data() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.gate.DataRequest.binary_data)
+  return binary_data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* DataRequest::release_binary_data() {
+  // @@protoc_insertion_point(field_release:ric.gate.DataRequest.binary_data)
+  
+  return binary_data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void DataRequest::set_allocated_binary_data(::std::string* binary_data) {
+  if (binary_data != nullptr) {
+    
+  } else {
+    
+  }
+  binary_data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), binary_data);
+  // @@protoc_insertion_point(field_set_allocated:ric.gate.DataRequest.binary_data)
+}
+
+// .ric.gate.DataRequest.DataType data_type = 5;
 inline void DataRequest::clear_data_type() {
   data_type_ = 0;
 }
