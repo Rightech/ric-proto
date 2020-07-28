@@ -53,6 +53,12 @@ export interface SMPPGatewayInfoResponse {
   uptime?: number;
 }
 
+export interface Attachment {
+  filename?: string;
+  contentType?: string;
+  content?: any;
+}
+
 export interface SMTPSendRequest {
   ctx?: UserContext;
   gatewayId?: string;
@@ -65,6 +71,7 @@ export interface SMTPSendRequest {
   password?: string;
   useTls?: boolean;
   useSsl?: boolean;
+  attachments?: Attachment[];
 }
 
 export interface SMTPSendResponse {
