@@ -68,6 +68,12 @@ message SMPPGatewayInfoResponse {
   int64 uptime = 2;
 }
 
+message Attachment {
+  string filename = 1;
+  string content_type = 2;
+  bytes content = 3;
+}
+
 message SMTPSendRequest {
   UserContext ctx = 1;
   string gateway_id = 2;
@@ -81,6 +87,7 @@ message SMTPSendRequest {
   string password = 9;
   google.protobuf.BoolValue use_tls = 10;
   google.protobuf.BoolValue use_ssl = 11;
+  repeated Attachment attachments = 12;
 }
 
 message SMTPSendResponse {}
