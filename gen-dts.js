@@ -88,7 +88,7 @@ interface GrpcStream<T> extends Stream {
 }`;
 
 const services = Object.keys(registry.meta.services).map((name) => {
-  const [first] = name.split('.');
+  const [first] = name.split('/');
   return first;
 });
 
