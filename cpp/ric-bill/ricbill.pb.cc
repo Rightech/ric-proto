@@ -44,6 +44,14 @@ class SubscriptionResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<SubscriptionResponse> _instance;
 } _SubscriptionResponse_default_instance_;
+class ReceiptRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<ReceiptRequest> _instance;
+} _ReceiptRequest_default_instance_;
+class ReceiptResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<ReceiptResponse> _instance;
+} _ReceiptResponse_default_instance_;
 }  // namespace bill
 }  // namespace ric
 static void InitDefaultsUserContext_ric_2dbill_2fricbill_2eproto() {
@@ -133,6 +141,34 @@ static void InitDefaultsSubscriptionResponse_ric_2dbill_2fricbill_2eproto() {
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsSubscriptionResponse_ric_2dbill_2fricbill_2eproto}, {
       &scc_info_DryRun_ric_2dbill_2fricbill_2eproto.base,}};
 
+static void InitDefaultsReceiptRequest_ric_2dbill_2fricbill_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::bill::_ReceiptRequest_default_instance_;
+    new (ptr) ::ric::bill::ReceiptRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::bill::ReceiptRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_ReceiptRequest_ric_2dbill_2fricbill_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsReceiptRequest_ric_2dbill_2fricbill_2eproto}, {}};
+
+static void InitDefaultsReceiptResponse_ric_2dbill_2fricbill_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::bill::_ReceiptResponse_default_instance_;
+    new (ptr) ::ric::bill::ReceiptResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::bill::ReceiptResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_ReceiptResponse_ric_2dbill_2fricbill_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsReceiptResponse_ric_2dbill_2fricbill_2eproto}, {}};
+
 void InitDefaults_ric_2dbill_2fricbill_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_UserContext_ric_2dbill_2fricbill_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SetupRequest_ric_2dbill_2fricbill_2eproto.base);
@@ -140,9 +176,11 @@ void InitDefaults_ric_2dbill_2fricbill_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_DryRun_ric_2dbill_2fricbill_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SubscriptionRequest_ric_2dbill_2fricbill_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SubscriptionResponse_ric_2dbill_2fricbill_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_ReceiptRequest_ric_2dbill_2fricbill_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_ReceiptResponse_ric_2dbill_2fricbill_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dbill_2fricbill_2eproto[6];
+::google::protobuf::Metadata file_level_metadata_ric_2dbill_2fricbill_2eproto[8];
 constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_ric_2dbill_2fricbill_2eproto = nullptr;
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dbill_2fricbill_2eproto = nullptr;
 
@@ -194,6 +232,19 @@ const ::google::protobuf::uint32 TableStruct_ric_2dbill_2fricbill_2eproto::offse
   PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionResponse, payment_id_),
   PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionResponse, job_id_),
   PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionResponse, dry_run_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::bill::ReceiptRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::bill::ReceiptRequest, payment_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::bill::ReceiptRequest, payment_gate_),
+  PROTOBUF_FIELD_OFFSET(::ric::bill::ReceiptRequest, params_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::bill::ReceiptResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ric::bill::UserContext)},
@@ -202,6 +253,8 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 21, -1, sizeof(::ric::bill::DryRun)},
   { 30, -1, sizeof(::ric::bill::SubscriptionRequest)},
   { 39, -1, sizeof(::ric::bill::SubscriptionResponse)},
+  { 47, -1, sizeof(::ric::bill::ReceiptRequest)},
+  { 55, -1, sizeof(::ric::bill::ReceiptResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -211,12 +264,14 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bill::_DryRun_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bill::_SubscriptionRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bill::_SubscriptionResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bill::_ReceiptRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bill::_ReceiptResponse_default_instance_),
 };
 
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dbill_2fricbill_2eproto = {
   {}, AddDescriptors_ric_2dbill_2fricbill_2eproto, "ric-bill/ricbill.proto", schemas,
   file_default_instances, TableStruct_ric_2dbill_2fricbill_2eproto::offsets,
-  file_level_metadata_ric_2dbill_2fricbill_2eproto, 6, file_level_enum_descriptors_ric_2dbill_2fricbill_2eproto, file_level_service_descriptors_ric_2dbill_2fricbill_2eproto,
+  file_level_metadata_ric_2dbill_2fricbill_2eproto, 8, file_level_enum_descriptors_ric_2dbill_2fricbill_2eproto, file_level_service_descriptors_ric_2dbill_2fricbill_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dbill_2fricbill_2eproto[] =
@@ -232,31 +287,35 @@ const char descriptor_table_protodef_ric_2dbill_2fricbill_2eproto[] =
   "nse_id\030\002 \001(\t\022\017\n\007dry_run\030\003 \001(\010\022\016\n\006params\030"
   "\004 \001(\t\"]\n\024SubscriptionResponse\022\022\n\npayment"
   "_id\030\001 \001(\t\022\016\n\006job_id\030\002 \001(\t\022!\n\007dry_run\030\003 \001"
-  "(\0132\020.ric.bill.DryRun2\321\005\n\007Billing\022\?\n\014Setu"
-  "pAccount\022\026.ric.bill.SetupRequest\032\027.ric.b"
-  "ill.SetupResponse\022@\n\rVerifyAccount\022\026.ric"
+  "(\0132\020.ric.bill.DryRun\"J\n\016ReceiptRequest\022\022"
+  "\n\npayment_id\030\001 \001(\t\022\024\n\014payment_gate\030\002 \001(\t"
+  "\022\016\n\006params\030\003 \001(\t\"\021\n\017ReceiptResponse2\225\006\n\007"
+  "Billing\022\?\n\014SetupAccount\022\026.ric.bill.Setup"
+  "Request\032\027.ric.bill.SetupResponse\022@\n\rVeri"
+  "fyAccount\022\026.ric.bill.SetupRequest\032\027.ric."
+  "bill.SetupResponse\022\?\n\014CloseAccount\022\026.ric"
   ".bill.SetupRequest\032\027.ric.bill.SetupRespo"
-  "nse\022\?\n\014CloseAccount\022\026.ric.bill.SetupRequ"
-  "est\032\027.ric.bill.SetupResponse\022S\n\022CreateSu"
-  "bscription\022\035.ric.bill.SubscriptionReques"
-  "t\032\036.ric.bill.SubscriptionResponse\022S\n\022Upd"
-  "ateSubscription\022\035.ric.bill.SubscriptionR"
-  "equest\032\036.ric.bill.SubscriptionResponse\022S"
-  "\n\022CancelSubscription\022\035.ric.bill.Subscrip"
-  "tionRequest\032\036.ric.bill.SubscriptionRespo"
-  "nse\022S\n\022ResumeSubscription\022\035.ric.bill.Sub"
+  "nse\022S\n\022CreateSubscription\022\035.ric.bill.Sub"
   "scriptionRequest\032\036.ric.bill.Subscription"
-  "Response\022U\n\024ActivateSubscription\022\035.ric.b"
-  "ill.SubscriptionRequest\032\036.ric.bill.Subsc"
-  "riptionResponse\022W\n\026DeactivateSubscriptio"
-  "n\022\035.ric.bill.SubscriptionRequest\032\036.ric.b"
-  "ill.SubscriptionResponseB\024Z\022./ric-bill;r"
-  "icbillb\006proto3"
+  "Response\022S\n\022UpdateSubscription\022\035.ric.bil"
+  "l.SubscriptionRequest\032\036.ric.bill.Subscri"
+  "ptionResponse\022S\n\022CancelSubscription\022\035.ri"
+  "c.bill.SubscriptionRequest\032\036.ric.bill.Su"
+  "bscriptionResponse\022S\n\022ResumeSubscription"
+  "\022\035.ric.bill.SubscriptionRequest\032\036.ric.bi"
+  "ll.SubscriptionResponse\022U\n\024ActivateSubsc"
+  "ription\022\035.ric.bill.SubscriptionRequest\032\036"
+  ".ric.bill.SubscriptionResponse\022W\n\026Deacti"
+  "vateSubscription\022\035.ric.bill.Subscription"
+  "Request\032\036.ric.bill.SubscriptionResponse\022"
+  "B\n\013SendReceipt\022\030.ric.bill.ReceiptRequest"
+  "\032\031.ric.bill.ReceiptResponseB\024Z\022./ric-bil"
+  "l;ricbillb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dbill_2fricbill_2eproto = {
   false, InitDefaults_ric_2dbill_2fricbill_2eproto, 
   descriptor_table_protodef_ric_2dbill_2fricbill_2eproto,
-  "ric-bill/ricbill.proto", &assign_descriptors_table_ric_2dbill_2fricbill_2eproto, 1254,
+  "ric-bill/ricbill.proto", &assign_descriptors_table_ric_2dbill_2fricbill_2eproto, 1417,
 };
 
 void AddDescriptors_ric_2dbill_2fricbill_2eproto() {
@@ -2772,6 +2831,658 @@ void SubscriptionResponse::InternalSwap(SubscriptionResponse* other) {
 }
 
 
+// ===================================================================
+
+void ReceiptRequest::InitAsDefaultInstance() {
+}
+class ReceiptRequest::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int ReceiptRequest::kPaymentIdFieldNumber;
+const int ReceiptRequest::kPaymentGateFieldNumber;
+const int ReceiptRequest::kParamsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+ReceiptRequest::ReceiptRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.bill.ReceiptRequest)
+}
+ReceiptRequest::ReceiptRequest(const ReceiptRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  payment_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.payment_id().size() > 0) {
+    payment_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.payment_id_);
+  }
+  payment_gate_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.payment_gate().size() > 0) {
+    payment_gate_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.payment_gate_);
+  }
+  params_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.params().size() > 0) {
+    params_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.params_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.bill.ReceiptRequest)
+}
+
+void ReceiptRequest::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_ReceiptRequest_ric_2dbill_2fricbill_2eproto.base);
+  payment_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  payment_gate_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  params_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+ReceiptRequest::~ReceiptRequest() {
+  // @@protoc_insertion_point(destructor:ric.bill.ReceiptRequest)
+  SharedDtor();
+}
+
+void ReceiptRequest::SharedDtor() {
+  payment_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  payment_gate_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  params_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void ReceiptRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ReceiptRequest& ReceiptRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_ReceiptRequest_ric_2dbill_2fricbill_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void ReceiptRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.bill.ReceiptRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  payment_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  payment_gate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  params_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* ReceiptRequest::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<ReceiptRequest*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // string payment_id = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.bill.ReceiptRequest.payment_id");
+        object = msg->mutable_payment_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string payment_gate = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.bill.ReceiptRequest.payment_gate");
+        object = msg->mutable_payment_gate();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string params = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.bill.ReceiptRequest.params");
+        object = msg->mutable_params();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool ReceiptRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.bill.ReceiptRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string payment_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_payment_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->payment_id().data(), static_cast<int>(this->payment_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.bill.ReceiptRequest.payment_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string payment_gate = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_payment_gate()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->payment_gate().data(), static_cast<int>(this->payment_gate().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.bill.ReceiptRequest.payment_gate"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string params = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_params()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->params().data(), static_cast<int>(this->params().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.bill.ReceiptRequest.params"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.bill.ReceiptRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.bill.ReceiptRequest)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void ReceiptRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.bill.ReceiptRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string payment_id = 1;
+  if (this->payment_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->payment_id().data(), static_cast<int>(this->payment_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.bill.ReceiptRequest.payment_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->payment_id(), output);
+  }
+
+  // string payment_gate = 2;
+  if (this->payment_gate().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->payment_gate().data(), static_cast<int>(this->payment_gate().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.bill.ReceiptRequest.payment_gate");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->payment_gate(), output);
+  }
+
+  // string params = 3;
+  if (this->params().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->params().data(), static_cast<int>(this->params().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.bill.ReceiptRequest.params");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->params(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.bill.ReceiptRequest)
+}
+
+::google::protobuf::uint8* ReceiptRequest::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.bill.ReceiptRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string payment_id = 1;
+  if (this->payment_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->payment_id().data(), static_cast<int>(this->payment_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.bill.ReceiptRequest.payment_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->payment_id(), target);
+  }
+
+  // string payment_gate = 2;
+  if (this->payment_gate().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->payment_gate().data(), static_cast<int>(this->payment_gate().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.bill.ReceiptRequest.payment_gate");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->payment_gate(), target);
+  }
+
+  // string params = 3;
+  if (this->params().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->params().data(), static_cast<int>(this->params().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.bill.ReceiptRequest.params");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->params(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.bill.ReceiptRequest)
+  return target;
+}
+
+size_t ReceiptRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.bill.ReceiptRequest)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string payment_id = 1;
+  if (this->payment_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->payment_id());
+  }
+
+  // string payment_gate = 2;
+  if (this->payment_gate().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->payment_gate());
+  }
+
+  // string params = 3;
+  if (this->params().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->params());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void ReceiptRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.bill.ReceiptRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ReceiptRequest* source =
+      ::google::protobuf::DynamicCastToGenerated<ReceiptRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.bill.ReceiptRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.bill.ReceiptRequest)
+    MergeFrom(*source);
+  }
+}
+
+void ReceiptRequest::MergeFrom(const ReceiptRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.bill.ReceiptRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.payment_id().size() > 0) {
+
+    payment_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.payment_id_);
+  }
+  if (from.payment_gate().size() > 0) {
+
+    payment_gate_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.payment_gate_);
+  }
+  if (from.params().size() > 0) {
+
+    params_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.params_);
+  }
+}
+
+void ReceiptRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.bill.ReceiptRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ReceiptRequest::CopyFrom(const ReceiptRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.bill.ReceiptRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ReceiptRequest::IsInitialized() const {
+  return true;
+}
+
+void ReceiptRequest::Swap(ReceiptRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void ReceiptRequest::InternalSwap(ReceiptRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  payment_id_.Swap(&other->payment_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  payment_gate_.Swap(&other->payment_gate_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  params_.Swap(&other->params_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+}
+
+::google::protobuf::Metadata ReceiptRequest::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dbill_2fricbill_2eproto);
+  return ::file_level_metadata_ric_2dbill_2fricbill_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void ReceiptResponse::InitAsDefaultInstance() {
+}
+class ReceiptResponse::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+ReceiptResponse::ReceiptResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.bill.ReceiptResponse)
+}
+ReceiptResponse::ReceiptResponse(const ReceiptResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:ric.bill.ReceiptResponse)
+}
+
+void ReceiptResponse::SharedCtor() {
+}
+
+ReceiptResponse::~ReceiptResponse() {
+  // @@protoc_insertion_point(destructor:ric.bill.ReceiptResponse)
+  SharedDtor();
+}
+
+void ReceiptResponse::SharedDtor() {
+}
+
+void ReceiptResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ReceiptResponse& ReceiptResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_ReceiptResponse_ric_2dbill_2fricbill_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void ReceiptResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.bill.ReceiptResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* ReceiptResponse::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<ReceiptResponse*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      default: {
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool ReceiptResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.bill.ReceiptResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0) {
+      goto success;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, _internal_metadata_.mutable_unknown_fields()));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.bill.ReceiptResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.bill.ReceiptResponse)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void ReceiptResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.bill.ReceiptResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.bill.ReceiptResponse)
+}
+
+::google::protobuf::uint8* ReceiptResponse::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.bill.ReceiptResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.bill.ReceiptResponse)
+  return target;
+}
+
+size_t ReceiptResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.bill.ReceiptResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void ReceiptResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.bill.ReceiptResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ReceiptResponse* source =
+      ::google::protobuf::DynamicCastToGenerated<ReceiptResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.bill.ReceiptResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.bill.ReceiptResponse)
+    MergeFrom(*source);
+  }
+}
+
+void ReceiptResponse::MergeFrom(const ReceiptResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.bill.ReceiptResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void ReceiptResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.bill.ReceiptResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ReceiptResponse::CopyFrom(const ReceiptResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.bill.ReceiptResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ReceiptResponse::IsInitialized() const {
+  return true;
+}
+
+void ReceiptResponse::Swap(ReceiptResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void ReceiptResponse::InternalSwap(ReceiptResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata ReceiptResponse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dbill_2fricbill_2eproto);
+  return ::file_level_metadata_ric_2dbill_2fricbill_2eproto[kIndexInFileMessages];
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace bill
 }  // namespace ric
@@ -2794,6 +3505,12 @@ template<> PROTOBUF_NOINLINE ::ric::bill::SubscriptionRequest* Arena::CreateMayb
 }
 template<> PROTOBUF_NOINLINE ::ric::bill::SubscriptionResponse* Arena::CreateMaybeMessage< ::ric::bill::SubscriptionResponse >(Arena* arena) {
   return Arena::CreateInternal< ::ric::bill::SubscriptionResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::bill::ReceiptRequest* Arena::CreateMaybeMessage< ::ric::bill::ReceiptRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::bill::ReceiptRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::bill::ReceiptResponse* Arena::CreateMaybeMessage< ::ric::bill::ReceiptResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::bill::ReceiptResponse >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

@@ -29,6 +29,7 @@ static const char* Billing_method_names[] = {
   "/ric.bill.Billing/ResumeSubscription",
   "/ric.bill.Billing/ActivateSubscription",
   "/ric.bill.Billing/DeactivateSubscription",
+  "/ric.bill.Billing/SendReceipt",
 };
 
 std::unique_ptr< Billing::Stub> Billing::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -47,6 +48,7 @@ Billing::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   , rpcmethod_ResumeSubscription_(Billing_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_ActivateSubscription_(Billing_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_DeactivateSubscription_(Billing_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendReceipt_(Billing_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Billing::Stub::SetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::ric::bill::SetupResponse* response) {
@@ -229,6 +231,26 @@ void Billing::Stub::experimental_async::DeactivateSubscription(::grpc::ClientCon
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::SubscriptionResponse>::Create(channel_.get(), cq, rpcmethod_DeactivateSubscription_, context, request, false);
 }
 
+::grpc::Status Billing::Stub::SendReceipt(::grpc::ClientContext* context, const ::ric::bill::ReceiptRequest& request, ::ric::bill::ReceiptResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SendReceipt_, context, request, response);
+}
+
+void Billing::Stub::experimental_async::SendReceipt(::grpc::ClientContext* context, const ::ric::bill::ReceiptRequest* request, ::ric::bill::ReceiptResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendReceipt_, context, request, response, std::move(f));
+}
+
+void Billing::Stub::experimental_async::SendReceipt(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::ReceiptResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendReceipt_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::bill::ReceiptResponse>* Billing::Stub::AsyncSendReceiptRaw(::grpc::ClientContext* context, const ::ric::bill::ReceiptRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::ReceiptResponse>::Create(channel_.get(), cq, rpcmethod_SendReceipt_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::bill::ReceiptResponse>* Billing::Stub::PrepareAsyncSendReceiptRaw(::grpc::ClientContext* context, const ::ric::bill::ReceiptRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bill::ReceiptResponse>::Create(channel_.get(), cq, rpcmethod_SendReceipt_, context, request, false);
+}
+
 Billing::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Billing_method_names[0],
@@ -275,6 +297,11 @@ Billing::Service::Service() {
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Billing::Service, ::ric::bill::SubscriptionRequest, ::ric::bill::SubscriptionResponse>(
           std::mem_fn(&Billing::Service::DeactivateSubscription), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Billing_method_names[9],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Billing::Service, ::ric::bill::ReceiptRequest, ::ric::bill::ReceiptResponse>(
+          std::mem_fn(&Billing::Service::SendReceipt), this)));
 }
 
 Billing::Service::~Service() {
@@ -337,6 +364,13 @@ Billing::Service::~Service() {
 }
 
 ::grpc::Status Billing::Service::DeactivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Billing::Service::SendReceipt(::grpc::ServerContext* context, const ::ric::bill::ReceiptRequest* request, ::ric::bill::ReceiptResponse* response) {
   (void) context;
   (void) request;
   (void) response;

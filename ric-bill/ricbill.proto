@@ -58,6 +58,4 @@ message ReceiptRequest {
   string params = 3;
 }
 
-message ReceiptResponse {
-  
-}
+message ReceiptResponse {}

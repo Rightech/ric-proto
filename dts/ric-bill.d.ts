@@ -8,6 +8,7 @@ export interface Billing {
   ResumeSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
   ActivateSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
   DeactivateSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
+  SendReceipt(request: ReceiptRequest): Promise<ReceiptResponse>;
 }
 
 export interface UserContext {
@@ -43,4 +44,14 @@ export interface SubscriptionResponse {
   paymentId?: string;
   jobId?: string;
   dryRun?: DryRun;
+}
+
+export interface ReceiptRequest {
+  paymentId?: string;
+  paymentGate?: string;
+  params?: string;
+}
+
+export interface ReceiptResponse {
+
 }
