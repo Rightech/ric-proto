@@ -140,8 +140,8 @@ for (const { service, services } of index) {
       clientsCode.push(`  getClient(service: '${svc.service}'): ${svc.name};`);
       serversCode.push(`  addServer(service: '${svc.service}', impl: ${svc.name});`);
     }
-    clientsCode.push(`  getClient(service: '${svc.service}.${svc.name}'): ${svc.name};`);
-    serversCode.push(`  addServer(service: '${svc.service}.${svc.name}', impl: ${svc.name});`);
+    clientsCode.push(`  getClient(service: '${svc.service}/${svc.name}'): ${svc.name};`);
+    serversCode.push(`  addServer(service: '${svc.service}/${svc.name}', impl: ${svc.name});`);
   }
 
   imports.push(importsCode);

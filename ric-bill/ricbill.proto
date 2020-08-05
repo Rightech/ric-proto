@@ -14,6 +14,7 @@ service Billing {
   rpc ResumeSubscription(SubscriptionRequest) returns (SubscriptionResponse);
   rpc ActivateSubscription(SubscriptionRequest) returns (SubscriptionResponse);
   rpc DeactivateSubscription(SubscriptionRequest) returns (SubscriptionResponse);
+  rpc SendReceipt(ReceiptRequest) returns (ReceiptResponse);
 }
 
 message UserContext {
@@ -49,4 +50,14 @@ message SubscriptionResponse {
   string payment_id = 1;
   string job_id = 2;
   DryRun dry_run = 3;
+}
+
+message ReceiptRequest {
+  string payment_id = 1;
+  string payment_gate = 2;
+  string params = 3;
+}
+
+message ReceiptResponse {
+  
 }
