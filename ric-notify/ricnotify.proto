@@ -84,10 +84,11 @@ message SMTPSendRequest {
   string text_body = 6;
   string html_body = 7;
   string server = 8;
-  string password = 9;
-  google.protobuf.BoolValue use_tls = 10;
-  google.protobuf.BoolValue use_ssl = 11;
-  repeated Attachment attachments = 12;
+  string username = 9;
+  string password = 10;
+  google.protobuf.BoolValue use_tls = 11;
+  google.protobuf.BoolValue use_ssl = 12;
+  repeated Attachment attachments = 13;
 }
 
 message SMTPSendResponse {}
@@ -99,13 +100,11 @@ message SMTPGatewayInfoRequest {
 message SMTPGatewayInfoResponse {
   // default gateway info
   string gateway_id = 1;
-  repeated string to = 2;
-  string sender = 3;
-  string subject = 4;
-  string text_body = 5;
-  string html_body = 6;
-  string server = 7;
-  string password = 8;
-  google.protobuf.BoolValue use_tls = 9;
-  google.protobuf.BoolValue use_ssl = 10;
+  string sender = 2;
+  string server = 3;
+  string username = 4;
+  string password = 5;
+  google.protobuf.BoolValue use_tls = 6;
+  google.protobuf.BoolValue use_ssl = 7;
+  bool system = 8;
 }
