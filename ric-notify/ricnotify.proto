@@ -86,7 +86,7 @@ message SMTPSendRequest {
   string server = 8;
   string username = 9;
   string password = 10;
-  google.protobuf.BoolValue use_tls = 11;
+  google.protobuf.BoolValue use_starttls = 11;
   google.protobuf.BoolValue use_ssl = 12;
   repeated Attachment attachments = 13;
 }
@@ -104,7 +104,7 @@ message SMTPGatewayInfoResponse {
   string server = 3;
   string username = 4;
   string password = 5;
-  google.protobuf.BoolValue use_tls = 6;
+  google.protobuf.BoolValue use_starttls = 6;
   google.protobuf.BoolValue use_ssl = 7;
   bool system = 8;
 }
