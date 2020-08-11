@@ -68,6 +68,7 @@ export interface SMTPSendRequest {
   textBody?: string;
   htmlBody?: string;
   server?: string;
+  username?: string;
   password?: string;
   useTls?: boolean;
   useSsl?: boolean;
@@ -84,13 +85,11 @@ export interface SMTPGatewayInfoRequest {
 
 export interface SMTPGatewayInfoResponse {
   gatewayId?: string;
-  to?: string[];
   sender?: string;
-  subject?: string;
-  textBody?: string;
-  htmlBody?: string;
   server?: string;
+  username?: string;
   password?: string;
   useTls?: boolean;
   useSsl?: boolean;
+  system?: boolean;
 }
