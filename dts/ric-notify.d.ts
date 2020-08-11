@@ -70,7 +70,7 @@ export interface SMTPSendRequest {
   server?: string;
   username?: string;
   password?: string;
-  useTls?: boolean;
+  useStarttls?: boolean;
   useSsl?: boolean;
   attachments?: Attachment[];
 }
@@ -89,7 +89,7 @@ export interface SMTPGatewayInfoResponse {
   server?: string;
   username?: string;
   password?: string;
-  useTls?: boolean;
+  useStarttls?: boolean;
   useSsl?: boolean;
   system?: boolean;
 }

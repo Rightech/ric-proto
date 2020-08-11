@@ -1674,14 +1674,14 @@ class SMTPSendRequest final :
   ::ric::notify::UserContext* mutable_ctx();
   void set_allocated_ctx(::ric::notify::UserContext* ctx);
 
-  // .google.protobuf.BoolValue use_tls = 11;
-  bool has_use_tls() const;
-  void clear_use_tls();
-  static const int kUseTlsFieldNumber = 11;
-  const ::google::protobuf::BoolValue& use_tls() const;
-  ::google::protobuf::BoolValue* release_use_tls();
-  ::google::protobuf::BoolValue* mutable_use_tls();
-  void set_allocated_use_tls(::google::protobuf::BoolValue* use_tls);
+  // .google.protobuf.BoolValue use_starttls = 11;
+  bool has_use_starttls() const;
+  void clear_use_starttls();
+  static const int kUseStarttlsFieldNumber = 11;
+  const ::google::protobuf::BoolValue& use_starttls() const;
+  ::google::protobuf::BoolValue* release_use_starttls();
+  ::google::protobuf::BoolValue* mutable_use_starttls();
+  void set_allocated_use_starttls(::google::protobuf::BoolValue* use_starttls);
 
   // .google.protobuf.BoolValue use_ssl = 12;
   bool has_use_ssl() const;
@@ -1708,7 +1708,7 @@ class SMTPSendRequest final :
   ::google::protobuf::internal::ArenaStringPtr username_;
   ::google::protobuf::internal::ArenaStringPtr password_;
   ::ric::notify::UserContext* ctx_;
-  ::google::protobuf::BoolValue* use_tls_;
+  ::google::protobuf::BoolValue* use_starttls_;
   ::google::protobuf::BoolValue* use_ssl_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
@@ -2105,14 +2105,14 @@ class SMTPGatewayInfoResponse final :
   ::std::string* release_password();
   void set_allocated_password(::std::string* password);
 
-  // .google.protobuf.BoolValue use_tls = 6;
-  bool has_use_tls() const;
-  void clear_use_tls();
-  static const int kUseTlsFieldNumber = 6;
-  const ::google::protobuf::BoolValue& use_tls() const;
-  ::google::protobuf::BoolValue* release_use_tls();
-  ::google::protobuf::BoolValue* mutable_use_tls();
-  void set_allocated_use_tls(::google::protobuf::BoolValue* use_tls);
+  // .google.protobuf.BoolValue use_starttls = 6;
+  bool has_use_starttls() const;
+  void clear_use_starttls();
+  static const int kUseStarttlsFieldNumber = 6;
+  const ::google::protobuf::BoolValue& use_starttls() const;
+  ::google::protobuf::BoolValue* release_use_starttls();
+  ::google::protobuf::BoolValue* mutable_use_starttls();
+  void set_allocated_use_starttls(::google::protobuf::BoolValue* use_starttls);
 
   // .google.protobuf.BoolValue use_ssl = 7;
   bool has_use_ssl() const;
@@ -2139,7 +2139,7 @@ class SMTPGatewayInfoResponse final :
   ::google::protobuf::internal::ArenaStringPtr server_;
   ::google::protobuf::internal::ArenaStringPtr username_;
   ::google::protobuf::internal::ArenaStringPtr password_;
-  ::google::protobuf::BoolValue* use_tls_;
+  ::google::protobuf::BoolValue* use_starttls_;
   ::google::protobuf::BoolValue* use_ssl_;
   bool system_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
@@ -3795,50 +3795,50 @@ inline void SMTPSendRequest::set_allocated_password(::std::string* password) {
   // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPSendRequest.password)
 }
 
-// .google.protobuf.BoolValue use_tls = 11;
-inline bool SMTPSendRequest::has_use_tls() const {
-  return this != internal_default_instance() && use_tls_ != nullptr;
+// .google.protobuf.BoolValue use_starttls = 11;
+inline bool SMTPSendRequest::has_use_starttls() const {
+  return this != internal_default_instance() && use_starttls_ != nullptr;
 }
-inline const ::google::protobuf::BoolValue& SMTPSendRequest::use_tls() const {
-  const ::google::protobuf::BoolValue* p = use_tls_;
-  // @@protoc_insertion_point(field_get:ric.notify.SMTPSendRequest.use_tls)
+inline const ::google::protobuf::BoolValue& SMTPSendRequest::use_starttls() const {
+  const ::google::protobuf::BoolValue* p = use_starttls_;
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPSendRequest.use_starttls)
   return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::BoolValue*>(
       &::google::protobuf::_BoolValue_default_instance_);
 }
-inline ::google::protobuf::BoolValue* SMTPSendRequest::release_use_tls() {
-  // @@protoc_insertion_point(field_release:ric.notify.SMTPSendRequest.use_tls)
+inline ::google::protobuf::BoolValue* SMTPSendRequest::release_use_starttls() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPSendRequest.use_starttls)
   
-  ::google::protobuf::BoolValue* temp = use_tls_;
-  use_tls_ = nullptr;
+  ::google::protobuf::BoolValue* temp = use_starttls_;
+  use_starttls_ = nullptr;
   return temp;
 }
-inline ::google::protobuf::BoolValue* SMTPSendRequest::mutable_use_tls() {
+inline ::google::protobuf::BoolValue* SMTPSendRequest::mutable_use_starttls() {
   
-  if (use_tls_ == nullptr) {
+  if (use_starttls_ == nullptr) {
     auto* p = CreateMaybeMessage<::google::protobuf::BoolValue>(GetArenaNoVirtual());
-    use_tls_ = p;
+    use_starttls_ = p;
   }
-  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPSendRequest.use_tls)
-  return use_tls_;
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPSendRequest.use_starttls)
+  return use_starttls_;
 }
-inline void SMTPSendRequest::set_allocated_use_tls(::google::protobuf::BoolValue* use_tls) {
+inline void SMTPSendRequest::set_allocated_use_starttls(::google::protobuf::BoolValue* use_starttls) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
-    delete reinterpret_cast< ::google::protobuf::MessageLite*>(use_tls_);
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(use_starttls_);
   }
-  if (use_tls) {
+  if (use_starttls) {
     ::google::protobuf::Arena* submessage_arena =
-      reinterpret_cast<::google::protobuf::MessageLite*>(use_tls)->GetArena();
+      reinterpret_cast<::google::protobuf::MessageLite*>(use_starttls)->GetArena();
     if (message_arena != submessage_arena) {
-      use_tls = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, use_tls, submessage_arena);
+      use_starttls = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, use_starttls, submessage_arena);
     }
     
   } else {
     
   }
-  use_tls_ = use_tls;
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPSendRequest.use_tls)
+  use_starttls_ = use_starttls;
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPSendRequest.use_starttls)
 }
 
 // .google.protobuf.BoolValue use_ssl = 12;
@@ -4247,50 +4247,50 @@ inline void SMTPGatewayInfoResponse::set_allocated_password(::std::string* passw
   // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPGatewayInfoResponse.password)
 }
 
-// .google.protobuf.BoolValue use_tls = 6;
-inline bool SMTPGatewayInfoResponse::has_use_tls() const {
-  return this != internal_default_instance() && use_tls_ != nullptr;
+// .google.protobuf.BoolValue use_starttls = 6;
+inline bool SMTPGatewayInfoResponse::has_use_starttls() const {
+  return this != internal_default_instance() && use_starttls_ != nullptr;
 }
-inline const ::google::protobuf::BoolValue& SMTPGatewayInfoResponse::use_tls() const {
-  const ::google::protobuf::BoolValue* p = use_tls_;
-  // @@protoc_insertion_point(field_get:ric.notify.SMTPGatewayInfoResponse.use_tls)
+inline const ::google::protobuf::BoolValue& SMTPGatewayInfoResponse::use_starttls() const {
+  const ::google::protobuf::BoolValue* p = use_starttls_;
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPGatewayInfoResponse.use_starttls)
   return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::BoolValue*>(
       &::google::protobuf::_BoolValue_default_instance_);
 }
-inline ::google::protobuf::BoolValue* SMTPGatewayInfoResponse::release_use_tls() {
-  // @@protoc_insertion_point(field_release:ric.notify.SMTPGatewayInfoResponse.use_tls)
+inline ::google::protobuf::BoolValue* SMTPGatewayInfoResponse::release_use_starttls() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPGatewayInfoResponse.use_starttls)
   
-  ::google::protobuf::BoolValue* temp = use_tls_;
-  use_tls_ = nullptr;
+  ::google::protobuf::BoolValue* temp = use_starttls_;
+  use_starttls_ = nullptr;
   return temp;
 }
-inline ::google::protobuf::BoolValue* SMTPGatewayInfoResponse::mutable_use_tls() {
+inline ::google::protobuf::BoolValue* SMTPGatewayInfoResponse::mutable_use_starttls() {
   
-  if (use_tls_ == nullptr) {
+  if (use_starttls_ == nullptr) {
     auto* p = CreateMaybeMessage<::google::protobuf::BoolValue>(GetArenaNoVirtual());
-    use_tls_ = p;
+    use_starttls_ = p;
   }
-  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPGatewayInfoResponse.use_tls)
-  return use_tls_;
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPGatewayInfoResponse.use_starttls)
+  return use_starttls_;
 }
-inline void SMTPGatewayInfoResponse::set_allocated_use_tls(::google::protobuf::BoolValue* use_tls) {
+inline void SMTPGatewayInfoResponse::set_allocated_use_starttls(::google::protobuf::BoolValue* use_starttls) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
-    delete reinterpret_cast< ::google::protobuf::MessageLite*>(use_tls_);
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(use_starttls_);
   }
-  if (use_tls) {
+  if (use_starttls) {
     ::google::protobuf::Arena* submessage_arena =
-      reinterpret_cast<::google::protobuf::MessageLite*>(use_tls)->GetArena();
+      reinterpret_cast<::google::protobuf::MessageLite*>(use_starttls)->GetArena();
     if (message_arena != submessage_arena) {
-      use_tls = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, use_tls, submessage_arena);
+      use_starttls = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, use_starttls, submessage_arena);
     }
     
   } else {
     
   }
-  use_tls_ = use_tls;
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPGatewayInfoResponse.use_tls)
+  use_starttls_ = use_starttls;
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPGatewayInfoResponse.use_starttls)
 }
 
 // .google.protobuf.BoolValue use_ssl = 7;
