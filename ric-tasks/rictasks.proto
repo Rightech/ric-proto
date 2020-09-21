@@ -133,10 +133,11 @@ message Task{
     google.protobuf.BoolValue success = 18;
     // @inject_tag: bson:",omitempty"
     ObjectId assignee = 19;
-
-    google.protobuf.BoolValue need_review = 20;// require review flag
+    string assignee_type = 20; // mb enum
 
     Review review = 21;
+    
+    bytes json = 22; // json blob
   
 }
 
