@@ -160,12 +160,12 @@ message ReportField{ // TODO: Не уверен как в такой струк�
       BOOLEAN = 1; //checkbox
       TEXT = 2;
       NUMBER = 3;
-      PHOTO = 4;
+      FILE = 4;
   }
   string name = 1; 
   FieldType field = 2;
-  string file = 3;
-  google.protobuf.BoolValue strong = 4; // flag of require for this field
+  ObjectId file = 3;
+  google.protobuf.BoolValue required = 4; // flag of require for this field
 }
 
 message TaskType { // like a Operation in old tasks. 
@@ -174,7 +174,7 @@ message TaskType { // like a Operation in old tasks.
   string discription = 2;
   string svg = 3; // svg for task this type
 
-  repeated ObjectId mandate = 4; // roles for access
+  repeated ObjectId role = 4; // roles for access
 
   repeated ReportField report = 5; // list of fields that can be included in report of task
 
