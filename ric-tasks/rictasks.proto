@@ -105,25 +105,31 @@ message Task{
     ObjectId owner = 2;
     // @inject_tag: bson:",omitempty"
     ObjectId group = 3;
-    repeated Task subtasks = 4;
-    Constrain constrain = 5;
-    // @inject_tag: bson:",omitempty"
+    
+    ObjectId parent = 4;
+    
+    repeated Task subtasks = 5;
+    
     repeated string tags = 6;
-    int32 priority = 7;
-    int64 created_at = 8; // milliseconds
+    
+    Constrain constrain = 7;
     // @inject_tag: bson:",omitempty"
-    ObjectId object = 9;
-  
-    ObjectId parent = 10;
-  
-    string name = 11;
+    
+    int32 priority = 8;
+    
+    int64 created_at = 9; // milliseconds
+    // @inject_tag: bson:",omitempty"
+    string task_kind = 10;
+    
+    ObjectId object = 11;
+   
+    string name = 12;
 
-    string description = 12;
+    string description = 13;
 
-    Status status = 13;
-    string task_kind = 14;
+    Status status = 14;
+    
     repeated ReportField report_field = 15;
-    // TaskType task_type = 14; 
     // @inject_tag: bson:",omitempty"
     Location begin = 16;
     // @inject_tag: bson:",omitempty"
