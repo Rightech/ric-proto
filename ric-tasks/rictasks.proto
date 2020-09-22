@@ -121,24 +121,24 @@ message Task{
     string description = 12;
 
     Status status = 13;
-  
-    TaskType task_type = 14; 
+    string task_kind = 14;
+    repeated ReportField report_field = 15;
+    // TaskType task_type = 14; 
     // @inject_tag: bson:",omitempty"
-    Location begin = 15;
+    Location begin = 16;
     // @inject_tag: bson:",omitempty"
-    Location end = 16;
+    Location end = 17;
   
-    repeated Deadline deadlines = 17;
+    repeated Deadline deadlines = 18;
   
-    google.protobuf.BoolValue success = 18;
+    google.protobuf.BoolValue success = 19;
     // @inject_tag: bson:",omitempty"
-    ObjectId assignee = 19;
-    string assignee_type = 20; // mb enum
+    ObjectId assignee = 20;
+    string assignee_type = 21; // mb enum
 
-    Review review = 21;
+    Review review = 22;
     
-    bytes json = 22; // json blob
-  
+    bytes json = 23; // json blob
 }
 
 message Review {
@@ -165,8 +165,9 @@ message ReportField{ // TODO: Не уверен как в такой струк�
   }
   string name = 1; 
   FieldType field = 2;
-  ObjectId file = 3;
-  google.protobuf.BoolValue required = 4; // flag of require for this field
+  string value = 3; // text, number, boolean
+  ObjectId file = 4;
+  google.protobuf.BoolValue required = 5; // flag of require for this field
 }
 
 message TaskType { // like a Operation in old tasks. 
