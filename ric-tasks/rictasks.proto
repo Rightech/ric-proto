@@ -119,15 +119,16 @@ message Task{
     
     int64 created_at = 9; // milliseconds
     // @inject_tag: bson:",omitempty"
-    string task_kind = 10;
-    
-    ObjectId object = 11;
    
-    string name = 12;
+    string name = 10;
 
-    string description = 13;
+    string description = 11;
 
-    Status status = 14;
+    Status status = 12;
+    
+    ObjectId object = 13;
+    
+    ObjectId task_kind = 14;
     
     repeated ReportField report_field = 15;
     // @inject_tag: bson:",omitempty"
@@ -176,15 +177,15 @@ message ReportField{ // TODO: Не уверен как в такой струк�
   google.protobuf.BoolValue required = 5; // flag of require for this field
 }
 
-message TaskType { // like a Operation in old tasks. 
+message TaskKind { // like a Operation in old tasks. 
+  ObjectId objectid = 1;
+  string name = 2; 
+  string discription = 3;
+  string svg = 4; // svg for task this type
 
-  string name = 1; 
-  string discription = 2;
-  string svg = 3; // svg for task this type
+  repeated ObjectId role = 5; // roles for access
 
-  repeated ObjectId role = 4; // roles for access
-
-  repeated ReportField report = 5; // list of fields that can be included in report of task
+  repeated ReportField report = 6; // list of fields that can be included in report of task
 
 }
 
