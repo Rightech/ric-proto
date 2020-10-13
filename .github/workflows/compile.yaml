@@ -55,7 +55,7 @@ jobs:
       - name: commit changes
         uses: EndBug/add-and-commit@v4
         with:
-          author_name: $AUTHOR_NAME
-          author_email: $AUTHOR_EMAIL
+          author_name: ${{ env.AUTHOR_NAME }}
+          author_email: ${{ env.AUTHOR_EMAIL }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
