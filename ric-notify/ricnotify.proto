@@ -10,11 +10,13 @@ service SMPP {
   rpc Send(SMPPSendRequest) returns (SMPPSendResponse);
   rpc Status(SMPPStatusRequest) returns (SMPPStatusResponse);
   rpc GatewayInfo(SMPPGatewayInfoRequest) returns (SMPPGatewayInfoResponse);
+  rpc CheckGateway(SMPPCheckGatewayRequest) returns (SMPPCheckGatewayResponse);
 }
 
 service SMTP {
   rpc Send(SMTPSendRequest) returns (SMTPSendResponse);
   rpc GatewayInfo(SMTPGatewayInfoRequest) returns (SMTPGatewayInfoResponse);
+  rpc CheckGateway(SMTPCheckGatewayRequest) returns (SMTPCheckGatewayResponse);
 }
 
 message UserContext {
@@ -68,6 +70,18 @@ message SMPPGatewayInfoResponse {
   int64 uptime = 2;
 }
 
+message SMPPCheckGatewayRequest {
+  string host = 1;
+  int32 port = 2;
+  string username = 3;
+  string password = 4;
+  string system_type = 5;
+}
+
+message SMPPCheckGatewayResponse {
+  bool success = 1;
+}
+
 message Attachment {
   string filename = 1;
   string content_type = 2;
@@ -83,12 +97,13 @@ message SMTPSendRequest {
   string subject = 5;
   string text_body = 6;
   string html_body = 7;
-  string server = 8;
-  string username = 9;
-  string password = 10;
-  google.protobuf.BoolValue use_starttls = 11;
-  google.protobuf.BoolValue use_ssl = 12;
-  repeated Attachment attachments = 13;
+  string host = 8;
+  int32 port = 9;
+  string username = 10;
+  string password = 11;
+  google.protobuf.BoolValue use_starttls = 12;
+  google.protobuf.BoolValue use_ssl = 13;
+  repeated Attachment attachments = 14;
 }
 
 message SMTPSendResponse {}
@@ -101,10 +116,24 @@ message SMTPGatewayInfoResponse {
   // default gateway info
   string gateway_id = 1;
   string sender = 2;
-  string server = 3;
+  string host = 3;
+  int32 port = 4;
   string username = 4;
   string password = 5;
   google.protobuf.BoolValue use_starttls = 6;
   google.protobuf.BoolValue use_ssl = 7;
   bool system = 8;
+}
+
+message SMTPCheckGatewayRequest {
+  string host = 1;
+  int32 port = 2;
+  string username = 3;
+  string password = 4;
+  google.protobuf.BoolValue use_starttls = 5;
+  google.protobuf.BoolValue use_ssl = 6;
+}
+
+message SMTPCheckGatewayResponse {
+  bool success = 1;
 }
