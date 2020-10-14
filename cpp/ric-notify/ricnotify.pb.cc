@@ -304,9 +304,8 @@ static void InitDefaultsSMTPGatewayInfoResponse_ric_2dnotify_2fricnotify_2eproto
   ::ric::notify::SMTPGatewayInfoResponse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<1> scc_info_SMTPGatewayInfoResponse_ric_2dnotify_2fricnotify_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsSMTPGatewayInfoResponse_ric_2dnotify_2fricnotify_2eproto}, {
-      &scc_info_BoolValue_google_2fprotobuf_2fwrappers_2eproto.base,}};
+::google::protobuf::internal::SCCInfo<0> scc_info_SMTPGatewayInfoResponse_ric_2dnotify_2fricnotify_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSMTPGatewayInfoResponse_ric_2dnotify_2fricnotify_2eproto}, {}};
 
 static void InitDefaultsSMTPCheckGatewayRequest_ric_2dnotify_2fricnotify_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -319,9 +318,8 @@ static void InitDefaultsSMTPCheckGatewayRequest_ric_2dnotify_2fricnotify_2eproto
   ::ric::notify::SMTPCheckGatewayRequest::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<1> scc_info_SMTPCheckGatewayRequest_ric_2dnotify_2fricnotify_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsSMTPCheckGatewayRequest_ric_2dnotify_2fricnotify_2eproto}, {
-      &scc_info_BoolValue_google_2fprotobuf_2fwrappers_2eproto.base,}};
+::google::protobuf::internal::SCCInfo<0> scc_info_SMTPCheckGatewayRequest_ric_2dnotify_2fricnotify_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSMTPCheckGatewayRequest_ric_2dnotify_2fricnotify_2eproto}, {}};
 
 static void InitDefaultsSMTPCheckGatewayResponse_ric_2dnotify_2fricnotify_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -591,39 +589,36 @@ const char descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto[] =
   "\0132\032.google.protobuf.BoolValue\022+\n\013attachm"
   "ents\030\016 \003(\0132\026.ric.notify.Attachment\"\022\n\020SM"
   "TPSendResponse\",\n\026SMTPGatewayInfoRequest"
-  "\022\022\n\ngateway_id\030\001 \001(\t\"\354\001\n\027SMTPGatewayInfo"
+  "\022\022\n\ngateway_id\030\001 \001(\t\"\264\001\n\027SMTPGatewayInfo"
   "Response\022\022\n\ngateway_id\030\001 \001(\t\022\016\n\006sender\030\002"
   " \001(\t\022\014\n\004host\030\003 \001(\t\022\014\n\004port\030\004 \001(\005\022\020\n\010user"
-  "name\030\005 \001(\t\022\020\n\010password\030\006 \001(\t\0220\n\014use_star"
-  "ttls\030\007 \001(\0132\032.google.protobuf.BoolValue\022+"
-  "\n\007use_ssl\030\010 \001(\0132\032.google.protobuf.BoolVa"
-  "lue\022\016\n\006system\030\t \001(\010\"\270\001\n\027SMTPCheckGateway"
-  "Request\022\014\n\004host\030\001 \001(\t\022\014\n\004port\030\002 \001(\005\022\020\n\010u"
-  "sername\030\003 \001(\t\022\020\n\010password\030\004 \001(\t\0220\n\014use_s"
-  "tarttls\030\005 \001(\0132\032.google.protobuf.BoolValu"
-  "e\022+\n\007use_ssl\030\006 \001(\0132\032.google.protobuf.Boo"
-  "lValue\"+\n\030SMTPCheckGatewayResponse\022\017\n\007su"
-  "ccess\030\001 \001(\0102\305\002\n\004SMPP\022A\n\004Send\022\033.ric.notif"
-  "y.SMPPSendRequest\032\034.ric.notify.SMPPSendR"
-  "esponse\022G\n\006Status\022\035.ric.notify.SMPPStatu"
-  "sRequest\032\036.ric.notify.SMPPStatusResponse"
-  "\022V\n\013GatewayInfo\022\".ric.notify.SMPPGateway"
-  "InfoRequest\032#.ric.notify.SMPPGatewayInfo"
-  "Response\022Y\n\014CheckGateway\022#.ric.notify.SM"
-  "PPCheckGatewayRequest\032$.ric.notify.SMPPC"
-  "heckGatewayResponse2\374\001\n\004SMTP\022A\n\004Send\022\033.r"
-  "ic.notify.SMTPSendRequest\032\034.ric.notify.S"
-  "MTPSendResponse\022V\n\013GatewayInfo\022\".ric.not"
-  "ify.SMTPGatewayInfoRequest\032#.ric.notify."
-  "SMTPGatewayInfoResponse\022Y\n\014CheckGateway\022"
-  "#.ric.notify.SMTPCheckGatewayRequest\032$.r"
-  "ic.notify.SMTPCheckGatewayResponseB\030Z\026./"
-  "ric-notify;ricnotifyb\006proto3"
+  "name\030\005 \001(\t\022\020\n\010password\030\006 \001(\t\022\024\n\014use_star"
+  "ttls\030\007 \001(\010\022\017\n\007use_ssl\030\010 \001(\010\022\016\n\006system\030\t "
+  "\001(\010\"\200\001\n\027SMTPCheckGatewayRequest\022\014\n\004host\030"
+  "\001 \001(\t\022\014\n\004port\030\002 \001(\005\022\020\n\010username\030\003 \001(\t\022\020\n"
+  "\010password\030\004 \001(\t\022\024\n\014use_starttls\030\005 \001(\010\022\017\n"
+  "\007use_ssl\030\006 \001(\010\"+\n\030SMTPCheckGatewayRespon"
+  "se\022\017\n\007success\030\001 \001(\0102\305\002\n\004SMPP\022A\n\004Send\022\033.r"
+  "ic.notify.SMPPSendRequest\032\034.ric.notify.S"
+  "MPPSendResponse\022G\n\006Status\022\035.ric.notify.S"
+  "MPPStatusRequest\032\036.ric.notify.SMPPStatus"
+  "Response\022V\n\013GatewayInfo\022\".ric.notify.SMP"
+  "PGatewayInfoRequest\032#.ric.notify.SMPPGat"
+  "ewayInfoResponse\022Y\n\014CheckGateway\022#.ric.n"
+  "otify.SMPPCheckGatewayRequest\032$.ric.noti"
+  "fy.SMPPCheckGatewayResponse2\374\001\n\004SMTP\022A\n\004"
+  "Send\022\033.ric.notify.SMTPSendRequest\032\034.ric."
+  "notify.SMTPSendResponse\022V\n\013GatewayInfo\022\""
+  ".ric.notify.SMTPGatewayInfoRequest\032#.ric"
+  ".notify.SMTPGatewayInfoResponse\022Y\n\014Check"
+  "Gateway\022#.ric.notify.SMTPCheckGatewayReq"
+  "uest\032$.ric.notify.SMTPCheckGatewayRespon"
+  "seB\030Z\026./ric-notify;ricnotifyb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dnotify_2fricnotify_2eproto = {
   false, InitDefaults_ric_2dnotify_2fricnotify_2eproto, 
   descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto,
-  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 2548,
+  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 2436,
 };
 
 void AddDescriptors_ric_2dnotify_2fricnotify_2eproto() {
@@ -6743,37 +6738,11 @@ void SMTPGatewayInfoRequest::InternalSwap(SMTPGatewayInfoRequest* other) {
 // ===================================================================
 
 void SMTPGatewayInfoResponse::InitAsDefaultInstance() {
-  ::ric::notify::_SMTPGatewayInfoResponse_default_instance_._instance.get_mutable()->use_starttls_ = const_cast< ::google::protobuf::BoolValue*>(
-      ::google::protobuf::BoolValue::internal_default_instance());
-  ::ric::notify::_SMTPGatewayInfoResponse_default_instance_._instance.get_mutable()->use_ssl_ = const_cast< ::google::protobuf::BoolValue*>(
-      ::google::protobuf::BoolValue::internal_default_instance());
 }
 class SMTPGatewayInfoResponse::HasBitSetters {
  public:
-  static const ::google::protobuf::BoolValue& use_starttls(const SMTPGatewayInfoResponse* msg);
-  static const ::google::protobuf::BoolValue& use_ssl(const SMTPGatewayInfoResponse* msg);
 };
 
-const ::google::protobuf::BoolValue&
-SMTPGatewayInfoResponse::HasBitSetters::use_starttls(const SMTPGatewayInfoResponse* msg) {
-  return *msg->use_starttls_;
-}
-const ::google::protobuf::BoolValue&
-SMTPGatewayInfoResponse::HasBitSetters::use_ssl(const SMTPGatewayInfoResponse* msg) {
-  return *msg->use_ssl_;
-}
-void SMTPGatewayInfoResponse::clear_use_starttls() {
-  if (GetArenaNoVirtual() == nullptr && use_starttls_ != nullptr) {
-    delete use_starttls_;
-  }
-  use_starttls_ = nullptr;
-}
-void SMTPGatewayInfoResponse::clear_use_ssl() {
-  if (GetArenaNoVirtual() == nullptr && use_ssl_ != nullptr) {
-    delete use_ssl_;
-  }
-  use_ssl_ = nullptr;
-}
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SMTPGatewayInfoResponse::kGatewayIdFieldNumber;
 const int SMTPGatewayInfoResponse::kSenderFieldNumber;
@@ -6815,16 +6784,6 @@ SMTPGatewayInfoResponse::SMTPGatewayInfoResponse(const SMTPGatewayInfoResponse& 
   if (from.password().size() > 0) {
     password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
   }
-  if (from.has_use_starttls()) {
-    use_starttls_ = new ::google::protobuf::BoolValue(*from.use_starttls_);
-  } else {
-    use_starttls_ = nullptr;
-  }
-  if (from.has_use_ssl()) {
-    use_ssl_ = new ::google::protobuf::BoolValue(*from.use_ssl_);
-  } else {
-    use_ssl_ = nullptr;
-  }
   ::memcpy(&port_, &from.port_,
     static_cast<size_t>(reinterpret_cast<char*>(&system_) -
     reinterpret_cast<char*>(&port_)) + sizeof(system_));
@@ -6839,9 +6798,9 @@ void SMTPGatewayInfoResponse::SharedCtor() {
   host_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   username_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&use_starttls_, 0, static_cast<size_t>(
+  ::memset(&port_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&system_) -
-      reinterpret_cast<char*>(&use_starttls_)) + sizeof(system_));
+      reinterpret_cast<char*>(&port_)) + sizeof(system_));
 }
 
 SMTPGatewayInfoResponse::~SMTPGatewayInfoResponse() {
@@ -6855,8 +6814,6 @@ void SMTPGatewayInfoResponse::SharedDtor() {
   host_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   username_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete use_starttls_;
-  if (this != internal_default_instance()) delete use_ssl_;
 }
 
 void SMTPGatewayInfoResponse::SetCachedSize(int size) const {
@@ -6879,14 +6836,6 @@ void SMTPGatewayInfoResponse::Clear() {
   host_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   username_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (GetArenaNoVirtual() == nullptr && use_starttls_ != nullptr) {
-    delete use_starttls_;
-  }
-  use_starttls_ = nullptr;
-  if (GetArenaNoVirtual() == nullptr && use_ssl_ != nullptr) {
-    delete use_ssl_;
-  }
-  use_ssl_ = nullptr;
   ::memset(&port_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&system_) -
       reinterpret_cast<char*>(&port_)) + sizeof(system_));
@@ -6993,30 +6942,18 @@ const char* SMTPGatewayInfoResponse::_InternalParse(const char* begin, const cha
         ptr += size;
         break;
       }
-      // .google.protobuf.BoolValue use_starttls = 7;
+      // bool use_starttls = 7;
       case 7: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 58) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        if (static_cast<::google::protobuf::uint8>(tag) != 56) goto handle_unusual;
+        msg->set_use_starttls(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::google::protobuf::BoolValue::_InternalParse;
-        object = msg->mutable_use_starttls();
-        if (size > end - ptr) goto len_delim_till_end;
-        ptr += size;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
-            {parser_till_end, object}, ptr - size, ptr));
         break;
       }
-      // .google.protobuf.BoolValue use_ssl = 8;
+      // bool use_ssl = 8;
       case 8: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 66) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        if (static_cast<::google::protobuf::uint8>(tag) != 64) goto handle_unusual;
+        msg->set_use_ssl(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::google::protobuf::BoolValue::_InternalParse;
-        object = msg->mutable_use_ssl();
-        if (size > end - ptr) goto len_delim_till_end;
-        ptr += size;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
-            {parser_till_end, object}, ptr - size, ptr));
         break;
       }
       // bool system = 9;
@@ -7148,22 +7085,26 @@ bool SMTPGatewayInfoResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // .google.protobuf.BoolValue use_starttls = 7;
+      // bool use_starttls = 7;
       case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (58 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_use_starttls()));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (56 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &use_starttls_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .google.protobuf.BoolValue use_ssl = 8;
+      // bool use_ssl = 8;
       case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (66 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_use_ssl()));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (64 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &use_ssl_)));
         } else {
           goto handle_unusual;
         }
@@ -7265,16 +7206,14 @@ void SMTPGatewayInfoResponse::SerializeWithCachedSizes(
       6, this->password(), output);
   }
 
-  // .google.protobuf.BoolValue use_starttls = 7;
-  if (this->has_use_starttls()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, HasBitSetters::use_starttls(this), output);
+  // bool use_starttls = 7;
+  if (this->use_starttls() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(7, this->use_starttls(), output);
   }
 
-  // .google.protobuf.BoolValue use_ssl = 8;
-  if (this->has_use_ssl()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      8, HasBitSetters::use_ssl(this), output);
+  // bool use_ssl = 8;
+  if (this->use_ssl() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(8, this->use_ssl(), output);
   }
 
   // bool system = 9;
@@ -7355,18 +7294,14 @@ void SMTPGatewayInfoResponse::SerializeWithCachedSizes(
         6, this->password(), target);
   }
 
-  // .google.protobuf.BoolValue use_starttls = 7;
-  if (this->has_use_starttls()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        7, HasBitSetters::use_starttls(this), target);
+  // bool use_starttls = 7;
+  if (this->use_starttls() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(7, this->use_starttls(), target);
   }
 
-  // .google.protobuf.BoolValue use_ssl = 8;
-  if (this->has_use_ssl()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        8, HasBitSetters::use_ssl(this), target);
+  // bool use_ssl = 8;
+  if (this->use_ssl() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(8, this->use_ssl(), target);
   }
 
   // bool system = 9;
@@ -7430,25 +7365,21 @@ size_t SMTPGatewayInfoResponse::ByteSizeLong() const {
         this->password());
   }
 
-  // .google.protobuf.BoolValue use_starttls = 7;
-  if (this->has_use_starttls()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *use_starttls_);
-  }
-
-  // .google.protobuf.BoolValue use_ssl = 8;
-  if (this->has_use_ssl()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *use_ssl_);
-  }
-
   // int32 port = 4;
   if (this->port() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->port());
+  }
+
+  // bool use_starttls = 7;
+  if (this->use_starttls() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool use_ssl = 8;
+  if (this->use_ssl() != 0) {
+    total_size += 1 + 1;
   }
 
   // bool system = 9;
@@ -7503,14 +7434,14 @@ void SMTPGatewayInfoResponse::MergeFrom(const SMTPGatewayInfoResponse& from) {
 
     password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
   }
-  if (from.has_use_starttls()) {
-    mutable_use_starttls()->::google::protobuf::BoolValue::MergeFrom(from.use_starttls());
-  }
-  if (from.has_use_ssl()) {
-    mutable_use_ssl()->::google::protobuf::BoolValue::MergeFrom(from.use_ssl());
-  }
   if (from.port() != 0) {
     set_port(from.port());
+  }
+  if (from.use_starttls() != 0) {
+    set_use_starttls(from.use_starttls());
+  }
+  if (from.use_ssl() != 0) {
+    set_use_ssl(from.use_ssl());
   }
   if (from.system() != 0) {
     set_system(from.system());
@@ -7552,9 +7483,9 @@ void SMTPGatewayInfoResponse::InternalSwap(SMTPGatewayInfoResponse* other) {
     GetArenaNoVirtual());
   password_.Swap(&other->password_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  swap(port_, other->port_);
   swap(use_starttls_, other->use_starttls_);
   swap(use_ssl_, other->use_ssl_);
-  swap(port_, other->port_);
   swap(system_, other->system_);
 }
 
@@ -7567,37 +7498,11 @@ void SMTPGatewayInfoResponse::InternalSwap(SMTPGatewayInfoResponse* other) {
 // ===================================================================
 
 void SMTPCheckGatewayRequest::InitAsDefaultInstance() {
-  ::ric::notify::_SMTPCheckGatewayRequest_default_instance_._instance.get_mutable()->use_starttls_ = const_cast< ::google::protobuf::BoolValue*>(
-      ::google::protobuf::BoolValue::internal_default_instance());
-  ::ric::notify::_SMTPCheckGatewayRequest_default_instance_._instance.get_mutable()->use_ssl_ = const_cast< ::google::protobuf::BoolValue*>(
-      ::google::protobuf::BoolValue::internal_default_instance());
 }
 class SMTPCheckGatewayRequest::HasBitSetters {
  public:
-  static const ::google::protobuf::BoolValue& use_starttls(const SMTPCheckGatewayRequest* msg);
-  static const ::google::protobuf::BoolValue& use_ssl(const SMTPCheckGatewayRequest* msg);
 };
 
-const ::google::protobuf::BoolValue&
-SMTPCheckGatewayRequest::HasBitSetters::use_starttls(const SMTPCheckGatewayRequest* msg) {
-  return *msg->use_starttls_;
-}
-const ::google::protobuf::BoolValue&
-SMTPCheckGatewayRequest::HasBitSetters::use_ssl(const SMTPCheckGatewayRequest* msg) {
-  return *msg->use_ssl_;
-}
-void SMTPCheckGatewayRequest::clear_use_starttls() {
-  if (GetArenaNoVirtual() == nullptr && use_starttls_ != nullptr) {
-    delete use_starttls_;
-  }
-  use_starttls_ = nullptr;
-}
-void SMTPCheckGatewayRequest::clear_use_ssl() {
-  if (GetArenaNoVirtual() == nullptr && use_ssl_ != nullptr) {
-    delete use_ssl_;
-  }
-  use_ssl_ = nullptr;
-}
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SMTPCheckGatewayRequest::kHostFieldNumber;
 const int SMTPCheckGatewayRequest::kPortFieldNumber;
@@ -7628,17 +7533,9 @@ SMTPCheckGatewayRequest::SMTPCheckGatewayRequest(const SMTPCheckGatewayRequest& 
   if (from.password().size() > 0) {
     password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
   }
-  if (from.has_use_starttls()) {
-    use_starttls_ = new ::google::protobuf::BoolValue(*from.use_starttls_);
-  } else {
-    use_starttls_ = nullptr;
-  }
-  if (from.has_use_ssl()) {
-    use_ssl_ = new ::google::protobuf::BoolValue(*from.use_ssl_);
-  } else {
-    use_ssl_ = nullptr;
-  }
-  port_ = from.port_;
+  ::memcpy(&port_, &from.port_,
+    static_cast<size_t>(reinterpret_cast<char*>(&use_ssl_) -
+    reinterpret_cast<char*>(&port_)) + sizeof(use_ssl_));
   // @@protoc_insertion_point(copy_constructor:ric.notify.SMTPCheckGatewayRequest)
 }
 
@@ -7648,9 +7545,9 @@ void SMTPCheckGatewayRequest::SharedCtor() {
   host_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   username_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&use_starttls_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&port_) -
-      reinterpret_cast<char*>(&use_starttls_)) + sizeof(port_));
+  ::memset(&port_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&use_ssl_) -
+      reinterpret_cast<char*>(&port_)) + sizeof(use_ssl_));
 }
 
 SMTPCheckGatewayRequest::~SMTPCheckGatewayRequest() {
@@ -7662,8 +7559,6 @@ void SMTPCheckGatewayRequest::SharedDtor() {
   host_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   username_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete use_starttls_;
-  if (this != internal_default_instance()) delete use_ssl_;
 }
 
 void SMTPCheckGatewayRequest::SetCachedSize(int size) const {
@@ -7684,15 +7579,9 @@ void SMTPCheckGatewayRequest::Clear() {
   host_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   username_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (GetArenaNoVirtual() == nullptr && use_starttls_ != nullptr) {
-    delete use_starttls_;
-  }
-  use_starttls_ = nullptr;
-  if (GetArenaNoVirtual() == nullptr && use_ssl_ != nullptr) {
-    delete use_ssl_;
-  }
-  use_ssl_ = nullptr;
-  port_ = 0;
+  ::memset(&port_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&use_ssl_) -
+      reinterpret_cast<char*>(&port_)) + sizeof(use_ssl_));
   _internal_metadata_.Clear();
 }
 
@@ -7764,30 +7653,18 @@ const char* SMTPCheckGatewayRequest::_InternalParse(const char* begin, const cha
         ptr += size;
         break;
       }
-      // .google.protobuf.BoolValue use_starttls = 5;
+      // bool use_starttls = 5;
       case 5: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 42) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        if (static_cast<::google::protobuf::uint8>(tag) != 40) goto handle_unusual;
+        msg->set_use_starttls(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::google::protobuf::BoolValue::_InternalParse;
-        object = msg->mutable_use_starttls();
-        if (size > end - ptr) goto len_delim_till_end;
-        ptr += size;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
-            {parser_till_end, object}, ptr - size, ptr));
         break;
       }
-      // .google.protobuf.BoolValue use_ssl = 6;
+      // bool use_ssl = 6;
       case 6: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        if (static_cast<::google::protobuf::uint8>(tag) != 48) goto handle_unusual;
+        msg->set_use_ssl(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::google::protobuf::BoolValue::_InternalParse;
-        object = msg->mutable_use_ssl();
-        if (size > end - ptr) goto len_delim_till_end;
-        ptr += size;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
-            {parser_till_end, object}, ptr - size, ptr));
         break;
       }
       default: {
@@ -7882,22 +7759,26 @@ bool SMTPCheckGatewayRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // .google.protobuf.BoolValue use_starttls = 5;
+      // bool use_starttls = 5;
       case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (42 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_use_starttls()));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (40 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &use_starttls_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .google.protobuf.BoolValue use_ssl = 6;
+      // bool use_ssl = 6;
       case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_use_ssl()));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (48 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &use_ssl_)));
         } else {
           goto handle_unusual;
         }
@@ -7966,16 +7847,14 @@ void SMTPCheckGatewayRequest::SerializeWithCachedSizes(
       4, this->password(), output);
   }
 
-  // .google.protobuf.BoolValue use_starttls = 5;
-  if (this->has_use_starttls()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, HasBitSetters::use_starttls(this), output);
+  // bool use_starttls = 5;
+  if (this->use_starttls() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->use_starttls(), output);
   }
 
-  // .google.protobuf.BoolValue use_ssl = 6;
-  if (this->has_use_ssl()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, HasBitSetters::use_ssl(this), output);
+  // bool use_ssl = 6;
+  if (this->use_ssl() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(6, this->use_ssl(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -8029,18 +7908,14 @@ void SMTPCheckGatewayRequest::SerializeWithCachedSizes(
         4, this->password(), target);
   }
 
-  // .google.protobuf.BoolValue use_starttls = 5;
-  if (this->has_use_starttls()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        5, HasBitSetters::use_starttls(this), target);
+  // bool use_starttls = 5;
+  if (this->use_starttls() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->use_starttls(), target);
   }
 
-  // .google.protobuf.BoolValue use_ssl = 6;
-  if (this->has_use_ssl()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        6, HasBitSetters::use_ssl(this), target);
+  // bool use_ssl = 6;
+  if (this->use_ssl() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(6, this->use_ssl(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -8085,25 +7960,21 @@ size_t SMTPCheckGatewayRequest::ByteSizeLong() const {
         this->password());
   }
 
-  // .google.protobuf.BoolValue use_starttls = 5;
-  if (this->has_use_starttls()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *use_starttls_);
-  }
-
-  // .google.protobuf.BoolValue use_ssl = 6;
-  if (this->has_use_ssl()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *use_ssl_);
-  }
-
   // int32 port = 2;
   if (this->port() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->port());
+  }
+
+  // bool use_starttls = 5;
+  if (this->use_starttls() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool use_ssl = 6;
+  if (this->use_ssl() != 0) {
+    total_size += 1 + 1;
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -8145,14 +8016,14 @@ void SMTPCheckGatewayRequest::MergeFrom(const SMTPCheckGatewayRequest& from) {
 
     password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
   }
-  if (from.has_use_starttls()) {
-    mutable_use_starttls()->::google::protobuf::BoolValue::MergeFrom(from.use_starttls());
-  }
-  if (from.has_use_ssl()) {
-    mutable_use_ssl()->::google::protobuf::BoolValue::MergeFrom(from.use_ssl());
-  }
   if (from.port() != 0) {
     set_port(from.port());
+  }
+  if (from.use_starttls() != 0) {
+    set_use_starttls(from.use_starttls());
+  }
+  if (from.use_ssl() != 0) {
+    set_use_ssl(from.use_ssl());
   }
 }
 
@@ -8187,9 +8058,9 @@ void SMTPCheckGatewayRequest::InternalSwap(SMTPCheckGatewayRequest* other) {
     GetArenaNoVirtual());
   password_.Swap(&other->password_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  swap(port_, other->port_);
   swap(use_starttls_, other->use_starttls_);
   swap(use_ssl_, other->use_ssl_);
-  swap(port_, other->port_);
 }
 
 ::google::protobuf::Metadata SMTPCheckGatewayRequest::GetMetadata() const {
