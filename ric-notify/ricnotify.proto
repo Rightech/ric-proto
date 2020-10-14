@@ -120,8 +120,8 @@ message SMTPGatewayInfoResponse {
   int32 port = 4;
   string username = 5;
   string password = 6;
-  google.protobuf.BoolValue use_starttls = 7;
-  google.protobuf.BoolValue use_ssl = 8;
+  bool use_starttls = 7;
+  bool use_ssl = 8;
   bool system = 9;
 }
 
@@ -130,8 +130,8 @@ message SMTPCheckGatewayRequest {
   int32 port = 2;
   string username = 3;
   string password = 4;
-  google.protobuf.BoolValue use_starttls = 5;
-  google.protobuf.BoolValue use_ssl = 6;
+  bool use_starttls = 5;
+  bool use_ssl = 6;
 }
 
 message SMTPCheckGatewayResponse {
