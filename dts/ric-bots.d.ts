@@ -8,6 +8,7 @@ export interface Bots {
   AddToGenConfig(request: AddToGenConfigRequest): Promise<EmptyResponse>;
   RemoveFromGenConfig(request: RemoveFromGenConfigRequest): Promise<EmptyResponse>;
   SetBotConfig(request: SetBotConfigRequest): Promise<EmptyResponse>;
+  Call(request: CallRequest): Promise<EmptyResponse>;
 }
 
 export interface EmptyResponse {
@@ -89,4 +90,14 @@ export interface StartGeoRequest {
 export interface SetBotConfigRequest {
   objectId?: string;
   sendInterval?: number;
+}
+
+export interface CallRequest {
+  name?: string;
+  params?: Params[];
+}
+
+export interface Params {
+  key?: string;
+  value?: string;
 }

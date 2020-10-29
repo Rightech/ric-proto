@@ -18,6 +18,7 @@
 
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dbots_2fricbots_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_AddToGenConfigRequest_LinearType_ric_2dbots_2fricbots_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dbots_2fricbots_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_AddToGenConfigRequest_RandomType_ric_2dbots_2fricbots_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dbots_2fricbots_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_CallRequest_ParamsEntry_DoNotUse_ric_2dbots_2fricbots_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dbots_2fricbots_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_SetGeoConfigRequest_MapEntry_DoNotUse_ric_2dbots_2fricbots_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dbots_2fricbots_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_SetGeoConfigRequest_Point_ric_2dbots_2fricbots_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dbots_2fricbots_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_SetStateRequest_StateValue_ric_2dbots_2fricbots_2eproto;
@@ -93,6 +94,14 @@ class SetBotConfigRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<SetBotConfigRequest> _instance;
 } _SetBotConfigRequest_default_instance_;
+class CallRequest_ParamsEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<CallRequest_ParamsEntry_DoNotUse> _instance;
+} _CallRequest_ParamsEntry_DoNotUse_default_instance_;
+class CallRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<CallRequest> _instance;
+} _CallRequest_default_instance_;
 }  // namespace bots
 }  // namespace ric
 static void InitDefaultsEmptyResponse_ric_2dbots_2fricbots_2eproto() {
@@ -323,6 +332,34 @@ static void InitDefaultsSetBotConfigRequest_ric_2dbots_2fricbots_2eproto() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_SetBotConfigRequest_ric_2dbots_2fricbots_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSetBotConfigRequest_ric_2dbots_2fricbots_2eproto}, {}};
 
+static void InitDefaultsCallRequest_ParamsEntry_DoNotUse_ric_2dbots_2fricbots_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::bots::_CallRequest_ParamsEntry_DoNotUse_default_instance_;
+    new (ptr) ::ric::bots::CallRequest_ParamsEntry_DoNotUse();
+  }
+  ::ric::bots::CallRequest_ParamsEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_CallRequest_ParamsEntry_DoNotUse_ric_2dbots_2fricbots_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsCallRequest_ParamsEntry_DoNotUse_ric_2dbots_2fricbots_2eproto}, {}};
+
+static void InitDefaultsCallRequest_ric_2dbots_2fricbots_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::bots::_CallRequest_default_instance_;
+    new (ptr) ::ric::bots::CallRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::bots::CallRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_CallRequest_ric_2dbots_2fricbots_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsCallRequest_ric_2dbots_2fricbots_2eproto}, {
+      &scc_info_CallRequest_ParamsEntry_DoNotUse_ric_2dbots_2fricbots_2eproto.base,}};
+
 void InitDefaults_ric_2dbots_2fricbots_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_EmptyResponse_ric_2dbots_2fricbots_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_StartRequest_ric_2dbots_2fricbots_2eproto.base);
@@ -340,9 +377,11 @@ void InitDefaults_ric_2dbots_2fricbots_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_PauseStopGeoRequest_ric_2dbots_2fricbots_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_StartGeoRequest_ric_2dbots_2fricbots_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SetBotConfigRequest_ric_2dbots_2fricbots_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_CallRequest_ParamsEntry_DoNotUse_ric_2dbots_2fricbots_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_CallRequest_ric_2dbots_2fricbots_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dbots_2fricbots_2eproto[16];
+::google::protobuf::Metadata file_level_metadata_ric_2dbots_2fricbots_2eproto[18];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors_ric_2dbots_2fricbots_2eproto[1];
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dbots_2fricbots_2eproto = nullptr;
 
@@ -465,6 +504,22 @@ const ::google::protobuf::uint32 TableStruct_ric_2dbots_2fricbots_2eproto::offse
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::bots::SetBotConfigRequest, object_id_),
   PROTOBUF_FIELD_OFFSET(::ric::bots::SetBotConfigRequest, send_interval_),
+  PROTOBUF_FIELD_OFFSET(::ric::bots::CallRequest_ParamsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::ric::bots::CallRequest_ParamsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::bots::CallRequest_ParamsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::ric::bots::CallRequest_ParamsEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::bots::CallRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::bots::CallRequest, name_),
+  PROTOBUF_FIELD_OFFSET(::ric::bots::CallRequest, params_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ric::bots::EmptyResponse)},
@@ -483,6 +538,8 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 98, -1, sizeof(::ric::bots::PauseStopGeoRequest)},
   { 105, -1, sizeof(::ric::bots::StartGeoRequest)},
   { 111, -1, sizeof(::ric::bots::SetBotConfigRequest)},
+  { 118, 125, sizeof(::ric::bots::CallRequest_ParamsEntry_DoNotUse)},
+  { 127, -1, sizeof(::ric::bots::CallRequest)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -502,12 +559,14 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bots::_PauseStopGeoRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bots::_StartGeoRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bots::_SetBotConfigRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bots::_CallRequest_ParamsEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::bots::_CallRequest_default_instance_),
 };
 
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dbots_2fricbots_2eproto = {
   {}, AddDescriptors_ric_2dbots_2fricbots_2eproto, "ric-bots/ricbots.proto", schemas,
   file_default_instances, TableStruct_ric_2dbots_2fricbots_2eproto::offsets,
-  file_level_metadata_ric_2dbots_2fricbots_2eproto, 16, file_level_enum_descriptors_ric_2dbots_2fricbots_2eproto, file_level_service_descriptors_ric_2dbots_2fricbots_2eproto,
+  file_level_metadata_ric_2dbots_2fricbots_2eproto, 18, file_level_enum_descriptors_ric_2dbots_2fricbots_2eproto, file_level_service_descriptors_ric_2dbots_2fricbots_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dbots_2fricbots_2eproto[] =
@@ -541,28 +600,33 @@ const char descriptor_table_protodef_ric_2dbots_2fricbots_2eproto[] =
   " \001(\t\022\014\n\004stop\030\002 \001(\010\"$\n\017StartGeoRequest\022\021\n"
   "\tobject_id\030\001 \001(\t\"\?\n\023SetBotConfigRequest\022"
   "\021\n\tobject_id\030\001 \001(\t\022\025\n\rsend_interval\030\002 \001("
-  "\0012\362\004\n\004Bots\0228\n\005Start\022\026.ric.bots.StartRequ"
-  "est\032\027.ric.bots.EmptyResponse\0226\n\004Stop\022\025.r"
-  "ic.bots.StopRequest\032\027.ric.bots.EmptyResp"
-  "onse\022>\n\010SetState\022\031.ric.bots.SetStateRequ"
-  "est\032\027.ric.bots.EmptyResponse\022F\n\014SetGeoCo"
-  "nfig\022\035.ric.bots.SetGeoConfigRequest\032\027.ri"
-  "c.bots.EmptyResponse\022F\n\014PauseStopGeo\022\035.r"
-  "ic.bots.PauseStopGeoRequest\032\027.ric.bots.E"
-  "mptyResponse\022>\n\010StartGeo\022\031.ric.bots.Star"
-  "tGeoRequest\032\027.ric.bots.EmptyResponse\022J\n\016"
-  "AddToGenConfig\022\037.ric.bots.AddToGenConfig"
-  "Request\032\027.ric.bots.EmptyResponse\022T\n\023Remo"
-  "veFromGenConfig\022$.ric.bots.RemoveFromGen"
-  "ConfigRequest\032\027.ric.bots.EmptyResponse\022F"
-  "\n\014SetBotConfig\022\035.ric.bots.SetBotConfigRe"
-  "quest\032\027.ric.bots.EmptyResponseB\024Z\022./ric-"
-  "bots;ricbotsb\006proto3"
+  "\001\"}\n\013CallRequest\022\014\n\004name\030\001 \001(\t\0221\n\006params"
+  "\030\002 \003(\0132!.ric.bots.CallRequest.ParamsEntr"
+  "y\032-\n\013ParamsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002"
+  " \001(\t:\0028\0012\252\005\n\004Bots\0228\n\005Start\022\026.ric.bots.St"
+  "artRequest\032\027.ric.bots.EmptyResponse\0226\n\004S"
+  "top\022\025.ric.bots.StopRequest\032\027.ric.bots.Em"
+  "ptyResponse\022>\n\010SetState\022\031.ric.bots.SetSt"
+  "ateRequest\032\027.ric.bots.EmptyResponse\022F\n\014S"
+  "etGeoConfig\022\035.ric.bots.SetGeoConfigReque"
+  "st\032\027.ric.bots.EmptyResponse\022F\n\014PauseStop"
+  "Geo\022\035.ric.bots.PauseStopGeoRequest\032\027.ric"
+  ".bots.EmptyResponse\022>\n\010StartGeo\022\031.ric.bo"
+  "ts.StartGeoRequest\032\027.ric.bots.EmptyRespo"
+  "nse\022J\n\016AddToGenConfig\022\037.ric.bots.AddToGe"
+  "nConfigRequest\032\027.ric.bots.EmptyResponse\022"
+  "T\n\023RemoveFromGenConfig\022$.ric.bots.Remove"
+  "FromGenConfigRequest\032\027.ric.bots.EmptyRes"
+  "ponse\022F\n\014SetBotConfig\022\035.ric.bots.SetBotC"
+  "onfigRequest\032\027.ric.bots.EmptyResponse\0226\n"
+  "\004Call\022\025.ric.bots.CallRequest\032\027.ric.bots."
+  "EmptyResponseB\024Z\022./ric-bots;ricbotsb\006pro"
+  "to3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dbots_2fricbots_2eproto = {
   false, InitDefaults_ric_2dbots_2fricbots_2eproto, 
   descriptor_table_protodef_ric_2dbots_2fricbots_2eproto,
-  "ric-bots/ricbots.proto", &assign_descriptors_table_ric_2dbots_2fricbots_2eproto, 1860,
+  "ric-bots/ricbots.proto", &assign_descriptors_table_ric_2dbots_2fricbots_2eproto, 2043,
 };
 
 void AddDescriptors_ric_2dbots_2fricbots_2eproto() {
@@ -5746,6 +5810,506 @@ void SetBotConfigRequest::InternalSwap(SetBotConfigRequest* other) {
 }
 
 
+// ===================================================================
+
+CallRequest_ParamsEntry_DoNotUse::CallRequest_ParamsEntry_DoNotUse() {}
+CallRequest_ParamsEntry_DoNotUse::CallRequest_ParamsEntry_DoNotUse(::google::protobuf::Arena* arena)
+    : SuperType(arena) {}
+void CallRequest_ParamsEntry_DoNotUse::MergeFrom(const CallRequest_ParamsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::google::protobuf::Metadata CallRequest_ParamsEntry_DoNotUse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dbots_2fricbots_2eproto);
+  return ::file_level_metadata_ric_2dbots_2fricbots_2eproto[16];
+}
+void CallRequest_ParamsEntry_DoNotUse::MergeFrom(
+    const ::google::protobuf::Message& other) {
+  ::google::protobuf::Message::MergeFrom(other);
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool CallRequest_ParamsEntry_DoNotUse::_ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx) {
+  using MF = ::google::protobuf::internal::MapField<
+      CallRequest_ParamsEntry_DoNotUse, EntryKeyType, EntryValueType,
+      kEntryKeyFieldType, kEntryValueFieldType,
+      kEntryDefaultEnumValue>;
+  auto mf = static_cast<MF*>(object);
+  Parser<MF, ::google::protobuf::Map<EntryKeyType, EntryValueType>> parser(mf);
+#define DO_(x) if (!(x)) return false
+  DO_(parser.ParseMap(begin, end));
+  DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+    parser.key().data(), static_cast<int>(parser.key().length()),
+    ::google::protobuf::internal::WireFormatLite::PARSE,
+    "ric.bots.CallRequest.ParamsEntry.key"));
+  DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+    parser.value().data(), static_cast<int>(parser.value().length()),
+    ::google::protobuf::internal::WireFormatLite::PARSE,
+    "ric.bots.CallRequest.ParamsEntry.value"));
+#undef DO_
+  return true;
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+
+// ===================================================================
+
+void CallRequest::InitAsDefaultInstance() {
+}
+class CallRequest::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int CallRequest::kNameFieldNumber;
+const int CallRequest::kParamsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+CallRequest::CallRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.bots.CallRequest)
+}
+CallRequest::CallRequest(const CallRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  params_.MergeFrom(from.params_);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.name().size() > 0) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.bots.CallRequest)
+}
+
+void CallRequest::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_CallRequest_ric_2dbots_2fricbots_2eproto.base);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+CallRequest::~CallRequest() {
+  // @@protoc_insertion_point(destructor:ric.bots.CallRequest)
+  SharedDtor();
+}
+
+void CallRequest::SharedDtor() {
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void CallRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const CallRequest& CallRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_CallRequest_ric_2dbots_2fricbots_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void CallRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.bots.CallRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  params_.Clear();
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* CallRequest::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<CallRequest*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // string name = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.bots.CallRequest.name");
+        object = msg->mutable_name();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // map<string, string> params = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::google::protobuf::internal::SlowMapEntryParser;
+          auto parse_map = ::ric::bots::CallRequest_ParamsEntry_DoNotUse::_ParseMap;
+          ctx->extra_parse_data().payload.clear();
+          ctx->extra_parse_data().parse_map = parse_map;
+          object = &msg->params_;
+          if (size > end - ptr) goto len_delim_till_end;
+          auto newend = ptr + size;
+          GOOGLE_PROTOBUF_PARSER_ASSERT(parse_map(ptr, newend, object, ctx));
+          ptr = newend;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 18 && (ptr += 1));
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool CallRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.bots.CallRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string name = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_name()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->name().data(), static_cast<int>(this->name().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.bots.CallRequest.name"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // map<string, string> params = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          CallRequest_ParamsEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
+              CallRequest_ParamsEntry_DoNotUse,
+              ::std::string, ::std::string,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              0 >,
+            ::google::protobuf::Map< ::std::string, ::std::string > > parser(&params_);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, &parser));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.key().data(), static_cast<int>(parser.key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.bots.CallRequest.ParamsEntry.key"));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.value().data(), static_cast<int>(parser.value().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.bots.CallRequest.ParamsEntry.value"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.bots.CallRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.bots.CallRequest)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void CallRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.bots.CallRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->name().data(), static_cast<int>(this->name().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.bots.CallRequest.name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->name(), output);
+  }
+
+  // map<string, string> params = 2;
+  if (!this->params().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::std::string >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.bots.CallRequest.ParamsEntry.key");
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->second.data(), static_cast<int>(p->second.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.bots.CallRequest.ParamsEntry.value");
+      }
+    };
+
+    if (output->IsSerializationDeterministic() &&
+        this->params().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->params().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::std::string >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->params().begin();
+          it != this->params().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<CallRequest_ParamsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(params_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(2, *entry, output);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<CallRequest_ParamsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->params().begin();
+          it != this->params().end(); ++it) {
+        entry.reset(params_.NewEntryWrapper(it->first, it->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(2, *entry, output);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.bots.CallRequest)
+}
+
+::google::protobuf::uint8* CallRequest::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.bots.CallRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->name().data(), static_cast<int>(this->name().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.bots.CallRequest.name");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->name(), target);
+  }
+
+  // map<string, string> params = 2;
+  if (!this->params().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::std::string >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.bots.CallRequest.ParamsEntry.key");
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->second.data(), static_cast<int>(p->second.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.bots.CallRequest.ParamsEntry.value");
+      }
+    };
+
+    if (false &&
+        this->params().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->params().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::std::string >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->params().begin();
+          it != this->params().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<CallRequest_ParamsEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(params_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(2, *entry, target);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<CallRequest_ParamsEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->params().begin();
+          it != this->params().end(); ++it) {
+        entry.reset(params_.NewEntryWrapper(it->first, it->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(2, *entry, target);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.bots.CallRequest)
+  return target;
+}
+
+size_t CallRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.bots.CallRequest)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // map<string, string> params = 2;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->params_size());
+  {
+    ::std::unique_ptr<CallRequest_ParamsEntry_DoNotUse> entry;
+    for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+        it = this->params().begin();
+        it != this->params().end(); ++it) {
+      entry.reset(params_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
+    }
+  }
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->name());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CallRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.bots.CallRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CallRequest* source =
+      ::google::protobuf::DynamicCastToGenerated<CallRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.bots.CallRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.bots.CallRequest)
+    MergeFrom(*source);
+  }
+}
+
+void CallRequest::MergeFrom(const CallRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.bots.CallRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  params_.MergeFrom(from.params_);
+  if (from.name().size() > 0) {
+
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+}
+
+void CallRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.bots.CallRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CallRequest::CopyFrom(const CallRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.bots.CallRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CallRequest::IsInitialized() const {
+  return true;
+}
+
+void CallRequest::Swap(CallRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void CallRequest::InternalSwap(CallRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  params_.Swap(&other->params_);
+  name_.Swap(&other->name_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+}
+
+::google::protobuf::Metadata CallRequest::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dbots_2fricbots_2eproto);
+  return ::file_level_metadata_ric_2dbots_2fricbots_2eproto[kIndexInFileMessages];
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace bots
 }  // namespace ric
@@ -5798,6 +6362,12 @@ template<> PROTOBUF_NOINLINE ::ric::bots::StartGeoRequest* Arena::CreateMaybeMes
 }
 template<> PROTOBUF_NOINLINE ::ric::bots::SetBotConfigRequest* Arena::CreateMaybeMessage< ::ric::bots::SetBotConfigRequest >(Arena* arena) {
   return Arena::CreateInternal< ::ric::bots::SetBotConfigRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::bots::CallRequest_ParamsEntry_DoNotUse* Arena::CreateMaybeMessage< ::ric::bots::CallRequest_ParamsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::bots::CallRequest_ParamsEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::bots::CallRequest* Arena::CreateMaybeMessage< ::ric::bots::CallRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::bots::CallRequest >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

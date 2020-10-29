@@ -29,6 +29,7 @@ static const char* Bots_method_names[] = {
   "/ric.bots.Bots/AddToGenConfig",
   "/ric.bots.Bots/RemoveFromGenConfig",
   "/ric.bots.Bots/SetBotConfig",
+  "/ric.bots.Bots/Call",
 };
 
 std::unique_ptr< Bots::Stub> Bots::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -47,6 +48,7 @@ Bots::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   , rpcmethod_AddToGenConfig_(Bots_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_RemoveFromGenConfig_(Bots_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SetBotConfig_(Bots_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Call_(Bots_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Bots::Stub::Start(::grpc::ClientContext* context, const ::ric::bots::StartRequest& request, ::ric::bots::EmptyResponse* response) {
@@ -229,6 +231,26 @@ void Bots::Stub::experimental_async::SetBotConfig(::grpc::ClientContext* context
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bots::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_SetBotConfig_, context, request, false);
 }
 
+::grpc::Status Bots::Stub::Call(::grpc::ClientContext* context, const ::ric::bots::CallRequest& request, ::ric::bots::EmptyResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Call_, context, request, response);
+}
+
+void Bots::Stub::experimental_async::Call(::grpc::ClientContext* context, const ::ric::bots::CallRequest* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Call_, context, request, response, std::move(f));
+}
+
+void Bots::Stub::experimental_async::Call(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bots::EmptyResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Call_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* Bots::Stub::AsyncCallRaw(::grpc::ClientContext* context, const ::ric::bots::CallRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bots::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Call_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::bots::EmptyResponse>* Bots::Stub::PrepareAsyncCallRaw(::grpc::ClientContext* context, const ::ric::bots::CallRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::bots::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Call_, context, request, false);
+}
+
 Bots::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Bots_method_names[0],
@@ -275,6 +297,11 @@ Bots::Service::Service() {
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Bots::Service, ::ric::bots::SetBotConfigRequest, ::ric::bots::EmptyResponse>(
           std::mem_fn(&Bots::Service::SetBotConfig), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Bots_method_names[9],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Bots::Service, ::ric::bots::CallRequest, ::ric::bots::EmptyResponse>(
+          std::mem_fn(&Bots::Service::Call), this)));
 }
 
 Bots::Service::~Service() {
@@ -337,6 +364,13 @@ Bots::Service::~Service() {
 }
 
 ::grpc::Status Bots::Service::SetBotConfig(::grpc::ServerContext* context, const ::ric::bots::SetBotConfigRequest* request, ::ric::bots::EmptyResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Bots::Service::Call(::grpc::ServerContext* context, const ::ric::bots::CallRequest* request, ::ric::bots::EmptyResponse* response) {
   (void) context;
   (void) request;
   (void) response;

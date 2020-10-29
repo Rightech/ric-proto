@@ -45,7 +45,7 @@ struct TableStruct_ric_2dbots_2fricbots_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[16]
+  static const ::google::protobuf::internal::ParseTable schema[18]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -63,6 +63,12 @@ extern AddToGenConfigRequest_LinearTypeDefaultTypeInternal _AddToGenConfigReques
 class AddToGenConfigRequest_RandomType;
 class AddToGenConfigRequest_RandomTypeDefaultTypeInternal;
 extern AddToGenConfigRequest_RandomTypeDefaultTypeInternal _AddToGenConfigRequest_RandomType_default_instance_;
+class CallRequest;
+class CallRequestDefaultTypeInternal;
+extern CallRequestDefaultTypeInternal _CallRequest_default_instance_;
+class CallRequest_ParamsEntry_DoNotUse;
+class CallRequest_ParamsEntry_DoNotUseDefaultTypeInternal;
+extern CallRequest_ParamsEntry_DoNotUseDefaultTypeInternal _CallRequest_ParamsEntry_DoNotUse_default_instance_;
 class EmptyResponse;
 class EmptyResponseDefaultTypeInternal;
 extern EmptyResponseDefaultTypeInternal _EmptyResponse_default_instance_;
@@ -109,6 +115,8 @@ namespace protobuf {
 template<> ::ric::bots::AddToGenConfigRequest* Arena::CreateMaybeMessage<::ric::bots::AddToGenConfigRequest>(Arena*);
 template<> ::ric::bots::AddToGenConfigRequest_LinearType* Arena::CreateMaybeMessage<::ric::bots::AddToGenConfigRequest_LinearType>(Arena*);
 template<> ::ric::bots::AddToGenConfigRequest_RandomType* Arena::CreateMaybeMessage<::ric::bots::AddToGenConfigRequest_RandomType>(Arena*);
+template<> ::ric::bots::CallRequest* Arena::CreateMaybeMessage<::ric::bots::CallRequest>(Arena*);
+template<> ::ric::bots::CallRequest_ParamsEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::bots::CallRequest_ParamsEntry_DoNotUse>(Arena*);
 template<> ::ric::bots::EmptyResponse* Arena::CreateMaybeMessage<::ric::bots::EmptyResponse>(Arena*);
 template<> ::ric::bots::PauseStopGeoRequest* Arena::CreateMaybeMessage<::ric::bots::PauseStopGeoRequest>(Arena*);
 template<> ::ric::bots::RemoveFromGenConfigRequest* Arena::CreateMaybeMessage<::ric::bots::RemoveFromGenConfigRequest>(Arena*);
@@ -2069,6 +2077,166 @@ class SetBotConfigRequest final :
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dbots_2fricbots_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CallRequest_ParamsEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<CallRequest_ParamsEntry_DoNotUse, 
+    ::std::string, ::std::string,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    0 > {
+public:
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+static bool _ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  typedef ::google::protobuf::internal::MapEntry<CallRequest_ParamsEntry_DoNotUse, 
+    ::std::string, ::std::string,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    0 > SuperType;
+  CallRequest_ParamsEntry_DoNotUse();
+  CallRequest_ParamsEntry_DoNotUse(::google::protobuf::Arena* arena);
+  void MergeFrom(const CallRequest_ParamsEntry_DoNotUse& other);
+  static const CallRequest_ParamsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const CallRequest_ParamsEntry_DoNotUse*>(&_CallRequest_ParamsEntry_DoNotUse_default_instance_); }
+  void MergeFrom(const ::google::protobuf::Message& other) final;
+  ::google::protobuf::Metadata GetMetadata() const;
+};
+
+// -------------------------------------------------------------------
+
+class CallRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.bots.CallRequest) */ {
+ public:
+  CallRequest();
+  virtual ~CallRequest();
+
+  CallRequest(const CallRequest& from);
+
+  inline CallRequest& operator=(const CallRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  CallRequest(CallRequest&& from) noexcept
+    : CallRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline CallRequest& operator=(CallRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const CallRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const CallRequest* internal_default_instance() {
+    return reinterpret_cast<const CallRequest*>(
+               &_CallRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  void Swap(CallRequest* other);
+  friend void swap(CallRequest& a, CallRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CallRequest* New() const final {
+    return CreateMaybeMessage<CallRequest>(nullptr);
+  }
+
+  CallRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<CallRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const CallRequest& from);
+  void MergeFrom(const CallRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CallRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  // map<string, string> params = 2;
+  int params_size() const;
+  void clear_params();
+  static const int kParamsFieldNumber = 2;
+  const ::google::protobuf::Map< ::std::string, ::std::string >&
+      params() const;
+  ::google::protobuf::Map< ::std::string, ::std::string >*
+      mutable_params();
+
+  // string name = 1;
+  void clear_name();
+  static const int kNameFieldNumber = 1;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // @@protoc_insertion_point(class_scope:ric.bots.CallRequest)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::MapField<
+      CallRequest_ParamsEntry_DoNotUse,
+      ::std::string, ::std::string,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      0 > params_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dbots_2fricbots_2eproto;
+};
 // ===================================================================
 
 
@@ -3161,9 +3329,90 @@ inline void SetBotConfigRequest::set_send_interval(double value) {
   // @@protoc_insertion_point(field_set:ric.bots.SetBotConfigRequest.send_interval)
 }
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// CallRequest
+
+// string name = 1;
+inline void CallRequest::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CallRequest::name() const {
+  // @@protoc_insertion_point(field_get:ric.bots.CallRequest.name)
+  return name_.GetNoArena();
+}
+inline void CallRequest::set_name(const ::std::string& value) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.bots.CallRequest.name)
+}
+#if LANG_CXX11
+inline void CallRequest::set_name(::std::string&& value) {
+  
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.bots.CallRequest.name)
+}
+#endif
+inline void CallRequest::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.bots.CallRequest.name)
+}
+inline void CallRequest::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.bots.CallRequest.name)
+}
+inline ::std::string* CallRequest::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.bots.CallRequest.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CallRequest::release_name() {
+  // @@protoc_insertion_point(field_release:ric.bots.CallRequest.name)
+  
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CallRequest::set_allocated_name(::std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:ric.bots.CallRequest.name)
+}
+
+// map<string, string> params = 2;
+inline int CallRequest::params_size() const {
+  return params_.size();
+}
+inline void CallRequest::clear_params() {
+  params_.Clear();
+}
+inline const ::google::protobuf::Map< ::std::string, ::std::string >&
+CallRequest::params() const {
+  // @@protoc_insertion_point(field_map:ric.bots.CallRequest.params)
+  return params_.GetMap();
+}
+inline ::google::protobuf::Map< ::std::string, ::std::string >*
+CallRequest::mutable_params() {
+  // @@protoc_insertion_point(field_mutable_map:ric.bots.CallRequest.params)
+  return params_.MutableMap();
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
