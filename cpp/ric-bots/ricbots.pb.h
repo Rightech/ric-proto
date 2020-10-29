@@ -2199,18 +2199,32 @@ class CallRequest final :
 
   // accessors -------------------------------------------------------
 
-  // map<string, string> params = 2;
+  // map<string, string> params = 3;
   int params_size() const;
   void clear_params();
-  static const int kParamsFieldNumber = 2;
+  static const int kParamsFieldNumber = 3;
   const ::google::protobuf::Map< ::std::string, ::std::string >&
       params() const;
   ::google::protobuf::Map< ::std::string, ::std::string >*
       mutable_params();
 
-  // string name = 1;
+  // string object_id = 1;
+  void clear_object_id();
+  static const int kObjectIdFieldNumber = 1;
+  const ::std::string& object_id() const;
+  void set_object_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_object_id(::std::string&& value);
+  #endif
+  void set_object_id(const char* value);
+  void set_object_id(const char* value, size_t size);
+  ::std::string* mutable_object_id();
+  ::std::string* release_object_id();
+  void set_allocated_object_id(::std::string* object_id);
+
+  // string name = 2;
   void clear_name();
-  static const int kNameFieldNumber = 1;
+  static const int kNameFieldNumber = 2;
   const ::std::string& name() const;
   void set_name(const ::std::string& value);
   #if LANG_CXX11
@@ -2233,6 +2247,7 @@ class CallRequest final :
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       0 > params_;
+  ::google::protobuf::internal::ArenaStringPtr object_id_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dbots_2fricbots_2eproto;
@@ -3335,7 +3350,60 @@ inline void SetBotConfigRequest::set_send_interval(double value) {
 
 // CallRequest
 
-// string name = 1;
+// string object_id = 1;
+inline void CallRequest::clear_object_id() {
+  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CallRequest::object_id() const {
+  // @@protoc_insertion_point(field_get:ric.bots.CallRequest.object_id)
+  return object_id_.GetNoArena();
+}
+inline void CallRequest::set_object_id(const ::std::string& value) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.bots.CallRequest.object_id)
+}
+#if LANG_CXX11
+inline void CallRequest::set_object_id(::std::string&& value) {
+  
+  object_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.bots.CallRequest.object_id)
+}
+#endif
+inline void CallRequest::set_object_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.bots.CallRequest.object_id)
+}
+inline void CallRequest::set_object_id(const char* value, size_t size) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.bots.CallRequest.object_id)
+}
+inline ::std::string* CallRequest::mutable_object_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.bots.CallRequest.object_id)
+  return object_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CallRequest::release_object_id() {
+  // @@protoc_insertion_point(field_release:ric.bots.CallRequest.object_id)
+  
+  return object_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CallRequest::set_allocated_object_id(::std::string* object_id) {
+  if (object_id != nullptr) {
+    
+  } else {
+    
+  }
+  object_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), object_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.bots.CallRequest.object_id)
+}
+
+// string name = 2;
 inline void CallRequest::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3388,7 +3456,7 @@ inline void CallRequest::set_allocated_name(::std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:ric.bots.CallRequest.name)
 }
 
-// map<string, string> params = 2;
+// map<string, string> params = 3;
 inline int CallRequest::params_size() const {
   return params_.size();
 }

@@ -93,6 +93,7 @@ export interface SetBotConfigRequest {
 }
 
 export interface CallRequest {
+  objectId?: string;
   name?: string;
   params?: Params[];
 }
