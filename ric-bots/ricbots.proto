@@ -99,6 +99,8 @@ message SetBotConfigRequest {
 }
 
 message CallRequest {
-  string name = 1;
-  map<string, string> params = 2;
+  // @inject_tag: bson:"-"
+  string object_id = 1;
+  string name = 2;
+  map<string, string> params = 3;
 }
