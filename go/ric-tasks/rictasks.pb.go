@@ -352,9 +352,9 @@ type Location struct {
 	Lng    float64 `protobuf:"fixed64,2,opt,name=lng,proto3" json:"lng,omitempty"`
 	Radius float64 `protobuf:"fixed64,3,opt,name=radius,proto3" json:"radius,omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Address string `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty"`
+	Address string `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Indoor *IndoorLocation `protobuf:"bytes,5,opt,name=indoor,proto3" json:"indoor,omitempty"`
+	Indoor *IndoorLocation `protobuf:"bytes,5,opt,name=indoor,proto3" json:"indoor,omitempty" bson:",omitempty"`
 }
 
 func (x *Location) Reset() {
@@ -502,32 +502,32 @@ type Task struct {
 
 	Id *TaskId `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Kind string `protobuf:"bytes,3,opt,name=kind,proto3" json:"kind,omitempty"`
+	Kind string `protobuf:"bytes,3,opt,name=kind,proto3" json:"kind,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Description string      `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
+	Description string      `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty" bson:",omitempty"`
 	Status      Task_Status `protobuf:"varint,5,opt,name=status,proto3,enum=ric.tasks.Task_Status" json:"status,omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Object *ObjectId `protobuf:"bytes,6,opt,name=object,proto3" json:"object,omitempty"`
+	Object *ObjectId `protobuf:"bytes,6,opt,name=object,proto3" json:"object,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Begin *Location `protobuf:"bytes,7,opt,name=begin,proto3" json:"begin,omitempty"`
+	Begin *Location `protobuf:"bytes,7,opt,name=begin,proto3" json:"begin,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	End *Location `protobuf:"bytes,8,opt,name=end,proto3" json:"end,omitempty"`
+	End *Location `protobuf:"bytes,8,opt,name=end,proto3" json:"end,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:"created_at"
-	CreatedAt int64 `protobuf:"varint,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"` // milliseconds
+	CreatedAt int64 `protobuf:"varint,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty" bson:"created_at"` // milliseconds
 	// @inject_tag: bson:",omitempty"
-	Deadlines []*Deadline `protobuf:"bytes,10,rep,name=deadlines,proto3" json:"deadlines,omitempty"`
+	Deadlines []*Deadline `protobuf:"bytes,10,rep,name=deadlines,proto3" json:"deadlines,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Owner *ObjectId `protobuf:"bytes,11,opt,name=owner,proto3" json:"owner,omitempty"`
+	Owner *ObjectId `protobuf:"bytes,11,opt,name=owner,proto3" json:"owner,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Success *wrappers.BoolValue `protobuf:"bytes,12,opt,name=success,proto3" json:"success,omitempty"`
+	Success *wrappers.BoolValue `protobuf:"bytes,12,opt,name=success,proto3" json:"success,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Comment string `protobuf:"bytes,13,opt,name=comment,proto3" json:"comment,omitempty"`
+	Comment string `protobuf:"bytes,13,opt,name=comment,proto3" json:"comment,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Files []string `protobuf:"bytes,14,rep,name=files,proto3" json:"files,omitempty"`
+	Files []string `protobuf:"bytes,14,rep,name=files,proto3" json:"files,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Assignee *ObjectId `protobuf:"bytes,15,opt,name=assignee,proto3" json:"assignee,omitempty"`
+	Assignee *ObjectId `protobuf:"bytes,15,opt,name=assignee,proto3" json:"assignee,omitempty" bson:",omitempty"`
 }
 
 func (x *Task) Reset() {
@@ -676,7 +676,7 @@ type Deadline struct {
 	// number of milliseconds before deadline when service should send
 	// notification
 	// @inject_tag: bson:"notify_until,omitempty"
-	NotifyUntil *wrappers.Int64Value `protobuf:"bytes,2,opt,name=notify_until,json=notifyUntil,proto3" json:"notify_until,omitempty"`
+	NotifyUntil *wrappers.Int64Value `protobuf:"bytes,2,opt,name=notify_until,json=notifyUntil,proto3" json:"notify_until,omitempty" bson:"notify_until,omitempty"`
 	Status      Task_Status          `protobuf:"varint,3,opt,name=status,proto3,enum=ric.tasks.Task_Status" json:"status,omitempty"`
 }
 
@@ -739,19 +739,19 @@ type MasterTask struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @inject_tag: bson:"_id"
-	Oid *ObjectId `protobuf:"bytes,1,opt,name=oid,proto3" json:"oid,omitempty"`
+	Oid *ObjectId `protobuf:"bytes,1,opt,name=oid,proto3" json:"oid,omitempty" bson:"_id"`
 	// @inject_tag: bson:",omitempty"
-	Owner *ObjectId `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
+	Owner *ObjectId `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Group     *ObjectId            `protobuf:"bytes,3,opt,name=group,proto3" json:"group,omitempty"`
+	Group     *ObjectId            `protobuf:"bytes,3,opt,name=group,proto3" json:"group,omitempty" bson:",omitempty"`
 	Subtasks  []*Task              `protobuf:"bytes,4,rep,name=subtasks,proto3" json:"subtasks,omitempty"`
 	Constrain MasterTask_Constrain `protobuf:"varint,5,opt,name=constrain,proto3,enum=ric.tasks.MasterTask_Constrain" json:"constrain,omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Tags     []string            `protobuf:"bytes,6,rep,name=tags,proto3" json:"tags,omitempty"`
+	Tags     []string            `protobuf:"bytes,6,rep,name=tags,proto3" json:"tags,omitempty" bson:",omitempty"`
 	Priority MasterTask_Priority `protobuf:"varint,7,opt,name=priority,proto3,enum=ric.tasks.MasterTask_Priority" json:"priority,omitempty"`
 	Time     int64               `protobuf:"varint,8,opt,name=time,proto3" json:"time,omitempty"` // milliseconds
 	// @inject_tag: bson:",omitempty"
-	Object *ObjectId `protobuf:"bytes,9,opt,name=object,proto3" json:"object,omitempty"`
+	Object *ObjectId `protobuf:"bytes,9,opt,name=object,proto3" json:"object,omitempty" bson:",omitempty"`
 }
 
 func (x *MasterTask) Reset() {
