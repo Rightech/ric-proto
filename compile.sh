@@ -16,7 +16,7 @@ prototool format -w
 prototool generate
 
 if [ $? -ne 0 ]; then
-  exit $?
+  exit 1
 fi
 
 for path in go/*/*.pb.go
