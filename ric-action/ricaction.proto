@@ -135,6 +135,8 @@ message ContainerStatus {
 
 service PublicAPI {
   rpc History(HistoryRequest) returns (stream HistoryResponse);
+  rpc LastState(LastStateRequest) returns (LastStateResponse);
+  rpc SendEvent(EventRequest) returns (EmptyResponse);
   rpc SendEvent(EventRequest) returns (EmptyResponse);
 }
 
@@ -152,4 +154,12 @@ message EventRequest {
   string oid = 1;
   string name = 2;
   bytes data = 3;
+}
+
+message LastStateRequest {
+  string oid = 1;
+}
+
+message LastStateResponse {
+  bytes data = 1;
 }
