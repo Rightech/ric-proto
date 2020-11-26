@@ -1,7 +1,7 @@
 const nanoid = require('nanoid');
 
 const path = require('path');
-const grpc = require('grpc');
+const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
 
 const { callbackify } = require('util');
@@ -126,10 +126,14 @@ class GrpcServer {
     const addr = `${host}:${port}`;
     this.ref = new grpc.Server();
     this.ref.addService(this.serviceDef, this.getImpl());
-    this.ref.bind(addr, grpc.ServerCredentials.createInsecure());
-    this.ref.start();
-
-    log.info(`${this.name.full} started at ${addr}`);
+    this.ref.bindAsync(addr, grpc.ServerCredentials.createInsecure(), (err)=> {
+      if (err) {
+        log.error(err);
+        return;
+      }
+      this.ref.start();
+      log.info(`${this.name.full} started at ${addr}`);
+    });
   }
 
   logStep(step = 'req', call, res) {
