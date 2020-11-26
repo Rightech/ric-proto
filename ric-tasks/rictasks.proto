@@ -7,7 +7,7 @@ option go_package = "./ric-tasks;rictasks";
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/any.proto";
 
-service Task {
+service TaskService {
   // create task. if parent field exists than add it to the end of
   // parent subtasks
   rpc Create(CreateTaskRequest) returns (CreateTaskResponse);
@@ -53,8 +53,8 @@ service Task {
   rpc ChangeStatus(ChangeTaskStatusRequest) returns (ChangeTaskStatusResponse);
 }
 
-service Kind {
-  rpc Create(CreateKidRequest) returns (CreateKindResponse);
+service KindService {
+  rpc Create(CreateKindRequest) returns (CreateKindResponse);
   rpc Get(GetKindRequest) returns (GetKindResponse);
   rpc Update(UpdateKindRequest) returns (UpdateKindResponse);
   rpc Delete(DeleteKindRequest) returns (DeleteKindResponse);
@@ -94,7 +94,7 @@ message Task{
     ORDERED = 2; // all subtasks shuld be done step by step
   }
   enum Status {
-    INVALID = 0; // error
+    NOT_SET = 0; // error
     CREATED = 1;
     ASSIGNED = 2;
     IN_WORK = 3;
@@ -184,7 +184,7 @@ message Report {
   google.protobuf.Any value = 2;
 }
 
-message TaskKind {
+message Kind {
   // @inject_tag: bson:"_id"
   ObjectId oid = 1;
   // @inject_tag: bson:",omitempty"
