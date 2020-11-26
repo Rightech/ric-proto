@@ -5,37 +5,35 @@ package ric.tasks;
 option go_package = "./ric-tasks;rictasks";
 
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/any.proto";
 
-service Tasks {
-  rpc Create(CreateRequest) returns (CreateResponse);
-  // get master task by it's id or by some subtask id
-  // this request always return full master task
-  rpc Get(GetRequest) returns (GetResponse);
-  // this method can update master task and subtasks information
+service Task {
+  // create task. if parent field exists than add it to the end of
+  // parent subtasks
+  rpc Create(CreateTaskRequest) returns (CreateTaskResponse);
+  // get task by it id
+  rpc Get(GetTaskRequest) returns (GetTaskResponse);
+  // update task
   // this method can't update (return error):
-  // 1. subtasks status (use ChangeStatus)
-  // 2. subtasks deadlines if status not equal to CREATED or ASSIGNED
+  // 1. tasks status (use ChangeStatus)
+  // 2. tasks deadlines if status not equal to CREATED or ASSIGNED
   // 3. subtasks order (use UpdateOrder)
   // 4. begin and end location if status not equal to CREATED or ASSIGNED
   //
   // new subtasks can be added but they always append to end of subtasks list
   // use UpdateOrder after this if you need add subtask to specific position
-  //
-  // to update subtask -> TaskId should be present in request
-  // if no TaskId then subtask treated as new
-  rpc Update(UpdateRequest) returns (UpdateResponse);
-  // this method can delete master task or specific subtask
-  // if it is a last subtask then master task also will be deleted
-  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc Update(UpdateTaskRequest) returns (UpdateTaskResponse);
+  // delete task
+  rpc Delete(DeleteTaskRequest) returns (DeleteTaskResponse);
   // update subtasks order
   // order can be updated only if following true:
   // 1. all subtasks has status CREATED or ASSIGNED
   // 2. all subtasks has no deadlines
   //    (if subtask have deadline you can unset it via Update method)
-  rpc UpdateOrder(UpdateOrderRequest) returns (UpdateOrderResponse);
+  rpc UpdateOrder(UpdateTaskOrderRequest) returns (UpdateTaskOrderResponse);
   // change subtask status
-  // this method checks master task constrain before change status
-  // so if constraint ordered you can't take in work subtask if previous subtask
+  // if parent field exists than check parent constrain before change status
+  // so if constraint ordered you can't take in work this task if previous task
   // not closed
   //
   // the following status change is allowed:
@@ -47,12 +45,19 @@ service Tasks {
   // ASSIGNED -> CLOSED (method always set success flag to false)
   // CREATED -> CLOSED (method always set success flag to false)
   //
-  // if subtask has begin location -> change status to IN_WORK can be done only
+  // if task has begin location -> change status to IN_WORK can be done only
   // in this location
   //
-  // if subtask has end location -> change status to CLOSED can be done only
+  // if task has end location -> change status to CLOSED can be done only
   // in this location
-  rpc ChangeStatus(ChangeStatusRequest) returns (ChangeStatusResponse);
+  rpc ChangeStatus(ChangeTaskStatusRequest) returns (ChangeTaskStatusResponse);
+}
+
+service Kind {
+  rpc Create(CreateKidRequest) returns (CreateKindResponse);
+  rpc Get(GetKindRequest) returns (GetKindResponse);
+  rpc Update(UpdateKindRequest) returns (UpdateKindResponse);
+  rpc Delete(DeleteKindRequest) returns (DeleteKindResponse);
 }
 
 message UserContext {
@@ -62,10 +67,6 @@ message UserContext {
 }
 
 message ObjectId {
-  string id = 1;
-}
-
-message TaskId {
   string id = 1;
 }
 
@@ -87,71 +88,74 @@ message IndoorLocation {
 }
 
 message Task{
-    enum Constrain {
-      INVALID = 0; // error
-      UNORDERED = 1; // all subtasks should be done (order doesn't matter)
-      ORDERED = 2; // all subtasks shuld be done step by step
-    }
-    enum Status {
-      INVALID = 0; // error
-      CREATED = 1;
-      ASSIGNED = 2;
-      IN_WORK = 3;
-      CLOSED = 4;
-    }
-    // @inject_tag: bson:"_id"
-    ObjectId oid = 1;
-    // @inject_tag: bson:",omitempty"
-    ObjectId owner = 2;
-    // @inject_tag: bson:",omitempty"
-    ObjectId group = 3;
-    
-    ObjectId parent = 4;
-    
-    repeated Task subtasks = 5;
-    
-    repeated string tags = 6;
-    
-    Constrain constrain = 7;
-    // @inject_tag: bson:",omitempty"
-    
-    int32 priority = 8;
-    
-    int64 created_at = 9; // milliseconds
-    // @inject_tag: bson:",omitempty"
-   
-    string name = 10;
-
-    string description = 11;
-
-    Status status = 12;
-    
-    ObjectId object = 13;
-    
-    ObjectId task_kind = 14;
-    
-    repeated ReportField report_field = 15;
-    // @inject_tag: bson:",omitempty"
-    Location begin = 16;
-    // @inject_tag: bson:",omitempty"
-    Location end = 17;
-  
-    repeated Deadline deadlines = 18;
-  
-    google.protobuf.BoolValue success = 19;
-    // @inject_tag: bson:",omitempty"
-    ObjectId assignee = 20;
-    string assignee_type = 21; // mb enum
-
-    Review review = 22;
-    
-    bytes json = 23; // json blob
+  enum Constrain {
+    INVALID = 0; // error
+    UNORDERED = 1; // all subtasks should be done (order doesn't matter)
+    ORDERED = 2; // all subtasks shuld be done step by step
+  }
+  enum Status {
+    INVALID = 0; // error
+    CREATED = 1;
+    ASSIGNED = 2;
+    IN_WORK = 3;
+    CLOSED = 4;
+  }
+  // @inject_tag: bson:"_id"
+  ObjectId oid = 1;
+  // @inject_tag: bson:",omitempty"
+  ObjectId owner = 2;
+  // @inject_tag: bson:",omitempty"
+  ObjectId group = 3;
+  // @inject_tag: bson:",omitempty"
+  ObjectId parent = 4;
+  // @inject_tag: bson:",omitempty"
+  repeated Task subtasks = 5;
+  // @inject_tag: bson:",omitempty"
+  repeated string tags = 6;
+  // @inject_tag: bson:",omitempty"
+  Constrain constrain = 7;
+  // @inject_tag: bson:",omitempty"
+  int32 priority = 8;
+  // @inject_tag: bson:"created_at,omitempty"
+  int64 created_at = 9; // milliseconds
+  // @inject_tag: bson:",omitempty"
+  string name = 10;
+  // @inject_tag: bson:",omitempty"
+  string description = 11;
+  // @inject_tag: bson:",omitempty"
+  Status status = 12;
+  // @inject_tag: bson:",omitempty"
+  ObjectId object = 13;
+  // @inject_tag: bson:",omitempty"
+  ObjectId kind = 14;
+  // overwride task kind report_format
+  // @inject_tag: bson:"report_format,omitempty"
+  repeated ReportFormat report_format = 15;
+  // @inject_tag: bson:",omitempty"
+  repeated Report report = 16;
+  // @inject_tag: bson:",omitempty"
+  Location begin = 17;
+  // @inject_tag: bson:",omitempty"
+  Location end = 18;
+  // @inject_tag: bson:",omitempty"
+  repeated Deadline deadlines = 19;
+  // @inject_tag: bson:",omitempty"
+  google.protobuf.BoolValue success = 20;
+  // @inject_tag: bson:",omitempty"
+  ObjectId assignee = 21;
+  // @inject_tag: bson:"assignee_type,omitempty"
+  string assignee_type = 22; // mb enum
+  // @inject_tag: bson:",omitempty"
+  Review review = 23;
+  // @inject_tag: bson:",omitempty"
+  bytes json = 24; // json blob
 }
 
 message Review {
   ObjectId reviewer = 1;
-  int32 rating = 2; // Оценка при приеме задачи
-  string comment = 3; // комментарий при приеме
+  int32 rating = 2; // rating when task approved
+  // @inject_tag: bson:",omitempty"
+  string comment = 3;
 }
 
 message Deadline {
@@ -162,94 +166,134 @@ message Deadline {
   google.protobuf.Int64Value notify_until = 2;
   Task.Status status = 3;
 }
-message ReportField{ // TODO: Не уверен как в такой структуре лучше файлы определить
+message ReportFormat {
   enum FieldType {
-      INVALID = 0;
-      BOOLEAN = 1; //checkbox
-      TEXT = 2;
-      NUMBER = 3;
-      FILE = 4;
+    INVALID = 0;
+    BOOLEAN = 1; //checkbox
+    TEXT = 2;
+    NUMBER = 3;
+    FILE = 4;
   }
-  string name = 1; 
+  string name = 1;
   FieldType field = 2;
-  string value = 3; // text, number, boolean
-  ObjectId file = 4;
   google.protobuf.BoolValue required = 5; // flag of require for this field
 }
 
-message TaskKind { // like a Operation in old tasks. 
-  ObjectId objectid = 1;
-  string name = 2; 
-  string discription = 3;
-  string svg = 4; // svg for task this type
-
-  repeated ObjectId role = 5; // roles for access
-
-  repeated ReportField report = 6; // list of fields that can be included in report of task
-
+message Report {
+  string name = 1;
+  google.protobuf.Any value = 2;
 }
 
-message CreateRequest {
-  UserContext ctx = 1;
-  Task task = 2;
-}
-
-message CreateResponse {
+message TaskKind {
+  // @inject_tag: bson:"_id"
   ObjectId oid = 1;
-  repeated TaskId sub_ids = 2;
+  // @inject_tag: bson:",omitempty"
+  string name = 2;
+  // @inject_tag: bson:",omitempty"
+  string discription = 3;
+  // @inject_tag: bson:",omitempty"
+  string svg = 4; // svg for task this type
+  // @inject_tag: bson:",omitempty"
+  repeated ObjectId role = 5; // roles for access
+  // @inject_tag: bson:"report_format,omitempty"
+  repeated ReportFormat report_format = 6;
 }
 
-message GetRequest {
-  oneof payload {
-    ObjectId oid = 1;
-    TaskId tid = 2;
-  }
-}
-
-message GetResponse {
-  Task task = 1;
-}
-
-message DeleteRequest {
-  UserContext ctx = 1;
-  oneof payload {
-    ObjectId oid = 2;
-    TaskId tid = 3;
-  }
-}
-
-message DeleteResponse {}
-
-message UpdateRequest {
+message CreateTaskRequest {
   UserContext ctx = 1;
   Task task = 2;
 }
 
-message UpdateResponse {
+message CreateTaskResponse {
   Task task = 1;
 }
 
-message UpdateOrderRequest {
+message GetTaskRequest {
   UserContext ctx = 1;
-  ObjectId id = 2; // master task id
+  ObjectId oid = 2;
+}
+
+message GetTaskResponse {
+  Task task = 1;
+}
+
+message DeleteTaskRequest {
+  UserContext ctx = 1;
+  ObjectId oid = 2;
+}
+
+message DeleteTaskResponse {}
+
+message UpdateTaskRequest {
+  UserContext ctx = 1;
+  Task task = 2;
+}
+
+message UpdateTaskResponse {
+  Task task = 1;
+}
+
+message UpdateTaskOrderRequest {
+  UserContext ctx = 1;
+  ObjectId oid = 2;
   // new position to task id
   // if new position greater then subtasks length
   // error returned
   map<string, int32> positions = 3;
 }
 
-message UpdateOrderResponse {}
+message UpdateTaskOrderResponse {
+  Task task = 1;
+}
 
-message ChangeStatusRequest {
+message ChangeTaskStatusRequest {
   UserContext ctx = 1;
-  TaskId id = 2;
+  ObjectId oid = 2;
   Task.Status new_status = 3;
   // current location
   Location location = 4;
   // required only if new_status == CLOSED
   google.protobuf.BoolValue success = 5;
   string comment = 6;
-  repeated string files = 7;
+  repeated Report report = 7;
 }
 
-message ChangeStatusResponse {}
+message ChangeTaskStatusResponse {
+  Task task = 1;
+}
+
+message CreateKindRequest {
+  UserContext ctx = 1;
+  Kind kind = 2;
+}
+
+message CreateKindResponse {
+  Kind kind = 1;
+}
+
+message GetKindRequest {
+  UserContext ctx = 1;
+  ObjectId oid = 2;
+}
+
+message GetKindResponse {
+  Kind kind = 1;
+}
+
+message UpdateKindRequest {
+  UserContext ctx = 1;
+  Kind kind = 2;
+}
+
+message UpdateKindResponse {
+  Kind kind = 1;
+}
+
+message DeleteKindRequest {
+  UserContext ctx = 1;
+  ObjectId oid = 2;
+}
+
+message DeleteKindResponse {
+
+}
