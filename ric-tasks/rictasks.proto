@@ -86,42 +86,72 @@ message IndoorLocation {
   double radius = 4;
 }
 
-message Task {
-  enum Status {
-    INVALID = 0; // error
-    CREATED = 1;
-    ASSIGNED = 2;
-    IN_WORK = 3;
-    CLOSED = 4;
-  }
-  TaskId id = 1;
-  // @inject_tag: bson:",omitempty"
-  string name = 2;
-  // @inject_tag: bson:",omitempty"
-  string kind = 3;
-  // @inject_tag: bson:",omitempty"
-  string description = 4;
-  Status status = 5;
-  // @inject_tag: bson:",omitempty"
-  ObjectId object = 6;
-  // @inject_tag: bson:",omitempty"
-  Location begin = 7;
-  // @inject_tag: bson:",omitempty"
-  Location end = 8;
-  // @inject_tag: bson:"created_at"
-  int64 created_at = 9; // milliseconds
-  // @inject_tag: bson:",omitempty"
-  repeated Deadline deadlines = 10;
-  // @inject_tag: bson:",omitempty"
-  ObjectId owner = 11;
-  // @inject_tag: bson:",omitempty"
-  google.protobuf.BoolValue success = 12;
-  // @inject_tag: bson:",omitempty"
-  string comment = 13;
-  // @inject_tag: bson:",omitempty"
-  repeated string files = 14;
-  // @inject_tag: bson:",omitempty"
-  ObjectId assignee = 15;
+message Task{
+    enum Constrain {
+      INVALID = 0; // error
+      UNORDERED = 1; // all subtasks should be done (order doesn't matter)
+      ORDERED = 2; // all subtasks shuld be done step by step
+    }
+    enum Status {
+      INVALID = 0; // error
+      CREATED = 1;
+      ASSIGNED = 2;
+      IN_WORK = 3;
+      CLOSED = 4;
+    }
+    // @inject_tag: bson:"_id"
+    ObjectId oid = 1;
+    // @inject_tag: bson:",omitempty"
+    ObjectId owner = 2;
+    // @inject_tag: bson:",omitempty"
+    ObjectId group = 3;
+    
+    ObjectId parent = 4;
+    
+    repeated Task subtasks = 5;
+    
+    repeated string tags = 6;
+    
+    Constrain constrain = 7;
+    // @inject_tag: bson:",omitempty"
+    
+    int32 priority = 8;
+    
+    int64 created_at = 9; // milliseconds
+    // @inject_tag: bson:",omitempty"
+   
+    string name = 10;
+
+    string description = 11;
+
+    Status status = 12;
+    
+    ObjectId object = 13;
+    
+    ObjectId task_kind = 14;
+    
+    repeated ReportField report_field = 15;
+    // @inject_tag: bson:",omitempty"
+    Location begin = 16;
+    // @inject_tag: bson:",omitempty"
+    Location end = 17;
+  
+    repeated Deadline deadlines = 18;
+  
+    google.protobuf.BoolValue success = 19;
+    // @inject_tag: bson:",omitempty"
+    ObjectId assignee = 20;
+    string assignee_type = 21; // mb enum
+
+    Review review = 22;
+    
+    bytes json = 23; // json blob
+}
+
+message Review {
+  ObjectId reviewer = 1;
+  int32 rating = 2; // Оценка при приеме задачи
+  string comment = 3; // комментарий при приеме
 }
 
 message Deadline {
@@ -132,38 +162,36 @@ message Deadline {
   google.protobuf.Int64Value notify_until = 2;
   Task.Status status = 3;
 }
+message ReportField{ // TODO: Не уверен как в такой структуре лучше файлы определить
+  enum FieldType {
+      INVALID = 0;
+      BOOLEAN = 1; //checkbox
+      TEXT = 2;
+      NUMBER = 3;
+      FILE = 4;
+  }
+  string name = 1; 
+  FieldType field = 2;
+  string value = 3; // text, number, boolean
+  ObjectId file = 4;
+  google.protobuf.BoolValue required = 5; // flag of require for this field
+}
 
-message MasterTask {
-  enum Constrain {
-    INVALID = 0; // error
-    UNORDERED = 1; // all subtasks should be done (order doesn't matter)
-    ORDERED = 2; // all subtasks shuld be done step by step
-  }
-  enum Priority {
-    UNDEFINED = 0;
-    LOW = 1;
-    NORMAL = 2;
-    HIGH = 3;
-  }
-  // @inject_tag: bson:"_id"
-  ObjectId oid = 1;
-  // @inject_tag: bson:",omitempty"
-  ObjectId owner = 2;
-  // @inject_tag: bson:",omitempty"
-  ObjectId group = 3;
-  repeated Task subtasks = 4;
-  Constrain constrain = 5;
-  // @inject_tag: bson:",omitempty"
-  repeated string tags = 6;
-  Priority priority = 7;
-  int64 time = 8; // milliseconds
-  // @inject_tag: bson:",omitempty"
-  ObjectId object = 9;
+message TaskKind { // like a Operation in old tasks. 
+  ObjectId objectid = 1;
+  string name = 2; 
+  string discription = 3;
+  string svg = 4; // svg for task this type
+
+  repeated ObjectId role = 5; // roles for access
+
+  repeated ReportField report = 6; // list of fields that can be included in report of task
+
 }
 
 message CreateRequest {
   UserContext ctx = 1;
-  MasterTask master_task = 2;
+  Task task = 2;
 }
 
 message CreateResponse {
@@ -179,7 +207,7 @@ message GetRequest {
 }
 
 message GetResponse {
-  MasterTask master_task = 1;
+  Task task = 1;
 }
 
 message DeleteRequest {
@@ -194,11 +222,11 @@ message DeleteResponse {}
 
 message UpdateRequest {
   UserContext ctx = 1;
-  MasterTask master_task = 2;
+  Task task = 2;
 }
 
 message UpdateResponse {
-  MasterTask master_task = 1;
+  Task task = 1;
 }
 
 message UpdateOrderRequest {
