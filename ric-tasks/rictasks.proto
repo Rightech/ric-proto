@@ -100,7 +100,7 @@ message Task{
     IN_WORK = 3;
     CLOSED = 4;
   }
-  // @inject_tag: bson:"_id"
+  // @inject_tag: bson:"_id,omitempty"
   ObjectId oid = 1;
   // @inject_tag: bson:",omitempty"
   ObjectId owner = 2;
