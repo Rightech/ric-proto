@@ -457,8 +457,8 @@ type Task struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: bson:"_id"
-	Oid *ObjectId `protobuf:"bytes,1,opt,name=oid,proto3" json:"oid,omitempty" bson:"_id"`
+	// @inject_tag: bson:"_id,omitempty"
+	Oid *ObjectId `protobuf:"bytes,1,opt,name=oid,proto3" json:"oid,omitempty" bson:"_id,omitempty"`
 	// @inject_tag: bson:",omitempty"
 	Owner *ObjectId `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
