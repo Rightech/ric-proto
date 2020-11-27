@@ -4,8 +4,8 @@ package ric.tasks;
 
 option go_package = "./ric-tasks;rictasks";
 
-import "google/protobuf/wrappers.proto";
 import "google/protobuf/any.proto";
+import "google/protobuf/wrappers.proto";
 
 service TaskService {
   // create task. if parent field exists than add it to the end of
@@ -87,7 +87,7 @@ message IndoorLocation {
   double radius = 4;
 }
 
-message Task{
+message Task {
   enum Constrain {
     INVALID = 0; // error
     UNORDERED = 1; // all subtasks should be done (order doesn't matter)
@@ -166,6 +166,7 @@ message Deadline {
   google.protobuf.Int64Value notify_until = 2;
   Task.Status status = 3;
 }
+
 message ReportFormat {
   enum FieldType {
     INVALID = 0;
@@ -294,6 +295,4 @@ message DeleteKindRequest {
   ObjectId oid = 2;
 }
 
-message DeleteKindResponse {
-
-}
+message DeleteKindResponse {}
