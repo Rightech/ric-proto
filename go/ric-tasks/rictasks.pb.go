@@ -465,8 +465,8 @@ type Task struct {
 	Group *ObjectId `protobuf:"bytes,3,opt,name=group,proto3" json:"group,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
 	Parent *ObjectId `protobuf:"bytes,4,opt,name=parent,proto3" json:"parent,omitempty" bson:",omitempty"`
-	// @inject_tag: bson:",omitempty"
-	Subtasks []*Task `protobuf:"bytes,5,rep,name=subtasks,proto3" json:"subtasks,omitempty" bson:",omitempty"`
+	// @inject_tag: bson:"-"
+	Subtasks []*Task `protobuf:"bytes,5,rep,name=subtasks,proto3" json:"subtasks,omitempty" bson:"-"`
 	// @inject_tag: bson:",omitempty"
 	Tags []string `protobuf:"bytes,6,rep,name=tags,proto3" json:"tags,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
