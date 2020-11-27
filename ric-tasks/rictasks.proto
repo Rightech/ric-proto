@@ -108,7 +108,7 @@ message Task {
   ObjectId group = 3;
   // @inject_tag: bson:",omitempty"
   ObjectId parent = 4;
-  // @inject_tag: bson:",omitempty"
+  // @inject_tag: bson:"-"
   repeated Task subtasks = 5;
   // @inject_tag: bson:",omitempty"
   repeated string tags = 6;
