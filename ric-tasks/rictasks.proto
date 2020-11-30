@@ -172,6 +172,7 @@ message TaskEdit {
   StringValue assignee_type = 16;
   Review review = 17;
   BytesValue json = 18;
+}
 
 message Review {
   ObjectId reviewer = 1;
