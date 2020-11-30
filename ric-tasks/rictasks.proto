@@ -60,14 +60,14 @@ service KindService {
   rpc Delete(DeleteKindRequest) returns (DeleteKindResponse);
 }
 
-message UserContext {
-  string group_id = 1;
-  string user_id = 2;
-  string span_id = 3;
-}
-
 message ObjectId {
   string id = 1;
+}
+
+message UserContext {
+  ObjectId group_id = 1;
+  ObjectId user_id = 2;
+  string span_id = 3;
 }
 
 message Location {
