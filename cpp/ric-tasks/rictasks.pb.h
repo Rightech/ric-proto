@@ -265,156 +265,6 @@ inline bool ReportFormat_FieldType_Parse(
 }
 // ===================================================================
 
-class UserContext final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.tasks.UserContext) */ {
- public:
-  UserContext();
-  virtual ~UserContext();
-
-  UserContext(const UserContext& from);
-
-  inline UserContext& operator=(const UserContext& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  UserContext(UserContext&& from) noexcept
-    : UserContext() {
-    *this = ::std::move(from);
-  }
-
-  inline UserContext& operator=(UserContext&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return default_instance().GetDescriptor();
-  }
-  static const UserContext& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const UserContext* internal_default_instance() {
-    return reinterpret_cast<const UserContext*>(
-               &_UserContext_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    0;
-
-  void Swap(UserContext* other);
-  friend void swap(UserContext& a, UserContext& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline UserContext* New() const final {
-    return CreateMaybeMessage<UserContext>(nullptr);
-  }
-
-  UserContext* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<UserContext>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const UserContext& from);
-  void MergeFrom(const UserContext& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
-  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
-  #else
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
-  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      ::google::protobuf::uint8* target) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(UserContext* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // string group_id = 1;
-  void clear_group_id();
-  static const int kGroupIdFieldNumber = 1;
-  const ::std::string& group_id() const;
-  void set_group_id(const ::std::string& value);
-  #if LANG_CXX11
-  void set_group_id(::std::string&& value);
-  #endif
-  void set_group_id(const char* value);
-  void set_group_id(const char* value, size_t size);
-  ::std::string* mutable_group_id();
-  ::std::string* release_group_id();
-  void set_allocated_group_id(::std::string* group_id);
-
-  // string user_id = 2;
-  void clear_user_id();
-  static const int kUserIdFieldNumber = 2;
-  const ::std::string& user_id() const;
-  void set_user_id(const ::std::string& value);
-  #if LANG_CXX11
-  void set_user_id(::std::string&& value);
-  #endif
-  void set_user_id(const char* value);
-  void set_user_id(const char* value, size_t size);
-  ::std::string* mutable_user_id();
-  ::std::string* release_user_id();
-  void set_allocated_user_id(::std::string* user_id);
-
-  // string span_id = 3;
-  void clear_span_id();
-  static const int kSpanIdFieldNumber = 3;
-  const ::std::string& span_id() const;
-  void set_span_id(const ::std::string& value);
-  #if LANG_CXX11
-  void set_span_id(::std::string&& value);
-  #endif
-  void set_span_id(const char* value);
-  void set_span_id(const char* value, size_t size);
-  ::std::string* mutable_span_id();
-  ::std::string* release_span_id();
-  void set_allocated_span_id(::std::string* span_id);
-
-  // @@protoc_insertion_point(class_scope:ric.tasks.UserContext)
- private:
-  class HasBitSetters;
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr group_id_;
-  ::google::protobuf::internal::ArenaStringPtr user_id_;
-  ::google::protobuf::internal::ArenaStringPtr span_id_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_ric_2dtasks_2frictasks_2eproto;
-};
-// -------------------------------------------------------------------
-
 class ObjectId final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.tasks.ObjectId) */ {
  public:
@@ -453,7 +303,7 @@ class ObjectId final :
                &_ObjectId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    0;
 
   void Swap(ObjectId* other);
   friend void swap(ObjectId& a, ObjectId& b) {
@@ -530,6 +380,146 @@ class ObjectId final :
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr id_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dtasks_2frictasks_2eproto;
+};
+// -------------------------------------------------------------------
+
+class UserContext final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.tasks.UserContext) */ {
+ public:
+  UserContext();
+  virtual ~UserContext();
+
+  UserContext(const UserContext& from);
+
+  inline UserContext& operator=(const UserContext& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  UserContext(UserContext&& from) noexcept
+    : UserContext() {
+    *this = ::std::move(from);
+  }
+
+  inline UserContext& operator=(UserContext&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const UserContext& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const UserContext* internal_default_instance() {
+    return reinterpret_cast<const UserContext*>(
+               &_UserContext_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  void Swap(UserContext* other);
+  friend void swap(UserContext& a, UserContext& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline UserContext* New() const final {
+    return CreateMaybeMessage<UserContext>(nullptr);
+  }
+
+  UserContext* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<UserContext>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const UserContext& from);
+  void MergeFrom(const UserContext& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UserContext* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string span_id = 3;
+  void clear_span_id();
+  static const int kSpanIdFieldNumber = 3;
+  const ::std::string& span_id() const;
+  void set_span_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_span_id(::std::string&& value);
+  #endif
+  void set_span_id(const char* value);
+  void set_span_id(const char* value, size_t size);
+  ::std::string* mutable_span_id();
+  ::std::string* release_span_id();
+  void set_allocated_span_id(::std::string* span_id);
+
+  // .ric.tasks.ObjectId group_id = 1;
+  bool has_group_id() const;
+  void clear_group_id();
+  static const int kGroupIdFieldNumber = 1;
+  const ::ric::tasks::ObjectId& group_id() const;
+  ::ric::tasks::ObjectId* release_group_id();
+  ::ric::tasks::ObjectId* mutable_group_id();
+  void set_allocated_group_id(::ric::tasks::ObjectId* group_id);
+
+  // .ric.tasks.ObjectId user_id = 2;
+  bool has_user_id() const;
+  void clear_user_id();
+  static const int kUserIdFieldNumber = 2;
+  const ::ric::tasks::ObjectId& user_id() const;
+  ::ric::tasks::ObjectId* release_user_id();
+  ::ric::tasks::ObjectId* mutable_user_id();
+  void set_allocated_user_id(::ric::tasks::ObjectId* user_id);
+
+  // @@protoc_insertion_point(class_scope:ric.tasks.UserContext)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr span_id_;
+  ::ric::tasks::ObjectId* group_id_;
+  ::ric::tasks::ObjectId* user_id_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dtasks_2frictasks_2eproto;
 };
@@ -4801,111 +4791,164 @@ class DeleteKindResponse final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// UserContext
+// ObjectId
 
-// string group_id = 1;
-inline void UserContext::clear_group_id() {
-  group_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// string id = 1;
+inline void ObjectId::clear_id() {
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& UserContext::group_id() const {
-  // @@protoc_insertion_point(field_get:ric.tasks.UserContext.group_id)
-  return group_id_.GetNoArena();
+inline const ::std::string& ObjectId::id() const {
+  // @@protoc_insertion_point(field_get:ric.tasks.ObjectId.id)
+  return id_.GetNoArena();
 }
-inline void UserContext::set_group_id(const ::std::string& value) {
+inline void ObjectId::set_id(const ::std::string& value) {
   
-  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.tasks.UserContext.group_id)
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.tasks.ObjectId.id)
 }
 #if LANG_CXX11
-inline void UserContext::set_group_id(::std::string&& value) {
+inline void ObjectId::set_id(::std::string&& value) {
   
-  group_id_.SetNoArena(
+  id_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.tasks.UserContext.group_id)
+  // @@protoc_insertion_point(field_set_rvalue:ric.tasks.ObjectId.id)
 }
 #endif
-inline void UserContext::set_group_id(const char* value) {
+inline void ObjectId::set_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.tasks.UserContext.group_id)
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.tasks.ObjectId.id)
 }
-inline void UserContext::set_group_id(const char* value, size_t size) {
+inline void ObjectId::set_id(const char* value, size_t size) {
   
-  group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.tasks.UserContext.group_id)
+  // @@protoc_insertion_point(field_set_pointer:ric.tasks.ObjectId.id)
 }
-inline ::std::string* UserContext::mutable_group_id() {
+inline ::std::string* ObjectId::mutable_id() {
   
-  // @@protoc_insertion_point(field_mutable:ric.tasks.UserContext.group_id)
-  return group_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:ric.tasks.ObjectId.id)
+  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* UserContext::release_group_id() {
-  // @@protoc_insertion_point(field_release:ric.tasks.UserContext.group_id)
+inline ::std::string* ObjectId::release_id() {
+  // @@protoc_insertion_point(field_release:ric.tasks.ObjectId.id)
   
-  return group_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void UserContext::set_allocated_group_id(::std::string* group_id) {
-  if (group_id != nullptr) {
+inline void ObjectId::set_allocated_id(::std::string* id) {
+  if (id != nullptr) {
     
   } else {
     
   }
-  group_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_id);
+  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.ObjectId.id)
+}
+
+// -------------------------------------------------------------------
+
+// UserContext
+
+// .ric.tasks.ObjectId group_id = 1;
+inline bool UserContext::has_group_id() const {
+  return this != internal_default_instance() && group_id_ != nullptr;
+}
+inline void UserContext::clear_group_id() {
+  if (GetArenaNoVirtual() == nullptr && group_id_ != nullptr) {
+    delete group_id_;
+  }
+  group_id_ = nullptr;
+}
+inline const ::ric::tasks::ObjectId& UserContext::group_id() const {
+  const ::ric::tasks::ObjectId* p = group_id_;
+  // @@protoc_insertion_point(field_get:ric.tasks.UserContext.group_id)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::ObjectId*>(
+      &::ric::tasks::_ObjectId_default_instance_);
+}
+inline ::ric::tasks::ObjectId* UserContext::release_group_id() {
+  // @@protoc_insertion_point(field_release:ric.tasks.UserContext.group_id)
+  
+  ::ric::tasks::ObjectId* temp = group_id_;
+  group_id_ = nullptr;
+  return temp;
+}
+inline ::ric::tasks::ObjectId* UserContext::mutable_group_id() {
+  
+  if (group_id_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::tasks::ObjectId>(GetArenaNoVirtual());
+    group_id_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.UserContext.group_id)
+  return group_id_;
+}
+inline void UserContext::set_allocated_group_id(::ric::tasks::ObjectId* group_id) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete group_id_;
+  }
+  if (group_id) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      group_id = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, group_id, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  group_id_ = group_id;
   // @@protoc_insertion_point(field_set_allocated:ric.tasks.UserContext.group_id)
 }
 
-// string user_id = 2;
+// .ric.tasks.ObjectId user_id = 2;
+inline bool UserContext::has_user_id() const {
+  return this != internal_default_instance() && user_id_ != nullptr;
+}
 inline void UserContext::clear_user_id() {
-  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == nullptr && user_id_ != nullptr) {
+    delete user_id_;
+  }
+  user_id_ = nullptr;
 }
-inline const ::std::string& UserContext::user_id() const {
+inline const ::ric::tasks::ObjectId& UserContext::user_id() const {
+  const ::ric::tasks::ObjectId* p = user_id_;
   // @@protoc_insertion_point(field_get:ric.tasks.UserContext.user_id)
-  return user_id_.GetNoArena();
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::ObjectId*>(
+      &::ric::tasks::_ObjectId_default_instance_);
 }
-inline void UserContext::set_user_id(const ::std::string& value) {
-  
-  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.tasks.UserContext.user_id)
-}
-#if LANG_CXX11
-inline void UserContext::set_user_id(::std::string&& value) {
-  
-  user_id_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.tasks.UserContext.user_id)
-}
-#endif
-inline void UserContext::set_user_id(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.tasks.UserContext.user_id)
-}
-inline void UserContext::set_user_id(const char* value, size_t size) {
-  
-  user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.tasks.UserContext.user_id)
-}
-inline ::std::string* UserContext::mutable_user_id() {
-  
-  // @@protoc_insertion_point(field_mutable:ric.tasks.UserContext.user_id)
-  return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* UserContext::release_user_id() {
+inline ::ric::tasks::ObjectId* UserContext::release_user_id() {
   // @@protoc_insertion_point(field_release:ric.tasks.UserContext.user_id)
   
-  return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::ric::tasks::ObjectId* temp = user_id_;
+  user_id_ = nullptr;
+  return temp;
 }
-inline void UserContext::set_allocated_user_id(::std::string* user_id) {
-  if (user_id != nullptr) {
+inline ::ric::tasks::ObjectId* UserContext::mutable_user_id() {
+  
+  if (user_id_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::tasks::ObjectId>(GetArenaNoVirtual());
+    user_id_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.UserContext.user_id)
+  return user_id_;
+}
+inline void UserContext::set_allocated_user_id(::ric::tasks::ObjectId* user_id) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete user_id_;
+  }
+  if (user_id) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      user_id = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, user_id, submessage_arena);
+    }
     
   } else {
     
   }
-  user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
+  user_id_ = user_id;
   // @@protoc_insertion_point(field_set_allocated:ric.tasks.UserContext.user_id)
 }
 
@@ -4960,63 +5003,6 @@ inline void UserContext::set_allocated_span_id(::std::string* span_id) {
   }
   span_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), span_id);
   // @@protoc_insertion_point(field_set_allocated:ric.tasks.UserContext.span_id)
-}
-
-// -------------------------------------------------------------------
-
-// ObjectId
-
-// string id = 1;
-inline void ObjectId::clear_id() {
-  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& ObjectId::id() const {
-  // @@protoc_insertion_point(field_get:ric.tasks.ObjectId.id)
-  return id_.GetNoArena();
-}
-inline void ObjectId::set_id(const ::std::string& value) {
-  
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.tasks.ObjectId.id)
-}
-#if LANG_CXX11
-inline void ObjectId::set_id(::std::string&& value) {
-  
-  id_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.tasks.ObjectId.id)
-}
-#endif
-inline void ObjectId::set_id(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.tasks.ObjectId.id)
-}
-inline void ObjectId::set_id(const char* value, size_t size) {
-  
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.tasks.ObjectId.id)
-}
-inline ::std::string* ObjectId::mutable_id() {
-  
-  // @@protoc_insertion_point(field_mutable:ric.tasks.ObjectId.id)
-  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* ObjectId::release_id() {
-  // @@protoc_insertion_point(field_release:ric.tasks.ObjectId.id)
-  
-  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void ObjectId::set_allocated_id(::std::string* id) {
-  if (id != nullptr) {
-    
-  } else {
-    
-  }
-  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:ric.tasks.ObjectId.id)
 }
 
 // -------------------------------------------------------------------

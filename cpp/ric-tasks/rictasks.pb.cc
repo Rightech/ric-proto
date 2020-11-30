@@ -25,25 +25,25 @@ extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2fwrappers_2eproto ::google::p
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_IndoorLocation_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_ObjectId_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_UpdateTaskOrderRequest_PositionsEntry_DoNotUse_ric_2dtasks_2frictasks_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_UserContext_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_Deadline_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_Location_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_ReportFormat_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_Report_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_Review_ric_2dtasks_2frictasks_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_UserContext_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<2> scc_info_Kind_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<7> scc_info_Task_ric_2dtasks_2frictasks_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dtasks_2frictasks_2eproto ::google::protobuf::internal::SCCInfo<8> scc_info_TaskEdit_ric_2dtasks_2frictasks_2eproto;
 namespace ric {
 namespace tasks {
-class UserContextDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<UserContext> _instance;
-} _UserContext_default_instance_;
 class ObjectIdDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<ObjectId> _instance;
 } _ObjectId_default_instance_;
+class UserContextDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<UserContext> _instance;
+} _UserContext_default_instance_;
 class LocationDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<Location> _instance;
@@ -166,20 +166,6 @@ class DeleteKindResponseDefaultTypeInternal {
 } _DeleteKindResponse_default_instance_;
 }  // namespace tasks
 }  // namespace ric
-static void InitDefaultsUserContext_ric_2dtasks_2frictasks_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ric::tasks::_UserContext_default_instance_;
-    new (ptr) ::ric::tasks::UserContext();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::ric::tasks::UserContext::InitAsDefaultInstance();
-}
-
-::google::protobuf::internal::SCCInfo<0> scc_info_UserContext_ric_2dtasks_2frictasks_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsUserContext_ric_2dtasks_2frictasks_2eproto}, {}};
-
 static void InitDefaultsObjectId_ric_2dtasks_2frictasks_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -193,6 +179,21 @@ static void InitDefaultsObjectId_ric_2dtasks_2frictasks_2eproto() {
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_ObjectId_ric_2dtasks_2frictasks_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsObjectId_ric_2dtasks_2frictasks_2eproto}, {}};
+
+static void InitDefaultsUserContext_ric_2dtasks_2frictasks_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::tasks::_UserContext_default_instance_;
+    new (ptr) ::ric::tasks::UserContext();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::tasks::UserContext::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_UserContext_ric_2dtasks_2frictasks_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsUserContext_ric_2dtasks_2frictasks_2eproto}, {
+      &scc_info_ObjectId_ric_2dtasks_2frictasks_2eproto.base,}};
 
 static void InitDefaultsLocation_ric_2dtasks_2frictasks_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -669,8 +670,8 @@ static void InitDefaultsDeleteKindResponse_ric_2dtasks_2frictasks_2eproto() {
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsDeleteKindResponse_ric_2dtasks_2frictasks_2eproto}, {}};
 
 void InitDefaults_ric_2dtasks_2frictasks_2eproto() {
-  ::google::protobuf::internal::InitSCC(&scc_info_UserContext_ric_2dtasks_2frictasks_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ObjectId_ric_2dtasks_2frictasks_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_UserContext_ric_2dtasks_2frictasks_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_Location_ric_2dtasks_2frictasks_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_IndoorLocation_ric_2dtasks_2frictasks_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_Task_ric_2dtasks_2frictasks_2eproto.base);
@@ -709,6 +710,12 @@ constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descr
 
 const ::google::protobuf::uint32 TableStruct_ric_2dtasks_2frictasks_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::tasks::ObjectId, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::tasks::ObjectId, id_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::tasks::UserContext, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -716,12 +723,6 @@ const ::google::protobuf::uint32 TableStruct_ric_2dtasks_2frictasks_2eproto::off
   PROTOBUF_FIELD_OFFSET(::ric::tasks::UserContext, group_id_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::UserContext, user_id_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::UserContext, span_id_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ric::tasks::ObjectId, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ric::tasks::ObjectId, id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::tasks::Location, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -981,8 +982,8 @@ const ::google::protobuf::uint32 TableStruct_ric_2dtasks_2frictasks_2eproto::off
   ~0u,  // no _weak_field_map_
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::ric::tasks::UserContext)},
-  { 8, -1, sizeof(::ric::tasks::ObjectId)},
+  { 0, -1, sizeof(::ric::tasks::ObjectId)},
+  { 6, -1, sizeof(::ric::tasks::UserContext)},
   { 14, -1, sizeof(::ric::tasks::Location)},
   { 24, -1, sizeof(::ric::tasks::IndoorLocation)},
   { 33, -1, sizeof(::ric::tasks::Task)},
@@ -1016,8 +1017,8 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::tasks::_UserContext_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::tasks::_ObjectId_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::tasks::_UserContext_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::tasks::_Location_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::tasks::_IndoorLocation_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::tasks::_Task_default_instance_),
@@ -1059,138 +1060,139 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 const char descriptor_table_protodef_ric_2dtasks_2frictasks_2eproto[] =
   "\n\030ric-tasks/rictasks.proto\022\tric.tasks\032\031g"
   "oogle/protobuf/any.proto\032\036google/protobu"
-  "f/wrappers.proto\"A\n\013UserContext\022\020\n\010group"
-  "_id\030\001 \001(\t\022\017\n\007user_id\030\002 \001(\t\022\017\n\007span_id\030\003 "
-  "\001(\t\"\026\n\010ObjectId\022\n\n\002id\030\001 \001(\t\"p\n\010Location\022"
-  "\013\n\003lat\030\001 \001(\001\022\013\n\003lng\030\002 \001(\001\022\016\n\006radius\030\003 \001("
-  "\001\022\017\n\007address\030\004 \001(\t\022)\n\006indoor\030\005 \001(\0132\031.ric"
-  ".tasks.IndoorLocation\"A\n\016IndoorLocation\022"
-  "\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\016\n\006radi"
-  "us\030\004 \001(\001\"\213\007\n\004Task\022 \n\003oid\030\001 \001(\0132\023.ric.tas"
-  "ks.ObjectId\022\"\n\005owner\030\002 \001(\0132\023.ric.tasks.O"
-  "bjectId\022\"\n\005group\030\003 \001(\0132\023.ric.tasks.Objec"
-  "tId\022#\n\006parent\030\004 \001(\0132\023.ric.tasks.ObjectId"
-  "\022!\n\010subtasks\030\005 \003(\0132\017.ric.tasks.Task\022\014\n\004t"
-  "ags\030\006 \003(\t\022,\n\tconstrain\030\007 \001(\0162\031.ric.tasks"
-  ".Task.Constrain\022\020\n\010priority\030\010 \001(\005\022\022\n\ncre"
-  "ated_at\030\t \001(\003\022\014\n\004name\030\n \001(\t\022\023\n\013descripti"
-  "on\030\013 \001(\t\022&\n\006status\030\014 \001(\0162\026.ric.tasks.Tas"
-  "k.Status\022#\n\006object\030\r \001(\0132\023.ric.tasks.Obj"
-  "ectId\022!\n\004kind\030\016 \001(\0132\023.ric.tasks.ObjectId"
-  "\022.\n\rreport_format\030\017 \003(\0132\027.ric.tasks.Repo"
-  "rtFormat\022!\n\006report\030\020 \003(\0132\021.ric.tasks.Rep"
-  "ort\022\"\n\005begin\030\021 \001(\0132\023.ric.tasks.Location\022"
-  " \n\003end\030\022 \001(\0132\023.ric.tasks.Location\022&\n\tdea"
-  "dlines\030\023 \003(\0132\023.ric.tasks.Deadline\022+\n\007suc"
-  "cess\030\024 \001(\0132\032.google.protobuf.BoolValue\022%"
-  "\n\010assignee\030\025 \001(\0132\023.ric.tasks.ObjectId\022\025\n"
-  "\rassignee_type\030\026 \001(\t\022!\n\006review\030\027 \001(\0132\021.r"
-  "ic.tasks.Review\022\014\n\004json\030\030 \001(\014\"4\n\tConstra"
-  "in\022\013\n\007INVALID\020\000\022\r\n\tUNORDERED\020\001\022\013\n\007ORDERE"
-  "D\020\002\"I\n\006Status\022\013\n\007NOT_SET\020\000\022\013\n\007CREATED\020\001\022"
-  "\014\n\010ASSIGNED\020\002\022\013\n\007IN_WORK\020\003\022\n\n\006CLOSED\020\004\"\321"
-  "\005\n\010TaskEdit\022\"\n\005owner\030\001 \001(\0132\023.ric.tasks.O"
-  "bjectId\022\"\n\005group\030\002 \001(\0132\023.ric.tasks.Objec"
-  "tId\022#\n\006parent\030\003 \001(\0132\023.ric.tasks.ObjectId"
-  "\022\014\n\004tags\030\004 \003(\t\022,\n\tconstrain\030\005 \001(\0162\031.ric."
-  "tasks.Task.Constrain\022-\n\010priority\030\006 \001(\0132\033"
-  ".google.protobuf.Int32Value\022*\n\004name\030\007 \001("
-  "\0132\034.google.protobuf.StringValue\0221\n\013descr"
-  "iption\030\010 \001(\0132\034.google.protobuf.StringVal"
-  "ue\022#\n\006object\030\t \001(\0132\023.ric.tasks.ObjectId\022"
-  "!\n\004kind\030\n \001(\0132\023.ric.tasks.ObjectId\022.\n\rre"
-  "port_format\030\013 \003(\0132\027.ric.tasks.ReportForm"
-  "at\022\"\n\005begin\030\014 \001(\0132\023.ric.tasks.Location\022 "
-  "\n\003end\030\r \001(\0132\023.ric.tasks.Location\022&\n\tdead"
-  "lines\030\016 \003(\0132\023.ric.tasks.Deadline\022%\n\010assi"
-  "gnee\030\017 \001(\0132\023.ric.tasks.ObjectId\0223\n\rassig"
-  "nee_type\030\020 \001(\0132\034.google.protobuf.StringV"
-  "alue\022!\n\006review\030\021 \001(\0132\021.ric.tasks.Review\022"
-  ")\n\004json\030\022 \001(\0132\033.google.protobuf.BytesVal"
-  "ue\"P\n\006Review\022%\n\010reviewer\030\001 \001(\0132\023.ric.tas"
-  "ks.ObjectId\022\016\n\006rating\030\002 \001(\005\022\017\n\007comment\030\003"
-  " \001(\t\"x\n\010Deadline\022\021\n\ttimestamp\030\001 \001(\003\0221\n\014n"
-  "otify_until\030\002 \001(\0132\033.google.protobuf.Int6"
-  "4Value\022&\n\006status\030\003 \001(\0162\026.ric.tasks.Task."
-  "Status\"\303\001\n\014ReportFormat\022\014\n\004name\030\001 \001(\t\0220\n"
-  "\005field\030\002 \001(\0162!.ric.tasks.ReportFormat.Fi"
-  "eldType\022,\n\010required\030\005 \001(\0132\032.google.proto"
-  "buf.BoolValue\"E\n\tFieldType\022\013\n\007INVALID\020\000\022"
-  "\013\n\007BOOLEAN\020\001\022\010\n\004TEXT\020\002\022\n\n\006NUMBER\020\003\022\010\n\004FI"
-  "LE\020\004\";\n\006Report\022\014\n\004name\030\001 \001(\t\022#\n\005value\030\002 "
-  "\001(\0132\024.google.protobuf.Any\"\253\001\n\004Kind\022 \n\003oi"
-  "d\030\001 \001(\0132\023.ric.tasks.ObjectId\022\014\n\004name\030\002 \001"
-  "(\t\022\023\n\013discription\030\003 \001(\t\022\013\n\003svg\030\004 \001(\t\022!\n\004"
-  "role\030\005 \003(\0132\023.ric.tasks.ObjectId\022.\n\rrepor"
-  "t_format\030\006 \003(\0132\027.ric.tasks.ReportFormat\""
-  "W\n\021CreateTaskRequest\022#\n\003ctx\030\001 \001(\0132\026.ric."
-  "tasks.UserContext\022\035\n\004task\030\002 \001(\0132\017.ric.ta"
-  "sks.Task\"3\n\022CreateTaskResponse\022\035\n\004task\030\001"
-  " \001(\0132\017.ric.tasks.Task\"W\n\016GetTaskRequest\022"
-  "#\n\003ctx\030\001 \001(\0132\026.ric.tasks.UserContext\022 \n\003"
-  "oid\030\002 \001(\0132\023.ric.tasks.ObjectId\"0\n\017GetTas"
-  "kResponse\022\035\n\004task\030\001 \001(\0132\017.ric.tasks.Task"
-  "\"Z\n\021DeleteTaskRequest\022#\n\003ctx\030\001 \001(\0132\026.ric"
-  ".tasks.UserContext\022 \n\003oid\030\002 \001(\0132\023.ric.ta"
-  "sks.ObjectId\"\024\n\022DeleteTaskResponse\"}\n\021Up"
-  "dateTaskRequest\022#\n\003ctx\030\001 \001(\0132\026.ric.tasks"
-  ".UserContext\022 \n\003oid\030\002 \001(\0132\023.ric.tasks.Ob"
-  "jectId\022!\n\004task\030\003 \001(\0132\023.ric.tasks.TaskEdi"
-  "t\"3\n\022UpdateTaskResponse\022\035\n\004task\030\001 \001(\0132\017."
-  "ric.tasks.Task\"\326\001\n\026UpdateTaskOrderReques"
+  "f/wrappers.proto\"\026\n\010ObjectId\022\n\n\002id\030\001 \001(\t"
+  "\"k\n\013UserContext\022%\n\010group_id\030\001 \001(\0132\023.ric."
+  "tasks.ObjectId\022$\n\007user_id\030\002 \001(\0132\023.ric.ta"
+  "sks.ObjectId\022\017\n\007span_id\030\003 \001(\t\"p\n\010Locatio"
+  "n\022\013\n\003lat\030\001 \001(\001\022\013\n\003lng\030\002 \001(\001\022\016\n\006radius\030\003 "
+  "\001(\001\022\017\n\007address\030\004 \001(\t\022)\n\006indoor\030\005 \001(\0132\031.r"
+  "ic.tasks.IndoorLocation\"A\n\016IndoorLocatio"
+  "n\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\016\n\006ra"
+  "dius\030\004 \001(\001\"\213\007\n\004Task\022 \n\003oid\030\001 \001(\0132\023.ric.t"
+  "asks.ObjectId\022\"\n\005owner\030\002 \001(\0132\023.ric.tasks"
+  ".ObjectId\022\"\n\005group\030\003 \001(\0132\023.ric.tasks.Obj"
+  "ectId\022#\n\006parent\030\004 \001(\0132\023.ric.tasks.Object"
+  "Id\022!\n\010subtasks\030\005 \003(\0132\017.ric.tasks.Task\022\014\n"
+  "\004tags\030\006 \003(\t\022,\n\tconstrain\030\007 \001(\0162\031.ric.tas"
+  "ks.Task.Constrain\022\020\n\010priority\030\010 \001(\005\022\022\n\nc"
+  "reated_at\030\t \001(\003\022\014\n\004name\030\n \001(\t\022\023\n\013descrip"
+  "tion\030\013 \001(\t\022&\n\006status\030\014 \001(\0162\026.ric.tasks.T"
+  "ask.Status\022#\n\006object\030\r \001(\0132\023.ric.tasks.O"
+  "bjectId\022!\n\004kind\030\016 \001(\0132\023.ric.tasks.Object"
+  "Id\022.\n\rreport_format\030\017 \003(\0132\027.ric.tasks.Re"
+  "portFormat\022!\n\006report\030\020 \003(\0132\021.ric.tasks.R"
+  "eport\022\"\n\005begin\030\021 \001(\0132\023.ric.tasks.Locatio"
+  "n\022 \n\003end\030\022 \001(\0132\023.ric.tasks.Location\022&\n\td"
+  "eadlines\030\023 \003(\0132\023.ric.tasks.Deadline\022+\n\007s"
+  "uccess\030\024 \001(\0132\032.google.protobuf.BoolValue"
+  "\022%\n\010assignee\030\025 \001(\0132\023.ric.tasks.ObjectId\022"
+  "\025\n\rassignee_type\030\026 \001(\t\022!\n\006review\030\027 \001(\0132\021"
+  ".ric.tasks.Review\022\014\n\004json\030\030 \001(\014\"4\n\tConst"
+  "rain\022\013\n\007INVALID\020\000\022\r\n\tUNORDERED\020\001\022\013\n\007ORDE"
+  "RED\020\002\"I\n\006Status\022\013\n\007NOT_SET\020\000\022\013\n\007CREATED\020"
+  "\001\022\014\n\010ASSIGNED\020\002\022\013\n\007IN_WORK\020\003\022\n\n\006CLOSED\020\004"
+  "\"\321\005\n\010TaskEdit\022\"\n\005owner\030\001 \001(\0132\023.ric.tasks"
+  ".ObjectId\022\"\n\005group\030\002 \001(\0132\023.ric.tasks.Obj"
+  "ectId\022#\n\006parent\030\003 \001(\0132\023.ric.tasks.Object"
+  "Id\022\014\n\004tags\030\004 \003(\t\022,\n\tconstrain\030\005 \001(\0162\031.ri"
+  "c.tasks.Task.Constrain\022-\n\010priority\030\006 \001(\013"
+  "2\033.google.protobuf.Int32Value\022*\n\004name\030\007 "
+  "\001(\0132\034.google.protobuf.StringValue\0221\n\013des"
+  "cription\030\010 \001(\0132\034.google.protobuf.StringV"
+  "alue\022#\n\006object\030\t \001(\0132\023.ric.tasks.ObjectI"
+  "d\022!\n\004kind\030\n \001(\0132\023.ric.tasks.ObjectId\022.\n\r"
+  "report_format\030\013 \003(\0132\027.ric.tasks.ReportFo"
+  "rmat\022\"\n\005begin\030\014 \001(\0132\023.ric.tasks.Location"
+  "\022 \n\003end\030\r \001(\0132\023.ric.tasks.Location\022&\n\tde"
+  "adlines\030\016 \003(\0132\023.ric.tasks.Deadline\022%\n\010as"
+  "signee\030\017 \001(\0132\023.ric.tasks.ObjectId\0223\n\rass"
+  "ignee_type\030\020 \001(\0132\034.google.protobuf.Strin"
+  "gValue\022!\n\006review\030\021 \001(\0132\021.ric.tasks.Revie"
+  "w\022)\n\004json\030\022 \001(\0132\033.google.protobuf.BytesV"
+  "alue\"P\n\006Review\022%\n\010reviewer\030\001 \001(\0132\023.ric.t"
+  "asks.ObjectId\022\016\n\006rating\030\002 \001(\005\022\017\n\007comment"
+  "\030\003 \001(\t\"x\n\010Deadline\022\021\n\ttimestamp\030\001 \001(\003\0221\n"
+  "\014notify_until\030\002 \001(\0132\033.google.protobuf.In"
+  "t64Value\022&\n\006status\030\003 \001(\0162\026.ric.tasks.Tas"
+  "k.Status\"\303\001\n\014ReportFormat\022\014\n\004name\030\001 \001(\t\022"
+  "0\n\005field\030\002 \001(\0162!.ric.tasks.ReportFormat."
+  "FieldType\022,\n\010required\030\005 \001(\0132\032.google.pro"
+  "tobuf.BoolValue\"E\n\tFieldType\022\013\n\007INVALID\020"
+  "\000\022\013\n\007BOOLEAN\020\001\022\010\n\004TEXT\020\002\022\n\n\006NUMBER\020\003\022\010\n\004"
+  "FILE\020\004\";\n\006Report\022\014\n\004name\030\001 \001(\t\022#\n\005value\030"
+  "\002 \001(\0132\024.google.protobuf.Any\"\253\001\n\004Kind\022 \n\003"
+  "oid\030\001 \001(\0132\023.ric.tasks.ObjectId\022\014\n\004name\030\002"
+  " \001(\t\022\023\n\013discription\030\003 \001(\t\022\013\n\003svg\030\004 \001(\t\022!"
+  "\n\004role\030\005 \003(\0132\023.ric.tasks.ObjectId\022.\n\rrep"
+  "ort_format\030\006 \003(\0132\027.ric.tasks.ReportForma"
+  "t\"W\n\021CreateTaskRequest\022#\n\003ctx\030\001 \001(\0132\026.ri"
+  "c.tasks.UserContext\022\035\n\004task\030\002 \001(\0132\017.ric."
+  "tasks.Task\"3\n\022CreateTaskResponse\022\035\n\004task"
+  "\030\001 \001(\0132\017.ric.tasks.Task\"W\n\016GetTaskReques"
   "t\022#\n\003ctx\030\001 \001(\0132\026.ric.tasks.UserContext\022 "
-  "\n\003oid\030\002 \001(\0132\023.ric.tasks.ObjectId\022C\n\tposi"
-  "tions\030\003 \003(\01320.ric.tasks.UpdateTaskOrderR"
-  "equest.PositionsEntry\0320\n\016PositionsEntry\022"
-  "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\005:\0028\001\"8\n\027Updat"
-  "eTaskOrderResponse\022\035\n\004task\030\001 \001(\0132\017.ric.t"
-  "asks.Task\"\224\002\n\027ChangeTaskStatusRequest\022#\n"
-  "\003ctx\030\001 \001(\0132\026.ric.tasks.UserContext\022 \n\003oi"
-  "d\030\002 \001(\0132\023.ric.tasks.ObjectId\022*\n\nnew_stat"
-  "us\030\003 \001(\0162\026.ric.tasks.Task.Status\022%\n\010loca"
-  "tion\030\004 \001(\0132\023.ric.tasks.Location\022+\n\007succe"
-  "ss\030\005 \001(\0132\032.google.protobuf.BoolValue\022\017\n\007"
-  "comment\030\006 \001(\t\022!\n\006report\030\007 \003(\0132\021.ric.task"
-  "s.Report\"9\n\030ChangeTaskStatusResponse\022\035\n\004"
-  "task\030\001 \001(\0132\017.ric.tasks.Task\"W\n\021CreateKin"
-  "dRequest\022#\n\003ctx\030\001 \001(\0132\026.ric.tasks.UserCo"
-  "ntext\022\035\n\004kind\030\002 \001(\0132\017.ric.tasks.Kind\"3\n\022"
-  "CreateKindResponse\022\035\n\004kind\030\001 \001(\0132\017.ric.t"
-  "asks.Kind\"W\n\016GetKindRequest\022#\n\003ctx\030\001 \001(\013"
-  "2\026.ric.tasks.UserContext\022 \n\003oid\030\002 \001(\0132\023."
-  "ric.tasks.ObjectId\"0\n\017GetKindResponse\022\035\n"
-  "\004kind\030\001 \001(\0132\017.ric.tasks.Kind\"W\n\021UpdateKi"
-  "ndRequest\022#\n\003ctx\030\001 \001(\0132\026.ric.tasks.UserC"
-  "ontext\022\035\n\004kind\030\002 \001(\0132\017.ric.tasks.Kind\"3\n"
-  "\022UpdateKindResponse\022\035\n\004kind\030\001 \001(\0132\017.ric."
-  "tasks.Kind\"Z\n\021DeleteKindRequest\022#\n\003ctx\030\001"
-  " \001(\0132\026.ric.tasks.UserContext\022 \n\003oid\030\002 \001("
-  "\0132\023.ric.tasks.ObjectId\"\024\n\022DeleteKindResp"
-  "onse2\317\003\n\013TaskService\022E\n\006Create\022\034.ric.tas"
-  "ks.CreateTaskRequest\032\035.ric.tasks.CreateT"
-  "askResponse\022<\n\003Get\022\031.ric.tasks.GetTaskRe"
-  "quest\032\032.ric.tasks.GetTaskResponse\022E\n\006Upd"
-  "ate\022\034.ric.tasks.UpdateTaskRequest\032\035.ric."
-  "tasks.UpdateTaskResponse\022E\n\006Delete\022\034.ric"
-  ".tasks.DeleteTaskRequest\032\035.ric.tasks.Del"
-  "eteTaskResponse\022T\n\013UpdateOrder\022!.ric.tas"
-  "ks.UpdateTaskOrderRequest\032\".ric.tasks.Up"
-  "dateTaskOrderResponse\022W\n\014ChangeStatus\022\"."
-  "ric.tasks.ChangeTaskStatusRequest\032#.ric."
-  "tasks.ChangeTaskStatusResponse2\240\002\n\013KindS"
-  "ervice\022E\n\006Create\022\034.ric.tasks.CreateKindR"
-  "equest\032\035.ric.tasks.CreateKindResponse\022<\n"
-  "\003Get\022\031.ric.tasks.GetKindRequest\032\032.ric.ta"
-  "sks.GetKindResponse\022E\n\006Update\022\034.ric.task"
-  "s.UpdateKindRequest\032\035.ric.tasks.UpdateKi"
-  "ndResponse\022E\n\006Delete\022\034.ric.tasks.DeleteK"
-  "indRequest\032\035.ric.tasks.DeleteKindRespons"
-  "eB\026Z\024./ric-tasks;rictasksb\006proto3"
+  "\n\003oid\030\002 \001(\0132\023.ric.tasks.ObjectId\"0\n\017GetT"
+  "askResponse\022\035\n\004task\030\001 \001(\0132\017.ric.tasks.Ta"
+  "sk\"Z\n\021DeleteTaskRequest\022#\n\003ctx\030\001 \001(\0132\026.r"
+  "ic.tasks.UserContext\022 \n\003oid\030\002 \001(\0132\023.ric."
+  "tasks.ObjectId\"\024\n\022DeleteTaskResponse\"}\n\021"
+  "UpdateTaskRequest\022#\n\003ctx\030\001 \001(\0132\026.ric.tas"
+  "ks.UserContext\022 \n\003oid\030\002 \001(\0132\023.ric.tasks."
+  "ObjectId\022!\n\004task\030\003 \001(\0132\023.ric.tasks.TaskE"
+  "dit\"3\n\022UpdateTaskResponse\022\035\n\004task\030\001 \001(\0132"
+  "\017.ric.tasks.Task\"\326\001\n\026UpdateTaskOrderRequ"
+  "est\022#\n\003ctx\030\001 \001(\0132\026.ric.tasks.UserContext"
+  "\022 \n\003oid\030\002 \001(\0132\023.ric.tasks.ObjectId\022C\n\tpo"
+  "sitions\030\003 \003(\01320.ric.tasks.UpdateTaskOrde"
+  "rRequest.PositionsEntry\0320\n\016PositionsEntr"
+  "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\005:\0028\001\"8\n\027Upd"
+  "ateTaskOrderResponse\022\035\n\004task\030\001 \001(\0132\017.ric"
+  ".tasks.Task\"\224\002\n\027ChangeTaskStatusRequest\022"
+  "#\n\003ctx\030\001 \001(\0132\026.ric.tasks.UserContext\022 \n\003"
+  "oid\030\002 \001(\0132\023.ric.tasks.ObjectId\022*\n\nnew_st"
+  "atus\030\003 \001(\0162\026.ric.tasks.Task.Status\022%\n\010lo"
+  "cation\030\004 \001(\0132\023.ric.tasks.Location\022+\n\007suc"
+  "cess\030\005 \001(\0132\032.google.protobuf.BoolValue\022\017"
+  "\n\007comment\030\006 \001(\t\022!\n\006report\030\007 \003(\0132\021.ric.ta"
+  "sks.Report\"9\n\030ChangeTaskStatusResponse\022\035"
+  "\n\004task\030\001 \001(\0132\017.ric.tasks.Task\"W\n\021CreateK"
+  "indRequest\022#\n\003ctx\030\001 \001(\0132\026.ric.tasks.User"
+  "Context\022\035\n\004kind\030\002 \001(\0132\017.ric.tasks.Kind\"3"
+  "\n\022CreateKindResponse\022\035\n\004kind\030\001 \001(\0132\017.ric"
+  ".tasks.Kind\"W\n\016GetKindRequest\022#\n\003ctx\030\001 \001"
+  "(\0132\026.ric.tasks.UserContext\022 \n\003oid\030\002 \001(\0132"
+  "\023.ric.tasks.ObjectId\"0\n\017GetKindResponse\022"
+  "\035\n\004kind\030\001 \001(\0132\017.ric.tasks.Kind\"W\n\021Update"
+  "KindRequest\022#\n\003ctx\030\001 \001(\0132\026.ric.tasks.Use"
+  "rContext\022\035\n\004kind\030\002 \001(\0132\017.ric.tasks.Kind\""
+  "3\n\022UpdateKindResponse\022\035\n\004kind\030\001 \001(\0132\017.ri"
+  "c.tasks.Kind\"Z\n\021DeleteKindRequest\022#\n\003ctx"
+  "\030\001 \001(\0132\026.ric.tasks.UserContext\022 \n\003oid\030\002 "
+  "\001(\0132\023.ric.tasks.ObjectId\"\024\n\022DeleteKindRe"
+  "sponse2\317\003\n\013TaskService\022E\n\006Create\022\034.ric.t"
+  "asks.CreateTaskRequest\032\035.ric.tasks.Creat"
+  "eTaskResponse\022<\n\003Get\022\031.ric.tasks.GetTask"
+  "Request\032\032.ric.tasks.GetTaskResponse\022E\n\006U"
+  "pdate\022\034.ric.tasks.UpdateTaskRequest\032\035.ri"
+  "c.tasks.UpdateTaskResponse\022E\n\006Delete\022\034.r"
+  "ic.tasks.DeleteTaskRequest\032\035.ric.tasks.D"
+  "eleteTaskResponse\022T\n\013UpdateOrder\022!.ric.t"
+  "asks.UpdateTaskOrderRequest\032\".ric.tasks."
+  "UpdateTaskOrderResponse\022W\n\014ChangeStatus\022"
+  "\".ric.tasks.ChangeTaskStatusRequest\032#.ri"
+  "c.tasks.ChangeTaskStatusResponse2\240\002\n\013Kin"
+  "dService\022E\n\006Create\022\034.ric.tasks.CreateKin"
+  "dRequest\032\035.ric.tasks.CreateKindResponse\022"
+  "<\n\003Get\022\031.ric.tasks.GetKindRequest\032\032.ric."
+  "tasks.GetKindResponse\022E\n\006Update\022\034.ric.ta"
+  "sks.UpdateKindRequest\032\035.ric.tasks.Update"
+  "KindResponse\022E\n\006Delete\022\034.ric.tasks.Delet"
+  "eKindRequest\032\035.ric.tasks.DeleteKindRespo"
+  "nseB\026Z\024./ric-tasks;rictasksb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dtasks_2frictasks_2eproto = {
   false, InitDefaults_ric_2dtasks_2frictasks_2eproto, 
   descriptor_table_protodef_ric_2dtasks_2frictasks_2eproto,
-  "ric-tasks/rictasks.proto", &assign_descriptors_table_ric_2dtasks_2frictasks_2eproto, 5153,
+  "ric-tasks/rictasks.proto", &assign_descriptors_table_ric_2dtasks_2frictasks_2eproto, 5195,
 };
 
 void AddDescriptors_ric_2dtasks_2frictasks_2eproto() {
@@ -1283,449 +1285,6 @@ const ReportFormat_FieldType ReportFormat::FieldType_MIN;
 const ReportFormat_FieldType ReportFormat::FieldType_MAX;
 const int ReportFormat::FieldType_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-// ===================================================================
-
-void UserContext::InitAsDefaultInstance() {
-}
-class UserContext::HasBitSetters {
- public:
-};
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int UserContext::kGroupIdFieldNumber;
-const int UserContext::kUserIdFieldNumber;
-const int UserContext::kSpanIdFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-UserContext::UserContext()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:ric.tasks.UserContext)
-}
-UserContext::UserContext(const UserContext& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(nullptr) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  group_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.group_id().size() > 0) {
-    group_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_id_);
-  }
-  user_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.user_id().size() > 0) {
-    user_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_id_);
-  }
-  span_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.span_id().size() > 0) {
-    span_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.span_id_);
-  }
-  // @@protoc_insertion_point(copy_constructor:ric.tasks.UserContext)
-}
-
-void UserContext::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_UserContext_ric_2dtasks_2frictasks_2eproto.base);
-  group_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  user_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  span_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-UserContext::~UserContext() {
-  // @@protoc_insertion_point(destructor:ric.tasks.UserContext)
-  SharedDtor();
-}
-
-void UserContext::SharedDtor() {
-  group_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  user_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  span_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-void UserContext::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const UserContext& UserContext::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_UserContext_ric_2dtasks_2frictasks_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void UserContext::Clear() {
-// @@protoc_insertion_point(message_clear_start:ric.tasks.UserContext)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  group_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  span_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  _internal_metadata_.Clear();
-}
-
-#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* UserContext::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<UserContext*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-    switch (tag >> 3) {
-      // string group_id = 1;
-      case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.tasks.UserContext.group_id");
-        object = msg->mutable_group_id();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // string user_id = 2;
-      case 2: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.tasks.UserContext.user_id");
-        object = msg->mutable_user_id();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // string span_id = 3;
-      case 3: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.tasks.UserContext.span_id");
-        object = msg->mutable_span_id();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
-        }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
-      }
-    }  // switch
-  }  // while
-  return ptr;
-string_till_end:
-  static_cast<::std::string*>(object)->clear();
-  static_cast<::std::string*>(object)->reserve(size);
-  goto len_delim_till_end;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
-}
-#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool UserContext::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:ric.tasks.UserContext)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // string group_id = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_group_id()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->group_id().data(), static_cast<int>(this->group_id().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.tasks.UserContext.group_id"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string user_id = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_user_id()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->user_id().data(), static_cast<int>(this->user_id().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.tasks.UserContext.user_id"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string span_id = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_span_id()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->span_id().data(), static_cast<int>(this->span_id().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.tasks.UserContext.span_id"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:ric.tasks.UserContext)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:ric.tasks.UserContext)
-  return false;
-#undef DO_
-}
-#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-
-void UserContext::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:ric.tasks.UserContext)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string group_id = 1;
-  if (this->group_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->group_id().data(), static_cast<int>(this->group_id().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.tasks.UserContext.group_id");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->group_id(), output);
-  }
-
-  // string user_id = 2;
-  if (this->user_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->user_id().data(), static_cast<int>(this->user_id().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.tasks.UserContext.user_id");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->user_id(), output);
-  }
-
-  // string span_id = 3;
-  if (this->span_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->span_id().data(), static_cast<int>(this->span_id().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.tasks.UserContext.span_id");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->span_id(), output);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:ric.tasks.UserContext)
-}
-
-::google::protobuf::uint8* UserContext::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ric.tasks.UserContext)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string group_id = 1;
-  if (this->group_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->group_id().data(), static_cast<int>(this->group_id().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.tasks.UserContext.group_id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->group_id(), target);
-  }
-
-  // string user_id = 2;
-  if (this->user_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->user_id().data(), static_cast<int>(this->user_id().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.tasks.UserContext.user_id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->user_id(), target);
-  }
-
-  // string span_id = 3;
-  if (this->span_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->span_id().data(), static_cast<int>(this->span_id().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.tasks.UserContext.span_id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->span_id(), target);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ric.tasks.UserContext)
-  return target;
-}
-
-size_t UserContext::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ric.tasks.UserContext)
-  size_t total_size = 0;
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string group_id = 1;
-  if (this->group_id().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->group_id());
-  }
-
-  // string user_id = 2;
-  if (this->user_id().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->user_id());
-  }
-
-  // string span_id = 3;
-  if (this->span_id().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->span_id());
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void UserContext::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ric.tasks.UserContext)
-  GOOGLE_DCHECK_NE(&from, this);
-  const UserContext* source =
-      ::google::protobuf::DynamicCastToGenerated<UserContext>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.tasks.UserContext)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.tasks.UserContext)
-    MergeFrom(*source);
-  }
-}
-
-void UserContext::MergeFrom(const UserContext& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ric.tasks.UserContext)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.group_id().size() > 0) {
-
-    group_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_id_);
-  }
-  if (from.user_id().size() > 0) {
-
-    user_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_id_);
-  }
-  if (from.span_id().size() > 0) {
-
-    span_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.span_id_);
-  }
-}
-
-void UserContext::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ric.tasks.UserContext)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void UserContext::CopyFrom(const UserContext& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ric.tasks.UserContext)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool UserContext::IsInitialized() const {
-  return true;
-}
-
-void UserContext::Swap(UserContext* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void UserContext::InternalSwap(UserContext* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  group_id_.Swap(&other->group_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  user_id_.Swap(&other->user_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  span_id_.Swap(&other->span_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-}
-
-::google::protobuf::Metadata UserContext::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dtasks_2frictasks_2eproto);
-  return ::file_level_metadata_ric_2dtasks_2frictasks_2eproto[kIndexInFileMessages];
-}
-
 
 // ===================================================================
 
@@ -2019,6 +1578,438 @@ void ObjectId::InternalSwap(ObjectId* other) {
 }
 
 ::google::protobuf::Metadata ObjectId::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dtasks_2frictasks_2eproto);
+  return ::file_level_metadata_ric_2dtasks_2frictasks_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void UserContext::InitAsDefaultInstance() {
+  ::ric::tasks::_UserContext_default_instance_._instance.get_mutable()->group_id_ = const_cast< ::ric::tasks::ObjectId*>(
+      ::ric::tasks::ObjectId::internal_default_instance());
+  ::ric::tasks::_UserContext_default_instance_._instance.get_mutable()->user_id_ = const_cast< ::ric::tasks::ObjectId*>(
+      ::ric::tasks::ObjectId::internal_default_instance());
+}
+class UserContext::HasBitSetters {
+ public:
+  static const ::ric::tasks::ObjectId& group_id(const UserContext* msg);
+  static const ::ric::tasks::ObjectId& user_id(const UserContext* msg);
+};
+
+const ::ric::tasks::ObjectId&
+UserContext::HasBitSetters::group_id(const UserContext* msg) {
+  return *msg->group_id_;
+}
+const ::ric::tasks::ObjectId&
+UserContext::HasBitSetters::user_id(const UserContext* msg) {
+  return *msg->user_id_;
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UserContext::kGroupIdFieldNumber;
+const int UserContext::kUserIdFieldNumber;
+const int UserContext::kSpanIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+UserContext::UserContext()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.tasks.UserContext)
+}
+UserContext::UserContext(const UserContext& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  span_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.span_id().size() > 0) {
+    span_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.span_id_);
+  }
+  if (from.has_group_id()) {
+    group_id_ = new ::ric::tasks::ObjectId(*from.group_id_);
+  } else {
+    group_id_ = nullptr;
+  }
+  if (from.has_user_id()) {
+    user_id_ = new ::ric::tasks::ObjectId(*from.user_id_);
+  } else {
+    user_id_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.tasks.UserContext)
+}
+
+void UserContext::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_UserContext_ric_2dtasks_2frictasks_2eproto.base);
+  span_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&group_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&user_id_) -
+      reinterpret_cast<char*>(&group_id_)) + sizeof(user_id_));
+}
+
+UserContext::~UserContext() {
+  // @@protoc_insertion_point(destructor:ric.tasks.UserContext)
+  SharedDtor();
+}
+
+void UserContext::SharedDtor() {
+  span_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete group_id_;
+  if (this != internal_default_instance()) delete user_id_;
+}
+
+void UserContext::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const UserContext& UserContext::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_UserContext_ric_2dtasks_2frictasks_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void UserContext::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.tasks.UserContext)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  span_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == nullptr && group_id_ != nullptr) {
+    delete group_id_;
+  }
+  group_id_ = nullptr;
+  if (GetArenaNoVirtual() == nullptr && user_id_ != nullptr) {
+    delete user_id_;
+  }
+  user_id_ = nullptr;
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* UserContext::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<UserContext*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // .ric.tasks.ObjectId group_id = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::ric::tasks::ObjectId::_InternalParse;
+        object = msg->mutable_group_id();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // .ric.tasks.ObjectId user_id = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::ric::tasks::ObjectId::_InternalParse;
+        object = msg->mutable_user_id();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // string span_id = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.tasks.UserContext.span_id");
+        object = msg->mutable_span_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool UserContext::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.tasks.UserContext)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .ric.tasks.ObjectId group_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_group_id()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .ric.tasks.ObjectId user_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_user_id()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string span_id = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_span_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->span_id().data(), static_cast<int>(this->span_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.tasks.UserContext.span_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.tasks.UserContext)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.tasks.UserContext)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void UserContext::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.tasks.UserContext)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ric.tasks.ObjectId group_id = 1;
+  if (this->has_group_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, HasBitSetters::group_id(this), output);
+  }
+
+  // .ric.tasks.ObjectId user_id = 2;
+  if (this->has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, HasBitSetters::user_id(this), output);
+  }
+
+  // string span_id = 3;
+  if (this->span_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->span_id().data(), static_cast<int>(this->span_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.tasks.UserContext.span_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->span_id(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.tasks.UserContext)
+}
+
+::google::protobuf::uint8* UserContext::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.tasks.UserContext)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ric.tasks.ObjectId group_id = 1;
+  if (this->has_group_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, HasBitSetters::group_id(this), target);
+  }
+
+  // .ric.tasks.ObjectId user_id = 2;
+  if (this->has_user_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, HasBitSetters::user_id(this), target);
+  }
+
+  // string span_id = 3;
+  if (this->span_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->span_id().data(), static_cast<int>(this->span_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.tasks.UserContext.span_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->span_id(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.tasks.UserContext)
+  return target;
+}
+
+size_t UserContext::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.tasks.UserContext)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string span_id = 3;
+  if (this->span_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->span_id());
+  }
+
+  // .ric.tasks.ObjectId group_id = 1;
+  if (this->has_group_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *group_id_);
+  }
+
+  // .ric.tasks.ObjectId user_id = 2;
+  if (this->has_user_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *user_id_);
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void UserContext::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.tasks.UserContext)
+  GOOGLE_DCHECK_NE(&from, this);
+  const UserContext* source =
+      ::google::protobuf::DynamicCastToGenerated<UserContext>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.tasks.UserContext)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.tasks.UserContext)
+    MergeFrom(*source);
+  }
+}
+
+void UserContext::MergeFrom(const UserContext& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.tasks.UserContext)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.span_id().size() > 0) {
+
+    span_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.span_id_);
+  }
+  if (from.has_group_id()) {
+    mutable_group_id()->::ric::tasks::ObjectId::MergeFrom(from.group_id());
+  }
+  if (from.has_user_id()) {
+    mutable_user_id()->::ric::tasks::ObjectId::MergeFrom(from.user_id());
+  }
+}
+
+void UserContext::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.tasks.UserContext)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UserContext::CopyFrom(const UserContext& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.tasks.UserContext)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UserContext::IsInitialized() const {
+  return true;
+}
+
+void UserContext::Swap(UserContext* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void UserContext::InternalSwap(UserContext* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  span_id_.Swap(&other->span_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(group_id_, other->group_id_);
+  swap(user_id_, other->user_id_);
+}
+
+::google::protobuf::Metadata UserContext::GetMetadata() const {
   ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dtasks_2frictasks_2eproto);
   return ::file_level_metadata_ric_2dtasks_2frictasks_2eproto[kIndexInFileMessages];
 }
@@ -15103,11 +15094,11 @@ void DeleteKindResponse::InternalSwap(DeleteKindResponse* other) {
 }  // namespace ric
 namespace google {
 namespace protobuf {
-template<> PROTOBUF_NOINLINE ::ric::tasks::UserContext* Arena::CreateMaybeMessage< ::ric::tasks::UserContext >(Arena* arena) {
-  return Arena::CreateInternal< ::ric::tasks::UserContext >(arena);
-}
 template<> PROTOBUF_NOINLINE ::ric::tasks::ObjectId* Arena::CreateMaybeMessage< ::ric::tasks::ObjectId >(Arena* arena) {
   return Arena::CreateInternal< ::ric::tasks::ObjectId >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::tasks::UserContext* Arena::CreateMaybeMessage< ::ric::tasks::UserContext >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::tasks::UserContext >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::tasks::Location* Arena::CreateMaybeMessage< ::ric::tasks::Location >(Arena* arena) {
   return Arena::CreateInternal< ::ric::tasks::Location >(arena);
