@@ -159,9 +159,9 @@ message TaskEdit {
   ObjectId parent = 3;
   repeated string tags = 4;
   Task.Constrain constrain = 5;
-  Int32Value priority = 6;
-  StringValue name = 7;
-  StringValue description = 8;
+  google.protobuf.Int32Value priority = 6;
+  google.protobuf.StringValue name = 7;
+  google.protobuf.StringValue description = 8;
   ObjectId object = 9;
   ObjectId kind = 10;
   repeated ReportFormat report_format = 11;
@@ -169,9 +169,9 @@ message TaskEdit {
   Location end = 13;
   repeated Deadline deadlines = 14;
   ObjectId assignee = 15;
-  StringValue assignee_type = 16;
+  google.protobuf.StringValue assignee_type = 16;
   Review review = 17;
-  BytesValue json = 18;
+  google.protobuf.BytesValue json = 18;
 }
 
 message Review {
