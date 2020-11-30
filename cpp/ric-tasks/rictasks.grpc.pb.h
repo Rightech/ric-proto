@@ -59,7 +59,7 @@ class TaskService final {
     // this method can't update (return error):
     // 1. tasks status (use ChangeStatus)
     // 2. tasks deadlines if status not equal to CREATED or ASSIGNED
-    // 3. subtasks order (use UpdateOrder)
+    // 3. add/remove subtasks or update subtasks order (use UpdateOrder)
     // 4. begin and end location if status not equal to CREATED or ASSIGNED
     //
     // new subtasks can be added but they always append to end of subtasks list
@@ -131,7 +131,7 @@ class TaskService final {
       // this method can't update (return error):
       // 1. tasks status (use ChangeStatus)
       // 2. tasks deadlines if status not equal to CREATED or ASSIGNED
-      // 3. subtasks order (use UpdateOrder)
+      // 3. add/remove subtasks or update subtasks order (use UpdateOrder)
       // 4. begin and end location if status not equal to CREATED or ASSIGNED
       //
       // new subtasks can be added but they always append to end of subtasks list
@@ -290,7 +290,7 @@ class TaskService final {
     // this method can't update (return error):
     // 1. tasks status (use ChangeStatus)
     // 2. tasks deadlines if status not equal to CREATED or ASSIGNED
-    // 3. subtasks order (use UpdateOrder)
+    // 3. add/remove subtasks or update subtasks order (use UpdateOrder)
     // 4. begin and end location if status not equal to CREATED or ASSIGNED
     //
     // new subtasks can be added but they always append to end of subtasks list

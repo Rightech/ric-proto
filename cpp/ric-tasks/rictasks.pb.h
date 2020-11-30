@@ -47,7 +47,7 @@ struct TableStruct_ric_2dtasks_2frictasks_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[31]
+  static const ::google::protobuf::internal::ParseTable schema[32]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -125,6 +125,9 @@ extern ReviewDefaultTypeInternal _Review_default_instance_;
 class Task;
 class TaskDefaultTypeInternal;
 extern TaskDefaultTypeInternal _Task_default_instance_;
+class TaskEdit;
+class TaskEditDefaultTypeInternal;
+extern TaskEditDefaultTypeInternal _TaskEdit_default_instance_;
 class UpdateKindRequest;
 class UpdateKindRequestDefaultTypeInternal;
 extern UpdateKindRequestDefaultTypeInternal _UpdateKindRequest_default_instance_;
@@ -176,6 +179,7 @@ template<> ::ric::tasks::Report* Arena::CreateMaybeMessage<::ric::tasks::Report>
 template<> ::ric::tasks::ReportFormat* Arena::CreateMaybeMessage<::ric::tasks::ReportFormat>(Arena*);
 template<> ::ric::tasks::Review* Arena::CreateMaybeMessage<::ric::tasks::Review>(Arena*);
 template<> ::ric::tasks::Task* Arena::CreateMaybeMessage<::ric::tasks::Task>(Arena*);
+template<> ::ric::tasks::TaskEdit* Arena::CreateMaybeMessage<::ric::tasks::TaskEdit>(Arena*);
 template<> ::ric::tasks::UpdateKindRequest* Arena::CreateMaybeMessage<::ric::tasks::UpdateKindRequest>(Arena*);
 template<> ::ric::tasks::UpdateKindResponse* Arena::CreateMaybeMessage<::ric::tasks::UpdateKindResponse>(Arena*);
 template<> ::ric::tasks::UpdateTaskOrderRequest* Arena::CreateMaybeMessage<::ric::tasks::UpdateTaskOrderRequest>(Arena*);
@@ -1253,6 +1257,307 @@ class Task final :
 };
 // -------------------------------------------------------------------
 
+class TaskEdit final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.tasks.TaskEdit) */ {
+ public:
+  TaskEdit();
+  virtual ~TaskEdit();
+
+  TaskEdit(const TaskEdit& from);
+
+  inline TaskEdit& operator=(const TaskEdit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  TaskEdit(TaskEdit&& from) noexcept
+    : TaskEdit() {
+    *this = ::std::move(from);
+  }
+
+  inline TaskEdit& operator=(TaskEdit&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const TaskEdit& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const TaskEdit* internal_default_instance() {
+    return reinterpret_cast<const TaskEdit*>(
+               &_TaskEdit_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  void Swap(TaskEdit* other);
+  friend void swap(TaskEdit& a, TaskEdit& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline TaskEdit* New() const final {
+    return CreateMaybeMessage<TaskEdit>(nullptr);
+  }
+
+  TaskEdit* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<TaskEdit>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const TaskEdit& from);
+  void MergeFrom(const TaskEdit& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TaskEdit* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated string tags = 4;
+  int tags_size() const;
+  void clear_tags();
+  static const int kTagsFieldNumber = 4;
+  const ::std::string& tags(int index) const;
+  ::std::string* mutable_tags(int index);
+  void set_tags(int index, const ::std::string& value);
+  #if LANG_CXX11
+  void set_tags(int index, ::std::string&& value);
+  #endif
+  void set_tags(int index, const char* value);
+  void set_tags(int index, const char* value, size_t size);
+  ::std::string* add_tags();
+  void add_tags(const ::std::string& value);
+  #if LANG_CXX11
+  void add_tags(::std::string&& value);
+  #endif
+  void add_tags(const char* value);
+  void add_tags(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField<::std::string>& tags() const;
+  ::google::protobuf::RepeatedPtrField<::std::string>* mutable_tags();
+
+  // repeated .ric.tasks.ReportFormat report_format = 11;
+  int report_format_size() const;
+  void clear_report_format();
+  static const int kReportFormatFieldNumber = 11;
+  ::ric::tasks::ReportFormat* mutable_report_format(int index);
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >*
+      mutable_report_format();
+  const ::ric::tasks::ReportFormat& report_format(int index) const;
+  ::ric::tasks::ReportFormat* add_report_format();
+  const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >&
+      report_format() const;
+
+  // repeated .ric.tasks.Deadline deadlines = 14;
+  int deadlines_size() const;
+  void clear_deadlines();
+  static const int kDeadlinesFieldNumber = 14;
+  ::ric::tasks::Deadline* mutable_deadlines(int index);
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::Deadline >*
+      mutable_deadlines();
+  const ::ric::tasks::Deadline& deadlines(int index) const;
+  ::ric::tasks::Deadline* add_deadlines();
+  const ::google::protobuf::RepeatedPtrField< ::ric::tasks::Deadline >&
+      deadlines() const;
+
+  // .ric.tasks.ObjectId owner = 1;
+  bool has_owner() const;
+  void clear_owner();
+  static const int kOwnerFieldNumber = 1;
+  const ::ric::tasks::ObjectId& owner() const;
+  ::ric::tasks::ObjectId* release_owner();
+  ::ric::tasks::ObjectId* mutable_owner();
+  void set_allocated_owner(::ric::tasks::ObjectId* owner);
+
+  // .ric.tasks.ObjectId group = 2;
+  bool has_group() const;
+  void clear_group();
+  static const int kGroupFieldNumber = 2;
+  const ::ric::tasks::ObjectId& group() const;
+  ::ric::tasks::ObjectId* release_group();
+  ::ric::tasks::ObjectId* mutable_group();
+  void set_allocated_group(::ric::tasks::ObjectId* group);
+
+  // .ric.tasks.ObjectId parent = 3;
+  bool has_parent() const;
+  void clear_parent();
+  static const int kParentFieldNumber = 3;
+  const ::ric::tasks::ObjectId& parent() const;
+  ::ric::tasks::ObjectId* release_parent();
+  ::ric::tasks::ObjectId* mutable_parent();
+  void set_allocated_parent(::ric::tasks::ObjectId* parent);
+
+  // .google.protobuf.Int32Value priority = 6;
+  bool has_priority() const;
+  void clear_priority();
+  static const int kPriorityFieldNumber = 6;
+  const ::google::protobuf::Int32Value& priority() const;
+  ::google::protobuf::Int32Value* release_priority();
+  ::google::protobuf::Int32Value* mutable_priority();
+  void set_allocated_priority(::google::protobuf::Int32Value* priority);
+
+  // .google.protobuf.StringValue name = 7;
+  bool has_name() const;
+  void clear_name();
+  static const int kNameFieldNumber = 7;
+  const ::google::protobuf::StringValue& name() const;
+  ::google::protobuf::StringValue* release_name();
+  ::google::protobuf::StringValue* mutable_name();
+  void set_allocated_name(::google::protobuf::StringValue* name);
+
+  // .google.protobuf.StringValue description = 8;
+  bool has_description() const;
+  void clear_description();
+  static const int kDescriptionFieldNumber = 8;
+  const ::google::protobuf::StringValue& description() const;
+  ::google::protobuf::StringValue* release_description();
+  ::google::protobuf::StringValue* mutable_description();
+  void set_allocated_description(::google::protobuf::StringValue* description);
+
+  // .ric.tasks.ObjectId object = 9;
+  bool has_object() const;
+  void clear_object();
+  static const int kObjectFieldNumber = 9;
+  const ::ric::tasks::ObjectId& object() const;
+  ::ric::tasks::ObjectId* release_object();
+  ::ric::tasks::ObjectId* mutable_object();
+  void set_allocated_object(::ric::tasks::ObjectId* object);
+
+  // .ric.tasks.ObjectId kind = 10;
+  bool has_kind() const;
+  void clear_kind();
+  static const int kKindFieldNumber = 10;
+  const ::ric::tasks::ObjectId& kind() const;
+  ::ric::tasks::ObjectId* release_kind();
+  ::ric::tasks::ObjectId* mutable_kind();
+  void set_allocated_kind(::ric::tasks::ObjectId* kind);
+
+  // .ric.tasks.Location begin = 12;
+  bool has_begin() const;
+  void clear_begin();
+  static const int kBeginFieldNumber = 12;
+  const ::ric::tasks::Location& begin() const;
+  ::ric::tasks::Location* release_begin();
+  ::ric::tasks::Location* mutable_begin();
+  void set_allocated_begin(::ric::tasks::Location* begin);
+
+  // .ric.tasks.Location end = 13;
+  bool has_end() const;
+  void clear_end();
+  static const int kEndFieldNumber = 13;
+  const ::ric::tasks::Location& end() const;
+  ::ric::tasks::Location* release_end();
+  ::ric::tasks::Location* mutable_end();
+  void set_allocated_end(::ric::tasks::Location* end);
+
+  // .ric.tasks.ObjectId assignee = 15;
+  bool has_assignee() const;
+  void clear_assignee();
+  static const int kAssigneeFieldNumber = 15;
+  const ::ric::tasks::ObjectId& assignee() const;
+  ::ric::tasks::ObjectId* release_assignee();
+  ::ric::tasks::ObjectId* mutable_assignee();
+  void set_allocated_assignee(::ric::tasks::ObjectId* assignee);
+
+  // .google.protobuf.StringValue assignee_type = 16;
+  bool has_assignee_type() const;
+  void clear_assignee_type();
+  static const int kAssigneeTypeFieldNumber = 16;
+  const ::google::protobuf::StringValue& assignee_type() const;
+  ::google::protobuf::StringValue* release_assignee_type();
+  ::google::protobuf::StringValue* mutable_assignee_type();
+  void set_allocated_assignee_type(::google::protobuf::StringValue* assignee_type);
+
+  // .ric.tasks.Review review = 17;
+  bool has_review() const;
+  void clear_review();
+  static const int kReviewFieldNumber = 17;
+  const ::ric::tasks::Review& review() const;
+  ::ric::tasks::Review* release_review();
+  ::ric::tasks::Review* mutable_review();
+  void set_allocated_review(::ric::tasks::Review* review);
+
+  // .google.protobuf.BytesValue json = 18;
+  bool has_json() const;
+  void clear_json();
+  static const int kJsonFieldNumber = 18;
+  const ::google::protobuf::BytesValue& json() const;
+  ::google::protobuf::BytesValue* release_json();
+  ::google::protobuf::BytesValue* mutable_json();
+  void set_allocated_json(::google::protobuf::BytesValue* json);
+
+  // .ric.tasks.Task.Constrain constrain = 5;
+  void clear_constrain();
+  static const int kConstrainFieldNumber = 5;
+  ::ric::tasks::Task_Constrain constrain() const;
+  void set_constrain(::ric::tasks::Task_Constrain value);
+
+  // @@protoc_insertion_point(class_scope:ric.tasks.TaskEdit)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField<::std::string> tags_;
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat > report_format_;
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::Deadline > deadlines_;
+  ::ric::tasks::ObjectId* owner_;
+  ::ric::tasks::ObjectId* group_;
+  ::ric::tasks::ObjectId* parent_;
+  ::google::protobuf::Int32Value* priority_;
+  ::google::protobuf::StringValue* name_;
+  ::google::protobuf::StringValue* description_;
+  ::ric::tasks::ObjectId* object_;
+  ::ric::tasks::ObjectId* kind_;
+  ::ric::tasks::Location* begin_;
+  ::ric::tasks::Location* end_;
+  ::ric::tasks::ObjectId* assignee_;
+  ::google::protobuf::StringValue* assignee_type_;
+  ::ric::tasks::Review* review_;
+  ::google::protobuf::BytesValue* json_;
+  int constrain_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dtasks_2frictasks_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Review final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.tasks.Review) */ {
  public:
@@ -1291,7 +1596,7 @@ class Review final :
                &_Review_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   void Swap(Review* other);
   friend void swap(Review& a, Review& b) {
@@ -1428,7 +1733,7 @@ class Deadline final :
                &_Deadline_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   void Swap(Deadline* other);
   friend void swap(Deadline& a, Deadline& b) {
@@ -1557,7 +1862,7 @@ class ReportFormat final :
                &_ReportFormat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   void Swap(ReportFormat* other);
   friend void swap(ReportFormat& a, ReportFormat& b) {
@@ -1726,7 +2031,7 @@ class Report final :
                &_Report_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   void Swap(Report* other);
   friend void swap(Report& a, Report& b) {
@@ -1856,7 +2161,7 @@ class Kind final :
                &_Kind_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   void Swap(Kind* other);
   friend void swap(Kind& a, Kind& b) {
@@ -2042,7 +2347,7 @@ class CreateTaskRequest final :
                &_CreateTaskRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   void Swap(CreateTaskRequest* other);
   friend void swap(CreateTaskRequest& a, CreateTaskRequest& b) {
@@ -2167,7 +2472,7 @@ class CreateTaskResponse final :
                &_CreateTaskResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   void Swap(CreateTaskResponse* other);
   friend void swap(CreateTaskResponse& a, CreateTaskResponse& b) {
@@ -2282,7 +2587,7 @@ class GetTaskRequest final :
                &_GetTaskRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   void Swap(GetTaskRequest* other);
   friend void swap(GetTaskRequest& a, GetTaskRequest& b) {
@@ -2407,7 +2712,7 @@ class GetTaskResponse final :
                &_GetTaskResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   void Swap(GetTaskResponse* other);
   friend void swap(GetTaskResponse& a, GetTaskResponse& b) {
@@ -2522,7 +2827,7 @@ class DeleteTaskRequest final :
                &_DeleteTaskRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   void Swap(DeleteTaskRequest* other);
   friend void swap(DeleteTaskRequest& a, DeleteTaskRequest& b) {
@@ -2647,7 +2952,7 @@ class DeleteTaskResponse final :
                &_DeleteTaskResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   void Swap(DeleteTaskResponse* other);
   friend void swap(DeleteTaskResponse& a, DeleteTaskResponse& b) {
@@ -2752,7 +3057,7 @@ class UpdateTaskRequest final :
                &_UpdateTaskRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   void Swap(UpdateTaskRequest* other);
   friend void swap(UpdateTaskRequest& a, UpdateTaskRequest& b) {
@@ -2818,14 +3123,23 @@ class UpdateTaskRequest final :
   ::ric::tasks::UserContext* mutable_ctx();
   void set_allocated_ctx(::ric::tasks::UserContext* ctx);
 
-  // .ric.tasks.Task task = 2;
+  // .ric.tasks.ObjectId oid = 2;
+  bool has_oid() const;
+  void clear_oid();
+  static const int kOidFieldNumber = 2;
+  const ::ric::tasks::ObjectId& oid() const;
+  ::ric::tasks::ObjectId* release_oid();
+  ::ric::tasks::ObjectId* mutable_oid();
+  void set_allocated_oid(::ric::tasks::ObjectId* oid);
+
+  // .ric.tasks.TaskEdit task = 3;
   bool has_task() const;
   void clear_task();
-  static const int kTaskFieldNumber = 2;
-  const ::ric::tasks::Task& task() const;
-  ::ric::tasks::Task* release_task();
-  ::ric::tasks::Task* mutable_task();
-  void set_allocated_task(::ric::tasks::Task* task);
+  static const int kTaskFieldNumber = 3;
+  const ::ric::tasks::TaskEdit& task() const;
+  ::ric::tasks::TaskEdit* release_task();
+  ::ric::tasks::TaskEdit* mutable_task();
+  void set_allocated_task(::ric::tasks::TaskEdit* task);
 
   // @@protoc_insertion_point(class_scope:ric.tasks.UpdateTaskRequest)
  private:
@@ -2833,7 +3147,8 @@ class UpdateTaskRequest final :
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::ric::tasks::UserContext* ctx_;
-  ::ric::tasks::Task* task_;
+  ::ric::tasks::ObjectId* oid_;
+  ::ric::tasks::TaskEdit* task_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dtasks_2frictasks_2eproto;
 };
@@ -2877,7 +3192,7 @@ class UpdateTaskResponse final :
                &_UpdateTaskResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   void Swap(UpdateTaskResponse* other);
   friend void swap(UpdateTaskResponse& a, UpdateTaskResponse& b) {
@@ -3016,7 +3331,7 @@ class UpdateTaskOrderRequest final :
                &_UpdateTaskOrderRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   void Swap(UpdateTaskOrderRequest* other);
   friend void swap(UpdateTaskOrderRequest& a, UpdateTaskOrderRequest& b) {
@@ -3157,7 +3472,7 @@ class UpdateTaskOrderResponse final :
                &_UpdateTaskOrderResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   void Swap(UpdateTaskOrderResponse* other);
   friend void swap(UpdateTaskOrderResponse& a, UpdateTaskOrderResponse& b) {
@@ -3272,7 +3587,7 @@ class ChangeTaskStatusRequest final :
                &_ChangeTaskStatusRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   void Swap(ChangeTaskStatusRequest* other);
   friend void swap(ChangeTaskStatusRequest& a, ChangeTaskStatusRequest& b) {
@@ -3452,7 +3767,7 @@ class ChangeTaskStatusResponse final :
                &_ChangeTaskStatusResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   void Swap(ChangeTaskStatusResponse* other);
   friend void swap(ChangeTaskStatusResponse& a, ChangeTaskStatusResponse& b) {
@@ -3567,7 +3882,7 @@ class CreateKindRequest final :
                &_CreateKindRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   void Swap(CreateKindRequest* other);
   friend void swap(CreateKindRequest& a, CreateKindRequest& b) {
@@ -3692,7 +4007,7 @@ class CreateKindResponse final :
                &_CreateKindResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   void Swap(CreateKindResponse* other);
   friend void swap(CreateKindResponse& a, CreateKindResponse& b) {
@@ -3807,7 +4122,7 @@ class GetKindRequest final :
                &_GetKindRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   void Swap(GetKindRequest* other);
   friend void swap(GetKindRequest& a, GetKindRequest& b) {
@@ -3932,7 +4247,7 @@ class GetKindResponse final :
                &_GetKindResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   void Swap(GetKindResponse* other);
   friend void swap(GetKindResponse& a, GetKindResponse& b) {
@@ -4047,7 +4362,7 @@ class UpdateKindRequest final :
                &_UpdateKindRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   void Swap(UpdateKindRequest* other);
   friend void swap(UpdateKindRequest& a, UpdateKindRequest& b) {
@@ -4172,7 +4487,7 @@ class UpdateKindResponse final :
                &_UpdateKindResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   void Swap(UpdateKindResponse* other);
   friend void swap(UpdateKindResponse& a, UpdateKindResponse& b) {
@@ -4287,7 +4602,7 @@ class DeleteKindRequest final :
                &_DeleteKindRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   void Swap(DeleteKindRequest* other);
   friend void swap(DeleteKindRequest& a, DeleteKindRequest& b) {
@@ -4412,7 +4727,7 @@ class DeleteKindResponse final :
                &_DeleteKindResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   void Swap(DeleteKindResponse* other);
   friend void swap(DeleteKindResponse& a, DeleteKindResponse& b) {
@@ -5933,6 +6248,842 @@ inline void Task::set_allocated_json(::std::string* json) {
 
 // -------------------------------------------------------------------
 
+// TaskEdit
+
+// .ric.tasks.ObjectId owner = 1;
+inline bool TaskEdit::has_owner() const {
+  return this != internal_default_instance() && owner_ != nullptr;
+}
+inline void TaskEdit::clear_owner() {
+  if (GetArenaNoVirtual() == nullptr && owner_ != nullptr) {
+    delete owner_;
+  }
+  owner_ = nullptr;
+}
+inline const ::ric::tasks::ObjectId& TaskEdit::owner() const {
+  const ::ric::tasks::ObjectId* p = owner_;
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.owner)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::ObjectId*>(
+      &::ric::tasks::_ObjectId_default_instance_);
+}
+inline ::ric::tasks::ObjectId* TaskEdit::release_owner() {
+  // @@protoc_insertion_point(field_release:ric.tasks.TaskEdit.owner)
+  
+  ::ric::tasks::ObjectId* temp = owner_;
+  owner_ = nullptr;
+  return temp;
+}
+inline ::ric::tasks::ObjectId* TaskEdit::mutable_owner() {
+  
+  if (owner_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::tasks::ObjectId>(GetArenaNoVirtual());
+    owner_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.owner)
+  return owner_;
+}
+inline void TaskEdit::set_allocated_owner(::ric::tasks::ObjectId* owner) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete owner_;
+  }
+  if (owner) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      owner = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, owner, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  owner_ = owner;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.TaskEdit.owner)
+}
+
+// .ric.tasks.ObjectId group = 2;
+inline bool TaskEdit::has_group() const {
+  return this != internal_default_instance() && group_ != nullptr;
+}
+inline void TaskEdit::clear_group() {
+  if (GetArenaNoVirtual() == nullptr && group_ != nullptr) {
+    delete group_;
+  }
+  group_ = nullptr;
+}
+inline const ::ric::tasks::ObjectId& TaskEdit::group() const {
+  const ::ric::tasks::ObjectId* p = group_;
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.group)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::ObjectId*>(
+      &::ric::tasks::_ObjectId_default_instance_);
+}
+inline ::ric::tasks::ObjectId* TaskEdit::release_group() {
+  // @@protoc_insertion_point(field_release:ric.tasks.TaskEdit.group)
+  
+  ::ric::tasks::ObjectId* temp = group_;
+  group_ = nullptr;
+  return temp;
+}
+inline ::ric::tasks::ObjectId* TaskEdit::mutable_group() {
+  
+  if (group_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::tasks::ObjectId>(GetArenaNoVirtual());
+    group_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.group)
+  return group_;
+}
+inline void TaskEdit::set_allocated_group(::ric::tasks::ObjectId* group) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete group_;
+  }
+  if (group) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      group = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, group, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  group_ = group;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.TaskEdit.group)
+}
+
+// .ric.tasks.ObjectId parent = 3;
+inline bool TaskEdit::has_parent() const {
+  return this != internal_default_instance() && parent_ != nullptr;
+}
+inline void TaskEdit::clear_parent() {
+  if (GetArenaNoVirtual() == nullptr && parent_ != nullptr) {
+    delete parent_;
+  }
+  parent_ = nullptr;
+}
+inline const ::ric::tasks::ObjectId& TaskEdit::parent() const {
+  const ::ric::tasks::ObjectId* p = parent_;
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.parent)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::ObjectId*>(
+      &::ric::tasks::_ObjectId_default_instance_);
+}
+inline ::ric::tasks::ObjectId* TaskEdit::release_parent() {
+  // @@protoc_insertion_point(field_release:ric.tasks.TaskEdit.parent)
+  
+  ::ric::tasks::ObjectId* temp = parent_;
+  parent_ = nullptr;
+  return temp;
+}
+inline ::ric::tasks::ObjectId* TaskEdit::mutable_parent() {
+  
+  if (parent_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::tasks::ObjectId>(GetArenaNoVirtual());
+    parent_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.parent)
+  return parent_;
+}
+inline void TaskEdit::set_allocated_parent(::ric::tasks::ObjectId* parent) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete parent_;
+  }
+  if (parent) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      parent = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, parent, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  parent_ = parent;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.TaskEdit.parent)
+}
+
+// repeated string tags = 4;
+inline int TaskEdit::tags_size() const {
+  return tags_.size();
+}
+inline void TaskEdit::clear_tags() {
+  tags_.Clear();
+}
+inline const ::std::string& TaskEdit::tags(int index) const {
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.tags)
+  return tags_.Get(index);
+}
+inline ::std::string* TaskEdit::mutable_tags(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.tags)
+  return tags_.Mutable(index);
+}
+inline void TaskEdit::set_tags(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:ric.tasks.TaskEdit.tags)
+  tags_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+inline void TaskEdit::set_tags(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:ric.tasks.TaskEdit.tags)
+  tags_.Mutable(index)->assign(std::move(value));
+}
+#endif
+inline void TaskEdit::set_tags(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  tags_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ric.tasks.TaskEdit.tags)
+}
+inline void TaskEdit::set_tags(int index, const char* value, size_t size) {
+  tags_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ric.tasks.TaskEdit.tags)
+}
+inline ::std::string* TaskEdit::add_tags() {
+  // @@protoc_insertion_point(field_add_mutable:ric.tasks.TaskEdit.tags)
+  return tags_.Add();
+}
+inline void TaskEdit::add_tags(const ::std::string& value) {
+  tags_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ric.tasks.TaskEdit.tags)
+}
+#if LANG_CXX11
+inline void TaskEdit::add_tags(::std::string&& value) {
+  tags_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ric.tasks.TaskEdit.tags)
+}
+#endif
+inline void TaskEdit::add_tags(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  tags_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ric.tasks.TaskEdit.tags)
+}
+inline void TaskEdit::add_tags(const char* value, size_t size) {
+  tags_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ric.tasks.TaskEdit.tags)
+}
+inline const ::google::protobuf::RepeatedPtrField<::std::string>&
+TaskEdit::tags() const {
+  // @@protoc_insertion_point(field_list:ric.tasks.TaskEdit.tags)
+  return tags_;
+}
+inline ::google::protobuf::RepeatedPtrField<::std::string>*
+TaskEdit::mutable_tags() {
+  // @@protoc_insertion_point(field_mutable_list:ric.tasks.TaskEdit.tags)
+  return &tags_;
+}
+
+// .ric.tasks.Task.Constrain constrain = 5;
+inline void TaskEdit::clear_constrain() {
+  constrain_ = 0;
+}
+inline ::ric::tasks::Task_Constrain TaskEdit::constrain() const {
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.constrain)
+  return static_cast< ::ric::tasks::Task_Constrain >(constrain_);
+}
+inline void TaskEdit::set_constrain(::ric::tasks::Task_Constrain value) {
+  
+  constrain_ = value;
+  // @@protoc_insertion_point(field_set:ric.tasks.TaskEdit.constrain)
+}
+
+// .google.protobuf.Int32Value priority = 6;
+inline bool TaskEdit::has_priority() const {
+  return this != internal_default_instance() && priority_ != nullptr;
+}
+inline const ::google::protobuf::Int32Value& TaskEdit::priority() const {
+  const ::google::protobuf::Int32Value* p = priority_;
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.priority)
+  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::Int32Value*>(
+      &::google::protobuf::_Int32Value_default_instance_);
+}
+inline ::google::protobuf::Int32Value* TaskEdit::release_priority() {
+  // @@protoc_insertion_point(field_release:ric.tasks.TaskEdit.priority)
+  
+  ::google::protobuf::Int32Value* temp = priority_;
+  priority_ = nullptr;
+  return temp;
+}
+inline ::google::protobuf::Int32Value* TaskEdit::mutable_priority() {
+  
+  if (priority_ == nullptr) {
+    auto* p = CreateMaybeMessage<::google::protobuf::Int32Value>(GetArenaNoVirtual());
+    priority_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.priority)
+  return priority_;
+}
+inline void TaskEdit::set_allocated_priority(::google::protobuf::Int32Value* priority) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(priority_);
+  }
+  if (priority) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(priority)->GetArena();
+    if (message_arena != submessage_arena) {
+      priority = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, priority, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  priority_ = priority;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.TaskEdit.priority)
+}
+
+// .google.protobuf.StringValue name = 7;
+inline bool TaskEdit::has_name() const {
+  return this != internal_default_instance() && name_ != nullptr;
+}
+inline const ::google::protobuf::StringValue& TaskEdit::name() const {
+  const ::google::protobuf::StringValue* p = name_;
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.name)
+  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::StringValue*>(
+      &::google::protobuf::_StringValue_default_instance_);
+}
+inline ::google::protobuf::StringValue* TaskEdit::release_name() {
+  // @@protoc_insertion_point(field_release:ric.tasks.TaskEdit.name)
+  
+  ::google::protobuf::StringValue* temp = name_;
+  name_ = nullptr;
+  return temp;
+}
+inline ::google::protobuf::StringValue* TaskEdit::mutable_name() {
+  
+  if (name_ == nullptr) {
+    auto* p = CreateMaybeMessage<::google::protobuf::StringValue>(GetArenaNoVirtual());
+    name_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.name)
+  return name_;
+}
+inline void TaskEdit::set_allocated_name(::google::protobuf::StringValue* name) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(name_);
+  }
+  if (name) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(name)->GetArena();
+    if (message_arena != submessage_arena) {
+      name = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, name, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  name_ = name;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.TaskEdit.name)
+}
+
+// .google.protobuf.StringValue description = 8;
+inline bool TaskEdit::has_description() const {
+  return this != internal_default_instance() && description_ != nullptr;
+}
+inline const ::google::protobuf::StringValue& TaskEdit::description() const {
+  const ::google::protobuf::StringValue* p = description_;
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.description)
+  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::StringValue*>(
+      &::google::protobuf::_StringValue_default_instance_);
+}
+inline ::google::protobuf::StringValue* TaskEdit::release_description() {
+  // @@protoc_insertion_point(field_release:ric.tasks.TaskEdit.description)
+  
+  ::google::protobuf::StringValue* temp = description_;
+  description_ = nullptr;
+  return temp;
+}
+inline ::google::protobuf::StringValue* TaskEdit::mutable_description() {
+  
+  if (description_ == nullptr) {
+    auto* p = CreateMaybeMessage<::google::protobuf::StringValue>(GetArenaNoVirtual());
+    description_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.description)
+  return description_;
+}
+inline void TaskEdit::set_allocated_description(::google::protobuf::StringValue* description) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(description_);
+  }
+  if (description) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(description)->GetArena();
+    if (message_arena != submessage_arena) {
+      description = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, description, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  description_ = description;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.TaskEdit.description)
+}
+
+// .ric.tasks.ObjectId object = 9;
+inline bool TaskEdit::has_object() const {
+  return this != internal_default_instance() && object_ != nullptr;
+}
+inline void TaskEdit::clear_object() {
+  if (GetArenaNoVirtual() == nullptr && object_ != nullptr) {
+    delete object_;
+  }
+  object_ = nullptr;
+}
+inline const ::ric::tasks::ObjectId& TaskEdit::object() const {
+  const ::ric::tasks::ObjectId* p = object_;
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.object)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::ObjectId*>(
+      &::ric::tasks::_ObjectId_default_instance_);
+}
+inline ::ric::tasks::ObjectId* TaskEdit::release_object() {
+  // @@protoc_insertion_point(field_release:ric.tasks.TaskEdit.object)
+  
+  ::ric::tasks::ObjectId* temp = object_;
+  object_ = nullptr;
+  return temp;
+}
+inline ::ric::tasks::ObjectId* TaskEdit::mutable_object() {
+  
+  if (object_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::tasks::ObjectId>(GetArenaNoVirtual());
+    object_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.object)
+  return object_;
+}
+inline void TaskEdit::set_allocated_object(::ric::tasks::ObjectId* object) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete object_;
+  }
+  if (object) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      object = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, object, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  object_ = object;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.TaskEdit.object)
+}
+
+// .ric.tasks.ObjectId kind = 10;
+inline bool TaskEdit::has_kind() const {
+  return this != internal_default_instance() && kind_ != nullptr;
+}
+inline void TaskEdit::clear_kind() {
+  if (GetArenaNoVirtual() == nullptr && kind_ != nullptr) {
+    delete kind_;
+  }
+  kind_ = nullptr;
+}
+inline const ::ric::tasks::ObjectId& TaskEdit::kind() const {
+  const ::ric::tasks::ObjectId* p = kind_;
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.kind)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::ObjectId*>(
+      &::ric::tasks::_ObjectId_default_instance_);
+}
+inline ::ric::tasks::ObjectId* TaskEdit::release_kind() {
+  // @@protoc_insertion_point(field_release:ric.tasks.TaskEdit.kind)
+  
+  ::ric::tasks::ObjectId* temp = kind_;
+  kind_ = nullptr;
+  return temp;
+}
+inline ::ric::tasks::ObjectId* TaskEdit::mutable_kind() {
+  
+  if (kind_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::tasks::ObjectId>(GetArenaNoVirtual());
+    kind_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.kind)
+  return kind_;
+}
+inline void TaskEdit::set_allocated_kind(::ric::tasks::ObjectId* kind) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete kind_;
+  }
+  if (kind) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      kind = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, kind, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  kind_ = kind;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.TaskEdit.kind)
+}
+
+// repeated .ric.tasks.ReportFormat report_format = 11;
+inline int TaskEdit::report_format_size() const {
+  return report_format_.size();
+}
+inline void TaskEdit::clear_report_format() {
+  report_format_.Clear();
+}
+inline ::ric::tasks::ReportFormat* TaskEdit::mutable_report_format(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.report_format)
+  return report_format_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >*
+TaskEdit::mutable_report_format() {
+  // @@protoc_insertion_point(field_mutable_list:ric.tasks.TaskEdit.report_format)
+  return &report_format_;
+}
+inline const ::ric::tasks::ReportFormat& TaskEdit::report_format(int index) const {
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.report_format)
+  return report_format_.Get(index);
+}
+inline ::ric::tasks::ReportFormat* TaskEdit::add_report_format() {
+  // @@protoc_insertion_point(field_add:ric.tasks.TaskEdit.report_format)
+  return report_format_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >&
+TaskEdit::report_format() const {
+  // @@protoc_insertion_point(field_list:ric.tasks.TaskEdit.report_format)
+  return report_format_;
+}
+
+// .ric.tasks.Location begin = 12;
+inline bool TaskEdit::has_begin() const {
+  return this != internal_default_instance() && begin_ != nullptr;
+}
+inline void TaskEdit::clear_begin() {
+  if (GetArenaNoVirtual() == nullptr && begin_ != nullptr) {
+    delete begin_;
+  }
+  begin_ = nullptr;
+}
+inline const ::ric::tasks::Location& TaskEdit::begin() const {
+  const ::ric::tasks::Location* p = begin_;
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.begin)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::Location*>(
+      &::ric::tasks::_Location_default_instance_);
+}
+inline ::ric::tasks::Location* TaskEdit::release_begin() {
+  // @@protoc_insertion_point(field_release:ric.tasks.TaskEdit.begin)
+  
+  ::ric::tasks::Location* temp = begin_;
+  begin_ = nullptr;
+  return temp;
+}
+inline ::ric::tasks::Location* TaskEdit::mutable_begin() {
+  
+  if (begin_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::tasks::Location>(GetArenaNoVirtual());
+    begin_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.begin)
+  return begin_;
+}
+inline void TaskEdit::set_allocated_begin(::ric::tasks::Location* begin) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete begin_;
+  }
+  if (begin) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      begin = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, begin, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  begin_ = begin;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.TaskEdit.begin)
+}
+
+// .ric.tasks.Location end = 13;
+inline bool TaskEdit::has_end() const {
+  return this != internal_default_instance() && end_ != nullptr;
+}
+inline void TaskEdit::clear_end() {
+  if (GetArenaNoVirtual() == nullptr && end_ != nullptr) {
+    delete end_;
+  }
+  end_ = nullptr;
+}
+inline const ::ric::tasks::Location& TaskEdit::end() const {
+  const ::ric::tasks::Location* p = end_;
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.end)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::Location*>(
+      &::ric::tasks::_Location_default_instance_);
+}
+inline ::ric::tasks::Location* TaskEdit::release_end() {
+  // @@protoc_insertion_point(field_release:ric.tasks.TaskEdit.end)
+  
+  ::ric::tasks::Location* temp = end_;
+  end_ = nullptr;
+  return temp;
+}
+inline ::ric::tasks::Location* TaskEdit::mutable_end() {
+  
+  if (end_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::tasks::Location>(GetArenaNoVirtual());
+    end_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.end)
+  return end_;
+}
+inline void TaskEdit::set_allocated_end(::ric::tasks::Location* end) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete end_;
+  }
+  if (end) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      end = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, end, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  end_ = end;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.TaskEdit.end)
+}
+
+// repeated .ric.tasks.Deadline deadlines = 14;
+inline int TaskEdit::deadlines_size() const {
+  return deadlines_.size();
+}
+inline void TaskEdit::clear_deadlines() {
+  deadlines_.Clear();
+}
+inline ::ric::tasks::Deadline* TaskEdit::mutable_deadlines(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.deadlines)
+  return deadlines_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::ric::tasks::Deadline >*
+TaskEdit::mutable_deadlines() {
+  // @@protoc_insertion_point(field_mutable_list:ric.tasks.TaskEdit.deadlines)
+  return &deadlines_;
+}
+inline const ::ric::tasks::Deadline& TaskEdit::deadlines(int index) const {
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.deadlines)
+  return deadlines_.Get(index);
+}
+inline ::ric::tasks::Deadline* TaskEdit::add_deadlines() {
+  // @@protoc_insertion_point(field_add:ric.tasks.TaskEdit.deadlines)
+  return deadlines_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ric::tasks::Deadline >&
+TaskEdit::deadlines() const {
+  // @@protoc_insertion_point(field_list:ric.tasks.TaskEdit.deadlines)
+  return deadlines_;
+}
+
+// .ric.tasks.ObjectId assignee = 15;
+inline bool TaskEdit::has_assignee() const {
+  return this != internal_default_instance() && assignee_ != nullptr;
+}
+inline void TaskEdit::clear_assignee() {
+  if (GetArenaNoVirtual() == nullptr && assignee_ != nullptr) {
+    delete assignee_;
+  }
+  assignee_ = nullptr;
+}
+inline const ::ric::tasks::ObjectId& TaskEdit::assignee() const {
+  const ::ric::tasks::ObjectId* p = assignee_;
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.assignee)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::ObjectId*>(
+      &::ric::tasks::_ObjectId_default_instance_);
+}
+inline ::ric::tasks::ObjectId* TaskEdit::release_assignee() {
+  // @@protoc_insertion_point(field_release:ric.tasks.TaskEdit.assignee)
+  
+  ::ric::tasks::ObjectId* temp = assignee_;
+  assignee_ = nullptr;
+  return temp;
+}
+inline ::ric::tasks::ObjectId* TaskEdit::mutable_assignee() {
+  
+  if (assignee_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::tasks::ObjectId>(GetArenaNoVirtual());
+    assignee_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.assignee)
+  return assignee_;
+}
+inline void TaskEdit::set_allocated_assignee(::ric::tasks::ObjectId* assignee) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete assignee_;
+  }
+  if (assignee) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      assignee = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, assignee, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  assignee_ = assignee;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.TaskEdit.assignee)
+}
+
+// .google.protobuf.StringValue assignee_type = 16;
+inline bool TaskEdit::has_assignee_type() const {
+  return this != internal_default_instance() && assignee_type_ != nullptr;
+}
+inline const ::google::protobuf::StringValue& TaskEdit::assignee_type() const {
+  const ::google::protobuf::StringValue* p = assignee_type_;
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.assignee_type)
+  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::StringValue*>(
+      &::google::protobuf::_StringValue_default_instance_);
+}
+inline ::google::protobuf::StringValue* TaskEdit::release_assignee_type() {
+  // @@protoc_insertion_point(field_release:ric.tasks.TaskEdit.assignee_type)
+  
+  ::google::protobuf::StringValue* temp = assignee_type_;
+  assignee_type_ = nullptr;
+  return temp;
+}
+inline ::google::protobuf::StringValue* TaskEdit::mutable_assignee_type() {
+  
+  if (assignee_type_ == nullptr) {
+    auto* p = CreateMaybeMessage<::google::protobuf::StringValue>(GetArenaNoVirtual());
+    assignee_type_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.assignee_type)
+  return assignee_type_;
+}
+inline void TaskEdit::set_allocated_assignee_type(::google::protobuf::StringValue* assignee_type) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(assignee_type_);
+  }
+  if (assignee_type) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(assignee_type)->GetArena();
+    if (message_arena != submessage_arena) {
+      assignee_type = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, assignee_type, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  assignee_type_ = assignee_type;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.TaskEdit.assignee_type)
+}
+
+// .ric.tasks.Review review = 17;
+inline bool TaskEdit::has_review() const {
+  return this != internal_default_instance() && review_ != nullptr;
+}
+inline void TaskEdit::clear_review() {
+  if (GetArenaNoVirtual() == nullptr && review_ != nullptr) {
+    delete review_;
+  }
+  review_ = nullptr;
+}
+inline const ::ric::tasks::Review& TaskEdit::review() const {
+  const ::ric::tasks::Review* p = review_;
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.review)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::Review*>(
+      &::ric::tasks::_Review_default_instance_);
+}
+inline ::ric::tasks::Review* TaskEdit::release_review() {
+  // @@protoc_insertion_point(field_release:ric.tasks.TaskEdit.review)
+  
+  ::ric::tasks::Review* temp = review_;
+  review_ = nullptr;
+  return temp;
+}
+inline ::ric::tasks::Review* TaskEdit::mutable_review() {
+  
+  if (review_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::tasks::Review>(GetArenaNoVirtual());
+    review_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.review)
+  return review_;
+}
+inline void TaskEdit::set_allocated_review(::ric::tasks::Review* review) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete review_;
+  }
+  if (review) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      review = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, review, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  review_ = review;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.TaskEdit.review)
+}
+
+// .google.protobuf.BytesValue json = 18;
+inline bool TaskEdit::has_json() const {
+  return this != internal_default_instance() && json_ != nullptr;
+}
+inline const ::google::protobuf::BytesValue& TaskEdit::json() const {
+  const ::google::protobuf::BytesValue* p = json_;
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.json)
+  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::BytesValue*>(
+      &::google::protobuf::_BytesValue_default_instance_);
+}
+inline ::google::protobuf::BytesValue* TaskEdit::release_json() {
+  // @@protoc_insertion_point(field_release:ric.tasks.TaskEdit.json)
+  
+  ::google::protobuf::BytesValue* temp = json_;
+  json_ = nullptr;
+  return temp;
+}
+inline ::google::protobuf::BytesValue* TaskEdit::mutable_json() {
+  
+  if (json_ == nullptr) {
+    auto* p = CreateMaybeMessage<::google::protobuf::BytesValue>(GetArenaNoVirtual());
+    json_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.json)
+  return json_;
+}
+inline void TaskEdit::set_allocated_json(::google::protobuf::BytesValue* json) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(json_);
+  }
+  if (json) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(json)->GetArena();
+    if (message_arena != submessage_arena) {
+      json = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, json, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  json_ = json;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.TaskEdit.json)
+}
+
+// -------------------------------------------------------------------
+
 // Review
 
 // .ric.tasks.ObjectId reviewer = 1;
@@ -7111,7 +8262,58 @@ inline void UpdateTaskRequest::set_allocated_ctx(::ric::tasks::UserContext* ctx)
   // @@protoc_insertion_point(field_set_allocated:ric.tasks.UpdateTaskRequest.ctx)
 }
 
-// .ric.tasks.Task task = 2;
+// .ric.tasks.ObjectId oid = 2;
+inline bool UpdateTaskRequest::has_oid() const {
+  return this != internal_default_instance() && oid_ != nullptr;
+}
+inline void UpdateTaskRequest::clear_oid() {
+  if (GetArenaNoVirtual() == nullptr && oid_ != nullptr) {
+    delete oid_;
+  }
+  oid_ = nullptr;
+}
+inline const ::ric::tasks::ObjectId& UpdateTaskRequest::oid() const {
+  const ::ric::tasks::ObjectId* p = oid_;
+  // @@protoc_insertion_point(field_get:ric.tasks.UpdateTaskRequest.oid)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::ObjectId*>(
+      &::ric::tasks::_ObjectId_default_instance_);
+}
+inline ::ric::tasks::ObjectId* UpdateTaskRequest::release_oid() {
+  // @@protoc_insertion_point(field_release:ric.tasks.UpdateTaskRequest.oid)
+  
+  ::ric::tasks::ObjectId* temp = oid_;
+  oid_ = nullptr;
+  return temp;
+}
+inline ::ric::tasks::ObjectId* UpdateTaskRequest::mutable_oid() {
+  
+  if (oid_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::tasks::ObjectId>(GetArenaNoVirtual());
+    oid_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.UpdateTaskRequest.oid)
+  return oid_;
+}
+inline void UpdateTaskRequest::set_allocated_oid(::ric::tasks::ObjectId* oid) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete oid_;
+  }
+  if (oid) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      oid = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, oid, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  oid_ = oid;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.UpdateTaskRequest.oid)
+}
+
+// .ric.tasks.TaskEdit task = 3;
 inline bool UpdateTaskRequest::has_task() const {
   return this != internal_default_instance() && task_ != nullptr;
 }
@@ -7121,29 +8323,29 @@ inline void UpdateTaskRequest::clear_task() {
   }
   task_ = nullptr;
 }
-inline const ::ric::tasks::Task& UpdateTaskRequest::task() const {
-  const ::ric::tasks::Task* p = task_;
+inline const ::ric::tasks::TaskEdit& UpdateTaskRequest::task() const {
+  const ::ric::tasks::TaskEdit* p = task_;
   // @@protoc_insertion_point(field_get:ric.tasks.UpdateTaskRequest.task)
-  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::Task*>(
-      &::ric::tasks::_Task_default_instance_);
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::TaskEdit*>(
+      &::ric::tasks::_TaskEdit_default_instance_);
 }
-inline ::ric::tasks::Task* UpdateTaskRequest::release_task() {
+inline ::ric::tasks::TaskEdit* UpdateTaskRequest::release_task() {
   // @@protoc_insertion_point(field_release:ric.tasks.UpdateTaskRequest.task)
   
-  ::ric::tasks::Task* temp = task_;
+  ::ric::tasks::TaskEdit* temp = task_;
   task_ = nullptr;
   return temp;
 }
-inline ::ric::tasks::Task* UpdateTaskRequest::mutable_task() {
+inline ::ric::tasks::TaskEdit* UpdateTaskRequest::mutable_task() {
   
   if (task_ == nullptr) {
-    auto* p = CreateMaybeMessage<::ric::tasks::Task>(GetArenaNoVirtual());
+    auto* p = CreateMaybeMessage<::ric::tasks::TaskEdit>(GetArenaNoVirtual());
     task_ = p;
   }
   // @@protoc_insertion_point(field_mutable:ric.tasks.UpdateTaskRequest.task)
   return task_;
 }
-inline void UpdateTaskRequest::set_allocated_task(::ric::tasks::Task* task) {
+inline void UpdateTaskRequest::set_allocated_task(::ric::tasks::TaskEdit* task) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
     delete task_;
@@ -8349,6 +9551,8 @@ inline void DeleteKindRequest::set_allocated_oid(::ric::tasks::ObjectId* oid) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

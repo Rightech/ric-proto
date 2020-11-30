@@ -66,6 +66,27 @@ export interface Task {
   json?: any;
 }
 
+export interface TaskEdit {
+  owner?: ObjectId;
+  group?: ObjectId;
+  parent?: ObjectId;
+  tags?: string[];
+  constrain?: any;
+  priority?: Int32Value;
+  name?: StringValue;
+  description?: StringValue;
+  object?: ObjectId;
+  kind?: ObjectId;
+  reportFormat?: ReportFormat[];
+  begin?: Location;
+  end?: Location;
+  deadlines?: Deadline[];
+  assignee?: ObjectId;
+  assigneeType?: StringValue;
+  review?: Review;
+  json?: BytesValue;
+}
+
 export interface Review {
   reviewer?: ObjectId;
   rating?: number;
@@ -127,7 +148,8 @@ export interface DeleteTaskResponse {
 
 export interface UpdateTaskRequest {
   ctx?: UserContext;
-  task?: Task;
+  oid?: ObjectId;
+  task?: TaskEdit;
 }
 
 export interface UpdateTaskResponse {
