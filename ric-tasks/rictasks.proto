@@ -17,7 +17,7 @@ service TaskService {
   // this method can't update (return error):
   // 1. tasks status (use ChangeStatus)
   // 2. tasks deadlines if status not equal to CREATED or ASSIGNED
-  // 3. subtasks order (use UpdateOrder)
+  // 3. add/remove subtasks or update subtasks order (use UpdateOrder)
   // 4. begin and end location if status not equal to CREATED or ASSIGNED
   //
   // new subtasks can be added but they always append to end of subtasks list
@@ -144,12 +144,34 @@ message Task {
   // @inject_tag: bson:",omitempty"
   ObjectId assignee = 21;
   // @inject_tag: bson:"assignee_type,omitempty"
-  string assignee_type = 22; // mb enum
+  string assignee_type = 22;
   // @inject_tag: bson:",omitempty"
   Review review = 23;
   // @inject_tag: bson:",omitempty"
   bytes json = 24; // json blob
 }
+
+// nil values ignored
+// zero value remove field in database
+message TaskEdit {
+  ObjectId owner = 1;
+  ObjectId group = 2;
+  ObjectId parent = 3;
+  repeated string tags = 4;
+  Task.Constrain constrain = 5;
+  Int32Value priority = 6;
+  StringValue name = 7;
+  StringValue description = 8;
+  ObjectId object = 9;
+  ObjectId kind = 10;
+  repeated ReportFormat report_format = 11;
+  Location begin = 12;
+  Location end = 13;
+  repeated Deadline deadlines = 14;
+  ObjectId assignee = 15;
+  StringValue assignee_type = 16;
+  Review review = 17;
+  BytesValue json = 18;
 
 message Review {
   ObjectId reviewer = 1;
@@ -227,7 +249,8 @@ message DeleteTaskResponse {}
 
 message UpdateTaskRequest {
   UserContext ctx = 1;
-  Task task = 2;
+  ObjectId oid = 2;
+  TaskEdit task = 3;
 }
 
 message UpdateTaskResponse {
