@@ -3796,17 +3796,17 @@ class ChangeTaskStatusRequest final :
 
   // accessors -------------------------------------------------------
 
-  // repeated .ric.tasks.Report report = 7;
-  int report_size() const;
-  void clear_report();
-  static const int kReportFieldNumber = 7;
-  ::ric::tasks::Report* mutable_report(int index);
+  // repeated .ric.tasks.Report reports = 7;
+  int reports_size() const;
+  void clear_reports();
+  static const int kReportsFieldNumber = 7;
+  ::ric::tasks::Report* mutable_reports(int index);
   ::google::protobuf::RepeatedPtrField< ::ric::tasks::Report >*
-      mutable_report();
-  const ::ric::tasks::Report& report(int index) const;
-  ::ric::tasks::Report* add_report();
+      mutable_reports();
+  const ::ric::tasks::Report& reports(int index) const;
+  ::ric::tasks::Report* add_reports();
   const ::google::protobuf::RepeatedPtrField< ::ric::tasks::Report >&
-      report() const;
+      reports() const;
 
   // string comment = 6;
   void clear_comment();
@@ -3869,7 +3869,7 @@ class ChangeTaskStatusRequest final :
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::ric::tasks::Report > report_;
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::Report > reports_;
   ::google::protobuf::internal::ArenaStringPtr comment_;
   ::ric::tasks::UserContext* ctx_;
   ::ric::tasks::ObjectId* oid_;
@@ -9198,34 +9198,34 @@ inline void ChangeTaskStatusRequest::set_allocated_comment(::std::string* commen
   // @@protoc_insertion_point(field_set_allocated:ric.tasks.ChangeTaskStatusRequest.comment)
 }
 
-// repeated .ric.tasks.Report report = 7;
-inline int ChangeTaskStatusRequest::report_size() const {
-  return report_.size();
+// repeated .ric.tasks.Report reports = 7;
+inline int ChangeTaskStatusRequest::reports_size() const {
+  return reports_.size();
 }
-inline void ChangeTaskStatusRequest::clear_report() {
-  report_.Clear();
+inline void ChangeTaskStatusRequest::clear_reports() {
+  reports_.Clear();
 }
-inline ::ric::tasks::Report* ChangeTaskStatusRequest::mutable_report(int index) {
-  // @@protoc_insertion_point(field_mutable:ric.tasks.ChangeTaskStatusRequest.report)
-  return report_.Mutable(index);
+inline ::ric::tasks::Report* ChangeTaskStatusRequest::mutable_reports(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.tasks.ChangeTaskStatusRequest.reports)
+  return reports_.Mutable(index);
 }
 inline ::google::protobuf::RepeatedPtrField< ::ric::tasks::Report >*
-ChangeTaskStatusRequest::mutable_report() {
-  // @@protoc_insertion_point(field_mutable_list:ric.tasks.ChangeTaskStatusRequest.report)
-  return &report_;
+ChangeTaskStatusRequest::mutable_reports() {
+  // @@protoc_insertion_point(field_mutable_list:ric.tasks.ChangeTaskStatusRequest.reports)
+  return &reports_;
 }
-inline const ::ric::tasks::Report& ChangeTaskStatusRequest::report(int index) const {
-  // @@protoc_insertion_point(field_get:ric.tasks.ChangeTaskStatusRequest.report)
-  return report_.Get(index);
+inline const ::ric::tasks::Report& ChangeTaskStatusRequest::reports(int index) const {
+  // @@protoc_insertion_point(field_get:ric.tasks.ChangeTaskStatusRequest.reports)
+  return reports_.Get(index);
 }
-inline ::ric::tasks::Report* ChangeTaskStatusRequest::add_report() {
-  // @@protoc_insertion_point(field_add:ric.tasks.ChangeTaskStatusRequest.report)
-  return report_.Add();
+inline ::ric::tasks::Report* ChangeTaskStatusRequest::add_reports() {
+  // @@protoc_insertion_point(field_add:ric.tasks.ChangeTaskStatusRequest.reports)
+  return reports_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::ric::tasks::Report >&
-ChangeTaskStatusRequest::report() const {
-  // @@protoc_insertion_point(field_list:ric.tasks.ChangeTaskStatusRequest.report)
-  return report_;
+ChangeTaskStatusRequest::reports() const {
+  // @@protoc_insertion_point(field_list:ric.tasks.ChangeTaskStatusRequest.reports)
+  return reports_;
 }
 
 // -------------------------------------------------------------------

@@ -955,7 +955,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dtasks_2frictasks_2eproto::off
   PROTOBUF_FIELD_OFFSET(::ric::tasks::ChangeTaskStatusRequest, location_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::ChangeTaskStatusRequest, success_),
   PROTOBUF_FIELD_OFFSET(::ric::tasks::ChangeTaskStatusRequest, comment_),
-  PROTOBUF_FIELD_OFFSET(::ric::tasks::ChangeTaskStatusRequest, report_),
+  PROTOBUF_FIELD_OFFSET(::ric::tasks::ChangeTaskStatusRequest, reports_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::tasks::ChangeTaskStatusResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1188,54 +1188,54 @@ const char descriptor_table_protodef_ric_2dtasks_2frictasks_2eproto[] =
   "t.PositionsEntry\0320\n\016PositionsEntry\022\013\n\003ke"
   "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\005:\0028\001\"8\n\027UpdateTask"
   "OrderResponse\022\035\n\004task\030\001 \001(\0132\017.ric.tasks."
-  "Task\"\224\002\n\027ChangeTaskStatusRequest\022#\n\003ctx\030"
+  "Task\"\225\002\n\027ChangeTaskStatusRequest\022#\n\003ctx\030"
   "\001 \001(\0132\026.ric.tasks.UserContext\022 \n\003oid\030\002 \001"
   "(\0132\023.ric.tasks.ObjectId\022*\n\nnew_status\030\003 "
   "\001(\0162\026.ric.tasks.Task.Status\022%\n\010location\030"
   "\004 \001(\0132\023.ric.tasks.Location\022+\n\007success\030\005 "
   "\001(\0132\032.google.protobuf.BoolValue\022\017\n\007comme"
-  "nt\030\006 \001(\t\022!\n\006report\030\007 \003(\0132\021.ric.tasks.Rep"
-  "ort\"9\n\030ChangeTaskStatusResponse\022\035\n\004task\030"
-  "\001 \001(\0132\017.ric.tasks.Task\"W\n\021CreateKindRequ"
-  "est\022#\n\003ctx\030\001 \001(\0132\026.ric.tasks.UserContext"
-  "\022\035\n\004kind\030\002 \001(\0132\017.ric.tasks.Kind\"3\n\022Creat"
-  "eKindResponse\022\035\n\004kind\030\001 \001(\0132\017.ric.tasks."
-  "Kind\"W\n\016GetKindRequest\022#\n\003ctx\030\001 \001(\0132\026.ri"
-  "c.tasks.UserContext\022 \n\003oid\030\002 \001(\0132\023.ric.t"
-  "asks.ObjectId\"0\n\017GetKindResponse\022\035\n\004kind"
-  "\030\001 \001(\0132\017.ric.tasks.Kind\"}\n\021UpdateKindReq"
+  "nt\030\006 \001(\t\022\"\n\007reports\030\007 \003(\0132\021.ric.tasks.Re"
+  "port\"9\n\030ChangeTaskStatusResponse\022\035\n\004task"
+  "\030\001 \001(\0132\017.ric.tasks.Task\"W\n\021CreateKindReq"
   "uest\022#\n\003ctx\030\001 \001(\0132\026.ric.tasks.UserContex"
-  "t\022 \n\003oid\030\002 \001(\0132\023.ric.tasks.ObjectId\022!\n\004k"
-  "ind\030\003 \001(\0132\023.ric.tasks.KindEdit\"3\n\022Update"
-  "KindResponse\022\035\n\004kind\030\001 \001(\0132\017.ric.tasks.K"
-  "ind\"Z\n\021DeleteKindRequest\022#\n\003ctx\030\001 \001(\0132\026."
-  "ric.tasks.UserContext\022 \n\003oid\030\002 \001(\0132\023.ric"
-  ".tasks.ObjectId\"\024\n\022DeleteKindResponse2\317\003"
-  "\n\013TaskService\022E\n\006Create\022\034.ric.tasks.Crea"
-  "teTaskRequest\032\035.ric.tasks.CreateTaskResp"
-  "onse\022<\n\003Get\022\031.ric.tasks.GetTaskRequest\032\032"
-  ".ric.tasks.GetTaskResponse\022E\n\006Update\022\034.r"
-  "ic.tasks.UpdateTaskRequest\032\035.ric.tasks.U"
-  "pdateTaskResponse\022E\n\006Delete\022\034.ric.tasks."
-  "DeleteTaskRequest\032\035.ric.tasks.DeleteTask"
-  "Response\022T\n\013UpdateOrder\022!.ric.tasks.Upda"
-  "teTaskOrderRequest\032\".ric.tasks.UpdateTas"
-  "kOrderResponse\022W\n\014ChangeStatus\022\".ric.tas"
-  "ks.ChangeTaskStatusRequest\032#.ric.tasks.C"
-  "hangeTaskStatusResponse2\240\002\n\013KindService\022"
-  "E\n\006Create\022\034.ric.tasks.CreateKindRequest\032"
-  "\035.ric.tasks.CreateKindResponse\022<\n\003Get\022\031."
-  "ric.tasks.GetKindRequest\032\032.ric.tasks.Get"
-  "KindResponse\022E\n\006Update\022\034.ric.tasks.Updat"
-  "eKindRequest\032\035.ric.tasks.UpdateKindRespo"
-  "nse\022E\n\006Delete\022\034.ric.tasks.DeleteKindRequ"
-  "est\032\035.ric.tasks.DeleteKindResponseB\026Z\024./"
-  "ric-tasks;rictasksb\006proto3"
+  "t\022\035\n\004kind\030\002 \001(\0132\017.ric.tasks.Kind\"3\n\022Crea"
+  "teKindResponse\022\035\n\004kind\030\001 \001(\0132\017.ric.tasks"
+  ".Kind\"W\n\016GetKindRequest\022#\n\003ctx\030\001 \001(\0132\026.r"
+  "ic.tasks.UserContext\022 \n\003oid\030\002 \001(\0132\023.ric."
+  "tasks.ObjectId\"0\n\017GetKindResponse\022\035\n\004kin"
+  "d\030\001 \001(\0132\017.ric.tasks.Kind\"}\n\021UpdateKindRe"
+  "quest\022#\n\003ctx\030\001 \001(\0132\026.ric.tasks.UserConte"
+  "xt\022 \n\003oid\030\002 \001(\0132\023.ric.tasks.ObjectId\022!\n\004"
+  "kind\030\003 \001(\0132\023.ric.tasks.KindEdit\"3\n\022Updat"
+  "eKindResponse\022\035\n\004kind\030\001 \001(\0132\017.ric.tasks."
+  "Kind\"Z\n\021DeleteKindRequest\022#\n\003ctx\030\001 \001(\0132\026"
+  ".ric.tasks.UserContext\022 \n\003oid\030\002 \001(\0132\023.ri"
+  "c.tasks.ObjectId\"\024\n\022DeleteKindResponse2\317"
+  "\003\n\013TaskService\022E\n\006Create\022\034.ric.tasks.Cre"
+  "ateTaskRequest\032\035.ric.tasks.CreateTaskRes"
+  "ponse\022<\n\003Get\022\031.ric.tasks.GetTaskRequest\032"
+  "\032.ric.tasks.GetTaskResponse\022E\n\006Update\022\034."
+  "ric.tasks.UpdateTaskRequest\032\035.ric.tasks."
+  "UpdateTaskResponse\022E\n\006Delete\022\034.ric.tasks"
+  ".DeleteTaskRequest\032\035.ric.tasks.DeleteTas"
+  "kResponse\022T\n\013UpdateOrder\022!.ric.tasks.Upd"
+  "ateTaskOrderRequest\032\".ric.tasks.UpdateTa"
+  "skOrderResponse\022W\n\014ChangeStatus\022\".ric.ta"
+  "sks.ChangeTaskStatusRequest\032#.ric.tasks."
+  "ChangeTaskStatusResponse2\240\002\n\013KindService"
+  "\022E\n\006Create\022\034.ric.tasks.CreateKindRequest"
+  "\032\035.ric.tasks.CreateKindResponse\022<\n\003Get\022\031"
+  ".ric.tasks.GetKindRequest\032\032.ric.tasks.Ge"
+  "tKindResponse\022E\n\006Update\022\034.ric.tasks.Upda"
+  "teKindRequest\032\035.ric.tasks.UpdateKindResp"
+  "onse\022E\n\006Delete\022\034.ric.tasks.DeleteKindReq"
+  "uest\032\035.ric.tasks.DeleteKindResponseB\026Z\024."
+  "/ric-tasks;rictasksb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dtasks_2frictasks_2eproto = {
   false, InitDefaults_ric_2dtasks_2frictasks_2eproto, 
   descriptor_table_protodef_ric_2dtasks_2frictasks_2eproto,
-  "ric-tasks/rictasks.proto", &assign_descriptors_table_ric_2dtasks_2frictasks_2eproto, 5466,
+  "ric-tasks/rictasks.proto", &assign_descriptors_table_ric_2dtasks_2frictasks_2eproto, 5467,
 };
 
 void AddDescriptors_ric_2dtasks_2frictasks_2eproto() {
@@ -12258,7 +12258,7 @@ const int ChangeTaskStatusRequest::kNewStatusFieldNumber;
 const int ChangeTaskStatusRequest::kLocationFieldNumber;
 const int ChangeTaskStatusRequest::kSuccessFieldNumber;
 const int ChangeTaskStatusRequest::kCommentFieldNumber;
-const int ChangeTaskStatusRequest::kReportFieldNumber;
+const int ChangeTaskStatusRequest::kReportsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ChangeTaskStatusRequest::ChangeTaskStatusRequest()
@@ -12269,7 +12269,7 @@ ChangeTaskStatusRequest::ChangeTaskStatusRequest()
 ChangeTaskStatusRequest::ChangeTaskStatusRequest(const ChangeTaskStatusRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr),
-      report_(from.report_) {
+      reports_(from.reports_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   comment_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.comment().size() > 0) {
@@ -12336,7 +12336,7 @@ void ChangeTaskStatusRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  report_.Clear();
+  reports_.Clear();
   comment_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
     delete ctx_;
@@ -12447,14 +12447,14 @@ const char* ChangeTaskStatusRequest::_InternalParse(const char* begin, const cha
         ptr += size;
         break;
       }
-      // repeated .ric.tasks.Report report = 7;
+      // repeated .ric.tasks.Report reports = 7;
       case 7: {
         if (static_cast<::google::protobuf::uint8>(tag) != 58) goto handle_unusual;
         do {
           ptr = ::google::protobuf::io::ReadSize(ptr, &size);
           GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
           parser_till_end = ::ric::tasks::Report::_InternalParse;
-          object = msg->add_report();
+          object = msg->add_reports();
           if (size > end - ptr) goto len_delim_till_end;
           ptr += size;
           GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
@@ -12570,11 +12570,11 @@ bool ChangeTaskStatusRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .ric.tasks.Report report = 7;
+      // repeated .ric.tasks.Report reports = 7;
       case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (58 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-                input, add_report()));
+                input, add_reports()));
         } else {
           goto handle_unusual;
         }
@@ -12648,12 +12648,12 @@ void ChangeTaskStatusRequest::SerializeWithCachedSizes(
       6, this->comment(), output);
   }
 
-  // repeated .ric.tasks.Report report = 7;
+  // repeated .ric.tasks.Report reports = 7;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->report_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->reports_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       7,
-      this->report(static_cast<int>(i)),
+      this->reports(static_cast<int>(i)),
       output);
   }
 
@@ -12715,12 +12715,12 @@ void ChangeTaskStatusRequest::SerializeWithCachedSizes(
         6, this->comment(), target);
   }
 
-  // repeated .ric.tasks.Report report = 7;
+  // repeated .ric.tasks.Report reports = 7;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->report_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->reports_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        7, this->report(static_cast<int>(i)), target);
+        7, this->reports(static_cast<int>(i)), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -12744,14 +12744,14 @@ size_t ChangeTaskStatusRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .ric.tasks.Report report = 7;
+  // repeated .ric.tasks.Report reports = 7;
   {
-    unsigned int count = static_cast<unsigned int>(this->report_size());
+    unsigned int count = static_cast<unsigned int>(this->reports_size());
     total_size += 1UL * count;
     for (unsigned int i = 0; i < count; i++) {
       total_size +=
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          this->report(static_cast<int>(i)));
+          this->reports(static_cast<int>(i)));
     }
   }
 
@@ -12823,7 +12823,7 @@ void ChangeTaskStatusRequest::MergeFrom(const ChangeTaskStatusRequest& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  report_.MergeFrom(from.report_);
+  reports_.MergeFrom(from.reports_);
   if (from.comment().size() > 0) {
 
     comment_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.comment_);
@@ -12870,7 +12870,7 @@ void ChangeTaskStatusRequest::Swap(ChangeTaskStatusRequest* other) {
 void ChangeTaskStatusRequest::InternalSwap(ChangeTaskStatusRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  CastToBase(&report_)->InternalSwap(CastToBase(&other->report_));
+  CastToBase(&reports_)->InternalSwap(CastToBase(&other->reports_));
   comment_.Swap(&other->comment_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(ctx_, other->ctx_);

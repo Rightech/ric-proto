@@ -186,7 +186,7 @@ export interface ChangeTaskStatusRequest {
   location?: Location;
   success?: boolean;
   comment?: string;
-  report?: Report[];
+  reports?: Report[];
 }
 
 export interface ChangeTaskStatusResponse {
