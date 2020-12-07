@@ -47,7 +47,7 @@ struct TableStruct_ric_2dtasks_2frictasks_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[32]
+  static const ::google::protobuf::internal::ParseTable schema[33]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -107,6 +107,9 @@ extern IndoorLocationDefaultTypeInternal _IndoorLocation_default_instance_;
 class Kind;
 class KindDefaultTypeInternal;
 extern KindDefaultTypeInternal _Kind_default_instance_;
+class KindEdit;
+class KindEditDefaultTypeInternal;
+extern KindEditDefaultTypeInternal _KindEdit_default_instance_;
 class Location;
 class LocationDefaultTypeInternal;
 extern LocationDefaultTypeInternal _Location_default_instance_;
@@ -116,9 +119,9 @@ extern ObjectIdDefaultTypeInternal _ObjectId_default_instance_;
 class Report;
 class ReportDefaultTypeInternal;
 extern ReportDefaultTypeInternal _Report_default_instance_;
-class ReportFormat;
-class ReportFormatDefaultTypeInternal;
-extern ReportFormatDefaultTypeInternal _ReportFormat_default_instance_;
+class ReportTemplate;
+class ReportTemplateDefaultTypeInternal;
+extern ReportTemplateDefaultTypeInternal _ReportTemplate_default_instance_;
 class Review;
 class ReviewDefaultTypeInternal;
 extern ReviewDefaultTypeInternal _Review_default_instance_;
@@ -173,10 +176,11 @@ template<> ::ric::tasks::GetTaskRequest* Arena::CreateMaybeMessage<::ric::tasks:
 template<> ::ric::tasks::GetTaskResponse* Arena::CreateMaybeMessage<::ric::tasks::GetTaskResponse>(Arena*);
 template<> ::ric::tasks::IndoorLocation* Arena::CreateMaybeMessage<::ric::tasks::IndoorLocation>(Arena*);
 template<> ::ric::tasks::Kind* Arena::CreateMaybeMessage<::ric::tasks::Kind>(Arena*);
+template<> ::ric::tasks::KindEdit* Arena::CreateMaybeMessage<::ric::tasks::KindEdit>(Arena*);
 template<> ::ric::tasks::Location* Arena::CreateMaybeMessage<::ric::tasks::Location>(Arena*);
 template<> ::ric::tasks::ObjectId* Arena::CreateMaybeMessage<::ric::tasks::ObjectId>(Arena*);
 template<> ::ric::tasks::Report* Arena::CreateMaybeMessage<::ric::tasks::Report>(Arena*);
-template<> ::ric::tasks::ReportFormat* Arena::CreateMaybeMessage<::ric::tasks::ReportFormat>(Arena*);
+template<> ::ric::tasks::ReportTemplate* Arena::CreateMaybeMessage<::ric::tasks::ReportTemplate>(Arena*);
 template<> ::ric::tasks::Review* Arena::CreateMaybeMessage<::ric::tasks::Review>(Arena*);
 template<> ::ric::tasks::Task* Arena::CreateMaybeMessage<::ric::tasks::Task>(Arena*);
 template<> ::ric::tasks::TaskEdit* Arena::CreateMaybeMessage<::ric::tasks::TaskEdit>(Arena*);
@@ -239,29 +243,29 @@ inline bool Task_Status_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<Task_Status>(
     Task_Status_descriptor(), name, value);
 }
-enum ReportFormat_FieldType {
-  ReportFormat_FieldType_INVALID = 0,
-  ReportFormat_FieldType_BOOLEAN = 1,
-  ReportFormat_FieldType_TEXT = 2,
-  ReportFormat_FieldType_NUMBER = 3,
-  ReportFormat_FieldType_FILE = 4,
-  ReportFormat_FieldType_ReportFormat_FieldType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::min(),
-  ReportFormat_FieldType_ReportFormat_FieldType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::max()
+enum ReportTemplate_FieldType {
+  ReportTemplate_FieldType_INVALID = 0,
+  ReportTemplate_FieldType_BOOLEAN = 1,
+  ReportTemplate_FieldType_TEXT = 2,
+  ReportTemplate_FieldType_NUMBER = 3,
+  ReportTemplate_FieldType_FILE = 4,
+  ReportTemplate_FieldType_ReportTemplate_FieldType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::min(),
+  ReportTemplate_FieldType_ReportTemplate_FieldType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::max()
 };
-bool ReportFormat_FieldType_IsValid(int value);
-const ReportFormat_FieldType ReportFormat_FieldType_FieldType_MIN = ReportFormat_FieldType_INVALID;
-const ReportFormat_FieldType ReportFormat_FieldType_FieldType_MAX = ReportFormat_FieldType_FILE;
-const int ReportFormat_FieldType_FieldType_ARRAYSIZE = ReportFormat_FieldType_FieldType_MAX + 1;
+bool ReportTemplate_FieldType_IsValid(int value);
+const ReportTemplate_FieldType ReportTemplate_FieldType_FieldType_MIN = ReportTemplate_FieldType_INVALID;
+const ReportTemplate_FieldType ReportTemplate_FieldType_FieldType_MAX = ReportTemplate_FieldType_FILE;
+const int ReportTemplate_FieldType_FieldType_ARRAYSIZE = ReportTemplate_FieldType_FieldType_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* ReportFormat_FieldType_descriptor();
-inline const ::std::string& ReportFormat_FieldType_Name(ReportFormat_FieldType value) {
+const ::google::protobuf::EnumDescriptor* ReportTemplate_FieldType_descriptor();
+inline const ::std::string& ReportTemplate_FieldType_Name(ReportTemplate_FieldType value) {
   return ::google::protobuf::internal::NameOfEnum(
-    ReportFormat_FieldType_descriptor(), value);
+    ReportTemplate_FieldType_descriptor(), value);
 }
-inline bool ReportFormat_FieldType_Parse(
-    const ::std::string& name, ReportFormat_FieldType* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<ReportFormat_FieldType>(
-    ReportFormat_FieldType_descriptor(), name, value);
+inline bool ReportTemplate_FieldType_Parse(
+    const ::std::string& name, ReportTemplate_FieldType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ReportTemplate_FieldType>(
+    ReportTemplate_FieldType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -998,29 +1002,29 @@ class Task final :
   const ::google::protobuf::RepeatedPtrField<::std::string>& tags() const;
   ::google::protobuf::RepeatedPtrField<::std::string>* mutable_tags();
 
-  // repeated .ric.tasks.ReportFormat report_format = 15;
-  int report_format_size() const;
-  void clear_report_format();
-  static const int kReportFormatFieldNumber = 15;
-  ::ric::tasks::ReportFormat* mutable_report_format(int index);
-  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >*
-      mutable_report_format();
-  const ::ric::tasks::ReportFormat& report_format(int index) const;
-  ::ric::tasks::ReportFormat* add_report_format();
-  const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >&
-      report_format() const;
+  // repeated .ric.tasks.ReportTemplate report_templates = 15;
+  int report_templates_size() const;
+  void clear_report_templates();
+  static const int kReportTemplatesFieldNumber = 15;
+  ::ric::tasks::ReportTemplate* mutable_report_templates(int index);
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >*
+      mutable_report_templates();
+  const ::ric::tasks::ReportTemplate& report_templates(int index) const;
+  ::ric::tasks::ReportTemplate* add_report_templates();
+  const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >&
+      report_templates() const;
 
-  // repeated .ric.tasks.Report report = 16;
-  int report_size() const;
-  void clear_report();
-  static const int kReportFieldNumber = 16;
-  ::ric::tasks::Report* mutable_report(int index);
+  // repeated .ric.tasks.Report reports = 16;
+  int reports_size() const;
+  void clear_reports();
+  static const int kReportsFieldNumber = 16;
+  ::ric::tasks::Report* mutable_reports(int index);
   ::google::protobuf::RepeatedPtrField< ::ric::tasks::Report >*
-      mutable_report();
-  const ::ric::tasks::Report& report(int index) const;
-  ::ric::tasks::Report* add_report();
+      mutable_reports();
+  const ::ric::tasks::Report& reports(int index) const;
+  ::ric::tasks::Report* add_reports();
   const ::google::protobuf::RepeatedPtrField< ::ric::tasks::Report >&
-      report() const;
+      reports() const;
 
   // repeated .ric.tasks.Deadline deadlines = 19;
   int deadlines_size() const;
@@ -1220,8 +1224,8 @@ class Task final :
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::ric::tasks::Task > subtasks_;
   ::google::protobuf::RepeatedPtrField<::std::string> tags_;
-  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat > report_format_;
-  ::google::protobuf::RepeatedPtrField< ::ric::tasks::Report > report_;
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate > report_templates_;
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::Report > reports_;
   ::google::protobuf::RepeatedPtrField< ::ric::tasks::Deadline > deadlines_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr description_;
@@ -1364,17 +1368,17 @@ class TaskEdit final :
   const ::google::protobuf::RepeatedPtrField<::std::string>& tags() const;
   ::google::protobuf::RepeatedPtrField<::std::string>* mutable_tags();
 
-  // repeated .ric.tasks.ReportFormat report_format = 11;
-  int report_format_size() const;
-  void clear_report_format();
-  static const int kReportFormatFieldNumber = 11;
-  ::ric::tasks::ReportFormat* mutable_report_format(int index);
-  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >*
-      mutable_report_format();
-  const ::ric::tasks::ReportFormat& report_format(int index) const;
-  ::ric::tasks::ReportFormat* add_report_format();
-  const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >&
-      report_format() const;
+  // repeated .ric.tasks.ReportTemplate report_templates = 11;
+  int report_templates_size() const;
+  void clear_report_templates();
+  static const int kReportTemplatesFieldNumber = 11;
+  ::ric::tasks::ReportTemplate* mutable_report_templates(int index);
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >*
+      mutable_report_templates();
+  const ::ric::tasks::ReportTemplate& report_templates(int index) const;
+  ::ric::tasks::ReportTemplate* add_report_templates();
+  const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >&
+      report_templates() const;
 
   // repeated .ric.tasks.Deadline deadlines = 14;
   int deadlines_size() const;
@@ -1526,7 +1530,7 @@ class TaskEdit final :
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField<::std::string> tags_;
-  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat > report_format_;
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate > report_templates_;
   ::google::protobuf::RepeatedPtrField< ::ric::tasks::Deadline > deadlines_;
   ::ric::tasks::ObjectId* owner_;
   ::ric::tasks::ObjectId* group_;
@@ -1814,25 +1818,25 @@ class Deadline final :
 };
 // -------------------------------------------------------------------
 
-class ReportFormat final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.tasks.ReportFormat) */ {
+class ReportTemplate final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.tasks.ReportTemplate) */ {
  public:
-  ReportFormat();
-  virtual ~ReportFormat();
+  ReportTemplate();
+  virtual ~ReportTemplate();
 
-  ReportFormat(const ReportFormat& from);
+  ReportTemplate(const ReportTemplate& from);
 
-  inline ReportFormat& operator=(const ReportFormat& from) {
+  inline ReportTemplate& operator=(const ReportTemplate& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  ReportFormat(ReportFormat&& from) noexcept
-    : ReportFormat() {
+  ReportTemplate(ReportTemplate&& from) noexcept
+    : ReportTemplate() {
     *this = ::std::move(from);
   }
 
-  inline ReportFormat& operator=(ReportFormat&& from) noexcept {
+  inline ReportTemplate& operator=(ReportTemplate&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1844,34 +1848,34 @@ class ReportFormat final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const ReportFormat& default_instance();
+  static const ReportTemplate& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const ReportFormat* internal_default_instance() {
-    return reinterpret_cast<const ReportFormat*>(
-               &_ReportFormat_default_instance_);
+  static inline const ReportTemplate* internal_default_instance() {
+    return reinterpret_cast<const ReportTemplate*>(
+               &_ReportTemplate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     8;
 
-  void Swap(ReportFormat* other);
-  friend void swap(ReportFormat& a, ReportFormat& b) {
+  void Swap(ReportTemplate* other);
+  friend void swap(ReportTemplate& a, ReportTemplate& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline ReportFormat* New() const final {
-    return CreateMaybeMessage<ReportFormat>(nullptr);
+  inline ReportTemplate* New() const final {
+    return CreateMaybeMessage<ReportTemplate>(nullptr);
   }
 
-  ReportFormat* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<ReportFormat>(arena);
+  ReportTemplate* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<ReportTemplate>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const ReportFormat& from);
-  void MergeFrom(const ReportFormat& from);
+  void CopyFrom(const ReportTemplate& from);
+  void MergeFrom(const ReportTemplate& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1893,7 +1897,7 @@ class ReportFormat final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(ReportFormat* other);
+  void InternalSwap(ReportTemplate* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -1907,36 +1911,36 @@ class ReportFormat final :
 
   // nested types ----------------------------------------------------
 
-  typedef ReportFormat_FieldType FieldType;
+  typedef ReportTemplate_FieldType FieldType;
   static const FieldType INVALID =
-    ReportFormat_FieldType_INVALID;
+    ReportTemplate_FieldType_INVALID;
   static const FieldType BOOLEAN =
-    ReportFormat_FieldType_BOOLEAN;
+    ReportTemplate_FieldType_BOOLEAN;
   static const FieldType TEXT =
-    ReportFormat_FieldType_TEXT;
+    ReportTemplate_FieldType_TEXT;
   static const FieldType NUMBER =
-    ReportFormat_FieldType_NUMBER;
+    ReportTemplate_FieldType_NUMBER;
   static const FieldType FILE =
-    ReportFormat_FieldType_FILE;
+    ReportTemplate_FieldType_FILE;
   static inline bool FieldType_IsValid(int value) {
-    return ReportFormat_FieldType_IsValid(value);
+    return ReportTemplate_FieldType_IsValid(value);
   }
   static const FieldType FieldType_MIN =
-    ReportFormat_FieldType_FieldType_MIN;
+    ReportTemplate_FieldType_FieldType_MIN;
   static const FieldType FieldType_MAX =
-    ReportFormat_FieldType_FieldType_MAX;
+    ReportTemplate_FieldType_FieldType_MAX;
   static const int FieldType_ARRAYSIZE =
-    ReportFormat_FieldType_FieldType_ARRAYSIZE;
+    ReportTemplate_FieldType_FieldType_ARRAYSIZE;
   static inline const ::google::protobuf::EnumDescriptor*
   FieldType_descriptor() {
-    return ReportFormat_FieldType_descriptor();
+    return ReportTemplate_FieldType_descriptor();
   }
   static inline const ::std::string& FieldType_Name(FieldType value) {
-    return ReportFormat_FieldType_Name(value);
+    return ReportTemplate_FieldType_Name(value);
   }
   static inline bool FieldType_Parse(const ::std::string& name,
       FieldType* value) {
-    return ReportFormat_FieldType_Parse(name, value);
+    return ReportTemplate_FieldType_Parse(name, value);
   }
 
   // accessors -------------------------------------------------------
@@ -1955,29 +1959,26 @@ class ReportFormat final :
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // .google.protobuf.BoolValue required = 5;
-  bool has_required() const;
-  void clear_required();
-  static const int kRequiredFieldNumber = 5;
-  const ::google::protobuf::BoolValue& required() const;
-  ::google::protobuf::BoolValue* release_required();
-  ::google::protobuf::BoolValue* mutable_required();
-  void set_allocated_required(::google::protobuf::BoolValue* required);
-
-  // .ric.tasks.ReportFormat.FieldType field = 2;
+  // .ric.tasks.ReportTemplate.FieldType field = 2;
   void clear_field();
   static const int kFieldFieldNumber = 2;
-  ::ric::tasks::ReportFormat_FieldType field() const;
-  void set_field(::ric::tasks::ReportFormat_FieldType value);
+  ::ric::tasks::ReportTemplate_FieldType field() const;
+  void set_field(::ric::tasks::ReportTemplate_FieldType value);
 
-  // @@protoc_insertion_point(class_scope:ric.tasks.ReportFormat)
+  // bool required = 3;
+  void clear_required();
+  static const int kRequiredFieldNumber = 3;
+  bool required() const;
+  void set_required(bool value);
+
+  // @@protoc_insertion_point(class_scope:ric.tasks.ReportTemplate)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr name_;
-  ::google::protobuf::BoolValue* required_;
   int field_;
+  bool required_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dtasks_2frictasks_2eproto;
 };
@@ -2208,29 +2209,29 @@ class Kind final :
 
   // accessors -------------------------------------------------------
 
-  // repeated .ric.tasks.ObjectId role = 5;
-  int role_size() const;
-  void clear_role();
-  static const int kRoleFieldNumber = 5;
-  ::ric::tasks::ObjectId* mutable_role(int index);
+  // repeated .ric.tasks.ObjectId roles = 5;
+  int roles_size() const;
+  void clear_roles();
+  static const int kRolesFieldNumber = 5;
+  ::ric::tasks::ObjectId* mutable_roles(int index);
   ::google::protobuf::RepeatedPtrField< ::ric::tasks::ObjectId >*
-      mutable_role();
-  const ::ric::tasks::ObjectId& role(int index) const;
-  ::ric::tasks::ObjectId* add_role();
+      mutable_roles();
+  const ::ric::tasks::ObjectId& roles(int index) const;
+  ::ric::tasks::ObjectId* add_roles();
   const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ObjectId >&
-      role() const;
+      roles() const;
 
-  // repeated .ric.tasks.ReportFormat report_format = 6;
-  int report_format_size() const;
-  void clear_report_format();
-  static const int kReportFormatFieldNumber = 6;
-  ::ric::tasks::ReportFormat* mutable_report_format(int index);
-  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >*
-      mutable_report_format();
-  const ::ric::tasks::ReportFormat& report_format(int index) const;
-  ::ric::tasks::ReportFormat* add_report_format();
-  const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >&
-      report_format() const;
+  // repeated .ric.tasks.ReportTemplate report_templates = 6;
+  int report_templates_size() const;
+  void clear_report_templates();
+  static const int kReportTemplatesFieldNumber = 6;
+  ::ric::tasks::ReportTemplate* mutable_report_templates(int index);
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >*
+      mutable_report_templates();
+  const ::ric::tasks::ReportTemplate& report_templates(int index) const;
+  ::ric::tasks::ReportTemplate* add_report_templates();
+  const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >&
+      report_templates() const;
 
   // string name = 2;
   void clear_name();
@@ -2288,12 +2289,173 @@ class Kind final :
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ObjectId > role_;
-  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat > report_format_;
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ObjectId > roles_;
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate > report_templates_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr discription_;
   ::google::protobuf::internal::ArenaStringPtr svg_;
   ::ric::tasks::ObjectId* oid_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dtasks_2frictasks_2eproto;
+};
+// -------------------------------------------------------------------
+
+class KindEdit final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.tasks.KindEdit) */ {
+ public:
+  KindEdit();
+  virtual ~KindEdit();
+
+  KindEdit(const KindEdit& from);
+
+  inline KindEdit& operator=(const KindEdit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  KindEdit(KindEdit&& from) noexcept
+    : KindEdit() {
+    *this = ::std::move(from);
+  }
+
+  inline KindEdit& operator=(KindEdit&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const KindEdit& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const KindEdit* internal_default_instance() {
+    return reinterpret_cast<const KindEdit*>(
+               &_KindEdit_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  void Swap(KindEdit* other);
+  friend void swap(KindEdit& a, KindEdit& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline KindEdit* New() const final {
+    return CreateMaybeMessage<KindEdit>(nullptr);
+  }
+
+  KindEdit* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<KindEdit>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const KindEdit& from);
+  void MergeFrom(const KindEdit& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(KindEdit* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .ric.tasks.ObjectId roles = 4;
+  int roles_size() const;
+  void clear_roles();
+  static const int kRolesFieldNumber = 4;
+  ::ric::tasks::ObjectId* mutable_roles(int index);
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ObjectId >*
+      mutable_roles();
+  const ::ric::tasks::ObjectId& roles(int index) const;
+  ::ric::tasks::ObjectId* add_roles();
+  const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ObjectId >&
+      roles() const;
+
+  // repeated .ric.tasks.ReportTemplate report_templates = 5;
+  int report_templates_size() const;
+  void clear_report_templates();
+  static const int kReportTemplatesFieldNumber = 5;
+  ::ric::tasks::ReportTemplate* mutable_report_templates(int index);
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >*
+      mutable_report_templates();
+  const ::ric::tasks::ReportTemplate& report_templates(int index) const;
+  ::ric::tasks::ReportTemplate* add_report_templates();
+  const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >&
+      report_templates() const;
+
+  // .google.protobuf.StringValue name = 1;
+  bool has_name() const;
+  void clear_name();
+  static const int kNameFieldNumber = 1;
+  const ::google::protobuf::StringValue& name() const;
+  ::google::protobuf::StringValue* release_name();
+  ::google::protobuf::StringValue* mutable_name();
+  void set_allocated_name(::google::protobuf::StringValue* name);
+
+  // .google.protobuf.StringValue discription = 2;
+  bool has_discription() const;
+  void clear_discription();
+  static const int kDiscriptionFieldNumber = 2;
+  const ::google::protobuf::StringValue& discription() const;
+  ::google::protobuf::StringValue* release_discription();
+  ::google::protobuf::StringValue* mutable_discription();
+  void set_allocated_discription(::google::protobuf::StringValue* discription);
+
+  // .google.protobuf.StringValue svg = 3;
+  bool has_svg() const;
+  void clear_svg();
+  static const int kSvgFieldNumber = 3;
+  const ::google::protobuf::StringValue& svg() const;
+  ::google::protobuf::StringValue* release_svg();
+  ::google::protobuf::StringValue* mutable_svg();
+  void set_allocated_svg(::google::protobuf::StringValue* svg);
+
+  // @@protoc_insertion_point(class_scope:ric.tasks.KindEdit)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ObjectId > roles_;
+  ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate > report_templates_;
+  ::google::protobuf::StringValue* name_;
+  ::google::protobuf::StringValue* discription_;
+  ::google::protobuf::StringValue* svg_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dtasks_2frictasks_2eproto;
 };
@@ -2337,7 +2499,7 @@ class CreateTaskRequest final :
                &_CreateTaskRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   void Swap(CreateTaskRequest* other);
   friend void swap(CreateTaskRequest& a, CreateTaskRequest& b) {
@@ -2462,7 +2624,7 @@ class CreateTaskResponse final :
                &_CreateTaskResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   void Swap(CreateTaskResponse* other);
   friend void swap(CreateTaskResponse& a, CreateTaskResponse& b) {
@@ -2577,7 +2739,7 @@ class GetTaskRequest final :
                &_GetTaskRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   void Swap(GetTaskRequest* other);
   friend void swap(GetTaskRequest& a, GetTaskRequest& b) {
@@ -2702,7 +2864,7 @@ class GetTaskResponse final :
                &_GetTaskResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   void Swap(GetTaskResponse* other);
   friend void swap(GetTaskResponse& a, GetTaskResponse& b) {
@@ -2817,7 +2979,7 @@ class DeleteTaskRequest final :
                &_DeleteTaskRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   void Swap(DeleteTaskRequest* other);
   friend void swap(DeleteTaskRequest& a, DeleteTaskRequest& b) {
@@ -2942,7 +3104,7 @@ class DeleteTaskResponse final :
                &_DeleteTaskResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   void Swap(DeleteTaskResponse* other);
   friend void swap(DeleteTaskResponse& a, DeleteTaskResponse& b) {
@@ -3047,7 +3209,7 @@ class UpdateTaskRequest final :
                &_UpdateTaskRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   void Swap(UpdateTaskRequest* other);
   friend void swap(UpdateTaskRequest& a, UpdateTaskRequest& b) {
@@ -3182,7 +3344,7 @@ class UpdateTaskResponse final :
                &_UpdateTaskResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   void Swap(UpdateTaskResponse* other);
   friend void swap(UpdateTaskResponse& a, UpdateTaskResponse& b) {
@@ -3321,7 +3483,7 @@ class UpdateTaskOrderRequest final :
                &_UpdateTaskOrderRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   void Swap(UpdateTaskOrderRequest* other);
   friend void swap(UpdateTaskOrderRequest& a, UpdateTaskOrderRequest& b) {
@@ -3462,7 +3624,7 @@ class UpdateTaskOrderResponse final :
                &_UpdateTaskOrderResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   void Swap(UpdateTaskOrderResponse* other);
   friend void swap(UpdateTaskOrderResponse& a, UpdateTaskOrderResponse& b) {
@@ -3577,7 +3739,7 @@ class ChangeTaskStatusRequest final :
                &_ChangeTaskStatusRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   void Swap(ChangeTaskStatusRequest* other);
   friend void swap(ChangeTaskStatusRequest& a, ChangeTaskStatusRequest& b) {
@@ -3757,7 +3919,7 @@ class ChangeTaskStatusResponse final :
                &_ChangeTaskStatusResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   void Swap(ChangeTaskStatusResponse* other);
   friend void swap(ChangeTaskStatusResponse& a, ChangeTaskStatusResponse& b) {
@@ -3872,7 +4034,7 @@ class CreateKindRequest final :
                &_CreateKindRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   void Swap(CreateKindRequest* other);
   friend void swap(CreateKindRequest& a, CreateKindRequest& b) {
@@ -3997,7 +4159,7 @@ class CreateKindResponse final :
                &_CreateKindResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   void Swap(CreateKindResponse* other);
   friend void swap(CreateKindResponse& a, CreateKindResponse& b) {
@@ -4112,7 +4274,7 @@ class GetKindRequest final :
                &_GetKindRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   void Swap(GetKindRequest* other);
   friend void swap(GetKindRequest& a, GetKindRequest& b) {
@@ -4237,7 +4399,7 @@ class GetKindResponse final :
                &_GetKindResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   void Swap(GetKindResponse* other);
   friend void swap(GetKindResponse& a, GetKindResponse& b) {
@@ -4352,7 +4514,7 @@ class UpdateKindRequest final :
                &_UpdateKindRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   void Swap(UpdateKindRequest* other);
   friend void swap(UpdateKindRequest& a, UpdateKindRequest& b) {
@@ -4418,14 +4580,23 @@ class UpdateKindRequest final :
   ::ric::tasks::UserContext* mutable_ctx();
   void set_allocated_ctx(::ric::tasks::UserContext* ctx);
 
-  // .ric.tasks.Kind kind = 2;
+  // .ric.tasks.ObjectId oid = 2;
+  bool has_oid() const;
+  void clear_oid();
+  static const int kOidFieldNumber = 2;
+  const ::ric::tasks::ObjectId& oid() const;
+  ::ric::tasks::ObjectId* release_oid();
+  ::ric::tasks::ObjectId* mutable_oid();
+  void set_allocated_oid(::ric::tasks::ObjectId* oid);
+
+  // .ric.tasks.KindEdit kind = 3;
   bool has_kind() const;
   void clear_kind();
-  static const int kKindFieldNumber = 2;
-  const ::ric::tasks::Kind& kind() const;
-  ::ric::tasks::Kind* release_kind();
-  ::ric::tasks::Kind* mutable_kind();
-  void set_allocated_kind(::ric::tasks::Kind* kind);
+  static const int kKindFieldNumber = 3;
+  const ::ric::tasks::KindEdit& kind() const;
+  ::ric::tasks::KindEdit* release_kind();
+  ::ric::tasks::KindEdit* mutable_kind();
+  void set_allocated_kind(::ric::tasks::KindEdit* kind);
 
   // @@protoc_insertion_point(class_scope:ric.tasks.UpdateKindRequest)
  private:
@@ -4433,7 +4604,8 @@ class UpdateKindRequest final :
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::ric::tasks::UserContext* ctx_;
-  ::ric::tasks::Kind* kind_;
+  ::ric::tasks::ObjectId* oid_;
+  ::ric::tasks::KindEdit* kind_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dtasks_2frictasks_2eproto;
 };
@@ -4477,7 +4649,7 @@ class UpdateKindResponse final :
                &_UpdateKindResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   void Swap(UpdateKindResponse* other);
   friend void swap(UpdateKindResponse& a, UpdateKindResponse& b) {
@@ -4592,7 +4764,7 @@ class DeleteKindRequest final :
                &_DeleteKindRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   void Swap(DeleteKindRequest* other);
   friend void swap(DeleteKindRequest& a, DeleteKindRequest& b) {
@@ -4717,7 +4889,7 @@ class DeleteKindResponse final :
                &_DeleteKindResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   void Swap(DeleteKindResponse* other);
   friend void swap(DeleteKindResponse& a, DeleteKindResponse& b) {
@@ -5786,64 +5958,64 @@ inline void Task::set_allocated_kind(::ric::tasks::ObjectId* kind) {
   // @@protoc_insertion_point(field_set_allocated:ric.tasks.Task.kind)
 }
 
-// repeated .ric.tasks.ReportFormat report_format = 15;
-inline int Task::report_format_size() const {
-  return report_format_.size();
+// repeated .ric.tasks.ReportTemplate report_templates = 15;
+inline int Task::report_templates_size() const {
+  return report_templates_.size();
 }
-inline void Task::clear_report_format() {
-  report_format_.Clear();
+inline void Task::clear_report_templates() {
+  report_templates_.Clear();
 }
-inline ::ric::tasks::ReportFormat* Task::mutable_report_format(int index) {
-  // @@protoc_insertion_point(field_mutable:ric.tasks.Task.report_format)
-  return report_format_.Mutable(index);
+inline ::ric::tasks::ReportTemplate* Task::mutable_report_templates(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.tasks.Task.report_templates)
+  return report_templates_.Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >*
-Task::mutable_report_format() {
-  // @@protoc_insertion_point(field_mutable_list:ric.tasks.Task.report_format)
-  return &report_format_;
+inline ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >*
+Task::mutable_report_templates() {
+  // @@protoc_insertion_point(field_mutable_list:ric.tasks.Task.report_templates)
+  return &report_templates_;
 }
-inline const ::ric::tasks::ReportFormat& Task::report_format(int index) const {
-  // @@protoc_insertion_point(field_get:ric.tasks.Task.report_format)
-  return report_format_.Get(index);
+inline const ::ric::tasks::ReportTemplate& Task::report_templates(int index) const {
+  // @@protoc_insertion_point(field_get:ric.tasks.Task.report_templates)
+  return report_templates_.Get(index);
 }
-inline ::ric::tasks::ReportFormat* Task::add_report_format() {
-  // @@protoc_insertion_point(field_add:ric.tasks.Task.report_format)
-  return report_format_.Add();
+inline ::ric::tasks::ReportTemplate* Task::add_report_templates() {
+  // @@protoc_insertion_point(field_add:ric.tasks.Task.report_templates)
+  return report_templates_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >&
-Task::report_format() const {
-  // @@protoc_insertion_point(field_list:ric.tasks.Task.report_format)
-  return report_format_;
+inline const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >&
+Task::report_templates() const {
+  // @@protoc_insertion_point(field_list:ric.tasks.Task.report_templates)
+  return report_templates_;
 }
 
-// repeated .ric.tasks.Report report = 16;
-inline int Task::report_size() const {
-  return report_.size();
+// repeated .ric.tasks.Report reports = 16;
+inline int Task::reports_size() const {
+  return reports_.size();
 }
-inline void Task::clear_report() {
-  report_.Clear();
+inline void Task::clear_reports() {
+  reports_.Clear();
 }
-inline ::ric::tasks::Report* Task::mutable_report(int index) {
-  // @@protoc_insertion_point(field_mutable:ric.tasks.Task.report)
-  return report_.Mutable(index);
+inline ::ric::tasks::Report* Task::mutable_reports(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.tasks.Task.reports)
+  return reports_.Mutable(index);
 }
 inline ::google::protobuf::RepeatedPtrField< ::ric::tasks::Report >*
-Task::mutable_report() {
-  // @@protoc_insertion_point(field_mutable_list:ric.tasks.Task.report)
-  return &report_;
+Task::mutable_reports() {
+  // @@protoc_insertion_point(field_mutable_list:ric.tasks.Task.reports)
+  return &reports_;
 }
-inline const ::ric::tasks::Report& Task::report(int index) const {
-  // @@protoc_insertion_point(field_get:ric.tasks.Task.report)
-  return report_.Get(index);
+inline const ::ric::tasks::Report& Task::reports(int index) const {
+  // @@protoc_insertion_point(field_get:ric.tasks.Task.reports)
+  return reports_.Get(index);
 }
-inline ::ric::tasks::Report* Task::add_report() {
-  // @@protoc_insertion_point(field_add:ric.tasks.Task.report)
-  return report_.Add();
+inline ::ric::tasks::Report* Task::add_reports() {
+  // @@protoc_insertion_point(field_add:ric.tasks.Task.reports)
+  return reports_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::ric::tasks::Report >&
-Task::report() const {
-  // @@protoc_insertion_point(field_list:ric.tasks.Task.report)
-  return report_;
+Task::reports() const {
+  // @@protoc_insertion_point(field_list:ric.tasks.Task.reports)
+  return reports_;
 }
 
 // .ric.tasks.Location begin = 17;
@@ -6712,34 +6884,34 @@ inline void TaskEdit::set_allocated_kind(::ric::tasks::ObjectId* kind) {
   // @@protoc_insertion_point(field_set_allocated:ric.tasks.TaskEdit.kind)
 }
 
-// repeated .ric.tasks.ReportFormat report_format = 11;
-inline int TaskEdit::report_format_size() const {
-  return report_format_.size();
+// repeated .ric.tasks.ReportTemplate report_templates = 11;
+inline int TaskEdit::report_templates_size() const {
+  return report_templates_.size();
 }
-inline void TaskEdit::clear_report_format() {
-  report_format_.Clear();
+inline void TaskEdit::clear_report_templates() {
+  report_templates_.Clear();
 }
-inline ::ric::tasks::ReportFormat* TaskEdit::mutable_report_format(int index) {
-  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.report_format)
-  return report_format_.Mutable(index);
+inline ::ric::tasks::ReportTemplate* TaskEdit::mutable_report_templates(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.tasks.TaskEdit.report_templates)
+  return report_templates_.Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >*
-TaskEdit::mutable_report_format() {
-  // @@protoc_insertion_point(field_mutable_list:ric.tasks.TaskEdit.report_format)
-  return &report_format_;
+inline ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >*
+TaskEdit::mutable_report_templates() {
+  // @@protoc_insertion_point(field_mutable_list:ric.tasks.TaskEdit.report_templates)
+  return &report_templates_;
 }
-inline const ::ric::tasks::ReportFormat& TaskEdit::report_format(int index) const {
-  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.report_format)
-  return report_format_.Get(index);
+inline const ::ric::tasks::ReportTemplate& TaskEdit::report_templates(int index) const {
+  // @@protoc_insertion_point(field_get:ric.tasks.TaskEdit.report_templates)
+  return report_templates_.Get(index);
 }
-inline ::ric::tasks::ReportFormat* TaskEdit::add_report_format() {
-  // @@protoc_insertion_point(field_add:ric.tasks.TaskEdit.report_format)
-  return report_format_.Add();
+inline ::ric::tasks::ReportTemplate* TaskEdit::add_report_templates() {
+  // @@protoc_insertion_point(field_add:ric.tasks.TaskEdit.report_templates)
+  return report_templates_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >&
-TaskEdit::report_format() const {
-  // @@protoc_insertion_point(field_list:ric.tasks.TaskEdit.report_format)
-  return report_format_;
+inline const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >&
+TaskEdit::report_templates() const {
+  // @@protoc_insertion_point(field_list:ric.tasks.TaskEdit.report_templates)
+  return report_templates_;
 }
 
 // .ric.tasks.Location begin = 12;
@@ -7270,119 +7442,87 @@ inline void Deadline::set_status(::ric::tasks::Task_Status value) {
 
 // -------------------------------------------------------------------
 
-// ReportFormat
+// ReportTemplate
 
 // string name = 1;
-inline void ReportFormat::clear_name() {
+inline void ReportTemplate::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& ReportFormat::name() const {
-  // @@protoc_insertion_point(field_get:ric.tasks.ReportFormat.name)
+inline const ::std::string& ReportTemplate::name() const {
+  // @@protoc_insertion_point(field_get:ric.tasks.ReportTemplate.name)
   return name_.GetNoArena();
 }
-inline void ReportFormat::set_name(const ::std::string& value) {
+inline void ReportTemplate::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.tasks.ReportFormat.name)
+  // @@protoc_insertion_point(field_set:ric.tasks.ReportTemplate.name)
 }
 #if LANG_CXX11
-inline void ReportFormat::set_name(::std::string&& value) {
+inline void ReportTemplate::set_name(::std::string&& value) {
   
   name_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.tasks.ReportFormat.name)
+  // @@protoc_insertion_point(field_set_rvalue:ric.tasks.ReportTemplate.name)
 }
 #endif
-inline void ReportFormat::set_name(const char* value) {
+inline void ReportTemplate::set_name(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.tasks.ReportFormat.name)
+  // @@protoc_insertion_point(field_set_char:ric.tasks.ReportTemplate.name)
 }
-inline void ReportFormat::set_name(const char* value, size_t size) {
+inline void ReportTemplate::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.tasks.ReportFormat.name)
+  // @@protoc_insertion_point(field_set_pointer:ric.tasks.ReportTemplate.name)
 }
-inline ::std::string* ReportFormat::mutable_name() {
+inline ::std::string* ReportTemplate::mutable_name() {
   
-  // @@protoc_insertion_point(field_mutable:ric.tasks.ReportFormat.name)
+  // @@protoc_insertion_point(field_mutable:ric.tasks.ReportTemplate.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* ReportFormat::release_name() {
-  // @@protoc_insertion_point(field_release:ric.tasks.ReportFormat.name)
+inline ::std::string* ReportTemplate::release_name() {
+  // @@protoc_insertion_point(field_release:ric.tasks.ReportTemplate.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void ReportFormat::set_allocated_name(::std::string* name) {
+inline void ReportTemplate::set_allocated_name(::std::string* name) {
   if (name != nullptr) {
     
   } else {
     
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:ric.tasks.ReportFormat.name)
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.ReportTemplate.name)
 }
 
-// .ric.tasks.ReportFormat.FieldType field = 2;
-inline void ReportFormat::clear_field() {
+// .ric.tasks.ReportTemplate.FieldType field = 2;
+inline void ReportTemplate::clear_field() {
   field_ = 0;
 }
-inline ::ric::tasks::ReportFormat_FieldType ReportFormat::field() const {
-  // @@protoc_insertion_point(field_get:ric.tasks.ReportFormat.field)
-  return static_cast< ::ric::tasks::ReportFormat_FieldType >(field_);
+inline ::ric::tasks::ReportTemplate_FieldType ReportTemplate::field() const {
+  // @@protoc_insertion_point(field_get:ric.tasks.ReportTemplate.field)
+  return static_cast< ::ric::tasks::ReportTemplate_FieldType >(field_);
 }
-inline void ReportFormat::set_field(::ric::tasks::ReportFormat_FieldType value) {
+inline void ReportTemplate::set_field(::ric::tasks::ReportTemplate_FieldType value) {
   
   field_ = value;
-  // @@protoc_insertion_point(field_set:ric.tasks.ReportFormat.field)
+  // @@protoc_insertion_point(field_set:ric.tasks.ReportTemplate.field)
 }
 
-// .google.protobuf.BoolValue required = 5;
-inline bool ReportFormat::has_required() const {
-  return this != internal_default_instance() && required_ != nullptr;
+// bool required = 3;
+inline void ReportTemplate::clear_required() {
+  required_ = false;
 }
-inline const ::google::protobuf::BoolValue& ReportFormat::required() const {
-  const ::google::protobuf::BoolValue* p = required_;
-  // @@protoc_insertion_point(field_get:ric.tasks.ReportFormat.required)
-  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::BoolValue*>(
-      &::google::protobuf::_BoolValue_default_instance_);
-}
-inline ::google::protobuf::BoolValue* ReportFormat::release_required() {
-  // @@protoc_insertion_point(field_release:ric.tasks.ReportFormat.required)
-  
-  ::google::protobuf::BoolValue* temp = required_;
-  required_ = nullptr;
-  return temp;
-}
-inline ::google::protobuf::BoolValue* ReportFormat::mutable_required() {
-  
-  if (required_ == nullptr) {
-    auto* p = CreateMaybeMessage<::google::protobuf::BoolValue>(GetArenaNoVirtual());
-    required_ = p;
-  }
-  // @@protoc_insertion_point(field_mutable:ric.tasks.ReportFormat.required)
+inline bool ReportTemplate::required() const {
+  // @@protoc_insertion_point(field_get:ric.tasks.ReportTemplate.required)
   return required_;
 }
-inline void ReportFormat::set_allocated_required(::google::protobuf::BoolValue* required) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::google::protobuf::MessageLite*>(required_);
-  }
-  if (required) {
-    ::google::protobuf::Arena* submessage_arena =
-      reinterpret_cast<::google::protobuf::MessageLite*>(required)->GetArena();
-    if (message_arena != submessage_arena) {
-      required = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, required, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  required_ = required;
-  // @@protoc_insertion_point(field_set_allocated:ric.tasks.ReportFormat.required)
+inline void ReportTemplate::set_required(bool value) {
+  
+  required_ = value;
+  // @@protoc_insertion_point(field_set:ric.tasks.ReportTemplate.required)
 }
 
 // -------------------------------------------------------------------
@@ -7701,64 +7841,266 @@ inline void Kind::set_allocated_svg(::std::string* svg) {
   // @@protoc_insertion_point(field_set_allocated:ric.tasks.Kind.svg)
 }
 
-// repeated .ric.tasks.ObjectId role = 5;
-inline int Kind::role_size() const {
-  return role_.size();
+// repeated .ric.tasks.ObjectId roles = 5;
+inline int Kind::roles_size() const {
+  return roles_.size();
 }
-inline void Kind::clear_role() {
-  role_.Clear();
+inline void Kind::clear_roles() {
+  roles_.Clear();
 }
-inline ::ric::tasks::ObjectId* Kind::mutable_role(int index) {
-  // @@protoc_insertion_point(field_mutable:ric.tasks.Kind.role)
-  return role_.Mutable(index);
+inline ::ric::tasks::ObjectId* Kind::mutable_roles(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.tasks.Kind.roles)
+  return roles_.Mutable(index);
 }
 inline ::google::protobuf::RepeatedPtrField< ::ric::tasks::ObjectId >*
-Kind::mutable_role() {
-  // @@protoc_insertion_point(field_mutable_list:ric.tasks.Kind.role)
-  return &role_;
+Kind::mutable_roles() {
+  // @@protoc_insertion_point(field_mutable_list:ric.tasks.Kind.roles)
+  return &roles_;
 }
-inline const ::ric::tasks::ObjectId& Kind::role(int index) const {
-  // @@protoc_insertion_point(field_get:ric.tasks.Kind.role)
-  return role_.Get(index);
+inline const ::ric::tasks::ObjectId& Kind::roles(int index) const {
+  // @@protoc_insertion_point(field_get:ric.tasks.Kind.roles)
+  return roles_.Get(index);
 }
-inline ::ric::tasks::ObjectId* Kind::add_role() {
-  // @@protoc_insertion_point(field_add:ric.tasks.Kind.role)
-  return role_.Add();
+inline ::ric::tasks::ObjectId* Kind::add_roles() {
+  // @@protoc_insertion_point(field_add:ric.tasks.Kind.roles)
+  return roles_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ObjectId >&
-Kind::role() const {
-  // @@protoc_insertion_point(field_list:ric.tasks.Kind.role)
-  return role_;
+Kind::roles() const {
+  // @@protoc_insertion_point(field_list:ric.tasks.Kind.roles)
+  return roles_;
 }
 
-// repeated .ric.tasks.ReportFormat report_format = 6;
-inline int Kind::report_format_size() const {
-  return report_format_.size();
+// repeated .ric.tasks.ReportTemplate report_templates = 6;
+inline int Kind::report_templates_size() const {
+  return report_templates_.size();
 }
-inline void Kind::clear_report_format() {
-  report_format_.Clear();
+inline void Kind::clear_report_templates() {
+  report_templates_.Clear();
 }
-inline ::ric::tasks::ReportFormat* Kind::mutable_report_format(int index) {
-  // @@protoc_insertion_point(field_mutable:ric.tasks.Kind.report_format)
-  return report_format_.Mutable(index);
+inline ::ric::tasks::ReportTemplate* Kind::mutable_report_templates(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.tasks.Kind.report_templates)
+  return report_templates_.Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >*
-Kind::mutable_report_format() {
-  // @@protoc_insertion_point(field_mutable_list:ric.tasks.Kind.report_format)
-  return &report_format_;
+inline ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >*
+Kind::mutable_report_templates() {
+  // @@protoc_insertion_point(field_mutable_list:ric.tasks.Kind.report_templates)
+  return &report_templates_;
 }
-inline const ::ric::tasks::ReportFormat& Kind::report_format(int index) const {
-  // @@protoc_insertion_point(field_get:ric.tasks.Kind.report_format)
-  return report_format_.Get(index);
+inline const ::ric::tasks::ReportTemplate& Kind::report_templates(int index) const {
+  // @@protoc_insertion_point(field_get:ric.tasks.Kind.report_templates)
+  return report_templates_.Get(index);
 }
-inline ::ric::tasks::ReportFormat* Kind::add_report_format() {
-  // @@protoc_insertion_point(field_add:ric.tasks.Kind.report_format)
-  return report_format_.Add();
+inline ::ric::tasks::ReportTemplate* Kind::add_report_templates() {
+  // @@protoc_insertion_point(field_add:ric.tasks.Kind.report_templates)
+  return report_templates_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportFormat >&
-Kind::report_format() const {
-  // @@protoc_insertion_point(field_list:ric.tasks.Kind.report_format)
-  return report_format_;
+inline const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >&
+Kind::report_templates() const {
+  // @@protoc_insertion_point(field_list:ric.tasks.Kind.report_templates)
+  return report_templates_;
+}
+
+// -------------------------------------------------------------------
+
+// KindEdit
+
+// .google.protobuf.StringValue name = 1;
+inline bool KindEdit::has_name() const {
+  return this != internal_default_instance() && name_ != nullptr;
+}
+inline const ::google::protobuf::StringValue& KindEdit::name() const {
+  const ::google::protobuf::StringValue* p = name_;
+  // @@protoc_insertion_point(field_get:ric.tasks.KindEdit.name)
+  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::StringValue*>(
+      &::google::protobuf::_StringValue_default_instance_);
+}
+inline ::google::protobuf::StringValue* KindEdit::release_name() {
+  // @@protoc_insertion_point(field_release:ric.tasks.KindEdit.name)
+  
+  ::google::protobuf::StringValue* temp = name_;
+  name_ = nullptr;
+  return temp;
+}
+inline ::google::protobuf::StringValue* KindEdit::mutable_name() {
+  
+  if (name_ == nullptr) {
+    auto* p = CreateMaybeMessage<::google::protobuf::StringValue>(GetArenaNoVirtual());
+    name_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.KindEdit.name)
+  return name_;
+}
+inline void KindEdit::set_allocated_name(::google::protobuf::StringValue* name) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(name_);
+  }
+  if (name) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(name)->GetArena();
+    if (message_arena != submessage_arena) {
+      name = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, name, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  name_ = name;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.KindEdit.name)
+}
+
+// .google.protobuf.StringValue discription = 2;
+inline bool KindEdit::has_discription() const {
+  return this != internal_default_instance() && discription_ != nullptr;
+}
+inline const ::google::protobuf::StringValue& KindEdit::discription() const {
+  const ::google::protobuf::StringValue* p = discription_;
+  // @@protoc_insertion_point(field_get:ric.tasks.KindEdit.discription)
+  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::StringValue*>(
+      &::google::protobuf::_StringValue_default_instance_);
+}
+inline ::google::protobuf::StringValue* KindEdit::release_discription() {
+  // @@protoc_insertion_point(field_release:ric.tasks.KindEdit.discription)
+  
+  ::google::protobuf::StringValue* temp = discription_;
+  discription_ = nullptr;
+  return temp;
+}
+inline ::google::protobuf::StringValue* KindEdit::mutable_discription() {
+  
+  if (discription_ == nullptr) {
+    auto* p = CreateMaybeMessage<::google::protobuf::StringValue>(GetArenaNoVirtual());
+    discription_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.KindEdit.discription)
+  return discription_;
+}
+inline void KindEdit::set_allocated_discription(::google::protobuf::StringValue* discription) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(discription_);
+  }
+  if (discription) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(discription)->GetArena();
+    if (message_arena != submessage_arena) {
+      discription = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, discription, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  discription_ = discription;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.KindEdit.discription)
+}
+
+// .google.protobuf.StringValue svg = 3;
+inline bool KindEdit::has_svg() const {
+  return this != internal_default_instance() && svg_ != nullptr;
+}
+inline const ::google::protobuf::StringValue& KindEdit::svg() const {
+  const ::google::protobuf::StringValue* p = svg_;
+  // @@protoc_insertion_point(field_get:ric.tasks.KindEdit.svg)
+  return p != nullptr ? *p : *reinterpret_cast<const ::google::protobuf::StringValue*>(
+      &::google::protobuf::_StringValue_default_instance_);
+}
+inline ::google::protobuf::StringValue* KindEdit::release_svg() {
+  // @@protoc_insertion_point(field_release:ric.tasks.KindEdit.svg)
+  
+  ::google::protobuf::StringValue* temp = svg_;
+  svg_ = nullptr;
+  return temp;
+}
+inline ::google::protobuf::StringValue* KindEdit::mutable_svg() {
+  
+  if (svg_ == nullptr) {
+    auto* p = CreateMaybeMessage<::google::protobuf::StringValue>(GetArenaNoVirtual());
+    svg_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.KindEdit.svg)
+  return svg_;
+}
+inline void KindEdit::set_allocated_svg(::google::protobuf::StringValue* svg) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(svg_);
+  }
+  if (svg) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(svg)->GetArena();
+    if (message_arena != submessage_arena) {
+      svg = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, svg, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  svg_ = svg;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.KindEdit.svg)
+}
+
+// repeated .ric.tasks.ObjectId roles = 4;
+inline int KindEdit::roles_size() const {
+  return roles_.size();
+}
+inline void KindEdit::clear_roles() {
+  roles_.Clear();
+}
+inline ::ric::tasks::ObjectId* KindEdit::mutable_roles(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.tasks.KindEdit.roles)
+  return roles_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::ric::tasks::ObjectId >*
+KindEdit::mutable_roles() {
+  // @@protoc_insertion_point(field_mutable_list:ric.tasks.KindEdit.roles)
+  return &roles_;
+}
+inline const ::ric::tasks::ObjectId& KindEdit::roles(int index) const {
+  // @@protoc_insertion_point(field_get:ric.tasks.KindEdit.roles)
+  return roles_.Get(index);
+}
+inline ::ric::tasks::ObjectId* KindEdit::add_roles() {
+  // @@protoc_insertion_point(field_add:ric.tasks.KindEdit.roles)
+  return roles_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ObjectId >&
+KindEdit::roles() const {
+  // @@protoc_insertion_point(field_list:ric.tasks.KindEdit.roles)
+  return roles_;
+}
+
+// repeated .ric.tasks.ReportTemplate report_templates = 5;
+inline int KindEdit::report_templates_size() const {
+  return report_templates_.size();
+}
+inline void KindEdit::clear_report_templates() {
+  report_templates_.Clear();
+}
+inline ::ric::tasks::ReportTemplate* KindEdit::mutable_report_templates(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.tasks.KindEdit.report_templates)
+  return report_templates_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >*
+KindEdit::mutable_report_templates() {
+  // @@protoc_insertion_point(field_mutable_list:ric.tasks.KindEdit.report_templates)
+  return &report_templates_;
+}
+inline const ::ric::tasks::ReportTemplate& KindEdit::report_templates(int index) const {
+  // @@protoc_insertion_point(field_get:ric.tasks.KindEdit.report_templates)
+  return report_templates_.Get(index);
+}
+inline ::ric::tasks::ReportTemplate* KindEdit::add_report_templates() {
+  // @@protoc_insertion_point(field_add:ric.tasks.KindEdit.report_templates)
+  return report_templates_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ric::tasks::ReportTemplate >&
+KindEdit::report_templates() const {
+  // @@protoc_insertion_point(field_list:ric.tasks.KindEdit.report_templates)
+  return report_templates_;
 }
 
 // -------------------------------------------------------------------
@@ -9318,7 +9660,58 @@ inline void UpdateKindRequest::set_allocated_ctx(::ric::tasks::UserContext* ctx)
   // @@protoc_insertion_point(field_set_allocated:ric.tasks.UpdateKindRequest.ctx)
 }
 
-// .ric.tasks.Kind kind = 2;
+// .ric.tasks.ObjectId oid = 2;
+inline bool UpdateKindRequest::has_oid() const {
+  return this != internal_default_instance() && oid_ != nullptr;
+}
+inline void UpdateKindRequest::clear_oid() {
+  if (GetArenaNoVirtual() == nullptr && oid_ != nullptr) {
+    delete oid_;
+  }
+  oid_ = nullptr;
+}
+inline const ::ric::tasks::ObjectId& UpdateKindRequest::oid() const {
+  const ::ric::tasks::ObjectId* p = oid_;
+  // @@protoc_insertion_point(field_get:ric.tasks.UpdateKindRequest.oid)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::ObjectId*>(
+      &::ric::tasks::_ObjectId_default_instance_);
+}
+inline ::ric::tasks::ObjectId* UpdateKindRequest::release_oid() {
+  // @@protoc_insertion_point(field_release:ric.tasks.UpdateKindRequest.oid)
+  
+  ::ric::tasks::ObjectId* temp = oid_;
+  oid_ = nullptr;
+  return temp;
+}
+inline ::ric::tasks::ObjectId* UpdateKindRequest::mutable_oid() {
+  
+  if (oid_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::tasks::ObjectId>(GetArenaNoVirtual());
+    oid_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.tasks.UpdateKindRequest.oid)
+  return oid_;
+}
+inline void UpdateKindRequest::set_allocated_oid(::ric::tasks::ObjectId* oid) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete oid_;
+  }
+  if (oid) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      oid = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, oid, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  oid_ = oid;
+  // @@protoc_insertion_point(field_set_allocated:ric.tasks.UpdateKindRequest.oid)
+}
+
+// .ric.tasks.KindEdit kind = 3;
 inline bool UpdateKindRequest::has_kind() const {
   return this != internal_default_instance() && kind_ != nullptr;
 }
@@ -9328,29 +9721,29 @@ inline void UpdateKindRequest::clear_kind() {
   }
   kind_ = nullptr;
 }
-inline const ::ric::tasks::Kind& UpdateKindRequest::kind() const {
-  const ::ric::tasks::Kind* p = kind_;
+inline const ::ric::tasks::KindEdit& UpdateKindRequest::kind() const {
+  const ::ric::tasks::KindEdit* p = kind_;
   // @@protoc_insertion_point(field_get:ric.tasks.UpdateKindRequest.kind)
-  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::Kind*>(
-      &::ric::tasks::_Kind_default_instance_);
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::tasks::KindEdit*>(
+      &::ric::tasks::_KindEdit_default_instance_);
 }
-inline ::ric::tasks::Kind* UpdateKindRequest::release_kind() {
+inline ::ric::tasks::KindEdit* UpdateKindRequest::release_kind() {
   // @@protoc_insertion_point(field_release:ric.tasks.UpdateKindRequest.kind)
   
-  ::ric::tasks::Kind* temp = kind_;
+  ::ric::tasks::KindEdit* temp = kind_;
   kind_ = nullptr;
   return temp;
 }
-inline ::ric::tasks::Kind* UpdateKindRequest::mutable_kind() {
+inline ::ric::tasks::KindEdit* UpdateKindRequest::mutable_kind() {
   
   if (kind_ == nullptr) {
-    auto* p = CreateMaybeMessage<::ric::tasks::Kind>(GetArenaNoVirtual());
+    auto* p = CreateMaybeMessage<::ric::tasks::KindEdit>(GetArenaNoVirtual());
     kind_ = p;
   }
   // @@protoc_insertion_point(field_mutable:ric.tasks.UpdateKindRequest.kind)
   return kind_;
 }
-inline void UpdateKindRequest::set_allocated_kind(::ric::tasks::Kind* kind) {
+inline void UpdateKindRequest::set_allocated_kind(::ric::tasks::KindEdit* kind) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
     delete kind_;
@@ -9599,6 +9992,8 @@ inline void DeleteKindRequest::set_allocated_oid(::ric::tasks::ObjectId* oid) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -9618,10 +10013,10 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ric::tasks::Task_Status>() {
   return ::ric::tasks::Task_Status_descriptor();
 }
-template <> struct is_proto_enum< ::ric::tasks::ReportFormat_FieldType> : ::std::true_type {};
+template <> struct is_proto_enum< ::ric::tasks::ReportTemplate_FieldType> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::ric::tasks::ReportFormat_FieldType>() {
-  return ::ric::tasks::ReportFormat_FieldType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::ric::tasks::ReportTemplate_FieldType>() {
+  return ::ric::tasks::ReportTemplate_FieldType_descriptor();
 }
 
 }  // namespace protobuf

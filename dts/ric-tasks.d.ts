@@ -54,8 +54,8 @@ export interface Task {
   status?: any;
   object?: ObjectId;
   kind?: ObjectId;
-  reportFormat?: ReportFormat[];
-  report?: Report[];
+  reportTemplates?: ReportTemplate[];
+  reports?: Report[];
   begin?: Location;
   end?: Location;
   deadlines?: Deadline[];
@@ -77,7 +77,7 @@ export interface TaskEdit {
   description?: StringValue;
   object?: ObjectId;
   kind?: ObjectId;
-  reportFormat?: ReportFormat[];
+  reportTemplates?: ReportTemplate[];
   begin?: Location;
   end?: Location;
   deadlines?: Deadline[];
@@ -99,7 +99,7 @@ export interface Deadline {
   status?: any;
 }
 
-export interface ReportFormat {
+export interface ReportTemplate {
   name?: string;
   field?: any;
   required?: boolean;
@@ -115,8 +115,16 @@ export interface Kind {
   name?: string;
   discription?: string;
   svg?: string;
-  role?: ObjectId[];
-  reportFormat?: ReportFormat[];
+  roles?: ObjectId[];
+  reportTemplates?: ReportTemplate[];
+}
+
+export interface KindEdit {
+  name?: StringValue;
+  discription?: StringValue;
+  svg?: StringValue;
+  roles?: ObjectId[];
+  reportTemplates?: ReportTemplate[];
 }
 
 export interface CreateTaskRequest {
@@ -205,7 +213,8 @@ export interface GetKindResponse {
 
 export interface UpdateKindRequest {
   ctx?: UserContext;
-  kind?: Kind;
+  oid?: ObjectId;
+  kind?: KindEdit;
 }
 
 export interface UpdateKindResponse {
