@@ -290,7 +290,7 @@ message ChangeTaskStatusRequest {
   // required only if new_status == CLOSED
   google.protobuf.BoolValue success = 5;
   string comment = 6;
-  repeated Report report = 7;
+  repeated Report reports = 7;
 }
 
 message ChangeTaskStatusResponse {
