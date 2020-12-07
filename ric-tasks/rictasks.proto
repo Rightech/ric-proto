@@ -129,10 +129,10 @@ message Task {
   // @inject_tag: bson:",omitempty"
   ObjectId kind = 14;
   // overwride task kind report_format
-  // @inject_tag: bson:"report_format,omitempty"
-  repeated ReportFormat report_format = 15;
+  // @inject_tag: bson:"report_templates,omitempty"
+  repeated ReportTemplate report_templates = 15;
   // @inject_tag: bson:",omitempty"
-  repeated Report report = 16;
+  repeated Report reports = 16;
   // @inject_tag: bson:",omitempty"
   Location begin = 17;
   // @inject_tag: bson:",omitempty"
@@ -164,7 +164,7 @@ message TaskEdit {
   google.protobuf.StringValue description = 8;
   ObjectId object = 9;
   ObjectId kind = 10;
-  repeated ReportFormat report_format = 11;
+  repeated ReportTemplate report_templates = 11;
   Location begin = 12;
   Location end = 13;
   repeated Deadline deadlines = 14;
@@ -190,7 +190,7 @@ message Deadline {
   Task.Status status = 3;
 }
 
-message ReportFormat {
+message ReportTemplate {
   enum FieldType {
     INVALID = 0;
     BOOLEAN = 1; //checkbox
@@ -200,7 +200,7 @@ message ReportFormat {
   }
   string name = 1;
   FieldType field = 2;
-  google.protobuf.BoolValue required = 5; // flag of require for this field
+  bool required = 3; // flag of require for this field
 }
 
 message Report {
@@ -218,9 +218,19 @@ message Kind {
   // @inject_tag: bson:",omitempty"
   string svg = 4; // svg for task this type
   // @inject_tag: bson:",omitempty"
-  repeated ObjectId role = 5; // roles for access
-  // @inject_tag: bson:"report_format,omitempty"
-  repeated ReportFormat report_format = 6;
+  repeated ObjectId roles = 5; // roles for access
+  // @inject_tag: bson:"report_remplates,omitempty"
+  repeated ReportTemplate report_templates = 6;
+}
+
+// nil values ignored
+// zero value remove field in database
+message KindEdit {
+  google.protobuf.StringValue name = 1;
+  google.protobuf.StringValue discription = 2;
+  google.protobuf.StringValue svg = 3;
+  repeated ObjectId roles = 4;
+  repeated ReportTemplate report_templates = 5;
 }
 
 message CreateTaskRequest {
@@ -307,7 +317,8 @@ message GetKindResponse {
 
 message UpdateKindRequest {
   UserContext ctx = 1;
-  Kind kind = 2;
+  ObjectId oid = 2;
+  KindEdit kind = 3;
 }
 
 message UpdateKindResponse {
