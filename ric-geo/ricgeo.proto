@@ -78,7 +78,7 @@ message WatchRouteRequest {
 
 message UpdateGeoRequest {
   string geofence_id = 1;
-  string floor_id = 2;
+  string shape_id = 2;
 }
 
 message GetObjectInfoRequest {
