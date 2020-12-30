@@ -29,7 +29,7 @@ export interface WatchRoomRequest {
 
 export interface Fence {
   geofenceId?: string;
-  shapeId?: string;
+  floorId?: string;
   roomId?: string;
 }
 
@@ -42,7 +42,7 @@ export interface WatchRouteRequest {
 
 export interface UpdateGeoRequest {
   geofenceId?: string;
-  shapeId?: string;
+  floorId?: string;
 }
 
 export interface GetObjectInfoRequest {

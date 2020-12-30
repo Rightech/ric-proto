@@ -863,19 +863,19 @@ class Fence final :
   ::std::string* release_geofence_id();
   void set_allocated_geofence_id(::std::string* geofence_id);
 
-  // string shape_id = 2;
-  void clear_shape_id();
-  static const int kShapeIdFieldNumber = 2;
-  const ::std::string& shape_id() const;
-  void set_shape_id(const ::std::string& value);
+  // string floor_id = 2;
+  void clear_floor_id();
+  static const int kFloorIdFieldNumber = 2;
+  const ::std::string& floor_id() const;
+  void set_floor_id(const ::std::string& value);
   #if LANG_CXX11
-  void set_shape_id(::std::string&& value);
+  void set_floor_id(::std::string&& value);
   #endif
-  void set_shape_id(const char* value);
-  void set_shape_id(const char* value, size_t size);
-  ::std::string* mutable_shape_id();
-  ::std::string* release_shape_id();
-  void set_allocated_shape_id(::std::string* shape_id);
+  void set_floor_id(const char* value);
+  void set_floor_id(const char* value, size_t size);
+  ::std::string* mutable_floor_id();
+  ::std::string* release_floor_id();
+  void set_allocated_floor_id(::std::string* floor_id);
 
   // string room_id = 3;
   void clear_room_id();
@@ -897,7 +897,7 @@ class Fence final :
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr geofence_id_;
-  ::google::protobuf::internal::ArenaStringPtr shape_id_;
+  ::google::protobuf::internal::ArenaStringPtr floor_id_;
   ::google::protobuf::internal::ArenaStringPtr room_id_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dgeo_2fricgeo_2eproto;
@@ -1214,19 +1214,19 @@ class UpdateGeoRequest final :
   ::std::string* release_geofence_id();
   void set_allocated_geofence_id(::std::string* geofence_id);
 
-  // string shape_id = 2;
-  void clear_shape_id();
-  static const int kShapeIdFieldNumber = 2;
-  const ::std::string& shape_id() const;
-  void set_shape_id(const ::std::string& value);
+  // string floor_id = 2;
+  void clear_floor_id();
+  static const int kFloorIdFieldNumber = 2;
+  const ::std::string& floor_id() const;
+  void set_floor_id(const ::std::string& value);
   #if LANG_CXX11
-  void set_shape_id(::std::string&& value);
+  void set_floor_id(::std::string&& value);
   #endif
-  void set_shape_id(const char* value);
-  void set_shape_id(const char* value, size_t size);
-  ::std::string* mutable_shape_id();
-  ::std::string* release_shape_id();
-  void set_allocated_shape_id(::std::string* shape_id);
+  void set_floor_id(const char* value);
+  void set_floor_id(const char* value, size_t size);
+  ::std::string* mutable_floor_id();
+  ::std::string* release_floor_id();
+  void set_allocated_floor_id(::std::string* floor_id);
 
   // @@protoc_insertion_point(class_scope:ric.geo.UpdateGeoRequest)
  private:
@@ -1234,7 +1234,7 @@ class UpdateGeoRequest final :
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr geofence_id_;
-  ::google::protobuf::internal::ArenaStringPtr shape_id_;
+  ::google::protobuf::internal::ArenaStringPtr floor_id_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dgeo_2fricgeo_2eproto;
 };
@@ -4225,57 +4225,57 @@ inline void Fence::set_allocated_geofence_id(::std::string* geofence_id) {
   // @@protoc_insertion_point(field_set_allocated:ric.geo.Fence.geofence_id)
 }
 
-// string shape_id = 2;
-inline void Fence::clear_shape_id() {
-  shape_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// string floor_id = 2;
+inline void Fence::clear_floor_id() {
+  floor_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& Fence::shape_id() const {
-  // @@protoc_insertion_point(field_get:ric.geo.Fence.shape_id)
-  return shape_id_.GetNoArena();
+inline const ::std::string& Fence::floor_id() const {
+  // @@protoc_insertion_point(field_get:ric.geo.Fence.floor_id)
+  return floor_id_.GetNoArena();
 }
-inline void Fence::set_shape_id(const ::std::string& value) {
+inline void Fence::set_floor_id(const ::std::string& value) {
   
-  shape_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.geo.Fence.shape_id)
+  floor_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.geo.Fence.floor_id)
 }
 #if LANG_CXX11
-inline void Fence::set_shape_id(::std::string&& value) {
+inline void Fence::set_floor_id(::std::string&& value) {
   
-  shape_id_.SetNoArena(
+  floor_id_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.geo.Fence.shape_id)
+  // @@protoc_insertion_point(field_set_rvalue:ric.geo.Fence.floor_id)
 }
 #endif
-inline void Fence::set_shape_id(const char* value) {
+inline void Fence::set_floor_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  shape_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.geo.Fence.shape_id)
+  floor_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.geo.Fence.floor_id)
 }
-inline void Fence::set_shape_id(const char* value, size_t size) {
+inline void Fence::set_floor_id(const char* value, size_t size) {
   
-  shape_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  floor_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.geo.Fence.shape_id)
+  // @@protoc_insertion_point(field_set_pointer:ric.geo.Fence.floor_id)
 }
-inline ::std::string* Fence::mutable_shape_id() {
+inline ::std::string* Fence::mutable_floor_id() {
   
-  // @@protoc_insertion_point(field_mutable:ric.geo.Fence.shape_id)
-  return shape_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:ric.geo.Fence.floor_id)
+  return floor_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* Fence::release_shape_id() {
-  // @@protoc_insertion_point(field_release:ric.geo.Fence.shape_id)
+inline ::std::string* Fence::release_floor_id() {
+  // @@protoc_insertion_point(field_release:ric.geo.Fence.floor_id)
   
-  return shape_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return floor_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void Fence::set_allocated_shape_id(::std::string* shape_id) {
-  if (shape_id != nullptr) {
+inline void Fence::set_allocated_floor_id(::std::string* floor_id) {
+  if (floor_id != nullptr) {
     
   } else {
     
   }
-  shape_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), shape_id);
-  // @@protoc_insertion_point(field_set_allocated:ric.geo.Fence.shape_id)
+  floor_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), floor_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.geo.Fence.floor_id)
 }
 
 // string room_id = 3;
@@ -4597,57 +4597,57 @@ inline void UpdateGeoRequest::set_allocated_geofence_id(::std::string* geofence_
   // @@protoc_insertion_point(field_set_allocated:ric.geo.UpdateGeoRequest.geofence_id)
 }
 
-// string shape_id = 2;
-inline void UpdateGeoRequest::clear_shape_id() {
-  shape_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// string floor_id = 2;
+inline void UpdateGeoRequest::clear_floor_id() {
+  floor_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& UpdateGeoRequest::shape_id() const {
-  // @@protoc_insertion_point(field_get:ric.geo.UpdateGeoRequest.shape_id)
-  return shape_id_.GetNoArena();
+inline const ::std::string& UpdateGeoRequest::floor_id() const {
+  // @@protoc_insertion_point(field_get:ric.geo.UpdateGeoRequest.floor_id)
+  return floor_id_.GetNoArena();
 }
-inline void UpdateGeoRequest::set_shape_id(const ::std::string& value) {
+inline void UpdateGeoRequest::set_floor_id(const ::std::string& value) {
   
-  shape_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.geo.UpdateGeoRequest.shape_id)
+  floor_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.geo.UpdateGeoRequest.floor_id)
 }
 #if LANG_CXX11
-inline void UpdateGeoRequest::set_shape_id(::std::string&& value) {
+inline void UpdateGeoRequest::set_floor_id(::std::string&& value) {
   
-  shape_id_.SetNoArena(
+  floor_id_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.geo.UpdateGeoRequest.shape_id)
+  // @@protoc_insertion_point(field_set_rvalue:ric.geo.UpdateGeoRequest.floor_id)
 }
 #endif
-inline void UpdateGeoRequest::set_shape_id(const char* value) {
+inline void UpdateGeoRequest::set_floor_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  shape_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.geo.UpdateGeoRequest.shape_id)
+  floor_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.geo.UpdateGeoRequest.floor_id)
 }
-inline void UpdateGeoRequest::set_shape_id(const char* value, size_t size) {
+inline void UpdateGeoRequest::set_floor_id(const char* value, size_t size) {
   
-  shape_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  floor_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.geo.UpdateGeoRequest.shape_id)
+  // @@protoc_insertion_point(field_set_pointer:ric.geo.UpdateGeoRequest.floor_id)
 }
-inline ::std::string* UpdateGeoRequest::mutable_shape_id() {
+inline ::std::string* UpdateGeoRequest::mutable_floor_id() {
   
-  // @@protoc_insertion_point(field_mutable:ric.geo.UpdateGeoRequest.shape_id)
-  return shape_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:ric.geo.UpdateGeoRequest.floor_id)
+  return floor_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* UpdateGeoRequest::release_shape_id() {
-  // @@protoc_insertion_point(field_release:ric.geo.UpdateGeoRequest.shape_id)
+inline ::std::string* UpdateGeoRequest::release_floor_id() {
+  // @@protoc_insertion_point(field_release:ric.geo.UpdateGeoRequest.floor_id)
   
-  return shape_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return floor_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void UpdateGeoRequest::set_allocated_shape_id(::std::string* shape_id) {
-  if (shape_id != nullptr) {
+inline void UpdateGeoRequest::set_allocated_floor_id(::std::string* floor_id) {
+  if (floor_id != nullptr) {
     
   } else {
     
   }
-  shape_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), shape_id);
-  // @@protoc_insertion_point(field_set_allocated:ric.geo.UpdateGeoRequest.shape_id)
+  floor_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), floor_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.geo.UpdateGeoRequest.floor_id)
 }
 
 // -------------------------------------------------------------------

@@ -555,7 +555,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dgeo_2fricgeo_2eproto::offsets
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::geo::Fence, geofence_id_),
-  PROTOBUF_FIELD_OFFSET(::ric::geo::Fence, shape_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::geo::Fence, floor_id_),
   PROTOBUF_FIELD_OFFSET(::ric::geo::Fence, room_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::geo::WatchRouteRequest, _internal_metadata_),
@@ -572,7 +572,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dgeo_2fricgeo_2eproto::offsets
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::geo::UpdateGeoRequest, geofence_id_),
-  PROTOBUF_FIELD_OFFSET(::ric::geo::UpdateGeoRequest, shape_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::geo::UpdateGeoRequest, floor_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::geo::GetObjectInfoRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -790,13 +790,13 @@ const char descriptor_table_protodef_ric_2dgeo_2fricgeo_2eproto[] =
   "\003 \003(\0132\016.ric.geo.Fence\022\014\n\004tags\030\004 \003(\t\"4\n\tE"
   "ventType\022\007\n\003ALL\020\000\022\016\n\nROOM_ENTER\020\001\022\016\n\nROO"
   "M_LEAVE\020\002\"\?\n\005Fence\022\023\n\013geofence_id\030\001 \001(\t\022"
-  "\020\n\010shape_id\030\002 \001(\t\022\017\n\007room_id\030\003 \001(\t\"\265\001\n\021W"
+  "\020\n\010floor_id\030\002 \001(\t\022\017\n\007room_id\030\003 \001(\t\"\265\001\n\021W"
   "atchRouteRequest\022\021\n\tobject_id\030\001 \001(\t\0228\n\ne"
   "vent_type\030\002 \001(\0162$.ric.geo.WatchRouteRequ"
   "est.EventType\022\022\n\nroutes_ids\030\003 \003(\t\022\014\n\004tag"
   "s\030\004 \003(\t\"1\n\tEventType\022\007\n\003ALL\020\000\022\014\n\010ROUTE_O"
   "N\020\001\022\r\n\tROUTE_OFF\020\002\"9\n\020UpdateGeoRequest\022\023"
-  "\n\013geofence_id\030\001 \001(\t\022\020\n\010shape_id\030\002 \001(\t\")\n"
+  "\n\013geofence_id\030\001 \001(\t\022\020\n\010floor_id\030\002 \001(\t\")\n"
   "\024GetObjectInfoRequest\022\021\n\tobject_id\030\001 \001(\t"
   "\"\344\001\n\025GetObjectInfoResponse\022D\n\tgeofences\030"
   "\001 \003(\01321.ric.geo.GetObjectInfoResponse.Ob"
@@ -2166,7 +2166,7 @@ class Fence::HasBitSetters {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Fence::kGeofenceIdFieldNumber;
-const int Fence::kShapeIdFieldNumber;
+const int Fence::kFloorIdFieldNumber;
 const int Fence::kRoomIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -2183,9 +2183,9 @@ Fence::Fence(const Fence& from)
   if (from.geofence_id().size() > 0) {
     geofence_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.geofence_id_);
   }
-  shape_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.shape_id().size() > 0) {
-    shape_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.shape_id_);
+  floor_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.floor_id().size() > 0) {
+    floor_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.floor_id_);
   }
   room_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.room_id().size() > 0) {
@@ -2198,7 +2198,7 @@ void Fence::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_Fence_ric_2dgeo_2fricgeo_2eproto.base);
   geofence_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  shape_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  floor_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   room_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -2209,7 +2209,7 @@ Fence::~Fence() {
 
 void Fence::SharedDtor() {
   geofence_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  shape_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  floor_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   room_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -2229,7 +2229,7 @@ void Fence::Clear() {
   (void) cached_has_bits;
 
   geofence_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  shape_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  floor_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   room_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
@@ -2263,13 +2263,13 @@ const char* Fence::_InternalParse(const char* begin, const char* end, void* obje
         ptr += size;
         break;
       }
-      // string shape_id = 2;
+      // string floor_id = 2;
       case 2: {
         if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.geo.Fence.shape_id");
-        object = msg->mutable_shape_id();
+        ctx->extra_parse_data().SetFieldName("ric.geo.Fence.floor_id");
+        object = msg->mutable_floor_id();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -2344,15 +2344,15 @@ bool Fence::MergePartialFromCodedStream(
         break;
       }
 
-      // string shape_id = 2;
+      // string floor_id = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_shape_id()));
+                input, this->mutable_floor_id()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->shape_id().data(), static_cast<int>(this->shape_id().length()),
+            this->floor_id().data(), static_cast<int>(this->floor_id().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.geo.Fence.shape_id"));
+            "ric.geo.Fence.floor_id"));
         } else {
           goto handle_unusual;
         }
@@ -2411,14 +2411,14 @@ void Fence::SerializeWithCachedSizes(
       1, this->geofence_id(), output);
   }
 
-  // string shape_id = 2;
-  if (this->shape_id().size() > 0) {
+  // string floor_id = 2;
+  if (this->floor_id().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->shape_id().data(), static_cast<int>(this->shape_id().length()),
+      this->floor_id().data(), static_cast<int>(this->floor_id().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.geo.Fence.shape_id");
+      "ric.geo.Fence.floor_id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->shape_id(), output);
+      2, this->floor_id(), output);
   }
 
   // string room_id = 3;
@@ -2455,15 +2455,15 @@ void Fence::SerializeWithCachedSizes(
         1, this->geofence_id(), target);
   }
 
-  // string shape_id = 2;
-  if (this->shape_id().size() > 0) {
+  // string floor_id = 2;
+  if (this->floor_id().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->shape_id().data(), static_cast<int>(this->shape_id().length()),
+      this->floor_id().data(), static_cast<int>(this->floor_id().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.geo.Fence.shape_id");
+      "ric.geo.Fence.floor_id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->shape_id(), target);
+        2, this->floor_id(), target);
   }
 
   // string room_id = 3;
@@ -2505,11 +2505,11 @@ size_t Fence::ByteSizeLong() const {
         this->geofence_id());
   }
 
-  // string shape_id = 2;
-  if (this->shape_id().size() > 0) {
+  // string floor_id = 2;
+  if (this->floor_id().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->shape_id());
+        this->floor_id());
   }
 
   // string room_id = 3;
@@ -2550,9 +2550,9 @@ void Fence::MergeFrom(const Fence& from) {
 
     geofence_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.geofence_id_);
   }
-  if (from.shape_id().size() > 0) {
+  if (from.floor_id().size() > 0) {
 
-    shape_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.shape_id_);
+    floor_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.floor_id_);
   }
   if (from.room_id().size() > 0) {
 
@@ -2587,7 +2587,7 @@ void Fence::InternalSwap(Fence* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
   geofence_id_.Swap(&other->geofence_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  shape_id_.Swap(&other->shape_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  floor_id_.Swap(&other->floor_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   room_id_.Swap(&other->room_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
@@ -3090,7 +3090,7 @@ class UpdateGeoRequest::HasBitSetters {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int UpdateGeoRequest::kGeofenceIdFieldNumber;
-const int UpdateGeoRequest::kShapeIdFieldNumber;
+const int UpdateGeoRequest::kFloorIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 UpdateGeoRequest::UpdateGeoRequest()
@@ -3106,9 +3106,9 @@ UpdateGeoRequest::UpdateGeoRequest(const UpdateGeoRequest& from)
   if (from.geofence_id().size() > 0) {
     geofence_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.geofence_id_);
   }
-  shape_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.shape_id().size() > 0) {
-    shape_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.shape_id_);
+  floor_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.floor_id().size() > 0) {
+    floor_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.floor_id_);
   }
   // @@protoc_insertion_point(copy_constructor:ric.geo.UpdateGeoRequest)
 }
@@ -3117,7 +3117,7 @@ void UpdateGeoRequest::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_UpdateGeoRequest_ric_2dgeo_2fricgeo_2eproto.base);
   geofence_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  shape_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  floor_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 UpdateGeoRequest::~UpdateGeoRequest() {
@@ -3127,7 +3127,7 @@ UpdateGeoRequest::~UpdateGeoRequest() {
 
 void UpdateGeoRequest::SharedDtor() {
   geofence_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  shape_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  floor_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void UpdateGeoRequest::SetCachedSize(int size) const {
@@ -3146,7 +3146,7 @@ void UpdateGeoRequest::Clear() {
   (void) cached_has_bits;
 
   geofence_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  shape_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  floor_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
@@ -3179,13 +3179,13 @@ const char* UpdateGeoRequest::_InternalParse(const char* begin, const char* end,
         ptr += size;
         break;
       }
-      // string shape_id = 2;
+      // string floor_id = 2;
       case 2: {
         if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.geo.UpdateGeoRequest.shape_id");
-        object = msg->mutable_shape_id();
+        ctx->extra_parse_data().SetFieldName("ric.geo.UpdateGeoRequest.floor_id");
+        object = msg->mutable_floor_id();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -3244,15 +3244,15 @@ bool UpdateGeoRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // string shape_id = 2;
+      // string floor_id = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_shape_id()));
+                input, this->mutable_floor_id()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->shape_id().data(), static_cast<int>(this->shape_id().length()),
+            this->floor_id().data(), static_cast<int>(this->floor_id().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.geo.UpdateGeoRequest.shape_id"));
+            "ric.geo.UpdateGeoRequest.floor_id"));
         } else {
           goto handle_unusual;
         }
@@ -3296,14 +3296,14 @@ void UpdateGeoRequest::SerializeWithCachedSizes(
       1, this->geofence_id(), output);
   }
 
-  // string shape_id = 2;
-  if (this->shape_id().size() > 0) {
+  // string floor_id = 2;
+  if (this->floor_id().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->shape_id().data(), static_cast<int>(this->shape_id().length()),
+      this->floor_id().data(), static_cast<int>(this->floor_id().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.geo.UpdateGeoRequest.shape_id");
+      "ric.geo.UpdateGeoRequest.floor_id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->shape_id(), output);
+      2, this->floor_id(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3330,15 +3330,15 @@ void UpdateGeoRequest::SerializeWithCachedSizes(
         1, this->geofence_id(), target);
   }
 
-  // string shape_id = 2;
-  if (this->shape_id().size() > 0) {
+  // string floor_id = 2;
+  if (this->floor_id().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->shape_id().data(), static_cast<int>(this->shape_id().length()),
+      this->floor_id().data(), static_cast<int>(this->floor_id().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.geo.UpdateGeoRequest.shape_id");
+      "ric.geo.UpdateGeoRequest.floor_id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->shape_id(), target);
+        2, this->floor_id(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -3369,11 +3369,11 @@ size_t UpdateGeoRequest::ByteSizeLong() const {
         this->geofence_id());
   }
 
-  // string shape_id = 2;
-  if (this->shape_id().size() > 0) {
+  // string floor_id = 2;
+  if (this->floor_id().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->shape_id());
+        this->floor_id());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -3407,9 +3407,9 @@ void UpdateGeoRequest::MergeFrom(const UpdateGeoRequest& from) {
 
     geofence_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.geofence_id_);
   }
-  if (from.shape_id().size() > 0) {
+  if (from.floor_id().size() > 0) {
 
-    shape_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.shape_id_);
+    floor_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.floor_id_);
   }
 }
 
@@ -3440,7 +3440,7 @@ void UpdateGeoRequest::InternalSwap(UpdateGeoRequest* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
   geofence_id_.Swap(&other->geofence_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  shape_id_.Swap(&other->shape_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  floor_id_.Swap(&other->floor_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
 }
 
