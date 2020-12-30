@@ -60,7 +60,7 @@ message WatchRoomRequest {
 
 message Fence {
   string geofence_id = 1;
-  string shape_id = 2;
+  string floor_id = 2;
   string room_id = 3;
 }
 
@@ -78,7 +78,7 @@ message WatchRouteRequest {
 
 message UpdateGeoRequest {
   string geofence_id = 1;
-  string shape_id = 2;
+  string floor_id = 2;
 }
 
 message GetObjectInfoRequest {
