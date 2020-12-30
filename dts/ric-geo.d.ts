@@ -42,7 +42,7 @@ export interface WatchRouteRequest {
 
 export interface UpdateGeoRequest {
   geofenceId?: string;
-  floorId?: string;
+  shapeId?: string;
 }
 
 export interface GetObjectInfoRequest {
