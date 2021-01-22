@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package lora.agent;
+
+option go_package = "./lora-agent;loraagent";
+
+service Device {
+  rpc Create(CreateRequest) returns (EmptyResponse);
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc Delete(DeleteRequest) returns (EmptyResponse);
+}
+
+message Device {
+  string dev_eui = 1;
+  string app_key = 2;   // otaa
+  string dev_addr = 3;  // abp
+  string net_s_key = 4; // abp
+  string app_s_key = 5; // abp
+}
+
+message CreateRequest {
+  Device device = 1;
+}
+
+message DeleteRequest {
+  string dev_eui = 1;
+}
+
+message GetRequest {
+  string dev_eui = 1;
+}
+
+message GetResponse {
+  Device device = 1;
+}
+
+message EmptyResponse {}
