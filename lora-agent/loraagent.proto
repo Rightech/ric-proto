@@ -12,8 +12,8 @@ service DeviceService {
 
 message Device {
   string dev_eui = 1;
-  string app_key = 2;   // otaa
-  string dev_addr = 3;  // abp
+  string app_key = 2; // otaa
+  string dev_addr = 3; // abp
   string net_s_key = 4; // abp
   string app_s_key = 5; // abp
 }
