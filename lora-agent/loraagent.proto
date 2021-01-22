@@ -4,7 +4,7 @@ package lora.agent;
 
 option go_package = "./lora-agent;loraagent";
 
-service Device {
+service DeviceService {
   rpc Create(CreateRequest) returns (EmptyResponse);
   rpc Get(GetRequest) returns (GetResponse);
   rpc Delete(DeleteRequest) returns (EmptyResponse);
