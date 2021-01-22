@@ -31,14 +31,6 @@ class DeleteRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<DeleteRequest> _instance;
 } _DeleteRequest_default_instance_;
-class GetRequestDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<GetRequest> _instance;
-} _GetRequest_default_instance_;
-class GetResponseDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<GetResponse> _instance;
-} _GetResponse_default_instance_;
 class EmptyResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<EmptyResponse> _instance;
@@ -88,35 +80,6 @@ static void InitDefaultsDeleteRequest_lora_2dagent_2floraagent_2eproto() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_DeleteRequest_lora_2dagent_2floraagent_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsDeleteRequest_lora_2dagent_2floraagent_2eproto}, {}};
 
-static void InitDefaultsGetRequest_lora_2dagent_2floraagent_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::lora::agent::_GetRequest_default_instance_;
-    new (ptr) ::lora::agent::GetRequest();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::lora::agent::GetRequest::InitAsDefaultInstance();
-}
-
-::google::protobuf::internal::SCCInfo<0> scc_info_GetRequest_lora_2dagent_2floraagent_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGetRequest_lora_2dagent_2floraagent_2eproto}, {}};
-
-static void InitDefaultsGetResponse_lora_2dagent_2floraagent_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::lora::agent::_GetResponse_default_instance_;
-    new (ptr) ::lora::agent::GetResponse();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::lora::agent::GetResponse::InitAsDefaultInstance();
-}
-
-::google::protobuf::internal::SCCInfo<1> scc_info_GetResponse_lora_2dagent_2floraagent_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsGetResponse_lora_2dagent_2floraagent_2eproto}, {
-      &scc_info_Device_lora_2dagent_2floraagent_2eproto.base,}};
-
 static void InitDefaultsEmptyResponse_lora_2dagent_2floraagent_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -135,12 +98,10 @@ void InitDefaults_lora_2dagent_2floraagent_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_Device_lora_2dagent_2floraagent_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_CreateRequest_lora_2dagent_2floraagent_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_DeleteRequest_lora_2dagent_2floraagent_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_GetRequest_lora_2dagent_2floraagent_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_GetResponse_lora_2dagent_2floraagent_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_EmptyResponse_lora_2dagent_2floraagent_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_lora_2dagent_2floraagent_2eproto[6];
+::google::protobuf::Metadata file_level_metadata_lora_2dagent_2floraagent_2eproto[4];
 constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_lora_2dagent_2floraagent_2eproto = nullptr;
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_lora_2dagent_2floraagent_2eproto = nullptr;
 
@@ -168,18 +129,6 @@ const ::google::protobuf::uint32 TableStruct_lora_2dagent_2floraagent_2eproto::o
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::lora::agent::DeleteRequest, dev_eui_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::lora::agent::GetRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::lora::agent::GetRequest, dev_eui_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::lora::agent::GetResponse, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::lora::agent::GetResponse, device_),
-  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::lora::agent::EmptyResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -189,24 +138,20 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 0, -1, sizeof(::lora::agent::Device)},
   { 10, -1, sizeof(::lora::agent::CreateRequest)},
   { 16, -1, sizeof(::lora::agent::DeleteRequest)},
-  { 22, -1, sizeof(::lora::agent::GetRequest)},
-  { 28, -1, sizeof(::lora::agent::GetResponse)},
-  { 34, -1, sizeof(::lora::agent::EmptyResponse)},
+  { 22, -1, sizeof(::lora::agent::EmptyResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::lora::agent::_Device_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::lora::agent::_CreateRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::lora::agent::_DeleteRequest_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::lora::agent::_GetRequest_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::lora::agent::_GetResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::lora::agent::_EmptyResponse_default_instance_),
 };
 
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_lora_2dagent_2floraagent_2eproto = {
   {}, AddDescriptors_lora_2dagent_2floraagent_2eproto, "lora-agent/loraagent.proto", schemas,
   file_default_instances, TableStruct_lora_2dagent_2floraagent_2eproto::offsets,
-  file_level_metadata_lora_2dagent_2floraagent_2eproto, 6, file_level_enum_descriptors_lora_2dagent_2floraagent_2eproto, file_level_service_descriptors_lora_2dagent_2floraagent_2eproto,
+  file_level_metadata_lora_2dagent_2floraagent_2eproto, 4, file_level_enum_descriptors_lora_2dagent_2floraagent_2eproto, file_level_service_descriptors_lora_2dagent_2floraagent_2eproto,
 };
 
 const char descriptor_table_protodef_lora_2dagent_2floraagent_2eproto[] =
@@ -215,21 +160,17 @@ const char descriptor_table_protodef_lora_2dagent_2floraagent_2eproto[] =
   " \001(\t\022\020\n\010dev_addr\030\003 \001(\t\022\021\n\tnet_s_key\030\004 \001("
   "\t\022\021\n\tapp_s_key\030\005 \001(\t\"3\n\rCreateRequest\022\"\n"
   "\006device\030\001 \001(\0132\022.lora.agent.Device\" \n\rDel"
-  "eteRequest\022\017\n\007dev_eui\030\001 \001(\t\"\035\n\nGetReques"
-  "t\022\017\n\007dev_eui\030\001 \001(\t\"1\n\013GetResponse\022\"\n\006dev"
-  "ice\030\001 \001(\0132\022.lora.agent.Device\"\017\n\rEmptyRe"
-  "sponse2\307\001\n\rDeviceService\022>\n\006Create\022\031.lor"
-  "a.agent.CreateRequest\032\031.lora.agent.Empty"
-  "Response\0226\n\003Get\022\026.lora.agent.GetRequest\032"
-  "\027.lora.agent.GetResponse\022>\n\006Delete\022\031.lor"
-  "a.agent.DeleteRequest\032\031.lora.agent.Empty"
-  "ResponseB\030Z\026./lora-agent;loraagentb\006prot"
-  "o3"
+  "eteRequest\022\017\n\007dev_eui\030\001 \001(\t\"\017\n\rEmptyResp"
+  "onse2\217\001\n\rDeviceService\022>\n\006Create\022\031.lora."
+  "agent.CreateRequest\032\031.lora.agent.EmptyRe"
+  "sponse\022>\n\006Delete\022\031.lora.agent.DeleteRequ"
+  "est\032\031.lora.agent.EmptyResponseB\030Z\026./lora"
+  "-agent;loraagentb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_lora_2dagent_2floraagent_2eproto = {
   false, InitDefaults_lora_2dagent_2floraagent_2eproto, 
   descriptor_table_protodef_lora_2dagent_2floraagent_2eproto,
-  "lora-agent/loraagent.proto", &assign_descriptors_table_lora_2dagent_2floraagent_2eproto, 562,
+  "lora-agent/loraagent.proto", &assign_descriptors_table_lora_2dagent_2floraagent_2eproto, 424,
 };
 
 void AddDescriptors_lora_2dagent_2floraagent_2eproto() {
@@ -1419,590 +1360,6 @@ void DeleteRequest::InternalSwap(DeleteRequest* other) {
 
 // ===================================================================
 
-void GetRequest::InitAsDefaultInstance() {
-}
-class GetRequest::HasBitSetters {
- public:
-};
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int GetRequest::kDevEuiFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-GetRequest::GetRequest()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:lora.agent.GetRequest)
-}
-GetRequest::GetRequest(const GetRequest& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(nullptr) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  dev_eui_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.dev_eui().size() > 0) {
-    dev_eui_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.dev_eui_);
-  }
-  // @@protoc_insertion_point(copy_constructor:lora.agent.GetRequest)
-}
-
-void GetRequest::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_GetRequest_lora_2dagent_2floraagent_2eproto.base);
-  dev_eui_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-GetRequest::~GetRequest() {
-  // @@protoc_insertion_point(destructor:lora.agent.GetRequest)
-  SharedDtor();
-}
-
-void GetRequest::SharedDtor() {
-  dev_eui_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-void GetRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const GetRequest& GetRequest::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_GetRequest_lora_2dagent_2floraagent_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void GetRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:lora.agent.GetRequest)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  dev_eui_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  _internal_metadata_.Clear();
-}
-
-#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* GetRequest::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<GetRequest*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-    switch (tag >> 3) {
-      // string dev_eui = 1;
-      case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("lora.agent.GetRequest.dev_eui");
-        object = msg->mutable_dev_eui();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
-        }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
-      }
-    }  // switch
-  }  // while
-  return ptr;
-string_till_end:
-  static_cast<::std::string*>(object)->clear();
-  static_cast<::std::string*>(object)->reserve(size);
-  goto len_delim_till_end;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
-}
-#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool GetRequest::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:lora.agent.GetRequest)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // string dev_eui = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_dev_eui()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->dev_eui().data(), static_cast<int>(this->dev_eui().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "lora.agent.GetRequest.dev_eui"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:lora.agent.GetRequest)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:lora.agent.GetRequest)
-  return false;
-#undef DO_
-}
-#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-
-void GetRequest::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:lora.agent.GetRequest)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string dev_eui = 1;
-  if (this->dev_eui().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->dev_eui().data(), static_cast<int>(this->dev_eui().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "lora.agent.GetRequest.dev_eui");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->dev_eui(), output);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:lora.agent.GetRequest)
-}
-
-::google::protobuf::uint8* GetRequest::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:lora.agent.GetRequest)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string dev_eui = 1;
-  if (this->dev_eui().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->dev_eui().data(), static_cast<int>(this->dev_eui().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "lora.agent.GetRequest.dev_eui");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->dev_eui(), target);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:lora.agent.GetRequest)
-  return target;
-}
-
-size_t GetRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:lora.agent.GetRequest)
-  size_t total_size = 0;
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string dev_eui = 1;
-  if (this->dev_eui().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->dev_eui());
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void GetRequest::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:lora.agent.GetRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const GetRequest* source =
-      ::google::protobuf::DynamicCastToGenerated<GetRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:lora.agent.GetRequest)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:lora.agent.GetRequest)
-    MergeFrom(*source);
-  }
-}
-
-void GetRequest::MergeFrom(const GetRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:lora.agent.GetRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.dev_eui().size() > 0) {
-
-    dev_eui_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.dev_eui_);
-  }
-}
-
-void GetRequest::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:lora.agent.GetRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void GetRequest::CopyFrom(const GetRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:lora.agent.GetRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool GetRequest::IsInitialized() const {
-  return true;
-}
-
-void GetRequest::Swap(GetRequest* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void GetRequest::InternalSwap(GetRequest* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  dev_eui_.Swap(&other->dev_eui_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-}
-
-::google::protobuf::Metadata GetRequest::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_lora_2dagent_2floraagent_2eproto);
-  return ::file_level_metadata_lora_2dagent_2floraagent_2eproto[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-void GetResponse::InitAsDefaultInstance() {
-  ::lora::agent::_GetResponse_default_instance_._instance.get_mutable()->device_ = const_cast< ::lora::agent::Device*>(
-      ::lora::agent::Device::internal_default_instance());
-}
-class GetResponse::HasBitSetters {
- public:
-  static const ::lora::agent::Device& device(const GetResponse* msg);
-};
-
-const ::lora::agent::Device&
-GetResponse::HasBitSetters::device(const GetResponse* msg) {
-  return *msg->device_;
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int GetResponse::kDeviceFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-GetResponse::GetResponse()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:lora.agent.GetResponse)
-}
-GetResponse::GetResponse(const GetResponse& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(nullptr) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from.has_device()) {
-    device_ = new ::lora::agent::Device(*from.device_);
-  } else {
-    device_ = nullptr;
-  }
-  // @@protoc_insertion_point(copy_constructor:lora.agent.GetResponse)
-}
-
-void GetResponse::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_GetResponse_lora_2dagent_2floraagent_2eproto.base);
-  device_ = nullptr;
-}
-
-GetResponse::~GetResponse() {
-  // @@protoc_insertion_point(destructor:lora.agent.GetResponse)
-  SharedDtor();
-}
-
-void GetResponse::SharedDtor() {
-  if (this != internal_default_instance()) delete device_;
-}
-
-void GetResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const GetResponse& GetResponse::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_GetResponse_lora_2dagent_2floraagent_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void GetResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:lora.agent.GetResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArenaNoVirtual() == nullptr && device_ != nullptr) {
-    delete device_;
-  }
-  device_ = nullptr;
-  _internal_metadata_.Clear();
-}
-
-#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* GetResponse::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<GetResponse*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-    switch (tag >> 3) {
-      // .lora.agent.Device device = 1;
-      case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::lora::agent::Device::_InternalParse;
-        object = msg->mutable_device();
-        if (size > end - ptr) goto len_delim_till_end;
-        ptr += size;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
-            {parser_till_end, object}, ptr - size, ptr));
-        break;
-      }
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
-        }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
-      }
-    }  // switch
-  }  // while
-  return ptr;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
-}
-#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool GetResponse::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:lora.agent.GetResponse)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .lora.agent.Device device = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_device()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:lora.agent.GetResponse)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:lora.agent.GetResponse)
-  return false;
-#undef DO_
-}
-#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-
-void GetResponse::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:lora.agent.GetResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .lora.agent.Device device = 1;
-  if (this->has_device()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, HasBitSetters::device(this), output);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:lora.agent.GetResponse)
-}
-
-::google::protobuf::uint8* GetResponse::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:lora.agent.GetResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .lora.agent.Device device = 1;
-  if (this->has_device()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        1, HasBitSetters::device(this), target);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:lora.agent.GetResponse)
-  return target;
-}
-
-size_t GetResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:lora.agent.GetResponse)
-  size_t total_size = 0;
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .lora.agent.Device device = 1;
-  if (this->has_device()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *device_);
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void GetResponse::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:lora.agent.GetResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const GetResponse* source =
-      ::google::protobuf::DynamicCastToGenerated<GetResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:lora.agent.GetResponse)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:lora.agent.GetResponse)
-    MergeFrom(*source);
-  }
-}
-
-void GetResponse::MergeFrom(const GetResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:lora.agent.GetResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.has_device()) {
-    mutable_device()->::lora::agent::Device::MergeFrom(from.device());
-  }
-}
-
-void GetResponse::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:lora.agent.GetResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void GetResponse::CopyFrom(const GetResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:lora.agent.GetResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool GetResponse::IsInitialized() const {
-  return true;
-}
-
-void GetResponse::Swap(GetResponse* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void GetResponse::InternalSwap(GetResponse* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(device_, other->device_);
-}
-
-::google::protobuf::Metadata GetResponse::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_lora_2dagent_2floraagent_2eproto);
-  return ::file_level_metadata_lora_2dagent_2floraagent_2eproto[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
 void EmptyResponse::InitAsDefaultInstance() {
 }
 class EmptyResponse::HasBitSetters {
@@ -2223,12 +1580,6 @@ template<> PROTOBUF_NOINLINE ::lora::agent::CreateRequest* Arena::CreateMaybeMes
 }
 template<> PROTOBUF_NOINLINE ::lora::agent::DeleteRequest* Arena::CreateMaybeMessage< ::lora::agent::DeleteRequest >(Arena* arena) {
   return Arena::CreateInternal< ::lora::agent::DeleteRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::lora::agent::GetRequest* Arena::CreateMaybeMessage< ::lora::agent::GetRequest >(Arena* arena) {
-  return Arena::CreateInternal< ::lora::agent::GetRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::lora::agent::GetResponse* Arena::CreateMaybeMessage< ::lora::agent::GetResponse >(Arena* arena) {
-  return Arena::CreateInternal< ::lora::agent::GetResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::lora::agent::EmptyResponse* Arena::CreateMaybeMessage< ::lora::agent::EmptyResponse >(Arena* arena) {
   return Arena::CreateInternal< ::lora::agent::EmptyResponse >(arena);

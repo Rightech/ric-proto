@@ -41,7 +41,7 @@ struct TableStruct_lora_2dagent_2floraagent_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[6]
+  static const ::google::protobuf::internal::ParseTable schema[4]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -62,12 +62,6 @@ extern DeviceDefaultTypeInternal _Device_default_instance_;
 class EmptyResponse;
 class EmptyResponseDefaultTypeInternal;
 extern EmptyResponseDefaultTypeInternal _EmptyResponse_default_instance_;
-class GetRequest;
-class GetRequestDefaultTypeInternal;
-extern GetRequestDefaultTypeInternal _GetRequest_default_instance_;
-class GetResponse;
-class GetResponseDefaultTypeInternal;
-extern GetResponseDefaultTypeInternal _GetResponse_default_instance_;
 }  // namespace agent
 }  // namespace lora
 namespace google {
@@ -76,8 +70,6 @@ template<> ::lora::agent::CreateRequest* Arena::CreateMaybeMessage<::lora::agent
 template<> ::lora::agent::DeleteRequest* Arena::CreateMaybeMessage<::lora::agent::DeleteRequest>(Arena*);
 template<> ::lora::agent::Device* Arena::CreateMaybeMessage<::lora::agent::Device>(Arena*);
 template<> ::lora::agent::EmptyResponse* Arena::CreateMaybeMessage<::lora::agent::EmptyResponse>(Arena*);
-template<> ::lora::agent::GetRequest* Arena::CreateMaybeMessage<::lora::agent::GetRequest>(Arena*);
-template<> ::lora::agent::GetResponse* Arena::CreateMaybeMessage<::lora::agent::GetResponse>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace lora {
@@ -500,241 +492,6 @@ class DeleteRequest final :
 };
 // -------------------------------------------------------------------
 
-class GetRequest final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:lora.agent.GetRequest) */ {
- public:
-  GetRequest();
-  virtual ~GetRequest();
-
-  GetRequest(const GetRequest& from);
-
-  inline GetRequest& operator=(const GetRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  GetRequest(GetRequest&& from) noexcept
-    : GetRequest() {
-    *this = ::std::move(from);
-  }
-
-  inline GetRequest& operator=(GetRequest&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return default_instance().GetDescriptor();
-  }
-  static const GetRequest& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GetRequest* internal_default_instance() {
-    return reinterpret_cast<const GetRequest*>(
-               &_GetRequest_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    3;
-
-  void Swap(GetRequest* other);
-  friend void swap(GetRequest& a, GetRequest& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GetRequest* New() const final {
-    return CreateMaybeMessage<GetRequest>(nullptr);
-  }
-
-  GetRequest* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<GetRequest>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const GetRequest& from);
-  void MergeFrom(const GetRequest& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
-  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
-  #else
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
-  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      ::google::protobuf::uint8* target) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GetRequest* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // string dev_eui = 1;
-  void clear_dev_eui();
-  static const int kDevEuiFieldNumber = 1;
-  const ::std::string& dev_eui() const;
-  void set_dev_eui(const ::std::string& value);
-  #if LANG_CXX11
-  void set_dev_eui(::std::string&& value);
-  #endif
-  void set_dev_eui(const char* value);
-  void set_dev_eui(const char* value, size_t size);
-  ::std::string* mutable_dev_eui();
-  ::std::string* release_dev_eui();
-  void set_allocated_dev_eui(::std::string* dev_eui);
-
-  // @@protoc_insertion_point(class_scope:lora.agent.GetRequest)
- private:
-  class HasBitSetters;
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr dev_eui_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_lora_2dagent_2floraagent_2eproto;
-};
-// -------------------------------------------------------------------
-
-class GetResponse final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:lora.agent.GetResponse) */ {
- public:
-  GetResponse();
-  virtual ~GetResponse();
-
-  GetResponse(const GetResponse& from);
-
-  inline GetResponse& operator=(const GetResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  GetResponse(GetResponse&& from) noexcept
-    : GetResponse() {
-    *this = ::std::move(from);
-  }
-
-  inline GetResponse& operator=(GetResponse&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return default_instance().GetDescriptor();
-  }
-  static const GetResponse& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GetResponse* internal_default_instance() {
-    return reinterpret_cast<const GetResponse*>(
-               &_GetResponse_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    4;
-
-  void Swap(GetResponse* other);
-  friend void swap(GetResponse& a, GetResponse& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GetResponse* New() const final {
-    return CreateMaybeMessage<GetResponse>(nullptr);
-  }
-
-  GetResponse* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<GetResponse>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const GetResponse& from);
-  void MergeFrom(const GetResponse& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
-  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
-  #else
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
-  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      ::google::protobuf::uint8* target) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GetResponse* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // .lora.agent.Device device = 1;
-  bool has_device() const;
-  void clear_device();
-  static const int kDeviceFieldNumber = 1;
-  const ::lora::agent::Device& device() const;
-  ::lora::agent::Device* release_device();
-  ::lora::agent::Device* mutable_device();
-  void set_allocated_device(::lora::agent::Device* device);
-
-  // @@protoc_insertion_point(class_scope:lora.agent.GetResponse)
- private:
-  class HasBitSetters;
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::lora::agent::Device* device_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_lora_2dagent_2floraagent_2eproto;
-};
-// -------------------------------------------------------------------
-
 class EmptyResponse final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:lora.agent.EmptyResponse) */ {
  public:
@@ -773,7 +530,7 @@ class EmptyResponse final :
                &_EmptyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    3;
 
   void Swap(EmptyResponse* other);
   friend void swap(EmptyResponse& a, EmptyResponse& b) {
@@ -1228,127 +985,11 @@ inline void DeleteRequest::set_allocated_dev_eui(::std::string* dev_eui) {
 
 // -------------------------------------------------------------------
 
-// GetRequest
-
-// string dev_eui = 1;
-inline void GetRequest::clear_dev_eui() {
-  dev_eui_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& GetRequest::dev_eui() const {
-  // @@protoc_insertion_point(field_get:lora.agent.GetRequest.dev_eui)
-  return dev_eui_.GetNoArena();
-}
-inline void GetRequest::set_dev_eui(const ::std::string& value) {
-  
-  dev_eui_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:lora.agent.GetRequest.dev_eui)
-}
-#if LANG_CXX11
-inline void GetRequest::set_dev_eui(::std::string&& value) {
-  
-  dev_eui_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:lora.agent.GetRequest.dev_eui)
-}
-#endif
-inline void GetRequest::set_dev_eui(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  dev_eui_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:lora.agent.GetRequest.dev_eui)
-}
-inline void GetRequest::set_dev_eui(const char* value, size_t size) {
-  
-  dev_eui_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:lora.agent.GetRequest.dev_eui)
-}
-inline ::std::string* GetRequest::mutable_dev_eui() {
-  
-  // @@protoc_insertion_point(field_mutable:lora.agent.GetRequest.dev_eui)
-  return dev_eui_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* GetRequest::release_dev_eui() {
-  // @@protoc_insertion_point(field_release:lora.agent.GetRequest.dev_eui)
-  
-  return dev_eui_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetRequest::set_allocated_dev_eui(::std::string* dev_eui) {
-  if (dev_eui != nullptr) {
-    
-  } else {
-    
-  }
-  dev_eui_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), dev_eui);
-  // @@protoc_insertion_point(field_set_allocated:lora.agent.GetRequest.dev_eui)
-}
-
-// -------------------------------------------------------------------
-
-// GetResponse
-
-// .lora.agent.Device device = 1;
-inline bool GetResponse::has_device() const {
-  return this != internal_default_instance() && device_ != nullptr;
-}
-inline void GetResponse::clear_device() {
-  if (GetArenaNoVirtual() == nullptr && device_ != nullptr) {
-    delete device_;
-  }
-  device_ = nullptr;
-}
-inline const ::lora::agent::Device& GetResponse::device() const {
-  const ::lora::agent::Device* p = device_;
-  // @@protoc_insertion_point(field_get:lora.agent.GetResponse.device)
-  return p != nullptr ? *p : *reinterpret_cast<const ::lora::agent::Device*>(
-      &::lora::agent::_Device_default_instance_);
-}
-inline ::lora::agent::Device* GetResponse::release_device() {
-  // @@protoc_insertion_point(field_release:lora.agent.GetResponse.device)
-  
-  ::lora::agent::Device* temp = device_;
-  device_ = nullptr;
-  return temp;
-}
-inline ::lora::agent::Device* GetResponse::mutable_device() {
-  
-  if (device_ == nullptr) {
-    auto* p = CreateMaybeMessage<::lora::agent::Device>(GetArenaNoVirtual());
-    device_ = p;
-  }
-  // @@protoc_insertion_point(field_mutable:lora.agent.GetResponse.device)
-  return device_;
-}
-inline void GetResponse::set_allocated_device(::lora::agent::Device* device) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == nullptr) {
-    delete device_;
-  }
-  if (device) {
-    ::google::protobuf::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      device = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, device, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  device_ = device;
-  // @@protoc_insertion_point(field_set_allocated:lora.agent.GetResponse.device)
-}
-
-// -------------------------------------------------------------------
-
 // EmptyResponse
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

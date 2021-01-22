@@ -45,13 +45,6 @@ class DeviceService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lora::agent::EmptyResponse>> PrepareAsyncCreate(::grpc::ClientContext* context, const ::lora::agent::CreateRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lora::agent::EmptyResponse>>(PrepareAsyncCreateRaw(context, request, cq));
     }
-    virtual ::grpc::Status Get(::grpc::ClientContext* context, const ::lora::agent::GetRequest& request, ::lora::agent::GetResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lora::agent::GetResponse>> AsyncGet(::grpc::ClientContext* context, const ::lora::agent::GetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lora::agent::GetResponse>>(AsyncGetRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lora::agent::GetResponse>> PrepareAsyncGet(::grpc::ClientContext* context, const ::lora::agent::GetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lora::agent::GetResponse>>(PrepareAsyncGetRaw(context, request, cq));
-    }
     virtual ::grpc::Status Delete(::grpc::ClientContext* context, const ::lora::agent::DeleteRequest& request, ::lora::agent::EmptyResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lora::agent::EmptyResponse>> AsyncDelete(::grpc::ClientContext* context, const ::lora::agent::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lora::agent::EmptyResponse>>(AsyncDeleteRaw(context, request, cq));
@@ -64,8 +57,6 @@ class DeviceService final {
       virtual ~experimental_async_interface() {}
       virtual void Create(::grpc::ClientContext* context, const ::lora::agent::CreateRequest* request, ::lora::agent::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Create(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lora::agent::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Get(::grpc::ClientContext* context, const ::lora::agent::GetRequest* request, ::lora::agent::GetResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lora::agent::GetResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Delete(::grpc::ClientContext* context, const ::lora::agent::DeleteRequest* request, ::lora::agent::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lora::agent::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
@@ -73,8 +64,6 @@ class DeviceService final {
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::lora::agent::EmptyResponse>* AsyncCreateRaw(::grpc::ClientContext* context, const ::lora::agent::CreateRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::lora::agent::EmptyResponse>* PrepareAsyncCreateRaw(::grpc::ClientContext* context, const ::lora::agent::CreateRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::lora::agent::GetResponse>* AsyncGetRaw(::grpc::ClientContext* context, const ::lora::agent::GetRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::lora::agent::GetResponse>* PrepareAsyncGetRaw(::grpc::ClientContext* context, const ::lora::agent::GetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::lora::agent::EmptyResponse>* AsyncDeleteRaw(::grpc::ClientContext* context, const ::lora::agent::DeleteRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::lora::agent::EmptyResponse>* PrepareAsyncDeleteRaw(::grpc::ClientContext* context, const ::lora::agent::DeleteRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
@@ -88,13 +77,6 @@ class DeviceService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lora::agent::EmptyResponse>> PrepareAsyncCreate(::grpc::ClientContext* context, const ::lora::agent::CreateRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lora::agent::EmptyResponse>>(PrepareAsyncCreateRaw(context, request, cq));
     }
-    ::grpc::Status Get(::grpc::ClientContext* context, const ::lora::agent::GetRequest& request, ::lora::agent::GetResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lora::agent::GetResponse>> AsyncGet(::grpc::ClientContext* context, const ::lora::agent::GetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lora::agent::GetResponse>>(AsyncGetRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lora::agent::GetResponse>> PrepareAsyncGet(::grpc::ClientContext* context, const ::lora::agent::GetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lora::agent::GetResponse>>(PrepareAsyncGetRaw(context, request, cq));
-    }
     ::grpc::Status Delete(::grpc::ClientContext* context, const ::lora::agent::DeleteRequest& request, ::lora::agent::EmptyResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lora::agent::EmptyResponse>> AsyncDelete(::grpc::ClientContext* context, const ::lora::agent::DeleteRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lora::agent::EmptyResponse>>(AsyncDeleteRaw(context, request, cq));
@@ -107,8 +89,6 @@ class DeviceService final {
      public:
       void Create(::grpc::ClientContext* context, const ::lora::agent::CreateRequest* request, ::lora::agent::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void Create(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lora::agent::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
-      void Get(::grpc::ClientContext* context, const ::lora::agent::GetRequest* request, ::lora::agent::GetResponse* response, std::function<void(::grpc::Status)>) override;
-      void Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lora::agent::GetResponse* response, std::function<void(::grpc::Status)>) override;
       void Delete(::grpc::ClientContext* context, const ::lora::agent::DeleteRequest* request, ::lora::agent::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void Delete(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lora::agent::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
      private:
@@ -124,12 +104,9 @@ class DeviceService final {
     class experimental_async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::lora::agent::EmptyResponse>* AsyncCreateRaw(::grpc::ClientContext* context, const ::lora::agent::CreateRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::lora::agent::EmptyResponse>* PrepareAsyncCreateRaw(::grpc::ClientContext* context, const ::lora::agent::CreateRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::lora::agent::GetResponse>* AsyncGetRaw(::grpc::ClientContext* context, const ::lora::agent::GetRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::lora::agent::GetResponse>* PrepareAsyncGetRaw(::grpc::ClientContext* context, const ::lora::agent::GetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::lora::agent::EmptyResponse>* AsyncDeleteRaw(::grpc::ClientContext* context, const ::lora::agent::DeleteRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::lora::agent::EmptyResponse>* PrepareAsyncDeleteRaw(::grpc::ClientContext* context, const ::lora::agent::DeleteRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_Create_;
-    const ::grpc::internal::RpcMethod rpcmethod_Get_;
     const ::grpc::internal::RpcMethod rpcmethod_Delete_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -139,7 +116,6 @@ class DeviceService final {
     Service();
     virtual ~Service();
     virtual ::grpc::Status Create(::grpc::ServerContext* context, const ::lora::agent::CreateRequest* request, ::lora::agent::EmptyResponse* response);
-    virtual ::grpc::Status Get(::grpc::ServerContext* context, const ::lora::agent::GetRequest* request, ::lora::agent::GetResponse* response);
     virtual ::grpc::Status Delete(::grpc::ServerContext* context, const ::lora::agent::DeleteRequest* request, ::lora::agent::EmptyResponse* response);
   };
   template <class BaseClass>
@@ -163,32 +139,12 @@ class DeviceService final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_Get : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithAsyncMethod_Get() {
-      ::grpc::Service::MarkMethodAsync(1);
-    }
-    ~WithAsyncMethod_Get() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Get(::grpc::ServerContext* context, const ::lora::agent::GetRequest* request, ::lora::agent::GetResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestGet(::grpc::ServerContext* context, ::lora::agent::GetRequest* request, ::grpc::ServerAsyncResponseWriter< ::lora::agent::GetResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
   class WithAsyncMethod_Delete : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_Delete() {
-      ::grpc::Service::MarkMethodAsync(2);
+      ::grpc::Service::MarkMethodAsync(1);
     }
     ~WithAsyncMethod_Delete() override {
       BaseClassMustBeDerivedFromService(this);
@@ -199,10 +155,10 @@ class DeviceService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDelete(::grpc::ServerContext* context, ::lora::agent::DeleteRequest* request, ::grpc::ServerAsyncResponseWriter< ::lora::agent::EmptyResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_Create<WithAsyncMethod_Get<WithAsyncMethod_Delete<Service > > > AsyncService;
+  typedef WithAsyncMethod_Create<WithAsyncMethod_Delete<Service > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Create : public BaseClass {
    private:
@@ -229,37 +185,12 @@ class DeviceService final {
     virtual void Create(::grpc::ServerContext* context, const ::lora::agent::CreateRequest* request, ::lora::agent::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_Get : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    ExperimentalWithCallbackMethod_Get() {
-      ::grpc::Service::experimental().MarkMethodCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::lora::agent::GetRequest, ::lora::agent::GetResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::lora::agent::GetRequest* request,
-                 ::lora::agent::GetResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->Get(context, request, response, controller);
-                 }));
-    }
-    ~ExperimentalWithCallbackMethod_Get() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Get(::grpc::ServerContext* context, const ::lora::agent::GetRequest* request, ::lora::agent::GetResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual void Get(::grpc::ServerContext* context, const ::lora::agent::GetRequest* request, ::lora::agent::GetResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
-  };
-  template <class BaseClass>
   class ExperimentalWithCallbackMethod_Delete : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_Delete() {
-      ::grpc::Service::experimental().MarkMethodCallback(2,
+      ::grpc::Service::experimental().MarkMethodCallback(1,
         new ::grpc::internal::CallbackUnaryHandler< ::lora::agent::DeleteRequest, ::lora::agent::EmptyResponse>(
           [this](::grpc::ServerContext* context,
                  const ::lora::agent::DeleteRequest* request,
@@ -278,7 +209,7 @@ class DeviceService final {
     }
     virtual void Delete(::grpc::ServerContext* context, const ::lora::agent::DeleteRequest* request, ::lora::agent::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_Create<ExperimentalWithCallbackMethod_Get<ExperimentalWithCallbackMethod_Delete<Service > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_Create<ExperimentalWithCallbackMethod_Delete<Service > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Create : public BaseClass {
    private:
@@ -297,29 +228,12 @@ class DeviceService final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_Get : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_Get() {
-      ::grpc::Service::MarkMethodGeneric(1);
-    }
-    ~WithGenericMethod_Get() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Get(::grpc::ServerContext* context, const ::lora::agent::GetRequest* request, ::lora::agent::GetResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
   class WithGenericMethod_Delete : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_Delete() {
-      ::grpc::Service::MarkMethodGeneric(2);
+      ::grpc::Service::MarkMethodGeneric(1);
     }
     ~WithGenericMethod_Delete() override {
       BaseClassMustBeDerivedFromService(this);
@@ -351,32 +265,12 @@ class DeviceService final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_Get : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithRawMethod_Get() {
-      ::grpc::Service::MarkMethodRaw(1);
-    }
-    ~WithRawMethod_Get() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Get(::grpc::ServerContext* context, const ::lora::agent::GetRequest* request, ::lora::agent::GetResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestGet(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
   class WithRawMethod_Delete : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_Delete() {
-      ::grpc::Service::MarkMethodRaw(2);
+      ::grpc::Service::MarkMethodRaw(1);
     }
     ~WithRawMethod_Delete() override {
       BaseClassMustBeDerivedFromService(this);
@@ -387,7 +281,7 @@ class DeviceService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDelete(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -416,37 +310,12 @@ class DeviceService final {
     virtual void Create(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_Get : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    ExperimentalWithRawCallbackMethod_Get() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->Get(context, request, response, controller);
-                 }));
-    }
-    ~ExperimentalWithRawCallbackMethod_Get() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Get(::grpc::ServerContext* context, const ::lora::agent::GetRequest* request, ::lora::agent::GetResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual void Get(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
-  };
-  template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_Delete : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_Delete() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(2,
+      ::grpc::Service::experimental().MarkMethodRawCallback(1,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
@@ -486,32 +355,12 @@ class DeviceService final {
     virtual ::grpc::Status StreamedCreate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::lora::agent::CreateRequest,::lora::agent::EmptyResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_Get : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithStreamedUnaryMethod_Get() {
-      ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::internal::StreamedUnaryHandler< ::lora::agent::GetRequest, ::lora::agent::GetResponse>(std::bind(&WithStreamedUnaryMethod_Get<BaseClass>::StreamedGet, this, std::placeholders::_1, std::placeholders::_2)));
-    }
-    ~WithStreamedUnaryMethod_Get() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status Get(::grpc::ServerContext* context, const ::lora::agent::GetRequest* request, ::lora::agent::GetResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGet(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::lora::agent::GetRequest,::lora::agent::GetResponse>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
   class WithStreamedUnaryMethod_Delete : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_Delete() {
-      ::grpc::Service::MarkMethodStreamed(2,
+      ::grpc::Service::MarkMethodStreamed(1,
         new ::grpc::internal::StreamedUnaryHandler< ::lora::agent::DeleteRequest, ::lora::agent::EmptyResponse>(std::bind(&WithStreamedUnaryMethod_Delete<BaseClass>::StreamedDelete, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_Delete() override {
@@ -525,9 +374,9 @@ class DeviceService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedDelete(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::lora::agent::DeleteRequest,::lora::agent::EmptyResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_Create<WithStreamedUnaryMethod_Get<WithStreamedUnaryMethod_Delete<Service > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_Create<WithStreamedUnaryMethod_Delete<Service > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_Create<WithStreamedUnaryMethod_Get<WithStreamedUnaryMethod_Delete<Service > > > StreamedService;
+  typedef WithStreamedUnaryMethod_Create<WithStreamedUnaryMethod_Delete<Service > > StreamedService;
 };
 
 }  // namespace agent

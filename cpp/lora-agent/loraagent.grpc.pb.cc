@@ -21,7 +21,6 @@ namespace agent {
 
 static const char* DeviceService_method_names[] = {
   "/lora.agent.DeviceService/Create",
-  "/lora.agent.DeviceService/Get",
   "/lora.agent.DeviceService/Delete",
 };
 
@@ -33,8 +32,7 @@ std::unique_ptr< DeviceService::Stub> DeviceService::NewStub(const std::shared_p
 
 DeviceService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_Create_(DeviceService_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Get_(DeviceService_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Delete_(DeviceService_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Delete_(DeviceService_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status DeviceService::Stub::Create(::grpc::ClientContext* context, const ::lora::agent::CreateRequest& request, ::lora::agent::EmptyResponse* response) {
@@ -55,26 +53,6 @@ void DeviceService::Stub::experimental_async::Create(::grpc::ClientContext* cont
 
 ::grpc::ClientAsyncResponseReader< ::lora::agent::EmptyResponse>* DeviceService::Stub::PrepareAsyncCreateRaw(::grpc::ClientContext* context, const ::lora::agent::CreateRequest& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::lora::agent::EmptyResponse>::Create(channel_.get(), cq, rpcmethod_Create_, context, request, false);
-}
-
-::grpc::Status DeviceService::Stub::Get(::grpc::ClientContext* context, const ::lora::agent::GetRequest& request, ::lora::agent::GetResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Get_, context, request, response);
-}
-
-void DeviceService::Stub::experimental_async::Get(::grpc::ClientContext* context, const ::lora::agent::GetRequest* request, ::lora::agent::GetResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Get_, context, request, response, std::move(f));
-}
-
-void DeviceService::Stub::experimental_async::Get(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lora::agent::GetResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Get_, context, request, response, std::move(f));
-}
-
-::grpc::ClientAsyncResponseReader< ::lora::agent::GetResponse>* DeviceService::Stub::AsyncGetRaw(::grpc::ClientContext* context, const ::lora::agent::GetRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::lora::agent::GetResponse>::Create(channel_.get(), cq, rpcmethod_Get_, context, request, true);
-}
-
-::grpc::ClientAsyncResponseReader< ::lora::agent::GetResponse>* DeviceService::Stub::PrepareAsyncGetRaw(::grpc::ClientContext* context, const ::lora::agent::GetRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::lora::agent::GetResponse>::Create(channel_.get(), cq, rpcmethod_Get_, context, request, false);
 }
 
 ::grpc::Status DeviceService::Stub::Delete(::grpc::ClientContext* context, const ::lora::agent::DeleteRequest& request, ::lora::agent::EmptyResponse* response) {
@@ -106,11 +84,6 @@ DeviceService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       DeviceService_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< DeviceService::Service, ::lora::agent::GetRequest, ::lora::agent::GetResponse>(
-          std::mem_fn(&DeviceService::Service::Get), this)));
-  AddMethod(new ::grpc::internal::RpcServiceMethod(
-      DeviceService_method_names[2],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< DeviceService::Service, ::lora::agent::DeleteRequest, ::lora::agent::EmptyResponse>(
           std::mem_fn(&DeviceService::Service::Delete), this)));
 }
@@ -119,13 +92,6 @@ DeviceService::Service::~Service() {
 }
 
 ::grpc::Status DeviceService::Service::Create(::grpc::ServerContext* context, const ::lora::agent::CreateRequest* request, ::lora::agent::EmptyResponse* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status DeviceService::Service::Get(::grpc::ServerContext* context, const ::lora::agent::GetRequest* request, ::lora::agent::GetResponse* response) {
   (void) context;
   (void) request;
   (void) response;
