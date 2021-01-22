@@ -6,7 +6,6 @@ option go_package = "./lora-agent;loraagent";
 
 service DeviceService {
   rpc Create(CreateRequest) returns (EmptyResponse);
-  rpc Get(GetRequest) returns (GetResponse);
   rpc Delete(DeleteRequest) returns (EmptyResponse);
 }
 
@@ -24,14 +23,6 @@ message CreateRequest {
 
 message DeleteRequest {
   string dev_eui = 1;
-}
-
-message GetRequest {
-  string dev_eui = 1;
-}
-
-message GetResponse {
-  Device device = 1;
 }
 
 message EmptyResponse {}
