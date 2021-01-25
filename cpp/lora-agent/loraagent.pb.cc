@@ -121,6 +121,7 @@ const ::google::protobuf::uint32 TableStruct_lora_2dagent_2floraagent_2eproto::o
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::lora::agent::CreateRequest, oid_),
   PROTOBUF_FIELD_OFFSET(::lora::agent::CreateRequest, device_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::lora::agent::DeleteRequest, _internal_metadata_),
@@ -137,8 +138,8 @@ const ::google::protobuf::uint32 TableStruct_lora_2dagent_2floraagent_2eproto::o
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::lora::agent::Device)},
   { 10, -1, sizeof(::lora::agent::CreateRequest)},
-  { 16, -1, sizeof(::lora::agent::DeleteRequest)},
-  { 22, -1, sizeof(::lora::agent::EmptyResponse)},
+  { 17, -1, sizeof(::lora::agent::DeleteRequest)},
+  { 23, -1, sizeof(::lora::agent::EmptyResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -158,19 +159,19 @@ const char descriptor_table_protodef_lora_2dagent_2floraagent_2eproto[] =
   "\n\032lora-agent/loraagent.proto\022\nlora.agent"
   "\"b\n\006Device\022\017\n\007dev_eui\030\001 \001(\t\022\017\n\007app_key\030\002"
   " \001(\t\022\020\n\010dev_addr\030\003 \001(\t\022\021\n\tnet_s_key\030\004 \001("
-  "\t\022\021\n\tapp_s_key\030\005 \001(\t\"3\n\rCreateRequest\022\"\n"
-  "\006device\030\001 \001(\0132\022.lora.agent.Device\" \n\rDel"
-  "eteRequest\022\017\n\007dev_eui\030\001 \001(\t\"\017\n\rEmptyResp"
-  "onse2\217\001\n\rDeviceService\022>\n\006Create\022\031.lora."
-  "agent.CreateRequest\032\031.lora.agent.EmptyRe"
-  "sponse\022>\n\006Delete\022\031.lora.agent.DeleteRequ"
-  "est\032\031.lora.agent.EmptyResponseB\030Z\026./lora"
-  "-agent;loraagentb\006proto3"
+  "\t\022\021\n\tapp_s_key\030\005 \001(\t\"@\n\rCreateRequest\022\013\n"
+  "\003oid\030\001 \001(\t\022\"\n\006device\030\002 \001(\0132\022.lora.agent."
+  "Device\" \n\rDeleteRequest\022\017\n\007dev_eui\030\001 \001(\t"
+  "\"\017\n\rEmptyResponse2\217\001\n\rDeviceService\022>\n\006C"
+  "reate\022\031.lora.agent.CreateRequest\032\031.lora."
+  "agent.EmptyResponse\022>\n\006Delete\022\031.lora.age"
+  "nt.DeleteRequest\032\031.lora.agent.EmptyRespo"
+  "nseB\030Z\026./lora-agent;loraagentb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_lora_2dagent_2floraagent_2eproto = {
   false, InitDefaults_lora_2dagent_2floraagent_2eproto, 
   descriptor_table_protodef_lora_2dagent_2floraagent_2eproto,
-  "lora-agent/loraagent.proto", &assign_descriptors_table_lora_2dagent_2floraagent_2eproto, 424,
+  "lora-agent/loraagent.proto", &assign_descriptors_table_lora_2dagent_2floraagent_2eproto, 437,
 };
 
 void AddDescriptors_lora_2dagent_2floraagent_2eproto() {
@@ -790,6 +791,7 @@ CreateRequest::HasBitSetters::device(const CreateRequest* msg) {
   return *msg->device_;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int CreateRequest::kOidFieldNumber;
 const int CreateRequest::kDeviceFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -802,6 +804,10 @@ CreateRequest::CreateRequest(const CreateRequest& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  oid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.oid().size() > 0) {
+    oid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.oid_);
+  }
   if (from.has_device()) {
     device_ = new ::lora::agent::Device(*from.device_);
   } else {
@@ -813,6 +819,7 @@ CreateRequest::CreateRequest(const CreateRequest& from)
 void CreateRequest::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_CreateRequest_lora_2dagent_2floraagent_2eproto.base);
+  oid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   device_ = nullptr;
 }
 
@@ -822,6 +829,7 @@ CreateRequest::~CreateRequest() {
 }
 
 void CreateRequest::SharedDtor() {
+  oid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete device_;
 }
 
@@ -840,6 +848,7 @@ void CreateRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  oid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && device_ != nullptr) {
     delete device_;
   }
@@ -860,9 +869,25 @@ const char* CreateRequest::_InternalParse(const char* begin, const char* end, vo
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // .lora.agent.Device device = 1;
+      // string oid = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("lora.agent.CreateRequest.oid");
+        object = msg->mutable_oid();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // .lora.agent.Device device = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::lora::agent::Device::_InternalParse;
@@ -888,6 +913,10 @@ const char* CreateRequest::_InternalParse(const char* begin, const char* end, vo
     }  // switch
   }  // while
   return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
 len_delim_till_end:
   return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
                                {parser_till_end, object}, size);
@@ -903,9 +932,24 @@ bool CreateRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .lora.agent.Device device = 1;
+      // string oid = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_oid()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->oid().data(), static_cast<int>(this->oid().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "lora.agent.CreateRequest.oid"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .lora.agent.Device device = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_device()));
         } else {
@@ -941,10 +985,20 @@ void CreateRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .lora.agent.Device device = 1;
+  // string oid = 1;
+  if (this->oid().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->oid().data(), static_cast<int>(this->oid().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "lora.agent.CreateRequest.oid");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->oid(), output);
+  }
+
+  // .lora.agent.Device device = 2;
   if (this->has_device()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, HasBitSetters::device(this), output);
+      2, HasBitSetters::device(this), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -960,11 +1014,22 @@ void CreateRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .lora.agent.Device device = 1;
+  // string oid = 1;
+  if (this->oid().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->oid().data(), static_cast<int>(this->oid().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "lora.agent.CreateRequest.oid");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->oid(), target);
+  }
+
+  // .lora.agent.Device device = 2;
   if (this->has_device()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, HasBitSetters::device(this), target);
+        2, HasBitSetters::device(this), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -988,7 +1053,14 @@ size_t CreateRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .lora.agent.Device device = 1;
+  // string oid = 1;
+  if (this->oid().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->oid());
+  }
+
+  // .lora.agent.Device device = 2;
   if (this->has_device()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -1022,6 +1094,10 @@ void CreateRequest::MergeFrom(const CreateRequest& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.oid().size() > 0) {
+
+    oid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.oid_);
+  }
   if (from.has_device()) {
     mutable_device()->::lora::agent::Device::MergeFrom(from.device());
   }
@@ -1052,6 +1128,8 @@ void CreateRequest::Swap(CreateRequest* other) {
 void CreateRequest::InternalSwap(CreateRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  oid_.Swap(&other->oid_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   swap(device_, other->device_);
 }
 
