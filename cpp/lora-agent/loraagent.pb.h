@@ -366,10 +366,38 @@ class CreateRequest final :
   ::std::string* release_oid();
   void set_allocated_oid(::std::string* oid);
 
-  // .lora.agent.Device device = 2;
+  // string gid = 2;
+  void clear_gid();
+  static const int kGidFieldNumber = 2;
+  const ::std::string& gid() const;
+  void set_gid(const ::std::string& value);
+  #if LANG_CXX11
+  void set_gid(::std::string&& value);
+  #endif
+  void set_gid(const char* value);
+  void set_gid(const char* value, size_t size);
+  ::std::string* mutable_gid();
+  ::std::string* release_gid();
+  void set_allocated_gid(::std::string* gid);
+
+  // string mid = 3;
+  void clear_mid();
+  static const int kMidFieldNumber = 3;
+  const ::std::string& mid() const;
+  void set_mid(const ::std::string& value);
+  #if LANG_CXX11
+  void set_mid(::std::string&& value);
+  #endif
+  void set_mid(const char* value);
+  void set_mid(const char* value, size_t size);
+  ::std::string* mutable_mid();
+  ::std::string* release_mid();
+  void set_allocated_mid(::std::string* mid);
+
+  // .lora.agent.Device device = 4;
   bool has_device() const;
   void clear_device();
-  static const int kDeviceFieldNumber = 2;
+  static const int kDeviceFieldNumber = 4;
   const ::lora::agent::Device& device() const;
   ::lora::agent::Device* release_device();
   ::lora::agent::Device* mutable_device();
@@ -381,6 +409,8 @@ class CreateRequest final :
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr oid_;
+  ::google::protobuf::internal::ArenaStringPtr gid_;
+  ::google::protobuf::internal::ArenaStringPtr mid_;
   ::lora::agent::Device* device_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_lora_2dagent_2floraagent_2eproto;
@@ -943,7 +973,113 @@ inline void CreateRequest::set_allocated_oid(::std::string* oid) {
   // @@protoc_insertion_point(field_set_allocated:lora.agent.CreateRequest.oid)
 }
 
-// .lora.agent.Device device = 2;
+// string gid = 2;
+inline void CreateRequest::clear_gid() {
+  gid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CreateRequest::gid() const {
+  // @@protoc_insertion_point(field_get:lora.agent.CreateRequest.gid)
+  return gid_.GetNoArena();
+}
+inline void CreateRequest::set_gid(const ::std::string& value) {
+  
+  gid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:lora.agent.CreateRequest.gid)
+}
+#if LANG_CXX11
+inline void CreateRequest::set_gid(::std::string&& value) {
+  
+  gid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:lora.agent.CreateRequest.gid)
+}
+#endif
+inline void CreateRequest::set_gid(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  gid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:lora.agent.CreateRequest.gid)
+}
+inline void CreateRequest::set_gid(const char* value, size_t size) {
+  
+  gid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:lora.agent.CreateRequest.gid)
+}
+inline ::std::string* CreateRequest::mutable_gid() {
+  
+  // @@protoc_insertion_point(field_mutable:lora.agent.CreateRequest.gid)
+  return gid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CreateRequest::release_gid() {
+  // @@protoc_insertion_point(field_release:lora.agent.CreateRequest.gid)
+  
+  return gid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CreateRequest::set_allocated_gid(::std::string* gid) {
+  if (gid != nullptr) {
+    
+  } else {
+    
+  }
+  gid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), gid);
+  // @@protoc_insertion_point(field_set_allocated:lora.agent.CreateRequest.gid)
+}
+
+// string mid = 3;
+inline void CreateRequest::clear_mid() {
+  mid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CreateRequest::mid() const {
+  // @@protoc_insertion_point(field_get:lora.agent.CreateRequest.mid)
+  return mid_.GetNoArena();
+}
+inline void CreateRequest::set_mid(const ::std::string& value) {
+  
+  mid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:lora.agent.CreateRequest.mid)
+}
+#if LANG_CXX11
+inline void CreateRequest::set_mid(::std::string&& value) {
+  
+  mid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:lora.agent.CreateRequest.mid)
+}
+#endif
+inline void CreateRequest::set_mid(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  mid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:lora.agent.CreateRequest.mid)
+}
+inline void CreateRequest::set_mid(const char* value, size_t size) {
+  
+  mid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:lora.agent.CreateRequest.mid)
+}
+inline ::std::string* CreateRequest::mutable_mid() {
+  
+  // @@protoc_insertion_point(field_mutable:lora.agent.CreateRequest.mid)
+  return mid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CreateRequest::release_mid() {
+  // @@protoc_insertion_point(field_release:lora.agent.CreateRequest.mid)
+  
+  return mid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CreateRequest::set_allocated_mid(::std::string* mid) {
+  if (mid != nullptr) {
+    
+  } else {
+    
+  }
+  mid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), mid);
+  // @@protoc_insertion_point(field_set_allocated:lora.agent.CreateRequest.mid)
+}
+
+// .lora.agent.Device device = 4;
 inline bool CreateRequest::has_device() const {
   return this != internal_default_instance() && device_ != nullptr;
 }
