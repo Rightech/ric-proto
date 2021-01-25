@@ -18,7 +18,8 @@ message Device {
 }
 
 message CreateRequest {
-  Device device = 1;
+  string oid = 1;
+  Device device = 2;
 }
 
 message DeleteRequest {
