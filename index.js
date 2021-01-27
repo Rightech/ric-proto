@@ -8,6 +8,7 @@ const { callbackify } = require('util');
 const { log } = require('@rightech/utils');
 
 const PROTO_DIR = path.join(__dirname, '.');
+const HOST_RESOLVE = !!process.env.RIC_GRPC_RESOLVE_HOST && process.env.RIC_GRPC_RESOLVE_HOST !== 'false';
 const IN_KUBE = !!process.env.KUBERNETES_PORT;
 const IS_DEV = process.env.NODE_ENV === 'development';
 
@@ -110,7 +111,7 @@ class GrpcServer {
   }
 
   getPort() {
-    if (IN_KUBE) {
+    if (IN_KUBE || HOST_RESOLVE) {
       if (this.meta.port.k8s) {
         return this.meta.port.k8s;
       }
@@ -126,7 +127,7 @@ class GrpcServer {
     const addr = `${host}:${port}`;
     this.ref = new grpc.Server();
     this.ref.addService(this.serviceDef, this.getImpl());
-    this.ref.bindAsync(addr, grpc.ServerCredentials.createInsecure(), (err)=> {
+    this.ref.bindAsync(addr, grpc.ServerCredentials.createInsecure(), (err) => {
       if (err) {
         log.error(err);
         return;
@@ -198,7 +199,7 @@ class GrpcClient {
   getHost() {
     const devHost = process.env.RIC_GRPC_DEV_HOST;
     const isLocal = (process.env.RIC_GRPC_LOCAL_SVCS || '').includes(this.name.service);
-    if (IN_KUBE) {
+    if (IN_KUBE || HOST_RESOLVE) {
       let hostname = this.name.service;
       if (this.meta.stateful) {
         //const instanceName = this.instanceName || '0';
@@ -219,10 +220,10 @@ class GrpcClient {
   getPort() {
     const devHost = process.env.RIC_GRPC_DEV_HOST;
     const devPort = this.meta.port.dev;
-    if (!IN_KUBE && devPort && devHost) {
+    if (!IN_KUBE && !HOST_RESOLVE && devPort && devHost) {
       return devPort;
     }
-    if (IN_KUBE && this.meta.port.k8s) {
+    if ((IN_KUBE || HOST_RESOLVE) && this.meta.port.k8s) {
       return this.meta.port.k8s;
     }
     return DEFAULT_KUBE_PORT;
