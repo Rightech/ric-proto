@@ -29,6 +29,7 @@ message CreateRequest {
   string gid = 2;
   string mid = 3;
   Device device = 4;
+  string gateway_id = 5;
 }
 
 message DeleteRequest {
