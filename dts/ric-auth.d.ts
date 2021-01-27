@@ -26,6 +26,8 @@ export interface AuthObjectResponse {
   groupKey?: string;
   arguments?: AuthObjectArgument[];
   config?: string;
+  issuedAt?: number;
+  expiresAt?: number;
 }
 
 export interface AuthObjectArgument {

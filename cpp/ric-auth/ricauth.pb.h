@@ -618,6 +618,18 @@ class AuthObjectResponse final :
   ::std::string* release_config();
   void set_allocated_config(::std::string* config);
 
+  // int64 issued_at = 8;
+  void clear_issued_at();
+  static const int kIssuedAtFieldNumber = 8;
+  ::google::protobuf::int64 issued_at() const;
+  void set_issued_at(::google::protobuf::int64 value);
+
+  // int64 expires_at = 9;
+  void clear_expires_at();
+  static const int kExpiresAtFieldNumber = 9;
+  ::google::protobuf::int64 expires_at() const;
+  void set_expires_at(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:ric.auth.AuthObjectResponse)
  private:
   class HasBitSetters;
@@ -630,6 +642,8 @@ class AuthObjectResponse final :
   ::google::protobuf::internal::ArenaStringPtr group_id_;
   ::google::protobuf::internal::ArenaStringPtr group_key_;
   ::google::protobuf::internal::ArenaStringPtr config_;
+  ::google::protobuf::int64 issued_at_;
+  ::google::protobuf::int64 expires_at_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dauth_2fricauth_2eproto;
 };
@@ -1863,6 +1877,34 @@ inline void AuthObjectResponse::set_allocated_config(::std::string* config) {
   }
   config_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), config);
   // @@protoc_insertion_point(field_set_allocated:ric.auth.AuthObjectResponse.config)
+}
+
+// int64 issued_at = 8;
+inline void AuthObjectResponse::clear_issued_at() {
+  issued_at_ = PROTOBUF_LONGLONG(0);
+}
+inline ::google::protobuf::int64 AuthObjectResponse::issued_at() const {
+  // @@protoc_insertion_point(field_get:ric.auth.AuthObjectResponse.issued_at)
+  return issued_at_;
+}
+inline void AuthObjectResponse::set_issued_at(::google::protobuf::int64 value) {
+  
+  issued_at_ = value;
+  // @@protoc_insertion_point(field_set:ric.auth.AuthObjectResponse.issued_at)
+}
+
+// int64 expires_at = 9;
+inline void AuthObjectResponse::clear_expires_at() {
+  expires_at_ = PROTOBUF_LONGLONG(0);
+}
+inline ::google::protobuf::int64 AuthObjectResponse::expires_at() const {
+  // @@protoc_insertion_point(field_get:ric.auth.AuthObjectResponse.expires_at)
+  return expires_at_;
+}
+inline void AuthObjectResponse::set_expires_at(::google::protobuf::int64 value) {
+  
+  expires_at_ = value;
+  // @@protoc_insertion_point(field_set:ric.auth.AuthObjectResponse.expires_at)
 }
 
 // -------------------------------------------------------------------
