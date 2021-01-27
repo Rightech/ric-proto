@@ -31,6 +31,8 @@ message AuthObjectResponse {
   string group_key = 5;
   repeated AuthObjectArgument arguments = 6;
   string config = 7;
+  int64 issued_at = 8;
+  int64 expires_at = 9;
 }
 
 message AuthObjectArgument {
