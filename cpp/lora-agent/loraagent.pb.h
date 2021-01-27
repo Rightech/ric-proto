@@ -424,6 +424,20 @@ class CreateRequest final :
   ::std::string* release_mid();
   void set_allocated_mid(::std::string* mid);
 
+  // string gateway_id = 5;
+  void clear_gateway_id();
+  static const int kGatewayIdFieldNumber = 5;
+  const ::std::string& gateway_id() const;
+  void set_gateway_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_gateway_id(::std::string&& value);
+  #endif
+  void set_gateway_id(const char* value);
+  void set_gateway_id(const char* value, size_t size);
+  ::std::string* mutable_gateway_id();
+  ::std::string* release_gateway_id();
+  void set_allocated_gateway_id(::std::string* gateway_id);
+
   // .lora.agent.Device device = 4;
   bool has_device() const;
   void clear_device();
@@ -441,6 +455,7 @@ class CreateRequest final :
   ::google::protobuf::internal::ArenaStringPtr oid_;
   ::google::protobuf::internal::ArenaStringPtr gid_;
   ::google::protobuf::internal::ArenaStringPtr mid_;
+  ::google::protobuf::internal::ArenaStringPtr gateway_id_;
   ::lora::agent::Device* device_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_lora_2dagent_2floraagent_2eproto;
@@ -1172,6 +1187,59 @@ inline void CreateRequest::set_allocated_device(::lora::agent::Device* device) {
   }
   device_ = device;
   // @@protoc_insertion_point(field_set_allocated:lora.agent.CreateRequest.device)
+}
+
+// string gateway_id = 5;
+inline void CreateRequest::clear_gateway_id() {
+  gateway_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CreateRequest::gateway_id() const {
+  // @@protoc_insertion_point(field_get:lora.agent.CreateRequest.gateway_id)
+  return gateway_id_.GetNoArena();
+}
+inline void CreateRequest::set_gateway_id(const ::std::string& value) {
+  
+  gateway_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:lora.agent.CreateRequest.gateway_id)
+}
+#if LANG_CXX11
+inline void CreateRequest::set_gateway_id(::std::string&& value) {
+  
+  gateway_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:lora.agent.CreateRequest.gateway_id)
+}
+#endif
+inline void CreateRequest::set_gateway_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  gateway_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:lora.agent.CreateRequest.gateway_id)
+}
+inline void CreateRequest::set_gateway_id(const char* value, size_t size) {
+  
+  gateway_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:lora.agent.CreateRequest.gateway_id)
+}
+inline ::std::string* CreateRequest::mutable_gateway_id() {
+  
+  // @@protoc_insertion_point(field_mutable:lora.agent.CreateRequest.gateway_id)
+  return gateway_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CreateRequest::release_gateway_id() {
+  // @@protoc_insertion_point(field_release:lora.agent.CreateRequest.gateway_id)
+  
+  return gateway_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CreateRequest::set_allocated_gateway_id(::std::string* gateway_id) {
+  if (gateway_id != nullptr) {
+    
+  } else {
+    
+  }
+  gateway_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), gateway_id);
+  // @@protoc_insertion_point(field_set_allocated:lora.agent.CreateRequest.gateway_id)
 }
 
 // -------------------------------------------------------------------
