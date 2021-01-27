@@ -10,6 +10,7 @@ service DeviceService {
 }
 
 enum Activation {
+  INVALID = 0;
   OTAA = 1;
   ABP = 2;
 }
