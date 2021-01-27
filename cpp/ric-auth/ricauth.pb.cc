@@ -177,6 +177,8 @@ const ::google::protobuf::uint32 TableStruct_ric_2dauth_2fricauth_2eproto::offse
   PROTOBUF_FIELD_OFFSET(::ric::auth::AuthObjectResponse, group_key_),
   PROTOBUF_FIELD_OFFSET(::ric::auth::AuthObjectResponse, arguments_),
   PROTOBUF_FIELD_OFFSET(::ric::auth::AuthObjectResponse, config_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::AuthObjectResponse, issued_at_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::AuthObjectResponse, expires_at_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::auth::AuthObjectArgument, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -202,9 +204,9 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 0, -1, sizeof(::ric::auth::AuthObjectRequest_AuthObjectCert)},
   { 6, -1, sizeof(::ric::auth::AuthObjectRequest)},
   { 19, -1, sizeof(::ric::auth::AuthObjectResponse)},
-  { 31, -1, sizeof(::ric::auth::AuthObjectArgument)},
-  { 40, -1, sizeof(::ric::auth::SendOfflineRequest)},
-  { 46, -1, sizeof(::ric::auth::SendOfflineResponse)},
+  { 33, -1, sizeof(::ric::auth::AuthObjectArgument)},
+  { 42, -1, sizeof(::ric::auth::SendOfflineRequest)},
+  { 48, -1, sizeof(::ric::auth::SendOfflineResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -229,25 +231,26 @@ const char descriptor_table_protodef_ric_2dauth_2fricauth_2eproto[] =
   "e\030\004 \001(\t\022\020\n\010password\030\005 \001(\t\0228\n\004cert\030\006 \001(\0132"
   "*.ric.auth.AuthObjectRequest.AuthObjectC"
   "ert\022\014\n\004ipv4\030\007 \001(\t\022\014\n\004ipv6\030\010 \001(\t\032\034\n\016AuthO"
-  "bjectCert\022\n\n\002cn\030\001 \001(\t\"\260\001\n\022AuthObjectResp"
+  "bjectCert\022\n\n\002cn\030\001 \001(\t\"\327\001\n\022AuthObjectResp"
   "onse\022\017\n\007session\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022"
   "\021\n\tobject_id\030\003 \001(\t\022\020\n\010group_id\030\004 \001(\t\022\021\n\t"
   "group_key\030\005 \001(\t\022/\n\targuments\030\006 \003(\0132\034.ric"
   ".auth.AuthObjectArgument\022\016\n\006config\030\007 \001(\t"
-  "\"V\n\022AuthObjectArgument\022\n\n\002id\030\001 \001(\t\022\021\n\tda"
-  "ta_type\030\002 \001(\t\022\021\n\treference\030\003 \001(\t\022\016\n\006pars"
-  "er\030\004 \001(\t\"\'\n\022SendOfflineRequest\022\021\n\tobject"
-  "_id\030\001 \001(\t\"\025\n\023SendOfflineResponse2\236\001\n\007Ric"
-  "Auth\022G\n\nAuthObject\022\033.ric.auth.AuthObject"
-  "Request\032\034.ric.auth.AuthObjectResponse\022J\n"
-  "\013SendOffline\022\034.ric.auth.SendOfflineReque"
-  "st\032\035.ric.auth.SendOfflineResponseB\024Z\022./r"
-  "ic-auth;ricauthb\006proto3"
+  "\022\021\n\tissued_at\030\010 \001(\003\022\022\n\nexpires_at\030\t \001(\003\""
+  "V\n\022AuthObjectArgument\022\n\n\002id\030\001 \001(\t\022\021\n\tdat"
+  "a_type\030\002 \001(\t\022\021\n\treference\030\003 \001(\t\022\016\n\006parse"
+  "r\030\004 \001(\t\"\'\n\022SendOfflineRequest\022\021\n\tobject_"
+  "id\030\001 \001(\t\"\025\n\023SendOfflineResponse2\236\001\n\007RicA"
+  "uth\022G\n\nAuthObject\022\033.ric.auth.AuthObjectR"
+  "equest\032\034.ric.auth.AuthObjectResponse\022J\n\013"
+  "SendOffline\022\034.ric.auth.SendOfflineReques"
+  "t\032\035.ric.auth.SendOfflineResponseB\024Z\022./ri"
+  "c-auth;ricauthb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dauth_2fricauth_2eproto = {
   false, InitDefaults_ric_2dauth_2fricauth_2eproto, 
   descriptor_table_protodef_ric_2dauth_2fricauth_2eproto,
-  "ric-auth/ricauth.proto", &assign_descriptors_table_ric_2dauth_2fricauth_2eproto, 783,
+  "ric-auth/ricauth.proto", &assign_descriptors_table_ric_2dauth_2fricauth_2eproto, 822,
 };
 
 void AddDescriptors_ric_2dauth_2fricauth_2eproto() {
@@ -1377,6 +1380,8 @@ const int AuthObjectResponse::kGroupIdFieldNumber;
 const int AuthObjectResponse::kGroupKeyFieldNumber;
 const int AuthObjectResponse::kArgumentsFieldNumber;
 const int AuthObjectResponse::kConfigFieldNumber;
+const int AuthObjectResponse::kIssuedAtFieldNumber;
+const int AuthObjectResponse::kExpiresAtFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 AuthObjectResponse::AuthObjectResponse()
@@ -1413,6 +1418,9 @@ AuthObjectResponse::AuthObjectResponse(const AuthObjectResponse& from)
   if (from.config().size() > 0) {
     config_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.config_);
   }
+  ::memcpy(&issued_at_, &from.issued_at_,
+    static_cast<size_t>(reinterpret_cast<char*>(&expires_at_) -
+    reinterpret_cast<char*>(&issued_at_)) + sizeof(expires_at_));
   // @@protoc_insertion_point(copy_constructor:ric.auth.AuthObjectResponse)
 }
 
@@ -1425,6 +1433,9 @@ void AuthObjectResponse::SharedCtor() {
   group_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   group_key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&issued_at_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&expires_at_) -
+      reinterpret_cast<char*>(&issued_at_)) + sizeof(expires_at_));
 }
 
 AuthObjectResponse::~AuthObjectResponse() {
@@ -1463,6 +1474,9 @@ void AuthObjectResponse::Clear() {
   group_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   group_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   config_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&issued_at_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&expires_at_) -
+      reinterpret_cast<char*>(&issued_at_)) + sizeof(expires_at_));
   _internal_metadata_.Clear();
 }
 
@@ -1589,6 +1603,20 @@ const char* AuthObjectResponse::_InternalParse(const char* begin, const char* en
         GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
         ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
         ptr += size;
+        break;
+      }
+      // int64 issued_at = 8;
+      case 8: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 64) goto handle_unusual;
+        msg->set_issued_at(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // int64 expires_at = 9;
+      case 9: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 72) goto handle_unusual;
+        msg->set_expires_at(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
       default: {
@@ -1726,6 +1754,32 @@ bool AuthObjectResponse::MergePartialFromCodedStream(
         break;
       }
 
+      // int64 issued_at = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (64 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &issued_at_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int64 expires_at = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (72 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &expires_at_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -1822,6 +1876,16 @@ void AuthObjectResponse::SerializeWithCachedSizes(
       7, this->config(), output);
   }
 
+  // int64 issued_at = 8;
+  if (this->issued_at() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->issued_at(), output);
+  }
+
+  // int64 expires_at = 9;
+  if (this->expires_at() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(9, this->expires_at(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -1909,6 +1973,16 @@ void AuthObjectResponse::SerializeWithCachedSizes(
         7, this->config(), target);
   }
 
+  // int64 issued_at = 8;
+  if (this->issued_at() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->issued_at(), target);
+  }
+
+  // int64 expires_at = 9;
+  if (this->expires_at() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->expires_at(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -1983,6 +2057,20 @@ size_t AuthObjectResponse::ByteSizeLong() const {
         this->config());
   }
 
+  // int64 issued_at = 8;
+  if (this->issued_at() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->issued_at());
+  }
+
+  // int64 expires_at = 9;
+  if (this->expires_at() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->expires_at());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -2035,6 +2123,12 @@ void AuthObjectResponse::MergeFrom(const AuthObjectResponse& from) {
 
     config_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.config_);
   }
+  if (from.issued_at() != 0) {
+    set_issued_at(from.issued_at());
+  }
+  if (from.expires_at() != 0) {
+    set_expires_at(from.expires_at());
+  }
 }
 
 void AuthObjectResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -2075,6 +2169,8 @@ void AuthObjectResponse::InternalSwap(AuthObjectResponse* other) {
     GetArenaNoVirtual());
   config_.Swap(&other->config_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  swap(issued_at_, other->issued_at_);
+  swap(expires_at_, other->expires_at_);
 }
 
 ::google::protobuf::Metadata AuthObjectResponse::GetMetadata() const {
