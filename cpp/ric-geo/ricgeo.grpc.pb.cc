@@ -72,59 +72,6 @@ Watch::Service::~Service() {
 }
 
 
-static const char* Check_method_names[] = {
-  "/ric.geo.Check/CheckIn",
-};
-
-std::unique_ptr< Check::Stub> Check::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
-  (void)options;
-  std::unique_ptr< Check::Stub> stub(new Check::Stub(channel));
-  return stub;
-}
-
-Check::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_CheckIn_(Check_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  {}
-
-::grpc::Status Check::Stub::CheckIn(::grpc::ClientContext* context, const ::ric::geo::CheckInRequest& request, ::ric::geo::CheckInResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_CheckIn_, context, request, response);
-}
-
-void Check::Stub::experimental_async::CheckIn(::grpc::ClientContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CheckIn_, context, request, response, std::move(f));
-}
-
-void Check::Stub::experimental_async::CheckIn(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::CheckInResponse* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CheckIn_, context, request, response, std::move(f));
-}
-
-::grpc::ClientAsyncResponseReader< ::ric::geo::CheckInResponse>* Check::Stub::AsyncCheckInRaw(::grpc::ClientContext* context, const ::ric::geo::CheckInRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::CheckInResponse>::Create(channel_.get(), cq, rpcmethod_CheckIn_, context, request, true);
-}
-
-::grpc::ClientAsyncResponseReader< ::ric::geo::CheckInResponse>* Check::Stub::PrepareAsyncCheckInRaw(::grpc::ClientContext* context, const ::ric::geo::CheckInRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::CheckInResponse>::Create(channel_.get(), cq, rpcmethod_CheckIn_, context, request, false);
-}
-
-Check::Service::Service() {
-  AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Check_method_names[0],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Check::Service, ::ric::geo::CheckInRequest, ::ric::geo::CheckInResponse>(
-          std::mem_fn(&Check::Service::CheckIn), this)));
-}
-
-Check::Service::~Service() {
-}
-
-::grpc::Status Check::Service::CheckIn(::grpc::ServerContext* context, const ::ric::geo::CheckInRequest* request, ::ric::geo::CheckInResponse* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-
 }  // namespace ric
 }  // namespace geo
 

@@ -1,7 +1,7 @@
 
 import { RicCode } from './ric-code';
 import { FunctionControl, PublicAPI } from './ric-action';
-import { Watch, Check } from './ric-geo';
+import { Watch } from './ric-geo';
 import { RicAuth } from './ric-auth';
 import { RicLogicV3 } from './ric-logic-v3';
 import { TaskService, KindService } from './ric-tasks';
@@ -21,7 +21,6 @@ interface GrpcRegistry {
 
   getClient(service: 'ric-geo'): Watch;
   getClient(service: 'ric-geo/Watch'): Watch;
-  getClient(service: 'ric-geo/Check'): Check;
 
   getClient(service: 'ric-auth'): RicAuth;
   getClient(service: 'ric-auth/RicAuth'): RicAuth;
@@ -57,7 +56,6 @@ interface GrpcRegistry {
 
   addServer(service: 'ric-geo', impl: Watch);
   addServer(service: 'ric-geo/Watch', impl: Watch);
-  addServer(service: 'ric-geo/Check', impl: Check);
 
   addServer(service: 'ric-auth', impl: RicAuth);
   addServer(service: 'ric-auth/RicAuth', impl: RicAuth);
