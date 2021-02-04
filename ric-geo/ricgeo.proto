@@ -34,6 +34,17 @@ message IndoorCircle {
   double radius = 4;
 }
 
+message Circle {
+  double lat = 1;
+  double lon = 2;
+  double radius = 3;
+}
+
+message Point {
+  double lat = 1;
+  double lon = 2;
+}
+
 message Zone {
   Circle circle = 1;
   IndoorCircle indoor_circle = 2;

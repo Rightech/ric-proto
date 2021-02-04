@@ -32,11 +32,6 @@
                 "dev": 15074
             }
         },
-        "ric-geo/Osm": {
-            "port": {
-                "dev": 15074
-            }
-        },
         "ric-auth": {
             "port": {
                 "dev": 15075
