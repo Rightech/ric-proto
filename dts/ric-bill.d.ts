@@ -45,6 +45,7 @@ export interface SubscriptionResponse {
   paymentId?: string;
   jobId?: string;
   dryRun?: DryRun;
+  licenseId?: string;
 }
 
 export interface ReceiptRequest {

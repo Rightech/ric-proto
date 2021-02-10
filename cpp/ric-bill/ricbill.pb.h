@@ -948,6 +948,20 @@ class SubscriptionResponse final :
   ::std::string* release_job_id();
   void set_allocated_job_id(::std::string* job_id);
 
+  // string license_id = 4;
+  void clear_license_id();
+  static const int kLicenseIdFieldNumber = 4;
+  const ::std::string& license_id() const;
+  void set_license_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_license_id(::std::string&& value);
+  #endif
+  void set_license_id(const char* value);
+  void set_license_id(const char* value, size_t size);
+  ::std::string* mutable_license_id();
+  ::std::string* release_license_id();
+  void set_allocated_license_id(::std::string* license_id);
+
   // .ric.bill.DryRun dry_run = 3;
   bool has_dry_run() const;
   void clear_dry_run();
@@ -964,6 +978,7 @@ class SubscriptionResponse final :
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr payment_id_;
   ::google::protobuf::internal::ArenaStringPtr job_id_;
+  ::google::protobuf::internal::ArenaStringPtr license_id_;
   ::ric::bill::DryRun* dry_run_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dbill_2fricbill_2eproto;
@@ -2138,6 +2153,59 @@ inline void SubscriptionResponse::set_allocated_dry_run(::ric::bill::DryRun* dry
   }
   dry_run_ = dry_run;
   // @@protoc_insertion_point(field_set_allocated:ric.bill.SubscriptionResponse.dry_run)
+}
+
+// string license_id = 4;
+inline void SubscriptionResponse::clear_license_id() {
+  license_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SubscriptionResponse::license_id() const {
+  // @@protoc_insertion_point(field_get:ric.bill.SubscriptionResponse.license_id)
+  return license_id_.GetNoArena();
+}
+inline void SubscriptionResponse::set_license_id(const ::std::string& value) {
+  
+  license_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.bill.SubscriptionResponse.license_id)
+}
+#if LANG_CXX11
+inline void SubscriptionResponse::set_license_id(::std::string&& value) {
+  
+  license_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.bill.SubscriptionResponse.license_id)
+}
+#endif
+inline void SubscriptionResponse::set_license_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  license_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.bill.SubscriptionResponse.license_id)
+}
+inline void SubscriptionResponse::set_license_id(const char* value, size_t size) {
+  
+  license_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.bill.SubscriptionResponse.license_id)
+}
+inline ::std::string* SubscriptionResponse::mutable_license_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.bill.SubscriptionResponse.license_id)
+  return license_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SubscriptionResponse::release_license_id() {
+  // @@protoc_insertion_point(field_release:ric.bill.SubscriptionResponse.license_id)
+  
+  return license_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SubscriptionResponse::set_allocated_license_id(::std::string* license_id) {
+  if (license_id != nullptr) {
+    
+  } else {
+    
+  }
+  license_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), license_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.bill.SubscriptionResponse.license_id)
 }
 
 // -------------------------------------------------------------------
