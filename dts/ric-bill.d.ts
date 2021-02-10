@@ -38,6 +38,7 @@ export interface SubscriptionRequest {
   licenseId?: string;
   dryRun?: boolean;
   params?: string;
+  groupId?: string;
 }
 
 export interface SubscriptionResponse {
