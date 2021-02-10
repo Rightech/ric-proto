@@ -15,6 +15,12 @@ enum Activation {
   ABP = 2;
 }
 
+enum Band {
+  NO_BAND = 0;
+  EU868 = 1;
+  RU864 = 2;
+}
+
 message Device {
   string dev_eui = 1;
   Activation activation = 2;
@@ -24,12 +30,17 @@ message Device {
   string app_s_key = 6;
 }
 
+message Gateway {
+  string id = 1;
+  Band band = 2;
+}
+
 message CreateRequest {
   string oid = 1;
   string gid = 2;
   string mid = 3;
   Device device = 4;
-  string gateway_id = 5;
+  Gateway gateway = 5;
 }
 
 message DeleteRequest {
