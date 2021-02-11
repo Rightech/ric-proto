@@ -9,6 +9,7 @@ import { RicStore } from './ric-store';
 import { Bots } from './ric-bots';
 import { Billing } from './ric-bill';
 import { SMPP, SMTP } from './ric-notify';
+import { Service } from './ric-handler';
 
 interface GrpcRegistry {
   /* clients */  
@@ -45,6 +46,9 @@ interface GrpcRegistry {
   getClient(service: 'ric-notify/SMPP'): SMPP;
   getClient(service: 'ric-notify/SMTP'): SMTP;
 
+  getClient(service: 'ric-handler'): Service;
+  getClient(service: 'ric-handler/Service'): Service;
+
 
   /* servers */ 
   addServer(service: 'ric-code', impl: RicCode);
@@ -79,6 +83,9 @@ interface GrpcRegistry {
   addServer(service: 'ric-notify', impl: SMPP);
   addServer(service: 'ric-notify/SMPP', impl: SMPP);
   addServer(service: 'ric-notify/SMTP', impl: SMTP);
+
+  addServer(service: 'ric-handler', impl: Service);
+  addServer(service: 'ric-handler/Service', impl: Service);
 }
 
 declare const index: { registry: GrpcRegistry };

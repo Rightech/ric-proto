@@ -17,8 +17,8 @@ message ExecRequest {
 
 message JsError {
   string message = 1;
-	string location = 2;
-	string stack_trace = 3;
+  string location = 2;
+  string stack_trace = 3;
 }
 
 message ExecStats {
@@ -59,7 +59,4 @@ message ForceLinksUpdateRequest {
   string object_id = 1;
 }
 
-message EmptyResponse {
-
-}
-
+message EmptyResponse {}
