@@ -26,10 +26,16 @@ message ExecStats {
   string mem = 2;
 }
 
+message LogRecord {
+  int64 time = 1;
+  string record = 2;
+}
+
 message ExecResponse {
   string result = 1;
   JsError error = 2;
   ExecStats stats = 3;
+  repeated LogRecord logs = 4;
 }
 
 message GetObjectInfoRequest {
