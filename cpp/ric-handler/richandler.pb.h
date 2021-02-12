@@ -41,7 +41,7 @@ struct TableStruct_ric_2dhandler_2frichandler_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[10]
+  static const ::google::protobuf::internal::ParseTable schema[11]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -80,6 +80,9 @@ extern HandlerDefaultTypeInternal _Handler_default_instance_;
 class JsError;
 class JsErrorDefaultTypeInternal;
 extern JsErrorDefaultTypeInternal _JsError_default_instance_;
+class LogRecord;
+class LogRecordDefaultTypeInternal;
+extern LogRecordDefaultTypeInternal _LogRecord_default_instance_;
 }  // namespace handler
 }  // namespace ric
 namespace google {
@@ -94,6 +97,7 @@ template<> ::ric::handler::GetObjectInfoRequest* Arena::CreateMaybeMessage<::ric
 template<> ::ric::handler::GetObjectInfoResponse* Arena::CreateMaybeMessage<::ric::handler::GetObjectInfoResponse>(Arena*);
 template<> ::ric::handler::Handler* Arena::CreateMaybeMessage<::ric::handler::Handler>(Arena*);
 template<> ::ric::handler::JsError* Arena::CreateMaybeMessage<::ric::handler::JsError>(Arena*);
+template<> ::ric::handler::LogRecord* Arena::CreateMaybeMessage<::ric::handler::LogRecord>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace ric {
@@ -521,6 +525,133 @@ class ExecStats final :
 };
 // -------------------------------------------------------------------
 
+class LogRecord final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.handler.LogRecord) */ {
+ public:
+  LogRecord();
+  virtual ~LogRecord();
+
+  LogRecord(const LogRecord& from);
+
+  inline LogRecord& operator=(const LogRecord& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  LogRecord(LogRecord&& from) noexcept
+    : LogRecord() {
+    *this = ::std::move(from);
+  }
+
+  inline LogRecord& operator=(LogRecord&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const LogRecord& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const LogRecord* internal_default_instance() {
+    return reinterpret_cast<const LogRecord*>(
+               &_LogRecord_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  void Swap(LogRecord* other);
+  friend void swap(LogRecord& a, LogRecord& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline LogRecord* New() const final {
+    return CreateMaybeMessage<LogRecord>(nullptr);
+  }
+
+  LogRecord* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<LogRecord>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const LogRecord& from);
+  void MergeFrom(const LogRecord& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(LogRecord* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string record = 2;
+  void clear_record();
+  static const int kRecordFieldNumber = 2;
+  const ::std::string& record() const;
+  void set_record(const ::std::string& value);
+  #if LANG_CXX11
+  void set_record(::std::string&& value);
+  #endif
+  void set_record(const char* value);
+  void set_record(const char* value, size_t size);
+  ::std::string* mutable_record();
+  ::std::string* release_record();
+  void set_allocated_record(::std::string* record);
+
+  // int64 time = 1;
+  void clear_time();
+  static const int kTimeFieldNumber = 1;
+  ::google::protobuf::int64 time() const;
+  void set_time(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:ric.handler.LogRecord)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr record_;
+  ::google::protobuf::int64 time_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dhandler_2frichandler_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ExecResponse final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.handler.ExecResponse) */ {
  public:
@@ -559,7 +690,7 @@ class ExecResponse final :
                &_ExecResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   void Swap(ExecResponse* other);
   friend void swap(ExecResponse& a, ExecResponse& b) {
@@ -616,6 +747,18 @@ class ExecResponse final :
 
   // accessors -------------------------------------------------------
 
+  // repeated .ric.handler.LogRecord logs = 4;
+  int logs_size() const;
+  void clear_logs();
+  static const int kLogsFieldNumber = 4;
+  ::ric::handler::LogRecord* mutable_logs(int index);
+  ::google::protobuf::RepeatedPtrField< ::ric::handler::LogRecord >*
+      mutable_logs();
+  const ::ric::handler::LogRecord& logs(int index) const;
+  ::ric::handler::LogRecord* add_logs();
+  const ::google::protobuf::RepeatedPtrField< ::ric::handler::LogRecord >&
+      logs() const;
+
   // string result = 1;
   void clear_result();
   static const int kResultFieldNumber = 1;
@@ -653,6 +796,7 @@ class ExecResponse final :
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::ric::handler::LogRecord > logs_;
   ::google::protobuf::internal::ArenaStringPtr result_;
   ::ric::handler::JsError* error_;
   ::ric::handler::ExecStats* stats_;
@@ -699,7 +843,7 @@ class GetObjectInfoRequest final :
                &_GetObjectInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   void Swap(GetObjectInfoRequest* other);
   friend void swap(GetObjectInfoRequest& a, GetObjectInfoRequest& b) {
@@ -819,7 +963,7 @@ class Action final :
                &_Action_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   void Swap(Action* other);
   friend void swap(Action& a, Action& b) {
@@ -954,7 +1098,7 @@ class Handler final :
                &_Handler_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   void Swap(Handler* other);
   friend void swap(Handler& a, Handler& b) {
@@ -1119,7 +1263,7 @@ class GetObjectInfoResponse final :
                &_GetObjectInfoResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   void Swap(GetObjectInfoResponse* other);
   friend void swap(GetObjectInfoResponse& a, GetObjectInfoResponse& b) {
@@ -1280,7 +1424,7 @@ class ForceLinksUpdateRequest final :
                &_ForceLinksUpdateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   void Swap(ForceLinksUpdateRequest* other);
   friend void swap(ForceLinksUpdateRequest& a, ForceLinksUpdateRequest& b) {
@@ -1400,7 +1544,7 @@ class EmptyResponse final :
                &_EmptyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   void Swap(EmptyResponse* other);
   friend void swap(EmptyResponse& a, EmptyResponse& b) {
@@ -1857,6 +2001,77 @@ inline void ExecStats::set_allocated_mem(::std::string* mem) {
 
 // -------------------------------------------------------------------
 
+// LogRecord
+
+// int64 time = 1;
+inline void LogRecord::clear_time() {
+  time_ = PROTOBUF_LONGLONG(0);
+}
+inline ::google::protobuf::int64 LogRecord::time() const {
+  // @@protoc_insertion_point(field_get:ric.handler.LogRecord.time)
+  return time_;
+}
+inline void LogRecord::set_time(::google::protobuf::int64 value) {
+  
+  time_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.LogRecord.time)
+}
+
+// string record = 2;
+inline void LogRecord::clear_record() {
+  record_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& LogRecord::record() const {
+  // @@protoc_insertion_point(field_get:ric.handler.LogRecord.record)
+  return record_.GetNoArena();
+}
+inline void LogRecord::set_record(const ::std::string& value) {
+  
+  record_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.handler.LogRecord.record)
+}
+#if LANG_CXX11
+inline void LogRecord::set_record(::std::string&& value) {
+  
+  record_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.handler.LogRecord.record)
+}
+#endif
+inline void LogRecord::set_record(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  record_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.handler.LogRecord.record)
+}
+inline void LogRecord::set_record(const char* value, size_t size) {
+  
+  record_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.handler.LogRecord.record)
+}
+inline ::std::string* LogRecord::mutable_record() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.handler.LogRecord.record)
+  return record_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LogRecord::release_record() {
+  // @@protoc_insertion_point(field_release:ric.handler.LogRecord.record)
+  
+  return record_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LogRecord::set_allocated_record(::std::string* record) {
+  if (record != nullptr) {
+    
+  } else {
+    
+  }
+  record_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), record);
+  // @@protoc_insertion_point(field_set_allocated:ric.handler.LogRecord.record)
+}
+
+// -------------------------------------------------------------------
+
 // ExecResponse
 
 // string result = 1;
@@ -2012,6 +2227,36 @@ inline void ExecResponse::set_allocated_stats(::ric::handler::ExecStats* stats) 
   }
   stats_ = stats;
   // @@protoc_insertion_point(field_set_allocated:ric.handler.ExecResponse.stats)
+}
+
+// repeated .ric.handler.LogRecord logs = 4;
+inline int ExecResponse::logs_size() const {
+  return logs_.size();
+}
+inline void ExecResponse::clear_logs() {
+  logs_.Clear();
+}
+inline ::ric::handler::LogRecord* ExecResponse::mutable_logs(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.handler.ExecResponse.logs)
+  return logs_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::ric::handler::LogRecord >*
+ExecResponse::mutable_logs() {
+  // @@protoc_insertion_point(field_mutable_list:ric.handler.ExecResponse.logs)
+  return &logs_;
+}
+inline const ::ric::handler::LogRecord& ExecResponse::logs(int index) const {
+  // @@protoc_insertion_point(field_get:ric.handler.ExecResponse.logs)
+  return logs_.Get(index);
+}
+inline ::ric::handler::LogRecord* ExecResponse::add_logs() {
+  // @@protoc_insertion_point(field_add:ric.handler.ExecResponse.logs)
+  return logs_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ric::handler::LogRecord >&
+ExecResponse::logs() const {
+  // @@protoc_insertion_point(field_list:ric.handler.ExecResponse.logs)
+  return logs_;
 }
 
 // -------------------------------------------------------------------
@@ -2631,6 +2876,8 @@ inline void ForceLinksUpdateRequest::set_allocated_object_id(::std::string* obje
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

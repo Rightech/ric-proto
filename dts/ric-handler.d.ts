@@ -20,10 +20,16 @@ export interface ExecStats {
   mem?: string;
 }
 
+export interface LogRecord {
+  time?: number;
+  record?: string;
+}
+
 export interface ExecResponse {
   result?: string;
   error?: JsError;
   stats?: ExecStats;
+  logs?: LogRecord[];
 }
 
 export interface GetObjectInfoRequest {

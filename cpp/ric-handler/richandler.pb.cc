@@ -20,6 +20,7 @@ extern PROTOBUF_INTERNAL_EXPORT_ric_2dhandler_2frichandler_2eproto ::google::pro
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dhandler_2frichandler_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_ExecStats_ric_2dhandler_2frichandler_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dhandler_2frichandler_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Handler_ric_2dhandler_2frichandler_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dhandler_2frichandler_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_JsError_ric_2dhandler_2frichandler_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dhandler_2frichandler_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_LogRecord_ric_2dhandler_2frichandler_2eproto;
 namespace ric {
 namespace handler {
 class ExecRequestDefaultTypeInternal {
@@ -34,6 +35,10 @@ class ExecStatsDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<ExecStats> _instance;
 } _ExecStats_default_instance_;
+class LogRecordDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<LogRecord> _instance;
+} _LogRecord_default_instance_;
 class ExecResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<ExecResponse> _instance;
@@ -106,6 +111,20 @@ static void InitDefaultsExecStats_ric_2dhandler_2frichandler_2eproto() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_ExecStats_ric_2dhandler_2frichandler_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsExecStats_ric_2dhandler_2frichandler_2eproto}, {}};
 
+static void InitDefaultsLogRecord_ric_2dhandler_2frichandler_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::handler::_LogRecord_default_instance_;
+    new (ptr) ::ric::handler::LogRecord();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::handler::LogRecord::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_LogRecord_ric_2dhandler_2frichandler_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsLogRecord_ric_2dhandler_2frichandler_2eproto}, {}};
+
 static void InitDefaultsExecResponse_ric_2dhandler_2frichandler_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -117,10 +136,11 @@ static void InitDefaultsExecResponse_ric_2dhandler_2frichandler_2eproto() {
   ::ric::handler::ExecResponse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<2> scc_info_ExecResponse_ric_2dhandler_2frichandler_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsExecResponse_ric_2dhandler_2frichandler_2eproto}, {
+::google::protobuf::internal::SCCInfo<3> scc_info_ExecResponse_ric_2dhandler_2frichandler_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 3, InitDefaultsExecResponse_ric_2dhandler_2frichandler_2eproto}, {
       &scc_info_JsError_ric_2dhandler_2frichandler_2eproto.base,
-      &scc_info_ExecStats_ric_2dhandler_2frichandler_2eproto.base,}};
+      &scc_info_ExecStats_ric_2dhandler_2frichandler_2eproto.base,
+      &scc_info_LogRecord_ric_2dhandler_2frichandler_2eproto.base,}};
 
 static void InitDefaultsGetObjectInfoRequest_ric_2dhandler_2frichandler_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -212,6 +232,7 @@ void InitDefaults_ric_2dhandler_2frichandler_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_ExecRequest_ric_2dhandler_2frichandler_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_JsError_ric_2dhandler_2frichandler_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ExecStats_ric_2dhandler_2frichandler_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_LogRecord_ric_2dhandler_2frichandler_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ExecResponse_ric_2dhandler_2frichandler_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_GetObjectInfoRequest_ric_2dhandler_2frichandler_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_Action_ric_2dhandler_2frichandler_2eproto.base);
@@ -221,7 +242,7 @@ void InitDefaults_ric_2dhandler_2frichandler_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_EmptyResponse_ric_2dhandler_2frichandler_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dhandler_2frichandler_2eproto[10];
+::google::protobuf::Metadata file_level_metadata_ric_2dhandler_2frichandler_2eproto[11];
 constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_ric_2dhandler_2frichandler_2eproto = nullptr;
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dhandler_2frichandler_2eproto = nullptr;
 
@@ -249,6 +270,13 @@ const ::google::protobuf::uint32 TableStruct_ric_2dhandler_2frichandler_2eproto:
   PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, time_),
   PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, mem_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::handler::LogRecord, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::handler::LogRecord, time_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::LogRecord, record_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::handler::ExecResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -256,6 +284,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dhandler_2frichandler_2eproto:
   PROTOBUF_FIELD_OFFSET(::ric::handler::ExecResponse, result_),
   PROTOBUF_FIELD_OFFSET(::ric::handler::ExecResponse, error_),
   PROTOBUF_FIELD_OFFSET(::ric::handler::ExecResponse, stats_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecResponse, logs_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::handler::GetObjectInfoRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -303,19 +332,21 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 0, -1, sizeof(::ric::handler::ExecRequest)},
   { 7, -1, sizeof(::ric::handler::JsError)},
   { 15, -1, sizeof(::ric::handler::ExecStats)},
-  { 22, -1, sizeof(::ric::handler::ExecResponse)},
-  { 30, -1, sizeof(::ric::handler::GetObjectInfoRequest)},
-  { 36, -1, sizeof(::ric::handler::Action)},
-  { 43, -1, sizeof(::ric::handler::Handler)},
-  { 52, -1, sizeof(::ric::handler::GetObjectInfoResponse)},
-  { 61, -1, sizeof(::ric::handler::ForceLinksUpdateRequest)},
-  { 67, -1, sizeof(::ric::handler::EmptyResponse)},
+  { 22, -1, sizeof(::ric::handler::LogRecord)},
+  { 29, -1, sizeof(::ric::handler::ExecResponse)},
+  { 38, -1, sizeof(::ric::handler::GetObjectInfoRequest)},
+  { 44, -1, sizeof(::ric::handler::Action)},
+  { 51, -1, sizeof(::ric::handler::Handler)},
+  { 60, -1, sizeof(::ric::handler::GetObjectInfoResponse)},
+  { 69, -1, sizeof(::ric::handler::ForceLinksUpdateRequest)},
+  { 75, -1, sizeof(::ric::handler::EmptyResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::handler::_ExecRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::handler::_JsError_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::handler::_ExecStats_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::handler::_LogRecord_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::handler::_ExecResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::handler::_GetObjectInfoRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::handler::_Action_default_instance_),
@@ -328,7 +359,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dhandler_2frichandler_2eproto = {
   {}, AddDescriptors_ric_2dhandler_2frichandler_2eproto, "ric-handler/richandler.proto", schemas,
   file_default_instances, TableStruct_ric_2dhandler_2frichandler_2eproto::offsets,
-  file_level_metadata_ric_2dhandler_2frichandler_2eproto, 10, file_level_enum_descriptors_ric_2dhandler_2frichandler_2eproto, file_level_service_descriptors_ric_2dhandler_2frichandler_2eproto,
+  file_level_metadata_ric_2dhandler_2frichandler_2eproto, 11, file_level_enum_descriptors_ric_2dhandler_2frichandler_2eproto, file_level_service_descriptors_ric_2dhandler_2frichandler_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dhandler_2frichandler_2eproto[] =
@@ -337,30 +368,32 @@ const char descriptor_table_protodef_ric_2dhandler_2frichandler_2eproto[] =
   "\n\006packet\030\002 \001(\t\"A\n\007JsError\022\017\n\007message\030\001 \001"
   "(\t\022\020\n\010location\030\002 \001(\t\022\023\n\013stack_trace\030\003 \001("
   "\t\"&\n\tExecStats\022\014\n\004time\030\001 \001(\t\022\013\n\003mem\030\002 \001("
-  "\t\"j\n\014ExecResponse\022\016\n\006result\030\001 \001(\t\022#\n\005err"
-  "or\030\002 \001(\0132\024.ric.handler.JsError\022%\n\005stats\030"
-  "\003 \001(\0132\026.ric.handler.ExecStats\")\n\024GetObje"
-  "ctInfoRequest\022\021\n\tobject_id\030\001 \001(\t\"$\n\006Acti"
-  "on\022\n\n\002id\030\001 \001(\t\022\016\n\006params\030\002 \001(\014\"N\n\007Handle"
-  "r\022\n\n\002id\030\001 \001(\t\022\021\n\tuser_code\030\002 \001(\t\022\020\n\010bind"
-  "ings\030\003 \001(\014\022\022\n\nparameters\030\004 \001(\014\"\201\001\n\025GetOb"
-  "jectInfoResponse\022\n\n\002id\030\001 \001(\t\022\016\n\006config\030\002"
-  " \001(\014\022$\n\007actions\030\003 \003(\0132\023.ric.handler.Acti"
-  "on\022&\n\010handlers\030\004 \003(\0132\024.ric.handler.Handl"
-  "er\",\n\027ForceLinksUpdateRequest\022\021\n\tobject_"
-  "id\030\001 \001(\t\"\017\n\rEmptyResponse2\364\001\n\007Service\022;\n"
-  "\004Exec\022\030.ric.handler.ExecRequest\032\031.ric.ha"
-  "ndler.ExecResponse\022V\n\rGetObjectInfo\022!.ri"
-  "c.handler.GetObjectInfoRequest\032\".ric.han"
-  "dler.GetObjectInfoResponse\022T\n\020ForceLinks"
-  "Update\022$.ric.handler.ForceLinksUpdateReq"
-  "uest\032\032.ric.handler.EmptyResponseB\032Z\030./ri"
-  "c-handler;richandlerb\006proto3"
+  "\t\")\n\tLogRecord\022\014\n\004time\030\001 \001(\003\022\016\n\006record\030\002"
+  " \001(\t\"\220\001\n\014ExecResponse\022\016\n\006result\030\001 \001(\t\022#\n"
+  "\005error\030\002 \001(\0132\024.ric.handler.JsError\022%\n\005st"
+  "ats\030\003 \001(\0132\026.ric.handler.ExecStats\022$\n\004log"
+  "s\030\004 \003(\0132\026.ric.handler.LogRecord\")\n\024GetOb"
+  "jectInfoRequest\022\021\n\tobject_id\030\001 \001(\t\"$\n\006Ac"
+  "tion\022\n\n\002id\030\001 \001(\t\022\016\n\006params\030\002 \001(\014\"N\n\007Hand"
+  "ler\022\n\n\002id\030\001 \001(\t\022\021\n\tuser_code\030\002 \001(\t\022\020\n\010bi"
+  "ndings\030\003 \001(\014\022\022\n\nparameters\030\004 \001(\014\"\201\001\n\025Get"
+  "ObjectInfoResponse\022\n\n\002id\030\001 \001(\t\022\016\n\006config"
+  "\030\002 \001(\014\022$\n\007actions\030\003 \003(\0132\023.ric.handler.Ac"
+  "tion\022&\n\010handlers\030\004 \003(\0132\024.ric.handler.Han"
+  "dler\",\n\027ForceLinksUpdateRequest\022\021\n\tobjec"
+  "t_id\030\001 \001(\t\"\017\n\rEmptyResponse2\364\001\n\007Service\022"
+  ";\n\004Exec\022\030.ric.handler.ExecRequest\032\031.ric."
+  "handler.ExecResponse\022V\n\rGetObjectInfo\022!."
+  "ric.handler.GetObjectInfoRequest\032\".ric.h"
+  "andler.GetObjectInfoResponse\022T\n\020ForceLin"
+  "ksUpdate\022$.ric.handler.ForceLinksUpdateR"
+  "equest\032\032.ric.handler.EmptyResponseB\032Z\030./"
+  "ric-handler;richandlerb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dhandler_2frichandler_2eproto = {
   false, InitDefaults_ric_2dhandler_2frichandler_2eproto, 
   descriptor_table_protodef_ric_2dhandler_2frichandler_2eproto,
-  "ric-handler/richandler.proto", &assign_descriptors_table_ric_2dhandler_2frichandler_2eproto, 948,
+  "ric-handler/richandler.proto", &assign_descriptors_table_ric_2dhandler_2frichandler_2eproto, 1030,
 };
 
 void AddDescriptors_ric_2dhandler_2frichandler_2eproto() {
@@ -1560,6 +1593,348 @@ void ExecStats::InternalSwap(ExecStats* other) {
 
 // ===================================================================
 
+void LogRecord::InitAsDefaultInstance() {
+}
+class LogRecord::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int LogRecord::kTimeFieldNumber;
+const int LogRecord::kRecordFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+LogRecord::LogRecord()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.handler.LogRecord)
+}
+LogRecord::LogRecord(const LogRecord& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  record_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.record().size() > 0) {
+    record_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.record_);
+  }
+  time_ = from.time_;
+  // @@protoc_insertion_point(copy_constructor:ric.handler.LogRecord)
+}
+
+void LogRecord::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_LogRecord_ric_2dhandler_2frichandler_2eproto.base);
+  record_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  time_ = PROTOBUF_LONGLONG(0);
+}
+
+LogRecord::~LogRecord() {
+  // @@protoc_insertion_point(destructor:ric.handler.LogRecord)
+  SharedDtor();
+}
+
+void LogRecord::SharedDtor() {
+  record_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void LogRecord::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const LogRecord& LogRecord::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_LogRecord_ric_2dhandler_2frichandler_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void LogRecord::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.handler.LogRecord)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  record_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  time_ = PROTOBUF_LONGLONG(0);
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* LogRecord::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<LogRecord*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // int64 time = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 8) goto handle_unusual;
+        msg->set_time(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // string record = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.handler.LogRecord.record");
+        object = msg->mutable_record();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool LogRecord::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.handler.LogRecord)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int64 time = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (8 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string record = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_record()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->record().data(), static_cast<int>(this->record().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.handler.LogRecord.record"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.handler.LogRecord)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.handler.LogRecord)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void LogRecord::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.handler.LogRecord)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 time = 1;
+  if (this->time() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->time(), output);
+  }
+
+  // string record = 2;
+  if (this->record().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->record().data(), static_cast<int>(this->record().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.handler.LogRecord.record");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->record(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.handler.LogRecord)
+}
+
+::google::protobuf::uint8* LogRecord::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.handler.LogRecord)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 time = 1;
+  if (this->time() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->time(), target);
+  }
+
+  // string record = 2;
+  if (this->record().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->record().data(), static_cast<int>(this->record().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.handler.LogRecord.record");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->record(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.handler.LogRecord)
+  return target;
+}
+
+size_t LogRecord::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.handler.LogRecord)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string record = 2;
+  if (this->record().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->record());
+  }
+
+  // int64 time = 1;
+  if (this->time() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->time());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void LogRecord::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.handler.LogRecord)
+  GOOGLE_DCHECK_NE(&from, this);
+  const LogRecord* source =
+      ::google::protobuf::DynamicCastToGenerated<LogRecord>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.handler.LogRecord)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.handler.LogRecord)
+    MergeFrom(*source);
+  }
+}
+
+void LogRecord::MergeFrom(const LogRecord& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.handler.LogRecord)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.record().size() > 0) {
+
+    record_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.record_);
+  }
+  if (from.time() != 0) {
+    set_time(from.time());
+  }
+}
+
+void LogRecord::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.handler.LogRecord)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void LogRecord::CopyFrom(const LogRecord& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.handler.LogRecord)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LogRecord::IsInitialized() const {
+  return true;
+}
+
+void LogRecord::Swap(LogRecord* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void LogRecord::InternalSwap(LogRecord* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  record_.Swap(&other->record_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(time_, other->time_);
+}
+
+::google::protobuf::Metadata LogRecord::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dhandler_2frichandler_2eproto);
+  return ::file_level_metadata_ric_2dhandler_2frichandler_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
 void ExecResponse::InitAsDefaultInstance() {
   ::ric::handler::_ExecResponse_default_instance_._instance.get_mutable()->error_ = const_cast< ::ric::handler::JsError*>(
       ::ric::handler::JsError::internal_default_instance());
@@ -1584,6 +1959,7 @@ ExecResponse::HasBitSetters::stats(const ExecResponse* msg) {
 const int ExecResponse::kResultFieldNumber;
 const int ExecResponse::kErrorFieldNumber;
 const int ExecResponse::kStatsFieldNumber;
+const int ExecResponse::kLogsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ExecResponse::ExecResponse()
@@ -1593,7 +1969,8 @@ ExecResponse::ExecResponse()
 }
 ExecResponse::ExecResponse(const ExecResponse& from)
   : ::google::protobuf::Message(),
-      _internal_metadata_(nullptr) {
+      _internal_metadata_(nullptr),
+      logs_(from.logs_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   result_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.result().size() > 0) {
@@ -1647,6 +2024,7 @@ void ExecResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  logs_.Clear();
   result_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && error_ != nullptr) {
     delete error_;
@@ -1712,6 +2090,22 @@ const char* ExecResponse::_InternalParse(const char* begin, const char* end, voi
         ptr += size;
         GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
             {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // repeated .ric.handler.LogRecord logs = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::ric::handler::LogRecord::_InternalParse;
+          object = msg->add_logs();
+          if (size > end - ptr) goto len_delim_till_end;
+          ptr += size;
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+              {parser_till_end, object}, ptr - size, ptr));
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 34 && (ptr += 1));
         break;
       }
       default: {
@@ -1785,6 +2179,17 @@ bool ExecResponse::MergePartialFromCodedStream(
         break;
       }
 
+      // repeated .ric.handler.LogRecord logs = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+                input, add_logs()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -1834,6 +2239,15 @@ void ExecResponse::SerializeWithCachedSizes(
       3, HasBitSetters::stats(this), output);
   }
 
+  // repeated .ric.handler.LogRecord logs = 4;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->logs_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4,
+      this->logs(static_cast<int>(i)),
+      output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -1872,6 +2286,14 @@ void ExecResponse::SerializeWithCachedSizes(
         3, HasBitSetters::stats(this), target);
   }
 
+  // repeated .ric.handler.LogRecord logs = 4;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->logs_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        4, this->logs(static_cast<int>(i)), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -1892,6 +2314,17 @@ size_t ExecResponse::ByteSizeLong() const {
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // repeated .ric.handler.LogRecord logs = 4;
+  {
+    unsigned int count = static_cast<unsigned int>(this->logs_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->logs(static_cast<int>(i)));
+    }
+  }
 
   // string result = 1;
   if (this->result().size() > 0) {
@@ -1941,6 +2374,7 @@ void ExecResponse::MergeFrom(const ExecResponse& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  logs_.MergeFrom(from.logs_);
   if (from.result().size() > 0) {
 
     result_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.result_);
@@ -1978,6 +2412,7 @@ void ExecResponse::Swap(ExecResponse* other) {
 void ExecResponse::InternalSwap(ExecResponse* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  CastToBase(&logs_)->InternalSwap(CastToBase(&other->logs_));
   result_.Swap(&other->result_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(error_, other->error_);
@@ -4130,6 +4565,9 @@ template<> PROTOBUF_NOINLINE ::ric::handler::JsError* Arena::CreateMaybeMessage<
 }
 template<> PROTOBUF_NOINLINE ::ric::handler::ExecStats* Arena::CreateMaybeMessage< ::ric::handler::ExecStats >(Arena* arena) {
   return Arena::CreateInternal< ::ric::handler::ExecStats >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::handler::LogRecord* Arena::CreateMaybeMessage< ::ric::handler::LogRecord >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::handler::LogRecord >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::handler::ExecResponse* Arena::CreateMaybeMessage< ::ric::handler::ExecResponse >(Arena* arena) {
   return Arena::CreateInternal< ::ric::handler::ExecResponse >(arena);
