@@ -152,6 +152,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dauth_2fricauth_2eproto::offse
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::auth::AuthObjectRequest_AuthObjectCert, cn_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::AuthObjectRequest_AuthObjectCert, fingerprint_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::auth::AuthObjectRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -202,11 +203,11 @@ const ::google::protobuf::uint32 TableStruct_ric_2dauth_2fricauth_2eproto::offse
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ric::auth::AuthObjectRequest_AuthObjectCert)},
-  { 6, -1, sizeof(::ric::auth::AuthObjectRequest)},
-  { 19, -1, sizeof(::ric::auth::AuthObjectResponse)},
-  { 33, -1, sizeof(::ric::auth::AuthObjectArgument)},
-  { 42, -1, sizeof(::ric::auth::SendOfflineRequest)},
-  { 48, -1, sizeof(::ric::auth::SendOfflineResponse)},
+  { 7, -1, sizeof(::ric::auth::AuthObjectRequest)},
+  { 20, -1, sizeof(::ric::auth::AuthObjectResponse)},
+  { 34, -1, sizeof(::ric::auth::AuthObjectArgument)},
+  { 43, -1, sizeof(::ric::auth::SendOfflineRequest)},
+  { 49, -1, sizeof(::ric::auth::SendOfflineResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -225,32 +226,33 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 };
 
 const char descriptor_table_protodef_ric_2dauth_2fricauth_2eproto[] =
-  "\n\026ric-auth/ricauth.proto\022\010ric.auth\"\340\001\n\021A"
+  "\n\026ric-auth/ricauth.proto\022\010ric.auth\"\365\001\n\021A"
   "uthObjectRequest\022\020\n\010protocol\030\001 \001(\t\022\016\n\006ob"
   "ject\030\002 \001(\t\022\021\n\tclient_id\030\003 \001(\t\022\020\n\010usernam"
   "e\030\004 \001(\t\022\020\n\010password\030\005 \001(\t\0228\n\004cert\030\006 \001(\0132"
   "*.ric.auth.AuthObjectRequest.AuthObjectC"
-  "ert\022\014\n\004ipv4\030\007 \001(\t\022\014\n\004ipv6\030\010 \001(\t\032\034\n\016AuthO"
-  "bjectCert\022\n\n\002cn\030\001 \001(\t\"\327\001\n\022AuthObjectResp"
-  "onse\022\017\n\007session\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022"
-  "\021\n\tobject_id\030\003 \001(\t\022\020\n\010group_id\030\004 \001(\t\022\021\n\t"
-  "group_key\030\005 \001(\t\022/\n\targuments\030\006 \003(\0132\034.ric"
-  ".auth.AuthObjectArgument\022\016\n\006config\030\007 \001(\t"
-  "\022\021\n\tissued_at\030\010 \001(\003\022\022\n\nexpires_at\030\t \001(\003\""
-  "V\n\022AuthObjectArgument\022\n\n\002id\030\001 \001(\t\022\021\n\tdat"
-  "a_type\030\002 \001(\t\022\021\n\treference\030\003 \001(\t\022\016\n\006parse"
-  "r\030\004 \001(\t\"\'\n\022SendOfflineRequest\022\021\n\tobject_"
-  "id\030\001 \001(\t\"\025\n\023SendOfflineResponse2\236\001\n\007RicA"
-  "uth\022G\n\nAuthObject\022\033.ric.auth.AuthObjectR"
-  "equest\032\034.ric.auth.AuthObjectResponse\022J\n\013"
-  "SendOffline\022\034.ric.auth.SendOfflineReques"
-  "t\032\035.ric.auth.SendOfflineResponseB\024Z\022./ri"
-  "c-auth;ricauthb\006proto3"
+  "ert\022\014\n\004ipv4\030\007 \001(\t\022\014\n\004ipv6\030\010 \001(\t\0321\n\016AuthO"
+  "bjectCert\022\n\n\002cn\030\001 \001(\t\022\023\n\013fingerprint\030\002 \001"
+  "(\t\"\327\001\n\022AuthObjectResponse\022\017\n\007session\030\001 \001"
+  "(\t\022\020\n\010model_id\030\002 \001(\t\022\021\n\tobject_id\030\003 \001(\t\022"
+  "\020\n\010group_id\030\004 \001(\t\022\021\n\tgroup_key\030\005 \001(\t\022/\n\t"
+  "arguments\030\006 \003(\0132\034.ric.auth.AuthObjectArg"
+  "ument\022\016\n\006config\030\007 \001(\t\022\021\n\tissued_at\030\010 \001(\003"
+  "\022\022\n\nexpires_at\030\t \001(\003\"V\n\022AuthObjectArgume"
+  "nt\022\n\n\002id\030\001 \001(\t\022\021\n\tdata_type\030\002 \001(\t\022\021\n\tref"
+  "erence\030\003 \001(\t\022\016\n\006parser\030\004 \001(\t\"\'\n\022SendOffl"
+  "ineRequest\022\021\n\tobject_id\030\001 \001(\t\"\025\n\023SendOff"
+  "lineResponse2\236\001\n\007RicAuth\022G\n\nAuthObject\022\033"
+  ".ric.auth.AuthObjectRequest\032\034.ric.auth.A"
+  "uthObjectResponse\022J\n\013SendOffline\022\034.ric.a"
+  "uth.SendOfflineRequest\032\035.ric.auth.SendOf"
+  "flineResponseB\024Z\022./ric-auth;ricauthb\006pro"
+  "to3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dauth_2fricauth_2eproto = {
   false, InitDefaults_ric_2dauth_2fricauth_2eproto, 
   descriptor_table_protodef_ric_2dauth_2fricauth_2eproto,
-  "ric-auth/ricauth.proto", &assign_descriptors_table_ric_2dauth_2fricauth_2eproto, 822,
+  "ric-auth/ricauth.proto", &assign_descriptors_table_ric_2dauth_2fricauth_2eproto, 843,
 };
 
 void AddDescriptors_ric_2dauth_2fricauth_2eproto() {
@@ -275,6 +277,7 @@ class AuthObjectRequest_AuthObjectCert::HasBitSetters {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int AuthObjectRequest_AuthObjectCert::kCnFieldNumber;
+const int AuthObjectRequest_AuthObjectCert::kFingerprintFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 AuthObjectRequest_AuthObjectCert::AuthObjectRequest_AuthObjectCert()
@@ -290,6 +293,10 @@ AuthObjectRequest_AuthObjectCert::AuthObjectRequest_AuthObjectCert(const AuthObj
   if (from.cn().size() > 0) {
     cn_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.cn_);
   }
+  fingerprint_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.fingerprint().size() > 0) {
+    fingerprint_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.fingerprint_);
+  }
   // @@protoc_insertion_point(copy_constructor:ric.auth.AuthObjectRequest.AuthObjectCert)
 }
 
@@ -297,6 +304,7 @@ void AuthObjectRequest_AuthObjectCert::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_AuthObjectRequest_AuthObjectCert_ric_2dauth_2fricauth_2eproto.base);
   cn_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fingerprint_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 AuthObjectRequest_AuthObjectCert::~AuthObjectRequest_AuthObjectCert() {
@@ -306,6 +314,7 @@ AuthObjectRequest_AuthObjectCert::~AuthObjectRequest_AuthObjectCert() {
 
 void AuthObjectRequest_AuthObjectCert::SharedDtor() {
   cn_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fingerprint_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void AuthObjectRequest_AuthObjectCert::SetCachedSize(int size) const {
@@ -324,6 +333,7 @@ void AuthObjectRequest_AuthObjectCert::Clear() {
   (void) cached_has_bits;
 
   cn_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fingerprint_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
@@ -347,6 +357,22 @@ const char* AuthObjectRequest_AuthObjectCert::_InternalParse(const char* begin, 
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         ctx->extra_parse_data().SetFieldName("ric.auth.AuthObjectRequest.AuthObjectCert.cn");
         object = msg->mutable_cn();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string fingerprint = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.auth.AuthObjectRequest.AuthObjectCert.fingerprint");
+        object = msg->mutable_fingerprint();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -405,6 +431,21 @@ bool AuthObjectRequest_AuthObjectCert::MergePartialFromCodedStream(
         break;
       }
 
+      // string fingerprint = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_fingerprint()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->fingerprint().data(), static_cast<int>(this->fingerprint().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.AuthObjectRequest.AuthObjectCert.fingerprint"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -442,6 +483,16 @@ void AuthObjectRequest_AuthObjectCert::SerializeWithCachedSizes(
       1, this->cn(), output);
   }
 
+  // string fingerprint = 2;
+  if (this->fingerprint().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->fingerprint().data(), static_cast<int>(this->fingerprint().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.AuthObjectRequest.AuthObjectCert.fingerprint");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->fingerprint(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -464,6 +515,17 @@ void AuthObjectRequest_AuthObjectCert::SerializeWithCachedSizes(
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->cn(), target);
+  }
+
+  // string fingerprint = 2;
+  if (this->fingerprint().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->fingerprint().data(), static_cast<int>(this->fingerprint().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.AuthObjectRequest.AuthObjectCert.fingerprint");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->fingerprint(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -492,6 +554,13 @@ size_t AuthObjectRequest_AuthObjectCert::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->cn());
+  }
+
+  // string fingerprint = 2;
+  if (this->fingerprint().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->fingerprint());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -525,6 +594,10 @@ void AuthObjectRequest_AuthObjectCert::MergeFrom(const AuthObjectRequest_AuthObj
 
     cn_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.cn_);
   }
+  if (from.fingerprint().size() > 0) {
+
+    fingerprint_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.fingerprint_);
+  }
 }
 
 void AuthObjectRequest_AuthObjectCert::CopyFrom(const ::google::protobuf::Message& from) {
@@ -553,6 +626,8 @@ void AuthObjectRequest_AuthObjectCert::InternalSwap(AuthObjectRequest_AuthObject
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   cn_.Swap(&other->cn_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  fingerprint_.Swap(&other->fingerprint_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
 }
 

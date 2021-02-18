@@ -194,12 +194,27 @@ class AuthObjectRequest_AuthObjectCert final :
   ::std::string* release_cn();
   void set_allocated_cn(::std::string* cn);
 
+  // string fingerprint = 2;
+  void clear_fingerprint();
+  static const int kFingerprintFieldNumber = 2;
+  const ::std::string& fingerprint() const;
+  void set_fingerprint(const ::std::string& value);
+  #if LANG_CXX11
+  void set_fingerprint(::std::string&& value);
+  #endif
+  void set_fingerprint(const char* value);
+  void set_fingerprint(const char* value, size_t size);
+  ::std::string* mutable_fingerprint();
+  ::std::string* release_fingerprint();
+  void set_allocated_fingerprint(::std::string* fingerprint);
+
   // @@protoc_insertion_point(class_scope:ric.auth.AuthObjectRequest.AuthObjectCert)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr cn_;
+  ::google::protobuf::internal::ArenaStringPtr fingerprint_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dauth_2fricauth_2eproto;
 };
@@ -1099,6 +1114,59 @@ inline void AuthObjectRequest_AuthObjectCert::set_allocated_cn(::std::string* cn
   }
   cn_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cn);
   // @@protoc_insertion_point(field_set_allocated:ric.auth.AuthObjectRequest.AuthObjectCert.cn)
+}
+
+// string fingerprint = 2;
+inline void AuthObjectRequest_AuthObjectCert::clear_fingerprint() {
+  fingerprint_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& AuthObjectRequest_AuthObjectCert::fingerprint() const {
+  // @@protoc_insertion_point(field_get:ric.auth.AuthObjectRequest.AuthObjectCert.fingerprint)
+  return fingerprint_.GetNoArena();
+}
+inline void AuthObjectRequest_AuthObjectCert::set_fingerprint(const ::std::string& value) {
+  
+  fingerprint_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.auth.AuthObjectRequest.AuthObjectCert.fingerprint)
+}
+#if LANG_CXX11
+inline void AuthObjectRequest_AuthObjectCert::set_fingerprint(::std::string&& value) {
+  
+  fingerprint_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.auth.AuthObjectRequest.AuthObjectCert.fingerprint)
+}
+#endif
+inline void AuthObjectRequest_AuthObjectCert::set_fingerprint(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  fingerprint_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.auth.AuthObjectRequest.AuthObjectCert.fingerprint)
+}
+inline void AuthObjectRequest_AuthObjectCert::set_fingerprint(const char* value, size_t size) {
+  
+  fingerprint_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.AuthObjectRequest.AuthObjectCert.fingerprint)
+}
+inline ::std::string* AuthObjectRequest_AuthObjectCert::mutable_fingerprint() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.auth.AuthObjectRequest.AuthObjectCert.fingerprint)
+  return fingerprint_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* AuthObjectRequest_AuthObjectCert::release_fingerprint() {
+  // @@protoc_insertion_point(field_release:ric.auth.AuthObjectRequest.AuthObjectCert.fingerprint)
+  
+  return fingerprint_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AuthObjectRequest_AuthObjectCert::set_allocated_fingerprint(::std::string* fingerprint) {
+  if (fingerprint != nullptr) {
+    
+  } else {
+    
+  }
+  fingerprint_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), fingerprint);
+  // @@protoc_insertion_point(field_set_allocated:ric.auth.AuthObjectRequest.AuthObjectCert.fingerprint)
 }
 
 // -------------------------------------------------------------------

@@ -16,6 +16,7 @@ export interface AuthObjectRequest {
 
 export interface AuthObjectCert {
   cn?: string;
+  fingerprint?: string;
 }
 
 export interface AuthObjectResponse {
