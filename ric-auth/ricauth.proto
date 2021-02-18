@@ -17,6 +17,7 @@ message AuthObjectRequest {
   string password = 5;
   message AuthObjectCert {
     string cn = 1;
+    string fingerprint = 2;
   }
   AuthObjectCert cert = 6;
   string ipv4 = 7;
