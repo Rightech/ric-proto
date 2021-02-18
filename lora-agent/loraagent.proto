@@ -9,12 +9,30 @@ service DeviceService {
   rpc Delete(DeleteRequest) returns (EmptyResponse);
 }
 
+enum Activation {
+  INVALID = 0;
+  OTAA = 1;
+  ABP = 2;
+}
+
+enum Band {
+  NO_BAND = 0;
+  EU868 = 1;
+  RU864 = 2;
+}
+
 message Device {
   string dev_eui = 1;
-  string app_key = 2; // otaa
-  string dev_addr = 3; // abp
-  string net_s_key = 4; // abp
-  string app_s_key = 5; // abp
+  Activation activation = 2;
+  string app_key = 3;
+  string dev_addr = 4;
+  string net_s_key = 5;
+  string app_s_key = 6;
+}
+
+message Gateway {
+  string id = 1;
+  Band band = 2;
 }
 
 message CreateRequest {
@@ -22,6 +40,7 @@ message CreateRequest {
   string gid = 2;
   string mid = 3;
   Device device = 4;
+  Gateway gateway = 5;
 }
 
 message DeleteRequest {

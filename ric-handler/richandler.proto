@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package ric.handler;
+
+option go_package = "./ric-handler;richandler";
+
+service Service {
+  rpc Exec(ExecRequest) returns (ExecResponse);
+  rpc GetObjectInfo(GetObjectInfoRequest) returns (GetObjectInfoResponse);
+  rpc ForceLinksUpdate(ForceLinksUpdateRequest) returns (EmptyResponse);
+}
+
+message ExecRequest {
+  string handler_id = 1;
+  string packet = 2;
+}
+
+message JsError {
+  string message = 1;
+  string location = 2;
+  string stack_trace = 3;
+}
+
+message ExecStats {
+  string time = 1;
+  string mem = 2;
+}
+
+message LogRecord {
+  int64 time = 1;
+  string record = 2;
+}
+
+message ExecResponse {
+  string result = 1;
+  JsError error = 2;
+  ExecStats stats = 3;
+  repeated LogRecord logs = 4;
+}
+
+message GetObjectInfoRequest {
+  string object_id = 1;
+}
+
+message Action {
+  string id = 1;
+  bytes params = 2;
+}
+
+message Handler {
+  string id = 1;
+  string user_code = 2;
+  bytes bindings = 3;
+  bytes parameters = 4;
+}
+
+message GetObjectInfoResponse {
+  string id = 1;
+  bytes config = 2;
+  repeated Action actions = 3;
+  repeated Handler handlers = 4;
+}
+
+message ForceLinksUpdateRequest {
+  string object_id = 1;
+}
+
+message EmptyResponse {}

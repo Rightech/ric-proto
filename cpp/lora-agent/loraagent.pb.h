@@ -30,6 +30,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -41,7 +42,7 @@ struct TableStruct_lora_2dagent_2floraagent_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[4]
+  static const ::google::protobuf::internal::ParseTable schema[5]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -62,6 +63,9 @@ extern DeviceDefaultTypeInternal _Device_default_instance_;
 class EmptyResponse;
 class EmptyResponseDefaultTypeInternal;
 extern EmptyResponseDefaultTypeInternal _EmptyResponse_default_instance_;
+class Gateway;
+class GatewayDefaultTypeInternal;
+extern GatewayDefaultTypeInternal _Gateway_default_instance_;
 }  // namespace agent
 }  // namespace lora
 namespace google {
@@ -70,11 +74,56 @@ template<> ::lora::agent::CreateRequest* Arena::CreateMaybeMessage<::lora::agent
 template<> ::lora::agent::DeleteRequest* Arena::CreateMaybeMessage<::lora::agent::DeleteRequest>(Arena*);
 template<> ::lora::agent::Device* Arena::CreateMaybeMessage<::lora::agent::Device>(Arena*);
 template<> ::lora::agent::EmptyResponse* Arena::CreateMaybeMessage<::lora::agent::EmptyResponse>(Arena*);
+template<> ::lora::agent::Gateway* Arena::CreateMaybeMessage<::lora::agent::Gateway>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace lora {
 namespace agent {
 
+enum Activation {
+  INVALID = 0,
+  OTAA = 1,
+  ABP = 2,
+  Activation_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::min(),
+  Activation_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::max()
+};
+bool Activation_IsValid(int value);
+const Activation Activation_MIN = INVALID;
+const Activation Activation_MAX = ABP;
+const int Activation_ARRAYSIZE = Activation_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* Activation_descriptor();
+inline const ::std::string& Activation_Name(Activation value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    Activation_descriptor(), value);
+}
+inline bool Activation_Parse(
+    const ::std::string& name, Activation* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Activation>(
+    Activation_descriptor(), name, value);
+}
+enum Band {
+  NO_BAND = 0,
+  EU868 = 1,
+  RU864 = 2,
+  Band_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::min(),
+  Band_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::max()
+};
+bool Band_IsValid(int value);
+const Band Band_MIN = NO_BAND;
+const Band Band_MAX = RU864;
+const int Band_ARRAYSIZE = Band_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* Band_descriptor();
+inline const ::std::string& Band_Name(Band value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    Band_descriptor(), value);
+}
+inline bool Band_Parse(
+    const ::std::string& name, Band* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Band>(
+    Band_descriptor(), name, value);
+}
 // ===================================================================
 
 class Device final :
@@ -186,9 +235,9 @@ class Device final :
   ::std::string* release_dev_eui();
   void set_allocated_dev_eui(::std::string* dev_eui);
 
-  // string app_key = 2;
+  // string app_key = 3;
   void clear_app_key();
-  static const int kAppKeyFieldNumber = 2;
+  static const int kAppKeyFieldNumber = 3;
   const ::std::string& app_key() const;
   void set_app_key(const ::std::string& value);
   #if LANG_CXX11
@@ -200,9 +249,9 @@ class Device final :
   ::std::string* release_app_key();
   void set_allocated_app_key(::std::string* app_key);
 
-  // string dev_addr = 3;
+  // string dev_addr = 4;
   void clear_dev_addr();
-  static const int kDevAddrFieldNumber = 3;
+  static const int kDevAddrFieldNumber = 4;
   const ::std::string& dev_addr() const;
   void set_dev_addr(const ::std::string& value);
   #if LANG_CXX11
@@ -214,9 +263,9 @@ class Device final :
   ::std::string* release_dev_addr();
   void set_allocated_dev_addr(::std::string* dev_addr);
 
-  // string net_s_key = 4;
+  // string net_s_key = 5;
   void clear_net_s_key();
-  static const int kNetSKeyFieldNumber = 4;
+  static const int kNetSKeyFieldNumber = 5;
   const ::std::string& net_s_key() const;
   void set_net_s_key(const ::std::string& value);
   #if LANG_CXX11
@@ -228,9 +277,9 @@ class Device final :
   ::std::string* release_net_s_key();
   void set_allocated_net_s_key(::std::string* net_s_key);
 
-  // string app_s_key = 5;
+  // string app_s_key = 6;
   void clear_app_s_key();
-  static const int kAppSKeyFieldNumber = 5;
+  static const int kAppSKeyFieldNumber = 6;
   const ::std::string& app_s_key() const;
   void set_app_s_key(const ::std::string& value);
   #if LANG_CXX11
@@ -242,6 +291,12 @@ class Device final :
   ::std::string* release_app_s_key();
   void set_allocated_app_s_key(::std::string* app_s_key);
 
+  // .lora.agent.Activation activation = 2;
+  void clear_activation();
+  static const int kActivationFieldNumber = 2;
+  ::lora::agent::Activation activation() const;
+  void set_activation(::lora::agent::Activation value);
+
   // @@protoc_insertion_point(class_scope:lora.agent.Device)
  private:
   class HasBitSetters;
@@ -252,6 +307,134 @@ class Device final :
   ::google::protobuf::internal::ArenaStringPtr dev_addr_;
   ::google::protobuf::internal::ArenaStringPtr net_s_key_;
   ::google::protobuf::internal::ArenaStringPtr app_s_key_;
+  int activation_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_lora_2dagent_2floraagent_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Gateway final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:lora.agent.Gateway) */ {
+ public:
+  Gateway();
+  virtual ~Gateway();
+
+  Gateway(const Gateway& from);
+
+  inline Gateway& operator=(const Gateway& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  Gateway(Gateway&& from) noexcept
+    : Gateway() {
+    *this = ::std::move(from);
+  }
+
+  inline Gateway& operator=(Gateway&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const Gateway& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Gateway* internal_default_instance() {
+    return reinterpret_cast<const Gateway*>(
+               &_Gateway_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  void Swap(Gateway* other);
+  friend void swap(Gateway& a, Gateway& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Gateway* New() const final {
+    return CreateMaybeMessage<Gateway>(nullptr);
+  }
+
+  Gateway* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<Gateway>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const Gateway& from);
+  void MergeFrom(const Gateway& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Gateway* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string id = 1;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  const ::std::string& id() const;
+  void set_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_id(::std::string&& value);
+  #endif
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  ::std::string* mutable_id();
+  ::std::string* release_id();
+  void set_allocated_id(::std::string* id);
+
+  // .lora.agent.Band band = 2;
+  void clear_band();
+  static const int kBandFieldNumber = 2;
+  ::lora::agent::Band band() const;
+  void set_band(::lora::agent::Band value);
+
+  // @@protoc_insertion_point(class_scope:lora.agent.Gateway)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr id_;
+  int band_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_lora_2dagent_2floraagent_2eproto;
 };
@@ -295,7 +478,7 @@ class CreateRequest final :
                &_CreateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   void Swap(CreateRequest* other);
   friend void swap(CreateRequest& a, CreateRequest& b) {
@@ -403,6 +586,15 @@ class CreateRequest final :
   ::lora::agent::Device* mutable_device();
   void set_allocated_device(::lora::agent::Device* device);
 
+  // .lora.agent.Gateway gateway = 5;
+  bool has_gateway() const;
+  void clear_gateway();
+  static const int kGatewayFieldNumber = 5;
+  const ::lora::agent::Gateway& gateway() const;
+  ::lora::agent::Gateway* release_gateway();
+  ::lora::agent::Gateway* mutable_gateway();
+  void set_allocated_gateway(::lora::agent::Gateway* gateway);
+
   // @@protoc_insertion_point(class_scope:lora.agent.CreateRequest)
  private:
   class HasBitSetters;
@@ -412,6 +604,7 @@ class CreateRequest final :
   ::google::protobuf::internal::ArenaStringPtr gid_;
   ::google::protobuf::internal::ArenaStringPtr mid_;
   ::lora::agent::Device* device_;
+  ::lora::agent::Gateway* gateway_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_lora_2dagent_2floraagent_2eproto;
 };
@@ -455,7 +648,7 @@ class DeleteRequest final :
                &_DeleteRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   void Swap(DeleteRequest* other);
   friend void swap(DeleteRequest& a, DeleteRequest& b) {
@@ -575,7 +768,7 @@ class EmptyResponse final :
                &_EmptyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   void Swap(EmptyResponse* other);
   friend void swap(EmptyResponse& a, EmptyResponse& b) {
@@ -704,7 +897,21 @@ inline void Device::set_allocated_dev_eui(::std::string* dev_eui) {
   // @@protoc_insertion_point(field_set_allocated:lora.agent.Device.dev_eui)
 }
 
-// string app_key = 2;
+// .lora.agent.Activation activation = 2;
+inline void Device::clear_activation() {
+  activation_ = 0;
+}
+inline ::lora::agent::Activation Device::activation() const {
+  // @@protoc_insertion_point(field_get:lora.agent.Device.activation)
+  return static_cast< ::lora::agent::Activation >(activation_);
+}
+inline void Device::set_activation(::lora::agent::Activation value) {
+  
+  activation_ = value;
+  // @@protoc_insertion_point(field_set:lora.agent.Device.activation)
+}
+
+// string app_key = 3;
 inline void Device::clear_app_key() {
   app_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -757,7 +964,7 @@ inline void Device::set_allocated_app_key(::std::string* app_key) {
   // @@protoc_insertion_point(field_set_allocated:lora.agent.Device.app_key)
 }
 
-// string dev_addr = 3;
+// string dev_addr = 4;
 inline void Device::clear_dev_addr() {
   dev_addr_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -810,7 +1017,7 @@ inline void Device::set_allocated_dev_addr(::std::string* dev_addr) {
   // @@protoc_insertion_point(field_set_allocated:lora.agent.Device.dev_addr)
 }
 
-// string net_s_key = 4;
+// string net_s_key = 5;
 inline void Device::clear_net_s_key() {
   net_s_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -863,7 +1070,7 @@ inline void Device::set_allocated_net_s_key(::std::string* net_s_key) {
   // @@protoc_insertion_point(field_set_allocated:lora.agent.Device.net_s_key)
 }
 
-// string app_s_key = 5;
+// string app_s_key = 6;
 inline void Device::clear_app_s_key() {
   app_s_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -914,6 +1121,77 @@ inline void Device::set_allocated_app_s_key(::std::string* app_s_key) {
   }
   app_s_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), app_s_key);
   // @@protoc_insertion_point(field_set_allocated:lora.agent.Device.app_s_key)
+}
+
+// -------------------------------------------------------------------
+
+// Gateway
+
+// string id = 1;
+inline void Gateway::clear_id() {
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Gateway::id() const {
+  // @@protoc_insertion_point(field_get:lora.agent.Gateway.id)
+  return id_.GetNoArena();
+}
+inline void Gateway::set_id(const ::std::string& value) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:lora.agent.Gateway.id)
+}
+#if LANG_CXX11
+inline void Gateway::set_id(::std::string&& value) {
+  
+  id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:lora.agent.Gateway.id)
+}
+#endif
+inline void Gateway::set_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:lora.agent.Gateway.id)
+}
+inline void Gateway::set_id(const char* value, size_t size) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:lora.agent.Gateway.id)
+}
+inline ::std::string* Gateway::mutable_id() {
+  
+  // @@protoc_insertion_point(field_mutable:lora.agent.Gateway.id)
+  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Gateway::release_id() {
+  // @@protoc_insertion_point(field_release:lora.agent.Gateway.id)
+  
+  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Gateway::set_allocated_id(::std::string* id) {
+  if (id != nullptr) {
+    
+  } else {
+    
+  }
+  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:lora.agent.Gateway.id)
+}
+
+// .lora.agent.Band band = 2;
+inline void Gateway::clear_band() {
+  band_ = 0;
+}
+inline ::lora::agent::Band Gateway::band() const {
+  // @@protoc_insertion_point(field_get:lora.agent.Gateway.band)
+  return static_cast< ::lora::agent::Band >(band_);
+}
+inline void Gateway::set_band(::lora::agent::Band value) {
+  
+  band_ = value;
+  // @@protoc_insertion_point(field_set:lora.agent.Gateway.band)
 }
 
 // -------------------------------------------------------------------
@@ -1130,6 +1408,57 @@ inline void CreateRequest::set_allocated_device(::lora::agent::Device* device) {
   // @@protoc_insertion_point(field_set_allocated:lora.agent.CreateRequest.device)
 }
 
+// .lora.agent.Gateway gateway = 5;
+inline bool CreateRequest::has_gateway() const {
+  return this != internal_default_instance() && gateway_ != nullptr;
+}
+inline void CreateRequest::clear_gateway() {
+  if (GetArenaNoVirtual() == nullptr && gateway_ != nullptr) {
+    delete gateway_;
+  }
+  gateway_ = nullptr;
+}
+inline const ::lora::agent::Gateway& CreateRequest::gateway() const {
+  const ::lora::agent::Gateway* p = gateway_;
+  // @@protoc_insertion_point(field_get:lora.agent.CreateRequest.gateway)
+  return p != nullptr ? *p : *reinterpret_cast<const ::lora::agent::Gateway*>(
+      &::lora::agent::_Gateway_default_instance_);
+}
+inline ::lora::agent::Gateway* CreateRequest::release_gateway() {
+  // @@protoc_insertion_point(field_release:lora.agent.CreateRequest.gateway)
+  
+  ::lora::agent::Gateway* temp = gateway_;
+  gateway_ = nullptr;
+  return temp;
+}
+inline ::lora::agent::Gateway* CreateRequest::mutable_gateway() {
+  
+  if (gateway_ == nullptr) {
+    auto* p = CreateMaybeMessage<::lora::agent::Gateway>(GetArenaNoVirtual());
+    gateway_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:lora.agent.CreateRequest.gateway)
+  return gateway_;
+}
+inline void CreateRequest::set_allocated_gateway(::lora::agent::Gateway* gateway) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete gateway_;
+  }
+  if (gateway) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      gateway = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, gateway, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  gateway_ = gateway;
+  // @@protoc_insertion_point(field_set_allocated:lora.agent.CreateRequest.gateway)
+}
+
 // -------------------------------------------------------------------
 
 // DeleteRequest
@@ -1200,11 +1529,30 @@ inline void DeleteRequest::set_allocated_dev_eui(::std::string* dev_eui) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace agent
 }  // namespace lora
+
+namespace google {
+namespace protobuf {
+
+template <> struct is_proto_enum< ::lora::agent::Activation> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::lora::agent::Activation>() {
+  return ::lora::agent::Activation_descriptor();
+}
+template <> struct is_proto_enum< ::lora::agent::Band> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::lora::agent::Band>() {
+  return ::lora::agent::Band_descriptor();
+}
+
+}  // namespace protobuf
+}  // namespace google
 
 // @@protoc_insertion_point(global_scope)
 

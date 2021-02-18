@@ -224,6 +224,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dbill_2fricbill_2eproto::offse
   PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionRequest, license_id_),
   PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionRequest, dry_run_),
   PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionRequest, params_),
+  PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionRequest, group_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -232,6 +233,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dbill_2fricbill_2eproto::offse
   PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionResponse, payment_id_),
   PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionResponse, job_id_),
   PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionResponse, dry_run_),
+  PROTOBUF_FIELD_OFFSET(::ric::bill::SubscriptionResponse, license_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::bill::ReceiptRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -252,9 +254,9 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 14, -1, sizeof(::ric::bill::SetupResponse)},
   { 21, -1, sizeof(::ric::bill::DryRun)},
   { 30, -1, sizeof(::ric::bill::SubscriptionRequest)},
-  { 39, -1, sizeof(::ric::bill::SubscriptionResponse)},
-  { 47, -1, sizeof(::ric::bill::ReceiptRequest)},
-  { 55, -1, sizeof(::ric::bill::ReceiptResponse)},
+  { 40, -1, sizeof(::ric::bill::SubscriptionResponse)},
+  { 49, -1, sizeof(::ric::bill::ReceiptRequest)},
+  { 57, -1, sizeof(::ric::bill::ReceiptResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -282,40 +284,41 @@ const char descriptor_table_protodef_ric_2dbill_2fricbill_2eproto[] =
   "upResponse\022\022\n\nbinding_id\030\001 \001(\t\022\025\n\rwidget"
   "_params\030\002 \001(\t\"N\n\006DryRun\022\016\n\006amount\030\001 \001(\t\022"
   "\020\n\010currency\030\002 \001(\t\022\020\n\010next_pay\030\003 \001(\003\022\020\n\010m"
-  "essages\030\004 \003(\t\"n\n\023SubscriptionRequest\022\"\n\003"
-  "ctx\030\001 \001(\0132\025.ric.bill.UserContext\022\022\n\nlice"
-  "nse_id\030\002 \001(\t\022\017\n\007dry_run\030\003 \001(\010\022\016\n\006params\030"
-  "\004 \001(\t\"]\n\024SubscriptionResponse\022\022\n\npayment"
-  "_id\030\001 \001(\t\022\016\n\006job_id\030\002 \001(\t\022!\n\007dry_run\030\003 \001"
-  "(\0132\020.ric.bill.DryRun\"J\n\016ReceiptRequest\022\022"
-  "\n\npayment_id\030\001 \001(\t\022\024\n\014payment_gate\030\002 \001(\t"
-  "\022\016\n\006params\030\003 \001(\t\"\021\n\017ReceiptResponse2\225\006\n\007"
-  "Billing\022\?\n\014SetupAccount\022\026.ric.bill.Setup"
-  "Request\032\027.ric.bill.SetupResponse\022@\n\rVeri"
-  "fyAccount\022\026.ric.bill.SetupRequest\032\027.ric."
-  "bill.SetupResponse\022\?\n\014CloseAccount\022\026.ric"
-  ".bill.SetupRequest\032\027.ric.bill.SetupRespo"
-  "nse\022S\n\022CreateSubscription\022\035.ric.bill.Sub"
-  "scriptionRequest\032\036.ric.bill.Subscription"
-  "Response\022S\n\022UpdateSubscription\022\035.ric.bil"
-  "l.SubscriptionRequest\032\036.ric.bill.Subscri"
-  "ptionResponse\022S\n\022CancelSubscription\022\035.ri"
-  "c.bill.SubscriptionRequest\032\036.ric.bill.Su"
-  "bscriptionResponse\022S\n\022ResumeSubscription"
-  "\022\035.ric.bill.SubscriptionRequest\032\036.ric.bi"
-  "ll.SubscriptionResponse\022U\n\024ActivateSubsc"
-  "ription\022\035.ric.bill.SubscriptionRequest\032\036"
-  ".ric.bill.SubscriptionResponse\022W\n\026Deacti"
-  "vateSubscription\022\035.ric.bill.Subscription"
-  "Request\032\036.ric.bill.SubscriptionResponse\022"
-  "B\n\013SendReceipt\022\030.ric.bill.ReceiptRequest"
-  "\032\031.ric.bill.ReceiptResponseB\024Z\022./ric-bil"
-  "l;ricbillb\006proto3"
+  "essages\030\004 \003(\t\"\200\001\n\023SubscriptionRequest\022\"\n"
+  "\003ctx\030\001 \001(\0132\025.ric.bill.UserContext\022\022\n\nlic"
+  "ense_id\030\002 \001(\t\022\017\n\007dry_run\030\003 \001(\010\022\016\n\006params"
+  "\030\004 \001(\t\022\020\n\010group_id\030\005 \001(\t\"q\n\024Subscription"
+  "Response\022\022\n\npayment_id\030\001 \001(\t\022\016\n\006job_id\030\002"
+  " \001(\t\022!\n\007dry_run\030\003 \001(\0132\020.ric.bill.DryRun\022"
+  "\022\n\nlicense_id\030\004 \001(\t\"J\n\016ReceiptRequest\022\022\n"
+  "\npayment_id\030\001 \001(\t\022\024\n\014payment_gate\030\002 \001(\t\022"
+  "\016\n\006params\030\003 \001(\t\"\021\n\017ReceiptResponse2\225\006\n\007B"
+  "illing\022\?\n\014SetupAccount\022\026.ric.bill.SetupR"
+  "equest\032\027.ric.bill.SetupResponse\022@\n\rVerif"
+  "yAccount\022\026.ric.bill.SetupRequest\032\027.ric.b"
+  "ill.SetupResponse\022\?\n\014CloseAccount\022\026.ric."
+  "bill.SetupRequest\032\027.ric.bill.SetupRespon"
+  "se\022S\n\022CreateSubscription\022\035.ric.bill.Subs"
+  "criptionRequest\032\036.ric.bill.SubscriptionR"
+  "esponse\022S\n\022UpdateSubscription\022\035.ric.bill"
+  ".SubscriptionRequest\032\036.ric.bill.Subscrip"
+  "tionResponse\022S\n\022CancelSubscription\022\035.ric"
+  ".bill.SubscriptionRequest\032\036.ric.bill.Sub"
+  "scriptionResponse\022S\n\022ResumeSubscription\022"
+  "\035.ric.bill.SubscriptionRequest\032\036.ric.bil"
+  "l.SubscriptionResponse\022U\n\024ActivateSubscr"
+  "iption\022\035.ric.bill.SubscriptionRequest\032\036."
+  "ric.bill.SubscriptionResponse\022W\n\026Deactiv"
+  "ateSubscription\022\035.ric.bill.SubscriptionR"
+  "equest\032\036.ric.bill.SubscriptionResponse\022B"
+  "\n\013SendReceipt\022\030.ric.bill.ReceiptRequest\032"
+  "\031.ric.bill.ReceiptResponseB\024Z\022./ric-bill"
+  ";ricbillb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dbill_2fricbill_2eproto = {
   false, InitDefaults_ric_2dbill_2fricbill_2eproto, 
   descriptor_table_protodef_ric_2dbill_2fricbill_2eproto,
-  "ric-bill/ricbill.proto", &assign_descriptors_table_ric_2dbill_2fricbill_2eproto, 1417,
+  "ric-bill/ricbill.proto", &assign_descriptors_table_ric_2dbill_2fricbill_2eproto, 1456,
 };
 
 void AddDescriptors_ric_2dbill_2fricbill_2eproto() {
@@ -1933,6 +1936,7 @@ const int SubscriptionRequest::kCtxFieldNumber;
 const int SubscriptionRequest::kLicenseIdFieldNumber;
 const int SubscriptionRequest::kDryRunFieldNumber;
 const int SubscriptionRequest::kParamsFieldNumber;
+const int SubscriptionRequest::kGroupIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SubscriptionRequest::SubscriptionRequest()
@@ -1952,6 +1956,10 @@ SubscriptionRequest::SubscriptionRequest(const SubscriptionRequest& from)
   if (from.params().size() > 0) {
     params_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.params_);
   }
+  group_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.group_id().size() > 0) {
+    group_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_id_);
+  }
   if (from.has_ctx()) {
     ctx_ = new ::ric::bill::UserContext(*from.ctx_);
   } else {
@@ -1966,6 +1974,7 @@ void SubscriptionRequest::SharedCtor() {
       &scc_info_SubscriptionRequest_ric_2dbill_2fricbill_2eproto.base);
   license_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   params_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  group_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&ctx_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&dry_run_) -
       reinterpret_cast<char*>(&ctx_)) + sizeof(dry_run_));
@@ -1979,6 +1988,7 @@ SubscriptionRequest::~SubscriptionRequest() {
 void SubscriptionRequest::SharedDtor() {
   license_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   params_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  group_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete ctx_;
 }
 
@@ -1999,6 +2009,7 @@ void SubscriptionRequest::Clear() {
 
   license_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   params_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  group_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
     delete ctx_;
   }
@@ -2063,6 +2074,22 @@ const char* SubscriptionRequest::_InternalParse(const char* begin, const char* e
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         ctx->extra_parse_data().SetFieldName("ric.bill.SubscriptionRequest.params");
         object = msg->mutable_params();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string group_id = 5;
+      case 5: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 42) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.bill.SubscriptionRequest.group_id");
+        object = msg->mutable_group_id();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -2160,6 +2187,21 @@ bool SubscriptionRequest::MergePartialFromCodedStream(
         break;
       }
 
+      // string group_id = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (42 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_group_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->group_id().data(), static_cast<int>(this->group_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.bill.SubscriptionRequest.group_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -2218,6 +2260,16 @@ void SubscriptionRequest::SerializeWithCachedSizes(
       4, this->params(), output);
   }
 
+  // string group_id = 5;
+  if (this->group_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->group_id().data(), static_cast<int>(this->group_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.bill.SubscriptionRequest.group_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->group_id(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -2265,6 +2317,17 @@ void SubscriptionRequest::SerializeWithCachedSizes(
         4, this->params(), target);
   }
 
+  // string group_id = 5;
+  if (this->group_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->group_id().data(), static_cast<int>(this->group_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.bill.SubscriptionRequest.group_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->group_id(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -2298,6 +2361,13 @@ size_t SubscriptionRequest::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->params());
+  }
+
+  // string group_id = 5;
+  if (this->group_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->group_id());
   }
 
   // .ric.bill.UserContext ctx = 1;
@@ -2347,6 +2417,10 @@ void SubscriptionRequest::MergeFrom(const SubscriptionRequest& from) {
 
     params_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.params_);
   }
+  if (from.group_id().size() > 0) {
+
+    group_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_id_);
+  }
   if (from.has_ctx()) {
     mutable_ctx()->::ric::bill::UserContext::MergeFrom(from.ctx());
   }
@@ -2384,6 +2458,8 @@ void SubscriptionRequest::InternalSwap(SubscriptionRequest* other) {
     GetArenaNoVirtual());
   params_.Swap(&other->params_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  group_id_.Swap(&other->group_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   swap(ctx_, other->ctx_);
   swap(dry_run_, other->dry_run_);
 }
@@ -2413,6 +2489,7 @@ SubscriptionResponse::HasBitSetters::dry_run(const SubscriptionResponse* msg) {
 const int SubscriptionResponse::kPaymentIdFieldNumber;
 const int SubscriptionResponse::kJobIdFieldNumber;
 const int SubscriptionResponse::kDryRunFieldNumber;
+const int SubscriptionResponse::kLicenseIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SubscriptionResponse::SubscriptionResponse()
@@ -2432,6 +2509,10 @@ SubscriptionResponse::SubscriptionResponse(const SubscriptionResponse& from)
   if (from.job_id().size() > 0) {
     job_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.job_id_);
   }
+  license_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.license_id().size() > 0) {
+    license_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.license_id_);
+  }
   if (from.has_dry_run()) {
     dry_run_ = new ::ric::bill::DryRun(*from.dry_run_);
   } else {
@@ -2445,6 +2526,7 @@ void SubscriptionResponse::SharedCtor() {
       &scc_info_SubscriptionResponse_ric_2dbill_2fricbill_2eproto.base);
   payment_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   job_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  license_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   dry_run_ = nullptr;
 }
 
@@ -2456,6 +2538,7 @@ SubscriptionResponse::~SubscriptionResponse() {
 void SubscriptionResponse::SharedDtor() {
   payment_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   job_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  license_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete dry_run_;
 }
 
@@ -2476,6 +2559,7 @@ void SubscriptionResponse::Clear() {
 
   payment_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   job_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  license_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && dry_run_ != nullptr) {
     delete dry_run_;
   }
@@ -2539,6 +2623,22 @@ const char* SubscriptionResponse::_InternalParse(const char* begin, const char* 
         ptr += size;
         GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
             {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // string license_id = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.bill.SubscriptionResponse.license_id");
+        object = msg->mutable_license_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
         break;
       }
       default: {
@@ -2616,6 +2716,21 @@ bool SubscriptionResponse::MergePartialFromCodedStream(
         break;
       }
 
+      // string license_id = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_license_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->license_id().data(), static_cast<int>(this->license_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.bill.SubscriptionResponse.license_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -2669,6 +2784,16 @@ void SubscriptionResponse::SerializeWithCachedSizes(
       3, HasBitSetters::dry_run(this), output);
   }
 
+  // string license_id = 4;
+  if (this->license_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->license_id().data(), static_cast<int>(this->license_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.bill.SubscriptionResponse.license_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->license_id(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -2711,6 +2836,17 @@ void SubscriptionResponse::SerializeWithCachedSizes(
         3, HasBitSetters::dry_run(this), target);
   }
 
+  // string license_id = 4;
+  if (this->license_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->license_id().data(), static_cast<int>(this->license_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.bill.SubscriptionResponse.license_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->license_id(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -2744,6 +2880,13 @@ size_t SubscriptionResponse::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->job_id());
+  }
+
+  // string license_id = 4;
+  if (this->license_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->license_id());
   }
 
   // .ric.bill.DryRun dry_run = 3;
@@ -2788,6 +2931,10 @@ void SubscriptionResponse::MergeFrom(const SubscriptionResponse& from) {
 
     job_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.job_id_);
   }
+  if (from.license_id().size() > 0) {
+
+    license_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.license_id_);
+  }
   if (from.has_dry_run()) {
     mutable_dry_run()->::ric::bill::DryRun::MergeFrom(from.dry_run());
   }
@@ -2821,6 +2968,8 @@ void SubscriptionResponse::InternalSwap(SubscriptionResponse* other) {
   payment_id_.Swap(&other->payment_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   job_id_.Swap(&other->job_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  license_id_.Swap(&other->license_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(dry_run_, other->dry_run_);
 }

@@ -1,7 +1,7 @@
 
 import { RicCode } from './ric-code';
 import { FunctionControl, PublicAPI } from './ric-action';
-import { Watch, WatchV2, AttendanceControl, Osm, Check } from './ric-geo';
+import { Watch } from './ric-geo';
 import { RicAuth } from './ric-auth';
 import { RicLogicV3 } from './ric-logic-v3';
 import { TaskService, KindService } from './ric-tasks';
@@ -9,6 +9,7 @@ import { RicStore } from './ric-store';
 import { Bots } from './ric-bots';
 import { Billing } from './ric-bill';
 import { SMPP, SMTP } from './ric-notify';
+import { Service } from './ric-handler';
 
 interface GrpcRegistry {
   /* clients */  
@@ -21,10 +22,6 @@ interface GrpcRegistry {
 
   getClient(service: 'ric-geo'): Watch;
   getClient(service: 'ric-geo/Watch'): Watch;
-  getClient(service: 'ric-geo/WatchV2'): WatchV2;
-  getClient(service: 'ric-geo/AttendanceControl'): AttendanceControl;
-  getClient(service: 'ric-geo/Osm'): Osm;
-  getClient(service: 'ric-geo/Check'): Check;
 
   getClient(service: 'ric-auth'): RicAuth;
   getClient(service: 'ric-auth/RicAuth'): RicAuth;
@@ -49,6 +46,9 @@ interface GrpcRegistry {
   getClient(service: 'ric-notify/SMPP'): SMPP;
   getClient(service: 'ric-notify/SMTP'): SMTP;
 
+  getClient(service: 'ric-handler'): Service;
+  getClient(service: 'ric-handler/Service'): Service;
+
 
   /* servers */ 
   addServer(service: 'ric-code', impl: RicCode);
@@ -60,10 +60,6 @@ interface GrpcRegistry {
 
   addServer(service: 'ric-geo', impl: Watch);
   addServer(service: 'ric-geo/Watch', impl: Watch);
-  addServer(service: 'ric-geo/WatchV2', impl: WatchV2);
-  addServer(service: 'ric-geo/AttendanceControl', impl: AttendanceControl);
-  addServer(service: 'ric-geo/Osm', impl: Osm);
-  addServer(service: 'ric-geo/Check', impl: Check);
 
   addServer(service: 'ric-auth', impl: RicAuth);
   addServer(service: 'ric-auth/RicAuth', impl: RicAuth);
@@ -87,6 +83,9 @@ interface GrpcRegistry {
   addServer(service: 'ric-notify', impl: SMPP);
   addServer(service: 'ric-notify/SMPP', impl: SMPP);
   addServer(service: 'ric-notify/SMTP', impl: SMTP);
+
+  addServer(service: 'ric-handler', impl: Service);
+  addServer(service: 'ric-handler/Service', impl: Service);
 }
 
 declare const index: { registry: GrpcRegistry };

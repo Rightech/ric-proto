@@ -44,12 +44,14 @@ message SubscriptionRequest {
   string license_id = 2;
   bool dry_run = 3;
   string params = 4;
+  string group_id = 5;
 }
 
 message SubscriptionResponse {
   string payment_id = 1;
   string job_id = 2;
   DryRun dry_run = 3;
+  string license_id = 4;
 }
 
 message ReceiptRequest {
