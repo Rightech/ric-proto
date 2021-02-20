@@ -51,6 +51,14 @@ class StatRecordDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<StatRecord> _instance;
 } _StatRecord_default_instance_;
+class IssueCertRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<IssueCertRequest> _instance;
+} _IssueCertRequest_default_instance_;
+class IssueCertResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<IssueCertResponse> _instance;
+} _IssueCertResponse_default_instance_;
 class ModelInfoRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<ModelInfoRequest> _instance;
@@ -170,6 +178,34 @@ static void InitDefaultsStatRecord_ric_2dauth_2fricauth_2eproto() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_StatRecord_ric_2dauth_2fricauth_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsStatRecord_ric_2dauth_2fricauth_2eproto}, {}};
 
+static void InitDefaultsIssueCertRequest_ric_2dauth_2fricauth_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::auth::_IssueCertRequest_default_instance_;
+    new (ptr) ::ric::auth::IssueCertRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::auth::IssueCertRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_IssueCertRequest_ric_2dauth_2fricauth_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsIssueCertRequest_ric_2dauth_2fricauth_2eproto}, {}};
+
+static void InitDefaultsIssueCertResponse_ric_2dauth_2fricauth_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::auth::_IssueCertResponse_default_instance_;
+    new (ptr) ::ric::auth::IssueCertResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::auth::IssueCertResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_IssueCertResponse_ric_2dauth_2fricauth_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsIssueCertResponse_ric_2dauth_2fricauth_2eproto}, {}};
+
 static void InitDefaultsModelInfoRequest_ric_2dauth_2fricauth_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -235,13 +271,15 @@ void InitDefaults_ric_2dauth_2fricauth_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_AuthObjectResponse_ric_2dauth_2fricauth_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_AuthObjectArgument_ric_2dauth_2fricauth_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_StatRecord_ric_2dauth_2fricauth_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_IssueCertRequest_ric_2dauth_2fricauth_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_IssueCertResponse_ric_2dauth_2fricauth_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ModelInfoRequest_ric_2dauth_2fricauth_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ModelInfoResponse_ric_2dauth_2fricauth_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ObjectGateRequest_ric_2dauth_2fricauth_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ObjectGateResponse_ric_2dauth_2fricauth_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dauth_2fricauth_2eproto[11];
+::google::protobuf::Metadata file_level_metadata_ric_2dauth_2fricauth_2eproto[13];
 constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_ric_2dauth_2fricauth_2eproto = nullptr;
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dauth_2fricauth_2eproto = nullptr;
 
@@ -321,6 +359,23 @@ const ::google::protobuf::uint32 TableStruct_ric_2dauth_2fricauth_2eproto::offse
   PROTOBUF_FIELD_OFFSET(::ric::auth::StatRecord, from_),
   PROTOBUF_FIELD_OFFSET(::ric::auth::StatRecord, to_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::auth::IssueCertRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::auth::IssueCertRequest, object_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::IssueCertRequest, ttl_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::auth::IssueCertResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::auth::IssueCertResponse, certificate_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::IssueCertResponse, private_key_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::IssueCertResponse, serial_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::IssueCertResponse, issued_at_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::IssueCertResponse, expires_at_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::auth::ModelInfoRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -353,10 +408,12 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 38, -1, sizeof(::ric::auth::AuthObjectResponse)},
   { 56, -1, sizeof(::ric::auth::AuthObjectArgument)},
   { 65, -1, sizeof(::ric::auth::StatRecord)},
-  { 74, -1, sizeof(::ric::auth::ModelInfoRequest)},
-  { 80, -1, sizeof(::ric::auth::ModelInfoResponse)},
-  { 87, -1, sizeof(::ric::auth::ObjectGateRequest)},
-  { 93, -1, sizeof(::ric::auth::ObjectGateResponse)},
+  { 74, -1, sizeof(::ric::auth::IssueCertRequest)},
+  { 81, -1, sizeof(::ric::auth::IssueCertResponse)},
+  { 91, -1, sizeof(::ric::auth::ModelInfoRequest)},
+  { 97, -1, sizeof(::ric::auth::ModelInfoResponse)},
+  { 104, -1, sizeof(::ric::auth::ObjectGateRequest)},
+  { 110, -1, sizeof(::ric::auth::ObjectGateResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -367,6 +424,8 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_AuthObjectResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_AuthObjectArgument_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_StatRecord_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_IssueCertRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_IssueCertResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_ModelInfoRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_ModelInfoResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_ObjectGateRequest_default_instance_),
@@ -376,7 +435,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dauth_2fricauth_2eproto = {
   {}, AddDescriptors_ric_2dauth_2fricauth_2eproto, "ric-auth/ricauth.proto", schemas,
   file_default_instances, TableStruct_ric_2dauth_2fricauth_2eproto::offsets,
-  file_level_metadata_ric_2dauth_2fricauth_2eproto, 11, file_level_enum_descriptors_ric_2dauth_2fricauth_2eproto, file_level_service_descriptors_ric_2dauth_2fricauth_2eproto,
+  file_level_metadata_ric_2dauth_2fricauth_2eproto, 13, file_level_enum_descriptors_ric_2dauth_2fricauth_2eproto, file_level_service_descriptors_ric_2dauth_2fricauth_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dauth_2fricauth_2eproto[] =
@@ -403,15 +462,21 @@ const char descriptor_table_protodef_ric_2dauth_2fricauth_2eproto[] =
   "\021\n\tdata_type\030\002 \001(\t\022\021\n\treference\030\003 \001(\t\022\016\n"
   "\006parser\030\004 \001(\t\"C\n\nStatRecord\022\r\n\005value\030\001 \001"
   "(\003\022\014\n\004left\030\002 \001(\003\022\014\n\004from\030\003 \001(\003\022\n\n\002to\030\004 \001"
-  "(\003\"$\n\020ModelInfoRequest\022\020\n\010model_id\030\001 \001(\t"
-  "\"V\n\021ModelInfoResponse\022\020\n\010model_id\030\001 \001(\t\022"
-  "/\n\targuments\030\002 \003(\0132\034.ric.auth.AuthObject"
-  "Argument\"&\n\021ObjectGateRequest\022\021\n\tobject_"
-  "id\030\001 \001(\t\"\024\n\022ObjectGateResponse2\263\002\n\007RicAu"
-  "th\022G\n\nAuthObject\022\033.ric.auth.AuthObjectRe"
-  "quest\032\034.ric.auth.AuthObjectResponse\022G\n\014G"
-  "etModelInfo\022\032.ric.auth.ModelInfoRequest\032"
-  "\033.ric.auth.ModelInfoResponse\022H\n\013SendOffl"
+  "(\003\"2\n\020IssueCertRequest\022\021\n\tobject_id\030\001 \001("
+  "\t\022\013\n\003ttl\030\002 \001(\t\"t\n\021IssueCertResponse\022\023\n\013c"
+  "ertificate\030\001 \001(\t\022\023\n\013private_key\030\002 \001(\t\022\016\n"
+  "\006serial\030\003 \001(\t\022\021\n\tissued_at\030\004 \001(\003\022\022\n\nexpi"
+  "res_at\030\005 \001(\003\"$\n\020ModelInfoRequest\022\020\n\010mode"
+  "l_id\030\001 \001(\t\"V\n\021ModelInfoResponse\022\020\n\010model"
+  "_id\030\001 \001(\t\022/\n\targuments\030\002 \003(\0132\034.ric.auth."
+  "AuthObjectArgument\"&\n\021ObjectGateRequest\022"
+  "\021\n\tobject_id\030\001 \001(\t\"\024\n\022ObjectGateResponse"
+  "2\371\002\n\007RicAuth\022G\n\nAuthObject\022\033.ric.auth.Au"
+  "thObjectRequest\032\034.ric.auth.AuthObjectRes"
+  "ponse\022G\n\014GetModelInfo\022\032.ric.auth.ModelIn"
+  "foRequest\032\033.ric.auth.ModelInfoResponse\022D"
+  "\n\tIssueCert\022\032.ric.auth.IssueCertRequest\032"
+  "\033.ric.auth.IssueCertResponse\022H\n\013SendOffl"
   "ine\022\033.ric.auth.ObjectGateRequest\032\034.ric.a"
   "uth.ObjectGateResponse\022L\n\017SendModelUpdat"
   "e\022\033.ric.auth.ObjectGateRequest\032\034.ric.aut"
@@ -421,7 +486,7 @@ const char descriptor_table_protodef_ric_2dauth_2fricauth_2eproto[] =
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dauth_2fricauth_2eproto = {
   false, InitDefaults_ric_2dauth_2fricauth_2eproto, 
   descriptor_table_protodef_ric_2dauth_2fricauth_2eproto,
-  "ric-auth/ricauth.proto", &assign_descriptors_table_ric_2dauth_2fricauth_2eproto, 1450,
+  "ric-auth/ricauth.proto", &assign_descriptors_table_ric_2dauth_2fricauth_2eproto, 1690,
 };
 
 void AddDescriptors_ric_2dauth_2fricauth_2eproto() {
@@ -3848,6 +3913,912 @@ void StatRecord::InternalSwap(StatRecord* other) {
 
 // ===================================================================
 
+void IssueCertRequest::InitAsDefaultInstance() {
+}
+class IssueCertRequest::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int IssueCertRequest::kObjectIdFieldNumber;
+const int IssueCertRequest::kTtlFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+IssueCertRequest::IssueCertRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.auth.IssueCertRequest)
+}
+IssueCertRequest::IssueCertRequest(const IssueCertRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.object_id().size() > 0) {
+    object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
+  }
+  ttl_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.ttl().size() > 0) {
+    ttl_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.ttl_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.auth.IssueCertRequest)
+}
+
+void IssueCertRequest::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_IssueCertRequest_ric_2dauth_2fricauth_2eproto.base);
+  object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ttl_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+IssueCertRequest::~IssueCertRequest() {
+  // @@protoc_insertion_point(destructor:ric.auth.IssueCertRequest)
+  SharedDtor();
+}
+
+void IssueCertRequest::SharedDtor() {
+  object_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ttl_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void IssueCertRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const IssueCertRequest& IssueCertRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_IssueCertRequest_ric_2dauth_2fricauth_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void IssueCertRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.auth.IssueCertRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ttl_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* IssueCertRequest::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<IssueCertRequest*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // string object_id = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.auth.IssueCertRequest.object_id");
+        object = msg->mutable_object_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string ttl = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.auth.IssueCertRequest.ttl");
+        object = msg->mutable_ttl();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool IssueCertRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.auth.IssueCertRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string object_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_object_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->object_id().data(), static_cast<int>(this->object_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.IssueCertRequest.object_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string ttl = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_ttl()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->ttl().data(), static_cast<int>(this->ttl().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.IssueCertRequest.ttl"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.auth.IssueCertRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.auth.IssueCertRequest)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void IssueCertRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.auth.IssueCertRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string object_id = 1;
+  if (this->object_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->object_id().data(), static_cast<int>(this->object_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.IssueCertRequest.object_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->object_id(), output);
+  }
+
+  // string ttl = 2;
+  if (this->ttl().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->ttl().data(), static_cast<int>(this->ttl().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.IssueCertRequest.ttl");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->ttl(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.auth.IssueCertRequest)
+}
+
+::google::protobuf::uint8* IssueCertRequest::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.auth.IssueCertRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string object_id = 1;
+  if (this->object_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->object_id().data(), static_cast<int>(this->object_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.IssueCertRequest.object_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->object_id(), target);
+  }
+
+  // string ttl = 2;
+  if (this->ttl().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->ttl().data(), static_cast<int>(this->ttl().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.IssueCertRequest.ttl");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->ttl(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.auth.IssueCertRequest)
+  return target;
+}
+
+size_t IssueCertRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.auth.IssueCertRequest)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string object_id = 1;
+  if (this->object_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->object_id());
+  }
+
+  // string ttl = 2;
+  if (this->ttl().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->ttl());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void IssueCertRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.auth.IssueCertRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const IssueCertRequest* source =
+      ::google::protobuf::DynamicCastToGenerated<IssueCertRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.auth.IssueCertRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.auth.IssueCertRequest)
+    MergeFrom(*source);
+  }
+}
+
+void IssueCertRequest::MergeFrom(const IssueCertRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.auth.IssueCertRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.object_id().size() > 0) {
+
+    object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
+  }
+  if (from.ttl().size() > 0) {
+
+    ttl_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.ttl_);
+  }
+}
+
+void IssueCertRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.auth.IssueCertRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void IssueCertRequest::CopyFrom(const IssueCertRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.auth.IssueCertRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool IssueCertRequest::IsInitialized() const {
+  return true;
+}
+
+void IssueCertRequest::Swap(IssueCertRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void IssueCertRequest::InternalSwap(IssueCertRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  object_id_.Swap(&other->object_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  ttl_.Swap(&other->ttl_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+}
+
+::google::protobuf::Metadata IssueCertRequest::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dauth_2fricauth_2eproto);
+  return ::file_level_metadata_ric_2dauth_2fricauth_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void IssueCertResponse::InitAsDefaultInstance() {
+}
+class IssueCertResponse::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int IssueCertResponse::kCertificateFieldNumber;
+const int IssueCertResponse::kPrivateKeyFieldNumber;
+const int IssueCertResponse::kSerialFieldNumber;
+const int IssueCertResponse::kIssuedAtFieldNumber;
+const int IssueCertResponse::kExpiresAtFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+IssueCertResponse::IssueCertResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.auth.IssueCertResponse)
+}
+IssueCertResponse::IssueCertResponse(const IssueCertResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  certificate_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.certificate().size() > 0) {
+    certificate_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.certificate_);
+  }
+  private_key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.private_key().size() > 0) {
+    private_key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.private_key_);
+  }
+  serial_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.serial().size() > 0) {
+    serial_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.serial_);
+  }
+  ::memcpy(&issued_at_, &from.issued_at_,
+    static_cast<size_t>(reinterpret_cast<char*>(&expires_at_) -
+    reinterpret_cast<char*>(&issued_at_)) + sizeof(expires_at_));
+  // @@protoc_insertion_point(copy_constructor:ric.auth.IssueCertResponse)
+}
+
+void IssueCertResponse::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_IssueCertResponse_ric_2dauth_2fricauth_2eproto.base);
+  certificate_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  private_key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  serial_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&issued_at_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&expires_at_) -
+      reinterpret_cast<char*>(&issued_at_)) + sizeof(expires_at_));
+}
+
+IssueCertResponse::~IssueCertResponse() {
+  // @@protoc_insertion_point(destructor:ric.auth.IssueCertResponse)
+  SharedDtor();
+}
+
+void IssueCertResponse::SharedDtor() {
+  certificate_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  private_key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  serial_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void IssueCertResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const IssueCertResponse& IssueCertResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_IssueCertResponse_ric_2dauth_2fricauth_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void IssueCertResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.auth.IssueCertResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  certificate_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  private_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  serial_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&issued_at_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&expires_at_) -
+      reinterpret_cast<char*>(&issued_at_)) + sizeof(expires_at_));
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* IssueCertResponse::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<IssueCertResponse*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // string certificate = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.auth.IssueCertResponse.certificate");
+        object = msg->mutable_certificate();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string private_key = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.auth.IssueCertResponse.private_key");
+        object = msg->mutable_private_key();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string serial = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.auth.IssueCertResponse.serial");
+        object = msg->mutable_serial();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // int64 issued_at = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 32) goto handle_unusual;
+        msg->set_issued_at(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // int64 expires_at = 5;
+      case 5: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 40) goto handle_unusual;
+        msg->set_expires_at(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool IssueCertResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.auth.IssueCertResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string certificate = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_certificate()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->certificate().data(), static_cast<int>(this->certificate().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.IssueCertResponse.certificate"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string private_key = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_private_key()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->private_key().data(), static_cast<int>(this->private_key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.IssueCertResponse.private_key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string serial = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_serial()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->serial().data(), static_cast<int>(this->serial().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.IssueCertResponse.serial"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int64 issued_at = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (32 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &issued_at_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int64 expires_at = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (40 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &expires_at_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.auth.IssueCertResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.auth.IssueCertResponse)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void IssueCertResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.auth.IssueCertResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string certificate = 1;
+  if (this->certificate().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->certificate().data(), static_cast<int>(this->certificate().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.IssueCertResponse.certificate");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->certificate(), output);
+  }
+
+  // string private_key = 2;
+  if (this->private_key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->private_key().data(), static_cast<int>(this->private_key().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.IssueCertResponse.private_key");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->private_key(), output);
+  }
+
+  // string serial = 3;
+  if (this->serial().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->serial().data(), static_cast<int>(this->serial().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.IssueCertResponse.serial");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->serial(), output);
+  }
+
+  // int64 issued_at = 4;
+  if (this->issued_at() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->issued_at(), output);
+  }
+
+  // int64 expires_at = 5;
+  if (this->expires_at() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->expires_at(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.auth.IssueCertResponse)
+}
+
+::google::protobuf::uint8* IssueCertResponse::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.auth.IssueCertResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string certificate = 1;
+  if (this->certificate().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->certificate().data(), static_cast<int>(this->certificate().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.IssueCertResponse.certificate");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->certificate(), target);
+  }
+
+  // string private_key = 2;
+  if (this->private_key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->private_key().data(), static_cast<int>(this->private_key().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.IssueCertResponse.private_key");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->private_key(), target);
+  }
+
+  // string serial = 3;
+  if (this->serial().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->serial().data(), static_cast<int>(this->serial().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.IssueCertResponse.serial");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->serial(), target);
+  }
+
+  // int64 issued_at = 4;
+  if (this->issued_at() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->issued_at(), target);
+  }
+
+  // int64 expires_at = 5;
+  if (this->expires_at() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->expires_at(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.auth.IssueCertResponse)
+  return target;
+}
+
+size_t IssueCertResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.auth.IssueCertResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string certificate = 1;
+  if (this->certificate().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->certificate());
+  }
+
+  // string private_key = 2;
+  if (this->private_key().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->private_key());
+  }
+
+  // string serial = 3;
+  if (this->serial().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->serial());
+  }
+
+  // int64 issued_at = 4;
+  if (this->issued_at() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->issued_at());
+  }
+
+  // int64 expires_at = 5;
+  if (this->expires_at() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->expires_at());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void IssueCertResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.auth.IssueCertResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const IssueCertResponse* source =
+      ::google::protobuf::DynamicCastToGenerated<IssueCertResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.auth.IssueCertResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.auth.IssueCertResponse)
+    MergeFrom(*source);
+  }
+}
+
+void IssueCertResponse::MergeFrom(const IssueCertResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.auth.IssueCertResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.certificate().size() > 0) {
+
+    certificate_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.certificate_);
+  }
+  if (from.private_key().size() > 0) {
+
+    private_key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.private_key_);
+  }
+  if (from.serial().size() > 0) {
+
+    serial_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.serial_);
+  }
+  if (from.issued_at() != 0) {
+    set_issued_at(from.issued_at());
+  }
+  if (from.expires_at() != 0) {
+    set_expires_at(from.expires_at());
+  }
+}
+
+void IssueCertResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.auth.IssueCertResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void IssueCertResponse::CopyFrom(const IssueCertResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.auth.IssueCertResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool IssueCertResponse::IsInitialized() const {
+  return true;
+}
+
+void IssueCertResponse::Swap(IssueCertResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void IssueCertResponse::InternalSwap(IssueCertResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  certificate_.Swap(&other->certificate_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  private_key_.Swap(&other->private_key_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  serial_.Swap(&other->serial_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(issued_at_, other->issued_at_);
+  swap(expires_at_, other->expires_at_);
+}
+
+::google::protobuf::Metadata IssueCertResponse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dauth_2fricauth_2eproto);
+  return ::file_level_metadata_ric_2dauth_2fricauth_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
 void ModelInfoRequest::InitAsDefaultInstance() {
 }
 class ModelInfoRequest::HasBitSetters {
@@ -5031,6 +6002,12 @@ template<> PROTOBUF_NOINLINE ::ric::auth::AuthObjectArgument* Arena::CreateMaybe
 }
 template<> PROTOBUF_NOINLINE ::ric::auth::StatRecord* Arena::CreateMaybeMessage< ::ric::auth::StatRecord >(Arena* arena) {
   return Arena::CreateInternal< ::ric::auth::StatRecord >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::auth::IssueCertRequest* Arena::CreateMaybeMessage< ::ric::auth::IssueCertRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::auth::IssueCertRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::auth::IssueCertResponse* Arena::CreateMaybeMessage< ::ric::auth::IssueCertResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::auth::IssueCertResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::auth::ModelInfoRequest* Arena::CreateMaybeMessage< ::ric::auth::ModelInfoRequest >(Arena* arena) {
   return Arena::CreateInternal< ::ric::auth::ModelInfoRequest >(arena);

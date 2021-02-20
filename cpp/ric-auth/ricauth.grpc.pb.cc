@@ -22,6 +22,7 @@ namespace auth {
 static const char* RicAuth_method_names[] = {
   "/ric.auth.RicAuth/AuthObject",
   "/ric.auth.RicAuth/GetModelInfo",
+  "/ric.auth.RicAuth/IssueCert",
   "/ric.auth.RicAuth/SendOffline",
   "/ric.auth.RicAuth/SendModelUpdate",
 };
@@ -35,8 +36,9 @@ std::unique_ptr< RicAuth::Stub> RicAuth::NewStub(const std::shared_ptr< ::grpc::
 RicAuth::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_AuthObject_(RicAuth_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetModelInfo_(RicAuth_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SendOffline_(RicAuth_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SendModelUpdate_(RicAuth_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_IssueCert_(RicAuth_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendOffline_(RicAuth_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendModelUpdate_(RicAuth_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status RicAuth::Stub::AuthObject(::grpc::ClientContext* context, const ::ric::auth::AuthObjectRequest& request, ::ric::auth::AuthObjectResponse* response) {
@@ -77,6 +79,26 @@ void RicAuth::Stub::experimental_async::GetModelInfo(::grpc::ClientContext* cont
 
 ::grpc::ClientAsyncResponseReader< ::ric::auth::ModelInfoResponse>* RicAuth::Stub::PrepareAsyncGetModelInfoRaw(::grpc::ClientContext* context, const ::ric::auth::ModelInfoRequest& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::auth::ModelInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetModelInfo_, context, request, false);
+}
+
+::grpc::Status RicAuth::Stub::IssueCert(::grpc::ClientContext* context, const ::ric::auth::IssueCertRequest& request, ::ric::auth::IssueCertResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_IssueCert_, context, request, response);
+}
+
+void RicAuth::Stub::experimental_async::IssueCert(::grpc::ClientContext* context, const ::ric::auth::IssueCertRequest* request, ::ric::auth::IssueCertResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_IssueCert_, context, request, response, std::move(f));
+}
+
+void RicAuth::Stub::experimental_async::IssueCert(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::auth::IssueCertResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_IssueCert_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::auth::IssueCertResponse>* RicAuth::Stub::AsyncIssueCertRaw(::grpc::ClientContext* context, const ::ric::auth::IssueCertRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::auth::IssueCertResponse>::Create(channel_.get(), cq, rpcmethod_IssueCert_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::auth::IssueCertResponse>* RicAuth::Stub::PrepareAsyncIssueCertRaw(::grpc::ClientContext* context, const ::ric::auth::IssueCertRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::auth::IssueCertResponse>::Create(channel_.get(), cq, rpcmethod_IssueCert_, context, request, false);
 }
 
 ::grpc::Status RicAuth::Stub::SendOffline(::grpc::ClientContext* context, const ::ric::auth::ObjectGateRequest& request, ::ric::auth::ObjectGateResponse* response) {
@@ -133,10 +155,15 @@ RicAuth::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RicAuth_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RicAuth::Service, ::ric::auth::IssueCertRequest, ::ric::auth::IssueCertResponse>(
+          std::mem_fn(&RicAuth::Service::IssueCert), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RicAuth_method_names[3],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< RicAuth::Service, ::ric::auth::ObjectGateRequest, ::ric::auth::ObjectGateResponse>(
           std::mem_fn(&RicAuth::Service::SendOffline), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      RicAuth_method_names[3],
+      RicAuth_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< RicAuth::Service, ::ric::auth::ObjectGateRequest, ::ric::auth::ObjectGateResponse>(
           std::mem_fn(&RicAuth::Service::SendModelUpdate), this)));
@@ -153,6 +180,13 @@ RicAuth::Service::~Service() {
 }
 
 ::grpc::Status RicAuth::Service::GetModelInfo(::grpc::ServerContext* context, const ::ric::auth::ModelInfoRequest* request, ::ric::auth::ModelInfoResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RicAuth::Service::IssueCert(::grpc::ServerContext* context, const ::ric::auth::IssueCertRequest* request, ::ric::auth::IssueCertResponse* response) {
   (void) context;
   (void) request;
   (void) response;

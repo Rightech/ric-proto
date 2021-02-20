@@ -1,6 +1,7 @@
 export interface RicAuth {
   AuthObject(request: AuthObjectRequest): Promise<AuthObjectResponse>;
   GetModelInfo(request: ModelInfoRequest): Promise<ModelInfoResponse>;
+  IssueCert(request: IssueCertRequest): Promise<IssueCertResponse>;
   SendOffline(request: ObjectGateRequest): Promise<ObjectGateResponse>;
   SendModelUpdate(request: ObjectGateRequest): Promise<ObjectGateResponse>;
 }
@@ -59,6 +60,19 @@ export interface StatRecord {
   left?: number;
   from?: number;
   to?: number;
+}
+
+export interface IssueCertRequest {
+  objectId?: string;
+  ttl?: string;
+}
+
+export interface IssueCertResponse {
+  certificate?: string;
+  privateKey?: string;
+  serial?: string;
+  issuedAt?: number;
+  expiresAt?: number;
 }
 
 export interface ModelInfoRequest {
