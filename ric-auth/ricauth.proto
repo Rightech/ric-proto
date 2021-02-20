@@ -7,6 +7,7 @@ option go_package = "./ric-auth;ricauth";
 service RicAuth {
   rpc AuthObject(AuthObjectRequest) returns (AuthObjectResponse);
   rpc GetModelInfo(ModelInfoRequest) returns (ModelInfoResponse);
+  rpc IssueCert(IssueCertRequest) returns (IssueCertResponse);
   rpc SendOffline(ObjectGateRequest) returns (ObjectGateResponse);
   rpc SendModelUpdate(ObjectGateRequest) returns (ObjectGateResponse);
 }
@@ -54,6 +55,19 @@ message StatRecord {
   int64 left = 2;
   int64 from = 3;
   int64 to = 4;
+}
+
+message IssueCertRequest {
+  string object_id = 1;
+  string ttl = 2;
+}
+
+message IssueCertResponse {
+  string certificate = 1;
+  string private_key = 2;
+  string serial = 3;
+  int64 issued_at = 4;
+  int64 expires_at = 5;
 }
 
 message ModelInfoRequest {
