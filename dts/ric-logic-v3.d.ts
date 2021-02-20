@@ -61,12 +61,7 @@ export interface AutomatonInfo {
   prevEvent?: string;
   stats?: AutomatonStats;
   logs?: LogEntry[];
-  vars?: Vars[];
-}
-
-export interface Vars {
-  key?: string;
-  value?: AutomatonVarValue;
+  vars?: { [key: string]: AutomatonVarValue };
 }
 
 export interface AutomatonEvent {
@@ -115,12 +110,7 @@ export interface StartAutomatonRequest {
   ctx?: UserContext;
   objectId?: string;
   automatonId?: string;
-  vars?: Vars[];
-}
-
-export interface Vars {
-  key?: string;
-  value?: AutomatonVarValue;
+  vars?: { [key: string]: AutomatonVarValue };
 }
 
 export interface StartAutomatonMultiRequest {
@@ -146,12 +136,7 @@ export interface RunAutomatonRequest {
   waitFinal?: boolean;
   waitTimeout?: number;
   onRunning?: string;
-  vars?: Vars[];
-}
-
-export interface Vars {
-  key?: string;
-  value?: AutomatonVarValue;
+  vars?: { [key: string]: AutomatonVarValue };
 }
 
 export interface StopAutomatonResponse {
@@ -190,19 +175,9 @@ export interface UpdateAutomatonVarsRequest {
   ctx?: UserContext;
   objectId?: string;
   automatonId?: string;
-  vars?: Vars[];
-}
-
-export interface Vars {
-  key?: string;
-  value?: AutomatonVarValue;
+  vars?: { [key: string]: AutomatonVarValue };
 }
 
 export interface UpdateAutomatonVarsResponse {
-  vars?: Vars[];
-}
-
-export interface Vars {
-  key?: string;
-  value?: AutomatonVarValue;
+  vars?: { [key: string]: AutomatonVarValue };
 }

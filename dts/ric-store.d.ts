@@ -20,8 +20,6 @@ export interface RicStore {
   };
 }
 
-
-
 export interface EmptyRespone {
 
 }

@@ -25,12 +25,7 @@ export interface StopRequest {
 
 export interface SetStateRequest {
   objectId?: string;
-  state?: State[];
-}
-
-export interface State {
-  key?: string;
-  value?: StateValue;
+  state?: { [key: string]: StateValue };
 }
 
 export interface StateValue {
@@ -43,13 +38,8 @@ export interface SetGeoConfigRequest {
   objectId?: string;
   mode?: any;
   repeat?: boolean;
-  map?: Map[];
+  map?: { [key: string]: string };
   track?: Point[];
-}
-
-export interface Map {
-  key?: string;
-  value?: string;
 }
 
 export interface Point {
@@ -95,10 +85,5 @@ export interface SetBotConfigRequest {
 export interface CallRequest {
   objectId?: string;
   name?: string;
-  params?: Params[];
-}
-
-export interface Params {
-  key?: string;
-  value?: string;
+  params?: { [key: string]: string };
 }

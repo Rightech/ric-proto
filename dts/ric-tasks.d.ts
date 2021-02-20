@@ -167,12 +167,7 @@ export interface UpdateTaskResponse {
 export interface UpdateTaskOrderRequest {
   ctx?: UserContext;
   oid?: ObjectId;
-  positions?: Positions[];
-}
-
-export interface Positions {
-  key?: string;
-  value?: number;
+  positions?: { [key: string]: number };
 }
 
 export interface UpdateTaskOrderResponse {

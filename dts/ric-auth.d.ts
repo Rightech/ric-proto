@@ -34,18 +34,8 @@ export interface AuthObjectResponse {
   expiresAt?: number;
   acl?: string[];
   licenseId?: string;
-  license?: License[];
-  stats?: Stats[];
-}
-
-export interface License {
-  key?: string;
-  value?: number;
-}
-
-export interface Stats {
-  key?: string;
-  value?: StatRecord;
+  license?: { [key: string]: number };
+  stats?: { [key: string]: StatRecord };
 }
 
 export interface AuthObjectArgument {
