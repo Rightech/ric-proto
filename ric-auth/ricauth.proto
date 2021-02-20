@@ -7,7 +7,6 @@ option go_package = "./ric-auth;ricauth";
 service RicAuth {
   rpc AuthObject(AuthObjectRequest) returns (AuthObjectResponse);
   rpc GetModelInfo(ModelInfoRequest) returns (ModelInfoResponse);
-
   rpc SendOffline(ObjectGateRequest) returns (ObjectGateResponse);
   rpc SendModelUpdate(ObjectGateRequest) returns (ObjectGateResponse);
 }
@@ -37,11 +36,10 @@ message AuthObjectResponse {
   string config = 7;
   int64 issued_at = 8;
   int64 expires_at = 9;
-
   repeated string acl = 10;
   string license_id = 11;
-  map <string, int64> license = 12;
-  map <string, StatRecord> stats = 13;
+  map<string, int64> license = 12;
+  map<string, StatRecord> stats = 13;
 }
 
 message AuthObjectArgument {

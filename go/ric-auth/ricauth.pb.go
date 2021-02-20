@@ -132,15 +132,19 @@ type AuthObjectResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Session   string                `protobuf:"bytes,1,opt,name=session,proto3" json:"session,omitempty"`
-	ModelId   string                `protobuf:"bytes,2,opt,name=model_id,json=modelId,proto3" json:"model_id,omitempty"`
-	ObjectId  string                `protobuf:"bytes,3,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
-	GroupId   string                `protobuf:"bytes,4,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
-	GroupKey  string                `protobuf:"bytes,5,opt,name=group_key,json=groupKey,proto3" json:"group_key,omitempty"`
-	Arguments []*AuthObjectArgument `protobuf:"bytes,6,rep,name=arguments,proto3" json:"arguments,omitempty"`
-	Config    string                `protobuf:"bytes,7,opt,name=config,proto3" json:"config,omitempty"`
-	IssuedAt  int64                 `protobuf:"varint,8,opt,name=issued_at,json=issuedAt,proto3" json:"issued_at,omitempty"`
-	ExpiresAt int64                 `protobuf:"varint,9,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
+	Session   string                 `protobuf:"bytes,1,opt,name=session,proto3" json:"session,omitempty"`
+	ModelId   string                 `protobuf:"bytes,2,opt,name=model_id,json=modelId,proto3" json:"model_id,omitempty"`
+	ObjectId  string                 `protobuf:"bytes,3,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
+	GroupId   string                 `protobuf:"bytes,4,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
+	GroupKey  string                 `protobuf:"bytes,5,opt,name=group_key,json=groupKey,proto3" json:"group_key,omitempty"`
+	Arguments []*AuthObjectArgument  `protobuf:"bytes,6,rep,name=arguments,proto3" json:"arguments,omitempty"`
+	Config    string                 `protobuf:"bytes,7,opt,name=config,proto3" json:"config,omitempty"`
+	IssuedAt  int64                  `protobuf:"varint,8,opt,name=issued_at,json=issuedAt,proto3" json:"issued_at,omitempty"`
+	ExpiresAt int64                  `protobuf:"varint,9,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
+	Acl       []string               `protobuf:"bytes,10,rep,name=acl,proto3" json:"acl,omitempty"`
+	LicenseId string                 `protobuf:"bytes,11,opt,name=license_id,json=licenseId,proto3" json:"license_id,omitempty"`
+	License   map[string]int64       `protobuf:"bytes,12,rep,name=license,proto3" json:"license,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3"`
+	Stats     map[string]*StatRecord `protobuf:"bytes,13,rep,name=stats,proto3" json:"stats,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (x *AuthObjectResponse) Reset() {
@@ -238,6 +242,34 @@ func (x *AuthObjectResponse) GetExpiresAt() int64 {
 	return 0
 }
 
+func (x *AuthObjectResponse) GetAcl() []string {
+	if x != nil {
+		return x.Acl
+	}
+	return nil
+}
+
+func (x *AuthObjectResponse) GetLicenseId() string {
+	if x != nil {
+		return x.LicenseId
+	}
+	return ""
+}
+
+func (x *AuthObjectResponse) GetLicense() map[string]int64 {
+	if x != nil {
+		return x.License
+	}
+	return nil
+}
+
+func (x *AuthObjectResponse) GetStats() map[string]*StatRecord {
+	if x != nil {
+		return x.Stats
+	}
+	return nil
+}
+
 type AuthObjectArgument struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -309,16 +341,19 @@ func (x *AuthObjectArgument) GetParser() string {
 	return ""
 }
 
-type SendOfflineRequest struct {
+type StatRecord struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	ObjectId string `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
+	Value int64 `protobuf:"varint,1,opt,name=value,proto3" json:"value,omitempty"`
+	Left  int64 `protobuf:"varint,2,opt,name=left,proto3" json:"left,omitempty"`
+	From  int64 `protobuf:"varint,3,opt,name=from,proto3" json:"from,omitempty"`
+	To    int64 `protobuf:"varint,4,opt,name=to,proto3" json:"to,omitempty"`
 }
 
-func (x *SendOfflineRequest) Reset() {
-	*x = SendOfflineRequest{}
+func (x *StatRecord) Reset() {
+	*x = StatRecord{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_ric_auth_ricauth_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -326,13 +361,13 @@ func (x *SendOfflineRequest) Reset() {
 	}
 }
 
-func (x *SendOfflineRequest) String() string {
+func (x *StatRecord) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SendOfflineRequest) ProtoMessage() {}
+func (*StatRecord) ProtoMessage() {}
 
-func (x *SendOfflineRequest) ProtoReflect() protoreflect.Message {
+func (x *StatRecord) ProtoReflect() protoreflect.Message {
 	mi := &file_ric_auth_ricauth_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -344,26 +379,49 @@ func (x *SendOfflineRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SendOfflineRequest.ProtoReflect.Descriptor instead.
-func (*SendOfflineRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use StatRecord.ProtoReflect.Descriptor instead.
+func (*StatRecord) Descriptor() ([]byte, []int) {
 	return file_ric_auth_ricauth_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *SendOfflineRequest) GetObjectId() string {
+func (x *StatRecord) GetValue() int64 {
 	if x != nil {
-		return x.ObjectId
+		return x.Value
 	}
-	return ""
+	return 0
 }
 
-type SendOfflineResponse struct {
+func (x *StatRecord) GetLeft() int64 {
+	if x != nil {
+		return x.Left
+	}
+	return 0
+}
+
+func (x *StatRecord) GetFrom() int64 {
+	if x != nil {
+		return x.From
+	}
+	return 0
+}
+
+func (x *StatRecord) GetTo() int64 {
+	if x != nil {
+		return x.To
+	}
+	return 0
+}
+
+type ModelInfoRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
+
+	ModelId string `protobuf:"bytes,1,opt,name=model_id,json=modelId,proto3" json:"model_id,omitempty"`
 }
 
-func (x *SendOfflineResponse) Reset() {
-	*x = SendOfflineResponse{}
+func (x *ModelInfoRequest) Reset() {
+	*x = ModelInfoRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_ric_auth_ricauth_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -371,13 +429,13 @@ func (x *SendOfflineResponse) Reset() {
 	}
 }
 
-func (x *SendOfflineResponse) String() string {
+func (x *ModelInfoRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SendOfflineResponse) ProtoMessage() {}
+func (*ModelInfoRequest) ProtoMessage() {}
 
-func (x *SendOfflineResponse) ProtoReflect() protoreflect.Message {
+func (x *ModelInfoRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_ric_auth_ricauth_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -389,9 +447,156 @@ func (x *SendOfflineResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SendOfflineResponse.ProtoReflect.Descriptor instead.
-func (*SendOfflineResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use ModelInfoRequest.ProtoReflect.Descriptor instead.
+func (*ModelInfoRequest) Descriptor() ([]byte, []int) {
 	return file_ric_auth_ricauth_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *ModelInfoRequest) GetModelId() string {
+	if x != nil {
+		return x.ModelId
+	}
+	return ""
+}
+
+type ModelInfoResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ModelId   string                `protobuf:"bytes,1,opt,name=model_id,json=modelId,proto3" json:"model_id,omitempty"`
+	Arguments []*AuthObjectArgument `protobuf:"bytes,2,rep,name=arguments,proto3" json:"arguments,omitempty"`
+}
+
+func (x *ModelInfoResponse) Reset() {
+	*x = ModelInfoResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_ric_auth_ricauth_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ModelInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ModelInfoResponse) ProtoMessage() {}
+
+func (x *ModelInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_ric_auth_ricauth_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ModelInfoResponse.ProtoReflect.Descriptor instead.
+func (*ModelInfoResponse) Descriptor() ([]byte, []int) {
+	return file_ric_auth_ricauth_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ModelInfoResponse) GetModelId() string {
+	if x != nil {
+		return x.ModelId
+	}
+	return ""
+}
+
+func (x *ModelInfoResponse) GetArguments() []*AuthObjectArgument {
+	if x != nil {
+		return x.Arguments
+	}
+	return nil
+}
+
+type ObjectGateRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ObjectId string `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
+}
+
+func (x *ObjectGateRequest) Reset() {
+	*x = ObjectGateRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_ric_auth_ricauth_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ObjectGateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ObjectGateRequest) ProtoMessage() {}
+
+func (x *ObjectGateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_ric_auth_ricauth_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ObjectGateRequest.ProtoReflect.Descriptor instead.
+func (*ObjectGateRequest) Descriptor() ([]byte, []int) {
+	return file_ric_auth_ricauth_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *ObjectGateRequest) GetObjectId() string {
+	if x != nil {
+		return x.ObjectId
+	}
+	return ""
+}
+
+type ObjectGateResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *ObjectGateResponse) Reset() {
+	*x = ObjectGateResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_ric_auth_ricauth_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ObjectGateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ObjectGateResponse) ProtoMessage() {}
+
+func (x *ObjectGateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_ric_auth_ricauth_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ObjectGateResponse.ProtoReflect.Descriptor instead.
+func (*ObjectGateResponse) Descriptor() ([]byte, []int) {
+	return file_ric_auth_ricauth_proto_rawDescGZIP(), []int{7}
 }
 
 type AuthObjectRequest_AuthObjectCert struct {
@@ -406,7 +611,7 @@ type AuthObjectRequest_AuthObjectCert struct {
 func (x *AuthObjectRequest_AuthObjectCert) Reset() {
 	*x = AuthObjectRequest_AuthObjectCert{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_ric_auth_ricauth_proto_msgTypes[5]
+		mi := &file_ric_auth_ricauth_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -419,7 +624,7 @@ func (x *AuthObjectRequest_AuthObjectCert) String() string {
 func (*AuthObjectRequest_AuthObjectCert) ProtoMessage() {}
 
 func (x *AuthObjectRequest_AuthObjectCert) ProtoReflect() protoreflect.Message {
-	mi := &file_ric_auth_ricauth_proto_msgTypes[5]
+	mi := &file_ric_auth_ricauth_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -474,7 +679,7 @@ var file_ric_auth_ricauth_proto_rawDesc = []byte{
 	0x68, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x43, 0x65, 0x72, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x63,
 	0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x63, 0x6e, 0x12, 0x20, 0x0a, 0x0b, 0x66,
 	0x69, 0x6e, 0x67, 0x65, 0x72, 0x70, 0x72, 0x69, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x0b, 0x66, 0x69, 0x6e, 0x67, 0x65, 0x72, 0x70, 0x72, 0x69, 0x6e, 0x74, 0x22, 0xae, 0x02,
+	0x52, 0x0b, 0x66, 0x69, 0x6e, 0x67, 0x65, 0x72, 0x70, 0x72, 0x69, 0x6e, 0x74, 0x22, 0xef, 0x04,
 	0x0a, 0x12, 0x41, 0x75, 0x74, 0x68, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70,
 	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x18,
 	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x73, 0x65, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x19,
@@ -493,31 +698,76 @@ var file_ric_auth_ricauth_proto_rawDesc = []byte{
 	0x69, 0x67, 0x12, 0x1b, 0x0a, 0x09, 0x69, 0x73, 0x73, 0x75, 0x65, 0x64, 0x5f, 0x61, 0x74, 0x18,
 	0x08, 0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x69, 0x73, 0x73, 0x75, 0x65, 0x64, 0x41, 0x74, 0x12,
 	0x1d, 0x0a, 0x0a, 0x65, 0x78, 0x70, 0x69, 0x72, 0x65, 0x73, 0x5f, 0x61, 0x74, 0x18, 0x09, 0x20,
-	0x01, 0x28, 0x03, 0x52, 0x09, 0x65, 0x78, 0x70, 0x69, 0x72, 0x65, 0x73, 0x41, 0x74, 0x22, 0x77,
-	0x0a, 0x12, 0x41, 0x75, 0x74, 0x68, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x41, 0x72, 0x67, 0x75,
-	0x6d, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x02, 0x69, 0x64, 0x12, 0x1b, 0x0a, 0x09, 0x64, 0x61, 0x74, 0x61, 0x5f, 0x74, 0x79, 0x70,
-	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x64, 0x61, 0x74, 0x61, 0x54, 0x79, 0x70,
-	0x65, 0x12, 0x1c, 0x0a, 0x09, 0x72, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x18, 0x03,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x72, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x12,
-	0x16, 0x0a, 0x06, 0x70, 0x61, 0x72, 0x73, 0x65, 0x72, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x06, 0x70, 0x61, 0x72, 0x73, 0x65, 0x72, 0x22, 0x31, 0x0a, 0x12, 0x53, 0x65, 0x6e, 0x64, 0x4f,
-	0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1b, 0x0a,
-	0x09, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x08, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x22, 0x15, 0x0a, 0x13, 0x53, 0x65,
-	0x6e, 0x64, 0x4f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x32, 0x9e, 0x01, 0x0a, 0x07, 0x52, 0x69, 0x63, 0x41, 0x75, 0x74, 0x68, 0x12, 0x47, 0x0a,
-	0x0a, 0x41, 0x75, 0x74, 0x68, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x12, 0x1b, 0x2e, 0x72, 0x69,
-	0x63, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x75, 0x74, 0x68, 0x4f, 0x62, 0x6a, 0x65, 0x63,
-	0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1c, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61,
-	0x75, 0x74, 0x68, 0x2e, 0x41, 0x75, 0x74, 0x68, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4a, 0x0a, 0x0b, 0x53, 0x65, 0x6e, 0x64, 0x4f, 0x66,
-	0x66, 0x6c, 0x69, 0x6e, 0x65, 0x12, 0x1c, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68,
-	0x2e, 0x53, 0x65, 0x6e, 0x64, 0x4f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x53,
-	0x65, 0x6e, 0x64, 0x4f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x42, 0x14, 0x5a, 0x12, 0x2e, 0x2f, 0x72, 0x69, 0x63, 0x2d, 0x61, 0x75, 0x74, 0x68,
-	0x3b, 0x72, 0x69, 0x63, 0x61, 0x75, 0x74, 0x68, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x01, 0x28, 0x03, 0x52, 0x09, 0x65, 0x78, 0x70, 0x69, 0x72, 0x65, 0x73, 0x41, 0x74, 0x12, 0x10,
+	0x0a, 0x03, 0x61, 0x63, 0x6c, 0x18, 0x0a, 0x20, 0x03, 0x28, 0x09, 0x52, 0x03, 0x61, 0x63, 0x6c,
+	0x12, 0x1d, 0x0a, 0x0a, 0x6c, 0x69, 0x63, 0x65, 0x6e, 0x73, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x0b,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x6c, 0x69, 0x63, 0x65, 0x6e, 0x73, 0x65, 0x49, 0x64, 0x12,
+	0x43, 0x0a, 0x07, 0x6c, 0x69, 0x63, 0x65, 0x6e, 0x73, 0x65, 0x18, 0x0c, 0x20, 0x03, 0x28, 0x0b,
+	0x32, 0x29, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x75, 0x74, 0x68,
+	0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x4c,
+	0x69, 0x63, 0x65, 0x6e, 0x73, 0x65, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x52, 0x07, 0x6c, 0x69, 0x63,
+	0x65, 0x6e, 0x73, 0x65, 0x12, 0x3d, 0x0a, 0x05, 0x73, 0x74, 0x61, 0x74, 0x73, 0x18, 0x0d, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x27, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41,
+	0x75, 0x74, 0x68, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x2e, 0x53, 0x74, 0x61, 0x74, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x52, 0x05, 0x73, 0x74,
+	0x61, 0x74, 0x73, 0x1a, 0x3a, 0x0a, 0x0c, 0x4c, 0x69, 0x63, 0x65, 0x6e, 0x73, 0x65, 0x45, 0x6e,
+	0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x1a,
+	0x4e, 0x0a, 0x0a, 0x53, 0x74, 0x61, 0x74, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x10, 0x0a,
+	0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12,
+	0x2a, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14,
+	0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x53, 0x74, 0x61, 0x74, 0x52, 0x65,
+	0x63, 0x6f, 0x72, 0x64, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x22,
+	0x77, 0x0a, 0x12, 0x41, 0x75, 0x74, 0x68, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x41, 0x72, 0x67,
+	0x75, 0x6d, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x1b, 0x0a, 0x09, 0x64, 0x61, 0x74, 0x61, 0x5f, 0x74, 0x79,
+	0x70, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x64, 0x61, 0x74, 0x61, 0x54, 0x79,
+	0x70, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x72, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65, 0x18,
+	0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x72, 0x65, 0x66, 0x65, 0x72, 0x65, 0x6e, 0x63, 0x65,
+	0x12, 0x16, 0x0a, 0x06, 0x70, 0x61, 0x72, 0x73, 0x65, 0x72, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x06, 0x70, 0x61, 0x72, 0x73, 0x65, 0x72, 0x22, 0x5a, 0x0a, 0x0a, 0x53, 0x74, 0x61, 0x74,
+	0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x12, 0x0a, 0x04,
+	0x6c, 0x65, 0x66, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x04, 0x6c, 0x65, 0x66, 0x74,
+	0x12, 0x12, 0x0a, 0x04, 0x66, 0x72, 0x6f, 0x6d, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x04,
+	0x66, 0x72, 0x6f, 0x6d, 0x12, 0x0e, 0x0a, 0x02, 0x74, 0x6f, 0x18, 0x04, 0x20, 0x01, 0x28, 0x03,
+	0x52, 0x02, 0x74, 0x6f, 0x22, 0x2d, 0x0a, 0x10, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x49, 0x6e, 0x66,
+	0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x19, 0x0a, 0x08, 0x6d, 0x6f, 0x64, 0x65,
+	0x6c, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x6f, 0x64, 0x65,
+	0x6c, 0x49, 0x64, 0x22, 0x6a, 0x0a, 0x11, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x49, 0x6e, 0x66, 0x6f,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x19, 0x0a, 0x08, 0x6d, 0x6f, 0x64, 0x65,
+	0x6c, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x6f, 0x64, 0x65,
+	0x6c, 0x49, 0x64, 0x12, 0x3a, 0x0a, 0x09, 0x61, 0x72, 0x67, 0x75, 0x6d, 0x65, 0x6e, 0x74, 0x73,
+	0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74,
+	0x68, 0x2e, 0x41, 0x75, 0x74, 0x68, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x41, 0x72, 0x67, 0x75,
+	0x6d, 0x65, 0x6e, 0x74, 0x52, 0x09, 0x61, 0x72, 0x67, 0x75, 0x6d, 0x65, 0x6e, 0x74, 0x73, 0x22,
+	0x30, 0x0a, 0x11, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x47, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x12, 0x1b, 0x0a, 0x09, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x5f, 0x69,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49,
+	0x64, 0x22, 0x14, 0x0a, 0x12, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x47, 0x61, 0x74, 0x65, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0xb3, 0x02, 0x0a, 0x07, 0x52, 0x69, 0x63, 0x41,
+	0x75, 0x74, 0x68, 0x12, 0x47, 0x0a, 0x0a, 0x41, 0x75, 0x74, 0x68, 0x4f, 0x62, 0x6a, 0x65, 0x63,
+	0x74, 0x12, 0x1b, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x75, 0x74,
+	0x68, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1c,
+	0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x41, 0x75, 0x74, 0x68, 0x4f, 0x62,
+	0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x47, 0x0a, 0x0c,
+	0x47, 0x65, 0x74, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x1a, 0x2e, 0x72,
+	0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x49, 0x6e, 0x66,
+	0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61,
+	0x75, 0x74, 0x68, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x48, 0x0a, 0x0b, 0x53, 0x65, 0x6e, 0x64, 0x4f, 0x66, 0x66,
+	0x6c, 0x69, 0x6e, 0x65, 0x12, 0x1b, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e,
+	0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x47, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x1c, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x4f, 0x62, 0x6a,
+	0x65, 0x63, 0x74, 0x47, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x4c, 0x0a, 0x0f, 0x53, 0x65, 0x6e, 0x64, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x55, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x12, 0x1b, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x4f, 0x62,
+	0x6a, 0x65, 0x63, 0x74, 0x47, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x1c, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x4f, 0x62, 0x6a, 0x65, 0x63,
+	0x74, 0x47, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x14, 0x5a,
+	0x12, 0x2e, 0x2f, 0x72, 0x69, 0x63, 0x2d, 0x61, 0x75, 0x74, 0x68, 0x3b, 0x72, 0x69, 0x63, 0x61,
+	0x75, 0x74, 0x68, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -532,27 +782,40 @@ func file_ric_auth_ricauth_proto_rawDescGZIP() []byte {
 	return file_ric_auth_ricauth_proto_rawDescData
 }
 
-var file_ric_auth_ricauth_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_ric_auth_ricauth_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_ric_auth_ricauth_proto_goTypes = []interface{}{
 	(*AuthObjectRequest)(nil),                // 0: ric.auth.AuthObjectRequest
 	(*AuthObjectResponse)(nil),               // 1: ric.auth.AuthObjectResponse
 	(*AuthObjectArgument)(nil),               // 2: ric.auth.AuthObjectArgument
-	(*SendOfflineRequest)(nil),               // 3: ric.auth.SendOfflineRequest
-	(*SendOfflineResponse)(nil),              // 4: ric.auth.SendOfflineResponse
-	(*AuthObjectRequest_AuthObjectCert)(nil), // 5: ric.auth.AuthObjectRequest.AuthObjectCert
+	(*StatRecord)(nil),                       // 3: ric.auth.StatRecord
+	(*ModelInfoRequest)(nil),                 // 4: ric.auth.ModelInfoRequest
+	(*ModelInfoResponse)(nil),                // 5: ric.auth.ModelInfoResponse
+	(*ObjectGateRequest)(nil),                // 6: ric.auth.ObjectGateRequest
+	(*ObjectGateResponse)(nil),               // 7: ric.auth.ObjectGateResponse
+	(*AuthObjectRequest_AuthObjectCert)(nil), // 8: ric.auth.AuthObjectRequest.AuthObjectCert
+	nil,                                      // 9: ric.auth.AuthObjectResponse.LicenseEntry
+	nil,                                      // 10: ric.auth.AuthObjectResponse.StatsEntry
 }
 var file_ric_auth_ricauth_proto_depIdxs = []int32{
-	5, // 0: ric.auth.AuthObjectRequest.cert:type_name -> ric.auth.AuthObjectRequest.AuthObjectCert
-	2, // 1: ric.auth.AuthObjectResponse.arguments:type_name -> ric.auth.AuthObjectArgument
-	0, // 2: ric.auth.RicAuth.AuthObject:input_type -> ric.auth.AuthObjectRequest
-	3, // 3: ric.auth.RicAuth.SendOffline:input_type -> ric.auth.SendOfflineRequest
-	1, // 4: ric.auth.RicAuth.AuthObject:output_type -> ric.auth.AuthObjectResponse
-	4, // 5: ric.auth.RicAuth.SendOffline:output_type -> ric.auth.SendOfflineResponse
-	4, // [4:6] is the sub-list for method output_type
-	2, // [2:4] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	8,  // 0: ric.auth.AuthObjectRequest.cert:type_name -> ric.auth.AuthObjectRequest.AuthObjectCert
+	2,  // 1: ric.auth.AuthObjectResponse.arguments:type_name -> ric.auth.AuthObjectArgument
+	9,  // 2: ric.auth.AuthObjectResponse.license:type_name -> ric.auth.AuthObjectResponse.LicenseEntry
+	10, // 3: ric.auth.AuthObjectResponse.stats:type_name -> ric.auth.AuthObjectResponse.StatsEntry
+	2,  // 4: ric.auth.ModelInfoResponse.arguments:type_name -> ric.auth.AuthObjectArgument
+	3,  // 5: ric.auth.AuthObjectResponse.StatsEntry.value:type_name -> ric.auth.StatRecord
+	0,  // 6: ric.auth.RicAuth.AuthObject:input_type -> ric.auth.AuthObjectRequest
+	4,  // 7: ric.auth.RicAuth.GetModelInfo:input_type -> ric.auth.ModelInfoRequest
+	6,  // 8: ric.auth.RicAuth.SendOffline:input_type -> ric.auth.ObjectGateRequest
+	6,  // 9: ric.auth.RicAuth.SendModelUpdate:input_type -> ric.auth.ObjectGateRequest
+	1,  // 10: ric.auth.RicAuth.AuthObject:output_type -> ric.auth.AuthObjectResponse
+	5,  // 11: ric.auth.RicAuth.GetModelInfo:output_type -> ric.auth.ModelInfoResponse
+	7,  // 12: ric.auth.RicAuth.SendOffline:output_type -> ric.auth.ObjectGateResponse
+	7,  // 13: ric.auth.RicAuth.SendModelUpdate:output_type -> ric.auth.ObjectGateResponse
+	10, // [10:14] is the sub-list for method output_type
+	6,  // [6:10] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_ric_auth_ricauth_proto_init() }
@@ -598,7 +861,7 @@ func file_ric_auth_ricauth_proto_init() {
 			}
 		}
 		file_ric_auth_ricauth_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SendOfflineRequest); i {
+			switch v := v.(*StatRecord); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -610,7 +873,7 @@ func file_ric_auth_ricauth_proto_init() {
 			}
 		}
 		file_ric_auth_ricauth_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SendOfflineResponse); i {
+			switch v := v.(*ModelInfoRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -622,6 +885,42 @@ func file_ric_auth_ricauth_proto_init() {
 			}
 		}
 		file_ric_auth_ricauth_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ModelInfoResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_ric_auth_ricauth_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ObjectGateRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_ric_auth_ricauth_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ObjectGateResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_ric_auth_ricauth_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*AuthObjectRequest_AuthObjectCert); i {
 			case 0:
 				return &v.state
@@ -640,7 +939,7 @@ func file_ric_auth_ricauth_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_ric_auth_ricauth_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -667,7 +966,9 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type RicAuthClient interface {
 	AuthObject(ctx context.Context, in *AuthObjectRequest, opts ...grpc.CallOption) (*AuthObjectResponse, error)
-	SendOffline(ctx context.Context, in *SendOfflineRequest, opts ...grpc.CallOption) (*SendOfflineResponse, error)
+	GetModelInfo(ctx context.Context, in *ModelInfoRequest, opts ...grpc.CallOption) (*ModelInfoResponse, error)
+	SendOffline(ctx context.Context, in *ObjectGateRequest, opts ...grpc.CallOption) (*ObjectGateResponse, error)
+	SendModelUpdate(ctx context.Context, in *ObjectGateRequest, opts ...grpc.CallOption) (*ObjectGateResponse, error)
 }
 
 type ricAuthClient struct {
@@ -687,9 +988,27 @@ func (c *ricAuthClient) AuthObject(ctx context.Context, in *AuthObjectRequest, o
 	return out, nil
 }
 
-func (c *ricAuthClient) SendOffline(ctx context.Context, in *SendOfflineRequest, opts ...grpc.CallOption) (*SendOfflineResponse, error) {
-	out := new(SendOfflineResponse)
+func (c *ricAuthClient) GetModelInfo(ctx context.Context, in *ModelInfoRequest, opts ...grpc.CallOption) (*ModelInfoResponse, error) {
+	out := new(ModelInfoResponse)
+	err := c.cc.Invoke(ctx, "/ric.auth.RicAuth/GetModelInfo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ricAuthClient) SendOffline(ctx context.Context, in *ObjectGateRequest, opts ...grpc.CallOption) (*ObjectGateResponse, error) {
+	out := new(ObjectGateResponse)
 	err := c.cc.Invoke(ctx, "/ric.auth.RicAuth/SendOffline", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ricAuthClient) SendModelUpdate(ctx context.Context, in *ObjectGateRequest, opts ...grpc.CallOption) (*ObjectGateResponse, error) {
+	out := new(ObjectGateResponse)
+	err := c.cc.Invoke(ctx, "/ric.auth.RicAuth/SendModelUpdate", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -699,7 +1018,9 @@ func (c *ricAuthClient) SendOffline(ctx context.Context, in *SendOfflineRequest,
 // RicAuthServer is the server API for RicAuth service.
 type RicAuthServer interface {
 	AuthObject(context.Context, *AuthObjectRequest) (*AuthObjectResponse, error)
-	SendOffline(context.Context, *SendOfflineRequest) (*SendOfflineResponse, error)
+	GetModelInfo(context.Context, *ModelInfoRequest) (*ModelInfoResponse, error)
+	SendOffline(context.Context, *ObjectGateRequest) (*ObjectGateResponse, error)
+	SendModelUpdate(context.Context, *ObjectGateRequest) (*ObjectGateResponse, error)
 }
 
 // UnimplementedRicAuthServer can be embedded to have forward compatible implementations.
@@ -709,8 +1030,14 @@ type UnimplementedRicAuthServer struct {
 func (*UnimplementedRicAuthServer) AuthObject(context.Context, *AuthObjectRequest) (*AuthObjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AuthObject not implemented")
 }
-func (*UnimplementedRicAuthServer) SendOffline(context.Context, *SendOfflineRequest) (*SendOfflineResponse, error) {
+func (*UnimplementedRicAuthServer) GetModelInfo(context.Context, *ModelInfoRequest) (*ModelInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetModelInfo not implemented")
+}
+func (*UnimplementedRicAuthServer) SendOffline(context.Context, *ObjectGateRequest) (*ObjectGateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendOffline not implemented")
+}
+func (*UnimplementedRicAuthServer) SendModelUpdate(context.Context, *ObjectGateRequest) (*ObjectGateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendModelUpdate not implemented")
 }
 
 func RegisterRicAuthServer(s *grpc.Server, srv RicAuthServer) {
@@ -735,8 +1062,26 @@ func _RicAuth_AuthObject_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RicAuth_GetModelInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ModelInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RicAuthServer).GetModelInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ric.auth.RicAuth/GetModelInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RicAuthServer).GetModelInfo(ctx, req.(*ModelInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _RicAuth_SendOffline_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendOfflineRequest)
+	in := new(ObjectGateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -748,7 +1093,25 @@ func _RicAuth_SendOffline_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: "/ric.auth.RicAuth/SendOffline",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RicAuthServer).SendOffline(ctx, req.(*SendOfflineRequest))
+		return srv.(RicAuthServer).SendOffline(ctx, req.(*ObjectGateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RicAuth_SendModelUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ObjectGateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RicAuthServer).SendModelUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ric.auth.RicAuth/SendModelUpdate",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RicAuthServer).SendModelUpdate(ctx, req.(*ObjectGateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -762,8 +1125,16 @@ var _RicAuth_serviceDesc = grpc.ServiceDesc{
 			Handler:    _RicAuth_AuthObject_Handler,
 		},
 		{
+			MethodName: "GetModelInfo",
+			Handler:    _RicAuth_GetModelInfo_Handler,
+		},
+		{
 			MethodName: "SendOffline",
 			Handler:    _RicAuth_SendOffline_Handler,
+		},
+		{
+			MethodName: "SendModelUpdate",
+			Handler:    _RicAuth_SendModelUpdate_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

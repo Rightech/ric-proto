@@ -1,6 +1,8 @@
 export interface RicAuth {
   AuthObject(request: AuthObjectRequest): Promise<AuthObjectResponse>;
-  SendOffline(request: SendOfflineRequest): Promise<SendOfflineResponse>;
+  GetModelInfo(request: ModelInfoRequest): Promise<ModelInfoResponse>;
+  SendOffline(request: ObjectGateRequest): Promise<ObjectGateResponse>;
+  SendModelUpdate(request: ObjectGateRequest): Promise<ObjectGateResponse>;
 }
 
 export interface AuthObjectRequest {
@@ -29,6 +31,20 @@ export interface AuthObjectResponse {
   config?: string;
   issuedAt?: number;
   expiresAt?: number;
+  acl?: string[];
+  licenseId?: string;
+  license?: License[];
+  stats?: Stats[];
+}
+
+export interface License {
+  key?: string;
+  value?: number;
+}
+
+export interface Stats {
+  key?: string;
+  value?: StatRecord;
 }
 
 export interface AuthObjectArgument {
@@ -38,10 +54,26 @@ export interface AuthObjectArgument {
   parser?: string;
 }
 
-export interface SendOfflineRequest {
+export interface StatRecord {
+  value?: number;
+  left?: number;
+  from?: number;
+  to?: number;
+}
+
+export interface ModelInfoRequest {
+  modelId?: string;
+}
+
+export interface ModelInfoResponse {
+  modelId?: string;
+  arguments?: AuthObjectArgument[];
+}
+
+export interface ObjectGateRequest {
   objectId?: string;
 }
 
-export interface SendOfflineResponse {
+export interface ObjectGateResponse {
 
 }
