@@ -52,6 +52,13 @@ class Service final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::handler::GetObjectInfoResponse>> PrepareAsyncGetObjectInfo(::grpc::ClientContext* context, const ::ric::handler::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::handler::GetObjectInfoResponse>>(PrepareAsyncGetObjectInfoRaw(context, request, cq));
     }
+    virtual ::grpc::Status GetHandlerStore(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest& request, ::ric::handler::GetHandlerStoreResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::handler::GetHandlerStoreResponse>> AsyncGetHandlerStore(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::handler::GetHandlerStoreResponse>>(AsyncGetHandlerStoreRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::handler::GetHandlerStoreResponse>> PrepareAsyncGetHandlerStore(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::handler::GetHandlerStoreResponse>>(PrepareAsyncGetHandlerStoreRaw(context, request, cq));
+    }
     virtual ::grpc::Status ForceLinksUpdate(::grpc::ClientContext* context, const ::ric::handler::ForceLinksUpdateRequest& request, ::ric::handler::EmptyResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::handler::EmptyResponse>> AsyncForceLinksUpdate(::grpc::ClientContext* context, const ::ric::handler::ForceLinksUpdateRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::handler::EmptyResponse>>(AsyncForceLinksUpdateRaw(context, request, cq));
@@ -66,6 +73,8 @@ class Service final {
       virtual void Exec(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::handler::ExecResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetObjectInfo(::grpc::ClientContext* context, const ::ric::handler::GetObjectInfoRequest* request, ::ric::handler::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::handler::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetHandlerStore(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest* request, ::ric::handler::GetHandlerStoreResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetHandlerStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::handler::GetHandlerStoreResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void ForceLinksUpdate(::grpc::ClientContext* context, const ::ric::handler::ForceLinksUpdateRequest* request, ::ric::handler::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void ForceLinksUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::handler::EmptyResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
@@ -75,6 +84,8 @@ class Service final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::handler::ExecResponse>* PrepareAsyncExecRaw(::grpc::ClientContext* context, const ::ric::handler::ExecRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::handler::GetObjectInfoResponse>* AsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::handler::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::handler::GetObjectInfoResponse>* PrepareAsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::handler::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::handler::GetHandlerStoreResponse>* AsyncGetHandlerStoreRaw(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::handler::GetHandlerStoreResponse>* PrepareAsyncGetHandlerStoreRaw(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::handler::EmptyResponse>* AsyncForceLinksUpdateRaw(::grpc::ClientContext* context, const ::ric::handler::ForceLinksUpdateRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::handler::EmptyResponse>* PrepareAsyncForceLinksUpdateRaw(::grpc::ClientContext* context, const ::ric::handler::ForceLinksUpdateRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
@@ -95,6 +106,13 @@ class Service final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::handler::GetObjectInfoResponse>> PrepareAsyncGetObjectInfo(::grpc::ClientContext* context, const ::ric::handler::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::handler::GetObjectInfoResponse>>(PrepareAsyncGetObjectInfoRaw(context, request, cq));
     }
+    ::grpc::Status GetHandlerStore(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest& request, ::ric::handler::GetHandlerStoreResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::handler::GetHandlerStoreResponse>> AsyncGetHandlerStore(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::handler::GetHandlerStoreResponse>>(AsyncGetHandlerStoreRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::handler::GetHandlerStoreResponse>> PrepareAsyncGetHandlerStore(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::handler::GetHandlerStoreResponse>>(PrepareAsyncGetHandlerStoreRaw(context, request, cq));
+    }
     ::grpc::Status ForceLinksUpdate(::grpc::ClientContext* context, const ::ric::handler::ForceLinksUpdateRequest& request, ::ric::handler::EmptyResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::handler::EmptyResponse>> AsyncForceLinksUpdate(::grpc::ClientContext* context, const ::ric::handler::ForceLinksUpdateRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::handler::EmptyResponse>>(AsyncForceLinksUpdateRaw(context, request, cq));
@@ -109,6 +127,8 @@ class Service final {
       void Exec(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::handler::ExecResponse* response, std::function<void(::grpc::Status)>) override;
       void GetObjectInfo(::grpc::ClientContext* context, const ::ric::handler::GetObjectInfoRequest* request, ::ric::handler::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) override;
       void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::handler::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) override;
+      void GetHandlerStore(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest* request, ::ric::handler::GetHandlerStoreResponse* response, std::function<void(::grpc::Status)>) override;
+      void GetHandlerStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::handler::GetHandlerStoreResponse* response, std::function<void(::grpc::Status)>) override;
       void ForceLinksUpdate(::grpc::ClientContext* context, const ::ric::handler::ForceLinksUpdateRequest* request, ::ric::handler::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
       void ForceLinksUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::handler::EmptyResponse* response, std::function<void(::grpc::Status)>) override;
      private:
@@ -126,10 +146,13 @@ class Service final {
     ::grpc::ClientAsyncResponseReader< ::ric::handler::ExecResponse>* PrepareAsyncExecRaw(::grpc::ClientContext* context, const ::ric::handler::ExecRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::handler::GetObjectInfoResponse>* AsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::handler::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::handler::GetObjectInfoResponse>* PrepareAsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::handler::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::handler::GetHandlerStoreResponse>* AsyncGetHandlerStoreRaw(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::handler::GetHandlerStoreResponse>* PrepareAsyncGetHandlerStoreRaw(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::handler::EmptyResponse>* AsyncForceLinksUpdateRaw(::grpc::ClientContext* context, const ::ric::handler::ForceLinksUpdateRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::handler::EmptyResponse>* PrepareAsyncForceLinksUpdateRaw(::grpc::ClientContext* context, const ::ric::handler::ForceLinksUpdateRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_Exec_;
     const ::grpc::internal::RpcMethod rpcmethod_GetObjectInfo_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetHandlerStore_;
     const ::grpc::internal::RpcMethod rpcmethod_ForceLinksUpdate_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -140,6 +163,7 @@ class Service final {
     virtual ~Service();
     virtual ::grpc::Status Exec(::grpc::ServerContext* context, const ::ric::handler::ExecRequest* request, ::ric::handler::ExecResponse* response);
     virtual ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::handler::GetObjectInfoRequest* request, ::ric::handler::GetObjectInfoResponse* response);
+    virtual ::grpc::Status GetHandlerStore(::grpc::ServerContext* context, const ::ric::handler::GetHandlerStoreRequest* request, ::ric::handler::GetHandlerStoreResponse* response);
     virtual ::grpc::Status ForceLinksUpdate(::grpc::ServerContext* context, const ::ric::handler::ForceLinksUpdateRequest* request, ::ric::handler::EmptyResponse* response);
   };
   template <class BaseClass>
@@ -183,12 +207,32 @@ class Service final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_GetHandlerStore : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_GetHandlerStore() {
+      ::grpc::Service::MarkMethodAsync(2);
+    }
+    ~WithAsyncMethod_GetHandlerStore() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetHandlerStore(::grpc::ServerContext* context, const ::ric::handler::GetHandlerStoreRequest* request, ::ric::handler::GetHandlerStoreResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetHandlerStore(::grpc::ServerContext* context, ::ric::handler::GetHandlerStoreRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::handler::GetHandlerStoreResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_ForceLinksUpdate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_ForceLinksUpdate() {
-      ::grpc::Service::MarkMethodAsync(2);
+      ::grpc::Service::MarkMethodAsync(3);
     }
     ~WithAsyncMethod_ForceLinksUpdate() override {
       BaseClassMustBeDerivedFromService(this);
@@ -199,10 +243,10 @@ class Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestForceLinksUpdate(::grpc::ServerContext* context, ::ric::handler::ForceLinksUpdateRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::handler::EmptyResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_Exec<WithAsyncMethod_GetObjectInfo<WithAsyncMethod_ForceLinksUpdate<Service > > > AsyncService;
+  typedef WithAsyncMethod_Exec<WithAsyncMethod_GetObjectInfo<WithAsyncMethod_GetHandlerStore<WithAsyncMethod_ForceLinksUpdate<Service > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Exec : public BaseClass {
    private:
@@ -254,12 +298,37 @@ class Service final {
     virtual void GetObjectInfo(::grpc::ServerContext* context, const ::ric::handler::GetObjectInfoRequest* request, ::ric::handler::GetObjectInfoResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithCallbackMethod_GetHandlerStore : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_GetHandlerStore() {
+      ::grpc::Service::experimental().MarkMethodCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::handler::GetHandlerStoreRequest, ::ric::handler::GetHandlerStoreResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::handler::GetHandlerStoreRequest* request,
+                 ::ric::handler::GetHandlerStoreResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->GetHandlerStore(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_GetHandlerStore() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetHandlerStore(::grpc::ServerContext* context, const ::ric::handler::GetHandlerStoreRequest* request, ::ric::handler::GetHandlerStoreResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void GetHandlerStore(::grpc::ServerContext* context, const ::ric::handler::GetHandlerStoreRequest* request, ::ric::handler::GetHandlerStoreResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class ExperimentalWithCallbackMethod_ForceLinksUpdate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_ForceLinksUpdate() {
-      ::grpc::Service::experimental().MarkMethodCallback(2,
+      ::grpc::Service::experimental().MarkMethodCallback(3,
         new ::grpc::internal::CallbackUnaryHandler< ::ric::handler::ForceLinksUpdateRequest, ::ric::handler::EmptyResponse>(
           [this](::grpc::ServerContext* context,
                  const ::ric::handler::ForceLinksUpdateRequest* request,
@@ -278,7 +347,7 @@ class Service final {
     }
     virtual void ForceLinksUpdate(::grpc::ServerContext* context, const ::ric::handler::ForceLinksUpdateRequest* request, ::ric::handler::EmptyResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_Exec<ExperimentalWithCallbackMethod_GetObjectInfo<ExperimentalWithCallbackMethod_ForceLinksUpdate<Service > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_Exec<ExperimentalWithCallbackMethod_GetObjectInfo<ExperimentalWithCallbackMethod_GetHandlerStore<ExperimentalWithCallbackMethod_ForceLinksUpdate<Service > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Exec : public BaseClass {
    private:
@@ -314,12 +383,29 @@ class Service final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_GetHandlerStore : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_GetHandlerStore() {
+      ::grpc::Service::MarkMethodGeneric(2);
+    }
+    ~WithGenericMethod_GetHandlerStore() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetHandlerStore(::grpc::ServerContext* context, const ::ric::handler::GetHandlerStoreRequest* request, ::ric::handler::GetHandlerStoreResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_ForceLinksUpdate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_ForceLinksUpdate() {
-      ::grpc::Service::MarkMethodGeneric(2);
+      ::grpc::Service::MarkMethodGeneric(3);
     }
     ~WithGenericMethod_ForceLinksUpdate() override {
       BaseClassMustBeDerivedFromService(this);
@@ -371,12 +457,32 @@ class Service final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_GetHandlerStore : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_GetHandlerStore() {
+      ::grpc::Service::MarkMethodRaw(2);
+    }
+    ~WithRawMethod_GetHandlerStore() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetHandlerStore(::grpc::ServerContext* context, const ::ric::handler::GetHandlerStoreRequest* request, ::ric::handler::GetHandlerStoreResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetHandlerStore(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_ForceLinksUpdate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_ForceLinksUpdate() {
-      ::grpc::Service::MarkMethodRaw(2);
+      ::grpc::Service::MarkMethodRaw(3);
     }
     ~WithRawMethod_ForceLinksUpdate() override {
       BaseClassMustBeDerivedFromService(this);
@@ -387,7 +493,7 @@ class Service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestForceLinksUpdate(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -441,12 +547,37 @@ class Service final {
     virtual void GetObjectInfo(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_GetHandlerStore : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_GetHandlerStore() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->GetHandlerStore(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_GetHandlerStore() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetHandlerStore(::grpc::ServerContext* context, const ::ric::handler::GetHandlerStoreRequest* request, ::ric::handler::GetHandlerStoreResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void GetHandlerStore(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_ForceLinksUpdate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_ForceLinksUpdate() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(2,
+      ::grpc::Service::experimental().MarkMethodRawCallback(3,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
@@ -506,12 +637,32 @@ class Service final {
     virtual ::grpc::Status StreamedGetObjectInfo(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::handler::GetObjectInfoRequest,::ric::handler::GetObjectInfoResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_GetHandlerStore : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_GetHandlerStore() {
+      ::grpc::Service::MarkMethodStreamed(2,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::handler::GetHandlerStoreRequest, ::ric::handler::GetHandlerStoreResponse>(std::bind(&WithStreamedUnaryMethod_GetHandlerStore<BaseClass>::StreamedGetHandlerStore, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_GetHandlerStore() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status GetHandlerStore(::grpc::ServerContext* context, const ::ric::handler::GetHandlerStoreRequest* request, ::ric::handler::GetHandlerStoreResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedGetHandlerStore(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::handler::GetHandlerStoreRequest,::ric::handler::GetHandlerStoreResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_ForceLinksUpdate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_ForceLinksUpdate() {
-      ::grpc::Service::MarkMethodStreamed(2,
+      ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler< ::ric::handler::ForceLinksUpdateRequest, ::ric::handler::EmptyResponse>(std::bind(&WithStreamedUnaryMethod_ForceLinksUpdate<BaseClass>::StreamedForceLinksUpdate, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_ForceLinksUpdate() override {
@@ -525,9 +676,9 @@ class Service final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedForceLinksUpdate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::handler::ForceLinksUpdateRequest,::ric::handler::EmptyResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_Exec<WithStreamedUnaryMethod_GetObjectInfo<WithStreamedUnaryMethod_ForceLinksUpdate<Service > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_Exec<WithStreamedUnaryMethod_GetObjectInfo<WithStreamedUnaryMethod_GetHandlerStore<WithStreamedUnaryMethod_ForceLinksUpdate<Service > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_Exec<WithStreamedUnaryMethod_GetObjectInfo<WithStreamedUnaryMethod_ForceLinksUpdate<Service > > > StreamedService;
+  typedef WithStreamedUnaryMethod_Exec<WithStreamedUnaryMethod_GetObjectInfo<WithStreamedUnaryMethod_GetHandlerStore<WithStreamedUnaryMethod_ForceLinksUpdate<Service > > > > StreamedService;
 };
 
 }  // namespace handler
