@@ -22,6 +22,7 @@ namespace handler {
 static const char* Service_method_names[] = {
   "/ric.handler.Service/Exec",
   "/ric.handler.Service/GetObjectInfo",
+  "/ric.handler.Service/GetHandlerStore",
   "/ric.handler.Service/ForceLinksUpdate",
 };
 
@@ -34,7 +35,8 @@ std::unique_ptr< Service::Stub> Service::NewStub(const std::shared_ptr< ::grpc::
 Service::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_Exec_(Service_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetObjectInfo_(Service_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_ForceLinksUpdate_(Service_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetHandlerStore_(Service_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ForceLinksUpdate_(Service_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Service::Stub::Exec(::grpc::ClientContext* context, const ::ric::handler::ExecRequest& request, ::ric::handler::ExecResponse* response) {
@@ -77,6 +79,26 @@ void Service::Stub::experimental_async::GetObjectInfo(::grpc::ClientContext* con
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::handler::GetObjectInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetObjectInfo_, context, request, false);
 }
 
+::grpc::Status Service::Stub::GetHandlerStore(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest& request, ::ric::handler::GetHandlerStoreResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_GetHandlerStore_, context, request, response);
+}
+
+void Service::Stub::experimental_async::GetHandlerStore(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest* request, ::ric::handler::GetHandlerStoreResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetHandlerStore_, context, request, response, std::move(f));
+}
+
+void Service::Stub::experimental_async::GetHandlerStore(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::handler::GetHandlerStoreResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetHandlerStore_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::handler::GetHandlerStoreResponse>* Service::Stub::AsyncGetHandlerStoreRaw(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::handler::GetHandlerStoreResponse>::Create(channel_.get(), cq, rpcmethod_GetHandlerStore_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::handler::GetHandlerStoreResponse>* Service::Stub::PrepareAsyncGetHandlerStoreRaw(::grpc::ClientContext* context, const ::ric::handler::GetHandlerStoreRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::handler::GetHandlerStoreResponse>::Create(channel_.get(), cq, rpcmethod_GetHandlerStore_, context, request, false);
+}
+
 ::grpc::Status Service::Stub::ForceLinksUpdate(::grpc::ClientContext* context, const ::ric::handler::ForceLinksUpdateRequest& request, ::ric::handler::EmptyResponse* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_ForceLinksUpdate_, context, request, response);
 }
@@ -111,6 +133,11 @@ Service::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Service_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Service::Service, ::ric::handler::GetHandlerStoreRequest, ::ric::handler::GetHandlerStoreResponse>(
+          std::mem_fn(&Service::Service::GetHandlerStore), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Service_method_names[3],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Service::Service, ::ric::handler::ForceLinksUpdateRequest, ::ric::handler::EmptyResponse>(
           std::mem_fn(&Service::Service::ForceLinksUpdate), this)));
 }
@@ -126,6 +153,13 @@ Service::Service::~Service() {
 }
 
 ::grpc::Status Service::Service::GetObjectInfo(::grpc::ServerContext* context, const ::ric::handler::GetObjectInfoRequest* request, ::ric::handler::GetObjectInfoResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Service::Service::GetHandlerStore(::grpc::ServerContext* context, const ::ric::handler::GetHandlerStoreRequest* request, ::ric::handler::GetHandlerStoreResponse* response) {
   (void) context;
   (void) request;
   (void) response;
