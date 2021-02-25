@@ -59,8 +59,9 @@ message GetObjectInfoResponse {
   string id = 1;
   bytes config = 2;
   bytes store = 3;
-  repeated Action actions = 4;
-  repeated Handler handlers = 5;
+  int64 last_packet_time = 4;
+  repeated Action actions = 5;
+  repeated Handler handlers = 6;
 }
 
 message GetHandlerStoreRequest {
