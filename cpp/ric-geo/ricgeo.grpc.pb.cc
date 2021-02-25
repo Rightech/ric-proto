@@ -19,52 +19,52 @@
 namespace ric {
 namespace geo {
 
-static const char* Watch_method_names[] = {
-  "/ric.geo.Watch/GetObjectInfo",
+static const char* Geo_method_names[] = {
+  "/ric.geo.Geo/GetObjectInfo",
 };
 
-std::unique_ptr< Watch::Stub> Watch::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+std::unique_ptr< Geo::Stub> Geo::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< Watch::Stub> stub(new Watch::Stub(channel));
+  std::unique_ptr< Geo::Stub> stub(new Geo::Stub(channel));
   return stub;
 }
 
-Watch::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_GetObjectInfo_(Watch_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+Geo::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_GetObjectInfo_(Geo_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status Watch::Stub::GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::ric::geo::GetObjectInfoResponse* response) {
+::grpc::Status Geo::Stub::GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::ric::geo::GetObjectInfoResponse* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_GetObjectInfo_, context, request, response);
 }
 
-void Watch::Stub::experimental_async::GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)> f) {
+void Geo::Stub::experimental_async::GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetObjectInfo_, context, request, response, std::move(f));
 }
 
-void Watch::Stub::experimental_async::GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)> f) {
+void Geo::Stub::experimental_async::GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetObjectInfo_, context, request, response, std::move(f));
 }
 
-::grpc::ClientAsyncResponseReader< ::ric::geo::GetObjectInfoResponse>* Watch::Stub::AsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ric::geo::GetObjectInfoResponse>* Geo::Stub::AsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::GetObjectInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetObjectInfo_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::ric::geo::GetObjectInfoResponse>* Watch::Stub::PrepareAsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::ric::geo::GetObjectInfoResponse>* Geo::Stub::PrepareAsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::geo::GetObjectInfoResponse>::Create(channel_.get(), cq, rpcmethod_GetObjectInfo_, context, request, false);
 }
 
-Watch::Service::Service() {
+Geo::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Watch_method_names[0],
+      Geo_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Watch::Service, ::ric::geo::GetObjectInfoRequest, ::ric::geo::GetObjectInfoResponse>(
-          std::mem_fn(&Watch::Service::GetObjectInfo), this)));
+      new ::grpc::internal::RpcMethodHandler< Geo::Service, ::ric::geo::GetObjectInfoRequest, ::ric::geo::GetObjectInfoResponse>(
+          std::mem_fn(&Geo::Service::GetObjectInfo), this)));
 }
 
-Watch::Service::~Service() {
+Geo::Service::~Service() {
 }
 
-::grpc::Status Watch::Service::GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) {
+::grpc::Status Geo::Service::GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) {
   (void) context;
   (void) request;
   (void) response;

@@ -16,17 +16,17 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 
-extern PROTOBUF_INTERNAL_EXPORT_ric_2dgeo_2fricgeo_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_GetObjectInfoResponse_ObjectGeofenceInfo_ric_2dgeo_2fricgeo_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dgeo_2fricgeo_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_GeoInfo_ric_2dgeo_2fricgeo_2eproto;
 namespace ric {
 namespace geo {
 class GetObjectInfoRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<GetObjectInfoRequest> _instance;
 } _GetObjectInfoRequest_default_instance_;
-class GetObjectInfoResponse_ObjectGeofenceInfoDefaultTypeInternal {
+class GeoInfoDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<GetObjectInfoResponse_ObjectGeofenceInfo> _instance;
-} _GetObjectInfoResponse_ObjectGeofenceInfo_default_instance_;
+  ::google::protobuf::internal::ExplicitlyConstructed<GeoInfo> _instance;
+} _GeoInfo_default_instance_;
 class GetObjectInfoResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<GetObjectInfoResponse> _instance;
@@ -47,19 +47,19 @@ static void InitDefaultsGetObjectInfoRequest_ric_2dgeo_2fricgeo_2eproto() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_GetObjectInfoRequest_ric_2dgeo_2fricgeo_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGetObjectInfoRequest_ric_2dgeo_2fricgeo_2eproto}, {}};
 
-static void InitDefaultsGetObjectInfoResponse_ObjectGeofenceInfo_ric_2dgeo_2fricgeo_2eproto() {
+static void InitDefaultsGeoInfo_ric_2dgeo_2fricgeo_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::ric::geo::_GetObjectInfoResponse_ObjectGeofenceInfo_default_instance_;
-    new (ptr) ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo();
+    void* ptr = &::ric::geo::_GeoInfo_default_instance_;
+    new (ptr) ::ric::geo::GeoInfo();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo::InitAsDefaultInstance();
+  ::ric::geo::GeoInfo::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_GetObjectInfoResponse_ObjectGeofenceInfo_ric_2dgeo_2fricgeo_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGetObjectInfoResponse_ObjectGeofenceInfo_ric_2dgeo_2fricgeo_2eproto}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_GeoInfo_ric_2dgeo_2fricgeo_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGeoInfo_ric_2dgeo_2fricgeo_2eproto}, {}};
 
 static void InitDefaultsGetObjectInfoResponse_ric_2dgeo_2fricgeo_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -74,16 +74,16 @@ static void InitDefaultsGetObjectInfoResponse_ric_2dgeo_2fricgeo_2eproto() {
 
 ::google::protobuf::internal::SCCInfo<1> scc_info_GetObjectInfoResponse_ric_2dgeo_2fricgeo_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsGetObjectInfoResponse_ric_2dgeo_2fricgeo_2eproto}, {
-      &scc_info_GetObjectInfoResponse_ObjectGeofenceInfo_ric_2dgeo_2fricgeo_2eproto.base,}};
+      &scc_info_GeoInfo_ric_2dgeo_2fricgeo_2eproto.base,}};
 
 void InitDefaults_ric_2dgeo_2fricgeo_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_GetObjectInfoRequest_ric_2dgeo_2fricgeo_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_GetObjectInfoResponse_ObjectGeofenceInfo_ric_2dgeo_2fricgeo_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_GeoInfo_ric_2dgeo_2fricgeo_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_GetObjectInfoResponse_ric_2dgeo_2fricgeo_2eproto.base);
 }
 
 ::google::protobuf::Metadata file_level_metadata_ric_2dgeo_2fricgeo_2eproto[3];
-constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_ric_2dgeo_2fricgeo_2eproto = nullptr;
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors_ric_2dgeo_2fricgeo_2eproto[1];
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dgeo_2fricgeo_2eproto = nullptr;
 
 const ::google::protobuf::uint32 TableStruct_ric_2dgeo_2fricgeo_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -94,15 +94,17 @@ const ::google::protobuf::uint32 TableStruct_ric_2dgeo_2fricgeo_2eproto::offsets
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::geo::GetObjectInfoRequest, object_id_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::ric::geo::GeoInfo, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo, geofence_id_),
-  PROTOBUF_FIELD_OFFSET(::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo, is_in_),
-  PROTOBUF_FIELD_OFFSET(::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo, last_packet_time_),
-  PROTOBUF_FIELD_OFFSET(::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo, last_enter_time_),
-  PROTOBUF_FIELD_OFFSET(::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo, last_leave_time_),
+  PROTOBUF_FIELD_OFFSET(::ric::geo::GeoInfo, id_),
+  PROTOBUF_FIELD_OFFSET(::ric::geo::GeoInfo, kind_),
+  PROTOBUF_FIELD_OFFSET(::ric::geo::GeoInfo, is_in_),
+  PROTOBUF_FIELD_OFFSET(::ric::geo::GeoInfo, last_packet_time_),
+  PROTOBUF_FIELD_OFFSET(::ric::geo::GeoInfo, last_enter_time_),
+  PROTOBUF_FIELD_OFFSET(::ric::geo::GeoInfo, last_leave_time_),
+  PROTOBUF_FIELD_OFFSET(::ric::geo::GeoInfo, nested_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::geo::GetObjectInfoResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -112,13 +114,13 @@ const ::google::protobuf::uint32 TableStruct_ric_2dgeo_2fricgeo_2eproto::offsets
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ric::geo::GetObjectInfoRequest)},
-  { 6, -1, sizeof(::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo)},
-  { 16, -1, sizeof(::ric::geo::GetObjectInfoResponse)},
+  { 6, -1, sizeof(::ric::geo::GeoInfo)},
+  { 18, -1, sizeof(::ric::geo::GetObjectInfoResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::geo::_GetObjectInfoRequest_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::geo::_GetObjectInfoResponse_ObjectGeofenceInfo_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::geo::_GeoInfo_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::geo::_GetObjectInfoResponse_default_instance_),
 };
 
@@ -130,21 +132,23 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 
 const char descriptor_table_protodef_ric_2dgeo_2fricgeo_2eproto[] =
   "\n\024ric-geo/ricgeo.proto\022\007ric.geo\")\n\024GetOb"
-  "jectInfoRequest\022\021\n\tobject_id\030\001 \001(\t\"\344\001\n\025G"
-  "etObjectInfoResponse\022D\n\tgeofences\030\001 \003(\0132"
-  "1.ric.geo.GetObjectInfoResponse.ObjectGe"
-  "ofenceInfo\032\204\001\n\022ObjectGeofenceInfo\022\023\n\013geo"
-  "fence_id\030\001 \001(\t\022\r\n\005is_in\030\002 \001(\010\022\030\n\020last_pa"
-  "cket_time\030\003 \001(\003\022\027\n\017last_enter_time\030\004 \001(\003"
-  "\022\027\n\017last_leave_time\030\005 \001(\0032W\n\005Watch\022N\n\rGe"
-  "tObjectInfo\022\035.ric.geo.GetObjectInfoReque"
-  "st\032\036.ric.geo.GetObjectInfoResponseB\022Z\020./"
-  "ric-geo;ricgeob\006proto3"
+  "jectInfoRequest\022\021\n\tobject_id\030\001 \001(\t\"\263\001\n\007G"
+  "eoInfo\022\n\n\002id\030\001 \001(\t\022\037\n\004kind\030\002 \001(\0162\021.ric.g"
+  "eo.KindType\022\r\n\005is_in\030\003 \001(\010\022\030\n\020last_packe"
+  "t_time\030\004 \001(\003\022\027\n\017last_enter_time\030\005 \001(\003\022\027\n"
+  "\017last_leave_time\030\006 \001(\003\022 \n\006nested\030\007 \003(\0132\020"
+  ".ric.geo.GeoInfo\"<\n\025GetObjectInfoRespons"
+  "e\022#\n\tgeofences\030\001 \003(\0132\020.ric.geo.GeoInfo*:"
+  "\n\010KindType\022\013\n\007UNKNOWN\020\000\022\014\n\010GEOFENCE\020\001\022\t\n"
+  "\005FLOOR\020\002\022\010\n\004ROOM\020\0032U\n\003Geo\022N\n\rGetObjectIn"
+  "fo\022\035.ric.geo.GetObjectInfoRequest\032\036.ric."
+  "geo.GetObjectInfoResponseB\022Z\020./ric-geo;r"
+  "icgeob\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dgeo_2fricgeo_2eproto = {
   false, InitDefaults_ric_2dgeo_2fricgeo_2eproto, 
   descriptor_table_protodef_ric_2dgeo_2fricgeo_2eproto,
-  "ric-geo/ricgeo.proto", &assign_descriptors_table_ric_2dgeo_2fricgeo_2eproto, 422,
+  "ric-geo/ricgeo.proto", &assign_descriptors_table_ric_2dgeo_2fricgeo_2eproto, 493,
 };
 
 void AddDescriptors_ric_2dgeo_2fricgeo_2eproto() {
@@ -158,6 +162,22 @@ void AddDescriptors_ric_2dgeo_2fricgeo_2eproto() {
 static bool dynamic_init_dummy_ric_2dgeo_2fricgeo_2eproto = []() { AddDescriptors_ric_2dgeo_2fricgeo_2eproto(); return true; }();
 namespace ric {
 namespace geo {
+const ::google::protobuf::EnumDescriptor* KindType_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&assign_descriptors_table_ric_2dgeo_2fricgeo_2eproto);
+  return file_level_enum_descriptors_ric_2dgeo_2fricgeo_2eproto[0];
+}
+bool KindType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -458,83 +478,87 @@ void GetObjectInfoRequest::InternalSwap(GetObjectInfoRequest* other) {
 
 // ===================================================================
 
-void GetObjectInfoResponse_ObjectGeofenceInfo::InitAsDefaultInstance() {
+void GeoInfo::InitAsDefaultInstance() {
 }
-class GetObjectInfoResponse_ObjectGeofenceInfo::HasBitSetters {
+class GeoInfo::HasBitSetters {
  public:
 };
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int GetObjectInfoResponse_ObjectGeofenceInfo::kGeofenceIdFieldNumber;
-const int GetObjectInfoResponse_ObjectGeofenceInfo::kIsInFieldNumber;
-const int GetObjectInfoResponse_ObjectGeofenceInfo::kLastPacketTimeFieldNumber;
-const int GetObjectInfoResponse_ObjectGeofenceInfo::kLastEnterTimeFieldNumber;
-const int GetObjectInfoResponse_ObjectGeofenceInfo::kLastLeaveTimeFieldNumber;
+const int GeoInfo::kIdFieldNumber;
+const int GeoInfo::kKindFieldNumber;
+const int GeoInfo::kIsInFieldNumber;
+const int GeoInfo::kLastPacketTimeFieldNumber;
+const int GeoInfo::kLastEnterTimeFieldNumber;
+const int GeoInfo::kLastLeaveTimeFieldNumber;
+const int GeoInfo::kNestedFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-GetObjectInfoResponse_ObjectGeofenceInfo::GetObjectInfoResponse_ObjectGeofenceInfo()
+GeoInfo::GeoInfo()
   : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+  // @@protoc_insertion_point(constructor:ric.geo.GeoInfo)
 }
-GetObjectInfoResponse_ObjectGeofenceInfo::GetObjectInfoResponse_ObjectGeofenceInfo(const GetObjectInfoResponse_ObjectGeofenceInfo& from)
+GeoInfo::GeoInfo(const GeoInfo& from)
   : ::google::protobuf::Message(),
-      _internal_metadata_(nullptr) {
+      _internal_metadata_(nullptr),
+      nested_(from.nested_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  geofence_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.geofence_id().size() > 0) {
-    geofence_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.geofence_id_);
+  id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.id().size() > 0) {
+    id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.id_);
   }
-  ::memcpy(&last_packet_time_, &from.last_packet_time_,
-    static_cast<size_t>(reinterpret_cast<char*>(&is_in_) -
-    reinterpret_cast<char*>(&last_packet_time_)) + sizeof(is_in_));
-  // @@protoc_insertion_point(copy_constructor:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+  ::memcpy(&kind_, &from.kind_,
+    static_cast<size_t>(reinterpret_cast<char*>(&last_leave_time_) -
+    reinterpret_cast<char*>(&kind_)) + sizeof(last_leave_time_));
+  // @@protoc_insertion_point(copy_constructor:ric.geo.GeoInfo)
 }
 
-void GetObjectInfoResponse_ObjectGeofenceInfo::SharedCtor() {
+void GeoInfo::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
-      &scc_info_GetObjectInfoResponse_ObjectGeofenceInfo_ric_2dgeo_2fricgeo_2eproto.base);
-  geofence_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&last_packet_time_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&is_in_) -
-      reinterpret_cast<char*>(&last_packet_time_)) + sizeof(is_in_));
+      &scc_info_GeoInfo_ric_2dgeo_2fricgeo_2eproto.base);
+  id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&kind_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&last_leave_time_) -
+      reinterpret_cast<char*>(&kind_)) + sizeof(last_leave_time_));
 }
 
-GetObjectInfoResponse_ObjectGeofenceInfo::~GetObjectInfoResponse_ObjectGeofenceInfo() {
-  // @@protoc_insertion_point(destructor:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+GeoInfo::~GeoInfo() {
+  // @@protoc_insertion_point(destructor:ric.geo.GeoInfo)
   SharedDtor();
 }
 
-void GetObjectInfoResponse_ObjectGeofenceInfo::SharedDtor() {
-  geofence_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void GeoInfo::SharedDtor() {
+  id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void GetObjectInfoResponse_ObjectGeofenceInfo::SetCachedSize(int size) const {
+void GeoInfo::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const GetObjectInfoResponse_ObjectGeofenceInfo& GetObjectInfoResponse_ObjectGeofenceInfo::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_GetObjectInfoResponse_ObjectGeofenceInfo_ric_2dgeo_2fricgeo_2eproto.base);
+const GeoInfo& GeoInfo::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_GeoInfo_ric_2dgeo_2fricgeo_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void GetObjectInfoResponse_ObjectGeofenceInfo::Clear() {
-// @@protoc_insertion_point(message_clear_start:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+void GeoInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.geo.GeoInfo)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  geofence_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&last_packet_time_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&is_in_) -
-      reinterpret_cast<char*>(&last_packet_time_)) + sizeof(is_in_));
+  nested_.Clear();
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&kind_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&last_leave_time_) -
+      reinterpret_cast<char*>(&kind_)) + sizeof(last_leave_time_));
   _internal_metadata_.Clear();
 }
 
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* GetObjectInfoResponse_ObjectGeofenceInfo::_InternalParse(const char* begin, const char* end, void* object,
+const char* GeoInfo::_InternalParse(const char* begin, const char* end, void* object,
                   ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<GetObjectInfoResponse_ObjectGeofenceInfo*>(object);
+  auto msg = static_cast<GeoInfo*>(object);
   ::google::protobuf::int32 size; (void)size;
   int depth; (void)depth;
   ::google::protobuf::uint32 tag;
@@ -544,13 +568,13 @@ const char* GetObjectInfoResponse_ObjectGeofenceInfo::_InternalParse(const char*
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // string geofence_id = 1;
+      // string id = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.geofence_id");
-        object = msg->mutable_geofence_id();
+        ctx->extra_parse_data().SetFieldName("ric.geo.GeoInfo.id");
+        object = msg->mutable_id();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -560,32 +584,56 @@ const char* GetObjectInfoResponse_ObjectGeofenceInfo::_InternalParse(const char*
         ptr += size;
         break;
       }
-      // bool is_in = 2;
+      // .ric.geo.KindType kind = 2;
       case 2: {
         if (static_cast<::google::protobuf::uint8>(tag) != 16) goto handle_unusual;
+        ::google::protobuf::uint64 val = ::google::protobuf::internal::ReadVarint(&ptr);
+        msg->set_kind(static_cast<::ric::geo::KindType>(val));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // bool is_in = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
         msg->set_is_in(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // int64 last_packet_time = 3;
-      case 3: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
+      // int64 last_packet_time = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 32) goto handle_unusual;
         msg->set_last_packet_time(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // int64 last_enter_time = 4;
-      case 4: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 32) goto handle_unusual;
+      // int64 last_enter_time = 5;
+      case 5: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 40) goto handle_unusual;
         msg->set_last_enter_time(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // int64 last_leave_time = 5;
-      case 5: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 40) goto handle_unusual;
+      // int64 last_leave_time = 6;
+      case 6: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 48) goto handle_unusual;
         msg->set_last_leave_time(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // repeated .ric.geo.GeoInfo nested = 7;
+      case 7: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 58) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::ric::geo::GeoInfo::_InternalParse;
+          object = msg->add_nested();
+          if (size > end - ptr) goto len_delim_till_end;
+          ptr += size;
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+              {parser_till_end, object}, ptr - size, ptr));
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 58 && (ptr += 1));
         break;
       }
       default: {
@@ -612,34 +660,48 @@ len_delim_till_end:
                                {parser_till_end, object}, size);
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool GetObjectInfoResponse_ObjectGeofenceInfo::MergePartialFromCodedStream(
+bool GeoInfo::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+  // @@protoc_insertion_point(parse_start:ric.geo.GeoInfo)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // string geofence_id = 1;
+      // string id = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_geofence_id()));
+                input, this->mutable_id()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->geofence_id().data(), static_cast<int>(this->geofence_id().length()),
+            this->id().data(), static_cast<int>(this->id().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.geofence_id"));
+            "ric.geo.GeoInfo.id"));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // bool is_in = 2;
+      // .ric.geo.KindType kind = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (16 & 0xFF)) {
+          int value = 0;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_kind(static_cast< ::ric::geo::KindType >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bool is_in = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -650,9 +712,9 @@ bool GetObjectInfoResponse_ObjectGeofenceInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // int64 last_packet_time = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
+      // int64 last_packet_time = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (32 & 0xFF)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
@@ -663,9 +725,9 @@ bool GetObjectInfoResponse_ObjectGeofenceInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // int64 last_enter_time = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (32 & 0xFF)) {
+      // int64 last_enter_time = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (40 & 0xFF)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
@@ -676,13 +738,24 @@ bool GetObjectInfoResponse_ObjectGeofenceInfo::MergePartialFromCodedStream(
         break;
       }
 
-      // int64 last_leave_time = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (40 & 0xFF)) {
+      // int64 last_leave_time = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (48 & 0xFF)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &last_leave_time_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .ric.geo.GeoInfo nested = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (58 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+                input, add_nested()));
         } else {
           goto handle_unusual;
         }
@@ -701,105 +774,134 @@ bool GetObjectInfoResponse_ObjectGeofenceInfo::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+  // @@protoc_insertion_point(parse_success:ric.geo.GeoInfo)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+  // @@protoc_insertion_point(parse_failure:ric.geo.GeoInfo)
   return false;
 #undef DO_
 }
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
-void GetObjectInfoResponse_ObjectGeofenceInfo::SerializeWithCachedSizes(
+void GeoInfo::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+  // @@protoc_insertion_point(serialize_start:ric.geo.GeoInfo)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string geofence_id = 1;
-  if (this->geofence_id().size() > 0) {
+  // string id = 1;
+  if (this->id().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->geofence_id().data(), static_cast<int>(this->geofence_id().length()),
+      this->id().data(), static_cast<int>(this->id().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.geofence_id");
+      "ric.geo.GeoInfo.id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->geofence_id(), output);
+      1, this->id(), output);
   }
 
-  // bool is_in = 2;
+  // .ric.geo.KindType kind = 2;
+  if (this->kind() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      2, this->kind(), output);
+  }
+
+  // bool is_in = 3;
   if (this->is_in() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->is_in(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->is_in(), output);
   }
 
-  // int64 last_packet_time = 3;
+  // int64 last_packet_time = 4;
   if (this->last_packet_time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->last_packet_time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->last_packet_time(), output);
   }
 
-  // int64 last_enter_time = 4;
+  // int64 last_enter_time = 5;
   if (this->last_enter_time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->last_enter_time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->last_enter_time(), output);
   }
 
-  // int64 last_leave_time = 5;
+  // int64 last_leave_time = 6;
   if (this->last_leave_time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->last_leave_time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->last_leave_time(), output);
+  }
+
+  // repeated .ric.geo.GeoInfo nested = 7;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->nested_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      7,
+      this->nested(static_cast<int>(i)),
+      output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+  // @@protoc_insertion_point(serialize_end:ric.geo.GeoInfo)
 }
 
-::google::protobuf::uint8* GetObjectInfoResponse_ObjectGeofenceInfo::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* GeoInfo::InternalSerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+  // @@protoc_insertion_point(serialize_to_array_start:ric.geo.GeoInfo)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string geofence_id = 1;
-  if (this->geofence_id().size() > 0) {
+  // string id = 1;
+  if (this->id().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->geofence_id().data(), static_cast<int>(this->geofence_id().length()),
+      this->id().data(), static_cast<int>(this->id().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.geofence_id");
+      "ric.geo.GeoInfo.id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->geofence_id(), target);
+        1, this->id(), target);
   }
 
-  // bool is_in = 2;
+  // .ric.geo.KindType kind = 2;
+  if (this->kind() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->kind(), target);
+  }
+
+  // bool is_in = 3;
   if (this->is_in() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->is_in(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->is_in(), target);
   }
 
-  // int64 last_packet_time = 3;
+  // int64 last_packet_time = 4;
   if (this->last_packet_time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->last_packet_time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->last_packet_time(), target);
   }
 
-  // int64 last_enter_time = 4;
+  // int64 last_enter_time = 5;
   if (this->last_enter_time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->last_enter_time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->last_enter_time(), target);
   }
 
-  // int64 last_leave_time = 5;
+  // int64 last_leave_time = 6;
   if (this->last_leave_time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->last_leave_time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->last_leave_time(), target);
+  }
+
+  // repeated .ric.geo.GeoInfo nested = 7;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->nested_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        7, this->nested(static_cast<int>(i)), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+  // @@protoc_insertion_point(serialize_to_array_end:ric.geo.GeoInfo)
   return target;
 }
 
-size_t GetObjectInfoResponse_ObjectGeofenceInfo::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+size_t GeoInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.geo.GeoInfo)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -811,37 +913,54 @@ size_t GetObjectInfoResponse_ObjectGeofenceInfo::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string geofence_id = 1;
-  if (this->geofence_id().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->geofence_id());
+  // repeated .ric.geo.GeoInfo nested = 7;
+  {
+    unsigned int count = static_cast<unsigned int>(this->nested_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->nested(static_cast<int>(i)));
+    }
   }
 
-  // int64 last_packet_time = 3;
+  // string id = 1;
+  if (this->id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->id());
+  }
+
+  // .ric.geo.KindType kind = 2;
+  if (this->kind() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->kind());
+  }
+
+  // bool is_in = 3;
+  if (this->is_in() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // int64 last_packet_time = 4;
   if (this->last_packet_time() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->last_packet_time());
   }
 
-  // int64 last_enter_time = 4;
+  // int64 last_enter_time = 5;
   if (this->last_enter_time() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->last_enter_time());
   }
 
-  // int64 last_leave_time = 5;
+  // int64 last_leave_time = 6;
   if (this->last_leave_time() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int64Size(
         this->last_leave_time());
-  }
-
-  // bool is_in = 2;
-  if (this->is_in() != 0) {
-    total_size += 1 + 1;
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -849,31 +968,38 @@ size_t GetObjectInfoResponse_ObjectGeofenceInfo::ByteSizeLong() const {
   return total_size;
 }
 
-void GetObjectInfoResponse_ObjectGeofenceInfo::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+void GeoInfo::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.geo.GeoInfo)
   GOOGLE_DCHECK_NE(&from, this);
-  const GetObjectInfoResponse_ObjectGeofenceInfo* source =
-      ::google::protobuf::DynamicCastToGenerated<GetObjectInfoResponse_ObjectGeofenceInfo>(
+  const GeoInfo* source =
+      ::google::protobuf::DynamicCastToGenerated<GeoInfo>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.geo.GeoInfo)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.geo.GeoInfo)
     MergeFrom(*source);
   }
 }
 
-void GetObjectInfoResponse_ObjectGeofenceInfo::MergeFrom(const GetObjectInfoResponse_ObjectGeofenceInfo& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+void GeoInfo::MergeFrom(const GeoInfo& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.geo.GeoInfo)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.geofence_id().size() > 0) {
+  nested_.MergeFrom(from.nested_);
+  if (from.id().size() > 0) {
 
-    geofence_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.geofence_id_);
+    id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.id_);
+  }
+  if (from.kind() != 0) {
+    set_kind(from.kind());
+  }
+  if (from.is_in() != 0) {
+    set_is_in(from.is_in());
   }
   if (from.last_packet_time() != 0) {
     set_last_packet_time(from.last_packet_time());
@@ -884,45 +1010,44 @@ void GetObjectInfoResponse_ObjectGeofenceInfo::MergeFrom(const GetObjectInfoResp
   if (from.last_leave_time() != 0) {
     set_last_leave_time(from.last_leave_time());
   }
-  if (from.is_in() != 0) {
-    set_is_in(from.is_in());
-  }
 }
 
-void GetObjectInfoResponse_ObjectGeofenceInfo::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+void GeoInfo::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.geo.GeoInfo)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void GetObjectInfoResponse_ObjectGeofenceInfo::CopyFrom(const GetObjectInfoResponse_ObjectGeofenceInfo& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+void GeoInfo::CopyFrom(const GeoInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.geo.GeoInfo)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool GetObjectInfoResponse_ObjectGeofenceInfo::IsInitialized() const {
+bool GeoInfo::IsInitialized() const {
   return true;
 }
 
-void GetObjectInfoResponse_ObjectGeofenceInfo::Swap(GetObjectInfoResponse_ObjectGeofenceInfo* other) {
+void GeoInfo::Swap(GeoInfo* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void GetObjectInfoResponse_ObjectGeofenceInfo::InternalSwap(GetObjectInfoResponse_ObjectGeofenceInfo* other) {
+void GeoInfo::InternalSwap(GeoInfo* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  geofence_id_.Swap(&other->geofence_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  CastToBase(&nested_)->InternalSwap(CastToBase(&other->nested_));
+  id_.Swap(&other->id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  swap(kind_, other->kind_);
+  swap(is_in_, other->is_in_);
   swap(last_packet_time_, other->last_packet_time_);
   swap(last_enter_time_, other->last_enter_time_);
   swap(last_leave_time_, other->last_leave_time_);
-  swap(is_in_, other->is_in_);
 }
 
-::google::protobuf::Metadata GetObjectInfoResponse_ObjectGeofenceInfo::GetMetadata() const {
+::google::protobuf::Metadata GeoInfo::GetMetadata() const {
   ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dgeo_2fricgeo_2eproto);
   return ::file_level_metadata_ric_2dgeo_2fricgeo_2eproto[kIndexInFileMessages];
 }
@@ -998,13 +1123,13 @@ const char* GetObjectInfoResponse::_InternalParse(const char* begin, const char*
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // repeated .ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo geofences = 1;
+      // repeated .ric.geo.GeoInfo geofences = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
         do {
           ptr = ::google::protobuf::io::ReadSize(ptr, &size);
           GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-          parser_till_end = ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo::_InternalParse;
+          parser_till_end = ::ric::geo::GeoInfo::_InternalParse;
           object = msg->add_geofences();
           if (size > end - ptr) goto len_delim_till_end;
           ptr += size;
@@ -1044,7 +1169,7 @@ bool GetObjectInfoResponse::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo geofences = 1;
+      // repeated .ric.geo.GeoInfo geofences = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
@@ -1082,7 +1207,7 @@ void GetObjectInfoResponse::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo geofences = 1;
+  // repeated .ric.geo.GeoInfo geofences = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->geofences_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
@@ -1104,7 +1229,7 @@ void GetObjectInfoResponse::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo geofences = 1;
+  // repeated .ric.geo.GeoInfo geofences = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->geofences_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
@@ -1133,7 +1258,7 @@ size_t GetObjectInfoResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo geofences = 1;
+  // repeated .ric.geo.GeoInfo geofences = 1;
   {
     unsigned int count = static_cast<unsigned int>(this->geofences_size());
     total_size += 1UL * count;
@@ -1216,8 +1341,8 @@ namespace protobuf {
 template<> PROTOBUF_NOINLINE ::ric::geo::GetObjectInfoRequest* Arena::CreateMaybeMessage< ::ric::geo::GetObjectInfoRequest >(Arena* arena) {
   return Arena::CreateInternal< ::ric::geo::GetObjectInfoRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo* Arena::CreateMaybeMessage< ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo >(Arena* arena) {
-  return Arena::CreateInternal< ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo >(arena);
+template<> PROTOBUF_NOINLINE ::ric::geo::GeoInfo* Arena::CreateMaybeMessage< ::ric::geo::GeoInfo >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::geo::GeoInfo >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::geo::GetObjectInfoResponse* Arena::CreateMaybeMessage< ::ric::geo::GetObjectInfoResponse >(Arena* arena) {
   return Arena::CreateInternal< ::ric::geo::GetObjectInfoResponse >(arena);

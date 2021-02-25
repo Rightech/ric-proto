@@ -30,10 +30,10 @@ class ServerContext;
 namespace ric {
 namespace geo {
 
-class Watch final {
+class Geo final {
  public:
   static constexpr char const* service_full_name() {
-    return "ric.geo.Watch";
+    return "ric.geo.Geo";
   }
   class StubInterface {
    public:
