@@ -93,6 +93,13 @@ export interface LogEntry {
   result?: ActionResult;
 }
 
+export interface WaitCondition {
+  timeout?: string;
+  event?: string;
+  state?: string;
+  status?: string;
+}
+
 export interface GetInstanceInfoRequest {
 
 }
@@ -134,8 +141,7 @@ export interface RunAutomatonRequest {
   ctx?: UserContext;
   objectId?: string;
   automatonId?: string;
-  waitEvent?: string;
-  waitTimeout?: number;
+  wait?: WaitCondition;
   onRunning?: string;
   vars?: { [key: string]: AutomatonVarValue };
 }
@@ -171,8 +177,7 @@ export interface WaitEventRequest {
   ctx?: UserContext;
   objectId?: string;
   automatonId?: string;
-  event?: string;
-  waitTimeout?: number;
+  wait?: WaitCondition;
 }
 
 export interface WaitEventResponse {

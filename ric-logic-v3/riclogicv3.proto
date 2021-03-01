@@ -135,7 +135,6 @@ message RunAutomatonRequest {
   string object_id = 2;
   string automaton_id = 3;
   WaitCondition wait = 4;
-
   string on_running = 6;
   map<string, AutomatonVarValue> vars = 7;
 }
