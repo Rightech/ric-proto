@@ -12,7 +12,6 @@ message DispatchDefaultActionRequest {
   string service = 1;
   string source = 2;
   string object_id = 3;
-
   string id = 4;
   string name = 5;
   string params = 6;
