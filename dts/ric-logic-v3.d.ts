@@ -14,7 +14,7 @@ export interface RicLogicV3 {
   StopAutomaton(request: StopAutomatonRequest): Promise<StopAutomatonResponse>;
   RunAutomaton(request: RunAutomatonRequest, clientCall?: GrpcStream<AutomatonInfo>): any;
   EmitEvent(request: EmitEventRequest): Promise<EmitEventResponse>;
-  WaitEvent(request: WaitEventRequest): Promise<WaitEventRequest>;
+  WaitEvent(request: WaitEventRequest): Promise<WaitEventResponse>;
   UpdateAutomatonVars(request: UpdateAutomatonVarsRequest): Promise<UpdateAutomatonVarsResponse>;
 
   streamed?(): {

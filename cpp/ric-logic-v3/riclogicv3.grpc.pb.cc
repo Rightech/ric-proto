@@ -182,24 +182,24 @@ void RicLogicV3::Stub::experimental_async::EmitEvent(::grpc::ClientContext* cont
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::EmitEventResponse>::Create(channel_.get(), cq, rpcmethod_EmitEvent_, context, request, false);
 }
 
-::grpc::Status RicLogicV3::Stub::WaitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::ric::logic::v3::WaitEventRequest* response) {
+::grpc::Status RicLogicV3::Stub::WaitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::ric::logic::v3::WaitEventResponse* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_WaitEvent_, context, request, response);
 }
 
-void RicLogicV3::Stub::experimental_async::WaitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest* request, ::ric::logic::v3::WaitEventRequest* response, std::function<void(::grpc::Status)> f) {
+void RicLogicV3::Stub::experimental_async::WaitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest* request, ::ric::logic::v3::WaitEventResponse* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_WaitEvent_, context, request, response, std::move(f));
 }
 
-void RicLogicV3::Stub::experimental_async::WaitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::WaitEventRequest* response, std::function<void(::grpc::Status)> f) {
+void RicLogicV3::Stub::experimental_async::WaitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::WaitEventResponse* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_WaitEvent_, context, request, response, std::move(f));
 }
 
-::grpc::ClientAsyncResponseReader< ::ric::logic::v3::WaitEventRequest>* RicLogicV3::Stub::AsyncWaitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::WaitEventRequest>::Create(channel_.get(), cq, rpcmethod_WaitEvent_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::ric::logic::v3::WaitEventResponse>* RicLogicV3::Stub::AsyncWaitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::WaitEventResponse>::Create(channel_.get(), cq, rpcmethod_WaitEvent_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::ric::logic::v3::WaitEventRequest>* RicLogicV3::Stub::PrepareAsyncWaitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::WaitEventRequest>::Create(channel_.get(), cq, rpcmethod_WaitEvent_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::ric::logic::v3::WaitEventResponse>* RicLogicV3::Stub::PrepareAsyncWaitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::WaitEventResponse>::Create(channel_.get(), cq, rpcmethod_WaitEvent_, context, request, false);
 }
 
 ::grpc::Status RicLogicV3::Stub::UpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response) {
@@ -261,7 +261,7 @@ RicLogicV3::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RicLogicV3_method_names[7],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< RicLogicV3::Service, ::ric::logic::v3::WaitEventRequest, ::ric::logic::v3::WaitEventRequest>(
+      new ::grpc::internal::RpcMethodHandler< RicLogicV3::Service, ::ric::logic::v3::WaitEventRequest, ::ric::logic::v3::WaitEventResponse>(
           std::mem_fn(&RicLogicV3::Service::WaitEvent), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RicLogicV3_method_names[8],
@@ -322,7 +322,7 @@ RicLogicV3::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status RicLogicV3::Service::WaitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::WaitEventRequest* request, ::ric::logic::v3::WaitEventRequest* response) {
+::grpc::Status RicLogicV3::Service::WaitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::WaitEventRequest* request, ::ric::logic::v3::WaitEventResponse* response) {
   (void) context;
   (void) request;
   (void) response;

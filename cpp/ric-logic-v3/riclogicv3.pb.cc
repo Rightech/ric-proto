@@ -1095,7 +1095,7 @@ const char descriptor_table_protodef_ric_2dlogic_2dv3_2friclogicv3_2eproto[] =
   "se\022A\n\004vars\030\001 \003(\01323.ric.logic.v3.UpdateAu"
   "tomatonVarsResponse.VarsEntry\032L\n\tVarsEnt"
   "ry\022\013\n\003key\030\001 \001(\t\022.\n\005value\030\002 \001(\0132\037.ric.log"
-  "ic.v3.AutomatonVarValue:\0028\0012\267\006\n\nRicLogic"
+  "ic.v3.AutomatonVarValue:\0028\0012\270\006\n\nRicLogic"
   "V3\022^\n\017GetInstanceInfo\022$.ric.logic.v3.Get"
   "InstanceInfoRequest\032%.ric.logic.v3.GetIn"
   "stanceInfoResponse\022R\n\rGetAutomatons\022\".ri"
@@ -1111,18 +1111,18 @@ const char descriptor_table_protodef_ric_2dlogic_2dv3_2friclogicv3_2eproto[] =
   "aton\022!.ric.logic.v3.RunAutomatonRequest\032"
   "\033.ric.logic.v3.AutomatonInfo0\001\022L\n\tEmitEv"
   "ent\022\036.ric.logic.v3.EmitEventRequest\032\037.ri"
-  "c.logic.v3.EmitEventResponse\022K\n\tWaitEven"
-  "t\022\036.ric.logic.v3.WaitEventRequest\032\036.ric."
-  "logic.v3.WaitEventRequest\022j\n\023UpdateAutom"
-  "atonVars\022(.ric.logic.v3.UpdateAutomatonV"
-  "arsRequest\032).ric.logic.v3.UpdateAutomato"
-  "nVarsResponseB\033Z\031./ric-logic-v3;riclogic"
-  "v3b\006proto3"
+  "c.logic.v3.EmitEventResponse\022L\n\tWaitEven"
+  "t\022\036.ric.logic.v3.WaitEventRequest\032\037.ric."
+  "logic.v3.WaitEventResponse\022j\n\023UpdateAuto"
+  "matonVars\022(.ric.logic.v3.UpdateAutomaton"
+  "VarsRequest\032).ric.logic.v3.UpdateAutomat"
+  "onVarsResponseB\033Z\031./ric-logic-v3;riclogi"
+  "cv3b\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dlogic_2dv3_2friclogicv3_2eproto = {
   false, InitDefaults_ric_2dlogic_2dv3_2friclogicv3_2eproto, 
   descriptor_table_protodef_ric_2dlogic_2dv3_2friclogicv3_2eproto,
-  "ric-logic-v3/riclogicv3.proto", &assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto, 4410,
+  "ric-logic-v3/riclogicv3.proto", &assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto, 4411,
 };
 
 void AddDescriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
