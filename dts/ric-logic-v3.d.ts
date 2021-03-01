@@ -14,6 +14,7 @@ export interface RicLogicV3 {
   StopAutomaton(request: StopAutomatonRequest): Promise<StopAutomatonResponse>;
   RunAutomaton(request: RunAutomatonRequest, clientCall?: GrpcStream<AutomatonInfo>): any;
   EmitEvent(request: EmitEventRequest): Promise<EmitEventResponse>;
+  WaitEvent(request: WaitEventRequest): Promise<WaitEventRequest>;
   UpdateAutomatonVars(request: UpdateAutomatonVarsRequest): Promise<UpdateAutomatonVarsResponse>;
 
   streamed?(): {
@@ -133,7 +134,7 @@ export interface RunAutomatonRequest {
   ctx?: UserContext;
   objectId?: string;
   automatonId?: string;
-  waitFinal?: boolean;
+  waitEvent?: string;
   waitTimeout?: number;
   onRunning?: string;
   vars?: { [key: string]: AutomatonVarValue };
@@ -163,6 +164,18 @@ export interface EmitEventRequest {
 }
 
 export interface EmitEventResponse {
+
+}
+
+export interface WaitEventRequest {
+  ctx?: UserContext;
+  objectId?: string;
+  automatonId?: string;
+  event?: string;
+  waitTimeout?: number;
+}
+
+export interface WaitEventResponse {
 
 }
 

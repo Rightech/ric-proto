@@ -1120,7 +1120,7 @@ type RunAutomatonRequest struct {
 	Ctx         *UserContext                  `protobuf:"bytes,1,opt,name=ctx,proto3" json:"ctx,omitempty"`
 	ObjectId    string                        `protobuf:"bytes,2,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
 	AutomatonId string                        `protobuf:"bytes,3,opt,name=automaton_id,json=automatonId,proto3" json:"automaton_id,omitempty"`
-	WaitFinal   bool                          `protobuf:"varint,4,opt,name=wait_final,json=waitFinal,proto3" json:"wait_final,omitempty"`
+	WaitEvent   string                        `protobuf:"bytes,4,opt,name=wait_event,json=waitEvent,proto3" json:"wait_event,omitempty"`
 	WaitTimeout int32                         `protobuf:"varint,5,opt,name=wait_timeout,json=waitTimeout,proto3" json:"wait_timeout,omitempty"`
 	OnRunning   string                        `protobuf:"bytes,6,opt,name=on_running,json=onRunning,proto3" json:"on_running,omitempty"`
 	Vars        map[string]*AutomatonVarValue `protobuf:"bytes,7,rep,name=vars,proto3" json:"vars,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
@@ -1179,11 +1179,11 @@ func (x *RunAutomatonRequest) GetAutomatonId() string {
 	return ""
 }
 
-func (x *RunAutomatonRequest) GetWaitFinal() bool {
+func (x *RunAutomatonRequest) GetWaitEvent() string {
 	if x != nil {
-		return x.WaitFinal
+		return x.WaitEvent
 	}
-	return false
+	return ""
 }
 
 func (x *RunAutomatonRequest) GetWaitTimeout() int32 {
@@ -1489,6 +1489,123 @@ func (*EmitEventResponse) Descriptor() ([]byte, []int) {
 	return file_ric_logic_v3_riclogicv3_proto_rawDescGZIP(), []int{19}
 }
 
+type WaitEventRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Ctx         *UserContext `protobuf:"bytes,1,opt,name=ctx,proto3" json:"ctx,omitempty"`
+	ObjectId    string       `protobuf:"bytes,2,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
+	AutomatonId string       `protobuf:"bytes,3,opt,name=automaton_id,json=automatonId,proto3" json:"automaton_id,omitempty"`
+	Event       string       `protobuf:"bytes,4,opt,name=event,proto3" json:"event,omitempty"`
+	WaitTimeout int32        `protobuf:"varint,5,opt,name=wait_timeout,json=waitTimeout,proto3" json:"wait_timeout,omitempty"`
+}
+
+func (x *WaitEventRequest) Reset() {
+	*x = WaitEventRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[20]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *WaitEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WaitEventRequest) ProtoMessage() {}
+
+func (x *WaitEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[20]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WaitEventRequest.ProtoReflect.Descriptor instead.
+func (*WaitEventRequest) Descriptor() ([]byte, []int) {
+	return file_ric_logic_v3_riclogicv3_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *WaitEventRequest) GetCtx() *UserContext {
+	if x != nil {
+		return x.Ctx
+	}
+	return nil
+}
+
+func (x *WaitEventRequest) GetObjectId() string {
+	if x != nil {
+		return x.ObjectId
+	}
+	return ""
+}
+
+func (x *WaitEventRequest) GetAutomatonId() string {
+	if x != nil {
+		return x.AutomatonId
+	}
+	return ""
+}
+
+func (x *WaitEventRequest) GetEvent() string {
+	if x != nil {
+		return x.Event
+	}
+	return ""
+}
+
+func (x *WaitEventRequest) GetWaitTimeout() int32 {
+	if x != nil {
+		return x.WaitTimeout
+	}
+	return 0
+}
+
+type WaitEventResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *WaitEventResponse) Reset() {
+	*x = WaitEventResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[21]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *WaitEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WaitEventResponse) ProtoMessage() {}
+
+func (x *WaitEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[21]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WaitEventResponse.ProtoReflect.Descriptor instead.
+func (*WaitEventResponse) Descriptor() ([]byte, []int) {
+	return file_ric_logic_v3_riclogicv3_proto_rawDescGZIP(), []int{21}
+}
+
 type GetRuntimeInfoRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1501,7 +1618,7 @@ type GetRuntimeInfoRequest struct {
 func (x *GetRuntimeInfoRequest) Reset() {
 	*x = GetRuntimeInfoRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[20]
+		mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1514,7 +1631,7 @@ func (x *GetRuntimeInfoRequest) String() string {
 func (*GetRuntimeInfoRequest) ProtoMessage() {}
 
 func (x *GetRuntimeInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[20]
+	mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1527,7 +1644,7 @@ func (x *GetRuntimeInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRuntimeInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetRuntimeInfoRequest) Descriptor() ([]byte, []int) {
-	return file_ric_logic_v3_riclogicv3_proto_rawDescGZIP(), []int{20}
+	return file_ric_logic_v3_riclogicv3_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *GetRuntimeInfoRequest) GetObjectId() string {
@@ -1558,7 +1675,7 @@ type UpdateAutomatonVarsRequest struct {
 func (x *UpdateAutomatonVarsRequest) Reset() {
 	*x = UpdateAutomatonVarsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[21]
+		mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1571,7 +1688,7 @@ func (x *UpdateAutomatonVarsRequest) String() string {
 func (*UpdateAutomatonVarsRequest) ProtoMessage() {}
 
 func (x *UpdateAutomatonVarsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[21]
+	mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1584,7 +1701,7 @@ func (x *UpdateAutomatonVarsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateAutomatonVarsRequest.ProtoReflect.Descriptor instead.
 func (*UpdateAutomatonVarsRequest) Descriptor() ([]byte, []int) {
-	return file_ric_logic_v3_riclogicv3_proto_rawDescGZIP(), []int{21}
+	return file_ric_logic_v3_riclogicv3_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *UpdateAutomatonVarsRequest) GetCtx() *UserContext {
@@ -1626,7 +1743,7 @@ type UpdateAutomatonVarsResponse struct {
 func (x *UpdateAutomatonVarsResponse) Reset() {
 	*x = UpdateAutomatonVarsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[22]
+		mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[24]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1639,7 +1756,7 @@ func (x *UpdateAutomatonVarsResponse) String() string {
 func (*UpdateAutomatonVarsResponse) ProtoMessage() {}
 
 func (x *UpdateAutomatonVarsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[22]
+	mi := &file_ric_logic_v3_riclogicv3_proto_msgTypes[24]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1652,7 +1769,7 @@ func (x *UpdateAutomatonVarsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateAutomatonVarsResponse.ProtoReflect.Descriptor instead.
 func (*UpdateAutomatonVarsResponse) Descriptor() ([]byte, []int) {
-	return file_ric_logic_v3_riclogicv3_proto_rawDescGZIP(), []int{22}
+	return file_ric_logic_v3_riclogicv3_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *UpdateAutomatonVarsResponse) GetVars() map[string]*AutomatonVarValue {
@@ -1843,8 +1960,8 @@ var file_ric_logic_v3_riclogicv3_proto_rawDesc = []byte{
 	0x01, 0x28, 0x09, 0x52, 0x08, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x12, 0x21, 0x0a,
 	0x0c, 0x61, 0x75, 0x74, 0x6f, 0x6d, 0x61, 0x74, 0x6f, 0x6e, 0x5f, 0x69, 0x64, 0x18, 0x03, 0x20,
 	0x01, 0x28, 0x09, 0x52, 0x0b, 0x61, 0x75, 0x74, 0x6f, 0x6d, 0x61, 0x74, 0x6f, 0x6e, 0x49, 0x64,
-	0x12, 0x1d, 0x0a, 0x0a, 0x77, 0x61, 0x69, 0x74, 0x5f, 0x66, 0x69, 0x6e, 0x61, 0x6c, 0x18, 0x04,
-	0x20, 0x01, 0x28, 0x08, 0x52, 0x09, 0x77, 0x61, 0x69, 0x74, 0x46, 0x69, 0x6e, 0x61, 0x6c, 0x12,
+	0x12, 0x1d, 0x0a, 0x0a, 0x77, 0x61, 0x69, 0x74, 0x5f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x04,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x77, 0x61, 0x69, 0x74, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x12,
 	0x21, 0x0a, 0x0c, 0x77, 0x61, 0x69, 0x74, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x6f, 0x75, 0x74, 0x18,
 	0x05, 0x20, 0x01, 0x28, 0x05, 0x52, 0x0b, 0x77, 0x61, 0x69, 0x74, 0x54, 0x69, 0x6d, 0x65, 0x6f,
 	0x75, 0x74, 0x12, 0x1d, 0x0a, 0x0a, 0x6f, 0x6e, 0x5f, 0x72, 0x75, 0x6e, 0x6e, 0x69, 0x6e, 0x67,
@@ -1890,6 +2007,19 @@ var file_ric_logic_v3_riclogicv3_proto_rawDesc = []byte{
 	0x74, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x12, 0x18,
 	0x0a, 0x07, 0x70, 0x61, 0x79, 0x6c, 0x6f, 0x61, 0x64, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52,
 	0x07, 0x70, 0x61, 0x79, 0x6c, 0x6f, 0x61, 0x64, 0x22, 0x13, 0x0a, 0x11, 0x45, 0x6d, 0x69, 0x74,
+	0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0xb8, 0x01,
+	0x0a, 0x10, 0x57, 0x61, 0x69, 0x74, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x2b, 0x0a, 0x03, 0x63, 0x74, 0x78, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
+	0x19, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x6c, 0x6f, 0x67, 0x69, 0x63, 0x2e, 0x76, 0x33, 0x2e, 0x55,
+	0x73, 0x65, 0x72, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x78, 0x74, 0x52, 0x03, 0x63, 0x74, 0x78, 0x12,
+	0x1b, 0x0a, 0x09, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x08, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x12, 0x21, 0x0a, 0x0c,
+	0x61, 0x75, 0x74, 0x6f, 0x6d, 0x61, 0x74, 0x6f, 0x6e, 0x5f, 0x69, 0x64, 0x18, 0x03, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x0b, 0x61, 0x75, 0x74, 0x6f, 0x6d, 0x61, 0x74, 0x6f, 0x6e, 0x49, 0x64, 0x12,
+	0x14, 0x0a, 0x05, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05,
+	0x65, 0x76, 0x65, 0x6e, 0x74, 0x12, 0x21, 0x0a, 0x0c, 0x77, 0x61, 0x69, 0x74, 0x5f, 0x74, 0x69,
+	0x6d, 0x65, 0x6f, 0x75, 0x74, 0x18, 0x05, 0x20, 0x01, 0x28, 0x05, 0x52, 0x0b, 0x77, 0x61, 0x69,
+	0x74, 0x54, 0x69, 0x6d, 0x65, 0x6f, 0x75, 0x74, 0x22, 0x13, 0x0a, 0x11, 0x57, 0x61, 0x69, 0x74,
 	0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x57, 0x0a,
 	0x15, 0x47, 0x65, 0x74, 0x52, 0x75, 0x6e, 0x74, 0x69, 0x6d, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x52,
 	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1b, 0x0a, 0x09, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74,
@@ -1927,7 +2057,7 @@ var file_ric_logic_v3_riclogicv3_proto_rawDesc = []byte{
 	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1f, 0x2e, 0x72, 0x69,
 	0x63, 0x2e, 0x6c, 0x6f, 0x67, 0x69, 0x63, 0x2e, 0x76, 0x33, 0x2e, 0x41, 0x75, 0x74, 0x6f, 0x6d,
 	0x61, 0x74, 0x6f, 0x6e, 0x56, 0x61, 0x72, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x05, 0x76, 0x61,
-	0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x32, 0xea, 0x05, 0x0a, 0x0a, 0x52, 0x69, 0x63, 0x4c,
+	0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x32, 0xb7, 0x06, 0x0a, 0x0a, 0x52, 0x69, 0x63, 0x4c,
 	0x6f, 0x67, 0x69, 0x63, 0x56, 0x33, 0x12, 0x5e, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x49, 0x6e, 0x73,
 	0x74, 0x61, 0x6e, 0x63, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x24, 0x2e, 0x72, 0x69, 0x63, 0x2e,
 	0x6c, 0x6f, 0x67, 0x69, 0x63, 0x2e, 0x76, 0x33, 0x2e, 0x47, 0x65, 0x74, 0x49, 0x6e, 0x73, 0x74,
@@ -1967,16 +2097,21 @@ var file_ric_logic_v3_riclogicv3_proto_rawDesc = []byte{
 	0x67, 0x69, 0x63, 0x2e, 0x76, 0x33, 0x2e, 0x45, 0x6d, 0x69, 0x74, 0x45, 0x76, 0x65, 0x6e, 0x74,
 	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1f, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x6c, 0x6f,
 	0x67, 0x69, 0x63, 0x2e, 0x76, 0x33, 0x2e, 0x45, 0x6d, 0x69, 0x74, 0x45, 0x76, 0x65, 0x6e, 0x74,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x6a, 0x0a, 0x13, 0x55, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x41, 0x75, 0x74, 0x6f, 0x6d, 0x61, 0x74, 0x6f, 0x6e, 0x56, 0x61, 0x72, 0x73, 0x12,
-	0x28, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x6c, 0x6f, 0x67, 0x69, 0x63, 0x2e, 0x76, 0x33, 0x2e, 0x55,
-	0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x75, 0x74, 0x6f, 0x6d, 0x61, 0x74, 0x6f, 0x6e, 0x56, 0x61,
-	0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x29, 0x2e, 0x72, 0x69, 0x63, 0x2e,
-	0x6c, 0x6f, 0x67, 0x69, 0x63, 0x2e, 0x76, 0x33, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41,
-	0x75, 0x74, 0x6f, 0x6d, 0x61, 0x74, 0x6f, 0x6e, 0x56, 0x61, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x42, 0x1b, 0x5a, 0x19, 0x2e, 0x2f, 0x72, 0x69, 0x63, 0x2d, 0x6c, 0x6f,
-	0x67, 0x69, 0x63, 0x2d, 0x76, 0x33, 0x3b, 0x72, 0x69, 0x63, 0x6c, 0x6f, 0x67, 0x69, 0x63, 0x76,
-	0x33, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4b, 0x0a, 0x09, 0x57, 0x61, 0x69, 0x74,
+	0x45, 0x76, 0x65, 0x6e, 0x74, 0x12, 0x1e, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x6c, 0x6f, 0x67, 0x69,
+	0x63, 0x2e, 0x76, 0x33, 0x2e, 0x57, 0x61, 0x69, 0x74, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1e, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x6c, 0x6f, 0x67, 0x69,
+	0x63, 0x2e, 0x76, 0x33, 0x2e, 0x57, 0x61, 0x69, 0x74, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x6a, 0x0a, 0x13, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41,
+	0x75, 0x74, 0x6f, 0x6d, 0x61, 0x74, 0x6f, 0x6e, 0x56, 0x61, 0x72, 0x73, 0x12, 0x28, 0x2e, 0x72,
+	0x69, 0x63, 0x2e, 0x6c, 0x6f, 0x67, 0x69, 0x63, 0x2e, 0x76, 0x33, 0x2e, 0x55, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x41, 0x75, 0x74, 0x6f, 0x6d, 0x61, 0x74, 0x6f, 0x6e, 0x56, 0x61, 0x72, 0x73, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x29, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x6c, 0x6f, 0x67,
+	0x69, 0x63, 0x2e, 0x76, 0x33, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x41, 0x75, 0x74, 0x6f,
+	0x6d, 0x61, 0x74, 0x6f, 0x6e, 0x56, 0x61, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x42, 0x1b, 0x5a, 0x19, 0x2e, 0x2f, 0x72, 0x69, 0x63, 0x2d, 0x6c, 0x6f, 0x67, 0x69, 0x63,
+	0x2d, 0x76, 0x33, 0x3b, 0x72, 0x69, 0x63, 0x6c, 0x6f, 0x67, 0x69, 0x63, 0x76, 0x33, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1991,7 +2126,7 @@ func file_ric_logic_v3_riclogicv3_proto_rawDescGZIP() []byte {
 	return file_ric_logic_v3_riclogicv3_proto_rawDescData
 }
 
-var file_ric_logic_v3_riclogicv3_proto_msgTypes = make([]protoimpl.MessageInfo, 28)
+var file_ric_logic_v3_riclogicv3_proto_msgTypes = make([]protoimpl.MessageInfo, 30)
 var file_ric_logic_v3_riclogicv3_proto_goTypes = []interface{}{
 	(*UserContext)(nil),                 // 0: ric.logic.v3.UserContext
 	(*StatsCounter)(nil),                // 1: ric.logic.v3.StatsCounter
@@ -2013,14 +2148,16 @@ var file_ric_logic_v3_riclogicv3_proto_goTypes = []interface{}{
 	(*GetAutomatonsResponse)(nil),       // 17: ric.logic.v3.GetAutomatonsResponse
 	(*EmitEventRequest)(nil),            // 18: ric.logic.v3.EmitEventRequest
 	(*EmitEventResponse)(nil),           // 19: ric.logic.v3.EmitEventResponse
-	(*GetRuntimeInfoRequest)(nil),       // 20: ric.logic.v3.GetRuntimeInfoRequest
-	(*UpdateAutomatonVarsRequest)(nil),  // 21: ric.logic.v3.UpdateAutomatonVarsRequest
-	(*UpdateAutomatonVarsResponse)(nil), // 22: ric.logic.v3.UpdateAutomatonVarsResponse
-	nil,                                 // 23: ric.logic.v3.AutomatonInfo.VarsEntry
-	nil,                                 // 24: ric.logic.v3.StartAutomatonRequest.VarsEntry
-	nil,                                 // 25: ric.logic.v3.RunAutomatonRequest.VarsEntry
-	nil,                                 // 26: ric.logic.v3.UpdateAutomatonVarsRequest.VarsEntry
-	nil,                                 // 27: ric.logic.v3.UpdateAutomatonVarsResponse.VarsEntry
+	(*WaitEventRequest)(nil),            // 20: ric.logic.v3.WaitEventRequest
+	(*WaitEventResponse)(nil),           // 21: ric.logic.v3.WaitEventResponse
+	(*GetRuntimeInfoRequest)(nil),       // 22: ric.logic.v3.GetRuntimeInfoRequest
+	(*UpdateAutomatonVarsRequest)(nil),  // 23: ric.logic.v3.UpdateAutomatonVarsRequest
+	(*UpdateAutomatonVarsResponse)(nil), // 24: ric.logic.v3.UpdateAutomatonVarsResponse
+	nil,                                 // 25: ric.logic.v3.AutomatonInfo.VarsEntry
+	nil,                                 // 26: ric.logic.v3.StartAutomatonRequest.VarsEntry
+	nil,                                 // 27: ric.logic.v3.RunAutomatonRequest.VarsEntry
+	nil,                                 // 28: ric.logic.v3.UpdateAutomatonVarsRequest.VarsEntry
+	nil,                                 // 29: ric.logic.v3.UpdateAutomatonVarsResponse.VarsEntry
 }
 var file_ric_logic_v3_riclogicv3_proto_depIdxs = []int32{
 	1,  // 0: ric.logic.v3.AutomatonStats.transitions:type_name -> ric.logic.v3.StatsCounter
@@ -2029,49 +2166,52 @@ var file_ric_logic_v3_riclogicv3_proto_depIdxs = []int32{
 	1,  // 3: ric.logic.v3.AutomatonStats.events:type_name -> ric.logic.v3.StatsCounter
 	2,  // 4: ric.logic.v3.AutomatonInfo.stats:type_name -> ric.logic.v3.AutomatonStats
 	7,  // 5: ric.logic.v3.AutomatonInfo.logs:type_name -> ric.logic.v3.LogEntry
-	23, // 6: ric.logic.v3.AutomatonInfo.vars:type_name -> ric.logic.v3.AutomatonInfo.VarsEntry
+	25, // 6: ric.logic.v3.AutomatonInfo.vars:type_name -> ric.logic.v3.AutomatonInfo.VarsEntry
 	5,  // 7: ric.logic.v3.LogEntry.event:type_name -> ric.logic.v3.AutomatonEvent
 	0,  // 8: ric.logic.v3.LogEntry.ctx:type_name -> ric.logic.v3.UserContext
 	6,  // 9: ric.logic.v3.LogEntry.result:type_name -> ric.logic.v3.ActionResult
 	0,  // 10: ric.logic.v3.StartAutomatonRequest.ctx:type_name -> ric.logic.v3.UserContext
-	24, // 11: ric.logic.v3.StartAutomatonRequest.vars:type_name -> ric.logic.v3.StartAutomatonRequest.VarsEntry
+	26, // 11: ric.logic.v3.StartAutomatonRequest.vars:type_name -> ric.logic.v3.StartAutomatonRequest.VarsEntry
 	0,  // 12: ric.logic.v3.StartAutomatonMultiRequest.ctx:type_name -> ric.logic.v3.UserContext
 	4,  // 13: ric.logic.v3.StartAutomatonResponse.automaton:type_name -> ric.logic.v3.AutomatonInfo
 	0,  // 14: ric.logic.v3.StopAutomatonRequest.ctx:type_name -> ric.logic.v3.UserContext
 	0,  // 15: ric.logic.v3.RunAutomatonRequest.ctx:type_name -> ric.logic.v3.UserContext
-	25, // 16: ric.logic.v3.RunAutomatonRequest.vars:type_name -> ric.logic.v3.RunAutomatonRequest.VarsEntry
+	27, // 16: ric.logic.v3.RunAutomatonRequest.vars:type_name -> ric.logic.v3.RunAutomatonRequest.VarsEntry
 	4,  // 17: ric.logic.v3.StopAutomatonResponse.automaton:type_name -> ric.logic.v3.AutomatonInfo
 	4,  // 18: ric.logic.v3.GetAutomatonsResponse.automatons:type_name -> ric.logic.v3.AutomatonInfo
 	0,  // 19: ric.logic.v3.EmitEventRequest.ctx:type_name -> ric.logic.v3.UserContext
-	0,  // 20: ric.logic.v3.UpdateAutomatonVarsRequest.ctx:type_name -> ric.logic.v3.UserContext
-	26, // 21: ric.logic.v3.UpdateAutomatonVarsRequest.vars:type_name -> ric.logic.v3.UpdateAutomatonVarsRequest.VarsEntry
-	27, // 22: ric.logic.v3.UpdateAutomatonVarsResponse.vars:type_name -> ric.logic.v3.UpdateAutomatonVarsResponse.VarsEntry
-	3,  // 23: ric.logic.v3.AutomatonInfo.VarsEntry.value:type_name -> ric.logic.v3.AutomatonVarValue
-	3,  // 24: ric.logic.v3.StartAutomatonRequest.VarsEntry.value:type_name -> ric.logic.v3.AutomatonVarValue
-	3,  // 25: ric.logic.v3.RunAutomatonRequest.VarsEntry.value:type_name -> ric.logic.v3.AutomatonVarValue
-	3,  // 26: ric.logic.v3.UpdateAutomatonVarsRequest.VarsEntry.value:type_name -> ric.logic.v3.AutomatonVarValue
-	3,  // 27: ric.logic.v3.UpdateAutomatonVarsResponse.VarsEntry.value:type_name -> ric.logic.v3.AutomatonVarValue
-	8,  // 28: ric.logic.v3.RicLogicV3.GetInstanceInfo:input_type -> ric.logic.v3.GetInstanceInfoRequest
-	16, // 29: ric.logic.v3.RicLogicV3.GetAutomatons:input_type -> ric.logic.v3.GetAutomatonsRequest
-	10, // 30: ric.logic.v3.RicLogicV3.StartAutomaton:input_type -> ric.logic.v3.StartAutomatonRequest
-	11, // 31: ric.logic.v3.RicLogicV3.StartAutomatonMulti:input_type -> ric.logic.v3.StartAutomatonMultiRequest
-	13, // 32: ric.logic.v3.RicLogicV3.StopAutomaton:input_type -> ric.logic.v3.StopAutomatonRequest
-	14, // 33: ric.logic.v3.RicLogicV3.RunAutomaton:input_type -> ric.logic.v3.RunAutomatonRequest
-	18, // 34: ric.logic.v3.RicLogicV3.EmitEvent:input_type -> ric.logic.v3.EmitEventRequest
-	21, // 35: ric.logic.v3.RicLogicV3.UpdateAutomatonVars:input_type -> ric.logic.v3.UpdateAutomatonVarsRequest
-	9,  // 36: ric.logic.v3.RicLogicV3.GetInstanceInfo:output_type -> ric.logic.v3.GetInstanceInfoResponse
-	4,  // 37: ric.logic.v3.RicLogicV3.GetAutomatons:output_type -> ric.logic.v3.AutomatonInfo
-	12, // 38: ric.logic.v3.RicLogicV3.StartAutomaton:output_type -> ric.logic.v3.StartAutomatonResponse
-	12, // 39: ric.logic.v3.RicLogicV3.StartAutomatonMulti:output_type -> ric.logic.v3.StartAutomatonResponse
-	15, // 40: ric.logic.v3.RicLogicV3.StopAutomaton:output_type -> ric.logic.v3.StopAutomatonResponse
-	4,  // 41: ric.logic.v3.RicLogicV3.RunAutomaton:output_type -> ric.logic.v3.AutomatonInfo
-	19, // 42: ric.logic.v3.RicLogicV3.EmitEvent:output_type -> ric.logic.v3.EmitEventResponse
-	22, // 43: ric.logic.v3.RicLogicV3.UpdateAutomatonVars:output_type -> ric.logic.v3.UpdateAutomatonVarsResponse
-	36, // [36:44] is the sub-list for method output_type
-	28, // [28:36] is the sub-list for method input_type
-	28, // [28:28] is the sub-list for extension type_name
-	28, // [28:28] is the sub-list for extension extendee
-	0,  // [0:28] is the sub-list for field type_name
+	0,  // 20: ric.logic.v3.WaitEventRequest.ctx:type_name -> ric.logic.v3.UserContext
+	0,  // 21: ric.logic.v3.UpdateAutomatonVarsRequest.ctx:type_name -> ric.logic.v3.UserContext
+	28, // 22: ric.logic.v3.UpdateAutomatonVarsRequest.vars:type_name -> ric.logic.v3.UpdateAutomatonVarsRequest.VarsEntry
+	29, // 23: ric.logic.v3.UpdateAutomatonVarsResponse.vars:type_name -> ric.logic.v3.UpdateAutomatonVarsResponse.VarsEntry
+	3,  // 24: ric.logic.v3.AutomatonInfo.VarsEntry.value:type_name -> ric.logic.v3.AutomatonVarValue
+	3,  // 25: ric.logic.v3.StartAutomatonRequest.VarsEntry.value:type_name -> ric.logic.v3.AutomatonVarValue
+	3,  // 26: ric.logic.v3.RunAutomatonRequest.VarsEntry.value:type_name -> ric.logic.v3.AutomatonVarValue
+	3,  // 27: ric.logic.v3.UpdateAutomatonVarsRequest.VarsEntry.value:type_name -> ric.logic.v3.AutomatonVarValue
+	3,  // 28: ric.logic.v3.UpdateAutomatonVarsResponse.VarsEntry.value:type_name -> ric.logic.v3.AutomatonVarValue
+	8,  // 29: ric.logic.v3.RicLogicV3.GetInstanceInfo:input_type -> ric.logic.v3.GetInstanceInfoRequest
+	16, // 30: ric.logic.v3.RicLogicV3.GetAutomatons:input_type -> ric.logic.v3.GetAutomatonsRequest
+	10, // 31: ric.logic.v3.RicLogicV3.StartAutomaton:input_type -> ric.logic.v3.StartAutomatonRequest
+	11, // 32: ric.logic.v3.RicLogicV3.StartAutomatonMulti:input_type -> ric.logic.v3.StartAutomatonMultiRequest
+	13, // 33: ric.logic.v3.RicLogicV3.StopAutomaton:input_type -> ric.logic.v3.StopAutomatonRequest
+	14, // 34: ric.logic.v3.RicLogicV3.RunAutomaton:input_type -> ric.logic.v3.RunAutomatonRequest
+	18, // 35: ric.logic.v3.RicLogicV3.EmitEvent:input_type -> ric.logic.v3.EmitEventRequest
+	20, // 36: ric.logic.v3.RicLogicV3.WaitEvent:input_type -> ric.logic.v3.WaitEventRequest
+	23, // 37: ric.logic.v3.RicLogicV3.UpdateAutomatonVars:input_type -> ric.logic.v3.UpdateAutomatonVarsRequest
+	9,  // 38: ric.logic.v3.RicLogicV3.GetInstanceInfo:output_type -> ric.logic.v3.GetInstanceInfoResponse
+	4,  // 39: ric.logic.v3.RicLogicV3.GetAutomatons:output_type -> ric.logic.v3.AutomatonInfo
+	12, // 40: ric.logic.v3.RicLogicV3.StartAutomaton:output_type -> ric.logic.v3.StartAutomatonResponse
+	12, // 41: ric.logic.v3.RicLogicV3.StartAutomatonMulti:output_type -> ric.logic.v3.StartAutomatonResponse
+	15, // 42: ric.logic.v3.RicLogicV3.StopAutomaton:output_type -> ric.logic.v3.StopAutomatonResponse
+	4,  // 43: ric.logic.v3.RicLogicV3.RunAutomaton:output_type -> ric.logic.v3.AutomatonInfo
+	19, // 44: ric.logic.v3.RicLogicV3.EmitEvent:output_type -> ric.logic.v3.EmitEventResponse
+	20, // 45: ric.logic.v3.RicLogicV3.WaitEvent:output_type -> ric.logic.v3.WaitEventRequest
+	24, // 46: ric.logic.v3.RicLogicV3.UpdateAutomatonVars:output_type -> ric.logic.v3.UpdateAutomatonVarsResponse
+	38, // [38:47] is the sub-list for method output_type
+	29, // [29:38] is the sub-list for method input_type
+	29, // [29:29] is the sub-list for extension type_name
+	29, // [29:29] is the sub-list for extension extendee
+	0,  // [0:29] is the sub-list for field type_name
 }
 
 func init() { file_ric_logic_v3_riclogicv3_proto_init() }
@@ -2321,7 +2461,7 @@ func file_ric_logic_v3_riclogicv3_proto_init() {
 			}
 		}
 		file_ric_logic_v3_riclogicv3_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetRuntimeInfoRequest); i {
+			switch v := v.(*WaitEventRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2333,7 +2473,7 @@ func file_ric_logic_v3_riclogicv3_proto_init() {
 			}
 		}
 		file_ric_logic_v3_riclogicv3_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateAutomatonVarsRequest); i {
+			switch v := v.(*WaitEventResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2345,6 +2485,30 @@ func file_ric_logic_v3_riclogicv3_proto_init() {
 			}
 		}
 		file_ric_logic_v3_riclogicv3_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetRuntimeInfoRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_ric_logic_v3_riclogicv3_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateAutomatonVarsRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_ric_logic_v3_riclogicv3_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UpdateAutomatonVarsResponse); i {
 			case 0:
 				return &v.state
@@ -2368,7 +2532,7 @@ func file_ric_logic_v3_riclogicv3_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_ric_logic_v3_riclogicv3_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   28,
+			NumMessages:   30,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -2401,6 +2565,7 @@ type RicLogicV3Client interface {
 	StopAutomaton(ctx context.Context, in *StopAutomatonRequest, opts ...grpc.CallOption) (*StopAutomatonResponse, error)
 	RunAutomaton(ctx context.Context, in *RunAutomatonRequest, opts ...grpc.CallOption) (RicLogicV3_RunAutomatonClient, error)
 	EmitEvent(ctx context.Context, in *EmitEventRequest, opts ...grpc.CallOption) (*EmitEventResponse, error)
+	WaitEvent(ctx context.Context, in *WaitEventRequest, opts ...grpc.CallOption) (*WaitEventRequest, error)
 	UpdateAutomatonVars(ctx context.Context, in *UpdateAutomatonVarsRequest, opts ...grpc.CallOption) (*UpdateAutomatonVarsResponse, error)
 }
 
@@ -2521,6 +2686,15 @@ func (c *ricLogicV3Client) EmitEvent(ctx context.Context, in *EmitEventRequest, 
 	return out, nil
 }
 
+func (c *ricLogicV3Client) WaitEvent(ctx context.Context, in *WaitEventRequest, opts ...grpc.CallOption) (*WaitEventRequest, error) {
+	out := new(WaitEventRequest)
+	err := c.cc.Invoke(ctx, "/ric.logic.v3.RicLogicV3/WaitEvent", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *ricLogicV3Client) UpdateAutomatonVars(ctx context.Context, in *UpdateAutomatonVarsRequest, opts ...grpc.CallOption) (*UpdateAutomatonVarsResponse, error) {
 	out := new(UpdateAutomatonVarsResponse)
 	err := c.cc.Invoke(ctx, "/ric.logic.v3.RicLogicV3/UpdateAutomatonVars", in, out, opts...)
@@ -2539,6 +2713,7 @@ type RicLogicV3Server interface {
 	StopAutomaton(context.Context, *StopAutomatonRequest) (*StopAutomatonResponse, error)
 	RunAutomaton(*RunAutomatonRequest, RicLogicV3_RunAutomatonServer) error
 	EmitEvent(context.Context, *EmitEventRequest) (*EmitEventResponse, error)
+	WaitEvent(context.Context, *WaitEventRequest) (*WaitEventRequest, error)
 	UpdateAutomatonVars(context.Context, *UpdateAutomatonVarsRequest) (*UpdateAutomatonVarsResponse, error)
 }
 
@@ -2566,6 +2741,9 @@ func (*UnimplementedRicLogicV3Server) RunAutomaton(*RunAutomatonRequest, RicLogi
 }
 func (*UnimplementedRicLogicV3Server) EmitEvent(context.Context, *EmitEventRequest) (*EmitEventResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method EmitEvent not implemented")
+}
+func (*UnimplementedRicLogicV3Server) WaitEvent(context.Context, *WaitEventRequest) (*WaitEventRequest, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method WaitEvent not implemented")
 }
 func (*UnimplementedRicLogicV3Server) UpdateAutomatonVars(context.Context, *UpdateAutomatonVarsRequest) (*UpdateAutomatonVarsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateAutomatonVars not implemented")
@@ -2707,6 +2885,24 @@ func _RicLogicV3_EmitEvent_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RicLogicV3_WaitEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WaitEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RicLogicV3Server).WaitEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ric.logic.v3.RicLogicV3/WaitEvent",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RicLogicV3Server).WaitEvent(ctx, req.(*WaitEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _RicLogicV3_UpdateAutomatonVars_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateAutomatonVarsRequest)
 	if err := dec(in); err != nil {
@@ -2748,6 +2944,10 @@ var _RicLogicV3_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "EmitEvent",
 			Handler:    _RicLogicV3_EmitEvent_Handler,
+		},
+		{
+			MethodName: "WaitEvent",
+			Handler:    _RicLogicV3_WaitEvent_Handler,
 		},
 		{
 			MethodName: "UpdateAutomatonVars",

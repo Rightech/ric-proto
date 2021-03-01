@@ -92,6 +92,13 @@ class RicLogicV3 final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::EmitEventResponse>> PrepareAsyncEmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::EmitEventResponse>>(PrepareAsyncEmitEventRaw(context, request, cq));
     }
+    virtual ::grpc::Status WaitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::ric::logic::v3::WaitEventRequest* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::WaitEventRequest>> AsyncWaitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::WaitEventRequest>>(AsyncWaitEventRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::WaitEventRequest>> PrepareAsyncWaitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::WaitEventRequest>>(PrepareAsyncWaitEventRaw(context, request, cq));
+    }
     virtual ::grpc::Status UpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::UpdateAutomatonVarsResponse>> AsyncUpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::UpdateAutomatonVarsResponse>>(AsyncUpdateAutomatonVarsRaw(context, request, cq));
@@ -114,6 +121,8 @@ class RicLogicV3 final {
       virtual void RunAutomaton(::grpc::ClientContext* context, ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::logic::v3::AutomatonInfo>* reactor) = 0;
       virtual void EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void EmitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::EmitEventResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void WaitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest* request, ::ric::logic::v3::WaitEventRequest* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void WaitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::WaitEventRequest* response, std::function<void(::grpc::Status)>) = 0;
       virtual void UpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void UpdateAutomatonVars(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
@@ -135,6 +144,8 @@ class RicLogicV3 final {
     virtual ::grpc::ClientAsyncReaderInterface< ::ric::logic::v3::AutomatonInfo>* PrepareAsyncRunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::EmitEventResponse>* AsyncEmitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::EmitEventResponse>* PrepareAsyncEmitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::WaitEventRequest>* AsyncWaitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::WaitEventRequest>* PrepareAsyncWaitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::UpdateAutomatonVarsResponse>* AsyncUpdateAutomatonVarsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::UpdateAutomatonVarsResponse>* PrepareAsyncUpdateAutomatonVarsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
@@ -194,6 +205,13 @@ class RicLogicV3 final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::EmitEventResponse>> PrepareAsyncEmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::EmitEventResponse>>(PrepareAsyncEmitEventRaw(context, request, cq));
     }
+    ::grpc::Status WaitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::ric::logic::v3::WaitEventRequest* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::WaitEventRequest>> AsyncWaitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::WaitEventRequest>>(AsyncWaitEventRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::WaitEventRequest>> PrepareAsyncWaitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::WaitEventRequest>>(PrepareAsyncWaitEventRaw(context, request, cq));
+    }
     ::grpc::Status UpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::UpdateAutomatonVarsResponse>> AsyncUpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::UpdateAutomatonVarsResponse>>(AsyncUpdateAutomatonVarsRaw(context, request, cq));
@@ -216,6 +234,8 @@ class RicLogicV3 final {
       void RunAutomaton(::grpc::ClientContext* context, ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::logic::v3::AutomatonInfo>* reactor) override;
       void EmitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response, std::function<void(::grpc::Status)>) override;
       void EmitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::EmitEventResponse* response, std::function<void(::grpc::Status)>) override;
+      void WaitEvent(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest* request, ::ric::logic::v3::WaitEventRequest* response, std::function<void(::grpc::Status)>) override;
+      void WaitEvent(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::WaitEventRequest* response, std::function<void(::grpc::Status)>) override;
       void UpdateAutomatonVars(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response, std::function<void(::grpc::Status)>) override;
       void UpdateAutomatonVars(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response, std::function<void(::grpc::Status)>) override;
      private:
@@ -245,6 +265,8 @@ class RicLogicV3 final {
     ::grpc::ClientAsyncReader< ::ric::logic::v3::AutomatonInfo>* PrepareAsyncRunAutomatonRaw(::grpc::ClientContext* context, const ::ric::logic::v3::RunAutomatonRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::EmitEventResponse>* AsyncEmitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::EmitEventResponse>* PrepareAsyncEmitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::EmitEventRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::WaitEventRequest>* AsyncWaitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::WaitEventRequest>* PrepareAsyncWaitEventRaw(::grpc::ClientContext* context, const ::ric::logic::v3::WaitEventRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::UpdateAutomatonVarsResponse>* AsyncUpdateAutomatonVarsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::UpdateAutomatonVarsResponse>* PrepareAsyncUpdateAutomatonVarsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetInstanceInfo_;
@@ -254,6 +276,7 @@ class RicLogicV3 final {
     const ::grpc::internal::RpcMethod rpcmethod_StopAutomaton_;
     const ::grpc::internal::RpcMethod rpcmethod_RunAutomaton_;
     const ::grpc::internal::RpcMethod rpcmethod_EmitEvent_;
+    const ::grpc::internal::RpcMethod rpcmethod_WaitEvent_;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateAutomatonVars_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -269,6 +292,7 @@ class RicLogicV3 final {
     virtual ::grpc::Status StopAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::StopAutomatonRequest* request, ::ric::logic::v3::StopAutomatonResponse* response);
     virtual ::grpc::Status RunAutomaton(::grpc::ServerContext* context, const ::ric::logic::v3::RunAutomatonRequest* request, ::grpc::ServerWriter< ::ric::logic::v3::AutomatonInfo>* writer);
     virtual ::grpc::Status EmitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response);
+    virtual ::grpc::Status WaitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::WaitEventRequest* request, ::ric::logic::v3::WaitEventRequest* response);
     virtual ::grpc::Status UpdateAutomatonVars(::grpc::ServerContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response);
   };
   template <class BaseClass>
@@ -412,12 +436,32 @@ class RicLogicV3 final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_WaitEvent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_WaitEvent() {
+      ::grpc::Service::MarkMethodAsync(7);
+    }
+    ~WithAsyncMethod_WaitEvent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status WaitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::WaitEventRequest* request, ::ric::logic::v3::WaitEventRequest* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestWaitEvent(::grpc::ServerContext* context, ::ric::logic::v3::WaitEventRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::logic::v3::WaitEventRequest>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_UpdateAutomatonVars : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_UpdateAutomatonVars() {
-      ::grpc::Service::MarkMethodAsync(7);
+      ::grpc::Service::MarkMethodAsync(8);
     }
     ~WithAsyncMethod_UpdateAutomatonVars() override {
       BaseClassMustBeDerivedFromService(this);
@@ -428,10 +472,10 @@ class RicLogicV3 final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateAutomatonVars(::grpc::ServerContext* context, ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::logic::v3::UpdateAutomatonVarsResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetInstanceInfo<WithAsyncMethod_GetAutomatons<WithAsyncMethod_StartAutomaton<WithAsyncMethod_StartAutomatonMulti<WithAsyncMethod_StopAutomaton<WithAsyncMethod_RunAutomaton<WithAsyncMethod_EmitEvent<WithAsyncMethod_UpdateAutomatonVars<Service > > > > > > > > AsyncService;
+  typedef WithAsyncMethod_GetInstanceInfo<WithAsyncMethod_GetAutomatons<WithAsyncMethod_StartAutomaton<WithAsyncMethod_StartAutomatonMulti<WithAsyncMethod_StopAutomaton<WithAsyncMethod_RunAutomaton<WithAsyncMethod_EmitEvent<WithAsyncMethod_WaitEvent<WithAsyncMethod_UpdateAutomatonVars<Service > > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_GetInstanceInfo : public BaseClass {
    private:
@@ -602,12 +646,37 @@ class RicLogicV3 final {
     virtual void EmitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::EmitEventRequest* request, ::ric::logic::v3::EmitEventResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithCallbackMethod_WaitEvent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_WaitEvent() {
+      ::grpc::Service::experimental().MarkMethodCallback(7,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::logic::v3::WaitEventRequest, ::ric::logic::v3::WaitEventRequest>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::logic::v3::WaitEventRequest* request,
+                 ::ric::logic::v3::WaitEventRequest* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->WaitEvent(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_WaitEvent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status WaitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::WaitEventRequest* request, ::ric::logic::v3::WaitEventRequest* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void WaitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::WaitEventRequest* request, ::ric::logic::v3::WaitEventRequest* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class ExperimentalWithCallbackMethod_UpdateAutomatonVars : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_UpdateAutomatonVars() {
-      ::grpc::Service::experimental().MarkMethodCallback(7,
+      ::grpc::Service::experimental().MarkMethodCallback(8,
         new ::grpc::internal::CallbackUnaryHandler< ::ric::logic::v3::UpdateAutomatonVarsRequest, ::ric::logic::v3::UpdateAutomatonVarsResponse>(
           [this](::grpc::ServerContext* context,
                  const ::ric::logic::v3::UpdateAutomatonVarsRequest* request,
@@ -626,7 +695,7 @@ class RicLogicV3 final {
     }
     virtual void UpdateAutomatonVars(::grpc::ServerContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_GetInstanceInfo<ExperimentalWithCallbackMethod_GetAutomatons<ExperimentalWithCallbackMethod_StartAutomaton<ExperimentalWithCallbackMethod_StartAutomatonMulti<ExperimentalWithCallbackMethod_StopAutomaton<ExperimentalWithCallbackMethod_RunAutomaton<ExperimentalWithCallbackMethod_EmitEvent<ExperimentalWithCallbackMethod_UpdateAutomatonVars<Service > > > > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_GetInstanceInfo<ExperimentalWithCallbackMethod_GetAutomatons<ExperimentalWithCallbackMethod_StartAutomaton<ExperimentalWithCallbackMethod_StartAutomatonMulti<ExperimentalWithCallbackMethod_StopAutomaton<ExperimentalWithCallbackMethod_RunAutomaton<ExperimentalWithCallbackMethod_EmitEvent<ExperimentalWithCallbackMethod_WaitEvent<ExperimentalWithCallbackMethod_UpdateAutomatonVars<Service > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GetInstanceInfo : public BaseClass {
    private:
@@ -747,12 +816,29 @@ class RicLogicV3 final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_WaitEvent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_WaitEvent() {
+      ::grpc::Service::MarkMethodGeneric(7);
+    }
+    ~WithGenericMethod_WaitEvent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status WaitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::WaitEventRequest* request, ::ric::logic::v3::WaitEventRequest* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_UpdateAutomatonVars : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_UpdateAutomatonVars() {
-      ::grpc::Service::MarkMethodGeneric(7);
+      ::grpc::Service::MarkMethodGeneric(8);
     }
     ~WithGenericMethod_UpdateAutomatonVars() override {
       BaseClassMustBeDerivedFromService(this);
@@ -904,12 +990,32 @@ class RicLogicV3 final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_WaitEvent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_WaitEvent() {
+      ::grpc::Service::MarkMethodRaw(7);
+    }
+    ~WithRawMethod_WaitEvent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status WaitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::WaitEventRequest* request, ::ric::logic::v3::WaitEventRequest* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestWaitEvent(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_UpdateAutomatonVars : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_UpdateAutomatonVars() {
-      ::grpc::Service::MarkMethodRaw(7);
+      ::grpc::Service::MarkMethodRaw(8);
     }
     ~WithRawMethod_UpdateAutomatonVars() override {
       BaseClassMustBeDerivedFromService(this);
@@ -920,7 +1026,7 @@ class RicLogicV3 final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateAutomatonVars(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1093,12 +1199,37 @@ class RicLogicV3 final {
     virtual void EmitEvent(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_WaitEvent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_WaitEvent() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(7,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->WaitEvent(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_WaitEvent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status WaitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::WaitEventRequest* request, ::ric::logic::v3::WaitEventRequest* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void WaitEvent(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_UpdateAutomatonVars : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_UpdateAutomatonVars() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(7,
+      ::grpc::Service::experimental().MarkMethodRawCallback(8,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
@@ -1218,12 +1349,32 @@ class RicLogicV3 final {
     virtual ::grpc::Status StreamedEmitEvent(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::logic::v3::EmitEventRequest,::ric::logic::v3::EmitEventResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_WaitEvent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_WaitEvent() {
+      ::grpc::Service::MarkMethodStreamed(7,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::logic::v3::WaitEventRequest, ::ric::logic::v3::WaitEventRequest>(std::bind(&WithStreamedUnaryMethod_WaitEvent<BaseClass>::StreamedWaitEvent, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_WaitEvent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status WaitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::WaitEventRequest* request, ::ric::logic::v3::WaitEventRequest* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedWaitEvent(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::logic::v3::WaitEventRequest,::ric::logic::v3::WaitEventRequest>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_UpdateAutomatonVars : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_UpdateAutomatonVars() {
-      ::grpc::Service::MarkMethodStreamed(7,
+      ::grpc::Service::MarkMethodStreamed(8,
         new ::grpc::internal::StreamedUnaryHandler< ::ric::logic::v3::UpdateAutomatonVarsRequest, ::ric::logic::v3::UpdateAutomatonVarsResponse>(std::bind(&WithStreamedUnaryMethod_UpdateAutomatonVars<BaseClass>::StreamedUpdateAutomatonVars, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_UpdateAutomatonVars() override {
@@ -1237,7 +1388,7 @@ class RicLogicV3 final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedUpdateAutomatonVars(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::logic::v3::UpdateAutomatonVarsRequest,::ric::logic::v3::UpdateAutomatonVarsResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_GetInstanceInfo<WithStreamedUnaryMethod_StartAutomaton<WithStreamedUnaryMethod_StartAutomatonMulti<WithStreamedUnaryMethod_StopAutomaton<WithStreamedUnaryMethod_EmitEvent<WithStreamedUnaryMethod_UpdateAutomatonVars<Service > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_GetInstanceInfo<WithStreamedUnaryMethod_StartAutomaton<WithStreamedUnaryMethod_StartAutomatonMulti<WithStreamedUnaryMethod_StopAutomaton<WithStreamedUnaryMethod_EmitEvent<WithStreamedUnaryMethod_WaitEvent<WithStreamedUnaryMethod_UpdateAutomatonVars<Service > > > > > > > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_GetAutomatons : public BaseClass {
    private:
@@ -1279,7 +1430,7 @@ class RicLogicV3 final {
     virtual ::grpc::Status StreamedRunAutomaton(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::ric::logic::v3::RunAutomatonRequest,::ric::logic::v3::AutomatonInfo>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_GetAutomatons<WithSplitStreamingMethod_RunAutomaton<Service > > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GetInstanceInfo<WithSplitStreamingMethod_GetAutomatons<WithStreamedUnaryMethod_StartAutomaton<WithStreamedUnaryMethod_StartAutomatonMulti<WithStreamedUnaryMethod_StopAutomaton<WithSplitStreamingMethod_RunAutomaton<WithStreamedUnaryMethod_EmitEvent<WithStreamedUnaryMethod_UpdateAutomatonVars<Service > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_GetInstanceInfo<WithSplitStreamingMethod_GetAutomatons<WithStreamedUnaryMethod_StartAutomaton<WithStreamedUnaryMethod_StartAutomatonMulti<WithStreamedUnaryMethod_StopAutomaton<WithSplitStreamingMethod_RunAutomaton<WithStreamedUnaryMethod_EmitEvent<WithStreamedUnaryMethod_WaitEvent<WithStreamedUnaryMethod_UpdateAutomatonVars<Service > > > > > > > > > StreamedService;
 };
 
 }  // namespace v3
