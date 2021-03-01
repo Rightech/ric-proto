@@ -88,6 +88,13 @@ message LogEntry {
   ActionResult result = 14;
 }
 
+message WaitCondition {
+  string timeout = 1;
+  string event = 2;
+  string state = 3;
+  string status = 4;
+}
+
 message GetInstanceInfoRequest {}
 
 message GetInstanceInfoResponse {
@@ -127,8 +134,8 @@ message RunAutomatonRequest {
   UserContext ctx = 1;
   string object_id = 2;
   string automaton_id = 3;
-  string wait_event = 4;
-  int32 wait_timeout = 5;
+  WaitCondition wait = 4;
+
   string on_running = 6;
   map<string, AutomatonVarValue> vars = 7;
 }
@@ -162,8 +169,7 @@ message WaitEventRequest {
   UserContext ctx = 1;
   string object_id = 2;
   string automaton_id = 3;
-  string event = 4;
-  int32 wait_timeout = 5;
+  WaitCondition wait = 4;
 }
 
 message WaitEventResponse {}
