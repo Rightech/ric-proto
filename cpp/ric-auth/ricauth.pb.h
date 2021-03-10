@@ -455,6 +455,12 @@ class AuthObjectRequest final :
   ::ric::auth::AuthObjectRequest_AuthObjectCert* mutable_cert();
   void set_allocated_cert(::ric::auth::AuthObjectRequest_AuthObjectCert* cert);
 
+  // bool bot = 9;
+  void clear_bot();
+  static const int kBotFieldNumber = 9;
+  bool bot() const;
+  void set_bot(bool value);
+
   // @@protoc_insertion_point(class_scope:ric.auth.AuthObjectRequest)
  private:
   class HasBitSetters;
@@ -468,6 +474,7 @@ class AuthObjectRequest final :
   ::google::protobuf::internal::ArenaStringPtr ipv4_;
   ::google::protobuf::internal::ArenaStringPtr ipv6_;
   ::ric::auth::AuthObjectRequest_AuthObjectCert* cert_;
+  bool bot_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dauth_2fricauth_2eproto;
 };
@@ -2426,6 +2433,20 @@ inline void AuthObjectRequest::set_allocated_ipv6(::std::string* ipv6) {
   }
   ipv6_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ipv6);
   // @@protoc_insertion_point(field_set_allocated:ric.auth.AuthObjectRequest.ipv6)
+}
+
+// bool bot = 9;
+inline void AuthObjectRequest::clear_bot() {
+  bot_ = false;
+}
+inline bool AuthObjectRequest::bot() const {
+  // @@protoc_insertion_point(field_get:ric.auth.AuthObjectRequest.bot)
+  return bot_;
+}
+inline void AuthObjectRequest::set_bot(bool value) {
+  
+  bot_ = value;
+  // @@protoc_insertion_point(field_set:ric.auth.AuthObjectRequest.bot)
 }
 
 // -------------------------------------------------------------------

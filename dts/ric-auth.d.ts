@@ -15,6 +15,7 @@ export interface AuthObjectRequest {
   cert?: AuthObjectCert;
   ipv4?: string;
   ipv6?: string;
+  bot?: boolean;
 }
 
 export interface AuthObjectCert {
