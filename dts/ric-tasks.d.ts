@@ -72,9 +72,9 @@ export interface TaskEdit {
   parent?: ObjectId;
   tags?: string[];
   constrain?: any;
-  priority?: Int32Value;
-  name?: StringValue;
-  description?: StringValue;
+  priority?: number;
+  name?: string;
+  description?: string;
   object?: ObjectId;
   kind?: ObjectId;
   reportTemplates?: ReportTemplate[];
@@ -82,9 +82,9 @@ export interface TaskEdit {
   end?: Location;
   deadlines?: Deadline[];
   assignee?: ObjectId;
-  assigneeType?: StringValue;
+  assigneeType?: string;
   review?: Review;
-  json?: BytesValue;
+  json?: string;
 }
 
 export interface Review {
@@ -107,7 +107,7 @@ export interface ReportTemplate {
 
 export interface Report {
   name?: string;
-  value?: Any;
+  value?: any;
 }
 
 export interface Kind {
@@ -120,9 +120,9 @@ export interface Kind {
 }
 
 export interface KindEdit {
-  name?: StringValue;
-  discription?: StringValue;
-  svg?: StringValue;
+  name?: string;
+  discription?: string;
+  svg?: string;
   roles?: ObjectId[];
   reportTemplates?: ReportTemplate[];
 }

@@ -81,8 +81,14 @@
             }
         },
         "ric-handler": {
+            "v": 3,
             "port": {
                 "dev": 15083
+            }
+        },
+        "ric-web": {
+            "port": {
+                "dev": 15084
             }
         }
     }

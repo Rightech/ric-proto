@@ -44,7 +44,7 @@ struct TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[28]
+  static const ::google::protobuf::internal::ParseTable schema[31]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -138,6 +138,15 @@ extern UpdateAutomatonVarsResponse_VarsEntry_DoNotUseDefaultTypeInternal _Update
 class UserContext;
 class UserContextDefaultTypeInternal;
 extern UserContextDefaultTypeInternal _UserContext_default_instance_;
+class WaitCondition;
+class WaitConditionDefaultTypeInternal;
+extern WaitConditionDefaultTypeInternal _WaitCondition_default_instance_;
+class WaitEventRequest;
+class WaitEventRequestDefaultTypeInternal;
+extern WaitEventRequestDefaultTypeInternal _WaitEventRequest_default_instance_;
+class WaitEventResponse;
+class WaitEventResponseDefaultTypeInternal;
+extern WaitEventResponseDefaultTypeInternal _WaitEventResponse_default_instance_;
 }  // namespace v3
 }  // namespace logic
 }  // namespace ric
@@ -171,6 +180,9 @@ template<> ::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse* Aren
 template<> ::ric::logic::v3::UpdateAutomatonVarsResponse* Arena::CreateMaybeMessage<::ric::logic::v3::UpdateAutomatonVarsResponse>(Arena*);
 template<> ::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse>(Arena*);
 template<> ::ric::logic::v3::UserContext* Arena::CreateMaybeMessage<::ric::logic::v3::UserContext>(Arena*);
+template<> ::ric::logic::v3::WaitCondition* Arena::CreateMaybeMessage<::ric::logic::v3::WaitCondition>(Arena*);
+template<> ::ric::logic::v3::WaitEventRequest* Arena::CreateMaybeMessage<::ric::logic::v3::WaitEventRequest>(Arena*);
+template<> ::ric::logic::v3::WaitEventResponse* Arena::CreateMaybeMessage<::ric::logic::v3::WaitEventResponse>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace ric {
@@ -1649,6 +1661,171 @@ class LogEntry final :
 };
 // -------------------------------------------------------------------
 
+class WaitCondition final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.logic.v3.WaitCondition) */ {
+ public:
+  WaitCondition();
+  virtual ~WaitCondition();
+
+  WaitCondition(const WaitCondition& from);
+
+  inline WaitCondition& operator=(const WaitCondition& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  WaitCondition(WaitCondition&& from) noexcept
+    : WaitCondition() {
+    *this = ::std::move(from);
+  }
+
+  inline WaitCondition& operator=(WaitCondition&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const WaitCondition& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const WaitCondition* internal_default_instance() {
+    return reinterpret_cast<const WaitCondition*>(
+               &_WaitCondition_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  void Swap(WaitCondition* other);
+  friend void swap(WaitCondition& a, WaitCondition& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline WaitCondition* New() const final {
+    return CreateMaybeMessage<WaitCondition>(nullptr);
+  }
+
+  WaitCondition* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<WaitCondition>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const WaitCondition& from);
+  void MergeFrom(const WaitCondition& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(WaitCondition* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string timeout = 1;
+  void clear_timeout();
+  static const int kTimeoutFieldNumber = 1;
+  const ::std::string& timeout() const;
+  void set_timeout(const ::std::string& value);
+  #if LANG_CXX11
+  void set_timeout(::std::string&& value);
+  #endif
+  void set_timeout(const char* value);
+  void set_timeout(const char* value, size_t size);
+  ::std::string* mutable_timeout();
+  ::std::string* release_timeout();
+  void set_allocated_timeout(::std::string* timeout);
+
+  // string event = 2;
+  void clear_event();
+  static const int kEventFieldNumber = 2;
+  const ::std::string& event() const;
+  void set_event(const ::std::string& value);
+  #if LANG_CXX11
+  void set_event(::std::string&& value);
+  #endif
+  void set_event(const char* value);
+  void set_event(const char* value, size_t size);
+  ::std::string* mutable_event();
+  ::std::string* release_event();
+  void set_allocated_event(::std::string* event);
+
+  // string state = 3;
+  void clear_state();
+  static const int kStateFieldNumber = 3;
+  const ::std::string& state() const;
+  void set_state(const ::std::string& value);
+  #if LANG_CXX11
+  void set_state(::std::string&& value);
+  #endif
+  void set_state(const char* value);
+  void set_state(const char* value, size_t size);
+  ::std::string* mutable_state();
+  ::std::string* release_state();
+  void set_allocated_state(::std::string* state);
+
+  // string status = 4;
+  void clear_status();
+  static const int kStatusFieldNumber = 4;
+  const ::std::string& status() const;
+  void set_status(const ::std::string& value);
+  #if LANG_CXX11
+  void set_status(::std::string&& value);
+  #endif
+  void set_status(const char* value);
+  void set_status(const char* value, size_t size);
+  ::std::string* mutable_status();
+  ::std::string* release_status();
+  void set_allocated_status(::std::string* status);
+
+  // @@protoc_insertion_point(class_scope:ric.logic.v3.WaitCondition)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr timeout_;
+  ::google::protobuf::internal::ArenaStringPtr event_;
+  ::google::protobuf::internal::ArenaStringPtr state_;
+  ::google::protobuf::internal::ArenaStringPtr status_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto;
+};
+// -------------------------------------------------------------------
+
 class GetInstanceInfoRequest final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.logic.v3.GetInstanceInfoRequest) */ {
  public:
@@ -1687,7 +1864,7 @@ class GetInstanceInfoRequest final :
                &_GetInstanceInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   void Swap(GetInstanceInfoRequest* other);
   friend void swap(GetInstanceInfoRequest& a, GetInstanceInfoRequest& b) {
@@ -1792,7 +1969,7 @@ class GetInstanceInfoResponse final :
                &_GetInstanceInfoResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   void Swap(GetInstanceInfoResponse* other);
   friend void swap(GetInstanceInfoResponse& a, GetInstanceInfoResponse& b) {
@@ -2002,7 +2179,7 @@ class StartAutomatonRequest final :
                &_StartAutomatonRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   void Swap(StartAutomatonRequest* other);
   friend void swap(StartAutomatonRequest& a, StartAutomatonRequest& b) {
@@ -2163,7 +2340,7 @@ class StartAutomatonMultiRequest final :
                &_StartAutomatonMultiRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   void Swap(StartAutomatonMultiRequest* other);
   friend void swap(StartAutomatonMultiRequest& a, StartAutomatonMultiRequest& b) {
@@ -2316,7 +2493,7 @@ class StartAutomatonResponse final :
                &_StartAutomatonResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   void Swap(StartAutomatonResponse* other);
   friend void swap(StartAutomatonResponse& a, StartAutomatonResponse& b) {
@@ -2431,7 +2608,7 @@ class StopAutomatonRequest final :
                &_StopAutomatonRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   void Swap(StopAutomatonRequest* other);
   friend void swap(StopAutomatonRequest& a, StopAutomatonRequest& b) {
@@ -2600,7 +2777,7 @@ class RunAutomatonRequest final :
                &_RunAutomatonRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   void Swap(RunAutomatonRequest* other);
   friend void swap(RunAutomatonRequest& a, RunAutomatonRequest& b) {
@@ -2718,17 +2895,14 @@ class RunAutomatonRequest final :
   ::ric::logic::v3::UserContext* mutable_ctx();
   void set_allocated_ctx(::ric::logic::v3::UserContext* ctx);
 
-  // bool wait_final = 4;
-  void clear_wait_final();
-  static const int kWaitFinalFieldNumber = 4;
-  bool wait_final() const;
-  void set_wait_final(bool value);
-
-  // int32 wait_timeout = 5;
-  void clear_wait_timeout();
-  static const int kWaitTimeoutFieldNumber = 5;
-  ::google::protobuf::int32 wait_timeout() const;
-  void set_wait_timeout(::google::protobuf::int32 value);
+  // .ric.logic.v3.WaitCondition wait = 4;
+  bool has_wait() const;
+  void clear_wait();
+  static const int kWaitFieldNumber = 4;
+  const ::ric::logic::v3::WaitCondition& wait() const;
+  ::ric::logic::v3::WaitCondition* release_wait();
+  ::ric::logic::v3::WaitCondition* mutable_wait();
+  void set_allocated_wait(::ric::logic::v3::WaitCondition* wait);
 
   // @@protoc_insertion_point(class_scope:ric.logic.v3.RunAutomatonRequest)
  private:
@@ -2745,8 +2919,7 @@ class RunAutomatonRequest final :
   ::google::protobuf::internal::ArenaStringPtr automaton_id_;
   ::google::protobuf::internal::ArenaStringPtr on_running_;
   ::ric::logic::v3::UserContext* ctx_;
-  bool wait_final_;
-  ::google::protobuf::int32 wait_timeout_;
+  ::ric::logic::v3::WaitCondition* wait_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto;
 };
@@ -2790,7 +2963,7 @@ class StopAutomatonResponse final :
                &_StopAutomatonResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   void Swap(StopAutomatonResponse* other);
   friend void swap(StopAutomatonResponse& a, StopAutomatonResponse& b) {
@@ -2905,7 +3078,7 @@ class GetAutomatonsRequest final :
                &_GetAutomatonsRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   void Swap(GetAutomatonsRequest* other);
   friend void swap(GetAutomatonsRequest& a, GetAutomatonsRequest& b) {
@@ -3070,7 +3243,7 @@ class GetAutomatonsResponse final :
                &_GetAutomatonsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   void Swap(GetAutomatonsResponse* other);
   friend void swap(GetAutomatonsResponse& a, GetAutomatonsResponse& b) {
@@ -3188,7 +3361,7 @@ class EmitEventRequest final :
                &_EmitEventRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   void Swap(EmitEventRequest* other);
   friend void swap(EmitEventRequest& a, EmitEventRequest& b) {
@@ -3363,7 +3536,7 @@ class EmitEventResponse final :
                &_EmitEventResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   void Swap(EmitEventResponse* other);
   friend void swap(EmitEventResponse& a, EmitEventResponse& b) {
@@ -3430,6 +3603,266 @@ class EmitEventResponse final :
 };
 // -------------------------------------------------------------------
 
+class WaitEventRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.logic.v3.WaitEventRequest) */ {
+ public:
+  WaitEventRequest();
+  virtual ~WaitEventRequest();
+
+  WaitEventRequest(const WaitEventRequest& from);
+
+  inline WaitEventRequest& operator=(const WaitEventRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  WaitEventRequest(WaitEventRequest&& from) noexcept
+    : WaitEventRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline WaitEventRequest& operator=(WaitEventRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const WaitEventRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const WaitEventRequest* internal_default_instance() {
+    return reinterpret_cast<const WaitEventRequest*>(
+               &_WaitEventRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    24;
+
+  void Swap(WaitEventRequest* other);
+  friend void swap(WaitEventRequest& a, WaitEventRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline WaitEventRequest* New() const final {
+    return CreateMaybeMessage<WaitEventRequest>(nullptr);
+  }
+
+  WaitEventRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<WaitEventRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const WaitEventRequest& from);
+  void MergeFrom(const WaitEventRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(WaitEventRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string object_id = 2;
+  void clear_object_id();
+  static const int kObjectIdFieldNumber = 2;
+  const ::std::string& object_id() const;
+  void set_object_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_object_id(::std::string&& value);
+  #endif
+  void set_object_id(const char* value);
+  void set_object_id(const char* value, size_t size);
+  ::std::string* mutable_object_id();
+  ::std::string* release_object_id();
+  void set_allocated_object_id(::std::string* object_id);
+
+  // string automaton_id = 3;
+  void clear_automaton_id();
+  static const int kAutomatonIdFieldNumber = 3;
+  const ::std::string& automaton_id() const;
+  void set_automaton_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_automaton_id(::std::string&& value);
+  #endif
+  void set_automaton_id(const char* value);
+  void set_automaton_id(const char* value, size_t size);
+  ::std::string* mutable_automaton_id();
+  ::std::string* release_automaton_id();
+  void set_allocated_automaton_id(::std::string* automaton_id);
+
+  // .ric.logic.v3.UserContext ctx = 1;
+  bool has_ctx() const;
+  void clear_ctx();
+  static const int kCtxFieldNumber = 1;
+  const ::ric::logic::v3::UserContext& ctx() const;
+  ::ric::logic::v3::UserContext* release_ctx();
+  ::ric::logic::v3::UserContext* mutable_ctx();
+  void set_allocated_ctx(::ric::logic::v3::UserContext* ctx);
+
+  // .ric.logic.v3.WaitCondition wait = 4;
+  bool has_wait() const;
+  void clear_wait();
+  static const int kWaitFieldNumber = 4;
+  const ::ric::logic::v3::WaitCondition& wait() const;
+  ::ric::logic::v3::WaitCondition* release_wait();
+  ::ric::logic::v3::WaitCondition* mutable_wait();
+  void set_allocated_wait(::ric::logic::v3::WaitCondition* wait);
+
+  // @@protoc_insertion_point(class_scope:ric.logic.v3.WaitEventRequest)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr object_id_;
+  ::google::protobuf::internal::ArenaStringPtr automaton_id_;
+  ::ric::logic::v3::UserContext* ctx_;
+  ::ric::logic::v3::WaitCondition* wait_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto;
+};
+// -------------------------------------------------------------------
+
+class WaitEventResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.logic.v3.WaitEventResponse) */ {
+ public:
+  WaitEventResponse();
+  virtual ~WaitEventResponse();
+
+  WaitEventResponse(const WaitEventResponse& from);
+
+  inline WaitEventResponse& operator=(const WaitEventResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  WaitEventResponse(WaitEventResponse&& from) noexcept
+    : WaitEventResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline WaitEventResponse& operator=(WaitEventResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const WaitEventResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const WaitEventResponse* internal_default_instance() {
+    return reinterpret_cast<const WaitEventResponse*>(
+               &_WaitEventResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    25;
+
+  void Swap(WaitEventResponse* other);
+  friend void swap(WaitEventResponse& a, WaitEventResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline WaitEventResponse* New() const final {
+    return CreateMaybeMessage<WaitEventResponse>(nullptr);
+  }
+
+  WaitEventResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<WaitEventResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const WaitEventResponse& from);
+  void MergeFrom(const WaitEventResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(WaitEventResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:ric.logic.v3.WaitEventResponse)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto;
+};
+// -------------------------------------------------------------------
+
 class GetRuntimeInfoRequest final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.logic.v3.GetRuntimeInfoRequest) */ {
  public:
@@ -3468,7 +3901,7 @@ class GetRuntimeInfoRequest final :
                &_GetRuntimeInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    26;
 
   void Swap(GetRuntimeInfoRequest* other);
   friend void swap(GetRuntimeInfoRequest& a, GetRuntimeInfoRequest& b) {
@@ -3627,7 +4060,7 @@ class UpdateAutomatonVarsRequest final :
                &_UpdateAutomatonVarsRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    28;
 
   void Swap(UpdateAutomatonVarsRequest* other);
   friend void swap(UpdateAutomatonVarsRequest& a, UpdateAutomatonVarsRequest& b) {
@@ -3812,7 +4245,7 @@ class UpdateAutomatonVarsResponse final :
                &_UpdateAutomatonVarsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    30;
 
   void Swap(UpdateAutomatonVarsResponse* other);
   friend void swap(UpdateAutomatonVarsResponse& a, UpdateAutomatonVarsResponse& b) {
@@ -6027,6 +6460,222 @@ inline void LogEntry::set_allocated_result(::ric::logic::v3::ActionResult* resul
 
 // -------------------------------------------------------------------
 
+// WaitCondition
+
+// string timeout = 1;
+inline void WaitCondition::clear_timeout() {
+  timeout_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& WaitCondition::timeout() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.WaitCondition.timeout)
+  return timeout_.GetNoArena();
+}
+inline void WaitCondition::set_timeout(const ::std::string& value) {
+  
+  timeout_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.WaitCondition.timeout)
+}
+#if LANG_CXX11
+inline void WaitCondition::set_timeout(::std::string&& value) {
+  
+  timeout_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.logic.v3.WaitCondition.timeout)
+}
+#endif
+inline void WaitCondition::set_timeout(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  timeout_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.logic.v3.WaitCondition.timeout)
+}
+inline void WaitCondition::set_timeout(const char* value, size_t size) {
+  
+  timeout_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.logic.v3.WaitCondition.timeout)
+}
+inline ::std::string* WaitCondition::mutable_timeout() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.WaitCondition.timeout)
+  return timeout_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WaitCondition::release_timeout() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.WaitCondition.timeout)
+  
+  return timeout_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WaitCondition::set_allocated_timeout(::std::string* timeout) {
+  if (timeout != nullptr) {
+    
+  } else {
+    
+  }
+  timeout_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), timeout);
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.WaitCondition.timeout)
+}
+
+// string event = 2;
+inline void WaitCondition::clear_event() {
+  event_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& WaitCondition::event() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.WaitCondition.event)
+  return event_.GetNoArena();
+}
+inline void WaitCondition::set_event(const ::std::string& value) {
+  
+  event_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.WaitCondition.event)
+}
+#if LANG_CXX11
+inline void WaitCondition::set_event(::std::string&& value) {
+  
+  event_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.logic.v3.WaitCondition.event)
+}
+#endif
+inline void WaitCondition::set_event(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  event_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.logic.v3.WaitCondition.event)
+}
+inline void WaitCondition::set_event(const char* value, size_t size) {
+  
+  event_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.logic.v3.WaitCondition.event)
+}
+inline ::std::string* WaitCondition::mutable_event() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.WaitCondition.event)
+  return event_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WaitCondition::release_event() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.WaitCondition.event)
+  
+  return event_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WaitCondition::set_allocated_event(::std::string* event) {
+  if (event != nullptr) {
+    
+  } else {
+    
+  }
+  event_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), event);
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.WaitCondition.event)
+}
+
+// string state = 3;
+inline void WaitCondition::clear_state() {
+  state_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& WaitCondition::state() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.WaitCondition.state)
+  return state_.GetNoArena();
+}
+inline void WaitCondition::set_state(const ::std::string& value) {
+  
+  state_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.WaitCondition.state)
+}
+#if LANG_CXX11
+inline void WaitCondition::set_state(::std::string&& value) {
+  
+  state_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.logic.v3.WaitCondition.state)
+}
+#endif
+inline void WaitCondition::set_state(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  state_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.logic.v3.WaitCondition.state)
+}
+inline void WaitCondition::set_state(const char* value, size_t size) {
+  
+  state_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.logic.v3.WaitCondition.state)
+}
+inline ::std::string* WaitCondition::mutable_state() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.WaitCondition.state)
+  return state_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WaitCondition::release_state() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.WaitCondition.state)
+  
+  return state_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WaitCondition::set_allocated_state(::std::string* state) {
+  if (state != nullptr) {
+    
+  } else {
+    
+  }
+  state_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), state);
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.WaitCondition.state)
+}
+
+// string status = 4;
+inline void WaitCondition::clear_status() {
+  status_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& WaitCondition::status() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.WaitCondition.status)
+  return status_.GetNoArena();
+}
+inline void WaitCondition::set_status(const ::std::string& value) {
+  
+  status_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.WaitCondition.status)
+}
+#if LANG_CXX11
+inline void WaitCondition::set_status(::std::string&& value) {
+  
+  status_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.logic.v3.WaitCondition.status)
+}
+#endif
+inline void WaitCondition::set_status(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  status_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.logic.v3.WaitCondition.status)
+}
+inline void WaitCondition::set_status(const char* value, size_t size) {
+  
+  status_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.logic.v3.WaitCondition.status)
+}
+inline ::std::string* WaitCondition::mutable_status() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.WaitCondition.status)
+  return status_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WaitCondition::release_status() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.WaitCondition.status)
+  
+  return status_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WaitCondition::set_allocated_status(::std::string* status) {
+  if (status != nullptr) {
+    
+  } else {
+    
+  }
+  status_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), status);
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.WaitCondition.status)
+}
+
+// -------------------------------------------------------------------
+
 // GetInstanceInfoRequest
 
 // -------------------------------------------------------------------
@@ -7001,32 +7650,55 @@ inline void RunAutomatonRequest::set_allocated_automaton_id(::std::string* autom
   // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.RunAutomatonRequest.automaton_id)
 }
 
-// bool wait_final = 4;
-inline void RunAutomatonRequest::clear_wait_final() {
-  wait_final_ = false;
+// .ric.logic.v3.WaitCondition wait = 4;
+inline bool RunAutomatonRequest::has_wait() const {
+  return this != internal_default_instance() && wait_ != nullptr;
 }
-inline bool RunAutomatonRequest::wait_final() const {
-  // @@protoc_insertion_point(field_get:ric.logic.v3.RunAutomatonRequest.wait_final)
-  return wait_final_;
+inline void RunAutomatonRequest::clear_wait() {
+  if (GetArenaNoVirtual() == nullptr && wait_ != nullptr) {
+    delete wait_;
+  }
+  wait_ = nullptr;
 }
-inline void RunAutomatonRequest::set_wait_final(bool value) {
+inline const ::ric::logic::v3::WaitCondition& RunAutomatonRequest::wait() const {
+  const ::ric::logic::v3::WaitCondition* p = wait_;
+  // @@protoc_insertion_point(field_get:ric.logic.v3.RunAutomatonRequest.wait)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::logic::v3::WaitCondition*>(
+      &::ric::logic::v3::_WaitCondition_default_instance_);
+}
+inline ::ric::logic::v3::WaitCondition* RunAutomatonRequest::release_wait() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.RunAutomatonRequest.wait)
   
-  wait_final_ = value;
-  // @@protoc_insertion_point(field_set:ric.logic.v3.RunAutomatonRequest.wait_final)
+  ::ric::logic::v3::WaitCondition* temp = wait_;
+  wait_ = nullptr;
+  return temp;
 }
-
-// int32 wait_timeout = 5;
-inline void RunAutomatonRequest::clear_wait_timeout() {
-  wait_timeout_ = 0;
-}
-inline ::google::protobuf::int32 RunAutomatonRequest::wait_timeout() const {
-  // @@protoc_insertion_point(field_get:ric.logic.v3.RunAutomatonRequest.wait_timeout)
-  return wait_timeout_;
-}
-inline void RunAutomatonRequest::set_wait_timeout(::google::protobuf::int32 value) {
+inline ::ric::logic::v3::WaitCondition* RunAutomatonRequest::mutable_wait() {
   
-  wait_timeout_ = value;
-  // @@protoc_insertion_point(field_set:ric.logic.v3.RunAutomatonRequest.wait_timeout)
+  if (wait_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::logic::v3::WaitCondition>(GetArenaNoVirtual());
+    wait_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.RunAutomatonRequest.wait)
+  return wait_;
+}
+inline void RunAutomatonRequest::set_allocated_wait(::ric::logic::v3::WaitCondition* wait) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete wait_;
+  }
+  if (wait) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      wait = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, wait, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  wait_ = wait;
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.RunAutomatonRequest.wait)
 }
 
 // string on_running = 6;
@@ -7632,6 +8304,222 @@ inline void EmitEventRequest::set_allocated_payload(::std::string* payload) {
 
 // -------------------------------------------------------------------
 
+// WaitEventRequest
+
+// .ric.logic.v3.UserContext ctx = 1;
+inline bool WaitEventRequest::has_ctx() const {
+  return this != internal_default_instance() && ctx_ != nullptr;
+}
+inline void WaitEventRequest::clear_ctx() {
+  if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
+    delete ctx_;
+  }
+  ctx_ = nullptr;
+}
+inline const ::ric::logic::v3::UserContext& WaitEventRequest::ctx() const {
+  const ::ric::logic::v3::UserContext* p = ctx_;
+  // @@protoc_insertion_point(field_get:ric.logic.v3.WaitEventRequest.ctx)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::logic::v3::UserContext*>(
+      &::ric::logic::v3::_UserContext_default_instance_);
+}
+inline ::ric::logic::v3::UserContext* WaitEventRequest::release_ctx() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.WaitEventRequest.ctx)
+  
+  ::ric::logic::v3::UserContext* temp = ctx_;
+  ctx_ = nullptr;
+  return temp;
+}
+inline ::ric::logic::v3::UserContext* WaitEventRequest::mutable_ctx() {
+  
+  if (ctx_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::logic::v3::UserContext>(GetArenaNoVirtual());
+    ctx_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.WaitEventRequest.ctx)
+  return ctx_;
+}
+inline void WaitEventRequest::set_allocated_ctx(::ric::logic::v3::UserContext* ctx) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete ctx_;
+  }
+  if (ctx) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      ctx = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, ctx, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  ctx_ = ctx;
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.WaitEventRequest.ctx)
+}
+
+// string object_id = 2;
+inline void WaitEventRequest::clear_object_id() {
+  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& WaitEventRequest::object_id() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.WaitEventRequest.object_id)
+  return object_id_.GetNoArena();
+}
+inline void WaitEventRequest::set_object_id(const ::std::string& value) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.WaitEventRequest.object_id)
+}
+#if LANG_CXX11
+inline void WaitEventRequest::set_object_id(::std::string&& value) {
+  
+  object_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.logic.v3.WaitEventRequest.object_id)
+}
+#endif
+inline void WaitEventRequest::set_object_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.logic.v3.WaitEventRequest.object_id)
+}
+inline void WaitEventRequest::set_object_id(const char* value, size_t size) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.logic.v3.WaitEventRequest.object_id)
+}
+inline ::std::string* WaitEventRequest::mutable_object_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.WaitEventRequest.object_id)
+  return object_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WaitEventRequest::release_object_id() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.WaitEventRequest.object_id)
+  
+  return object_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WaitEventRequest::set_allocated_object_id(::std::string* object_id) {
+  if (object_id != nullptr) {
+    
+  } else {
+    
+  }
+  object_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), object_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.WaitEventRequest.object_id)
+}
+
+// string automaton_id = 3;
+inline void WaitEventRequest::clear_automaton_id() {
+  automaton_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& WaitEventRequest::automaton_id() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.WaitEventRequest.automaton_id)
+  return automaton_id_.GetNoArena();
+}
+inline void WaitEventRequest::set_automaton_id(const ::std::string& value) {
+  
+  automaton_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.WaitEventRequest.automaton_id)
+}
+#if LANG_CXX11
+inline void WaitEventRequest::set_automaton_id(::std::string&& value) {
+  
+  automaton_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.logic.v3.WaitEventRequest.automaton_id)
+}
+#endif
+inline void WaitEventRequest::set_automaton_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  automaton_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.logic.v3.WaitEventRequest.automaton_id)
+}
+inline void WaitEventRequest::set_automaton_id(const char* value, size_t size) {
+  
+  automaton_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.logic.v3.WaitEventRequest.automaton_id)
+}
+inline ::std::string* WaitEventRequest::mutable_automaton_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.WaitEventRequest.automaton_id)
+  return automaton_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* WaitEventRequest::release_automaton_id() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.WaitEventRequest.automaton_id)
+  
+  return automaton_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void WaitEventRequest::set_allocated_automaton_id(::std::string* automaton_id) {
+  if (automaton_id != nullptr) {
+    
+  } else {
+    
+  }
+  automaton_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), automaton_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.WaitEventRequest.automaton_id)
+}
+
+// .ric.logic.v3.WaitCondition wait = 4;
+inline bool WaitEventRequest::has_wait() const {
+  return this != internal_default_instance() && wait_ != nullptr;
+}
+inline void WaitEventRequest::clear_wait() {
+  if (GetArenaNoVirtual() == nullptr && wait_ != nullptr) {
+    delete wait_;
+  }
+  wait_ = nullptr;
+}
+inline const ::ric::logic::v3::WaitCondition& WaitEventRequest::wait() const {
+  const ::ric::logic::v3::WaitCondition* p = wait_;
+  // @@protoc_insertion_point(field_get:ric.logic.v3.WaitEventRequest.wait)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::logic::v3::WaitCondition*>(
+      &::ric::logic::v3::_WaitCondition_default_instance_);
+}
+inline ::ric::logic::v3::WaitCondition* WaitEventRequest::release_wait() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.WaitEventRequest.wait)
+  
+  ::ric::logic::v3::WaitCondition* temp = wait_;
+  wait_ = nullptr;
+  return temp;
+}
+inline ::ric::logic::v3::WaitCondition* WaitEventRequest::mutable_wait() {
+  
+  if (wait_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::logic::v3::WaitCondition>(GetArenaNoVirtual());
+    wait_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.WaitEventRequest.wait)
+  return wait_;
+}
+inline void WaitEventRequest::set_allocated_wait(::ric::logic::v3::WaitCondition* wait) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete wait_;
+  }
+  if (wait) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      wait = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, wait, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  wait_ = wait;
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.WaitEventRequest.wait)
+}
+
+// -------------------------------------------------------------------
+
+// WaitEventResponse
+
+// -------------------------------------------------------------------
+
 // GetRuntimeInfoRequest
 
 // string object_id = 1;
@@ -7948,6 +8836,12 @@ UpdateAutomatonVarsResponse::mutable_vars() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

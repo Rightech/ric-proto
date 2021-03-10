@@ -4,7 +4,7 @@ package ric.geo;
 
 option go_package = "./ric-geo;ricgeo";
 
-service Watch {
+service Geo {
   rpc GetObjectInfo(GetObjectInfoRequest) returns (GetObjectInfoResponse);
 }
 
@@ -12,13 +12,23 @@ message GetObjectInfoRequest {
   string object_id = 1;
 }
 
+enum KindType {
+  UNKNOWN = 0;
+  GEOFENCE = 1;
+  FLOOR = 2;
+  ROOM = 3;
+}
+
+message GeoInfo {
+  string id = 1;
+  KindType kind = 2;
+  bool is_in = 3;
+  int64 last_packet_time = 4;
+  int64 last_enter_time = 5;
+  int64 last_leave_time = 6;
+  repeated GeoInfo nested = 7;
+}
+
 message GetObjectInfoResponse {
-  message ObjectGeofenceInfo {
-    string geofence_id = 1;
-    bool is_in = 2;
-    int64 last_packet_time = 3;
-    int64 last_enter_time = 4;
-    int64 last_leave_time = 5;
-  }
-  repeated ObjectGeofenceInfo geofences = 1;
+  repeated GeoInfo geofences = 1;
 }

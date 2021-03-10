@@ -1,6 +1,7 @@
 export interface Service {
   Exec(request: ExecRequest): Promise<ExecResponse>;
   GetObjectInfo(request: GetObjectInfoRequest): Promise<GetObjectInfoResponse>;
+  GetHandlerStore(request: GetHandlerStoreRequest): Promise<GetHandlerStoreResponse>;
   ForceLinksUpdate(request: ForceLinksUpdateRequest): Promise<EmptyResponse>;
 }
 
@@ -51,8 +52,18 @@ export interface Handler {
 export interface GetObjectInfoResponse {
   id?: string;
   config?: any;
+  store?: any;
+  lastPacketTime?: number;
   actions?: Action[];
   handlers?: Handler[];
+}
+
+export interface GetHandlerStoreRequest {
+  handlerId?: string;
+}
+
+export interface GetHandlerStoreResponse {
+  store?: any;
 }
 
 export interface ForceLinksUpdateRequest {

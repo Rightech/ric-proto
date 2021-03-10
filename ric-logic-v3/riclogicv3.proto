@@ -12,6 +12,7 @@ service RicLogicV3 {
   rpc StopAutomaton(StopAutomatonRequest) returns (StopAutomatonResponse);
   rpc RunAutomaton(RunAutomatonRequest) returns (stream AutomatonInfo);
   rpc EmitEvent(EmitEventRequest) returns (EmitEventResponse);
+  rpc WaitEvent(WaitEventRequest) returns (WaitEventResponse);
   rpc UpdateAutomatonVars(UpdateAutomatonVarsRequest) returns (UpdateAutomatonVarsResponse);
 }
 
@@ -87,6 +88,13 @@ message LogEntry {
   ActionResult result = 14;
 }
 
+message WaitCondition {
+  string timeout = 1;
+  string event = 2;
+  string state = 3;
+  string status = 4;
+}
+
 message GetInstanceInfoRequest {}
 
 message GetInstanceInfoResponse {
@@ -126,8 +134,7 @@ message RunAutomatonRequest {
   UserContext ctx = 1;
   string object_id = 2;
   string automaton_id = 3;
-  bool wait_final = 4;
-  int32 wait_timeout = 5;
+  WaitCondition wait = 4;
   string on_running = 6;
   map<string, AutomatonVarValue> vars = 7;
 }
@@ -156,6 +163,15 @@ message EmitEventRequest {
 }
 
 message EmitEventResponse {}
+
+message WaitEventRequest {
+  UserContext ctx = 1;
+  string object_id = 2;
+  string automaton_id = 3;
+  WaitCondition wait = 4;
+}
+
+message WaitEventResponse {}
 
 message GetRuntimeInfoRequest {
   string object_id = 1;

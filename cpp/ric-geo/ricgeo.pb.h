@@ -30,6 +30,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -50,27 +51,50 @@ struct TableStruct_ric_2dgeo_2fricgeo_2eproto {
 void AddDescriptors_ric_2dgeo_2fricgeo_2eproto();
 namespace ric {
 namespace geo {
+class GeoInfo;
+class GeoInfoDefaultTypeInternal;
+extern GeoInfoDefaultTypeInternal _GeoInfo_default_instance_;
 class GetObjectInfoRequest;
 class GetObjectInfoRequestDefaultTypeInternal;
 extern GetObjectInfoRequestDefaultTypeInternal _GetObjectInfoRequest_default_instance_;
 class GetObjectInfoResponse;
 class GetObjectInfoResponseDefaultTypeInternal;
 extern GetObjectInfoResponseDefaultTypeInternal _GetObjectInfoResponse_default_instance_;
-class GetObjectInfoResponse_ObjectGeofenceInfo;
-class GetObjectInfoResponse_ObjectGeofenceInfoDefaultTypeInternal;
-extern GetObjectInfoResponse_ObjectGeofenceInfoDefaultTypeInternal _GetObjectInfoResponse_ObjectGeofenceInfo_default_instance_;
 }  // namespace geo
 }  // namespace ric
 namespace google {
 namespace protobuf {
+template<> ::ric::geo::GeoInfo* Arena::CreateMaybeMessage<::ric::geo::GeoInfo>(Arena*);
 template<> ::ric::geo::GetObjectInfoRequest* Arena::CreateMaybeMessage<::ric::geo::GetObjectInfoRequest>(Arena*);
 template<> ::ric::geo::GetObjectInfoResponse* Arena::CreateMaybeMessage<::ric::geo::GetObjectInfoResponse>(Arena*);
-template<> ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo* Arena::CreateMaybeMessage<::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace ric {
 namespace geo {
 
+enum KindType {
+  UNKNOWN = 0,
+  GEOFENCE = 1,
+  FLOOR = 2,
+  ROOM = 3,
+  KindType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::min(),
+  KindType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::google::protobuf::int32>::max()
+};
+bool KindType_IsValid(int value);
+const KindType KindType_MIN = UNKNOWN;
+const KindType KindType_MAX = ROOM;
+const int KindType_ARRAYSIZE = KindType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* KindType_descriptor();
+inline const ::std::string& KindType_Name(KindType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    KindType_descriptor(), value);
+}
+inline bool KindType_Parse(
+    const ::std::string& name, KindType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<KindType>(
+    KindType_descriptor(), name, value);
+}
 // ===================================================================
 
 class GetObjectInfoRequest final :
@@ -193,25 +217,25 @@ class GetObjectInfoRequest final :
 };
 // -------------------------------------------------------------------
 
-class GetObjectInfoResponse_ObjectGeofenceInfo final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo) */ {
+class GeoInfo final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.geo.GeoInfo) */ {
  public:
-  GetObjectInfoResponse_ObjectGeofenceInfo();
-  virtual ~GetObjectInfoResponse_ObjectGeofenceInfo();
+  GeoInfo();
+  virtual ~GeoInfo();
 
-  GetObjectInfoResponse_ObjectGeofenceInfo(const GetObjectInfoResponse_ObjectGeofenceInfo& from);
+  GeoInfo(const GeoInfo& from);
 
-  inline GetObjectInfoResponse_ObjectGeofenceInfo& operator=(const GetObjectInfoResponse_ObjectGeofenceInfo& from) {
+  inline GeoInfo& operator=(const GeoInfo& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  GetObjectInfoResponse_ObjectGeofenceInfo(GetObjectInfoResponse_ObjectGeofenceInfo&& from) noexcept
-    : GetObjectInfoResponse_ObjectGeofenceInfo() {
+  GeoInfo(GeoInfo&& from) noexcept
+    : GeoInfo() {
     *this = ::std::move(from);
   }
 
-  inline GetObjectInfoResponse_ObjectGeofenceInfo& operator=(GetObjectInfoResponse_ObjectGeofenceInfo&& from) noexcept {
+  inline GeoInfo& operator=(GeoInfo&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -223,34 +247,34 @@ class GetObjectInfoResponse_ObjectGeofenceInfo final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const GetObjectInfoResponse_ObjectGeofenceInfo& default_instance();
+  static const GeoInfo& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const GetObjectInfoResponse_ObjectGeofenceInfo* internal_default_instance() {
-    return reinterpret_cast<const GetObjectInfoResponse_ObjectGeofenceInfo*>(
-               &_GetObjectInfoResponse_ObjectGeofenceInfo_default_instance_);
+  static inline const GeoInfo* internal_default_instance() {
+    return reinterpret_cast<const GeoInfo*>(
+               &_GeoInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  void Swap(GetObjectInfoResponse_ObjectGeofenceInfo* other);
-  friend void swap(GetObjectInfoResponse_ObjectGeofenceInfo& a, GetObjectInfoResponse_ObjectGeofenceInfo& b) {
+  void Swap(GeoInfo* other);
+  friend void swap(GeoInfo& a, GeoInfo& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline GetObjectInfoResponse_ObjectGeofenceInfo* New() const final {
-    return CreateMaybeMessage<GetObjectInfoResponse_ObjectGeofenceInfo>(nullptr);
+  inline GeoInfo* New() const final {
+    return CreateMaybeMessage<GeoInfo>(nullptr);
   }
 
-  GetObjectInfoResponse_ObjectGeofenceInfo* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<GetObjectInfoResponse_ObjectGeofenceInfo>(arena);
+  GeoInfo* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<GeoInfo>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const GetObjectInfoResponse_ObjectGeofenceInfo& from);
-  void MergeFrom(const GetObjectInfoResponse_ObjectGeofenceInfo& from);
+  void CopyFrom(const GeoInfo& from);
+  void MergeFrom(const GeoInfo& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -272,7 +296,7 @@ class GetObjectInfoResponse_ObjectGeofenceInfo final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(GetObjectInfoResponse_ObjectGeofenceInfo* other);
+  void InternalSwap(GeoInfo* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -288,54 +312,74 @@ class GetObjectInfoResponse_ObjectGeofenceInfo final :
 
   // accessors -------------------------------------------------------
 
-  // string geofence_id = 1;
-  void clear_geofence_id();
-  static const int kGeofenceIdFieldNumber = 1;
-  const ::std::string& geofence_id() const;
-  void set_geofence_id(const ::std::string& value);
+  // repeated .ric.geo.GeoInfo nested = 7;
+  int nested_size() const;
+  void clear_nested();
+  static const int kNestedFieldNumber = 7;
+  ::ric::geo::GeoInfo* mutable_nested(int index);
+  ::google::protobuf::RepeatedPtrField< ::ric::geo::GeoInfo >*
+      mutable_nested();
+  const ::ric::geo::GeoInfo& nested(int index) const;
+  ::ric::geo::GeoInfo* add_nested();
+  const ::google::protobuf::RepeatedPtrField< ::ric::geo::GeoInfo >&
+      nested() const;
+
+  // string id = 1;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  const ::std::string& id() const;
+  void set_id(const ::std::string& value);
   #if LANG_CXX11
-  void set_geofence_id(::std::string&& value);
+  void set_id(::std::string&& value);
   #endif
-  void set_geofence_id(const char* value);
-  void set_geofence_id(const char* value, size_t size);
-  ::std::string* mutable_geofence_id();
-  ::std::string* release_geofence_id();
-  void set_allocated_geofence_id(::std::string* geofence_id);
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  ::std::string* mutable_id();
+  ::std::string* release_id();
+  void set_allocated_id(::std::string* id);
 
-  // int64 last_packet_time = 3;
-  void clear_last_packet_time();
-  static const int kLastPacketTimeFieldNumber = 3;
-  ::google::protobuf::int64 last_packet_time() const;
-  void set_last_packet_time(::google::protobuf::int64 value);
+  // .ric.geo.KindType kind = 2;
+  void clear_kind();
+  static const int kKindFieldNumber = 2;
+  ::ric::geo::KindType kind() const;
+  void set_kind(::ric::geo::KindType value);
 
-  // int64 last_enter_time = 4;
-  void clear_last_enter_time();
-  static const int kLastEnterTimeFieldNumber = 4;
-  ::google::protobuf::int64 last_enter_time() const;
-  void set_last_enter_time(::google::protobuf::int64 value);
-
-  // int64 last_leave_time = 5;
-  void clear_last_leave_time();
-  static const int kLastLeaveTimeFieldNumber = 5;
-  ::google::protobuf::int64 last_leave_time() const;
-  void set_last_leave_time(::google::protobuf::int64 value);
-
-  // bool is_in = 2;
+  // bool is_in = 3;
   void clear_is_in();
-  static const int kIsInFieldNumber = 2;
+  static const int kIsInFieldNumber = 3;
   bool is_in() const;
   void set_is_in(bool value);
 
-  // @@protoc_insertion_point(class_scope:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo)
+  // int64 last_packet_time = 4;
+  void clear_last_packet_time();
+  static const int kLastPacketTimeFieldNumber = 4;
+  ::google::protobuf::int64 last_packet_time() const;
+  void set_last_packet_time(::google::protobuf::int64 value);
+
+  // int64 last_enter_time = 5;
+  void clear_last_enter_time();
+  static const int kLastEnterTimeFieldNumber = 5;
+  ::google::protobuf::int64 last_enter_time() const;
+  void set_last_enter_time(::google::protobuf::int64 value);
+
+  // int64 last_leave_time = 6;
+  void clear_last_leave_time();
+  static const int kLastLeaveTimeFieldNumber = 6;
+  ::google::protobuf::int64 last_leave_time() const;
+  void set_last_leave_time(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:ric.geo.GeoInfo)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr geofence_id_;
+  ::google::protobuf::RepeatedPtrField< ::ric::geo::GeoInfo > nested_;
+  ::google::protobuf::internal::ArenaStringPtr id_;
+  int kind_;
+  bool is_in_;
   ::google::protobuf::int64 last_packet_time_;
   ::google::protobuf::int64 last_enter_time_;
   ::google::protobuf::int64 last_leave_time_;
-  bool is_in_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dgeo_2fricgeo_2eproto;
 };
@@ -434,20 +478,18 @@ class GetObjectInfoResponse final :
 
   // nested types ----------------------------------------------------
 
-  typedef GetObjectInfoResponse_ObjectGeofenceInfo ObjectGeofenceInfo;
-
   // accessors -------------------------------------------------------
 
-  // repeated .ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo geofences = 1;
+  // repeated .ric.geo.GeoInfo geofences = 1;
   int geofences_size() const;
   void clear_geofences();
   static const int kGeofencesFieldNumber = 1;
-  ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo* mutable_geofences(int index);
-  ::google::protobuf::RepeatedPtrField< ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo >*
+  ::ric::geo::GeoInfo* mutable_geofences(int index);
+  ::google::protobuf::RepeatedPtrField< ::ric::geo::GeoInfo >*
       mutable_geofences();
-  const ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo& geofences(int index) const;
-  ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo* add_geofences();
-  const ::google::protobuf::RepeatedPtrField< ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo >&
+  const ::ric::geo::GeoInfo& geofences(int index) const;
+  ::ric::geo::GeoInfo* add_geofences();
+  const ::google::protobuf::RepeatedPtrField< ::ric::geo::GeoInfo >&
       geofences() const;
 
   // @@protoc_insertion_point(class_scope:ric.geo.GetObjectInfoResponse)
@@ -455,7 +497,7 @@ class GetObjectInfoResponse final :
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo > geofences_;
+  ::google::protobuf::RepeatedPtrField< ::ric::geo::GeoInfo > geofences_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dgeo_2fricgeo_2eproto;
 };
@@ -525,146 +567,190 @@ inline void GetObjectInfoRequest::set_allocated_object_id(::std::string* object_
 
 // -------------------------------------------------------------------
 
-// GetObjectInfoResponse_ObjectGeofenceInfo
+// GeoInfo
 
-// string geofence_id = 1;
-inline void GetObjectInfoResponse_ObjectGeofenceInfo::clear_geofence_id() {
-  geofence_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// string id = 1;
+inline void GeoInfo::clear_id() {
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& GetObjectInfoResponse_ObjectGeofenceInfo::geofence_id() const {
-  // @@protoc_insertion_point(field_get:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.geofence_id)
-  return geofence_id_.GetNoArena();
+inline const ::std::string& GeoInfo::id() const {
+  // @@protoc_insertion_point(field_get:ric.geo.GeoInfo.id)
+  return id_.GetNoArena();
 }
-inline void GetObjectInfoResponse_ObjectGeofenceInfo::set_geofence_id(const ::std::string& value) {
+inline void GeoInfo::set_id(const ::std::string& value) {
   
-  geofence_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.geofence_id)
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.geo.GeoInfo.id)
 }
 #if LANG_CXX11
-inline void GetObjectInfoResponse_ObjectGeofenceInfo::set_geofence_id(::std::string&& value) {
+inline void GeoInfo::set_id(::std::string&& value) {
   
-  geofence_id_.SetNoArena(
+  id_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.geofence_id)
+  // @@protoc_insertion_point(field_set_rvalue:ric.geo.GeoInfo.id)
 }
 #endif
-inline void GetObjectInfoResponse_ObjectGeofenceInfo::set_geofence_id(const char* value) {
+inline void GeoInfo::set_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  geofence_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.geofence_id)
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.geo.GeoInfo.id)
 }
-inline void GetObjectInfoResponse_ObjectGeofenceInfo::set_geofence_id(const char* value, size_t size) {
+inline void GeoInfo::set_id(const char* value, size_t size) {
   
-  geofence_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.geofence_id)
+  // @@protoc_insertion_point(field_set_pointer:ric.geo.GeoInfo.id)
 }
-inline ::std::string* GetObjectInfoResponse_ObjectGeofenceInfo::mutable_geofence_id() {
+inline ::std::string* GeoInfo::mutable_id() {
   
-  // @@protoc_insertion_point(field_mutable:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.geofence_id)
-  return geofence_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:ric.geo.GeoInfo.id)
+  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* GetObjectInfoResponse_ObjectGeofenceInfo::release_geofence_id() {
-  // @@protoc_insertion_point(field_release:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.geofence_id)
+inline ::std::string* GeoInfo::release_id() {
+  // @@protoc_insertion_point(field_release:ric.geo.GeoInfo.id)
   
-  return geofence_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void GetObjectInfoResponse_ObjectGeofenceInfo::set_allocated_geofence_id(::std::string* geofence_id) {
-  if (geofence_id != nullptr) {
+inline void GeoInfo::set_allocated_id(::std::string* id) {
+  if (id != nullptr) {
     
   } else {
     
   }
-  geofence_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), geofence_id);
-  // @@protoc_insertion_point(field_set_allocated:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.geofence_id)
+  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:ric.geo.GeoInfo.id)
 }
 
-// bool is_in = 2;
-inline void GetObjectInfoResponse_ObjectGeofenceInfo::clear_is_in() {
+// .ric.geo.KindType kind = 2;
+inline void GeoInfo::clear_kind() {
+  kind_ = 0;
+}
+inline ::ric::geo::KindType GeoInfo::kind() const {
+  // @@protoc_insertion_point(field_get:ric.geo.GeoInfo.kind)
+  return static_cast< ::ric::geo::KindType >(kind_);
+}
+inline void GeoInfo::set_kind(::ric::geo::KindType value) {
+  
+  kind_ = value;
+  // @@protoc_insertion_point(field_set:ric.geo.GeoInfo.kind)
+}
+
+// bool is_in = 3;
+inline void GeoInfo::clear_is_in() {
   is_in_ = false;
 }
-inline bool GetObjectInfoResponse_ObjectGeofenceInfo::is_in() const {
-  // @@protoc_insertion_point(field_get:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.is_in)
+inline bool GeoInfo::is_in() const {
+  // @@protoc_insertion_point(field_get:ric.geo.GeoInfo.is_in)
   return is_in_;
 }
-inline void GetObjectInfoResponse_ObjectGeofenceInfo::set_is_in(bool value) {
+inline void GeoInfo::set_is_in(bool value) {
   
   is_in_ = value;
-  // @@protoc_insertion_point(field_set:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.is_in)
+  // @@protoc_insertion_point(field_set:ric.geo.GeoInfo.is_in)
 }
 
-// int64 last_packet_time = 3;
-inline void GetObjectInfoResponse_ObjectGeofenceInfo::clear_last_packet_time() {
+// int64 last_packet_time = 4;
+inline void GeoInfo::clear_last_packet_time() {
   last_packet_time_ = PROTOBUF_LONGLONG(0);
 }
-inline ::google::protobuf::int64 GetObjectInfoResponse_ObjectGeofenceInfo::last_packet_time() const {
-  // @@protoc_insertion_point(field_get:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.last_packet_time)
+inline ::google::protobuf::int64 GeoInfo::last_packet_time() const {
+  // @@protoc_insertion_point(field_get:ric.geo.GeoInfo.last_packet_time)
   return last_packet_time_;
 }
-inline void GetObjectInfoResponse_ObjectGeofenceInfo::set_last_packet_time(::google::protobuf::int64 value) {
+inline void GeoInfo::set_last_packet_time(::google::protobuf::int64 value) {
   
   last_packet_time_ = value;
-  // @@protoc_insertion_point(field_set:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.last_packet_time)
+  // @@protoc_insertion_point(field_set:ric.geo.GeoInfo.last_packet_time)
 }
 
-// int64 last_enter_time = 4;
-inline void GetObjectInfoResponse_ObjectGeofenceInfo::clear_last_enter_time() {
+// int64 last_enter_time = 5;
+inline void GeoInfo::clear_last_enter_time() {
   last_enter_time_ = PROTOBUF_LONGLONG(0);
 }
-inline ::google::protobuf::int64 GetObjectInfoResponse_ObjectGeofenceInfo::last_enter_time() const {
-  // @@protoc_insertion_point(field_get:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.last_enter_time)
+inline ::google::protobuf::int64 GeoInfo::last_enter_time() const {
+  // @@protoc_insertion_point(field_get:ric.geo.GeoInfo.last_enter_time)
   return last_enter_time_;
 }
-inline void GetObjectInfoResponse_ObjectGeofenceInfo::set_last_enter_time(::google::protobuf::int64 value) {
+inline void GeoInfo::set_last_enter_time(::google::protobuf::int64 value) {
   
   last_enter_time_ = value;
-  // @@protoc_insertion_point(field_set:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.last_enter_time)
+  // @@protoc_insertion_point(field_set:ric.geo.GeoInfo.last_enter_time)
 }
 
-// int64 last_leave_time = 5;
-inline void GetObjectInfoResponse_ObjectGeofenceInfo::clear_last_leave_time() {
+// int64 last_leave_time = 6;
+inline void GeoInfo::clear_last_leave_time() {
   last_leave_time_ = PROTOBUF_LONGLONG(0);
 }
-inline ::google::protobuf::int64 GetObjectInfoResponse_ObjectGeofenceInfo::last_leave_time() const {
-  // @@protoc_insertion_point(field_get:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.last_leave_time)
+inline ::google::protobuf::int64 GeoInfo::last_leave_time() const {
+  // @@protoc_insertion_point(field_get:ric.geo.GeoInfo.last_leave_time)
   return last_leave_time_;
 }
-inline void GetObjectInfoResponse_ObjectGeofenceInfo::set_last_leave_time(::google::protobuf::int64 value) {
+inline void GeoInfo::set_last_leave_time(::google::protobuf::int64 value) {
   
   last_leave_time_ = value;
-  // @@protoc_insertion_point(field_set:ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo.last_leave_time)
+  // @@protoc_insertion_point(field_set:ric.geo.GeoInfo.last_leave_time)
+}
+
+// repeated .ric.geo.GeoInfo nested = 7;
+inline int GeoInfo::nested_size() const {
+  return nested_.size();
+}
+inline void GeoInfo::clear_nested() {
+  nested_.Clear();
+}
+inline ::ric::geo::GeoInfo* GeoInfo::mutable_nested(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.geo.GeoInfo.nested)
+  return nested_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::ric::geo::GeoInfo >*
+GeoInfo::mutable_nested() {
+  // @@protoc_insertion_point(field_mutable_list:ric.geo.GeoInfo.nested)
+  return &nested_;
+}
+inline const ::ric::geo::GeoInfo& GeoInfo::nested(int index) const {
+  // @@protoc_insertion_point(field_get:ric.geo.GeoInfo.nested)
+  return nested_.Get(index);
+}
+inline ::ric::geo::GeoInfo* GeoInfo::add_nested() {
+  // @@protoc_insertion_point(field_add:ric.geo.GeoInfo.nested)
+  return nested_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ric::geo::GeoInfo >&
+GeoInfo::nested() const {
+  // @@protoc_insertion_point(field_list:ric.geo.GeoInfo.nested)
+  return nested_;
 }
 
 // -------------------------------------------------------------------
 
 // GetObjectInfoResponse
 
-// repeated .ric.geo.GetObjectInfoResponse.ObjectGeofenceInfo geofences = 1;
+// repeated .ric.geo.GeoInfo geofences = 1;
 inline int GetObjectInfoResponse::geofences_size() const {
   return geofences_.size();
 }
 inline void GetObjectInfoResponse::clear_geofences() {
   geofences_.Clear();
 }
-inline ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo* GetObjectInfoResponse::mutable_geofences(int index) {
+inline ::ric::geo::GeoInfo* GetObjectInfoResponse::mutable_geofences(int index) {
   // @@protoc_insertion_point(field_mutable:ric.geo.GetObjectInfoResponse.geofences)
   return geofences_.Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField< ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo >*
+inline ::google::protobuf::RepeatedPtrField< ::ric::geo::GeoInfo >*
 GetObjectInfoResponse::mutable_geofences() {
   // @@protoc_insertion_point(field_mutable_list:ric.geo.GetObjectInfoResponse.geofences)
   return &geofences_;
 }
-inline const ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo& GetObjectInfoResponse::geofences(int index) const {
+inline const ::ric::geo::GeoInfo& GetObjectInfoResponse::geofences(int index) const {
   // @@protoc_insertion_point(field_get:ric.geo.GetObjectInfoResponse.geofences)
   return geofences_.Get(index);
 }
-inline ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo* GetObjectInfoResponse::add_geofences() {
+inline ::ric::geo::GeoInfo* GetObjectInfoResponse::add_geofences() {
   // @@protoc_insertion_point(field_add:ric.geo.GetObjectInfoResponse.geofences)
   return geofences_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::ric::geo::GetObjectInfoResponse_ObjectGeofenceInfo >&
+inline const ::google::protobuf::RepeatedPtrField< ::ric::geo::GeoInfo >&
 GetObjectInfoResponse::geofences() const {
   // @@protoc_insertion_point(field_list:ric.geo.GetObjectInfoResponse.geofences)
   return geofences_;
@@ -682,6 +768,18 @@ GetObjectInfoResponse::geofences() const {
 
 }  // namespace geo
 }  // namespace ric
+
+namespace google {
+namespace protobuf {
+
+template <> struct is_proto_enum< ::ric::geo::KindType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::ric::geo::KindType>() {
+  return ::ric::geo::KindType_descriptor();
+}
+
+}  // namespace protobuf
+}  // namespace google
 
 // @@protoc_insertion_point(global_scope)
 

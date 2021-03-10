@@ -214,6 +214,9 @@ class GrpcClient {
     const isLocal = (process.env.RIC_GRPC_LOCAL_SVCS || '').includes(this.name.service);
     if (IN_KUBE || HOST_RESOLVE) {
       let hostname = this.name.service;
+      if (this.meta.v) {
+        hostname = `${hostname}-v${this.meta.v}`;
+      }
       if (this.meta.stateful) {
         //const instanceName = this.instanceName || '0';
         //const hostname = `${this.name.full}-${instanceName}`;

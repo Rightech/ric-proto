@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package ric.web;
+
+option go_package = "./ric-web;ricweb";
+
+service RicWeb {
+  rpc DispatchDefaultAction(DispatchDefaultActionRequest) returns (DispatchDefaultActionResponse);
+}
+
+message DispatchDefaultActionRequest {
+  string service = 1;
+  string source = 2;
+  string object_id = 3;
+  string id = 4;
+  string name = 5;
+  string params = 6;
+}
+
+message DispatchDefaultActionResponse {}

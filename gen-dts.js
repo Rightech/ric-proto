@@ -33,8 +33,20 @@ function fieldTyping(def, parent) {
   if (def.type === 'TYPE_MESSAGE') {
     type = def.typeName;
 
+    if (type === 'google.protobuf.Any') {
+      type = 'any';
+    }
+    if (type === 'google.protobuf.BytesValue') {
+      type = 'string';
+    }
     if (type === 'google.protobuf.BoolValue') {
       type = 'boolean';
+    }
+    if (type === 'google.protobuf.StringValue') {
+      type = 'string';
+    }
+    if (type === 'google.protobuf.Int32Value') {
+      type = 'number';
     }
     if (type === 'google.protobuf.Int64Value') {
       type = 'number';
