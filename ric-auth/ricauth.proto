@@ -25,6 +25,7 @@ message AuthObjectRequest {
   AuthObjectCert cert = 6;
   string ipv4 = 7;
   string ipv6 = 8;
+  bool bot = 9;
 }
 
 message AuthObjectResponse {
