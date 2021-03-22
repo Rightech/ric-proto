@@ -441,7 +441,7 @@ const char descriptor_table_protodef_ric_2dhandler_2frichandler_2eproto[] =
   "ory\030\007 \001(\004\022\027\n\017external_memory\030\010 \001(\004\022\034\n\024pe"
   "ak_malloced_memory\030\t \001(\004\022!\n\031number_of_na"
   "tive_contexts\030\n \001(\004\022#\n\033number_of_detache"
-  "d_contexts\030\013 \001(\004\022\025\n\rexec_duration\030\014 \001(\003\""
+  "d_contexts\030\013 \001(\004\022\025\n\rexec_duration\030\014 \001(\t\""
   ")\n\tLogRecord\022\014\n\004time\030\001 \001(\003\022\016\n\006record\030\002 \001"
   "(\t\"\220\001\n\014ExecResponse\022\016\n\006result\030\001 \001(\014\022#\n\005e"
   "rror\030\002 \001(\0132\024.ric.handler.JsError\022%\n\005stat"
@@ -1320,16 +1320,23 @@ ExecStats::ExecStats(const ExecStats& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  exec_duration_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.exec_duration().size() > 0) {
+    exec_duration_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.exec_duration_);
+  }
   ::memcpy(&total_heap_size_, &from.total_heap_size_,
-    static_cast<size_t>(reinterpret_cast<char*>(&exec_duration_) -
-    reinterpret_cast<char*>(&total_heap_size_)) + sizeof(exec_duration_));
+    static_cast<size_t>(reinterpret_cast<char*>(&number_of_detached_contexts_) -
+    reinterpret_cast<char*>(&total_heap_size_)) + sizeof(number_of_detached_contexts_));
   // @@protoc_insertion_point(copy_constructor:ric.handler.ExecStats)
 }
 
 void ExecStats::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_ExecStats_ric_2dhandler_2frichandler_2eproto.base);
+  exec_duration_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&total_heap_size_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&exec_duration_) -
-      reinterpret_cast<char*>(&total_heap_size_)) + sizeof(exec_duration_));
+      reinterpret_cast<char*>(&number_of_detached_contexts_) -
+      reinterpret_cast<char*>(&total_heap_size_)) + sizeof(number_of_detached_contexts_));
 }
 
 ExecStats::~ExecStats() {
@@ -1338,6 +1345,7 @@ ExecStats::~ExecStats() {
 }
 
 void ExecStats::SharedDtor() {
+  exec_duration_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void ExecStats::SetCachedSize(int size) const {
@@ -1355,9 +1363,10 @@ void ExecStats::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  exec_duration_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&total_heap_size_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&exec_duration_) -
-      reinterpret_cast<char*>(&total_heap_size_)) + sizeof(exec_duration_));
+      reinterpret_cast<char*>(&number_of_detached_contexts_) -
+      reinterpret_cast<char*>(&total_heap_size_)) + sizeof(number_of_detached_contexts_));
   _internal_metadata_.Clear();
 }
 
@@ -1451,11 +1460,20 @@ const char* ExecStats::_InternalParse(const char* begin, const char* end, void* 
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
-      // int64 exec_duration = 12;
+      // string exec_duration = 12;
       case 12: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 96) goto handle_unusual;
-        msg->set_exec_duration(::google::protobuf::internal::ReadVarint(&ptr));
+        if (static_cast<::google::protobuf::uint8>(tag) != 98) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.handler.ExecStats.exec_duration");
+        object = msg->mutable_exec_duration();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
         break;
       }
       default: {
@@ -1473,6 +1491,13 @@ const char* ExecStats::_InternalParse(const char* begin, const char* end, void* 
     }  // switch
   }  // while
   return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 bool ExecStats::MergePartialFromCodedStream(
@@ -1628,13 +1653,15 @@ bool ExecStats::MergePartialFromCodedStream(
         break;
       }
 
-      // int64 exec_duration = 12;
+      // string exec_duration = 12;
       case 12: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (96 & 0xFF)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &exec_duration_)));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (98 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_exec_duration()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->exec_duration().data(), static_cast<int>(this->exec_duration().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.handler.ExecStats.exec_duration"));
         } else {
           goto handle_unusual;
         }
@@ -1723,9 +1750,14 @@ void ExecStats::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(11, this->number_of_detached_contexts(), output);
   }
 
-  // int64 exec_duration = 12;
-  if (this->exec_duration() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(12, this->exec_duration(), output);
+  // string exec_duration = 12;
+  if (this->exec_duration().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->exec_duration().data(), static_cast<int>(this->exec_duration().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.handler.ExecStats.exec_duration");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      12, this->exec_duration(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1796,9 +1828,15 @@ void ExecStats::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(11, this->number_of_detached_contexts(), target);
   }
 
-  // int64 exec_duration = 12;
-  if (this->exec_duration() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(12, this->exec_duration(), target);
+  // string exec_duration = 12;
+  if (this->exec_duration().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->exec_duration().data(), static_cast<int>(this->exec_duration().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.handler.ExecStats.exec_duration");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        12, this->exec_duration(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1821,6 +1859,13 @@ size_t ExecStats::ByteSizeLong() const {
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // string exec_duration = 12;
+  if (this->exec_duration().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->exec_duration());
+  }
 
   // uint64 total_heap_size = 1;
   if (this->total_heap_size() != 0) {
@@ -1899,13 +1944,6 @@ size_t ExecStats::ByteSizeLong() const {
         this->number_of_detached_contexts());
   }
 
-  // int64 exec_duration = 12;
-  if (this->exec_duration() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int64Size(
-        this->exec_duration());
-  }
-
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -1933,6 +1971,10 @@ void ExecStats::MergeFrom(const ExecStats& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.exec_duration().size() > 0) {
+
+    exec_duration_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.exec_duration_);
+  }
   if (from.total_heap_size() != 0) {
     set_total_heap_size(from.total_heap_size());
   }
@@ -1966,9 +2008,6 @@ void ExecStats::MergeFrom(const ExecStats& from) {
   if (from.number_of_detached_contexts() != 0) {
     set_number_of_detached_contexts(from.number_of_detached_contexts());
   }
-  if (from.exec_duration() != 0) {
-    set_exec_duration(from.exec_duration());
-  }
 }
 
 void ExecStats::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1996,6 +2035,8 @@ void ExecStats::Swap(ExecStats* other) {
 void ExecStats::InternalSwap(ExecStats* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  exec_duration_.Swap(&other->exec_duration_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   swap(total_heap_size_, other->total_heap_size_);
   swap(total_heap_size_executable_, other->total_heap_size_executable_);
   swap(total_physical_size_, other->total_physical_size_);
@@ -2007,7 +2048,6 @@ void ExecStats::InternalSwap(ExecStats* other) {
   swap(peak_malloced_memory_, other->peak_malloced_memory_);
   swap(number_of_native_contexts_, other->number_of_native_contexts_);
   swap(number_of_detached_contexts_, other->number_of_detached_contexts_);
-  swap(exec_duration_, other->exec_duration_);
 }
 
 ::google::protobuf::Metadata ExecStats::GetMetadata() const {

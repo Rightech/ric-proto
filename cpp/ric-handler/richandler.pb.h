@@ -493,6 +493,20 @@ class ExecStats final :
 
   // accessors -------------------------------------------------------
 
+  // string exec_duration = 12;
+  void clear_exec_duration();
+  static const int kExecDurationFieldNumber = 12;
+  const ::std::string& exec_duration() const;
+  void set_exec_duration(const ::std::string& value);
+  #if LANG_CXX11
+  void set_exec_duration(::std::string&& value);
+  #endif
+  void set_exec_duration(const char* value);
+  void set_exec_duration(const char* value, size_t size);
+  ::std::string* mutable_exec_duration();
+  ::std::string* release_exec_duration();
+  void set_allocated_exec_duration(::std::string* exec_duration);
+
   // uint64 total_heap_size = 1;
   void clear_total_heap_size();
   static const int kTotalHeapSizeFieldNumber = 1;
@@ -559,17 +573,12 @@ class ExecStats final :
   ::google::protobuf::uint64 number_of_detached_contexts() const;
   void set_number_of_detached_contexts(::google::protobuf::uint64 value);
 
-  // int64 exec_duration = 12;
-  void clear_exec_duration();
-  static const int kExecDurationFieldNumber = 12;
-  ::google::protobuf::int64 exec_duration() const;
-  void set_exec_duration(::google::protobuf::int64 value);
-
   // @@protoc_insertion_point(class_scope:ric.handler.ExecStats)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr exec_duration_;
   ::google::protobuf::uint64 total_heap_size_;
   ::google::protobuf::uint64 total_heap_size_executable_;
   ::google::protobuf::uint64 total_physical_size_;
@@ -581,7 +590,6 @@ class ExecStats final :
   ::google::protobuf::uint64 peak_malloced_memory_;
   ::google::protobuf::uint64 number_of_native_contexts_;
   ::google::protobuf::uint64 number_of_detached_contexts_;
-  ::google::protobuf::int64 exec_duration_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dhandler_2frichandler_2eproto;
 };
@@ -2371,18 +2379,57 @@ inline void ExecStats::set_number_of_detached_contexts(::google::protobuf::uint6
   // @@protoc_insertion_point(field_set:ric.handler.ExecStats.number_of_detached_contexts)
 }
 
-// int64 exec_duration = 12;
+// string exec_duration = 12;
 inline void ExecStats::clear_exec_duration() {
-  exec_duration_ = PROTOBUF_LONGLONG(0);
+  exec_duration_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::google::protobuf::int64 ExecStats::exec_duration() const {
+inline const ::std::string& ExecStats::exec_duration() const {
   // @@protoc_insertion_point(field_get:ric.handler.ExecStats.exec_duration)
-  return exec_duration_;
+  return exec_duration_.GetNoArena();
 }
-inline void ExecStats::set_exec_duration(::google::protobuf::int64 value) {
+inline void ExecStats::set_exec_duration(const ::std::string& value) {
   
-  exec_duration_ = value;
+  exec_duration_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:ric.handler.ExecStats.exec_duration)
+}
+#if LANG_CXX11
+inline void ExecStats::set_exec_duration(::std::string&& value) {
+  
+  exec_duration_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.handler.ExecStats.exec_duration)
+}
+#endif
+inline void ExecStats::set_exec_duration(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  exec_duration_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.handler.ExecStats.exec_duration)
+}
+inline void ExecStats::set_exec_duration(const char* value, size_t size) {
+  
+  exec_duration_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.handler.ExecStats.exec_duration)
+}
+inline ::std::string* ExecStats::mutable_exec_duration() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.handler.ExecStats.exec_duration)
+  return exec_duration_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ExecStats::release_exec_duration() {
+  // @@protoc_insertion_point(field_release:ric.handler.ExecStats.exec_duration)
+  
+  return exec_duration_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ExecStats::set_allocated_exec_duration(::std::string* exec_duration) {
+  if (exec_duration != nullptr) {
+    
+  } else {
+    
+  }
+  exec_duration_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), exec_duration);
+  // @@protoc_insertion_point(field_set_allocated:ric.handler.ExecStats.exec_duration)
 }
 
 // -------------------------------------------------------------------

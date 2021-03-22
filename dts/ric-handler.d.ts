@@ -28,7 +28,7 @@ export interface ExecStats {
   peakMallocedMemory?: any;
   numberOfNativeContexts?: any;
   numberOfDetachedContexts?: any;
-  execDuration?: number;
+  execDuration?: string;
 }
 
 export interface LogRecord {
