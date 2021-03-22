@@ -13,7 +13,7 @@ service Service {
 
 message ExecRequest {
   string handler_id = 1;
-  string packet = 2;
+  bytes packet = 2;
 }
 
 message JsError {
@@ -43,7 +43,7 @@ message LogRecord {
 }
 
 message ExecResponse {
-  string result = 1;
+  bytes result = 1;
   JsError error = 2;
   ExecStats stats = 3;
   repeated LogRecord logs = 4;
