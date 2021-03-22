@@ -34,7 +34,7 @@ message ExecStats {
   uint64 peak_malloced_memory = 9;
   uint64 number_of_native_contexts = 10;
   uint64 number_of_detached_contexts = 11;
-  int64 exec_duration = 12;
+  string exec_duration = 12;
 }
 
 message LogRecord {
@@ -86,4 +86,5 @@ message ForceLinksUpdateRequest {
   string object_id = 1;
 }
 
-message EmptyResponse {}
+message EmptyResponse {
+}
