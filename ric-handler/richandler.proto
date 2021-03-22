@@ -23,8 +23,18 @@ message JsError {
 }
 
 message ExecStats {
-  string time = 1;
-  string mem = 2;
+  uint64 total_heap_size = 1;
+  uint64 total_heap_size_executable = 2;
+  uint64 total_physical_size = 3;
+  uint64 total_available_size = 4;
+  uint64 used_heap_size = 5;
+  uint64 heap_size_limit = 6;
+  uint64 malloced_memory = 7;
+  uint64 external_memory = 8;
+  uint64 peak_malloced_memory = 9;
+  uint64 number_of_native_contexts = 10;
+  uint64 number_of_detached_contexts = 11;
+  int64 exec_duration = 12;
 }
 
 message LogRecord {
@@ -76,4 +86,5 @@ message ForceLinksUpdateRequest {
   string object_id = 1;
 }
 
-message EmptyResponse {}
+message EmptyResponse {
+}
