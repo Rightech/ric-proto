@@ -7,7 +7,7 @@ export interface Service {
 
 export interface ExecRequest {
   handlerId?: string;
-  packet?: string;
+  packet?: any;
 }
 
 export interface JsError {
@@ -17,8 +17,18 @@ export interface JsError {
 }
 
 export interface ExecStats {
-  time?: string;
-  mem?: string;
+  totalHeapSize?: any;
+  totalHeapSizeExecutable?: any;
+  totalPhysicalSize?: any;
+  totalAvailableSize?: any;
+  usedHeapSize?: any;
+  heapSizeLimit?: any;
+  mallocedMemory?: any;
+  externalMemory?: any;
+  peakMallocedMemory?: any;
+  numberOfNativeContexts?: any;
+  numberOfDetachedContexts?: any;
+  execDuration?: number;
 }
 
 export interface LogRecord {
@@ -27,7 +37,7 @@ export interface LogRecord {
 }
 
 export interface ExecResponse {
-  result?: string;
+  result?: any;
   error?: JsError;
   stats?: ExecStats;
   logs?: LogRecord[];

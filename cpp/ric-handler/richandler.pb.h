@@ -222,7 +222,7 @@ class ExecRequest final :
   ::std::string* release_handler_id();
   void set_allocated_handler_id(::std::string* handler_id);
 
-  // string packet = 2;
+  // bytes packet = 2;
   void clear_packet();
   static const int kPacketFieldNumber = 2;
   const ::std::string& packet() const;
@@ -231,7 +231,7 @@ class ExecRequest final :
   void set_packet(::std::string&& value);
   #endif
   void set_packet(const char* value);
-  void set_packet(const char* value, size_t size);
+  void set_packet(const void* value, size_t size);
   ::std::string* mutable_packet();
   ::std::string* release_packet();
   void set_allocated_packet(::std::string* packet);
@@ -493,41 +493,95 @@ class ExecStats final :
 
   // accessors -------------------------------------------------------
 
-  // string time = 1;
-  void clear_time();
-  static const int kTimeFieldNumber = 1;
-  const ::std::string& time() const;
-  void set_time(const ::std::string& value);
-  #if LANG_CXX11
-  void set_time(::std::string&& value);
-  #endif
-  void set_time(const char* value);
-  void set_time(const char* value, size_t size);
-  ::std::string* mutable_time();
-  ::std::string* release_time();
-  void set_allocated_time(::std::string* time);
+  // uint64 total_heap_size = 1;
+  void clear_total_heap_size();
+  static const int kTotalHeapSizeFieldNumber = 1;
+  ::google::protobuf::uint64 total_heap_size() const;
+  void set_total_heap_size(::google::protobuf::uint64 value);
 
-  // string mem = 2;
-  void clear_mem();
-  static const int kMemFieldNumber = 2;
-  const ::std::string& mem() const;
-  void set_mem(const ::std::string& value);
-  #if LANG_CXX11
-  void set_mem(::std::string&& value);
-  #endif
-  void set_mem(const char* value);
-  void set_mem(const char* value, size_t size);
-  ::std::string* mutable_mem();
-  ::std::string* release_mem();
-  void set_allocated_mem(::std::string* mem);
+  // uint64 total_heap_size_executable = 2;
+  void clear_total_heap_size_executable();
+  static const int kTotalHeapSizeExecutableFieldNumber = 2;
+  ::google::protobuf::uint64 total_heap_size_executable() const;
+  void set_total_heap_size_executable(::google::protobuf::uint64 value);
+
+  // uint64 total_physical_size = 3;
+  void clear_total_physical_size();
+  static const int kTotalPhysicalSizeFieldNumber = 3;
+  ::google::protobuf::uint64 total_physical_size() const;
+  void set_total_physical_size(::google::protobuf::uint64 value);
+
+  // uint64 total_available_size = 4;
+  void clear_total_available_size();
+  static const int kTotalAvailableSizeFieldNumber = 4;
+  ::google::protobuf::uint64 total_available_size() const;
+  void set_total_available_size(::google::protobuf::uint64 value);
+
+  // uint64 used_heap_size = 5;
+  void clear_used_heap_size();
+  static const int kUsedHeapSizeFieldNumber = 5;
+  ::google::protobuf::uint64 used_heap_size() const;
+  void set_used_heap_size(::google::protobuf::uint64 value);
+
+  // uint64 heap_size_limit = 6;
+  void clear_heap_size_limit();
+  static const int kHeapSizeLimitFieldNumber = 6;
+  ::google::protobuf::uint64 heap_size_limit() const;
+  void set_heap_size_limit(::google::protobuf::uint64 value);
+
+  // uint64 malloced_memory = 7;
+  void clear_malloced_memory();
+  static const int kMallocedMemoryFieldNumber = 7;
+  ::google::protobuf::uint64 malloced_memory() const;
+  void set_malloced_memory(::google::protobuf::uint64 value);
+
+  // uint64 external_memory = 8;
+  void clear_external_memory();
+  static const int kExternalMemoryFieldNumber = 8;
+  ::google::protobuf::uint64 external_memory() const;
+  void set_external_memory(::google::protobuf::uint64 value);
+
+  // uint64 peak_malloced_memory = 9;
+  void clear_peak_malloced_memory();
+  static const int kPeakMallocedMemoryFieldNumber = 9;
+  ::google::protobuf::uint64 peak_malloced_memory() const;
+  void set_peak_malloced_memory(::google::protobuf::uint64 value);
+
+  // uint64 number_of_native_contexts = 10;
+  void clear_number_of_native_contexts();
+  static const int kNumberOfNativeContextsFieldNumber = 10;
+  ::google::protobuf::uint64 number_of_native_contexts() const;
+  void set_number_of_native_contexts(::google::protobuf::uint64 value);
+
+  // uint64 number_of_detached_contexts = 11;
+  void clear_number_of_detached_contexts();
+  static const int kNumberOfDetachedContextsFieldNumber = 11;
+  ::google::protobuf::uint64 number_of_detached_contexts() const;
+  void set_number_of_detached_contexts(::google::protobuf::uint64 value);
+
+  // int64 exec_duration = 12;
+  void clear_exec_duration();
+  static const int kExecDurationFieldNumber = 12;
+  ::google::protobuf::int64 exec_duration() const;
+  void set_exec_duration(::google::protobuf::int64 value);
 
   // @@protoc_insertion_point(class_scope:ric.handler.ExecStats)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr time_;
-  ::google::protobuf::internal::ArenaStringPtr mem_;
+  ::google::protobuf::uint64 total_heap_size_;
+  ::google::protobuf::uint64 total_heap_size_executable_;
+  ::google::protobuf::uint64 total_physical_size_;
+  ::google::protobuf::uint64 total_available_size_;
+  ::google::protobuf::uint64 used_heap_size_;
+  ::google::protobuf::uint64 heap_size_limit_;
+  ::google::protobuf::uint64 malloced_memory_;
+  ::google::protobuf::uint64 external_memory_;
+  ::google::protobuf::uint64 peak_malloced_memory_;
+  ::google::protobuf::uint64 number_of_native_contexts_;
+  ::google::protobuf::uint64 number_of_detached_contexts_;
+  ::google::protobuf::int64 exec_duration_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dhandler_2frichandler_2eproto;
 };
@@ -767,7 +821,7 @@ class ExecResponse final :
   const ::google::protobuf::RepeatedPtrField< ::ric::handler::LogRecord >&
       logs() const;
 
-  // string result = 1;
+  // bytes result = 1;
   void clear_result();
   static const int kResultFieldNumber = 1;
   const ::std::string& result() const;
@@ -776,7 +830,7 @@ class ExecResponse final :
   void set_result(::std::string&& value);
   #endif
   void set_result(const char* value);
-  void set_result(const char* value, size_t size);
+  void set_result(const void* value, size_t size);
   ::std::string* mutable_result();
   ::std::string* release_result();
   void set_allocated_result(::std::string* result);
@@ -1943,7 +1997,7 @@ inline void ExecRequest::set_allocated_handler_id(::std::string* handler_id) {
   // @@protoc_insertion_point(field_set_allocated:ric.handler.ExecRequest.handler_id)
 }
 
-// string packet = 2;
+// bytes packet = 2;
 inline void ExecRequest::clear_packet() {
   packet_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1970,7 +2024,7 @@ inline void ExecRequest::set_packet(const char* value) {
   packet_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:ric.handler.ExecRequest.packet)
 }
-inline void ExecRequest::set_packet(const char* value, size_t size) {
+inline void ExecRequest::set_packet(const void* value, size_t size) {
   
   packet_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
@@ -2163,110 +2217,172 @@ inline void JsError::set_allocated_stack_trace(::std::string* stack_trace) {
 
 // ExecStats
 
-// string time = 1;
-inline void ExecStats::clear_time() {
-  time_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// uint64 total_heap_size = 1;
+inline void ExecStats::clear_total_heap_size() {
+  total_heap_size_ = PROTOBUF_ULONGLONG(0);
 }
-inline const ::std::string& ExecStats::time() const {
-  // @@protoc_insertion_point(field_get:ric.handler.ExecStats.time)
-  return time_.GetNoArena();
+inline ::google::protobuf::uint64 ExecStats::total_heap_size() const {
+  // @@protoc_insertion_point(field_get:ric.handler.ExecStats.total_heap_size)
+  return total_heap_size_;
 }
-inline void ExecStats::set_time(const ::std::string& value) {
+inline void ExecStats::set_total_heap_size(::google::protobuf::uint64 value) {
   
-  time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.handler.ExecStats.time)
-}
-#if LANG_CXX11
-inline void ExecStats::set_time(::std::string&& value) {
-  
-  time_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.handler.ExecStats.time)
-}
-#endif
-inline void ExecStats::set_time(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.handler.ExecStats.time)
-}
-inline void ExecStats::set_time(const char* value, size_t size) {
-  
-  time_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.handler.ExecStats.time)
-}
-inline ::std::string* ExecStats::mutable_time() {
-  
-  // @@protoc_insertion_point(field_mutable:ric.handler.ExecStats.time)
-  return time_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* ExecStats::release_time() {
-  // @@protoc_insertion_point(field_release:ric.handler.ExecStats.time)
-  
-  return time_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void ExecStats::set_allocated_time(::std::string* time) {
-  if (time != nullptr) {
-    
-  } else {
-    
-  }
-  time_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), time);
-  // @@protoc_insertion_point(field_set_allocated:ric.handler.ExecStats.time)
+  total_heap_size_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.ExecStats.total_heap_size)
 }
 
-// string mem = 2;
-inline void ExecStats::clear_mem() {
-  mem_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// uint64 total_heap_size_executable = 2;
+inline void ExecStats::clear_total_heap_size_executable() {
+  total_heap_size_executable_ = PROTOBUF_ULONGLONG(0);
 }
-inline const ::std::string& ExecStats::mem() const {
-  // @@protoc_insertion_point(field_get:ric.handler.ExecStats.mem)
-  return mem_.GetNoArena();
+inline ::google::protobuf::uint64 ExecStats::total_heap_size_executable() const {
+  // @@protoc_insertion_point(field_get:ric.handler.ExecStats.total_heap_size_executable)
+  return total_heap_size_executable_;
 }
-inline void ExecStats::set_mem(const ::std::string& value) {
+inline void ExecStats::set_total_heap_size_executable(::google::protobuf::uint64 value) {
   
-  mem_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.handler.ExecStats.mem)
+  total_heap_size_executable_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.ExecStats.total_heap_size_executable)
 }
-#if LANG_CXX11
-inline void ExecStats::set_mem(::std::string&& value) {
+
+// uint64 total_physical_size = 3;
+inline void ExecStats::clear_total_physical_size() {
+  total_physical_size_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 ExecStats::total_physical_size() const {
+  // @@protoc_insertion_point(field_get:ric.handler.ExecStats.total_physical_size)
+  return total_physical_size_;
+}
+inline void ExecStats::set_total_physical_size(::google::protobuf::uint64 value) {
   
-  mem_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.handler.ExecStats.mem)
+  total_physical_size_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.ExecStats.total_physical_size)
 }
-#endif
-inline void ExecStats::set_mem(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
+
+// uint64 total_available_size = 4;
+inline void ExecStats::clear_total_available_size() {
+  total_available_size_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 ExecStats::total_available_size() const {
+  // @@protoc_insertion_point(field_get:ric.handler.ExecStats.total_available_size)
+  return total_available_size_;
+}
+inline void ExecStats::set_total_available_size(::google::protobuf::uint64 value) {
   
-  mem_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.handler.ExecStats.mem)
+  total_available_size_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.ExecStats.total_available_size)
 }
-inline void ExecStats::set_mem(const char* value, size_t size) {
+
+// uint64 used_heap_size = 5;
+inline void ExecStats::clear_used_heap_size() {
+  used_heap_size_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 ExecStats::used_heap_size() const {
+  // @@protoc_insertion_point(field_get:ric.handler.ExecStats.used_heap_size)
+  return used_heap_size_;
+}
+inline void ExecStats::set_used_heap_size(::google::protobuf::uint64 value) {
   
-  mem_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.handler.ExecStats.mem)
+  used_heap_size_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.ExecStats.used_heap_size)
 }
-inline ::std::string* ExecStats::mutable_mem() {
+
+// uint64 heap_size_limit = 6;
+inline void ExecStats::clear_heap_size_limit() {
+  heap_size_limit_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 ExecStats::heap_size_limit() const {
+  // @@protoc_insertion_point(field_get:ric.handler.ExecStats.heap_size_limit)
+  return heap_size_limit_;
+}
+inline void ExecStats::set_heap_size_limit(::google::protobuf::uint64 value) {
   
-  // @@protoc_insertion_point(field_mutable:ric.handler.ExecStats.mem)
-  return mem_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  heap_size_limit_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.ExecStats.heap_size_limit)
 }
-inline ::std::string* ExecStats::release_mem() {
-  // @@protoc_insertion_point(field_release:ric.handler.ExecStats.mem)
+
+// uint64 malloced_memory = 7;
+inline void ExecStats::clear_malloced_memory() {
+  malloced_memory_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 ExecStats::malloced_memory() const {
+  // @@protoc_insertion_point(field_get:ric.handler.ExecStats.malloced_memory)
+  return malloced_memory_;
+}
+inline void ExecStats::set_malloced_memory(::google::protobuf::uint64 value) {
   
-  return mem_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  malloced_memory_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.ExecStats.malloced_memory)
 }
-inline void ExecStats::set_allocated_mem(::std::string* mem) {
-  if (mem != nullptr) {
-    
-  } else {
-    
-  }
-  mem_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), mem);
-  // @@protoc_insertion_point(field_set_allocated:ric.handler.ExecStats.mem)
+
+// uint64 external_memory = 8;
+inline void ExecStats::clear_external_memory() {
+  external_memory_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 ExecStats::external_memory() const {
+  // @@protoc_insertion_point(field_get:ric.handler.ExecStats.external_memory)
+  return external_memory_;
+}
+inline void ExecStats::set_external_memory(::google::protobuf::uint64 value) {
+  
+  external_memory_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.ExecStats.external_memory)
+}
+
+// uint64 peak_malloced_memory = 9;
+inline void ExecStats::clear_peak_malloced_memory() {
+  peak_malloced_memory_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 ExecStats::peak_malloced_memory() const {
+  // @@protoc_insertion_point(field_get:ric.handler.ExecStats.peak_malloced_memory)
+  return peak_malloced_memory_;
+}
+inline void ExecStats::set_peak_malloced_memory(::google::protobuf::uint64 value) {
+  
+  peak_malloced_memory_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.ExecStats.peak_malloced_memory)
+}
+
+// uint64 number_of_native_contexts = 10;
+inline void ExecStats::clear_number_of_native_contexts() {
+  number_of_native_contexts_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 ExecStats::number_of_native_contexts() const {
+  // @@protoc_insertion_point(field_get:ric.handler.ExecStats.number_of_native_contexts)
+  return number_of_native_contexts_;
+}
+inline void ExecStats::set_number_of_native_contexts(::google::protobuf::uint64 value) {
+  
+  number_of_native_contexts_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.ExecStats.number_of_native_contexts)
+}
+
+// uint64 number_of_detached_contexts = 11;
+inline void ExecStats::clear_number_of_detached_contexts() {
+  number_of_detached_contexts_ = PROTOBUF_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 ExecStats::number_of_detached_contexts() const {
+  // @@protoc_insertion_point(field_get:ric.handler.ExecStats.number_of_detached_contexts)
+  return number_of_detached_contexts_;
+}
+inline void ExecStats::set_number_of_detached_contexts(::google::protobuf::uint64 value) {
+  
+  number_of_detached_contexts_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.ExecStats.number_of_detached_contexts)
+}
+
+// int64 exec_duration = 12;
+inline void ExecStats::clear_exec_duration() {
+  exec_duration_ = PROTOBUF_LONGLONG(0);
+}
+inline ::google::protobuf::int64 ExecStats::exec_duration() const {
+  // @@protoc_insertion_point(field_get:ric.handler.ExecStats.exec_duration)
+  return exec_duration_;
+}
+inline void ExecStats::set_exec_duration(::google::protobuf::int64 value) {
+  
+  exec_duration_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.ExecStats.exec_duration)
 }
 
 // -------------------------------------------------------------------
@@ -2344,7 +2460,7 @@ inline void LogRecord::set_allocated_record(::std::string* record) {
 
 // ExecResponse
 
-// string result = 1;
+// bytes result = 1;
 inline void ExecResponse::clear_result() {
   result_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -2371,7 +2487,7 @@ inline void ExecResponse::set_result(const char* value) {
   result_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:ric.handler.ExecResponse.result)
 }
-inline void ExecResponse::set_result(const char* value, size_t size) {
+inline void ExecResponse::set_result(const void* value, size_t size) {
   
   result_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));

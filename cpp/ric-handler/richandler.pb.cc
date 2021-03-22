@@ -305,8 +305,18 @@ const ::google::protobuf::uint32 TableStruct_ric_2dhandler_2frichandler_2eproto:
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, time_),
-  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, mem_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, total_heap_size_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, total_heap_size_executable_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, total_physical_size_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, total_available_size_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, used_heap_size_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, heap_size_limit_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, malloced_memory_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, external_memory_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, peak_malloced_memory_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, number_of_native_contexts_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, number_of_detached_contexts_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, exec_duration_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::handler::LogRecord, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -384,16 +394,16 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 0, -1, sizeof(::ric::handler::ExecRequest)},
   { 7, -1, sizeof(::ric::handler::JsError)},
   { 15, -1, sizeof(::ric::handler::ExecStats)},
-  { 22, -1, sizeof(::ric::handler::LogRecord)},
-  { 29, -1, sizeof(::ric::handler::ExecResponse)},
-  { 38, -1, sizeof(::ric::handler::GetObjectInfoRequest)},
-  { 44, -1, sizeof(::ric::handler::Action)},
-  { 51, -1, sizeof(::ric::handler::Handler)},
-  { 60, -1, sizeof(::ric::handler::GetObjectInfoResponse)},
-  { 71, -1, sizeof(::ric::handler::GetHandlerStoreRequest)},
-  { 77, -1, sizeof(::ric::handler::GetHandlerStoreResponse)},
-  { 83, -1, sizeof(::ric::handler::ForceLinksUpdateRequest)},
-  { 89, -1, sizeof(::ric::handler::EmptyResponse)},
+  { 32, -1, sizeof(::ric::handler::LogRecord)},
+  { 39, -1, sizeof(::ric::handler::ExecResponse)},
+  { 48, -1, sizeof(::ric::handler::GetObjectInfoRequest)},
+  { 54, -1, sizeof(::ric::handler::Action)},
+  { 61, -1, sizeof(::ric::handler::Handler)},
+  { 70, -1, sizeof(::ric::handler::GetObjectInfoResponse)},
+  { 81, -1, sizeof(::ric::handler::GetHandlerStoreRequest)},
+  { 87, -1, sizeof(::ric::handler::GetHandlerStoreResponse)},
+  { 93, -1, sizeof(::ric::handler::ForceLinksUpdateRequest)},
+  { 99, -1, sizeof(::ric::handler::EmptyResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -421,41 +431,49 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 const char descriptor_table_protodef_ric_2dhandler_2frichandler_2eproto[] =
   "\n\034ric-handler/richandler.proto\022\013ric.hand"
   "ler\"1\n\013ExecRequest\022\022\n\nhandler_id\030\001 \001(\t\022\016"
-  "\n\006packet\030\002 \001(\t\"A\n\007JsError\022\017\n\007message\030\001 \001"
+  "\n\006packet\030\002 \001(\014\"A\n\007JsError\022\017\n\007message\030\001 \001"
   "(\t\022\020\n\010location\030\002 \001(\t\022\023\n\013stack_trace\030\003 \001("
-  "\t\"&\n\tExecStats\022\014\n\004time\030\001 \001(\t\022\013\n\003mem\030\002 \001("
-  "\t\")\n\tLogRecord\022\014\n\004time\030\001 \001(\003\022\016\n\006record\030\002"
-  " \001(\t\"\220\001\n\014ExecResponse\022\016\n\006result\030\001 \001(\t\022#\n"
-  "\005error\030\002 \001(\0132\024.ric.handler.JsError\022%\n\005st"
-  "ats\030\003 \001(\0132\026.ric.handler.ExecStats\022$\n\004log"
-  "s\030\004 \003(\0132\026.ric.handler.LogRecord\")\n\024GetOb"
-  "jectInfoRequest\022\021\n\tobject_id\030\001 \001(\t\"$\n\006Ac"
-  "tion\022\n\n\002id\030\001 \001(\t\022\016\n\006params\030\002 \001(\014\"N\n\007Hand"
-  "ler\022\n\n\002id\030\001 \001(\t\022\021\n\tuser_code\030\002 \001(\t\022\020\n\010bi"
-  "ndings\030\003 \001(\014\022\022\n\nparameters\030\004 \001(\014\"\252\001\n\025Get"
-  "ObjectInfoResponse\022\n\n\002id\030\001 \001(\t\022\016\n\006config"
-  "\030\002 \001(\014\022\r\n\005store\030\003 \001(\014\022\030\n\020last_packet_tim"
-  "e\030\004 \001(\003\022$\n\007actions\030\005 \003(\0132\023.ric.handler.A"
-  "ction\022&\n\010handlers\030\006 \003(\0132\024.ric.handler.Ha"
-  "ndler\",\n\026GetHandlerStoreRequest\022\022\n\nhandl"
-  "er_id\030\001 \001(\t\"(\n\027GetHandlerStoreResponse\022\r"
-  "\n\005store\030\001 \001(\014\",\n\027ForceLinksUpdateRequest"
-  "\022\021\n\tobject_id\030\001 \001(\t\"\017\n\rEmptyResponse2\322\002\n"
-  "\007Service\022;\n\004Exec\022\030.ric.handler.ExecReque"
-  "st\032\031.ric.handler.ExecResponse\022V\n\rGetObje"
-  "ctInfo\022!.ric.handler.GetObjectInfoReques"
-  "t\032\".ric.handler.GetObjectInfoResponse\022\\\n"
-  "\017GetHandlerStore\022#.ric.handler.GetHandle"
-  "rStoreRequest\032$.ric.handler.GetHandlerSt"
-  "oreResponse\022T\n\020ForceLinksUpdate\022$.ric.ha"
-  "ndler.ForceLinksUpdateRequest\032\032.ric.hand"
-  "ler.EmptyResponseB\032Z\030./ric-handler;richa"
-  "ndlerb\006proto3"
+  "\t\"\343\002\n\tExecStats\022\027\n\017total_heap_size\030\001 \001(\004"
+  "\022\"\n\032total_heap_size_executable\030\002 \001(\004\022\033\n\023"
+  "total_physical_size\030\003 \001(\004\022\034\n\024total_avail"
+  "able_size\030\004 \001(\004\022\026\n\016used_heap_size\030\005 \001(\004\022"
+  "\027\n\017heap_size_limit\030\006 \001(\004\022\027\n\017malloced_mem"
+  "ory\030\007 \001(\004\022\027\n\017external_memory\030\010 \001(\004\022\034\n\024pe"
+  "ak_malloced_memory\030\t \001(\004\022!\n\031number_of_na"
+  "tive_contexts\030\n \001(\004\022#\n\033number_of_detache"
+  "d_contexts\030\013 \001(\004\022\025\n\rexec_duration\030\014 \001(\003\""
+  ")\n\tLogRecord\022\014\n\004time\030\001 \001(\003\022\016\n\006record\030\002 \001"
+  "(\t\"\220\001\n\014ExecResponse\022\016\n\006result\030\001 \001(\014\022#\n\005e"
+  "rror\030\002 \001(\0132\024.ric.handler.JsError\022%\n\005stat"
+  "s\030\003 \001(\0132\026.ric.handler.ExecStats\022$\n\004logs\030"
+  "\004 \003(\0132\026.ric.handler.LogRecord\")\n\024GetObje"
+  "ctInfoRequest\022\021\n\tobject_id\030\001 \001(\t\"$\n\006Acti"
+  "on\022\n\n\002id\030\001 \001(\t\022\016\n\006params\030\002 \001(\014\"N\n\007Handle"
+  "r\022\n\n\002id\030\001 \001(\t\022\021\n\tuser_code\030\002 \001(\t\022\020\n\010bind"
+  "ings\030\003 \001(\014\022\022\n\nparameters\030\004 \001(\014\"\252\001\n\025GetOb"
+  "jectInfoResponse\022\n\n\002id\030\001 \001(\t\022\016\n\006config\030\002"
+  " \001(\014\022\r\n\005store\030\003 \001(\014\022\030\n\020last_packet_time\030"
+  "\004 \001(\003\022$\n\007actions\030\005 \003(\0132\023.ric.handler.Act"
+  "ion\022&\n\010handlers\030\006 \003(\0132\024.ric.handler.Hand"
+  "ler\",\n\026GetHandlerStoreRequest\022\022\n\nhandler"
+  "_id\030\001 \001(\t\"(\n\027GetHandlerStoreResponse\022\r\n\005"
+  "store\030\001 \001(\014\",\n\027ForceLinksUpdateRequest\022\021"
+  "\n\tobject_id\030\001 \001(\t\"\017\n\rEmptyResponse2\322\002\n\007S"
+  "ervice\022;\n\004Exec\022\030.ric.handler.ExecRequest"
+  "\032\031.ric.handler.ExecResponse\022V\n\rGetObject"
+  "Info\022!.ric.handler.GetObjectInfoRequest\032"
+  "\".ric.handler.GetObjectInfoResponse\022\\\n\017G"
+  "etHandlerStore\022#.ric.handler.GetHandlerS"
+  "toreRequest\032$.ric.handler.GetHandlerStor"
+  "eResponse\022T\n\020ForceLinksUpdate\022$.ric.hand"
+  "ler.ForceLinksUpdateRequest\032\032.ric.handle"
+  "r.EmptyResponseB\032Z\030./ric-handler;richand"
+  "lerb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dhandler_2frichandler_2eproto = {
   false, InitDefaults_ric_2dhandler_2frichandler_2eproto, 
   descriptor_table_protodef_ric_2dhandler_2frichandler_2eproto,
-  "ric-handler/richandler.proto", &assign_descriptors_table_ric_2dhandler_2frichandler_2eproto, 1253,
+  "ric-handler/richandler.proto", &assign_descriptors_table_ric_2dhandler_2frichandler_2eproto, 1571,
 };
 
 void AddDescriptors_ric_2dhandler_2frichandler_2eproto() {
@@ -569,18 +587,17 @@ const char* ExecRequest::_InternalParse(const char* begin, const char* end, void
         ptr += size;
         break;
       }
-      // string packet = 2;
+      // bytes packet = 2;
       case 2: {
         if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.handler.ExecRequest.packet");
         object = msg->mutable_packet();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          parser_till_end = ::google::protobuf::internal::GreedyStringParser;
           goto string_till_end;
         }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
         ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
         ptr += size;
         break;
@@ -634,15 +651,11 @@ bool ExecRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // string packet = 2;
+      // bytes packet = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_packet()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->packet().data(), static_cast<int>(this->packet().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.handler.ExecRequest.packet"));
         } else {
           goto handle_unusual;
         }
@@ -686,13 +699,9 @@ void ExecRequest::SerializeWithCachedSizes(
       1, this->handler_id(), output);
   }
 
-  // string packet = 2;
+  // bytes packet = 2;
   if (this->packet().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->packet().data(), static_cast<int>(this->packet().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.handler.ExecRequest.packet");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
       2, this->packet(), output);
   }
 
@@ -720,14 +729,10 @@ void ExecRequest::SerializeWithCachedSizes(
         1, this->handler_id(), target);
   }
 
-  // string packet = 2;
+  // bytes packet = 2;
   if (this->packet().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->packet().data(), static_cast<int>(this->packet().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.handler.ExecRequest.packet");
     target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
         2, this->packet(), target);
   }
 
@@ -759,10 +764,10 @@ size_t ExecRequest::ByteSizeLong() const {
         this->handler_id());
   }
 
-  // string packet = 2;
+  // bytes packet = 2;
   if (this->packet().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->packet());
   }
 
@@ -1292,8 +1297,18 @@ class ExecStats::HasBitSetters {
 };
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int ExecStats::kTimeFieldNumber;
-const int ExecStats::kMemFieldNumber;
+const int ExecStats::kTotalHeapSizeFieldNumber;
+const int ExecStats::kTotalHeapSizeExecutableFieldNumber;
+const int ExecStats::kTotalPhysicalSizeFieldNumber;
+const int ExecStats::kTotalAvailableSizeFieldNumber;
+const int ExecStats::kUsedHeapSizeFieldNumber;
+const int ExecStats::kHeapSizeLimitFieldNumber;
+const int ExecStats::kMallocedMemoryFieldNumber;
+const int ExecStats::kExternalMemoryFieldNumber;
+const int ExecStats::kPeakMallocedMemoryFieldNumber;
+const int ExecStats::kNumberOfNativeContextsFieldNumber;
+const int ExecStats::kNumberOfDetachedContextsFieldNumber;
+const int ExecStats::kExecDurationFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ExecStats::ExecStats()
@@ -1305,22 +1320,16 @@ ExecStats::ExecStats(const ExecStats& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  time_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.time().size() > 0) {
-    time_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.time_);
-  }
-  mem_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.mem().size() > 0) {
-    mem_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.mem_);
-  }
+  ::memcpy(&total_heap_size_, &from.total_heap_size_,
+    static_cast<size_t>(reinterpret_cast<char*>(&exec_duration_) -
+    reinterpret_cast<char*>(&total_heap_size_)) + sizeof(exec_duration_));
   // @@protoc_insertion_point(copy_constructor:ric.handler.ExecStats)
 }
 
 void ExecStats::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_ExecStats_ric_2dhandler_2frichandler_2eproto.base);
-  time_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  mem_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&total_heap_size_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&exec_duration_) -
+      reinterpret_cast<char*>(&total_heap_size_)) + sizeof(exec_duration_));
 }
 
 ExecStats::~ExecStats() {
@@ -1329,8 +1338,6 @@ ExecStats::~ExecStats() {
 }
 
 void ExecStats::SharedDtor() {
-  time_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  mem_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void ExecStats::SetCachedSize(int size) const {
@@ -1348,8 +1355,9 @@ void ExecStats::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  time_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  mem_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&total_heap_size_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&exec_duration_) -
+      reinterpret_cast<char*>(&total_heap_size_)) + sizeof(exec_duration_));
   _internal_metadata_.Clear();
 }
 
@@ -1366,36 +1374,88 @@ const char* ExecStats::_InternalParse(const char* begin, const char* end, void* 
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // string time = 1;
+      // uint64 total_heap_size = 1;
       case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        if (static_cast<::google::protobuf::uint8>(tag) != 8) goto handle_unusual;
+        msg->set_total_heap_size(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.handler.ExecStats.time");
-        object = msg->mutable_time();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
         break;
       }
-      // string mem = 2;
+      // uint64 total_heap_size_executable = 2;
       case 2: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        if (static_cast<::google::protobuf::uint8>(tag) != 16) goto handle_unusual;
+        msg->set_total_heap_size_executable(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.handler.ExecStats.mem");
-        object = msg->mutable_mem();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
+        break;
+      }
+      // uint64 total_physical_size = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
+        msg->set_total_physical_size(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // uint64 total_available_size = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 32) goto handle_unusual;
+        msg->set_total_available_size(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // uint64 used_heap_size = 5;
+      case 5: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 40) goto handle_unusual;
+        msg->set_used_heap_size(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // uint64 heap_size_limit = 6;
+      case 6: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 48) goto handle_unusual;
+        msg->set_heap_size_limit(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // uint64 malloced_memory = 7;
+      case 7: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 56) goto handle_unusual;
+        msg->set_malloced_memory(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // uint64 external_memory = 8;
+      case 8: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 64) goto handle_unusual;
+        msg->set_external_memory(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // uint64 peak_malloced_memory = 9;
+      case 9: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 72) goto handle_unusual;
+        msg->set_peak_malloced_memory(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // uint64 number_of_native_contexts = 10;
+      case 10: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 80) goto handle_unusual;
+        msg->set_number_of_native_contexts(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // uint64 number_of_detached_contexts = 11;
+      case 11: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 88) goto handle_unusual;
+        msg->set_number_of_detached_contexts(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // int64 exec_duration = 12;
+      case 12: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 96) goto handle_unusual;
+        msg->set_exec_duration(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         break;
       }
       default: {
@@ -1413,13 +1473,6 @@ const char* ExecStats::_InternalParse(const char* begin, const char* end, void* 
     }  // switch
   }  // while
   return ptr;
-string_till_end:
-  static_cast<::std::string*>(object)->clear();
-  static_cast<::std::string*>(object)->reserve(size);
-  goto len_delim_till_end;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 bool ExecStats::MergePartialFromCodedStream(
@@ -1432,30 +1485,156 @@ bool ExecStats::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // string time = 1;
+      // uint64 total_heap_size = 1;
       case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_time()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->time().data(), static_cast<int>(this->time().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.handler.ExecStats.time"));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (8 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &total_heap_size_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // string mem = 2;
+      // uint64 total_heap_size_executable = 2;
       case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_mem()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->mem().data(), static_cast<int>(this->mem().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.handler.ExecStats.mem"));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (16 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &total_heap_size_executable_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint64 total_physical_size = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &total_physical_size_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint64 total_available_size = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (32 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &total_available_size_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint64 used_heap_size = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (40 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &used_heap_size_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint64 heap_size_limit = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (48 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &heap_size_limit_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint64 malloced_memory = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (56 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &malloced_memory_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint64 external_memory = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (64 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &external_memory_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint64 peak_malloced_memory = 9;
+      case 9: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (72 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &peak_malloced_memory_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint64 number_of_native_contexts = 10;
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (80 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &number_of_native_contexts_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint64 number_of_detached_contexts = 11;
+      case 11: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (88 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &number_of_detached_contexts_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int64 exec_duration = 12;
+      case 12: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (96 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &exec_duration_)));
         } else {
           goto handle_unusual;
         }
@@ -1489,24 +1668,64 @@ void ExecStats::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string time = 1;
-  if (this->time().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->time().data(), static_cast<int>(this->time().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.handler.ExecStats.time");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->time(), output);
+  // uint64 total_heap_size = 1;
+  if (this->total_heap_size() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->total_heap_size(), output);
   }
 
-  // string mem = 2;
-  if (this->mem().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->mem().data(), static_cast<int>(this->mem().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.handler.ExecStats.mem");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->mem(), output);
+  // uint64 total_heap_size_executable = 2;
+  if (this->total_heap_size_executable() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->total_heap_size_executable(), output);
+  }
+
+  // uint64 total_physical_size = 3;
+  if (this->total_physical_size() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->total_physical_size(), output);
+  }
+
+  // uint64 total_available_size = 4;
+  if (this->total_available_size() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(4, this->total_available_size(), output);
+  }
+
+  // uint64 used_heap_size = 5;
+  if (this->used_heap_size() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(5, this->used_heap_size(), output);
+  }
+
+  // uint64 heap_size_limit = 6;
+  if (this->heap_size_limit() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(6, this->heap_size_limit(), output);
+  }
+
+  // uint64 malloced_memory = 7;
+  if (this->malloced_memory() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(7, this->malloced_memory(), output);
+  }
+
+  // uint64 external_memory = 8;
+  if (this->external_memory() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(8, this->external_memory(), output);
+  }
+
+  // uint64 peak_malloced_memory = 9;
+  if (this->peak_malloced_memory() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(9, this->peak_malloced_memory(), output);
+  }
+
+  // uint64 number_of_native_contexts = 10;
+  if (this->number_of_native_contexts() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(10, this->number_of_native_contexts(), output);
+  }
+
+  // uint64 number_of_detached_contexts = 11;
+  if (this->number_of_detached_contexts() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(11, this->number_of_detached_contexts(), output);
+  }
+
+  // int64 exec_duration = 12;
+  if (this->exec_duration() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(12, this->exec_duration(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1522,26 +1741,64 @@ void ExecStats::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string time = 1;
-  if (this->time().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->time().data(), static_cast<int>(this->time().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.handler.ExecStats.time");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->time(), target);
+  // uint64 total_heap_size = 1;
+  if (this->total_heap_size() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->total_heap_size(), target);
   }
 
-  // string mem = 2;
-  if (this->mem().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->mem().data(), static_cast<int>(this->mem().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.handler.ExecStats.mem");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->mem(), target);
+  // uint64 total_heap_size_executable = 2;
+  if (this->total_heap_size_executable() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->total_heap_size_executable(), target);
+  }
+
+  // uint64 total_physical_size = 3;
+  if (this->total_physical_size() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->total_physical_size(), target);
+  }
+
+  // uint64 total_available_size = 4;
+  if (this->total_available_size() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(4, this->total_available_size(), target);
+  }
+
+  // uint64 used_heap_size = 5;
+  if (this->used_heap_size() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(5, this->used_heap_size(), target);
+  }
+
+  // uint64 heap_size_limit = 6;
+  if (this->heap_size_limit() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(6, this->heap_size_limit(), target);
+  }
+
+  // uint64 malloced_memory = 7;
+  if (this->malloced_memory() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(7, this->malloced_memory(), target);
+  }
+
+  // uint64 external_memory = 8;
+  if (this->external_memory() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(8, this->external_memory(), target);
+  }
+
+  // uint64 peak_malloced_memory = 9;
+  if (this->peak_malloced_memory() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(9, this->peak_malloced_memory(), target);
+  }
+
+  // uint64 number_of_native_contexts = 10;
+  if (this->number_of_native_contexts() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(10, this->number_of_native_contexts(), target);
+  }
+
+  // uint64 number_of_detached_contexts = 11;
+  if (this->number_of_detached_contexts() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(11, this->number_of_detached_contexts(), target);
+  }
+
+  // int64 exec_duration = 12;
+  if (this->exec_duration() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(12, this->exec_duration(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1565,18 +1822,88 @@ size_t ExecStats::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string time = 1;
-  if (this->time().size() > 0) {
+  // uint64 total_heap_size = 1;
+  if (this->total_heap_size() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->time());
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->total_heap_size());
   }
 
-  // string mem = 2;
-  if (this->mem().size() > 0) {
+  // uint64 total_heap_size_executable = 2;
+  if (this->total_heap_size_executable() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->mem());
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->total_heap_size_executable());
+  }
+
+  // uint64 total_physical_size = 3;
+  if (this->total_physical_size() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->total_physical_size());
+  }
+
+  // uint64 total_available_size = 4;
+  if (this->total_available_size() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->total_available_size());
+  }
+
+  // uint64 used_heap_size = 5;
+  if (this->used_heap_size() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->used_heap_size());
+  }
+
+  // uint64 heap_size_limit = 6;
+  if (this->heap_size_limit() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->heap_size_limit());
+  }
+
+  // uint64 malloced_memory = 7;
+  if (this->malloced_memory() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->malloced_memory());
+  }
+
+  // uint64 external_memory = 8;
+  if (this->external_memory() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->external_memory());
+  }
+
+  // uint64 peak_malloced_memory = 9;
+  if (this->peak_malloced_memory() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->peak_malloced_memory());
+  }
+
+  // uint64 number_of_native_contexts = 10;
+  if (this->number_of_native_contexts() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->number_of_native_contexts());
+  }
+
+  // uint64 number_of_detached_contexts = 11;
+  if (this->number_of_detached_contexts() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->number_of_detached_contexts());
+  }
+
+  // int64 exec_duration = 12;
+  if (this->exec_duration() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->exec_duration());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1606,13 +1933,41 @@ void ExecStats::MergeFrom(const ExecStats& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.time().size() > 0) {
-
-    time_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.time_);
+  if (from.total_heap_size() != 0) {
+    set_total_heap_size(from.total_heap_size());
   }
-  if (from.mem().size() > 0) {
-
-    mem_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.mem_);
+  if (from.total_heap_size_executable() != 0) {
+    set_total_heap_size_executable(from.total_heap_size_executable());
+  }
+  if (from.total_physical_size() != 0) {
+    set_total_physical_size(from.total_physical_size());
+  }
+  if (from.total_available_size() != 0) {
+    set_total_available_size(from.total_available_size());
+  }
+  if (from.used_heap_size() != 0) {
+    set_used_heap_size(from.used_heap_size());
+  }
+  if (from.heap_size_limit() != 0) {
+    set_heap_size_limit(from.heap_size_limit());
+  }
+  if (from.malloced_memory() != 0) {
+    set_malloced_memory(from.malloced_memory());
+  }
+  if (from.external_memory() != 0) {
+    set_external_memory(from.external_memory());
+  }
+  if (from.peak_malloced_memory() != 0) {
+    set_peak_malloced_memory(from.peak_malloced_memory());
+  }
+  if (from.number_of_native_contexts() != 0) {
+    set_number_of_native_contexts(from.number_of_native_contexts());
+  }
+  if (from.number_of_detached_contexts() != 0) {
+    set_number_of_detached_contexts(from.number_of_detached_contexts());
+  }
+  if (from.exec_duration() != 0) {
+    set_exec_duration(from.exec_duration());
   }
 }
 
@@ -1641,10 +1996,18 @@ void ExecStats::Swap(ExecStats* other) {
 void ExecStats::InternalSwap(ExecStats* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  time_.Swap(&other->time_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  mem_.Swap(&other->mem_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
+  swap(total_heap_size_, other->total_heap_size_);
+  swap(total_heap_size_executable_, other->total_heap_size_executable_);
+  swap(total_physical_size_, other->total_physical_size_);
+  swap(total_available_size_, other->total_available_size_);
+  swap(used_heap_size_, other->used_heap_size_);
+  swap(heap_size_limit_, other->heap_size_limit_);
+  swap(malloced_memory_, other->malloced_memory_);
+  swap(external_memory_, other->external_memory_);
+  swap(peak_malloced_memory_, other->peak_malloced_memory_);
+  swap(number_of_native_contexts_, other->number_of_native_contexts_);
+  swap(number_of_detached_contexts_, other->number_of_detached_contexts_);
+  swap(exec_duration_, other->exec_duration_);
 }
 
 ::google::protobuf::Metadata ExecStats::GetMetadata() const {
@@ -2112,18 +2475,17 @@ const char* ExecResponse::_InternalParse(const char* begin, const char* end, voi
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // string result = 1;
+      // bytes result = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.handler.ExecResponse.result");
         object = msg->mutable_result();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          parser_till_end = ::google::protobuf::internal::GreedyStringParser;
           goto string_till_end;
         }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
         ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
         ptr += size;
         break;
@@ -2204,15 +2566,11 @@ bool ExecResponse::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // string result = 1;
+      // bytes result = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_result()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->result().data(), static_cast<int>(this->result().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.handler.ExecResponse.result"));
         } else {
           goto handle_unusual;
         }
@@ -2279,13 +2637,9 @@ void ExecResponse::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string result = 1;
+  // bytes result = 1;
   if (this->result().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->result().data(), static_cast<int>(this->result().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.handler.ExecResponse.result");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
       1, this->result(), output);
   }
 
@@ -2323,14 +2677,10 @@ void ExecResponse::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string result = 1;
+  // bytes result = 1;
   if (this->result().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->result().data(), static_cast<int>(this->result().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.handler.ExecResponse.result");
     target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
         1, this->result(), target);
   }
 
@@ -2388,10 +2738,10 @@ size_t ExecResponse::ByteSizeLong() const {
     }
   }
 
-  // string result = 1;
+  // bytes result = 1;
   if (this->result().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->result());
   }
 
