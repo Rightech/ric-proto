@@ -114,8 +114,6 @@ message LogsResponse {
 
 message InfoResponse {
   repeated Pod pods = 1;
-  string runtime = 2;
-  string deps = 3;
 }
 
 message Pod {
