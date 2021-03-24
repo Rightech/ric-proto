@@ -576,8 +576,6 @@ const ::google::protobuf::uint32 TableStruct_ric_2daction_2fricaction_2eproto::o
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::action::InfoResponse, pods_),
-  PROTOBUF_FIELD_OFFSET(::ric::action::InfoResponse, runtime_),
-  PROTOBUF_FIELD_OFFSET(::ric::action::InfoResponse, deps_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::action::Pod, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -648,13 +646,13 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 101, -1, sizeof(::ric::action::EmptyResponse)},
   { 106, -1, sizeof(::ric::action::LogsResponse)},
   { 112, -1, sizeof(::ric::action::InfoResponse)},
-  { 120, -1, sizeof(::ric::action::Pod)},
-  { 130, -1, sizeof(::ric::action::ContainerStatus)},
-  { 139, -1, sizeof(::ric::action::HistoryRequest)},
-  { 147, -1, sizeof(::ric::action::HistoryResponse)},
-  { 153, -1, sizeof(::ric::action::EventRequest)},
-  { 161, -1, sizeof(::ric::action::LastStateRequest)},
-  { 167, -1, sizeof(::ric::action::LastStateResponse)},
+  { 118, -1, sizeof(::ric::action::Pod)},
+  { 128, -1, sizeof(::ric::action::ContainerStatus)},
+  { 137, -1, sizeof(::ric::action::HistoryRequest)},
+  { 145, -1, sizeof(::ric::action::HistoryResponse)},
+  { 151, -1, sizeof(::ric::action::EventRequest)},
+  { 159, -1, sizeof(::ric::action::LastStateRequest)},
+  { 165, -1, sizeof(::ric::action::LastStateResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -715,42 +713,41 @@ const char descriptor_table_protodef_ric_2daction_2fricaction_2eproto[] =
   "\004 \001(\003\022\021\n\tfilter_by\030\005 \001(\t\"\033\n\013InfoRequest\022"
   "\014\n\004name\030\001 \001(\t\"\034\n\014CallResponse\022\014\n\004data\030\001 "
   "\001(\014\"\017\n\rEmptyResponse\"\034\n\014LogsResponse\022\014\n\004"
-  "line\030\001 \001(\t\"L\n\014InfoResponse\022\035\n\004pods\030\001 \003(\013"
-  "2\017.ric.action.Pod\022\017\n\007runtime\030\002 \001(\t\022\014\n\004de"
-  "ps\030\003 \001(\t\"\213\001\n\003Pod\022\014\n\004name\030\001 \001(\t\022\032\n\022creati"
-  "on_timestamp\030\002 \001(\t\022\r\n\005phase\030\003 \001(\t\022\022\n\nsta"
-  "rt_time\030\004 \001(\t\0227\n\022container_statuses\030\005 \003("
-  "\0132\033.ric.action.ContainerStatus\"Z\n\017Contai"
-  "nerStatus\022\r\n\005ready\030\001 \001(\010\022\025\n\rrestart_coun"
-  "t\030\002 \001(\005\022\r\n\005state\030\003 \001(\t\022\022\n\nlast_state\030\004 \001"
-  "(\t\"7\n\016HistoryRequest\022\013\n\003oid\030\001 \001(\t\022\n\n\002db\030"
-  "\002 \001(\t\022\014\n\004size\030\003 \001(\003\"\037\n\017HistoryResponse\022\014"
-  "\n\004data\030\001 \001(\014\"7\n\014EventRequest\022\013\n\003oid\030\001 \001("
-  "\t\022\014\n\004name\030\002 \001(\t\022\014\n\004data\030\003 \001(\014\"\037\n\020LastSta"
-  "teRequest\022\013\n\003oid\030\001 \001(\t\"!\n\021LastStateRespo"
-  "nse\022\014\n\004data\030\001 \001(\0142\233\003\n\017FunctionControl\0229\n"
-  "\004Call\022\027.ric.action.CallRequest\032\030.ric.act"
-  "ion.CallResponse\022<\n\005Scale\022\030.ric.action.S"
-  "caleRequest\032\031.ric.action.EmptyResponse\022>"
-  "\n\006Delete\022\031.ric.action.DeleteRequest\032\031.ri"
-  "c.action.EmptyResponse\022W\n\016UpdateOrDeploy"
-  "\022!.ric.action.UpdateOrDeployRequest\032\".ri"
-  "c.action.UpdateOrDeployResponse\022;\n\004Logs\022"
-  "\027.ric.action.LogsRequest\032\030.ric.action.Lo"
-  "gsResponse0\001\0229\n\004Info\022\027.ric.action.InfoRe"
-  "quest\032\030.ric.action.InfoResponse2\335\001\n\tPubl"
-  "icAPI\022D\n\007History\022\032.ric.action.HistoryReq"
-  "uest\032\033.ric.action.HistoryResponse0\001\022H\n\tL"
-  "astState\022\034.ric.action.LastStateRequest\032\035"
-  ".ric.action.LastStateResponse\022@\n\tSendEve"
-  "nt\022\030.ric.action.EventRequest\032\031.ric.actio"
-  "n.EmptyResponseB\030Z\026./ric-action;ricactio"
-  "nb\006proto3"
+  "line\030\001 \001(\t\"-\n\014InfoResponse\022\035\n\004pods\030\001 \003(\013"
+  "2\017.ric.action.Pod\"\213\001\n\003Pod\022\014\n\004name\030\001 \001(\t\022"
+  "\032\n\022creation_timestamp\030\002 \001(\t\022\r\n\005phase\030\003 \001"
+  "(\t\022\022\n\nstart_time\030\004 \001(\t\0227\n\022container_stat"
+  "uses\030\005 \003(\0132\033.ric.action.ContainerStatus\""
+  "Z\n\017ContainerStatus\022\r\n\005ready\030\001 \001(\010\022\025\n\rres"
+  "tart_count\030\002 \001(\005\022\r\n\005state\030\003 \001(\t\022\022\n\nlast_"
+  "state\030\004 \001(\t\"7\n\016HistoryRequest\022\013\n\003oid\030\001 \001"
+  "(\t\022\n\n\002db\030\002 \001(\t\022\014\n\004size\030\003 \001(\003\"\037\n\017HistoryR"
+  "esponse\022\014\n\004data\030\001 \001(\014\"7\n\014EventRequest\022\013\n"
+  "\003oid\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\014\n\004data\030\003 \001(\014\"\037"
+  "\n\020LastStateRequest\022\013\n\003oid\030\001 \001(\t\"!\n\021LastS"
+  "tateResponse\022\014\n\004data\030\001 \001(\0142\233\003\n\017FunctionC"
+  "ontrol\0229\n\004Call\022\027.ric.action.CallRequest\032"
+  "\030.ric.action.CallResponse\022<\n\005Scale\022\030.ric"
+  ".action.ScaleRequest\032\031.ric.action.EmptyR"
+  "esponse\022>\n\006Delete\022\031.ric.action.DeleteReq"
+  "uest\032\031.ric.action.EmptyResponse\022W\n\016Updat"
+  "eOrDeploy\022!.ric.action.UpdateOrDeployReq"
+  "uest\032\".ric.action.UpdateOrDeployResponse"
+  "\022;\n\004Logs\022\027.ric.action.LogsRequest\032\030.ric."
+  "action.LogsResponse0\001\0229\n\004Info\022\027.ric.acti"
+  "on.InfoRequest\032\030.ric.action.InfoResponse"
+  "2\335\001\n\tPublicAPI\022D\n\007History\022\032.ric.action.H"
+  "istoryRequest\032\033.ric.action.HistoryRespon"
+  "se0\001\022H\n\tLastState\022\034.ric.action.LastState"
+  "Request\032\035.ric.action.LastStateResponse\022@"
+  "\n\tSendEvent\022\030.ric.action.EventRequest\032\031."
+  "ric.action.EmptyResponseB\030Z\026./ric-action"
+  ";ricactionb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2daction_2fricaction_2eproto = {
   false, InitDefaults_ric_2daction_2fricaction_2eproto, 
   descriptor_table_protodef_ric_2daction_2fricaction_2eproto,
-  "ric-action/ricaction.proto", &assign_descriptors_table_ric_2daction_2fricaction_2eproto, 2249,
+  "ric-action/ricaction.proto", &assign_descriptors_table_ric_2daction_2fricaction_2eproto, 2218,
 };
 
 void AddDescriptors_ric_2daction_2fricaction_2eproto() {
@@ -6687,8 +6684,6 @@ class InfoResponse::HasBitSetters {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int InfoResponse::kPodsFieldNumber;
-const int InfoResponse::kRuntimeFieldNumber;
-const int InfoResponse::kDepsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 InfoResponse::InfoResponse()
@@ -6701,22 +6696,12 @@ InfoResponse::InfoResponse(const InfoResponse& from)
       _internal_metadata_(nullptr),
       pods_(from.pods_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  runtime_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.runtime().size() > 0) {
-    runtime_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.runtime_);
-  }
-  deps_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.deps().size() > 0) {
-    deps_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.deps_);
-  }
   // @@protoc_insertion_point(copy_constructor:ric.action.InfoResponse)
 }
 
 void InfoResponse::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_InfoResponse_ric_2daction_2fricaction_2eproto.base);
-  runtime_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  deps_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 InfoResponse::~InfoResponse() {
@@ -6725,8 +6710,6 @@ InfoResponse::~InfoResponse() {
 }
 
 void InfoResponse::SharedDtor() {
-  runtime_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  deps_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void InfoResponse::SetCachedSize(int size) const {
@@ -6745,8 +6728,6 @@ void InfoResponse::Clear() {
   (void) cached_has_bits;
 
   pods_.Clear();
-  runtime_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  deps_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
@@ -6779,38 +6760,6 @@ const char* InfoResponse::_InternalParse(const char* begin, const char* end, voi
         } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 10 && (ptr += 1));
         break;
       }
-      // string runtime = 2;
-      case 2: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.action.InfoResponse.runtime");
-        object = msg->mutable_runtime();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // string deps = 3;
-      case 3: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.action.InfoResponse.deps");
-        object = msg->mutable_deps();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -6826,10 +6775,6 @@ const char* InfoResponse::_InternalParse(const char* begin, const char* end, voi
     }  // switch
   }  // while
   return ptr;
-string_till_end:
-  static_cast<::std::string*>(object)->clear();
-  static_cast<::std::string*>(object)->reserve(size);
-  goto len_delim_till_end;
 len_delim_till_end:
   return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
                                {parser_till_end, object}, size);
@@ -6850,36 +6795,6 @@ bool InfoResponse::MergePartialFromCodedStream(
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                 input, add_pods()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string runtime = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_runtime()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->runtime().data(), static_cast<int>(this->runtime().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.action.InfoResponse.runtime"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string deps = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_deps()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->deps().data(), static_cast<int>(this->deps().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.action.InfoResponse.deps"));
         } else {
           goto handle_unusual;
         }
@@ -6922,26 +6837,6 @@ void InfoResponse::SerializeWithCachedSizes(
       output);
   }
 
-  // string runtime = 2;
-  if (this->runtime().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->runtime().data(), static_cast<int>(this->runtime().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.action.InfoResponse.runtime");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->runtime(), output);
-  }
-
-  // string deps = 3;
-  if (this->deps().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->deps().data(), static_cast<int>(this->deps().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.action.InfoResponse.deps");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->deps(), output);
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -6961,28 +6856,6 @@ void InfoResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
         1, this->pods(static_cast<int>(i)), target);
-  }
-
-  // string runtime = 2;
-  if (this->runtime().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->runtime().data(), static_cast<int>(this->runtime().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.action.InfoResponse.runtime");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->runtime(), target);
-  }
-
-  // string deps = 3;
-  if (this->deps().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->deps().data(), static_cast<int>(this->deps().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.action.InfoResponse.deps");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->deps(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -7017,20 +6890,6 @@ size_t InfoResponse::ByteSizeLong() const {
     }
   }
 
-  // string runtime = 2;
-  if (this->runtime().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->runtime());
-  }
-
-  // string deps = 3;
-  if (this->deps().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->deps());
-  }
-
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -7059,14 +6918,6 @@ void InfoResponse::MergeFrom(const InfoResponse& from) {
   (void) cached_has_bits;
 
   pods_.MergeFrom(from.pods_);
-  if (from.runtime().size() > 0) {
-
-    runtime_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.runtime_);
-  }
-  if (from.deps().size() > 0) {
-
-    deps_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.deps_);
-  }
 }
 
 void InfoResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -7095,10 +6946,6 @@ void InfoResponse::InternalSwap(InfoResponse* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   CastToBase(&pods_)->InternalSwap(CastToBase(&other->pods_));
-  runtime_.Swap(&other->runtime_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  deps_.Swap(&other->deps_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
 }
 
 ::google::protobuf::Metadata InfoResponse::GetMetadata() const {

@@ -106,8 +106,6 @@ export interface LogsResponse {
 
 export interface InfoResponse {
   pods?: Pod[];
-  runtime?: string;
-  deps?: string;
 }
 
 export interface Pod {

@@ -2312,42 +2312,12 @@ class InfoResponse final :
   const ::google::protobuf::RepeatedPtrField< ::ric::action::Pod >&
       pods() const;
 
-  // string runtime = 2;
-  void clear_runtime();
-  static const int kRuntimeFieldNumber = 2;
-  const ::std::string& runtime() const;
-  void set_runtime(const ::std::string& value);
-  #if LANG_CXX11
-  void set_runtime(::std::string&& value);
-  #endif
-  void set_runtime(const char* value);
-  void set_runtime(const char* value, size_t size);
-  ::std::string* mutable_runtime();
-  ::std::string* release_runtime();
-  void set_allocated_runtime(::std::string* runtime);
-
-  // string deps = 3;
-  void clear_deps();
-  static const int kDepsFieldNumber = 3;
-  const ::std::string& deps() const;
-  void set_deps(const ::std::string& value);
-  #if LANG_CXX11
-  void set_deps(::std::string&& value);
-  #endif
-  void set_deps(const char* value);
-  void set_deps(const char* value, size_t size);
-  ::std::string* mutable_deps();
-  ::std::string* release_deps();
-  void set_allocated_deps(::std::string* deps);
-
   // @@protoc_insertion_point(class_scope:ric.action.InfoResponse)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::ric::action::Pod > pods_;
-  ::google::protobuf::internal::ArenaStringPtr runtime_;
-  ::google::protobuf::internal::ArenaStringPtr deps_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2daction_2fricaction_2eproto;
 };
@@ -5434,112 +5404,6 @@ inline const ::google::protobuf::RepeatedPtrField< ::ric::action::Pod >&
 InfoResponse::pods() const {
   // @@protoc_insertion_point(field_list:ric.action.InfoResponse.pods)
   return pods_;
-}
-
-// string runtime = 2;
-inline void InfoResponse::clear_runtime() {
-  runtime_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& InfoResponse::runtime() const {
-  // @@protoc_insertion_point(field_get:ric.action.InfoResponse.runtime)
-  return runtime_.GetNoArena();
-}
-inline void InfoResponse::set_runtime(const ::std::string& value) {
-  
-  runtime_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.action.InfoResponse.runtime)
-}
-#if LANG_CXX11
-inline void InfoResponse::set_runtime(::std::string&& value) {
-  
-  runtime_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.action.InfoResponse.runtime)
-}
-#endif
-inline void InfoResponse::set_runtime(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  runtime_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.action.InfoResponse.runtime)
-}
-inline void InfoResponse::set_runtime(const char* value, size_t size) {
-  
-  runtime_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.action.InfoResponse.runtime)
-}
-inline ::std::string* InfoResponse::mutable_runtime() {
-  
-  // @@protoc_insertion_point(field_mutable:ric.action.InfoResponse.runtime)
-  return runtime_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* InfoResponse::release_runtime() {
-  // @@protoc_insertion_point(field_release:ric.action.InfoResponse.runtime)
-  
-  return runtime_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void InfoResponse::set_allocated_runtime(::std::string* runtime) {
-  if (runtime != nullptr) {
-    
-  } else {
-    
-  }
-  runtime_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), runtime);
-  // @@protoc_insertion_point(field_set_allocated:ric.action.InfoResponse.runtime)
-}
-
-// string deps = 3;
-inline void InfoResponse::clear_deps() {
-  deps_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& InfoResponse::deps() const {
-  // @@protoc_insertion_point(field_get:ric.action.InfoResponse.deps)
-  return deps_.GetNoArena();
-}
-inline void InfoResponse::set_deps(const ::std::string& value) {
-  
-  deps_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.action.InfoResponse.deps)
-}
-#if LANG_CXX11
-inline void InfoResponse::set_deps(::std::string&& value) {
-  
-  deps_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.action.InfoResponse.deps)
-}
-#endif
-inline void InfoResponse::set_deps(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  deps_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.action.InfoResponse.deps)
-}
-inline void InfoResponse::set_deps(const char* value, size_t size) {
-  
-  deps_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.action.InfoResponse.deps)
-}
-inline ::std::string* InfoResponse::mutable_deps() {
-  
-  // @@protoc_insertion_point(field_mutable:ric.action.InfoResponse.deps)
-  return deps_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* InfoResponse::release_deps() {
-  // @@protoc_insertion_point(field_release:ric.action.InfoResponse.deps)
-  
-  return deps_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void InfoResponse::set_allocated_deps(::std::string* deps) {
-  if (deps != nullptr) {
-    
-  } else {
-    
-  }
-  deps_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), deps);
-  // @@protoc_insertion_point(field_set_allocated:ric.action.InfoResponse.deps)
 }
 
 // -------------------------------------------------------------------
