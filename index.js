@@ -8,7 +8,8 @@ const { callbackify } = require('util');
 const { log } = require('@rightech/utils');
 
 const PROTO_DIR = path.join(__dirname, '.');
-const HOST_RESOLVE = !!process.env.RIC_GRPC_RESOLVE_HOST && process.env.RIC_GRPC_RESOLVE_HOST !== 'false';
+const HOST_RESOLVE =
+  !!process.env.RIC_GRPC_RESOLVE_HOST && process.env.RIC_GRPC_RESOLVE_HOST !== 'false';
 const IN_KUBE = !!process.env.KUBERNETES_PORT;
 const IS_DEV = process.env.NODE_ENV === 'development';
 
@@ -38,7 +39,7 @@ class ServiceName {
     this.service = service;
     this.namespace = namespace || '';
     this.fileName = `${service.replace(/-/gi, '')}.proto`;
-    
+
     const parts = service.split('-');
     const [, subpackage] = parts;
     this.subpackage = subpackage;
@@ -97,6 +98,9 @@ class GrpcServer {
 
         const callbackWithLogs = (err, res) => {
           if (err) {
+            if (err.trySetMetadata) {
+              err.trySetMetadata(call[CALL_DEBUG] || {});
+            }
             this.logStep('err', call, err);
           } else {
             this.logStep('res', call, res);
@@ -142,12 +146,21 @@ class GrpcServer {
       return;
     }
     const info = call[CALL_DEBUG];
-    let json = JSON.stringify(res || call.request);
+    let json = JSON.stringify(res || call.request, (k, v) => {
+      if (k === 'password') {
+        return '[redacted]';
+      }
+      return v;
+    });
+
     if (json.length > 130) {
       json = `${json.substring(0, 130)} ...`;
     }
     if (step === 'err') {
       json = `${res.name}: ${res.message}`;
+      if (res.tags && res.tags.length) {
+        json += ` with tags [${res.tags.join(', ')}]`;
+      }
     }
     let stepSymbol = '?';
     if (step === 'req') stepSymbol = '>';
@@ -184,7 +197,7 @@ class GrpcClient {
   createRef() {
     this.ref = new this.serviceCtor(this.getAddr(), this.getCredentials());
 
-    log.info(`${this.name.full} connect to ${this.getAddr()}`);
+    log.info(`${this.name.full} will connect to ${this.getAddr()}`);
     this._export();
   }
 
@@ -201,6 +214,9 @@ class GrpcClient {
     const isLocal = (process.env.RIC_GRPC_LOCAL_SVCS || '').includes(this.name.service);
     if (IN_KUBE || HOST_RESOLVE) {
       let hostname = this.name.service;
+      if (this.meta.v) {
+        hostname = `${hostname}-v${this.meta.v}`;
+      }
       if (this.meta.stateful) {
         //const instanceName = this.instanceName || '0';
         //const hostname = `${this.name.full}-${instanceName}`;

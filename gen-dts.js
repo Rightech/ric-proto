@@ -1,9 +1,20 @@
 const fs = require('fs');
 const { registry } = require('./index');
 
-function fieldTyping(def) {
+function fieldTyping(def, parent) {
   let type = 'any';
   let name = def.name;
+  let isMap = false;
+
+  if (parent && parent.nestedType) {
+    let maybeMapType = parent.nestedType.find((x) => x.name === def.typeName);
+
+    if (maybeMapType && maybeMapType.options && maybeMapType.options.mapEntry) {
+      const [, keyType] = maybeMapType.field;
+      def = keyType;
+      isMap = true;
+    }
+  }
 
   if (def.type === 'TYPE_STRING') {
     type = 'string';
@@ -22,8 +33,20 @@ function fieldTyping(def) {
   if (def.type === 'TYPE_MESSAGE') {
     type = def.typeName;
 
+    if (type === 'google.protobuf.Any') {
+      type = 'any';
+    }
+    if (type === 'google.protobuf.BytesValue') {
+      type = 'string';
+    }
     if (type === 'google.protobuf.BoolValue') {
       type = 'boolean';
+    }
+    if (type === 'google.protobuf.StringValue') {
+      type = 'string';
+    }
+    if (type === 'google.protobuf.Int32Value') {
+      type = 'number';
     }
     if (type === 'google.protobuf.Int64Value') {
       type = 'number';
@@ -34,13 +57,17 @@ function fieldTyping(def) {
     type = last;
   }
 
-  if (def.label === 'LABEL_REPEATED') {
+  if (def.label === 'LABEL_REPEATED' && !isMap) {
     type += '[]';
     name += '?';
   }
 
-  if (def.label === 'LABEL_OPTIONAL') {
+  if (def.label === 'LABEL_OPTIONAL' || isMap) {
     name += '?';
+  }
+
+  if (isMap) {
+    type = `{ [key: string]: ${type} }`;
   }
 
   return `${name}: ${type}`;
@@ -51,23 +78,31 @@ function messageTyping(name, def) {
     console.log(def.type);
     return '';
   }
-  const fields = def.type.field.map((def) => `  ${fieldTyping(def)};`);
+
+  if (def.type && def.type.options && def.type.options.mapEntry) {
+    return '';
+  }
+
+  const parent = def.type;
+  const fields = parent.field.map((def) => `  ${fieldTyping(def, parent)};`);
   return `export interface ${name} {\n${fields.join('\n')}\n}`;
 }
 
 function serviceTyping(name, def) {
   let streamed = [];
-  const requests = Object.keys(def.service).map((name) => {
-    const call = def.service[name];
-    const req = call.requestType.type.name;
-    const res = call.responseType.type.name;
+  const requests = Object.keys(def.service)
+    .map((name) => {
+      const call = def.service[name];
+      const req = call.requestType.type.name;
+      const res = call.responseType.type.name;
 
-    if (call.responseStream) {
-      streamed.push(`    ${name}(request: ${req}): GrpcStream<${res}>;`);
-      return `  ${name}(request: ${req}, clientCall?: GrpcStream<${res}>): any;`;
-    }
-    return `  ${name}(request: ${req}): Promise<${res}>;`;
-  }).filter(x=> !!x);
+      if (call.responseStream) {
+        streamed.push(`    ${name}(request: ${req}): GrpcStream<${res}>;`);
+        return `  ${name}(request: ${req}, clientCall?: GrpcStream<${res}>): any;`;
+      }
+      return `  ${name}(request: ${req}): Promise<${res}>;`;
+    })
+    .filter((x) => !!x);
 
   if (streamed.length) {
     streamed = `\n\n  streamed?(): {\n${streamed.join('\n')}\n  };`;
@@ -116,7 +151,7 @@ for (const service of [...new Set(services)]) {
     }
   }
 
-  let content = typings.join('\n\n');
+  let content = typings.filter((x) => !!x).join('\n\n');
   if (content.includes('streamed?(): {')) {
     content = `${streamImport}\n\n${content}`;
   }
@@ -127,7 +162,6 @@ for (const service of [...new Set(services)]) {
 let imports = [];
 let clients = [];
 let servers = [];
-
 
 for (const { service, services } of index) {
   let importsCode = `import { ${services
@@ -143,7 +177,9 @@ for (const { service, services } of index) {
       serversCode.push(`  addServer(service: '${svc.service}', impl: ${svc.name});`);
     }
     clientsCode.push(`  getClient(service: '${svc.service}/${svc.name}'): ${svc.name};`);
-    serversCode.push(`  addServer(service: '${svc.service}/${svc.name}', impl: ${svc.name});`);
+    serversCode.push(
+      `  addServer(service: '${svc.service}/${svc.name}', impl: ${svc.name});`
+    );
   }
 
   imports.push(importsCode);

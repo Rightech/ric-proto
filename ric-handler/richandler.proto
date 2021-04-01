@@ -7,12 +7,13 @@ option go_package = "./ric-handler;richandler";
 service Service {
   rpc Exec(ExecRequest) returns (ExecResponse);
   rpc GetObjectInfo(GetObjectInfoRequest) returns (GetObjectInfoResponse);
+  rpc GetHandlerStore(GetHandlerStoreRequest) returns (GetHandlerStoreResponse);
   rpc ForceLinksUpdate(ForceLinksUpdateRequest) returns (EmptyResponse);
 }
 
 message ExecRequest {
   string handler_id = 1;
-  string packet = 2;
+  bytes packet = 2;
 }
 
 message JsError {
@@ -22,8 +23,18 @@ message JsError {
 }
 
 message ExecStats {
-  string time = 1;
-  string mem = 2;
+  uint64 total_heap_size = 1;
+  uint64 total_heap_size_executable = 2;
+  uint64 total_physical_size = 3;
+  uint64 total_available_size = 4;
+  uint64 used_heap_size = 5;
+  uint64 heap_size_limit = 6;
+  uint64 malloced_memory = 7;
+  uint64 external_memory = 8;
+  uint64 peak_malloced_memory = 9;
+  uint64 number_of_native_contexts = 10;
+  uint64 number_of_detached_contexts = 11;
+  string exec_duration = 12;
 }
 
 message LogRecord {
@@ -32,7 +43,7 @@ message LogRecord {
 }
 
 message ExecResponse {
-  string result = 1;
+  bytes result = 1;
   JsError error = 2;
   ExecStats stats = 3;
   repeated LogRecord logs = 4;
@@ -57,8 +68,18 @@ message Handler {
 message GetObjectInfoResponse {
   string id = 1;
   bytes config = 2;
-  repeated Action actions = 3;
-  repeated Handler handlers = 4;
+  bytes store = 3;
+  int64 last_packet_time = 4;
+  repeated Action actions = 5;
+  repeated Handler handlers = 6;
+}
+
+message GetHandlerStoreRequest {
+  string handler_id = 1;
+}
+
+message GetHandlerStoreResponse {
+  bytes store = 1;
 }
 
 message ForceLinksUpdateRequest {
