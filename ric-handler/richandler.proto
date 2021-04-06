@@ -93,5 +93,4 @@ message ForceLinksUpdateRequest {
   string object_id = 1;
 }
 
-message EmptyResponse {
-}
+message EmptyResponse {}

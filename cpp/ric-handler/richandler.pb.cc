@@ -19,14 +19,19 @@
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dhandler_2frichandler_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Action_ric_2dhandler_2frichandler_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dhandler_2frichandler_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_ExecStats_ric_2dhandler_2frichandler_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dhandler_2frichandler_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Handler_ric_2dhandler_2frichandler_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ric_2dhandler_2frichandler_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_JsError_ric_2dhandler_2frichandler_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dhandler_2frichandler_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_JsStackFrame_ric_2dhandler_2frichandler_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dhandler_2frichandler_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_LogRecord_ric_2dhandler_2frichandler_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dhandler_2frichandler_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_JsError_ric_2dhandler_2frichandler_2eproto;
 namespace ric {
 namespace handler {
 class ExecRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<ExecRequest> _instance;
 } _ExecRequest_default_instance_;
+class JsStackFrameDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<JsStackFrame> _instance;
+} _JsStackFrame_default_instance_;
 class JsErrorDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<JsError> _instance;
@@ -91,6 +96,20 @@ static void InitDefaultsExecRequest_ric_2dhandler_2frichandler_2eproto() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_ExecRequest_ric_2dhandler_2frichandler_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsExecRequest_ric_2dhandler_2frichandler_2eproto}, {}};
 
+static void InitDefaultsJsStackFrame_ric_2dhandler_2frichandler_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::handler::_JsStackFrame_default_instance_;
+    new (ptr) ::ric::handler::JsStackFrame();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::handler::JsStackFrame::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_JsStackFrame_ric_2dhandler_2frichandler_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsJsStackFrame_ric_2dhandler_2frichandler_2eproto}, {}};
+
 static void InitDefaultsJsError_ric_2dhandler_2frichandler_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -102,8 +121,9 @@ static void InitDefaultsJsError_ric_2dhandler_2frichandler_2eproto() {
   ::ric::handler::JsError::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_JsError_ric_2dhandler_2frichandler_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsJsError_ric_2dhandler_2frichandler_2eproto}, {}};
+::google::protobuf::internal::SCCInfo<1> scc_info_JsError_ric_2dhandler_2frichandler_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsJsError_ric_2dhandler_2frichandler_2eproto}, {
+      &scc_info_JsStackFrame_ric_2dhandler_2frichandler_2eproto.base,}};
 
 static void InitDefaultsExecStats_ric_2dhandler_2frichandler_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -266,6 +286,7 @@ static void InitDefaultsEmptyResponse_ric_2dhandler_2frichandler_2eproto() {
 
 void InitDefaults_ric_2dhandler_2frichandler_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_ExecRequest_ric_2dhandler_2frichandler_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_JsStackFrame_ric_2dhandler_2frichandler_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_JsError_ric_2dhandler_2frichandler_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ExecStats_ric_2dhandler_2frichandler_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_LogRecord_ric_2dhandler_2frichandler_2eproto.base);
@@ -280,7 +301,7 @@ void InitDefaults_ric_2dhandler_2frichandler_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_EmptyResponse_ric_2dhandler_2frichandler_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dhandler_2frichandler_2eproto[13];
+::google::protobuf::Metadata file_level_metadata_ric_2dhandler_2frichandler_2eproto[14];
 constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_ric_2dhandler_2frichandler_2eproto = nullptr;
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dhandler_2frichandler_2eproto = nullptr;
 
@@ -293,13 +314,22 @@ const ::google::protobuf::uint32 TableStruct_ric_2dhandler_2frichandler_2eproto:
   PROTOBUF_FIELD_OFFSET(::ric::handler::ExecRequest, handler_id_),
   PROTOBUF_FIELD_OFFSET(::ric::handler::ExecRequest, packet_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::handler::JsStackFrame, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::handler::JsStackFrame, function_name_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::JsStackFrame, line_number_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::JsStackFrame, column_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::handler::JsError, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::handler::JsError, message_),
-  PROTOBUF_FIELD_OFFSET(::ric::handler::JsError, location_),
-  PROTOBUF_FIELD_OFFSET(::ric::handler::JsError, stack_trace_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::JsError, line_number_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::JsError, column_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::JsError, stack_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::handler::ExecStats, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -392,22 +422,24 @@ const ::google::protobuf::uint32 TableStruct_ric_2dhandler_2frichandler_2eproto:
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ric::handler::ExecRequest)},
-  { 7, -1, sizeof(::ric::handler::JsError)},
-  { 15, -1, sizeof(::ric::handler::ExecStats)},
-  { 32, -1, sizeof(::ric::handler::LogRecord)},
-  { 39, -1, sizeof(::ric::handler::ExecResponse)},
-  { 48, -1, sizeof(::ric::handler::GetObjectInfoRequest)},
-  { 54, -1, sizeof(::ric::handler::Action)},
-  { 61, -1, sizeof(::ric::handler::Handler)},
-  { 70, -1, sizeof(::ric::handler::GetObjectInfoResponse)},
-  { 81, -1, sizeof(::ric::handler::GetHandlerStoreRequest)},
-  { 87, -1, sizeof(::ric::handler::GetHandlerStoreResponse)},
-  { 93, -1, sizeof(::ric::handler::ForceLinksUpdateRequest)},
-  { 99, -1, sizeof(::ric::handler::EmptyResponse)},
+  { 7, -1, sizeof(::ric::handler::JsStackFrame)},
+  { 15, -1, sizeof(::ric::handler::JsError)},
+  { 24, -1, sizeof(::ric::handler::ExecStats)},
+  { 41, -1, sizeof(::ric::handler::LogRecord)},
+  { 48, -1, sizeof(::ric::handler::ExecResponse)},
+  { 57, -1, sizeof(::ric::handler::GetObjectInfoRequest)},
+  { 63, -1, sizeof(::ric::handler::Action)},
+  { 70, -1, sizeof(::ric::handler::Handler)},
+  { 79, -1, sizeof(::ric::handler::GetObjectInfoResponse)},
+  { 90, -1, sizeof(::ric::handler::GetHandlerStoreRequest)},
+  { 96, -1, sizeof(::ric::handler::GetHandlerStoreResponse)},
+  { 102, -1, sizeof(::ric::handler::ForceLinksUpdateRequest)},
+  { 108, -1, sizeof(::ric::handler::EmptyResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::handler::_ExecRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::handler::_JsStackFrame_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::handler::_JsError_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::handler::_ExecStats_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::handler::_LogRecord_default_instance_),
@@ -425,55 +457,58 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dhandler_2frichandler_2eproto = {
   {}, AddDescriptors_ric_2dhandler_2frichandler_2eproto, "ric-handler/richandler.proto", schemas,
   file_default_instances, TableStruct_ric_2dhandler_2frichandler_2eproto::offsets,
-  file_level_metadata_ric_2dhandler_2frichandler_2eproto, 13, file_level_enum_descriptors_ric_2dhandler_2frichandler_2eproto, file_level_service_descriptors_ric_2dhandler_2frichandler_2eproto,
+  file_level_metadata_ric_2dhandler_2frichandler_2eproto, 14, file_level_enum_descriptors_ric_2dhandler_2frichandler_2eproto, file_level_service_descriptors_ric_2dhandler_2frichandler_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dhandler_2frichandler_2eproto[] =
   "\n\034ric-handler/richandler.proto\022\013ric.hand"
   "ler\"1\n\013ExecRequest\022\022\n\nhandler_id\030\001 \001(\t\022\016"
-  "\n\006packet\030\002 \001(\014\"A\n\007JsError\022\017\n\007message\030\001 \001"
-  "(\t\022\020\n\010location\030\002 \001(\t\022\023\n\013stack_trace\030\003 \001("
-  "\t\"\343\002\n\tExecStats\022\027\n\017total_heap_size\030\001 \001(\004"
-  "\022\"\n\032total_heap_size_executable\030\002 \001(\004\022\033\n\023"
-  "total_physical_size\030\003 \001(\004\022\034\n\024total_avail"
-  "able_size\030\004 \001(\004\022\026\n\016used_heap_size\030\005 \001(\004\022"
-  "\027\n\017heap_size_limit\030\006 \001(\004\022\027\n\017malloced_mem"
-  "ory\030\007 \001(\004\022\027\n\017external_memory\030\010 \001(\004\022\034\n\024pe"
-  "ak_malloced_memory\030\t \001(\004\022!\n\031number_of_na"
-  "tive_contexts\030\n \001(\004\022#\n\033number_of_detache"
-  "d_contexts\030\013 \001(\004\022\025\n\rexec_duration\030\014 \001(\t\""
-  ")\n\tLogRecord\022\014\n\004time\030\001 \001(\003\022\016\n\006record\030\002 \001"
-  "(\t\"\220\001\n\014ExecResponse\022\016\n\006result\030\001 \001(\014\022#\n\005e"
-  "rror\030\002 \001(\0132\024.ric.handler.JsError\022%\n\005stat"
-  "s\030\003 \001(\0132\026.ric.handler.ExecStats\022$\n\004logs\030"
-  "\004 \003(\0132\026.ric.handler.LogRecord\")\n\024GetObje"
-  "ctInfoRequest\022\021\n\tobject_id\030\001 \001(\t\"$\n\006Acti"
-  "on\022\n\n\002id\030\001 \001(\t\022\016\n\006params\030\002 \001(\014\"N\n\007Handle"
-  "r\022\n\n\002id\030\001 \001(\t\022\021\n\tuser_code\030\002 \001(\t\022\020\n\010bind"
-  "ings\030\003 \001(\014\022\022\n\nparameters\030\004 \001(\014\"\252\001\n\025GetOb"
-  "jectInfoResponse\022\n\n\002id\030\001 \001(\t\022\016\n\006config\030\002"
-  " \001(\014\022\r\n\005store\030\003 \001(\014\022\030\n\020last_packet_time\030"
-  "\004 \001(\003\022$\n\007actions\030\005 \003(\0132\023.ric.handler.Act"
-  "ion\022&\n\010handlers\030\006 \003(\0132\024.ric.handler.Hand"
-  "ler\",\n\026GetHandlerStoreRequest\022\022\n\nhandler"
-  "_id\030\001 \001(\t\"(\n\027GetHandlerStoreResponse\022\r\n\005"
-  "store\030\001 \001(\014\",\n\027ForceLinksUpdateRequest\022\021"
-  "\n\tobject_id\030\001 \001(\t\"\017\n\rEmptyResponse2\322\002\n\007S"
-  "ervice\022;\n\004Exec\022\030.ric.handler.ExecRequest"
-  "\032\031.ric.handler.ExecResponse\022V\n\rGetObject"
-  "Info\022!.ric.handler.GetObjectInfoRequest\032"
-  "\".ric.handler.GetObjectInfoResponse\022\\\n\017G"
-  "etHandlerStore\022#.ric.handler.GetHandlerS"
-  "toreRequest\032$.ric.handler.GetHandlerStor"
-  "eResponse\022T\n\020ForceLinksUpdate\022$.ric.hand"
-  "ler.ForceLinksUpdateRequest\032\032.ric.handle"
-  "r.EmptyResponseB\032Z\030./ric-handler;richand"
-  "lerb\006proto3"
+  "\n\006packet\030\002 \001(\014\"J\n\014JsStackFrame\022\025\n\rfuncti"
+  "on_name\030\001 \001(\t\022\023\n\013line_number\030\002 \001(\005\022\016\n\006co"
+  "lumn\030\003 \001(\005\"i\n\007JsError\022\017\n\007message\030\001 \001(\t\022\023"
+  "\n\013line_number\030\002 \001(\005\022\016\n\006column\030\003 \001(\005\022(\n\005s"
+  "tack\030\004 \003(\0132\031.ric.handler.JsStackFrame\"\343\002"
+  "\n\tExecStats\022\027\n\017total_heap_size\030\001 \001(\004\022\"\n\032"
+  "total_heap_size_executable\030\002 \001(\004\022\033\n\023tota"
+  "l_physical_size\030\003 \001(\004\022\034\n\024total_available"
+  "_size\030\004 \001(\004\022\026\n\016used_heap_size\030\005 \001(\004\022\027\n\017h"
+  "eap_size_limit\030\006 \001(\004\022\027\n\017malloced_memory\030"
+  "\007 \001(\004\022\027\n\017external_memory\030\010 \001(\004\022\034\n\024peak_m"
+  "alloced_memory\030\t \001(\004\022!\n\031number_of_native"
+  "_contexts\030\n \001(\004\022#\n\033number_of_detached_co"
+  "ntexts\030\013 \001(\004\022\025\n\rexec_duration\030\014 \001(\t\")\n\tL"
+  "ogRecord\022\014\n\004time\030\001 \001(\003\022\016\n\006record\030\002 \001(\t\"\220"
+  "\001\n\014ExecResponse\022\016\n\006result\030\001 \001(\014\022#\n\005error"
+  "\030\002 \001(\0132\024.ric.handler.JsError\022%\n\005stats\030\003 "
+  "\001(\0132\026.ric.handler.ExecStats\022$\n\004logs\030\004 \003("
+  "\0132\026.ric.handler.LogRecord\")\n\024GetObjectIn"
+  "foRequest\022\021\n\tobject_id\030\001 \001(\t\"$\n\006Action\022\n"
+  "\n\002id\030\001 \001(\t\022\016\n\006params\030\002 \001(\014\"N\n\007Handler\022\n\n"
+  "\002id\030\001 \001(\t\022\021\n\tuser_code\030\002 \001(\t\022\020\n\010bindings"
+  "\030\003 \001(\014\022\022\n\nparameters\030\004 \001(\014\"\252\001\n\025GetObject"
+  "InfoResponse\022\n\n\002id\030\001 \001(\t\022\016\n\006config\030\002 \001(\014"
+  "\022\r\n\005store\030\003 \001(\014\022\030\n\020last_packet_time\030\004 \001("
+  "\003\022$\n\007actions\030\005 \003(\0132\023.ric.handler.Action\022"
+  "&\n\010handlers\030\006 \003(\0132\024.ric.handler.Handler\""
+  ",\n\026GetHandlerStoreRequest\022\022\n\nhandler_id\030"
+  "\001 \001(\t\"(\n\027GetHandlerStoreResponse\022\r\n\005stor"
+  "e\030\001 \001(\014\",\n\027ForceLinksUpdateRequest\022\021\n\tob"
+  "ject_id\030\001 \001(\t\"\017\n\rEmptyResponse2\322\002\n\007Servi"
+  "ce\022;\n\004Exec\022\030.ric.handler.ExecRequest\032\031.r"
+  "ic.handler.ExecResponse\022V\n\rGetObjectInfo"
+  "\022!.ric.handler.GetObjectInfoRequest\032\".ri"
+  "c.handler.GetObjectInfoResponse\022\\\n\017GetHa"
+  "ndlerStore\022#.ric.handler.GetHandlerStore"
+  "Request\032$.ric.handler.GetHandlerStoreRes"
+  "ponse\022T\n\020ForceLinksUpdate\022$.ric.handler."
+  "ForceLinksUpdateRequest\032\032.ric.handler.Em"
+  "ptyResponseB\032Z\030./ric-handler;richandlerb"
+  "\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dhandler_2frichandler_2eproto = {
   false, InitDefaults_ric_2dhandler_2frichandler_2eproto, 
   descriptor_table_protodef_ric_2dhandler_2frichandler_2eproto,
-  "ric-handler/richandler.proto", &assign_descriptors_table_ric_2dhandler_2frichandler_2eproto, 1571,
+  "ric-handler/richandler.proto", &assign_descriptors_table_ric_2dhandler_2frichandler_2eproto, 1687,
 };
 
 void AddDescriptors_ric_2dhandler_2frichandler_2eproto() {
@@ -847,6 +882,396 @@ void ExecRequest::InternalSwap(ExecRequest* other) {
 
 // ===================================================================
 
+void JsStackFrame::InitAsDefaultInstance() {
+}
+class JsStackFrame::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int JsStackFrame::kFunctionNameFieldNumber;
+const int JsStackFrame::kLineNumberFieldNumber;
+const int JsStackFrame::kColumnFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+JsStackFrame::JsStackFrame()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.handler.JsStackFrame)
+}
+JsStackFrame::JsStackFrame(const JsStackFrame& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  function_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.function_name().size() > 0) {
+    function_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.function_name_);
+  }
+  ::memcpy(&line_number_, &from.line_number_,
+    static_cast<size_t>(reinterpret_cast<char*>(&column_) -
+    reinterpret_cast<char*>(&line_number_)) + sizeof(column_));
+  // @@protoc_insertion_point(copy_constructor:ric.handler.JsStackFrame)
+}
+
+void JsStackFrame::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_JsStackFrame_ric_2dhandler_2frichandler_2eproto.base);
+  function_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&line_number_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&column_) -
+      reinterpret_cast<char*>(&line_number_)) + sizeof(column_));
+}
+
+JsStackFrame::~JsStackFrame() {
+  // @@protoc_insertion_point(destructor:ric.handler.JsStackFrame)
+  SharedDtor();
+}
+
+void JsStackFrame::SharedDtor() {
+  function_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void JsStackFrame::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const JsStackFrame& JsStackFrame::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_JsStackFrame_ric_2dhandler_2frichandler_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void JsStackFrame::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.handler.JsStackFrame)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  function_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&line_number_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&column_) -
+      reinterpret_cast<char*>(&line_number_)) + sizeof(column_));
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* JsStackFrame::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<JsStackFrame*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // string function_name = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.handler.JsStackFrame.function_name");
+        object = msg->mutable_function_name();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // int32 line_number = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 16) goto handle_unusual;
+        msg->set_line_number(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // int32 column = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
+        msg->set_column(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool JsStackFrame::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.handler.JsStackFrame)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string function_name = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_function_name()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->function_name().data(), static_cast<int>(this->function_name().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.handler.JsStackFrame.function_name"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 line_number = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (16 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &line_number_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 column = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &column_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.handler.JsStackFrame)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.handler.JsStackFrame)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void JsStackFrame::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.handler.JsStackFrame)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string function_name = 1;
+  if (this->function_name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->function_name().data(), static_cast<int>(this->function_name().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.handler.JsStackFrame.function_name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->function_name(), output);
+  }
+
+  // int32 line_number = 2;
+  if (this->line_number() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->line_number(), output);
+  }
+
+  // int32 column = 3;
+  if (this->column() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->column(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.handler.JsStackFrame)
+}
+
+::google::protobuf::uint8* JsStackFrame::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.handler.JsStackFrame)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string function_name = 1;
+  if (this->function_name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->function_name().data(), static_cast<int>(this->function_name().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.handler.JsStackFrame.function_name");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->function_name(), target);
+  }
+
+  // int32 line_number = 2;
+  if (this->line_number() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->line_number(), target);
+  }
+
+  // int32 column = 3;
+  if (this->column() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->column(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.handler.JsStackFrame)
+  return target;
+}
+
+size_t JsStackFrame::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.handler.JsStackFrame)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string function_name = 1;
+  if (this->function_name().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->function_name());
+  }
+
+  // int32 line_number = 2;
+  if (this->line_number() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->line_number());
+  }
+
+  // int32 column = 3;
+  if (this->column() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->column());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void JsStackFrame::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.handler.JsStackFrame)
+  GOOGLE_DCHECK_NE(&from, this);
+  const JsStackFrame* source =
+      ::google::protobuf::DynamicCastToGenerated<JsStackFrame>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.handler.JsStackFrame)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.handler.JsStackFrame)
+    MergeFrom(*source);
+  }
+}
+
+void JsStackFrame::MergeFrom(const JsStackFrame& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.handler.JsStackFrame)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.function_name().size() > 0) {
+
+    function_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.function_name_);
+  }
+  if (from.line_number() != 0) {
+    set_line_number(from.line_number());
+  }
+  if (from.column() != 0) {
+    set_column(from.column());
+  }
+}
+
+void JsStackFrame::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.handler.JsStackFrame)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void JsStackFrame::CopyFrom(const JsStackFrame& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.handler.JsStackFrame)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool JsStackFrame::IsInitialized() const {
+  return true;
+}
+
+void JsStackFrame::Swap(JsStackFrame* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void JsStackFrame::InternalSwap(JsStackFrame* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  function_name_.Swap(&other->function_name_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(line_number_, other->line_number_);
+  swap(column_, other->column_);
+}
+
+::google::protobuf::Metadata JsStackFrame::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dhandler_2frichandler_2eproto);
+  return ::file_level_metadata_ric_2dhandler_2frichandler_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
 void JsError::InitAsDefaultInstance() {
 }
 class JsError::HasBitSetters {
@@ -855,8 +1280,9 @@ class JsError::HasBitSetters {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int JsError::kMessageFieldNumber;
-const int JsError::kLocationFieldNumber;
-const int JsError::kStackTraceFieldNumber;
+const int JsError::kLineNumberFieldNumber;
+const int JsError::kColumnFieldNumber;
+const int JsError::kStackFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 JsError::JsError()
@@ -866,20 +1292,16 @@ JsError::JsError()
 }
 JsError::JsError(const JsError& from)
   : ::google::protobuf::Message(),
-      _internal_metadata_(nullptr) {
+      _internal_metadata_(nullptr),
+      stack_(from.stack_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.message().size() > 0) {
     message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
   }
-  location_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.location().size() > 0) {
-    location_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.location_);
-  }
-  stack_trace_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.stack_trace().size() > 0) {
-    stack_trace_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.stack_trace_);
-  }
+  ::memcpy(&line_number_, &from.line_number_,
+    static_cast<size_t>(reinterpret_cast<char*>(&column_) -
+    reinterpret_cast<char*>(&line_number_)) + sizeof(column_));
   // @@protoc_insertion_point(copy_constructor:ric.handler.JsError)
 }
 
@@ -887,8 +1309,9 @@ void JsError::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
       &scc_info_JsError_ric_2dhandler_2frichandler_2eproto.base);
   message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  location_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  stack_trace_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&line_number_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&column_) -
+      reinterpret_cast<char*>(&line_number_)) + sizeof(column_));
 }
 
 JsError::~JsError() {
@@ -898,8 +1321,6 @@ JsError::~JsError() {
 
 void JsError::SharedDtor() {
   message_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  location_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  stack_trace_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void JsError::SetCachedSize(int size) const {
@@ -917,9 +1338,11 @@ void JsError::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  stack_.Clear();
   message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  location_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  stack_trace_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&line_number_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&column_) -
+      reinterpret_cast<char*>(&line_number_)) + sizeof(column_));
   _internal_metadata_.Clear();
 }
 
@@ -952,36 +1375,34 @@ const char* JsError::_InternalParse(const char* begin, const char* end, void* ob
         ptr += size;
         break;
       }
-      // string location = 2;
+      // int32 line_number = 2;
       case 2: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        if (static_cast<::google::protobuf::uint8>(tag) != 16) goto handle_unusual;
+        msg->set_line_number(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.handler.JsError.location");
-        object = msg->mutable_location();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
         break;
       }
-      // string stack_trace = 3;
+      // int32 column = 3;
       case 3: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
+        msg->set_column(::google::protobuf::internal::ReadVarint(&ptr));
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.handler.JsError.stack_trace");
-        object = msg->mutable_stack_trace();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
+        break;
+      }
+      // repeated .ric.handler.JsStackFrame stack = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::ric::handler::JsStackFrame::_InternalParse;
+          object = msg->add_stack();
+          if (size > end - ptr) goto len_delim_till_end;
+          ptr += size;
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+              {parser_till_end, object}, ptr - size, ptr));
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 34 && (ptr += 1));
         break;
       }
       default: {
@@ -1033,30 +1454,37 @@ bool JsError::MergePartialFromCodedStream(
         break;
       }
 
-      // string location = 2;
+      // int32 line_number = 2;
       case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_location()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->location().data(), static_cast<int>(this->location().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.handler.JsError.location"));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (16 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &line_number_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // string stack_trace = 3;
+      // int32 column = 3;
       case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_stack_trace()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->stack_trace().data(), static_cast<int>(this->stack_trace().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.handler.JsError.stack_trace"));
+        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &column_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .ric.handler.JsStackFrame stack = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+                input, add_stack()));
         } else {
           goto handle_unusual;
         }
@@ -1100,24 +1528,23 @@ void JsError::SerializeWithCachedSizes(
       1, this->message(), output);
   }
 
-  // string location = 2;
-  if (this->location().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->location().data(), static_cast<int>(this->location().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.handler.JsError.location");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->location(), output);
+  // int32 line_number = 2;
+  if (this->line_number() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->line_number(), output);
   }
 
-  // string stack_trace = 3;
-  if (this->stack_trace().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->stack_trace().data(), static_cast<int>(this->stack_trace().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.handler.JsError.stack_trace");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->stack_trace(), output);
+  // int32 column = 3;
+  if (this->column() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->column(), output);
+  }
+
+  // repeated .ric.handler.JsStackFrame stack = 4;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->stack_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4,
+      this->stack(static_cast<int>(i)),
+      output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1144,26 +1571,22 @@ void JsError::SerializeWithCachedSizes(
         1, this->message(), target);
   }
 
-  // string location = 2;
-  if (this->location().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->location().data(), static_cast<int>(this->location().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.handler.JsError.location");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->location(), target);
+  // int32 line_number = 2;
+  if (this->line_number() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->line_number(), target);
   }
 
-  // string stack_trace = 3;
-  if (this->stack_trace().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->stack_trace().data(), static_cast<int>(this->stack_trace().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.handler.JsError.stack_trace");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->stack_trace(), target);
+  // int32 column = 3;
+  if (this->column() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->column(), target);
+  }
+
+  // repeated .ric.handler.JsStackFrame stack = 4;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->stack_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        4, this->stack(static_cast<int>(i)), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1187,6 +1610,17 @@ size_t JsError::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // repeated .ric.handler.JsStackFrame stack = 4;
+  {
+    unsigned int count = static_cast<unsigned int>(this->stack_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->stack(static_cast<int>(i)));
+    }
+  }
+
   // string message = 1;
   if (this->message().size() > 0) {
     total_size += 1 +
@@ -1194,18 +1628,18 @@ size_t JsError::ByteSizeLong() const {
         this->message());
   }
 
-  // string location = 2;
-  if (this->location().size() > 0) {
+  // int32 line_number = 2;
+  if (this->line_number() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->location());
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->line_number());
   }
 
-  // string stack_trace = 3;
-  if (this->stack_trace().size() > 0) {
+  // int32 column = 3;
+  if (this->column() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->stack_trace());
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->column());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1235,17 +1669,16 @@ void JsError::MergeFrom(const JsError& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  stack_.MergeFrom(from.stack_);
   if (from.message().size() > 0) {
 
     message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
   }
-  if (from.location().size() > 0) {
-
-    location_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.location_);
+  if (from.line_number() != 0) {
+    set_line_number(from.line_number());
   }
-  if (from.stack_trace().size() > 0) {
-
-    stack_trace_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.stack_trace_);
+  if (from.column() != 0) {
+    set_column(from.column());
   }
 }
 
@@ -1274,12 +1707,11 @@ void JsError::Swap(JsError* other) {
 void JsError::InternalSwap(JsError* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  CastToBase(&stack_)->InternalSwap(CastToBase(&other->stack_));
   message_.Swap(&other->message_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  location_.Swap(&other->location_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  stack_trace_.Swap(&other->stack_trace_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
+  swap(line_number_, other->line_number_);
+  swap(column_, other->column_);
 }
 
 ::google::protobuf::Metadata JsError::GetMetadata() const {
@@ -5697,6 +6129,9 @@ namespace google {
 namespace protobuf {
 template<> PROTOBUF_NOINLINE ::ric::handler::ExecRequest* Arena::CreateMaybeMessage< ::ric::handler::ExecRequest >(Arena* arena) {
   return Arena::CreateInternal< ::ric::handler::ExecRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::handler::JsStackFrame* Arena::CreateMaybeMessage< ::ric::handler::JsStackFrame >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::handler::JsStackFrame >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::handler::JsError* Arena::CreateMaybeMessage< ::ric::handler::JsError >(Arena* arena) {
   return Arena::CreateInternal< ::ric::handler::JsError >(arena);
