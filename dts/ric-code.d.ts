@@ -1,5 +1,6 @@
 export interface RicCode {
   TranspileEs6(request: TranspileRequest): Promise<TranspileResponse>;
+  ParseCondition(request: ParseConditionRequest): Promise<ParseConditionResponse>;
 }
 
 export interface TranspileRequest {
@@ -37,4 +38,14 @@ export interface LibRequest {
   name?: string;
   semver?: string;
   local?: boolean;
+}
+
+export interface ParseConditionRequest {
+  id?: string;
+  code?: string;
+  aliases?: { [key: string]: string };
+}
+
+export interface ParseConditionResponse {
+  compiled?: string;
 }

@@ -45,16 +45,27 @@ class RicCode final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::code::TranspileResponse>> PrepareAsyncTranspileEs6(::grpc::ClientContext* context, const ::ric::code::TranspileRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::code::TranspileResponse>>(PrepareAsyncTranspileEs6Raw(context, request, cq));
     }
+    virtual ::grpc::Status ParseCondition(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest& request, ::ric::code::ParseConditionResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::code::ParseConditionResponse>> AsyncParseCondition(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::code::ParseConditionResponse>>(AsyncParseConditionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::code::ParseConditionResponse>> PrepareAsyncParseCondition(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::code::ParseConditionResponse>>(PrepareAsyncParseConditionRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
       virtual void TranspileEs6(::grpc::ClientContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void TranspileEs6(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::code::TranspileResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ParseCondition(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest* request, ::ric::code::ParseConditionResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ParseCondition(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::code::ParseConditionResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::code::TranspileResponse>* AsyncTranspileEs6Raw(::grpc::ClientContext* context, const ::ric::code::TranspileRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::code::TranspileResponse>* PrepareAsyncTranspileEs6Raw(::grpc::ClientContext* context, const ::ric::code::TranspileRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::code::ParseConditionResponse>* AsyncParseConditionRaw(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::code::ParseConditionResponse>* PrepareAsyncParseConditionRaw(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -66,11 +77,20 @@ class RicCode final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::code::TranspileResponse>> PrepareAsyncTranspileEs6(::grpc::ClientContext* context, const ::ric::code::TranspileRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::code::TranspileResponse>>(PrepareAsyncTranspileEs6Raw(context, request, cq));
     }
+    ::grpc::Status ParseCondition(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest& request, ::ric::code::ParseConditionResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::code::ParseConditionResponse>> AsyncParseCondition(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::code::ParseConditionResponse>>(AsyncParseConditionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::code::ParseConditionResponse>> PrepareAsyncParseCondition(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::code::ParseConditionResponse>>(PrepareAsyncParseConditionRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
       void TranspileEs6(::grpc::ClientContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response, std::function<void(::grpc::Status)>) override;
       void TranspileEs6(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::code::TranspileResponse* response, std::function<void(::grpc::Status)>) override;
+      void ParseCondition(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest* request, ::ric::code::ParseConditionResponse* response, std::function<void(::grpc::Status)>) override;
+      void ParseCondition(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::code::ParseConditionResponse* response, std::function<void(::grpc::Status)>) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -84,7 +104,10 @@ class RicCode final {
     class experimental_async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::ric::code::TranspileResponse>* AsyncTranspileEs6Raw(::grpc::ClientContext* context, const ::ric::code::TranspileRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::code::TranspileResponse>* PrepareAsyncTranspileEs6Raw(::grpc::ClientContext* context, const ::ric::code::TranspileRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::code::ParseConditionResponse>* AsyncParseConditionRaw(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::code::ParseConditionResponse>* PrepareAsyncParseConditionRaw(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_TranspileEs6_;
+    const ::grpc::internal::RpcMethod rpcmethod_ParseCondition_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -93,6 +116,7 @@ class RicCode final {
     Service();
     virtual ~Service();
     virtual ::grpc::Status TranspileEs6(::grpc::ServerContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response);
+    virtual ::grpc::Status ParseCondition(::grpc::ServerContext* context, const ::ric::code::ParseConditionRequest* request, ::ric::code::ParseConditionResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_TranspileEs6 : public BaseClass {
@@ -114,7 +138,27 @@ class RicCode final {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_TranspileEs6<Service > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_ParseCondition : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_ParseCondition() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_ParseCondition() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ParseCondition(::grpc::ServerContext* context, const ::ric::code::ParseConditionRequest* request, ::ric::code::ParseConditionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestParseCondition(::grpc::ServerContext* context, ::ric::code::ParseConditionRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::code::ParseConditionResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_TranspileEs6<WithAsyncMethod_ParseCondition<Service > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_TranspileEs6 : public BaseClass {
    private:
@@ -140,7 +184,32 @@ class RicCode final {
     }
     virtual void TranspileEs6(::grpc::ServerContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_TranspileEs6<Service > ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_ParseCondition : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_ParseCondition() {
+      ::grpc::Service::experimental().MarkMethodCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::code::ParseConditionRequest, ::ric::code::ParseConditionResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::code::ParseConditionRequest* request,
+                 ::ric::code::ParseConditionResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->ParseCondition(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_ParseCondition() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ParseCondition(::grpc::ServerContext* context, const ::ric::code::ParseConditionRequest* request, ::ric::code::ParseConditionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void ParseCondition(::grpc::ServerContext* context, const ::ric::code::ParseConditionRequest* request, ::ric::code::ParseConditionResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  typedef ExperimentalWithCallbackMethod_TranspileEs6<ExperimentalWithCallbackMethod_ParseCondition<Service > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_TranspileEs6 : public BaseClass {
    private:
@@ -154,6 +223,23 @@ class RicCode final {
     }
     // disable synchronous version of this method
     ::grpc::Status TranspileEs6(::grpc::ServerContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_ParseCondition : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_ParseCondition() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_ParseCondition() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ParseCondition(::grpc::ServerContext* context, const ::ric::code::ParseConditionRequest* request, ::ric::code::ParseConditionResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -176,6 +262,26 @@ class RicCode final {
     }
     void RequestTranspileEs6(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_ParseCondition : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_ParseCondition() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_ParseCondition() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ParseCondition(::grpc::ServerContext* context, const ::ric::code::ParseConditionRequest* request, ::ric::code::ParseConditionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestParseCondition(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -204,6 +310,31 @@ class RicCode final {
     virtual void TranspileEs6(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_ParseCondition : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_ParseCondition() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->ParseCondition(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_ParseCondition() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ParseCondition(::grpc::ServerContext* context, const ::ric::code::ParseConditionRequest* request, ::ric::code::ParseConditionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void ParseCondition(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_TranspileEs6 : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
@@ -223,9 +354,29 @@ class RicCode final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedTranspileEs6(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::code::TranspileRequest,::ric::code::TranspileResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_TranspileEs6<Service > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_ParseCondition : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_ParseCondition() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::code::ParseConditionRequest, ::ric::code::ParseConditionResponse>(std::bind(&WithStreamedUnaryMethod_ParseCondition<BaseClass>::StreamedParseCondition, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_ParseCondition() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ParseCondition(::grpc::ServerContext* context, const ::ric::code::ParseConditionRequest* request, ::ric::code::ParseConditionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedParseCondition(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::code::ParseConditionRequest,::ric::code::ParseConditionResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_TranspileEs6<WithStreamedUnaryMethod_ParseCondition<Service > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_TranspileEs6<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_TranspileEs6<WithStreamedUnaryMethod_ParseCondition<Service > > StreamedService;
 };
 
 }  // namespace code

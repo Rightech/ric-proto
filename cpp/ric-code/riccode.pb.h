@@ -30,6 +30,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/map.h>  // IWYU pragma: export
+#include <google/protobuf/map_entry.h>
+#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -41,7 +44,7 @@ struct TableStruct_ric_2dcode_2friccode_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[6]
+  static const ::google::protobuf::internal::ParseTable schema[9]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -59,6 +62,15 @@ extern LibDefinitionDefaultTypeInternal _LibDefinition_default_instance_;
 class LibRequest;
 class LibRequestDefaultTypeInternal;
 extern LibRequestDefaultTypeInternal _LibRequest_default_instance_;
+class ParseConditionRequest;
+class ParseConditionRequestDefaultTypeInternal;
+extern ParseConditionRequestDefaultTypeInternal _ParseConditionRequest_default_instance_;
+class ParseConditionRequest_AliasesEntry_DoNotUse;
+class ParseConditionRequest_AliasesEntry_DoNotUseDefaultTypeInternal;
+extern ParseConditionRequest_AliasesEntry_DoNotUseDefaultTypeInternal _ParseConditionRequest_AliasesEntry_DoNotUse_default_instance_;
+class ParseConditionResponse;
+class ParseConditionResponseDefaultTypeInternal;
+extern ParseConditionResponseDefaultTypeInternal _ParseConditionResponse_default_instance_;
 class TranspileRequest;
 class TranspileRequestDefaultTypeInternal;
 extern TranspileRequestDefaultTypeInternal _TranspileRequest_default_instance_;
@@ -75,6 +87,9 @@ namespace protobuf {
 template<> ::ric::code::InputRef* Arena::CreateMaybeMessage<::ric::code::InputRef>(Arena*);
 template<> ::ric::code::LibDefinition* Arena::CreateMaybeMessage<::ric::code::LibDefinition>(Arena*);
 template<> ::ric::code::LibRequest* Arena::CreateMaybeMessage<::ric::code::LibRequest>(Arena*);
+template<> ::ric::code::ParseConditionRequest* Arena::CreateMaybeMessage<::ric::code::ParseConditionRequest>(Arena*);
+template<> ::ric::code::ParseConditionRequest_AliasesEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::code::ParseConditionRequest_AliasesEntry_DoNotUse>(Arena*);
+template<> ::ric::code::ParseConditionResponse* Arena::CreateMaybeMessage<::ric::code::ParseConditionResponse>(Arena*);
 template<> ::ric::code::TranspileRequest* Arena::CreateMaybeMessage<::ric::code::TranspileRequest>(Arena*);
 template<> ::ric::code::TranspileResponse* Arena::CreateMaybeMessage<::ric::code::TranspileResponse>(Arena*);
 template<> ::ric::code::VarDecl* Arena::CreateMaybeMessage<::ric::code::VarDecl>(Arena*);
@@ -978,6 +993,301 @@ class LibRequest final :
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dcode_2friccode_2eproto;
 };
+// -------------------------------------------------------------------
+
+class ParseConditionRequest_AliasesEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<ParseConditionRequest_AliasesEntry_DoNotUse, 
+    ::std::string, ::std::string,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    0 > {
+public:
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+static bool _ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  typedef ::google::protobuf::internal::MapEntry<ParseConditionRequest_AliasesEntry_DoNotUse, 
+    ::std::string, ::std::string,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+    0 > SuperType;
+  ParseConditionRequest_AliasesEntry_DoNotUse();
+  ParseConditionRequest_AliasesEntry_DoNotUse(::google::protobuf::Arena* arena);
+  void MergeFrom(const ParseConditionRequest_AliasesEntry_DoNotUse& other);
+  static const ParseConditionRequest_AliasesEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const ParseConditionRequest_AliasesEntry_DoNotUse*>(&_ParseConditionRequest_AliasesEntry_DoNotUse_default_instance_); }
+  void MergeFrom(const ::google::protobuf::Message& other) final;
+  ::google::protobuf::Metadata GetMetadata() const;
+};
+
+// -------------------------------------------------------------------
+
+class ParseConditionRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.code.ParseConditionRequest) */ {
+ public:
+  ParseConditionRequest();
+  virtual ~ParseConditionRequest();
+
+  ParseConditionRequest(const ParseConditionRequest& from);
+
+  inline ParseConditionRequest& operator=(const ParseConditionRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  ParseConditionRequest(ParseConditionRequest&& from) noexcept
+    : ParseConditionRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline ParseConditionRequest& operator=(ParseConditionRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const ParseConditionRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const ParseConditionRequest* internal_default_instance() {
+    return reinterpret_cast<const ParseConditionRequest*>(
+               &_ParseConditionRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  void Swap(ParseConditionRequest* other);
+  friend void swap(ParseConditionRequest& a, ParseConditionRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ParseConditionRequest* New() const final {
+    return CreateMaybeMessage<ParseConditionRequest>(nullptr);
+  }
+
+  ParseConditionRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<ParseConditionRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const ParseConditionRequest& from);
+  void MergeFrom(const ParseConditionRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ParseConditionRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  // map<string, string> aliases = 3;
+  int aliases_size() const;
+  void clear_aliases();
+  static const int kAliasesFieldNumber = 3;
+  const ::google::protobuf::Map< ::std::string, ::std::string >&
+      aliases() const;
+  ::google::protobuf::Map< ::std::string, ::std::string >*
+      mutable_aliases();
+
+  // string id = 1;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  const ::std::string& id() const;
+  void set_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_id(::std::string&& value);
+  #endif
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  ::std::string* mutable_id();
+  ::std::string* release_id();
+  void set_allocated_id(::std::string* id);
+
+  // string code = 2;
+  void clear_code();
+  static const int kCodeFieldNumber = 2;
+  const ::std::string& code() const;
+  void set_code(const ::std::string& value);
+  #if LANG_CXX11
+  void set_code(::std::string&& value);
+  #endif
+  void set_code(const char* value);
+  void set_code(const char* value, size_t size);
+  ::std::string* mutable_code();
+  ::std::string* release_code();
+  void set_allocated_code(::std::string* code);
+
+  // @@protoc_insertion_point(class_scope:ric.code.ParseConditionRequest)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::MapField<
+      ParseConditionRequest_AliasesEntry_DoNotUse,
+      ::std::string, ::std::string,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      0 > aliases_;
+  ::google::protobuf::internal::ArenaStringPtr id_;
+  ::google::protobuf::internal::ArenaStringPtr code_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dcode_2friccode_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ParseConditionResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.code.ParseConditionResponse) */ {
+ public:
+  ParseConditionResponse();
+  virtual ~ParseConditionResponse();
+
+  ParseConditionResponse(const ParseConditionResponse& from);
+
+  inline ParseConditionResponse& operator=(const ParseConditionResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  ParseConditionResponse(ParseConditionResponse&& from) noexcept
+    : ParseConditionResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline ParseConditionResponse& operator=(ParseConditionResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const ParseConditionResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const ParseConditionResponse* internal_default_instance() {
+    return reinterpret_cast<const ParseConditionResponse*>(
+               &_ParseConditionResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  void Swap(ParseConditionResponse* other);
+  friend void swap(ParseConditionResponse& a, ParseConditionResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ParseConditionResponse* New() const final {
+    return CreateMaybeMessage<ParseConditionResponse>(nullptr);
+  }
+
+  ParseConditionResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<ParseConditionResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const ParseConditionResponse& from);
+  void MergeFrom(const ParseConditionResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ParseConditionResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string compiled = 1;
+  void clear_compiled();
+  static const int kCompiledFieldNumber = 1;
+  const ::std::string& compiled() const;
+  void set_compiled(const ::std::string& value);
+  #if LANG_CXX11
+  void set_compiled(::std::string&& value);
+  #endif
+  void set_compiled(const char* value);
+  void set_compiled(const char* value, size_t size);
+  ::std::string* mutable_compiled();
+  ::std::string* release_compiled();
+  void set_allocated_compiled(::std::string* compiled);
+
+  // @@protoc_insertion_point(class_scope:ric.code.ParseConditionResponse)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr compiled_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dcode_2friccode_2eproto;
+};
 // ===================================================================
 
 
@@ -1839,9 +2149,202 @@ inline void LibRequest::set_local(bool value) {
   // @@protoc_insertion_point(field_set:ric.code.LibRequest.local)
 }
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// ParseConditionRequest
+
+// string id = 1;
+inline void ParseConditionRequest::clear_id() {
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ParseConditionRequest::id() const {
+  // @@protoc_insertion_point(field_get:ric.code.ParseConditionRequest.id)
+  return id_.GetNoArena();
+}
+inline void ParseConditionRequest::set_id(const ::std::string& value) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.code.ParseConditionRequest.id)
+}
+#if LANG_CXX11
+inline void ParseConditionRequest::set_id(::std::string&& value) {
+  
+  id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.code.ParseConditionRequest.id)
+}
+#endif
+inline void ParseConditionRequest::set_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.code.ParseConditionRequest.id)
+}
+inline void ParseConditionRequest::set_id(const char* value, size_t size) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.code.ParseConditionRequest.id)
+}
+inline ::std::string* ParseConditionRequest::mutable_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.code.ParseConditionRequest.id)
+  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ParseConditionRequest::release_id() {
+  // @@protoc_insertion_point(field_release:ric.code.ParseConditionRequest.id)
+  
+  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ParseConditionRequest::set_allocated_id(::std::string* id) {
+  if (id != nullptr) {
+    
+  } else {
+    
+  }
+  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:ric.code.ParseConditionRequest.id)
+}
+
+// string code = 2;
+inline void ParseConditionRequest::clear_code() {
+  code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ParseConditionRequest::code() const {
+  // @@protoc_insertion_point(field_get:ric.code.ParseConditionRequest.code)
+  return code_.GetNoArena();
+}
+inline void ParseConditionRequest::set_code(const ::std::string& value) {
+  
+  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.code.ParseConditionRequest.code)
+}
+#if LANG_CXX11
+inline void ParseConditionRequest::set_code(::std::string&& value) {
+  
+  code_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.code.ParseConditionRequest.code)
+}
+#endif
+inline void ParseConditionRequest::set_code(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.code.ParseConditionRequest.code)
+}
+inline void ParseConditionRequest::set_code(const char* value, size_t size) {
+  
+  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.code.ParseConditionRequest.code)
+}
+inline ::std::string* ParseConditionRequest::mutable_code() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.code.ParseConditionRequest.code)
+  return code_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ParseConditionRequest::release_code() {
+  // @@protoc_insertion_point(field_release:ric.code.ParseConditionRequest.code)
+  
+  return code_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ParseConditionRequest::set_allocated_code(::std::string* code) {
+  if (code != nullptr) {
+    
+  } else {
+    
+  }
+  code_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), code);
+  // @@protoc_insertion_point(field_set_allocated:ric.code.ParseConditionRequest.code)
+}
+
+// map<string, string> aliases = 3;
+inline int ParseConditionRequest::aliases_size() const {
+  return aliases_.size();
+}
+inline void ParseConditionRequest::clear_aliases() {
+  aliases_.Clear();
+}
+inline const ::google::protobuf::Map< ::std::string, ::std::string >&
+ParseConditionRequest::aliases() const {
+  // @@protoc_insertion_point(field_map:ric.code.ParseConditionRequest.aliases)
+  return aliases_.GetMap();
+}
+inline ::google::protobuf::Map< ::std::string, ::std::string >*
+ParseConditionRequest::mutable_aliases() {
+  // @@protoc_insertion_point(field_mutable_map:ric.code.ParseConditionRequest.aliases)
+  return aliases_.MutableMap();
+}
+
+// -------------------------------------------------------------------
+
+// ParseConditionResponse
+
+// string compiled = 1;
+inline void ParseConditionResponse::clear_compiled() {
+  compiled_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ParseConditionResponse::compiled() const {
+  // @@protoc_insertion_point(field_get:ric.code.ParseConditionResponse.compiled)
+  return compiled_.GetNoArena();
+}
+inline void ParseConditionResponse::set_compiled(const ::std::string& value) {
+  
+  compiled_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.code.ParseConditionResponse.compiled)
+}
+#if LANG_CXX11
+inline void ParseConditionResponse::set_compiled(::std::string&& value) {
+  
+  compiled_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.code.ParseConditionResponse.compiled)
+}
+#endif
+inline void ParseConditionResponse::set_compiled(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  compiled_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.code.ParseConditionResponse.compiled)
+}
+inline void ParseConditionResponse::set_compiled(const char* value, size_t size) {
+  
+  compiled_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.code.ParseConditionResponse.compiled)
+}
+inline ::std::string* ParseConditionResponse::mutable_compiled() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.code.ParseConditionResponse.compiled)
+  return compiled_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ParseConditionResponse::release_compiled() {
+  // @@protoc_insertion_point(field_release:ric.code.ParseConditionResponse.compiled)
+  
+  return compiled_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ParseConditionResponse::set_allocated_compiled(::std::string* compiled) {
+  if (compiled != nullptr) {
+    
+  } else {
+    
+  }
+  compiled_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), compiled);
+  // @@protoc_insertion_point(field_set_allocated:ric.code.ParseConditionResponse.compiled)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

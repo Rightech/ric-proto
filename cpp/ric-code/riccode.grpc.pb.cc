@@ -21,6 +21,7 @@ namespace code {
 
 static const char* RicCode_method_names[] = {
   "/ric.code.RicCode/TranspileEs6",
+  "/ric.code.RicCode/ParseCondition",
 };
 
 std::unique_ptr< RicCode::Stub> RicCode::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -31,6 +32,7 @@ std::unique_ptr< RicCode::Stub> RicCode::NewStub(const std::shared_ptr< ::grpc::
 
 RicCode::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_TranspileEs6_(RicCode_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ParseCondition_(RicCode_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status RicCode::Stub::TranspileEs6(::grpc::ClientContext* context, const ::ric::code::TranspileRequest& request, ::ric::code::TranspileResponse* response) {
@@ -53,18 +55,50 @@ void RicCode::Stub::experimental_async::TranspileEs6(::grpc::ClientContext* cont
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::code::TranspileResponse>::Create(channel_.get(), cq, rpcmethod_TranspileEs6_, context, request, false);
 }
 
+::grpc::Status RicCode::Stub::ParseCondition(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest& request, ::ric::code::ParseConditionResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_ParseCondition_, context, request, response);
+}
+
+void RicCode::Stub::experimental_async::ParseCondition(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest* request, ::ric::code::ParseConditionResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_ParseCondition_, context, request, response, std::move(f));
+}
+
+void RicCode::Stub::experimental_async::ParseCondition(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::code::ParseConditionResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_ParseCondition_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::code::ParseConditionResponse>* RicCode::Stub::AsyncParseConditionRaw(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::code::ParseConditionResponse>::Create(channel_.get(), cq, rpcmethod_ParseCondition_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::code::ParseConditionResponse>* RicCode::Stub::PrepareAsyncParseConditionRaw(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::code::ParseConditionResponse>::Create(channel_.get(), cq, rpcmethod_ParseCondition_, context, request, false);
+}
+
 RicCode::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RicCode_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< RicCode::Service, ::ric::code::TranspileRequest, ::ric::code::TranspileResponse>(
           std::mem_fn(&RicCode::Service::TranspileEs6), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RicCode_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RicCode::Service, ::ric::code::ParseConditionRequest, ::ric::code::ParseConditionResponse>(
+          std::mem_fn(&RicCode::Service::ParseCondition), this)));
 }
 
 RicCode::Service::~Service() {
 }
 
 ::grpc::Status RicCode::Service::TranspileEs6(::grpc::ServerContext* context, const ::ric::code::TranspileRequest* request, ::ric::code::TranspileResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RicCode::Service::ParseCondition(::grpc::ServerContext* context, const ::ric::code::ParseConditionRequest* request, ::ric::code::ParseConditionResponse* response) {
   (void) context;
   (void) request;
   (void) response;
