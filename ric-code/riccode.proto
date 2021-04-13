@@ -6,6 +6,7 @@ option go_package = "./ric-code;riccode";
 
 service RicCode {
   rpc TranspileEs6(TranspileRequest) returns (TranspileResponse);
+  rpc ParseCondition(ParseConditionRequest) returns (ParseConditionResponse);
 }
 
 message TranspileRequest {
@@ -43,4 +44,14 @@ message LibRequest {
   string name = 1;
   string semver = 2;
   bool local = 3;
+}
+
+message ParseConditionRequest {
+  string id = 1;
+  string code = 2;
+  map<string, string> aliases = 3;
+}
+
+message ParseConditionResponse {
+  string compiled = 1;
 }
