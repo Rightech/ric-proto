@@ -197,7 +197,7 @@ class GrpcClient {
   createRef() {
     this.ref = new this.serviceCtor(this.getAddr(), this.getCredentials());
 
-    log.info(`${this.name.full} connect to ${this.getAddr()}`);
+    log.info(`${this.name.full} will connect to ${this.getAddr()}`);
     this._export();
   }
 

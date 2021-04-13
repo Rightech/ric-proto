@@ -10,10 +10,17 @@ export interface ExecRequest {
   packet?: any;
 }
 
+export interface JsStackFrame {
+  functionName?: string;
+  lineNumber?: number;
+  column?: number;
+}
+
 export interface JsError {
   message?: string;
-  location?: string;
-  stackTrace?: string;
+  lineNumber?: number;
+  column?: number;
+  stack?: JsStackFrame[];
 }
 
 export interface ExecStats {

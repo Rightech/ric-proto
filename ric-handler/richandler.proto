@@ -16,10 +16,17 @@ message ExecRequest {
   bytes packet = 2;
 }
 
+message JsStackFrame {
+  string function_name = 1;
+  int32 line_number = 2;
+  int32 column = 3;
+}
+
 message JsError {
   string message = 1;
-  string location = 2;
-  string stack_trace = 3;
+  int32 line_number = 2;
+  int32 column = 3;
+  repeated JsStackFrame stack = 4;
 }
 
 message ExecStats {

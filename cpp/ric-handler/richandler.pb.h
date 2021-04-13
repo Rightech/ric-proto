@@ -41,7 +41,7 @@ struct TableStruct_ric_2dhandler_2frichandler_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[13]
+  static const ::google::protobuf::internal::ParseTable schema[14]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -86,6 +86,9 @@ extern HandlerDefaultTypeInternal _Handler_default_instance_;
 class JsError;
 class JsErrorDefaultTypeInternal;
 extern JsErrorDefaultTypeInternal _JsError_default_instance_;
+class JsStackFrame;
+class JsStackFrameDefaultTypeInternal;
+extern JsStackFrameDefaultTypeInternal _JsStackFrame_default_instance_;
 class LogRecord;
 class LogRecordDefaultTypeInternal;
 extern LogRecordDefaultTypeInternal _LogRecord_default_instance_;
@@ -105,6 +108,7 @@ template<> ::ric::handler::GetObjectInfoRequest* Arena::CreateMaybeMessage<::ric
 template<> ::ric::handler::GetObjectInfoResponse* Arena::CreateMaybeMessage<::ric::handler::GetObjectInfoResponse>(Arena*);
 template<> ::ric::handler::Handler* Arena::CreateMaybeMessage<::ric::handler::Handler>(Arena*);
 template<> ::ric::handler::JsError* Arena::CreateMaybeMessage<::ric::handler::JsError>(Arena*);
+template<> ::ric::handler::JsStackFrame* Arena::CreateMaybeMessage<::ric::handler::JsStackFrame>(Arena*);
 template<> ::ric::handler::LogRecord* Arena::CreateMaybeMessage<::ric::handler::LogRecord>(Arena*);
 }  // namespace protobuf
 }  // namespace google
@@ -248,6 +252,140 @@ class ExecRequest final :
 };
 // -------------------------------------------------------------------
 
+class JsStackFrame final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.handler.JsStackFrame) */ {
+ public:
+  JsStackFrame();
+  virtual ~JsStackFrame();
+
+  JsStackFrame(const JsStackFrame& from);
+
+  inline JsStackFrame& operator=(const JsStackFrame& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  JsStackFrame(JsStackFrame&& from) noexcept
+    : JsStackFrame() {
+    *this = ::std::move(from);
+  }
+
+  inline JsStackFrame& operator=(JsStackFrame&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const JsStackFrame& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const JsStackFrame* internal_default_instance() {
+    return reinterpret_cast<const JsStackFrame*>(
+               &_JsStackFrame_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  void Swap(JsStackFrame* other);
+  friend void swap(JsStackFrame& a, JsStackFrame& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline JsStackFrame* New() const final {
+    return CreateMaybeMessage<JsStackFrame>(nullptr);
+  }
+
+  JsStackFrame* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<JsStackFrame>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const JsStackFrame& from);
+  void MergeFrom(const JsStackFrame& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(JsStackFrame* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string function_name = 1;
+  void clear_function_name();
+  static const int kFunctionNameFieldNumber = 1;
+  const ::std::string& function_name() const;
+  void set_function_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_function_name(::std::string&& value);
+  #endif
+  void set_function_name(const char* value);
+  void set_function_name(const char* value, size_t size);
+  ::std::string* mutable_function_name();
+  ::std::string* release_function_name();
+  void set_allocated_function_name(::std::string* function_name);
+
+  // int32 line_number = 2;
+  void clear_line_number();
+  static const int kLineNumberFieldNumber = 2;
+  ::google::protobuf::int32 line_number() const;
+  void set_line_number(::google::protobuf::int32 value);
+
+  // int32 column = 3;
+  void clear_column();
+  static const int kColumnFieldNumber = 3;
+  ::google::protobuf::int32 column() const;
+  void set_column(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:ric.handler.JsStackFrame)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr function_name_;
+  ::google::protobuf::int32 line_number_;
+  ::google::protobuf::int32 column_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dhandler_2frichandler_2eproto;
+};
+// -------------------------------------------------------------------
+
 class JsError final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.handler.JsError) */ {
  public:
@@ -286,7 +424,7 @@ class JsError final :
                &_JsError_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   void Swap(JsError* other);
   friend void swap(JsError& a, JsError& b) {
@@ -343,6 +481,18 @@ class JsError final :
 
   // accessors -------------------------------------------------------
 
+  // repeated .ric.handler.JsStackFrame stack = 4;
+  int stack_size() const;
+  void clear_stack();
+  static const int kStackFieldNumber = 4;
+  ::ric::handler::JsStackFrame* mutable_stack(int index);
+  ::google::protobuf::RepeatedPtrField< ::ric::handler::JsStackFrame >*
+      mutable_stack();
+  const ::ric::handler::JsStackFrame& stack(int index) const;
+  ::ric::handler::JsStackFrame* add_stack();
+  const ::google::protobuf::RepeatedPtrField< ::ric::handler::JsStackFrame >&
+      stack() const;
+
   // string message = 1;
   void clear_message();
   static const int kMessageFieldNumber = 1;
@@ -357,42 +507,27 @@ class JsError final :
   ::std::string* release_message();
   void set_allocated_message(::std::string* message);
 
-  // string location = 2;
-  void clear_location();
-  static const int kLocationFieldNumber = 2;
-  const ::std::string& location() const;
-  void set_location(const ::std::string& value);
-  #if LANG_CXX11
-  void set_location(::std::string&& value);
-  #endif
-  void set_location(const char* value);
-  void set_location(const char* value, size_t size);
-  ::std::string* mutable_location();
-  ::std::string* release_location();
-  void set_allocated_location(::std::string* location);
+  // int32 line_number = 2;
+  void clear_line_number();
+  static const int kLineNumberFieldNumber = 2;
+  ::google::protobuf::int32 line_number() const;
+  void set_line_number(::google::protobuf::int32 value);
 
-  // string stack_trace = 3;
-  void clear_stack_trace();
-  static const int kStackTraceFieldNumber = 3;
-  const ::std::string& stack_trace() const;
-  void set_stack_trace(const ::std::string& value);
-  #if LANG_CXX11
-  void set_stack_trace(::std::string&& value);
-  #endif
-  void set_stack_trace(const char* value);
-  void set_stack_trace(const char* value, size_t size);
-  ::std::string* mutable_stack_trace();
-  ::std::string* release_stack_trace();
-  void set_allocated_stack_trace(::std::string* stack_trace);
+  // int32 column = 3;
+  void clear_column();
+  static const int kColumnFieldNumber = 3;
+  ::google::protobuf::int32 column() const;
+  void set_column(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:ric.handler.JsError)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::ric::handler::JsStackFrame > stack_;
   ::google::protobuf::internal::ArenaStringPtr message_;
-  ::google::protobuf::internal::ArenaStringPtr location_;
-  ::google::protobuf::internal::ArenaStringPtr stack_trace_;
+  ::google::protobuf::int32 line_number_;
+  ::google::protobuf::int32 column_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dhandler_2frichandler_2eproto;
 };
@@ -436,7 +571,7 @@ class ExecStats final :
                &_ExecStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   void Swap(ExecStats* other);
   friend void swap(ExecStats& a, ExecStats& b) {
@@ -633,7 +768,7 @@ class LogRecord final :
                &_LogRecord_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   void Swap(LogRecord* other);
   friend void swap(LogRecord& a, LogRecord& b) {
@@ -760,7 +895,7 @@ class ExecResponse final :
                &_ExecResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   void Swap(ExecResponse* other);
   friend void swap(ExecResponse& a, ExecResponse& b) {
@@ -913,7 +1048,7 @@ class GetObjectInfoRequest final :
                &_GetObjectInfoRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   void Swap(GetObjectInfoRequest* other);
   friend void swap(GetObjectInfoRequest& a, GetObjectInfoRequest& b) {
@@ -1033,7 +1168,7 @@ class Action final :
                &_Action_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   void Swap(Action* other);
   friend void swap(Action& a, Action& b) {
@@ -1168,7 +1303,7 @@ class Handler final :
                &_Handler_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   void Swap(Handler* other);
   friend void swap(Handler& a, Handler& b) {
@@ -1333,7 +1468,7 @@ class GetObjectInfoResponse final :
                &_GetObjectInfoResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   void Swap(GetObjectInfoResponse* other);
   friend void swap(GetObjectInfoResponse& a, GetObjectInfoResponse& b) {
@@ -1516,7 +1651,7 @@ class GetHandlerStoreRequest final :
                &_GetHandlerStoreRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   void Swap(GetHandlerStoreRequest* other);
   friend void swap(GetHandlerStoreRequest& a, GetHandlerStoreRequest& b) {
@@ -1636,7 +1771,7 @@ class GetHandlerStoreResponse final :
                &_GetHandlerStoreResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   void Swap(GetHandlerStoreResponse* other);
   friend void swap(GetHandlerStoreResponse& a, GetHandlerStoreResponse& b) {
@@ -1756,7 +1891,7 @@ class ForceLinksUpdateRequest final :
                &_ForceLinksUpdateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   void Swap(ForceLinksUpdateRequest* other);
   friend void swap(ForceLinksUpdateRequest& a, ForceLinksUpdateRequest& b) {
@@ -1876,7 +2011,7 @@ class EmptyResponse final :
                &_EmptyResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   void Swap(EmptyResponse* other);
   friend void swap(EmptyResponse& a, EmptyResponse& b) {
@@ -2060,6 +2195,91 @@ inline void ExecRequest::set_allocated_packet(::std::string* packet) {
 
 // -------------------------------------------------------------------
 
+// JsStackFrame
+
+// string function_name = 1;
+inline void JsStackFrame::clear_function_name() {
+  function_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& JsStackFrame::function_name() const {
+  // @@protoc_insertion_point(field_get:ric.handler.JsStackFrame.function_name)
+  return function_name_.GetNoArena();
+}
+inline void JsStackFrame::set_function_name(const ::std::string& value) {
+  
+  function_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.handler.JsStackFrame.function_name)
+}
+#if LANG_CXX11
+inline void JsStackFrame::set_function_name(::std::string&& value) {
+  
+  function_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.handler.JsStackFrame.function_name)
+}
+#endif
+inline void JsStackFrame::set_function_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  function_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.handler.JsStackFrame.function_name)
+}
+inline void JsStackFrame::set_function_name(const char* value, size_t size) {
+  
+  function_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.handler.JsStackFrame.function_name)
+}
+inline ::std::string* JsStackFrame::mutable_function_name() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.handler.JsStackFrame.function_name)
+  return function_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* JsStackFrame::release_function_name() {
+  // @@protoc_insertion_point(field_release:ric.handler.JsStackFrame.function_name)
+  
+  return function_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void JsStackFrame::set_allocated_function_name(::std::string* function_name) {
+  if (function_name != nullptr) {
+    
+  } else {
+    
+  }
+  function_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), function_name);
+  // @@protoc_insertion_point(field_set_allocated:ric.handler.JsStackFrame.function_name)
+}
+
+// int32 line_number = 2;
+inline void JsStackFrame::clear_line_number() {
+  line_number_ = 0;
+}
+inline ::google::protobuf::int32 JsStackFrame::line_number() const {
+  // @@protoc_insertion_point(field_get:ric.handler.JsStackFrame.line_number)
+  return line_number_;
+}
+inline void JsStackFrame::set_line_number(::google::protobuf::int32 value) {
+  
+  line_number_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.JsStackFrame.line_number)
+}
+
+// int32 column = 3;
+inline void JsStackFrame::clear_column() {
+  column_ = 0;
+}
+inline ::google::protobuf::int32 JsStackFrame::column() const {
+  // @@protoc_insertion_point(field_get:ric.handler.JsStackFrame.column)
+  return column_;
+}
+inline void JsStackFrame::set_column(::google::protobuf::int32 value) {
+  
+  column_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.JsStackFrame.column)
+}
+
+// -------------------------------------------------------------------
+
 // JsError
 
 // string message = 1;
@@ -2115,110 +2335,62 @@ inline void JsError::set_allocated_message(::std::string* message) {
   // @@protoc_insertion_point(field_set_allocated:ric.handler.JsError.message)
 }
 
-// string location = 2;
-inline void JsError::clear_location() {
-  location_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// int32 line_number = 2;
+inline void JsError::clear_line_number() {
+  line_number_ = 0;
 }
-inline const ::std::string& JsError::location() const {
-  // @@protoc_insertion_point(field_get:ric.handler.JsError.location)
-  return location_.GetNoArena();
+inline ::google::protobuf::int32 JsError::line_number() const {
+  // @@protoc_insertion_point(field_get:ric.handler.JsError.line_number)
+  return line_number_;
 }
-inline void JsError::set_location(const ::std::string& value) {
+inline void JsError::set_line_number(::google::protobuf::int32 value) {
   
-  location_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.handler.JsError.location)
-}
-#if LANG_CXX11
-inline void JsError::set_location(::std::string&& value) {
-  
-  location_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.handler.JsError.location)
-}
-#endif
-inline void JsError::set_location(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  location_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.handler.JsError.location)
-}
-inline void JsError::set_location(const char* value, size_t size) {
-  
-  location_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.handler.JsError.location)
-}
-inline ::std::string* JsError::mutable_location() {
-  
-  // @@protoc_insertion_point(field_mutable:ric.handler.JsError.location)
-  return location_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* JsError::release_location() {
-  // @@protoc_insertion_point(field_release:ric.handler.JsError.location)
-  
-  return location_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void JsError::set_allocated_location(::std::string* location) {
-  if (location != nullptr) {
-    
-  } else {
-    
-  }
-  location_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), location);
-  // @@protoc_insertion_point(field_set_allocated:ric.handler.JsError.location)
+  line_number_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.JsError.line_number)
 }
 
-// string stack_trace = 3;
-inline void JsError::clear_stack_trace() {
-  stack_trace_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// int32 column = 3;
+inline void JsError::clear_column() {
+  column_ = 0;
 }
-inline const ::std::string& JsError::stack_trace() const {
-  // @@protoc_insertion_point(field_get:ric.handler.JsError.stack_trace)
-  return stack_trace_.GetNoArena();
+inline ::google::protobuf::int32 JsError::column() const {
+  // @@protoc_insertion_point(field_get:ric.handler.JsError.column)
+  return column_;
 }
-inline void JsError::set_stack_trace(const ::std::string& value) {
+inline void JsError::set_column(::google::protobuf::int32 value) {
   
-  stack_trace_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.handler.JsError.stack_trace)
+  column_ = value;
+  // @@protoc_insertion_point(field_set:ric.handler.JsError.column)
 }
-#if LANG_CXX11
-inline void JsError::set_stack_trace(::std::string&& value) {
-  
-  stack_trace_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.handler.JsError.stack_trace)
+
+// repeated .ric.handler.JsStackFrame stack = 4;
+inline int JsError::stack_size() const {
+  return stack_.size();
 }
-#endif
-inline void JsError::set_stack_trace(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  stack_trace_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.handler.JsError.stack_trace)
+inline void JsError::clear_stack() {
+  stack_.Clear();
 }
-inline void JsError::set_stack_trace(const char* value, size_t size) {
-  
-  stack_trace_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.handler.JsError.stack_trace)
+inline ::ric::handler::JsStackFrame* JsError::mutable_stack(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.handler.JsError.stack)
+  return stack_.Mutable(index);
 }
-inline ::std::string* JsError::mutable_stack_trace() {
-  
-  // @@protoc_insertion_point(field_mutable:ric.handler.JsError.stack_trace)
-  return stack_trace_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::google::protobuf::RepeatedPtrField< ::ric::handler::JsStackFrame >*
+JsError::mutable_stack() {
+  // @@protoc_insertion_point(field_mutable_list:ric.handler.JsError.stack)
+  return &stack_;
 }
-inline ::std::string* JsError::release_stack_trace() {
-  // @@protoc_insertion_point(field_release:ric.handler.JsError.stack_trace)
-  
-  return stack_trace_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::ric::handler::JsStackFrame& JsError::stack(int index) const {
+  // @@protoc_insertion_point(field_get:ric.handler.JsError.stack)
+  return stack_.Get(index);
 }
-inline void JsError::set_allocated_stack_trace(::std::string* stack_trace) {
-  if (stack_trace != nullptr) {
-    
-  } else {
-    
-  }
-  stack_trace_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), stack_trace);
-  // @@protoc_insertion_point(field_set_allocated:ric.handler.JsError.stack_trace)
+inline ::ric::handler::JsStackFrame* JsError::add_stack() {
+  // @@protoc_insertion_point(field_add:ric.handler.JsError.stack)
+  return stack_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ric::handler::JsStackFrame >&
+JsError::stack() const {
+  // @@protoc_insertion_point(field_list:ric.handler.JsError.stack)
+  return stack_;
 }
 
 // -------------------------------------------------------------------
@@ -3490,6 +3662,8 @@ inline void ForceLinksUpdateRequest::set_allocated_object_id(::std::string* obje
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
