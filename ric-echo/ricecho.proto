@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package ric.echo;
+
+option go_package = "./ric-echo;ricecho";
+
+service Echo {
+  rpc SayHello (EchoRequest) returns (EchoReply) {}
+}
+
+message EchoRequest {
+  string name = 1;
+}
+
+message EchoReply {
+  string message = 1;
+}

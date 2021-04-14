@@ -1,95 +1,100 @@
 {
-    "default": {
-        "port": {
-            "k8s": 5071
-        }
-    },
-    "services": {
-        "ric-code": {
-            "port": {
-                "dev": 15071
-            }
-        },
-        "ric-action": {
-            "ns": {
-                "k8s": "kubeless"
-            },
-            "port": {
-                "dev": 15072
-            }
-        },
-        "ric-action/PublicAPI": {
-            "ns": {
-                "k8s": "kubeless"
-            },
-            "port": {
-                "k8s": 5072,
-                "dev": 15073
-            }
-        },
-        "ric-geo": {
-            "port": {
-                "dev": 15074
-            }
-        },
-        "ric-auth": {
-            "port": {
-                "dev": 15075
-            }
-        },
-        "ric-logic-v3": {
-            "stateful": true,
-            "port": {
-                "dev": 15076
-            }
-        },
-        "ric-tasks": {
-            "port": {
-                "dev": 15077
-            }
-        },
-        "ric-store": {
-            "stateful": true,
-            "port": {
-                "dev": 15078
-            }
-        },
-        "ric-bots": {
-            "stateful": true,
-            "port": {
-                "dev": 15079
-            }
-        },
-        "ric-bill": {
-            "port": {
-                "dev": 15080
-            }
-        },
-        "ric-notify/SMPP": {
-            "port": {
-                "dev": 15081
-            }
-        },
-        "ric-notify/SMTP": {
-            "port": {
-                "dev": 15081
-            }
-        },
-        "lora-agent": {
-            "port": {
-                "dev": 15082
-            }
-        },
-        "ric-handler": {
-            "v": 3,
-            "port": {
-                "dev": 15083
-            }
-        },
-        "ric-web": {
-            "port": {
-                "dev": 15084
-            }
-        }
+  "default": {
+    "port": {
+      "k8s": 5071
     }
+  },
+  "services": {
+    "ric-echo": {
+      "port": {
+        "dev": 15070
+      }
+    },
+    "ric-code": {
+      "port": {
+        "dev": 15071
+      }
+    },
+    "ric-action": {
+      "ns": {
+        "k8s": "kubeless"
+      },
+      "port": {
+        "dev": 15072
+      }
+    },
+    "ric-action/PublicAPI": {
+      "ns": {
+        "k8s": "kubeless"
+      },
+      "port": {
+        "k8s": 5072,
+        "dev": 15073
+      }
+    },
+    "ric-geo": {
+      "port": {
+        "dev": 15074
+      }
+    },
+    "ric-auth": {
+      "port": {
+        "dev": 15075
+      }
+    },
+    "ric-logic-v3": {
+      "stateful": true,
+      "port": {
+        "dev": 15076
+      }
+    },
+    "ric-tasks": {
+      "port": {
+        "dev": 15077
+      }
+    },
+    "ric-store": {
+      "stateful": true,
+      "port": {
+        "dev": 15078
+      }
+    },
+    "ric-bots": {
+      "stateful": true,
+      "port": {
+        "dev": 15079
+      }
+    },
+    "ric-bill": {
+      "port": {
+        "dev": 15080
+      }
+    },
+    "ric-notify/SMPP": {
+      "port": {
+        "dev": 15081
+      }
+    },
+    "ric-notify/SMTP": {
+      "port": {
+        "dev": 15081
+      }
+    },
+    "lora-agent": {
+      "port": {
+        "dev": 15082
+      }
+    },
+    "ric-handler": {
+      "v": 3,
+      "port": {
+        "dev": 15083
+      }
+    },
+    "ric-web": {
+      "port": {
+        "dev": 15084
+      }
+    }
+  }
 }

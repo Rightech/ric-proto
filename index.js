@@ -1,4 +1,7 @@
-const nanoid = require('nanoid');
+let nanoid = require('nanoid');
+if (nanoid && typeof nanoid.nanoid === 'function') {
+  nanoid = nanoid.nanoid;
+}
 
 const path = require('path');
 const grpc = require('@grpc/grpc-js');
