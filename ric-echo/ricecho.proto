@@ -5,7 +5,7 @@ package ric.echo;
 option go_package = "./ric-echo;ricecho";
 
 service Echo {
-  rpc SayHello (EchoRequest) returns (EchoReply) {}
+  rpc SayHello(EchoRequest) returns (EchoReply);
 }
 
 message EchoRequest {
