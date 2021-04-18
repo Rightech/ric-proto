@@ -30,47 +30,47 @@ class ServerContext;
 namespace ric {
 namespace echo {
 
-class Echo final {
+class Greeter final {
  public:
   static constexpr char const* service_full_name() {
-    return "ric.echo.Echo";
+    return "ric.echo.Greeter";
   }
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status SayHello(::grpc::ClientContext* context, const ::ric::echo::EchoRequest& request, ::ric::echo::EchoReply* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::echo::EchoReply>> AsyncSayHello(::grpc::ClientContext* context, const ::ric::echo::EchoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::echo::EchoReply>>(AsyncSayHelloRaw(context, request, cq));
+    virtual ::grpc::Status SayHello(::grpc::ClientContext* context, const ::ric::echo::HelloRequest& request, ::ric::echo::HelloReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::echo::HelloReply>> AsyncSayHello(::grpc::ClientContext* context, const ::ric::echo::HelloRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::echo::HelloReply>>(AsyncSayHelloRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::echo::EchoReply>> PrepareAsyncSayHello(::grpc::ClientContext* context, const ::ric::echo::EchoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::echo::EchoReply>>(PrepareAsyncSayHelloRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::echo::HelloReply>> PrepareAsyncSayHello(::grpc::ClientContext* context, const ::ric::echo::HelloRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::echo::HelloReply>>(PrepareAsyncSayHelloRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
-      virtual void SayHello(::grpc::ClientContext* context, const ::ric::echo::EchoRequest* request, ::ric::echo::EchoReply* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void SayHello(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::echo::EchoReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SayHello(::grpc::ClientContext* context, const ::ric::echo::HelloRequest* request, ::ric::echo::HelloReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SayHello(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::echo::HelloReply* response, std::function<void(::grpc::Status)>) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::echo::EchoReply>* AsyncSayHelloRaw(::grpc::ClientContext* context, const ::ric::echo::EchoRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::echo::EchoReply>* PrepareAsyncSayHelloRaw(::grpc::ClientContext* context, const ::ric::echo::EchoRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::echo::HelloReply>* AsyncSayHelloRaw(::grpc::ClientContext* context, const ::ric::echo::HelloRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::echo::HelloReply>* PrepareAsyncSayHelloRaw(::grpc::ClientContext* context, const ::ric::echo::HelloRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status SayHello(::grpc::ClientContext* context, const ::ric::echo::EchoRequest& request, ::ric::echo::EchoReply* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::echo::EchoReply>> AsyncSayHello(::grpc::ClientContext* context, const ::ric::echo::EchoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::echo::EchoReply>>(AsyncSayHelloRaw(context, request, cq));
+    ::grpc::Status SayHello(::grpc::ClientContext* context, const ::ric::echo::HelloRequest& request, ::ric::echo::HelloReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::echo::HelloReply>> AsyncSayHello(::grpc::ClientContext* context, const ::ric::echo::HelloRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::echo::HelloReply>>(AsyncSayHelloRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::echo::EchoReply>> PrepareAsyncSayHello(::grpc::ClientContext* context, const ::ric::echo::EchoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::echo::EchoReply>>(PrepareAsyncSayHelloRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::echo::HelloReply>> PrepareAsyncSayHello(::grpc::ClientContext* context, const ::ric::echo::HelloRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::echo::HelloReply>>(PrepareAsyncSayHelloRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void SayHello(::grpc::ClientContext* context, const ::ric::echo::EchoRequest* request, ::ric::echo::EchoReply* response, std::function<void(::grpc::Status)>) override;
-      void SayHello(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::echo::EchoReply* response, std::function<void(::grpc::Status)>) override;
+      void SayHello(::grpc::ClientContext* context, const ::ric::echo::HelloRequest* request, ::ric::echo::HelloReply* response, std::function<void(::grpc::Status)>) override;
+      void SayHello(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::echo::HelloReply* response, std::function<void(::grpc::Status)>) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -82,8 +82,8 @@ class Echo final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::ric::echo::EchoReply>* AsyncSayHelloRaw(::grpc::ClientContext* context, const ::ric::echo::EchoRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ric::echo::EchoReply>* PrepareAsyncSayHelloRaw(::grpc::ClientContext* context, const ::ric::echo::EchoRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::echo::HelloReply>* AsyncSayHelloRaw(::grpc::ClientContext* context, const ::ric::echo::HelloRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::echo::HelloReply>* PrepareAsyncSayHelloRaw(::grpc::ClientContext* context, const ::ric::echo::HelloRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_SayHello_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -92,7 +92,7 @@ class Echo final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status SayHello(::grpc::ServerContext* context, const ::ric::echo::EchoRequest* request, ::ric::echo::EchoReply* response);
+    virtual ::grpc::Status SayHello(::grpc::ServerContext* context, const ::ric::echo::HelloRequest* request, ::ric::echo::HelloReply* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_SayHello : public BaseClass {
@@ -106,11 +106,11 @@ class Echo final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SayHello(::grpc::ServerContext* context, const ::ric::echo::EchoRequest* request, ::ric::echo::EchoReply* response) override {
+    ::grpc::Status SayHello(::grpc::ServerContext* context, const ::ric::echo::HelloRequest* request, ::ric::echo::HelloReply* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestSayHello(::grpc::ServerContext* context, ::ric::echo::EchoRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::echo::EchoReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSayHello(::grpc::ServerContext* context, ::ric::echo::HelloRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::echo::HelloReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -122,10 +122,10 @@ class Echo final {
    public:
     ExperimentalWithCallbackMethod_SayHello() {
       ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::echo::EchoRequest, ::ric::echo::EchoReply>(
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::echo::HelloRequest, ::ric::echo::HelloReply>(
           [this](::grpc::ServerContext* context,
-                 const ::ric::echo::EchoRequest* request,
-                 ::ric::echo::EchoReply* response,
+                 const ::ric::echo::HelloRequest* request,
+                 ::ric::echo::HelloReply* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
                    return this->SayHello(context, request, response, controller);
                  }));
@@ -134,11 +134,11 @@ class Echo final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SayHello(::grpc::ServerContext* context, const ::ric::echo::EchoRequest* request, ::ric::echo::EchoReply* response) override {
+    ::grpc::Status SayHello(::grpc::ServerContext* context, const ::ric::echo::HelloRequest* request, ::ric::echo::HelloReply* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void SayHello(::grpc::ServerContext* context, const ::ric::echo::EchoRequest* request, ::ric::echo::EchoReply* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void SayHello(::grpc::ServerContext* context, const ::ric::echo::HelloRequest* request, ::ric::echo::HelloReply* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   typedef ExperimentalWithCallbackMethod_SayHello<Service > ExperimentalCallbackService;
   template <class BaseClass>
@@ -153,7 +153,7 @@ class Echo final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SayHello(::grpc::ServerContext* context, const ::ric::echo::EchoRequest* request, ::ric::echo::EchoReply* response) override {
+    ::grpc::Status SayHello(::grpc::ServerContext* context, const ::ric::echo::HelloRequest* request, ::ric::echo::HelloReply* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -170,7 +170,7 @@ class Echo final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SayHello(::grpc::ServerContext* context, const ::ric::echo::EchoRequest* request, ::ric::echo::EchoReply* response) override {
+    ::grpc::Status SayHello(::grpc::ServerContext* context, const ::ric::echo::HelloRequest* request, ::ric::echo::HelloReply* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -197,7 +197,7 @@ class Echo final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SayHello(::grpc::ServerContext* context, const ::ric::echo::EchoRequest* request, ::ric::echo::EchoReply* response) override {
+    ::grpc::Status SayHello(::grpc::ServerContext* context, const ::ric::echo::HelloRequest* request, ::ric::echo::HelloReply* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -210,18 +210,18 @@ class Echo final {
    public:
     WithStreamedUnaryMethod_SayHello() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::StreamedUnaryHandler< ::ric::echo::EchoRequest, ::ric::echo::EchoReply>(std::bind(&WithStreamedUnaryMethod_SayHello<BaseClass>::StreamedSayHello, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::echo::HelloRequest, ::ric::echo::HelloReply>(std::bind(&WithStreamedUnaryMethod_SayHello<BaseClass>::StreamedSayHello, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_SayHello() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SayHello(::grpc::ServerContext* context, const ::ric::echo::EchoRequest* request, ::ric::echo::EchoReply* response) override {
+    ::grpc::Status SayHello(::grpc::ServerContext* context, const ::ric::echo::HelloRequest* request, ::ric::echo::HelloReply* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedSayHello(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::echo::EchoRequest,::ric::echo::EchoReply>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedSayHello(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::echo::HelloRequest,::ric::echo::HelloReply>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_SayHello<Service > StreamedUnaryService;
   typedef Service SplitStreamedService;
