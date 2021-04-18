@@ -6,7 +6,7 @@ log.setOptions({ level: /* debug*/ 4 });
 registry
   .addServer("ric-echo", {
     async SayHello({ name }) {
-      const message = `Hello, good ${name || "stranger"}`;
+      const message = `hello ${name || "stranger"}`;
       return { message };
     },
   })

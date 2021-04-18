@@ -4,14 +4,14 @@ package ric.echo;
 
 option go_package = "./ric-echo;ricecho";
 
-service Echo {
-  rpc SayHello(EchoRequest) returns (EchoReply);
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
 }
 
-message EchoRequest {
+message HelloRequest {
   string name = 1;
 }
 
-message EchoReply {
+message HelloReply {
   string message = 1;
 }
