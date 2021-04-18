@@ -1,5 +1,5 @@
 
-import { Echo } from './ric-echo';
+import { Greeter } from './ric-echo';
 import { RicCode } from './ric-code';
 import { FunctionControl, PublicAPI } from './ric-action';
 import { Geo } from './ric-geo';
@@ -15,8 +15,8 @@ import { RicWeb } from './ric-web';
 
 interface GrpcRegistry {
   /* clients */  
-  getClient(service: 'ric-echo'): Echo;
-  getClient(service: 'ric-echo/Echo'): Echo;
+  getClient(service: 'ric-echo'): Greeter;
+  getClient(service: 'ric-echo/Greeter'): Greeter;
 
   getClient(service: 'ric-code'): RicCode;
   getClient(service: 'ric-code/RicCode'): RicCode;
@@ -59,8 +59,8 @@ interface GrpcRegistry {
 
 
   /* servers */ 
-  addServer(service: 'ric-echo', impl: Echo);
-  addServer(service: 'ric-echo/Echo', impl: Echo);
+  addServer(service: 'ric-echo', impl: Greeter);
+  addServer(service: 'ric-echo/Greeter', impl: Greeter);
 
   addServer(service: 'ric-code', impl: RicCode);
   addServer(service: 'ric-code/RicCode', impl: RicCode);

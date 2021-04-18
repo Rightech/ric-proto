@@ -19,52 +19,52 @@
 namespace ric {
 namespace echo {
 
-static const char* Echo_method_names[] = {
-  "/ric.echo.Echo/SayHello",
+static const char* Greeter_method_names[] = {
+  "/ric.echo.Greeter/SayHello",
 };
 
-std::unique_ptr< Echo::Stub> Echo::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+std::unique_ptr< Greeter::Stub> Greeter::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< Echo::Stub> stub(new Echo::Stub(channel));
+  std::unique_ptr< Greeter::Stub> stub(new Greeter::Stub(channel));
   return stub;
 }
 
-Echo::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_SayHello_(Echo_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+Greeter::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_SayHello_(Greeter_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status Echo::Stub::SayHello(::grpc::ClientContext* context, const ::ric::echo::EchoRequest& request, ::ric::echo::EchoReply* response) {
+::grpc::Status Greeter::Stub::SayHello(::grpc::ClientContext* context, const ::ric::echo::HelloRequest& request, ::ric::echo::HelloReply* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SayHello_, context, request, response);
 }
 
-void Echo::Stub::experimental_async::SayHello(::grpc::ClientContext* context, const ::ric::echo::EchoRequest* request, ::ric::echo::EchoReply* response, std::function<void(::grpc::Status)> f) {
+void Greeter::Stub::experimental_async::SayHello(::grpc::ClientContext* context, const ::ric::echo::HelloRequest* request, ::ric::echo::HelloReply* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SayHello_, context, request, response, std::move(f));
 }
 
-void Echo::Stub::experimental_async::SayHello(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::echo::EchoReply* response, std::function<void(::grpc::Status)> f) {
+void Greeter::Stub::experimental_async::SayHello(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::echo::HelloReply* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SayHello_, context, request, response, std::move(f));
 }
 
-::grpc::ClientAsyncResponseReader< ::ric::echo::EchoReply>* Echo::Stub::AsyncSayHelloRaw(::grpc::ClientContext* context, const ::ric::echo::EchoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::echo::EchoReply>::Create(channel_.get(), cq, rpcmethod_SayHello_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::ric::echo::HelloReply>* Greeter::Stub::AsyncSayHelloRaw(::grpc::ClientContext* context, const ::ric::echo::HelloRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::echo::HelloReply>::Create(channel_.get(), cq, rpcmethod_SayHello_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::ric::echo::EchoReply>* Echo::Stub::PrepareAsyncSayHelloRaw(::grpc::ClientContext* context, const ::ric::echo::EchoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::echo::EchoReply>::Create(channel_.get(), cq, rpcmethod_SayHello_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::ric::echo::HelloReply>* Greeter::Stub::PrepareAsyncSayHelloRaw(::grpc::ClientContext* context, const ::ric::echo::HelloRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::echo::HelloReply>::Create(channel_.get(), cq, rpcmethod_SayHello_, context, request, false);
 }
 
-Echo::Service::Service() {
+Greeter::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Echo_method_names[0],
+      Greeter_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Echo::Service, ::ric::echo::EchoRequest, ::ric::echo::EchoReply>(
-          std::mem_fn(&Echo::Service::SayHello), this)));
+      new ::grpc::internal::RpcMethodHandler< Greeter::Service, ::ric::echo::HelloRequest, ::ric::echo::HelloReply>(
+          std::mem_fn(&Greeter::Service::SayHello), this)));
 }
 
-Echo::Service::~Service() {
+Greeter::Service::~Service() {
 }
 
-::grpc::Status Echo::Service::SayHello(::grpc::ServerContext* context, const ::ric::echo::EchoRequest* request, ::ric::echo::EchoReply* response) {
+::grpc::Status Greeter::Service::SayHello(::grpc::ServerContext* context, const ::ric::echo::HelloRequest* request, ::ric::echo::HelloReply* response) {
   (void) context;
   (void) request;
   (void) response;

@@ -1,11 +1,11 @@
-export interface Echo {
-  SayHello(request: EchoRequest): Promise<EchoReply>;
+export interface Greeter {
+  SayHello(request: HelloRequest): Promise<HelloReply>;
 }
 
-export interface EchoRequest {
+export interface HelloRequest {
   name?: string;
 }
 
-export interface EchoReply {
+export interface HelloReply {
   message?: string;
 }

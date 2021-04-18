@@ -50,18 +50,18 @@ struct TableStruct_ric_2decho_2fricecho_2eproto {
 void AddDescriptors_ric_2decho_2fricecho_2eproto();
 namespace ric {
 namespace echo {
-class EchoReply;
-class EchoReplyDefaultTypeInternal;
-extern EchoReplyDefaultTypeInternal _EchoReply_default_instance_;
-class EchoRequest;
-class EchoRequestDefaultTypeInternal;
-extern EchoRequestDefaultTypeInternal _EchoRequest_default_instance_;
+class HelloReply;
+class HelloReplyDefaultTypeInternal;
+extern HelloReplyDefaultTypeInternal _HelloReply_default_instance_;
+class HelloRequest;
+class HelloRequestDefaultTypeInternal;
+extern HelloRequestDefaultTypeInternal _HelloRequest_default_instance_;
 }  // namespace echo
 }  // namespace ric
 namespace google {
 namespace protobuf {
-template<> ::ric::echo::EchoReply* Arena::CreateMaybeMessage<::ric::echo::EchoReply>(Arena*);
-template<> ::ric::echo::EchoRequest* Arena::CreateMaybeMessage<::ric::echo::EchoRequest>(Arena*);
+template<> ::ric::echo::HelloReply* Arena::CreateMaybeMessage<::ric::echo::HelloReply>(Arena*);
+template<> ::ric::echo::HelloRequest* Arena::CreateMaybeMessage<::ric::echo::HelloRequest>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace ric {
@@ -69,25 +69,25 @@ namespace echo {
 
 // ===================================================================
 
-class EchoRequest final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.echo.EchoRequest) */ {
+class HelloRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.echo.HelloRequest) */ {
  public:
-  EchoRequest();
-  virtual ~EchoRequest();
+  HelloRequest();
+  virtual ~HelloRequest();
 
-  EchoRequest(const EchoRequest& from);
+  HelloRequest(const HelloRequest& from);
 
-  inline EchoRequest& operator=(const EchoRequest& from) {
+  inline HelloRequest& operator=(const HelloRequest& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  EchoRequest(EchoRequest&& from) noexcept
-    : EchoRequest() {
+  HelloRequest(HelloRequest&& from) noexcept
+    : HelloRequest() {
     *this = ::std::move(from);
   }
 
-  inline EchoRequest& operator=(EchoRequest&& from) noexcept {
+  inline HelloRequest& operator=(HelloRequest&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -99,34 +99,34 @@ class EchoRequest final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const EchoRequest& default_instance();
+  static const HelloRequest& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const EchoRequest* internal_default_instance() {
-    return reinterpret_cast<const EchoRequest*>(
-               &_EchoRequest_default_instance_);
+  static inline const HelloRequest* internal_default_instance() {
+    return reinterpret_cast<const HelloRequest*>(
+               &_HelloRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  void Swap(EchoRequest* other);
-  friend void swap(EchoRequest& a, EchoRequest& b) {
+  void Swap(HelloRequest* other);
+  friend void swap(HelloRequest& a, HelloRequest& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline EchoRequest* New() const final {
-    return CreateMaybeMessage<EchoRequest>(nullptr);
+  inline HelloRequest* New() const final {
+    return CreateMaybeMessage<HelloRequest>(nullptr);
   }
 
-  EchoRequest* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<EchoRequest>(arena);
+  HelloRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<HelloRequest>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const EchoRequest& from);
-  void MergeFrom(const EchoRequest& from);
+  void CopyFrom(const HelloRequest& from);
+  void MergeFrom(const HelloRequest& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -148,7 +148,7 @@ class EchoRequest final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(EchoRequest* other);
+  void InternalSwap(HelloRequest* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -178,7 +178,7 @@ class EchoRequest final :
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // @@protoc_insertion_point(class_scope:ric.echo.EchoRequest)
+  // @@protoc_insertion_point(class_scope:ric.echo.HelloRequest)
  private:
   class HasBitSetters;
 
@@ -189,25 +189,25 @@ class EchoRequest final :
 };
 // -------------------------------------------------------------------
 
-class EchoReply final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.echo.EchoReply) */ {
+class HelloReply final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.echo.HelloReply) */ {
  public:
-  EchoReply();
-  virtual ~EchoReply();
+  HelloReply();
+  virtual ~HelloReply();
 
-  EchoReply(const EchoReply& from);
+  HelloReply(const HelloReply& from);
 
-  inline EchoReply& operator=(const EchoReply& from) {
+  inline HelloReply& operator=(const HelloReply& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  EchoReply(EchoReply&& from) noexcept
-    : EchoReply() {
+  HelloReply(HelloReply&& from) noexcept
+    : HelloReply() {
     *this = ::std::move(from);
   }
 
-  inline EchoReply& operator=(EchoReply&& from) noexcept {
+  inline HelloReply& operator=(HelloReply&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -219,34 +219,34 @@ class EchoReply final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const EchoReply& default_instance();
+  static const HelloReply& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const EchoReply* internal_default_instance() {
-    return reinterpret_cast<const EchoReply*>(
-               &_EchoReply_default_instance_);
+  static inline const HelloReply* internal_default_instance() {
+    return reinterpret_cast<const HelloReply*>(
+               &_HelloReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  void Swap(EchoReply* other);
-  friend void swap(EchoReply& a, EchoReply& b) {
+  void Swap(HelloReply* other);
+  friend void swap(HelloReply& a, HelloReply& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline EchoReply* New() const final {
-    return CreateMaybeMessage<EchoReply>(nullptr);
+  inline HelloReply* New() const final {
+    return CreateMaybeMessage<HelloReply>(nullptr);
   }
 
-  EchoReply* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<EchoReply>(arena);
+  HelloReply* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<HelloReply>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const EchoReply& from);
-  void MergeFrom(const EchoReply& from);
+  void CopyFrom(const HelloReply& from);
+  void MergeFrom(const HelloReply& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -268,7 +268,7 @@ class EchoReply final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(EchoReply* other);
+  void InternalSwap(HelloReply* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -298,7 +298,7 @@ class EchoReply final :
   ::std::string* release_message();
   void set_allocated_message(::std::string* message);
 
-  // @@protoc_insertion_point(class_scope:ric.echo.EchoReply)
+  // @@protoc_insertion_point(class_scope:ric.echo.HelloReply)
  private:
   class HasBitSetters;
 
@@ -316,116 +316,116 @@ class EchoReply final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// EchoRequest
+// HelloRequest
 
 // string name = 1;
-inline void EchoRequest::clear_name() {
+inline void HelloRequest::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& EchoRequest::name() const {
-  // @@protoc_insertion_point(field_get:ric.echo.EchoRequest.name)
+inline const ::std::string& HelloRequest::name() const {
+  // @@protoc_insertion_point(field_get:ric.echo.HelloRequest.name)
   return name_.GetNoArena();
 }
-inline void EchoRequest::set_name(const ::std::string& value) {
+inline void HelloRequest::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.echo.EchoRequest.name)
+  // @@protoc_insertion_point(field_set:ric.echo.HelloRequest.name)
 }
 #if LANG_CXX11
-inline void EchoRequest::set_name(::std::string&& value) {
+inline void HelloRequest::set_name(::std::string&& value) {
   
   name_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.echo.EchoRequest.name)
+  // @@protoc_insertion_point(field_set_rvalue:ric.echo.HelloRequest.name)
 }
 #endif
-inline void EchoRequest::set_name(const char* value) {
+inline void HelloRequest::set_name(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.echo.EchoRequest.name)
+  // @@protoc_insertion_point(field_set_char:ric.echo.HelloRequest.name)
 }
-inline void EchoRequest::set_name(const char* value, size_t size) {
+inline void HelloRequest::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.echo.EchoRequest.name)
+  // @@protoc_insertion_point(field_set_pointer:ric.echo.HelloRequest.name)
 }
-inline ::std::string* EchoRequest::mutable_name() {
+inline ::std::string* HelloRequest::mutable_name() {
   
-  // @@protoc_insertion_point(field_mutable:ric.echo.EchoRequest.name)
+  // @@protoc_insertion_point(field_mutable:ric.echo.HelloRequest.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* EchoRequest::release_name() {
-  // @@protoc_insertion_point(field_release:ric.echo.EchoRequest.name)
+inline ::std::string* HelloRequest::release_name() {
+  // @@protoc_insertion_point(field_release:ric.echo.HelloRequest.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void EchoRequest::set_allocated_name(::std::string* name) {
+inline void HelloRequest::set_allocated_name(::std::string* name) {
   if (name != nullptr) {
     
   } else {
     
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:ric.echo.EchoRequest.name)
+  // @@protoc_insertion_point(field_set_allocated:ric.echo.HelloRequest.name)
 }
 
 // -------------------------------------------------------------------
 
-// EchoReply
+// HelloReply
 
 // string message = 1;
-inline void EchoReply::clear_message() {
+inline void HelloReply::clear_message() {
   message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& EchoReply::message() const {
-  // @@protoc_insertion_point(field_get:ric.echo.EchoReply.message)
+inline const ::std::string& HelloReply::message() const {
+  // @@protoc_insertion_point(field_get:ric.echo.HelloReply.message)
   return message_.GetNoArena();
 }
-inline void EchoReply::set_message(const ::std::string& value) {
+inline void HelloReply::set_message(const ::std::string& value) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.echo.EchoReply.message)
+  // @@protoc_insertion_point(field_set:ric.echo.HelloReply.message)
 }
 #if LANG_CXX11
-inline void EchoReply::set_message(::std::string&& value) {
+inline void HelloReply::set_message(::std::string&& value) {
   
   message_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.echo.EchoReply.message)
+  // @@protoc_insertion_point(field_set_rvalue:ric.echo.HelloReply.message)
 }
 #endif
-inline void EchoReply::set_message(const char* value) {
+inline void HelloReply::set_message(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.echo.EchoReply.message)
+  // @@protoc_insertion_point(field_set_char:ric.echo.HelloReply.message)
 }
-inline void EchoReply::set_message(const char* value, size_t size) {
+inline void HelloReply::set_message(const char* value, size_t size) {
   
   message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.echo.EchoReply.message)
+  // @@protoc_insertion_point(field_set_pointer:ric.echo.HelloReply.message)
 }
-inline ::std::string* EchoReply::mutable_message() {
+inline ::std::string* HelloReply::mutable_message() {
   
-  // @@protoc_insertion_point(field_mutable:ric.echo.EchoReply.message)
+  // @@protoc_insertion_point(field_mutable:ric.echo.HelloReply.message)
   return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* EchoReply::release_message() {
-  // @@protoc_insertion_point(field_release:ric.echo.EchoReply.message)
+inline ::std::string* HelloReply::release_message() {
+  // @@protoc_insertion_point(field_release:ric.echo.HelloReply.message)
   
   return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void EchoReply::set_allocated_message(::std::string* message) {
+inline void HelloReply::set_allocated_message(::std::string* message) {
   if (message != nullptr) {
     
   } else {
     
   }
   message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
-  // @@protoc_insertion_point(field_set_allocated:ric.echo.EchoReply.message)
+  // @@protoc_insertion_point(field_set_allocated:ric.echo.HelloReply.message)
 }
 
 #ifdef __GNUC__
