@@ -239,12 +239,7 @@ class GrpcClient {
   getPort() {
     const devHost = process.env.RIC_GRPC_DEV_HOST || 'localhost';
     const devPort = this.meta.port.dev;
-    console.log({
-      IN_KUBE,
-      HOST_RESOLVE,
-      devPort,
-      devHost
-    })
+
     if (!IN_KUBE && !HOST_RESOLVE && devPort && devHost) {
       return devPort;
     }
