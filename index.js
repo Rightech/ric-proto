@@ -19,6 +19,18 @@ const IS_DEV = process.env.NODE_ENV === 'development';
 const DEFAULT_KUBE_PORT = 5071;
 const CALL_DEBUG = Symbol('log');
 
+const clientOpts = {
+  'grpc.enable_retries': 1,
+  'grpc.initial_reconnect_backoff_ms': 1000,
+  'grpc.max_reconnect_backoff_ms': 10000,
+  'grpc.min_reconnect_backoff_ms': 5000,
+  'grpc.keepalive_time_ms': 45000,
+  'grpc.keepalive_timeout_ms': 120000,
+  'grpc.http2.min_time_between_pings_ms': 60000,
+  'grpc.http2.min_ping_interval_without_data_ms': 60000,
+  'grpc.keepalive_permit_without_calls': 1
+};
+
 const options = {
   keepCase: false,
   longs: String,
@@ -198,7 +210,9 @@ class GrpcClient {
   }
 
   createRef() {
-    this.ref = new this.serviceCtor(this.getAddr(), this.getCredentials());
+    this.ref = new this.serviceCtor(this.getAddr(), this.getCredentials(), {
+      ...clientOpts
+    });
 
     log.info(`${this.name.full} will connect to ${this.getAddr()}`);
     this._export();
