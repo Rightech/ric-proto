@@ -33,16 +33,14 @@ message CancelWatchRequest {
   string object_id = 1;
 }
 
-message CancelWatchResponse {
-}
+message CancelWatchResponse {}
 
 message CommitModelRequest {
   string object_id = 1;
   repeated string fields = 2;
 }
 
-message CommitModelResponse {
-}
+message CommitModelResponse {}
 
 message WatchUpdateRequest {
   string object_id = 1;
