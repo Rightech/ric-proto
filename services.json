@@ -95,6 +95,11 @@
       "port": {
         "dev": 15084
       }
+    },
+    "ric-packet-spy": {
+      "port": {
+        "dev": 15085
+      }
     }
   }
 }
