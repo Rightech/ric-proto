@@ -130,6 +130,10 @@ class GrpcServer {
   }
 
   getPort() {
+    const env = process.env.GRPC_PORT;
+    if (env) {
+      return env;
+    }
     if (IN_KUBE || HOST_RESOLVE) {
       if (this.meta.port.k8s) {
         return this.meta.port.k8s;
