@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package ric.packet.spy;
+
+option go_package = "./ric-packet-spy;ricpacketspy";
+
+service RicPacketSpy {
+  rpc GetState(GetStateRequest) returns (GetStateResponse);
+  rpc StartWatch(StartWatchRequest) returns (StartWatchResponse);
+  rpc CancelWatch(CancelWatchRequest) returns (CancelWatchResponse);
+  rpc CommitModel(CommitModelRequest) returns (CommitModelResponse);
+  rpc WatchUpdate(WatchUpdateRequest) returns (stream ObjectUpdate);
+}
+
+message GetStateRequest {
+  string object_id = 1;
+}
+
+message GetStateResponse {
+  bytes data = 1;
+}
+
+message StartWatchRequest {
+  string object_id = 1;
+  int64 timeout = 2;
+}
+
+message StartWatchResponse {
+  int64 timeout = 1;
+}
+
+message CancelWatchRequest {
+  string object_id = 1;
+}
+
+message CancelWatchResponse {}
+
+message CommitModelRequest {
+  string object_id = 1;
+  repeated string fields = 2;
+}
+
+message CommitModelResponse {}
+
+message WatchUpdateRequest {
+  string object_id = 1;
+}
+
+message ObjectUpdate {
+  bytes data = 1;
+}
