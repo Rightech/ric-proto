@@ -12,7 +12,7 @@ import { Billing } from './ric-bill';
 import { SMPP, SMTP } from './ric-notify';
 import { Service } from './ric-handler';
 import { RicWeb } from './ric-web';
-import {  } from './ric-packet-spy';
+import { RicPacketSpy } from './ric-packet-spy';
 
 interface GrpcRegistry {
   /* clients */  
@@ -58,7 +58,8 @@ interface GrpcRegistry {
   getClient(service: 'ric-web'): RicWeb;
   getClient(service: 'ric-web/RicWeb'): RicWeb;
 
-
+  getClient(service: 'ric-packet-spy'): RicPacketSpy;
+  getClient(service: 'ric-packet-spy/RicPacketSpy'): RicPacketSpy;
 
 
   /* servers */ 
@@ -104,7 +105,8 @@ interface GrpcRegistry {
   addServer(service: 'ric-web', impl: RicWeb);
   addServer(service: 'ric-web/RicWeb', impl: RicWeb);
 
-
+  addServer(service: 'ric-packet-spy', impl: RicPacketSpy);
+  addServer(service: 'ric-packet-spy/RicPacketSpy', impl: RicPacketSpy);
 }
 
 declare const index: { registry: GrpcRegistry };
