@@ -57,6 +57,7 @@ class ServiceName {
 
     const parts = service.split('-');
     const [, subpackage] = parts;
+    this.package = service.replace(/-/gi, '.');
     this.subpackage = subpackage;
     this.version = parts.find((part) => part.startsWith('v'));
   }
@@ -325,16 +326,13 @@ class Registry {
       return this.defs[name];
     }
     name = new ServiceName(name);
-    const def = protoLoader.loadSync(name.getProtofilePath(), options);
-    let ric = grpc.loadPackageDefinition(def).ric;
-    if (name.subpackage && ric[name.subpackage]) {
-      ric = ric[name.subpackage];
-    }
-    if (name.version && ric[name.version]) {
-      ric = ric[name.version];
-    }
-    this.defs[name.full] = ric;
-    return ric;
+
+    const file = protoLoader.loadSync(name.getProtofilePath(), options);
+    const root = grpc.loadPackageDefinition(file);
+    const def = name.package.split(".").reduce((o, k) => o && o[k], root)
+
+    this.defs[name.full] = def;
+    return def;
   }
 
   addServer(name, impl) {
