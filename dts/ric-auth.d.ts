@@ -37,6 +37,7 @@ export interface AuthObjectResponse {
   licenseId?: string;
   license?: { [key: string]: number };
   stats?: { [key: string]: StatRecord };
+  fullPacketMode?: boolean;
 }
 
 export interface AuthObjectArgument {

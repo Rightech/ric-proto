@@ -786,6 +786,12 @@ class AuthObjectResponse final :
   ::google::protobuf::int64 expires_at() const;
   void set_expires_at(::google::protobuf::int64 value);
 
+  // bool full_packet_mode = 14;
+  void clear_full_packet_mode();
+  static const int kFullPacketModeFieldNumber = 14;
+  bool full_packet_mode() const;
+  void set_full_packet_mode(bool value);
+
   // @@protoc_insertion_point(class_scope:ric.auth.AuthObjectResponse)
  private:
   class HasBitSetters;
@@ -814,6 +820,7 @@ class AuthObjectResponse final :
   ::google::protobuf::internal::ArenaStringPtr license_id_;
   ::google::protobuf::int64 issued_at_;
   ::google::protobuf::int64 expires_at_;
+  bool full_packet_mode_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dauth_2fricauth_2eproto;
 };
@@ -2989,6 +2996,20 @@ inline ::google::protobuf::Map< ::std::string, ::ric::auth::StatRecord >*
 AuthObjectResponse::mutable_stats() {
   // @@protoc_insertion_point(field_mutable_map:ric.auth.AuthObjectResponse.stats)
   return stats_.MutableMap();
+}
+
+// bool full_packet_mode = 14;
+inline void AuthObjectResponse::clear_full_packet_mode() {
+  full_packet_mode_ = false;
+}
+inline bool AuthObjectResponse::full_packet_mode() const {
+  // @@protoc_insertion_point(field_get:ric.auth.AuthObjectResponse.full_packet_mode)
+  return full_packet_mode_;
+}
+inline void AuthObjectResponse::set_full_packet_mode(bool value) {
+  
+  full_packet_mode_ = value;
+  // @@protoc_insertion_point(field_set:ric.auth.AuthObjectResponse.full_packet_mode)
 }
 
 // -------------------------------------------------------------------
