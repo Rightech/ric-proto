@@ -42,6 +42,7 @@ message AuthObjectResponse {
   string license_id = 11;
   map<string, int64> license = 12;
   map<string, StatRecord> stats = 13;
+  bool full_packet_mode = 14;
 }
 
 message AuthObjectArgument {
