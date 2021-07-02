@@ -48,8 +48,10 @@ message LimitingParams {
 message AuthResponse {
   string object_id = 1;
   string group_id = 2;
-  bytes config = 3;
-  LimitingParams limits = 4;
+  string license_id = 3;
+  string session_id = 4;
+  bytes config = 5;
+  LimitingParams limits = 6;
 }
 
 message DataRequest {
