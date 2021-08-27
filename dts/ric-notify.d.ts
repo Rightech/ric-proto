@@ -11,6 +11,10 @@ export interface SMTP {
   CheckGateway(request: SMTPCheckGatewayRequest): Promise<SMTPCheckGatewayResponse>;
 }
 
+export interface Push {
+  Send(request: PushSendRequest): Promise<PushSendResponse>;
+}
+
 export interface UserContext {
   groupId?: string;
   userId?: string;
@@ -121,4 +125,14 @@ export interface SMTPCheckGatewayRequest {
 
 export interface SMTPCheckGatewayResponse {
   success?: boolean;
+}
+
+export interface PushSendRequest {
+  text?: string;
+  level?: string;
+  oid?: string;
+}
+
+export interface PushSendResponse {
+
 }

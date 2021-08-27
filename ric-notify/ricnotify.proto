@@ -148,5 +148,4 @@ message PushSendRequest {
   string oid = 3;
 }
 
-message PushSendResponse {
-}
+message PushSendResponse {}

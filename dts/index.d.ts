@@ -9,7 +9,7 @@ import { TaskService, KindService } from './ric-tasks';
 import { RicStore } from './ric-store';
 import { Bots } from './ric-bots';
 import { Billing } from './ric-bill';
-import { SMPP, SMTP } from './ric-notify';
+import { SMPP, SMTP, Push } from './ric-notify';
 import { Service } from './ric-handler';
 import { RicWeb } from './ric-web';
 import { RicPacketSpy } from './ric-packet-spy';
@@ -51,6 +51,7 @@ interface GrpcRegistry {
   getClient(service: 'ric-notify'): SMPP;
   getClient(service: 'ric-notify/SMPP'): SMPP;
   getClient(service: 'ric-notify/SMTP'): SMTP;
+  getClient(service: 'ric-notify/Push'): Push;
 
   getClient(service: 'ric-handler'): Service;
   getClient(service: 'ric-handler/Service'): Service;
@@ -98,6 +99,7 @@ interface GrpcRegistry {
   addServer(service: 'ric-notify', impl: SMPP);
   addServer(service: 'ric-notify/SMPP', impl: SMPP);
   addServer(service: 'ric-notify/SMTP', impl: SMTP);
+  addServer(service: 'ric-notify/Push', impl: Push);
 
   addServer(service: 'ric-handler', impl: Service);
   addServer(service: 'ric-handler/Service', impl: Service);

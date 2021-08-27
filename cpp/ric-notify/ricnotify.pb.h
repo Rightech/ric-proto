@@ -43,7 +43,7 @@ struct TableStruct_ric_2dnotify_2fricnotify_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[17]
+  static const ::google::protobuf::internal::ParseTable schema[19]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -55,6 +55,12 @@ namespace notify {
 class Attachment;
 class AttachmentDefaultTypeInternal;
 extern AttachmentDefaultTypeInternal _Attachment_default_instance_;
+class PushSendRequest;
+class PushSendRequestDefaultTypeInternal;
+extern PushSendRequestDefaultTypeInternal _PushSendRequest_default_instance_;
+class PushSendResponse;
+class PushSendResponseDefaultTypeInternal;
+extern PushSendResponseDefaultTypeInternal _PushSendResponse_default_instance_;
 class SMPPCheckGatewayRequest;
 class SMPPCheckGatewayRequestDefaultTypeInternal;
 extern SMPPCheckGatewayRequestDefaultTypeInternal _SMPPCheckGatewayRequest_default_instance_;
@@ -108,6 +114,8 @@ extern UserContextDefaultTypeInternal _UserContext_default_instance_;
 namespace google {
 namespace protobuf {
 template<> ::ric::notify::Attachment* Arena::CreateMaybeMessage<::ric::notify::Attachment>(Arena*);
+template<> ::ric::notify::PushSendRequest* Arena::CreateMaybeMessage<::ric::notify::PushSendRequest>(Arena*);
+template<> ::ric::notify::PushSendResponse* Arena::CreateMaybeMessage<::ric::notify::PushSendResponse>(Arena*);
 template<> ::ric::notify::SMPPCheckGatewayRequest* Arena::CreateMaybeMessage<::ric::notify::SMPPCheckGatewayRequest>(Arena*);
 template<> ::ric::notify::SMPPCheckGatewayResponse* Arena::CreateMaybeMessage<::ric::notify::SMPPCheckGatewayResponse>(Arena*);
 template<> ::ric::notify::SMPPGatewayInfoRequest* Arena::CreateMaybeMessage<::ric::notify::SMPPGatewayInfoRequest>(Arena*);
@@ -2733,6 +2741,261 @@ class SMTPCheckGatewayResponse final :
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool success_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
+};
+// -------------------------------------------------------------------
+
+class PushSendRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.PushSendRequest) */ {
+ public:
+  PushSendRequest();
+  virtual ~PushSendRequest();
+
+  PushSendRequest(const PushSendRequest& from);
+
+  inline PushSendRequest& operator=(const PushSendRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  PushSendRequest(PushSendRequest&& from) noexcept
+    : PushSendRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline PushSendRequest& operator=(PushSendRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const PushSendRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const PushSendRequest* internal_default_instance() {
+    return reinterpret_cast<const PushSendRequest*>(
+               &_PushSendRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  void Swap(PushSendRequest* other);
+  friend void swap(PushSendRequest& a, PushSendRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline PushSendRequest* New() const final {
+    return CreateMaybeMessage<PushSendRequest>(nullptr);
+  }
+
+  PushSendRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<PushSendRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const PushSendRequest& from);
+  void MergeFrom(const PushSendRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PushSendRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string text = 1;
+  void clear_text();
+  static const int kTextFieldNumber = 1;
+  const ::std::string& text() const;
+  void set_text(const ::std::string& value);
+  #if LANG_CXX11
+  void set_text(::std::string&& value);
+  #endif
+  void set_text(const char* value);
+  void set_text(const char* value, size_t size);
+  ::std::string* mutable_text();
+  ::std::string* release_text();
+  void set_allocated_text(::std::string* text);
+
+  // string level = 2;
+  void clear_level();
+  static const int kLevelFieldNumber = 2;
+  const ::std::string& level() const;
+  void set_level(const ::std::string& value);
+  #if LANG_CXX11
+  void set_level(::std::string&& value);
+  #endif
+  void set_level(const char* value);
+  void set_level(const char* value, size_t size);
+  ::std::string* mutable_level();
+  ::std::string* release_level();
+  void set_allocated_level(::std::string* level);
+
+  // string oid = 3;
+  void clear_oid();
+  static const int kOidFieldNumber = 3;
+  const ::std::string& oid() const;
+  void set_oid(const ::std::string& value);
+  #if LANG_CXX11
+  void set_oid(::std::string&& value);
+  #endif
+  void set_oid(const char* value);
+  void set_oid(const char* value, size_t size);
+  ::std::string* mutable_oid();
+  ::std::string* release_oid();
+  void set_allocated_oid(::std::string* oid);
+
+  // @@protoc_insertion_point(class_scope:ric.notify.PushSendRequest)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr text_;
+  ::google::protobuf::internal::ArenaStringPtr level_;
+  ::google::protobuf::internal::ArenaStringPtr oid_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
+};
+// -------------------------------------------------------------------
+
+class PushSendResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.PushSendResponse) */ {
+ public:
+  PushSendResponse();
+  virtual ~PushSendResponse();
+
+  PushSendResponse(const PushSendResponse& from);
+
+  inline PushSendResponse& operator=(const PushSendResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  PushSendResponse(PushSendResponse&& from) noexcept
+    : PushSendResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline PushSendResponse& operator=(PushSendResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const PushSendResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const PushSendResponse* internal_default_instance() {
+    return reinterpret_cast<const PushSendResponse*>(
+               &_PushSendResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  void Swap(PushSendResponse* other);
+  friend void swap(PushSendResponse& a, PushSendResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline PushSendResponse* New() const final {
+    return CreateMaybeMessage<PushSendResponse>(nullptr);
+  }
+
+  PushSendResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<PushSendResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const PushSendResponse& from);
+  void MergeFrom(const PushSendResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PushSendResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:ric.notify.PushSendResponse)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
 };
@@ -5379,9 +5642,180 @@ inline void SMTPCheckGatewayResponse::set_success(bool value) {
   // @@protoc_insertion_point(field_set:ric.notify.SMTPCheckGatewayResponse.success)
 }
 
+// -------------------------------------------------------------------
+
+// PushSendRequest
+
+// string text = 1;
+inline void PushSendRequest::clear_text() {
+  text_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& PushSendRequest::text() const {
+  // @@protoc_insertion_point(field_get:ric.notify.PushSendRequest.text)
+  return text_.GetNoArena();
+}
+inline void PushSendRequest::set_text(const ::std::string& value) {
+  
+  text_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.PushSendRequest.text)
+}
+#if LANG_CXX11
+inline void PushSendRequest::set_text(::std::string&& value) {
+  
+  text_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.PushSendRequest.text)
+}
+#endif
+inline void PushSendRequest::set_text(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  text_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.PushSendRequest.text)
+}
+inline void PushSendRequest::set_text(const char* value, size_t size) {
+  
+  text_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.PushSendRequest.text)
+}
+inline ::std::string* PushSendRequest::mutable_text() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.PushSendRequest.text)
+  return text_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* PushSendRequest::release_text() {
+  // @@protoc_insertion_point(field_release:ric.notify.PushSendRequest.text)
+  
+  return text_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void PushSendRequest::set_allocated_text(::std::string* text) {
+  if (text != nullptr) {
+    
+  } else {
+    
+  }
+  text_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), text);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.PushSendRequest.text)
+}
+
+// string level = 2;
+inline void PushSendRequest::clear_level() {
+  level_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& PushSendRequest::level() const {
+  // @@protoc_insertion_point(field_get:ric.notify.PushSendRequest.level)
+  return level_.GetNoArena();
+}
+inline void PushSendRequest::set_level(const ::std::string& value) {
+  
+  level_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.PushSendRequest.level)
+}
+#if LANG_CXX11
+inline void PushSendRequest::set_level(::std::string&& value) {
+  
+  level_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.PushSendRequest.level)
+}
+#endif
+inline void PushSendRequest::set_level(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  level_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.PushSendRequest.level)
+}
+inline void PushSendRequest::set_level(const char* value, size_t size) {
+  
+  level_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.PushSendRequest.level)
+}
+inline ::std::string* PushSendRequest::mutable_level() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.PushSendRequest.level)
+  return level_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* PushSendRequest::release_level() {
+  // @@protoc_insertion_point(field_release:ric.notify.PushSendRequest.level)
+  
+  return level_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void PushSendRequest::set_allocated_level(::std::string* level) {
+  if (level != nullptr) {
+    
+  } else {
+    
+  }
+  level_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), level);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.PushSendRequest.level)
+}
+
+// string oid = 3;
+inline void PushSendRequest::clear_oid() {
+  oid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& PushSendRequest::oid() const {
+  // @@protoc_insertion_point(field_get:ric.notify.PushSendRequest.oid)
+  return oid_.GetNoArena();
+}
+inline void PushSendRequest::set_oid(const ::std::string& value) {
+  
+  oid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.PushSendRequest.oid)
+}
+#if LANG_CXX11
+inline void PushSendRequest::set_oid(::std::string&& value) {
+  
+  oid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.PushSendRequest.oid)
+}
+#endif
+inline void PushSendRequest::set_oid(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  oid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.PushSendRequest.oid)
+}
+inline void PushSendRequest::set_oid(const char* value, size_t size) {
+  
+  oid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.PushSendRequest.oid)
+}
+inline ::std::string* PushSendRequest::mutable_oid() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.PushSendRequest.oid)
+  return oid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* PushSendRequest::release_oid() {
+  // @@protoc_insertion_point(field_release:ric.notify.PushSendRequest.oid)
+  
+  return oid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void PushSendRequest::set_allocated_oid(::std::string* oid) {
+  if (oid != nullptr) {
+    
+  } else {
+    
+  }
+  oid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), oid);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.PushSendRequest.oid)
+}
+
+// -------------------------------------------------------------------
+
+// PushSendResponse
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
