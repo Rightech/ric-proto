@@ -19,6 +19,10 @@ service SMTP {
   rpc CheckGateway(SMTPCheckGatewayRequest) returns (SMTPCheckGatewayResponse);
 }
 
+service Push {
+  rpc Send(PushSendRequest) returns (PushSendResponse);
+}
+
 message UserContext {
   string group_id = 1;
   string user_id = 2;
@@ -136,4 +140,13 @@ message SMTPCheckGatewayRequest {
 
 message SMTPCheckGatewayResponse {
   bool success = 1;
+}
+
+message PushSendRequest {
+  string text = 1;
+  string level = 2;
+  string oid = 3;
+}
+
+message PushSendResponse {
 }
