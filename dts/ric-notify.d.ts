@@ -19,14 +19,15 @@ export interface Http {
   Request(request: HttpRequest): Promise<HttpResponse>;
 }
 
-export interface UserContext {
+export interface Context {
   groupId?: string;
   userId?: string;
   spanId?: string;
+  objectId?: string;
 }
 
 export interface SMPPSendRequest {
-  ctx?: UserContext;
+  ctx?: Context;
   gatewayId?: string;
   phone?: string;
   message?: string;
@@ -82,7 +83,7 @@ export interface Attachment {
 }
 
 export interface SMTPSendRequest {
-  ctx?: UserContext;
+  ctx?: Context;
   gatewayId?: string;
   to?: string[];
   sender?: string;
@@ -141,12 +142,8 @@ export interface PushSendResponse {
 
 }
 
-export interface Ctx {
-  objectId?: string;
-}
-
 export interface HttpRequest {
-  ctx?: Ctx;
+  ctx?: Context;
   method?: string;
   url?: string;
   headers?: { [key: string]: string };
@@ -154,7 +151,7 @@ export interface HttpRequest {
 }
 
 export interface HttpResponse {
-  ctx?: Ctx;
+  ctx?: Context;
   statusCode?: number;
   headers?: { [key: string]: string };
   body?: any;

@@ -46,7 +46,7 @@ struct TableStruct_ric_2dnotify_2fricnotify_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[24]
+  static const ::google::protobuf::internal::ParseTable schema[23]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -58,9 +58,9 @@ namespace notify {
 class Attachment;
 class AttachmentDefaultTypeInternal;
 extern AttachmentDefaultTypeInternal _Attachment_default_instance_;
-class Ctx;
-class CtxDefaultTypeInternal;
-extern CtxDefaultTypeInternal _Ctx_default_instance_;
+class Context;
+class ContextDefaultTypeInternal;
+extern ContextDefaultTypeInternal _Context_default_instance_;
 class HttpRequest;
 class HttpRequestDefaultTypeInternal;
 extern HttpRequestDefaultTypeInternal _HttpRequest_default_instance_;
@@ -124,15 +124,12 @@ extern SMTPSendRequestDefaultTypeInternal _SMTPSendRequest_default_instance_;
 class SMTPSendResponse;
 class SMTPSendResponseDefaultTypeInternal;
 extern SMTPSendResponseDefaultTypeInternal _SMTPSendResponse_default_instance_;
-class UserContext;
-class UserContextDefaultTypeInternal;
-extern UserContextDefaultTypeInternal _UserContext_default_instance_;
 }  // namespace notify
 }  // namespace ric
 namespace google {
 namespace protobuf {
 template<> ::ric::notify::Attachment* Arena::CreateMaybeMessage<::ric::notify::Attachment>(Arena*);
-template<> ::ric::notify::Ctx* Arena::CreateMaybeMessage<::ric::notify::Ctx>(Arena*);
+template<> ::ric::notify::Context* Arena::CreateMaybeMessage<::ric::notify::Context>(Arena*);
 template<> ::ric::notify::HttpRequest* Arena::CreateMaybeMessage<::ric::notify::HttpRequest>(Arena*);
 template<> ::ric::notify::HttpRequest_HeadersEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::notify::HttpRequest_HeadersEntry_DoNotUse>(Arena*);
 template<> ::ric::notify::HttpResponse* Arena::CreateMaybeMessage<::ric::notify::HttpResponse>(Arena*);
@@ -154,7 +151,6 @@ template<> ::ric::notify::SMTPGatewayInfoRequest* Arena::CreateMaybeMessage<::ri
 template<> ::ric::notify::SMTPGatewayInfoResponse* Arena::CreateMaybeMessage<::ric::notify::SMTPGatewayInfoResponse>(Arena*);
 template<> ::ric::notify::SMTPSendRequest* Arena::CreateMaybeMessage<::ric::notify::SMTPSendRequest>(Arena*);
 template<> ::ric::notify::SMTPSendResponse* Arena::CreateMaybeMessage<::ric::notify::SMTPSendResponse>(Arena*);
-template<> ::ric::notify::UserContext* Arena::CreateMaybeMessage<::ric::notify::UserContext>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace ric {
@@ -187,25 +183,25 @@ inline bool SMPPStatusResponse_State_Parse(
 }
 // ===================================================================
 
-class UserContext final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.UserContext) */ {
+class Context final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.Context) */ {
  public:
-  UserContext();
-  virtual ~UserContext();
+  Context();
+  virtual ~Context();
 
-  UserContext(const UserContext& from);
+  Context(const Context& from);
 
-  inline UserContext& operator=(const UserContext& from) {
+  inline Context& operator=(const Context& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  UserContext(UserContext&& from) noexcept
-    : UserContext() {
+  Context(Context&& from) noexcept
+    : Context() {
     *this = ::std::move(from);
   }
 
-  inline UserContext& operator=(UserContext&& from) noexcept {
+  inline Context& operator=(Context&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -217,34 +213,34 @@ class UserContext final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const UserContext& default_instance();
+  static const Context& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const UserContext* internal_default_instance() {
-    return reinterpret_cast<const UserContext*>(
-               &_UserContext_default_instance_);
+  static inline const Context* internal_default_instance() {
+    return reinterpret_cast<const Context*>(
+               &_Context_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  void Swap(UserContext* other);
-  friend void swap(UserContext& a, UserContext& b) {
+  void Swap(Context* other);
+  friend void swap(Context& a, Context& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline UserContext* New() const final {
-    return CreateMaybeMessage<UserContext>(nullptr);
+  inline Context* New() const final {
+    return CreateMaybeMessage<Context>(nullptr);
   }
 
-  UserContext* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<UserContext>(arena);
+  Context* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<Context>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const UserContext& from);
-  void MergeFrom(const UserContext& from);
+  void CopyFrom(const Context& from);
+  void MergeFrom(const Context& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -266,7 +262,7 @@ class UserContext final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(UserContext* other);
+  void InternalSwap(Context* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -324,7 +320,21 @@ class UserContext final :
   ::std::string* release_span_id();
   void set_allocated_span_id(::std::string* span_id);
 
-  // @@protoc_insertion_point(class_scope:ric.notify.UserContext)
+  // string object_id = 4;
+  void clear_object_id();
+  static const int kObjectIdFieldNumber = 4;
+  const ::std::string& object_id() const;
+  void set_object_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_object_id(::std::string&& value);
+  #endif
+  void set_object_id(const char* value);
+  void set_object_id(const char* value, size_t size);
+  ::std::string* mutable_object_id();
+  ::std::string* release_object_id();
+  void set_allocated_object_id(::std::string* object_id);
+
+  // @@protoc_insertion_point(class_scope:ric.notify.Context)
  private:
   class HasBitSetters;
 
@@ -332,6 +342,7 @@ class UserContext final :
   ::google::protobuf::internal::ArenaStringPtr group_id_;
   ::google::protobuf::internal::ArenaStringPtr user_id_;
   ::google::protobuf::internal::ArenaStringPtr span_id_;
+  ::google::protobuf::internal::ArenaStringPtr object_id_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
 };
@@ -474,14 +485,14 @@ class SMPPSendRequest final :
   ::std::string* release_message();
   void set_allocated_message(::std::string* message);
 
-  // .ric.notify.UserContext ctx = 1;
+  // .ric.notify.Context ctx = 1;
   bool has_ctx() const;
   void clear_ctx();
   static const int kCtxFieldNumber = 1;
-  const ::ric::notify::UserContext& ctx() const;
-  ::ric::notify::UserContext* release_ctx();
-  ::ric::notify::UserContext* mutable_ctx();
-  void set_allocated_ctx(::ric::notify::UserContext* ctx);
+  const ::ric::notify::Context& ctx() const;
+  ::ric::notify::Context* release_ctx();
+  ::ric::notify::Context* mutable_ctx();
+  void set_allocated_ctx(::ric::notify::Context* ctx);
 
   // @@protoc_insertion_point(class_scope:ric.notify.SMPPSendRequest)
  private:
@@ -491,7 +502,7 @@ class SMPPSendRequest final :
   ::google::protobuf::internal::ArenaStringPtr gateway_id_;
   ::google::protobuf::internal::ArenaStringPtr phone_;
   ::google::protobuf::internal::ArenaStringPtr message_;
-  ::ric::notify::UserContext* ctx_;
+  ::ric::notify::Context* ctx_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
 };
@@ -1996,14 +2007,14 @@ class SMTPSendRequest final :
   ::std::string* release_password();
   void set_allocated_password(::std::string* password);
 
-  // .ric.notify.UserContext ctx = 1;
+  // .ric.notify.Context ctx = 1;
   bool has_ctx() const;
   void clear_ctx();
   static const int kCtxFieldNumber = 1;
-  const ::ric::notify::UserContext& ctx() const;
-  ::ric::notify::UserContext* release_ctx();
-  ::ric::notify::UserContext* mutable_ctx();
-  void set_allocated_ctx(::ric::notify::UserContext* ctx);
+  const ::ric::notify::Context& ctx() const;
+  ::ric::notify::Context* release_ctx();
+  ::ric::notify::Context* mutable_ctx();
+  void set_allocated_ctx(::ric::notify::Context* ctx);
 
   // .google.protobuf.BoolValue use_starttls = 12;
   bool has_use_starttls() const;
@@ -2044,7 +2055,7 @@ class SMTPSendRequest final :
   ::google::protobuf::internal::ArenaStringPtr host_;
   ::google::protobuf::internal::ArenaStringPtr username_;
   ::google::protobuf::internal::ArenaStringPtr password_;
-  ::ric::notify::UserContext* ctx_;
+  ::ric::notify::Context* ctx_;
   ::google::protobuf::BoolValue* use_starttls_;
   ::google::protobuf::BoolValue* use_ssl_;
   ::google::protobuf::int32 port_;
@@ -3024,126 +3035,6 @@ class PushSendResponse final :
 };
 // -------------------------------------------------------------------
 
-class Ctx final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.Ctx) */ {
- public:
-  Ctx();
-  virtual ~Ctx();
-
-  Ctx(const Ctx& from);
-
-  inline Ctx& operator=(const Ctx& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  Ctx(Ctx&& from) noexcept
-    : Ctx() {
-    *this = ::std::move(from);
-  }
-
-  inline Ctx& operator=(Ctx&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return default_instance().GetDescriptor();
-  }
-  static const Ctx& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const Ctx* internal_default_instance() {
-    return reinterpret_cast<const Ctx*>(
-               &_Ctx_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    19;
-
-  void Swap(Ctx* other);
-  friend void swap(Ctx& a, Ctx& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline Ctx* New() const final {
-    return CreateMaybeMessage<Ctx>(nullptr);
-  }
-
-  Ctx* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<Ctx>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const Ctx& from);
-  void MergeFrom(const Ctx& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
-  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
-  #else
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
-  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      ::google::protobuf::uint8* target) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Ctx* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // string object_id = 1;
-  void clear_object_id();
-  static const int kObjectIdFieldNumber = 1;
-  const ::std::string& object_id() const;
-  void set_object_id(const ::std::string& value);
-  #if LANG_CXX11
-  void set_object_id(::std::string&& value);
-  #endif
-  void set_object_id(const char* value);
-  void set_object_id(const char* value, size_t size);
-  ::std::string* mutable_object_id();
-  ::std::string* release_object_id();
-  void set_allocated_object_id(::std::string* object_id);
-
-  // @@protoc_insertion_point(class_scope:ric.notify.Ctx)
- private:
-  class HasBitSetters;
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr object_id_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
-};
-// -------------------------------------------------------------------
-
 class HttpRequest_HeadersEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<HttpRequest_HeadersEntry_DoNotUse, 
     ::std::string, ::std::string,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -3206,7 +3097,7 @@ class HttpRequest final :
                &_HttpRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    20;
 
   void Swap(HttpRequest* other);
   friend void swap(HttpRequest& a, HttpRequest& b) {
@@ -3315,14 +3206,14 @@ class HttpRequest final :
   ::std::string* release_body();
   void set_allocated_body(::std::string* body);
 
-  // .ric.notify.Ctx ctx = 1;
+  // .ric.notify.Context ctx = 1;
   bool has_ctx() const;
   void clear_ctx();
   static const int kCtxFieldNumber = 1;
-  const ::ric::notify::Ctx& ctx() const;
-  ::ric::notify::Ctx* release_ctx();
-  ::ric::notify::Ctx* mutable_ctx();
-  void set_allocated_ctx(::ric::notify::Ctx* ctx);
+  const ::ric::notify::Context& ctx() const;
+  ::ric::notify::Context* release_ctx();
+  ::ric::notify::Context* mutable_ctx();
+  void set_allocated_ctx(::ric::notify::Context* ctx);
 
   // @@protoc_insertion_point(class_scope:ric.notify.HttpRequest)
  private:
@@ -3338,7 +3229,7 @@ class HttpRequest final :
   ::google::protobuf::internal::ArenaStringPtr method_;
   ::google::protobuf::internal::ArenaStringPtr url_;
   ::google::protobuf::internal::ArenaStringPtr body_;
-  ::ric::notify::Ctx* ctx_;
+  ::ric::notify::Context* ctx_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
 };
@@ -3406,7 +3297,7 @@ class HttpResponse final :
                &_HttpResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    22;
 
   void Swap(HttpResponse* other);
   friend void swap(HttpResponse& a, HttpResponse& b) {
@@ -3487,14 +3378,14 @@ class HttpResponse final :
   ::std::string* release_body();
   void set_allocated_body(::std::string* body);
 
-  // .ric.notify.Ctx ctx = 1;
+  // .ric.notify.Context ctx = 1;
   bool has_ctx() const;
   void clear_ctx();
   static const int kCtxFieldNumber = 1;
-  const ::ric::notify::Ctx& ctx() const;
-  ::ric::notify::Ctx* release_ctx();
-  ::ric::notify::Ctx* mutable_ctx();
-  void set_allocated_ctx(::ric::notify::Ctx* ctx);
+  const ::ric::notify::Context& ctx() const;
+  ::ric::notify::Context* release_ctx();
+  ::ric::notify::Context* mutable_ctx();
+  void set_allocated_ctx(::ric::notify::Context* ctx);
 
   // int32 status_code = 2;
   void clear_status_code();
@@ -3514,7 +3405,7 @@ class HttpResponse final :
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       0 > headers_;
   ::google::protobuf::internal::ArenaStringPtr body_;
-  ::ric::notify::Ctx* ctx_;
+  ::ric::notify::Context* ctx_;
   ::google::protobuf::int32 status_code_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
@@ -3528,172 +3419,225 @@ class HttpResponse final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// UserContext
+// Context
 
 // string group_id = 1;
-inline void UserContext::clear_group_id() {
+inline void Context::clear_group_id() {
   group_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& UserContext::group_id() const {
-  // @@protoc_insertion_point(field_get:ric.notify.UserContext.group_id)
+inline const ::std::string& Context::group_id() const {
+  // @@protoc_insertion_point(field_get:ric.notify.Context.group_id)
   return group_id_.GetNoArena();
 }
-inline void UserContext::set_group_id(const ::std::string& value) {
+inline void Context::set_group_id(const ::std::string& value) {
   
   group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.notify.UserContext.group_id)
+  // @@protoc_insertion_point(field_set:ric.notify.Context.group_id)
 }
 #if LANG_CXX11
-inline void UserContext::set_group_id(::std::string&& value) {
+inline void Context::set_group_id(::std::string&& value) {
   
   group_id_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.notify.UserContext.group_id)
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.Context.group_id)
 }
 #endif
-inline void UserContext::set_group_id(const char* value) {
+inline void Context::set_group_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.notify.UserContext.group_id)
+  // @@protoc_insertion_point(field_set_char:ric.notify.Context.group_id)
 }
-inline void UserContext::set_group_id(const char* value, size_t size) {
+inline void Context::set_group_id(const char* value, size_t size) {
   
   group_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.UserContext.group_id)
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.Context.group_id)
 }
-inline ::std::string* UserContext::mutable_group_id() {
+inline ::std::string* Context::mutable_group_id() {
   
-  // @@protoc_insertion_point(field_mutable:ric.notify.UserContext.group_id)
+  // @@protoc_insertion_point(field_mutable:ric.notify.Context.group_id)
   return group_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* UserContext::release_group_id() {
-  // @@protoc_insertion_point(field_release:ric.notify.UserContext.group_id)
+inline ::std::string* Context::release_group_id() {
+  // @@protoc_insertion_point(field_release:ric.notify.Context.group_id)
   
   return group_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void UserContext::set_allocated_group_id(::std::string* group_id) {
+inline void Context::set_allocated_group_id(::std::string* group_id) {
   if (group_id != nullptr) {
     
   } else {
     
   }
   group_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), group_id);
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.UserContext.group_id)
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.Context.group_id)
 }
 
 // string user_id = 2;
-inline void UserContext::clear_user_id() {
+inline void Context::clear_user_id() {
   user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& UserContext::user_id() const {
-  // @@protoc_insertion_point(field_get:ric.notify.UserContext.user_id)
+inline const ::std::string& Context::user_id() const {
+  // @@protoc_insertion_point(field_get:ric.notify.Context.user_id)
   return user_id_.GetNoArena();
 }
-inline void UserContext::set_user_id(const ::std::string& value) {
+inline void Context::set_user_id(const ::std::string& value) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.notify.UserContext.user_id)
+  // @@protoc_insertion_point(field_set:ric.notify.Context.user_id)
 }
 #if LANG_CXX11
-inline void UserContext::set_user_id(::std::string&& value) {
+inline void Context::set_user_id(::std::string&& value) {
   
   user_id_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.notify.UserContext.user_id)
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.Context.user_id)
 }
 #endif
-inline void UserContext::set_user_id(const char* value) {
+inline void Context::set_user_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.notify.UserContext.user_id)
+  // @@protoc_insertion_point(field_set_char:ric.notify.Context.user_id)
 }
-inline void UserContext::set_user_id(const char* value, size_t size) {
+inline void Context::set_user_id(const char* value, size_t size) {
   
   user_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.UserContext.user_id)
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.Context.user_id)
 }
-inline ::std::string* UserContext::mutable_user_id() {
+inline ::std::string* Context::mutable_user_id() {
   
-  // @@protoc_insertion_point(field_mutable:ric.notify.UserContext.user_id)
+  // @@protoc_insertion_point(field_mutable:ric.notify.Context.user_id)
   return user_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* UserContext::release_user_id() {
-  // @@protoc_insertion_point(field_release:ric.notify.UserContext.user_id)
+inline ::std::string* Context::release_user_id() {
+  // @@protoc_insertion_point(field_release:ric.notify.Context.user_id)
   
   return user_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void UserContext::set_allocated_user_id(::std::string* user_id) {
+inline void Context::set_allocated_user_id(::std::string* user_id) {
   if (user_id != nullptr) {
     
   } else {
     
   }
   user_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_id);
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.UserContext.user_id)
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.Context.user_id)
 }
 
 // string span_id = 3;
-inline void UserContext::clear_span_id() {
+inline void Context::clear_span_id() {
   span_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& UserContext::span_id() const {
-  // @@protoc_insertion_point(field_get:ric.notify.UserContext.span_id)
+inline const ::std::string& Context::span_id() const {
+  // @@protoc_insertion_point(field_get:ric.notify.Context.span_id)
   return span_id_.GetNoArena();
 }
-inline void UserContext::set_span_id(const ::std::string& value) {
+inline void Context::set_span_id(const ::std::string& value) {
   
   span_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.notify.UserContext.span_id)
+  // @@protoc_insertion_point(field_set:ric.notify.Context.span_id)
 }
 #if LANG_CXX11
-inline void UserContext::set_span_id(::std::string&& value) {
+inline void Context::set_span_id(::std::string&& value) {
   
   span_id_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.notify.UserContext.span_id)
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.Context.span_id)
 }
 #endif
-inline void UserContext::set_span_id(const char* value) {
+inline void Context::set_span_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   span_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.notify.UserContext.span_id)
+  // @@protoc_insertion_point(field_set_char:ric.notify.Context.span_id)
 }
-inline void UserContext::set_span_id(const char* value, size_t size) {
+inline void Context::set_span_id(const char* value, size_t size) {
   
   span_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.UserContext.span_id)
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.Context.span_id)
 }
-inline ::std::string* UserContext::mutable_span_id() {
+inline ::std::string* Context::mutable_span_id() {
   
-  // @@protoc_insertion_point(field_mutable:ric.notify.UserContext.span_id)
+  // @@protoc_insertion_point(field_mutable:ric.notify.Context.span_id)
   return span_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* UserContext::release_span_id() {
-  // @@protoc_insertion_point(field_release:ric.notify.UserContext.span_id)
+inline ::std::string* Context::release_span_id() {
+  // @@protoc_insertion_point(field_release:ric.notify.Context.span_id)
   
   return span_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void UserContext::set_allocated_span_id(::std::string* span_id) {
+inline void Context::set_allocated_span_id(::std::string* span_id) {
   if (span_id != nullptr) {
     
   } else {
     
   }
   span_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), span_id);
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.UserContext.span_id)
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.Context.span_id)
+}
+
+// string object_id = 4;
+inline void Context::clear_object_id() {
+  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Context::object_id() const {
+  // @@protoc_insertion_point(field_get:ric.notify.Context.object_id)
+  return object_id_.GetNoArena();
+}
+inline void Context::set_object_id(const ::std::string& value) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.Context.object_id)
+}
+#if LANG_CXX11
+inline void Context::set_object_id(::std::string&& value) {
+  
+  object_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.Context.object_id)
+}
+#endif
+inline void Context::set_object_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.Context.object_id)
+}
+inline void Context::set_object_id(const char* value, size_t size) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.Context.object_id)
+}
+inline ::std::string* Context::mutable_object_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.Context.object_id)
+  return object_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Context::release_object_id() {
+  // @@protoc_insertion_point(field_release:ric.notify.Context.object_id)
+  
+  return object_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Context::set_allocated_object_id(::std::string* object_id) {
+  if (object_id != nullptr) {
+    
+  } else {
+    
+  }
+  object_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), object_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.Context.object_id)
 }
 
 // -------------------------------------------------------------------
 
 // SMPPSendRequest
 
-// .ric.notify.UserContext ctx = 1;
+// .ric.notify.Context ctx = 1;
 inline bool SMPPSendRequest::has_ctx() const {
   return this != internal_default_instance() && ctx_ != nullptr;
 }
@@ -3703,29 +3647,29 @@ inline void SMPPSendRequest::clear_ctx() {
   }
   ctx_ = nullptr;
 }
-inline const ::ric::notify::UserContext& SMPPSendRequest::ctx() const {
-  const ::ric::notify::UserContext* p = ctx_;
+inline const ::ric::notify::Context& SMPPSendRequest::ctx() const {
+  const ::ric::notify::Context* p = ctx_;
   // @@protoc_insertion_point(field_get:ric.notify.SMPPSendRequest.ctx)
-  return p != nullptr ? *p : *reinterpret_cast<const ::ric::notify::UserContext*>(
-      &::ric::notify::_UserContext_default_instance_);
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::notify::Context*>(
+      &::ric::notify::_Context_default_instance_);
 }
-inline ::ric::notify::UserContext* SMPPSendRequest::release_ctx() {
+inline ::ric::notify::Context* SMPPSendRequest::release_ctx() {
   // @@protoc_insertion_point(field_release:ric.notify.SMPPSendRequest.ctx)
   
-  ::ric::notify::UserContext* temp = ctx_;
+  ::ric::notify::Context* temp = ctx_;
   ctx_ = nullptr;
   return temp;
 }
-inline ::ric::notify::UserContext* SMPPSendRequest::mutable_ctx() {
+inline ::ric::notify::Context* SMPPSendRequest::mutable_ctx() {
   
   if (ctx_ == nullptr) {
-    auto* p = CreateMaybeMessage<::ric::notify::UserContext>(GetArenaNoVirtual());
+    auto* p = CreateMaybeMessage<::ric::notify::Context>(GetArenaNoVirtual());
     ctx_ = p;
   }
   // @@protoc_insertion_point(field_mutable:ric.notify.SMPPSendRequest.ctx)
   return ctx_;
 }
-inline void SMPPSendRequest::set_allocated_ctx(::ric::notify::UserContext* ctx) {
+inline void SMPPSendRequest::set_allocated_ctx(::ric::notify::Context* ctx) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
     delete ctx_;
@@ -4873,7 +4817,7 @@ inline void Attachment::set_allocated_content(::std::string* content) {
 
 // SMTPSendRequest
 
-// .ric.notify.UserContext ctx = 1;
+// .ric.notify.Context ctx = 1;
 inline bool SMTPSendRequest::has_ctx() const {
   return this != internal_default_instance() && ctx_ != nullptr;
 }
@@ -4883,29 +4827,29 @@ inline void SMTPSendRequest::clear_ctx() {
   }
   ctx_ = nullptr;
 }
-inline const ::ric::notify::UserContext& SMTPSendRequest::ctx() const {
-  const ::ric::notify::UserContext* p = ctx_;
+inline const ::ric::notify::Context& SMTPSendRequest::ctx() const {
+  const ::ric::notify::Context* p = ctx_;
   // @@protoc_insertion_point(field_get:ric.notify.SMTPSendRequest.ctx)
-  return p != nullptr ? *p : *reinterpret_cast<const ::ric::notify::UserContext*>(
-      &::ric::notify::_UserContext_default_instance_);
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::notify::Context*>(
+      &::ric::notify::_Context_default_instance_);
 }
-inline ::ric::notify::UserContext* SMTPSendRequest::release_ctx() {
+inline ::ric::notify::Context* SMTPSendRequest::release_ctx() {
   // @@protoc_insertion_point(field_release:ric.notify.SMTPSendRequest.ctx)
   
-  ::ric::notify::UserContext* temp = ctx_;
+  ::ric::notify::Context* temp = ctx_;
   ctx_ = nullptr;
   return temp;
 }
-inline ::ric::notify::UserContext* SMTPSendRequest::mutable_ctx() {
+inline ::ric::notify::Context* SMTPSendRequest::mutable_ctx() {
   
   if (ctx_ == nullptr) {
-    auto* p = CreateMaybeMessage<::ric::notify::UserContext>(GetArenaNoVirtual());
+    auto* p = CreateMaybeMessage<::ric::notify::Context>(GetArenaNoVirtual());
     ctx_ = p;
   }
   // @@protoc_insertion_point(field_mutable:ric.notify.SMTPSendRequest.ctx)
   return ctx_;
 }
-inline void SMTPSendRequest::set_allocated_ctx(::ric::notify::UserContext* ctx) {
+inline void SMTPSendRequest::set_allocated_ctx(::ric::notify::Context* ctx) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
     delete ctx_;
@@ -6331,68 +6275,11 @@ inline void PushSendRequest::set_allocated_oid(::std::string* oid) {
 
 // -------------------------------------------------------------------
 
-// Ctx
-
-// string object_id = 1;
-inline void Ctx::clear_object_id() {
-  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& Ctx::object_id() const {
-  // @@protoc_insertion_point(field_get:ric.notify.Ctx.object_id)
-  return object_id_.GetNoArena();
-}
-inline void Ctx::set_object_id(const ::std::string& value) {
-  
-  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.notify.Ctx.object_id)
-}
-#if LANG_CXX11
-inline void Ctx::set_object_id(::std::string&& value) {
-  
-  object_id_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.notify.Ctx.object_id)
-}
-#endif
-inline void Ctx::set_object_id(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.notify.Ctx.object_id)
-}
-inline void Ctx::set_object_id(const char* value, size_t size) {
-  
-  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.Ctx.object_id)
-}
-inline ::std::string* Ctx::mutable_object_id() {
-  
-  // @@protoc_insertion_point(field_mutable:ric.notify.Ctx.object_id)
-  return object_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* Ctx::release_object_id() {
-  // @@protoc_insertion_point(field_release:ric.notify.Ctx.object_id)
-  
-  return object_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void Ctx::set_allocated_object_id(::std::string* object_id) {
-  if (object_id != nullptr) {
-    
-  } else {
-    
-  }
-  object_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), object_id);
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.Ctx.object_id)
-}
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // HttpRequest
 
-// .ric.notify.Ctx ctx = 1;
+// .ric.notify.Context ctx = 1;
 inline bool HttpRequest::has_ctx() const {
   return this != internal_default_instance() && ctx_ != nullptr;
 }
@@ -6402,29 +6289,29 @@ inline void HttpRequest::clear_ctx() {
   }
   ctx_ = nullptr;
 }
-inline const ::ric::notify::Ctx& HttpRequest::ctx() const {
-  const ::ric::notify::Ctx* p = ctx_;
+inline const ::ric::notify::Context& HttpRequest::ctx() const {
+  const ::ric::notify::Context* p = ctx_;
   // @@protoc_insertion_point(field_get:ric.notify.HttpRequest.ctx)
-  return p != nullptr ? *p : *reinterpret_cast<const ::ric::notify::Ctx*>(
-      &::ric::notify::_Ctx_default_instance_);
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::notify::Context*>(
+      &::ric::notify::_Context_default_instance_);
 }
-inline ::ric::notify::Ctx* HttpRequest::release_ctx() {
+inline ::ric::notify::Context* HttpRequest::release_ctx() {
   // @@protoc_insertion_point(field_release:ric.notify.HttpRequest.ctx)
   
-  ::ric::notify::Ctx* temp = ctx_;
+  ::ric::notify::Context* temp = ctx_;
   ctx_ = nullptr;
   return temp;
 }
-inline ::ric::notify::Ctx* HttpRequest::mutable_ctx() {
+inline ::ric::notify::Context* HttpRequest::mutable_ctx() {
   
   if (ctx_ == nullptr) {
-    auto* p = CreateMaybeMessage<::ric::notify::Ctx>(GetArenaNoVirtual());
+    auto* p = CreateMaybeMessage<::ric::notify::Context>(GetArenaNoVirtual());
     ctx_ = p;
   }
   // @@protoc_insertion_point(field_mutable:ric.notify.HttpRequest.ctx)
   return ctx_;
 }
-inline void HttpRequest::set_allocated_ctx(::ric::notify::Ctx* ctx) {
+inline void HttpRequest::set_allocated_ctx(::ric::notify::Context* ctx) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
     delete ctx_;
@@ -6626,7 +6513,7 @@ inline void HttpRequest::set_allocated_body(::std::string* body) {
 
 // HttpResponse
 
-// .ric.notify.Ctx ctx = 1;
+// .ric.notify.Context ctx = 1;
 inline bool HttpResponse::has_ctx() const {
   return this != internal_default_instance() && ctx_ != nullptr;
 }
@@ -6636,29 +6523,29 @@ inline void HttpResponse::clear_ctx() {
   }
   ctx_ = nullptr;
 }
-inline const ::ric::notify::Ctx& HttpResponse::ctx() const {
-  const ::ric::notify::Ctx* p = ctx_;
+inline const ::ric::notify::Context& HttpResponse::ctx() const {
+  const ::ric::notify::Context* p = ctx_;
   // @@protoc_insertion_point(field_get:ric.notify.HttpResponse.ctx)
-  return p != nullptr ? *p : *reinterpret_cast<const ::ric::notify::Ctx*>(
-      &::ric::notify::_Ctx_default_instance_);
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::notify::Context*>(
+      &::ric::notify::_Context_default_instance_);
 }
-inline ::ric::notify::Ctx* HttpResponse::release_ctx() {
+inline ::ric::notify::Context* HttpResponse::release_ctx() {
   // @@protoc_insertion_point(field_release:ric.notify.HttpResponse.ctx)
   
-  ::ric::notify::Ctx* temp = ctx_;
+  ::ric::notify::Context* temp = ctx_;
   ctx_ = nullptr;
   return temp;
 }
-inline ::ric::notify::Ctx* HttpResponse::mutable_ctx() {
+inline ::ric::notify::Context* HttpResponse::mutable_ctx() {
   
   if (ctx_ == nullptr) {
-    auto* p = CreateMaybeMessage<::ric::notify::Ctx>(GetArenaNoVirtual());
+    auto* p = CreateMaybeMessage<::ric::notify::Context>(GetArenaNoVirtual());
     ctx_ = p;
   }
   // @@protoc_insertion_point(field_mutable:ric.notify.HttpResponse.ctx)
   return ctx_;
 }
-inline void HttpResponse::set_allocated_ctx(::ric::notify::Ctx* ctx) {
+inline void HttpResponse::set_allocated_ctx(::ric::notify::Context* ctx) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
     delete ctx_;
@@ -6765,8 +6652,6 @@ inline void HttpResponse::set_allocated_body(::std::string* body) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

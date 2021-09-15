@@ -18,17 +18,16 @@
 
 extern PROTOBUF_INTERNAL_EXPORT_google_2fprotobuf_2fwrappers_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_BoolValue_google_2fprotobuf_2fwrappers_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Attachment_ric_2dnotify_2fricnotify_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Ctx_ric_2dnotify_2fricnotify_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Context_ric_2dnotify_2fricnotify_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_HttpRequest_HeadersEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_HttpResponse_HeadersEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_SMPPStatusResponse_SMPPStatus_ric_2dnotify_2fricnotify_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_UserContext_ric_2dnotify_2fricnotify_2eproto;
 namespace ric {
 namespace notify {
-class UserContextDefaultTypeInternal {
+class ContextDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<UserContext> _instance;
-} _UserContext_default_instance_;
+  ::google::protobuf::internal::ExplicitlyConstructed<Context> _instance;
+} _Context_default_instance_;
 class SMPPSendRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<SMPPSendRequest> _instance;
@@ -101,10 +100,6 @@ class PushSendResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<PushSendResponse> _instance;
 } _PushSendResponse_default_instance_;
-class CtxDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<Ctx> _instance;
-} _Ctx_default_instance_;
 class HttpRequest_HeadersEntry_DoNotUseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<HttpRequest_HeadersEntry_DoNotUse> _instance;
@@ -123,19 +118,19 @@ class HttpResponseDefaultTypeInternal {
 } _HttpResponse_default_instance_;
 }  // namespace notify
 }  // namespace ric
-static void InitDefaultsUserContext_ric_2dnotify_2fricnotify_2eproto() {
+static void InitDefaultsContext_ric_2dnotify_2fricnotify_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::ric::notify::_UserContext_default_instance_;
-    new (ptr) ::ric::notify::UserContext();
+    void* ptr = &::ric::notify::_Context_default_instance_;
+    new (ptr) ::ric::notify::Context();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::ric::notify::UserContext::InitAsDefaultInstance();
+  ::ric::notify::Context::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_UserContext_ric_2dnotify_2fricnotify_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsUserContext_ric_2dnotify_2fricnotify_2eproto}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_Context_ric_2dnotify_2fricnotify_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsContext_ric_2dnotify_2fricnotify_2eproto}, {}};
 
 static void InitDefaultsSMPPSendRequest_ric_2dnotify_2fricnotify_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -150,7 +145,7 @@ static void InitDefaultsSMPPSendRequest_ric_2dnotify_2fricnotify_2eproto() {
 
 ::google::protobuf::internal::SCCInfo<1> scc_info_SMPPSendRequest_ric_2dnotify_2fricnotify_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsSMPPSendRequest_ric_2dnotify_2fricnotify_2eproto}, {
-      &scc_info_UserContext_ric_2dnotify_2fricnotify_2eproto.base,}};
+      &scc_info_Context_ric_2dnotify_2fricnotify_2eproto.base,}};
 
 static void InitDefaultsSMPPSendResponse_ric_2dnotify_2fricnotify_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -292,7 +287,7 @@ static void InitDefaultsSMTPSendRequest_ric_2dnotify_2fricnotify_2eproto() {
 
 ::google::protobuf::internal::SCCInfo<3> scc_info_SMTPSendRequest_ric_2dnotify_2fricnotify_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 3, InitDefaultsSMTPSendRequest_ric_2dnotify_2fricnotify_2eproto}, {
-      &scc_info_UserContext_ric_2dnotify_2fricnotify_2eproto.base,
+      &scc_info_Context_ric_2dnotify_2fricnotify_2eproto.base,
       &scc_info_BoolValue_google_2fprotobuf_2fwrappers_2eproto.base,
       &scc_info_Attachment_ric_2dnotify_2fricnotify_2eproto.base,}};
 
@@ -394,20 +389,6 @@ static void InitDefaultsPushSendResponse_ric_2dnotify_2fricnotify_2eproto() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_PushSendResponse_ric_2dnotify_2fricnotify_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPushSendResponse_ric_2dnotify_2fricnotify_2eproto}, {}};
 
-static void InitDefaultsCtx_ric_2dnotify_2fricnotify_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::ric::notify::_Ctx_default_instance_;
-    new (ptr) ::ric::notify::Ctx();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::ric::notify::Ctx::InitAsDefaultInstance();
-}
-
-::google::protobuf::internal::SCCInfo<0> scc_info_Ctx_ric_2dnotify_2fricnotify_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsCtx_ric_2dnotify_2fricnotify_2eproto}, {}};
-
 static void InitDefaultsHttpRequest_HeadersEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -434,7 +415,7 @@ static void InitDefaultsHttpRequest_ric_2dnotify_2fricnotify_2eproto() {
 
 ::google::protobuf::internal::SCCInfo<2> scc_info_HttpRequest_ric_2dnotify_2fricnotify_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsHttpRequest_ric_2dnotify_2fricnotify_2eproto}, {
-      &scc_info_Ctx_ric_2dnotify_2fricnotify_2eproto.base,
+      &scc_info_Context_ric_2dnotify_2fricnotify_2eproto.base,
       &scc_info_HttpRequest_HeadersEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto.base,}};
 
 static void InitDefaultsHttpResponse_HeadersEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto() {
@@ -463,11 +444,11 @@ static void InitDefaultsHttpResponse_ric_2dnotify_2fricnotify_2eproto() {
 
 ::google::protobuf::internal::SCCInfo<2> scc_info_HttpResponse_ric_2dnotify_2fricnotify_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsHttpResponse_ric_2dnotify_2fricnotify_2eproto}, {
-      &scc_info_Ctx_ric_2dnotify_2fricnotify_2eproto.base,
+      &scc_info_Context_ric_2dnotify_2fricnotify_2eproto.base,
       &scc_info_HttpResponse_HeadersEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto.base,}};
 
 void InitDefaults_ric_2dnotify_2fricnotify_2eproto() {
-  ::google::protobuf::internal::InitSCC(&scc_info_UserContext_ric_2dnotify_2fricnotify_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_Context_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SMPPSendRequest_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SMPPSendResponse_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SMPPStatusRequest_ric_2dnotify_2fricnotify_2eproto.base);
@@ -486,26 +467,26 @@ void InitDefaults_ric_2dnotify_2fricnotify_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_SMTPCheckGatewayResponse_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_PushSendRequest_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_PushSendResponse_ric_2dnotify_2fricnotify_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_Ctx_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_HttpRequest_HeadersEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_HttpRequest_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_HttpResponse_HeadersEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_HttpResponse_ric_2dnotify_2fricnotify_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dnotify_2fricnotify_2eproto[24];
+::google::protobuf::Metadata file_level_metadata_ric_2dnotify_2fricnotify_2eproto[23];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors_ric_2dnotify_2fricnotify_2eproto[1];
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dnotify_2fricnotify_2eproto = nullptr;
 
 const ::google::protobuf::uint32 TableStruct_ric_2dnotify_2fricnotify_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ric::notify::UserContext, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::Context, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ric::notify::UserContext, group_id_),
-  PROTOBUF_FIELD_OFFSET(::ric::notify::UserContext, user_id_),
-  PROTOBUF_FIELD_OFFSET(::ric::notify::UserContext, span_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::Context, group_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::Context, user_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::Context, span_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::Context, object_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::notify::SMPPSendRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -656,12 +637,6 @@ const ::google::protobuf::uint32 TableStruct_ric_2dnotify_2fricnotify_2eproto::o
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::ric::notify::Ctx, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::ric::notify::Ctx, object_id_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::HttpRequest_HeadersEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::HttpRequest_HeadersEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -701,34 +676,33 @@ const ::google::protobuf::uint32 TableStruct_ric_2dnotify_2fricnotify_2eproto::o
   PROTOBUF_FIELD_OFFSET(::ric::notify::HttpResponse, body_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::ric::notify::UserContext)},
-  { 8, -1, sizeof(::ric::notify::SMPPSendRequest)},
-  { 17, -1, sizeof(::ric::notify::SMPPSendResponse)},
-  { 23, -1, sizeof(::ric::notify::SMPPStatusRequest)},
-  { 30, -1, sizeof(::ric::notify::SMPPStatusResponse_SMPPStatus)},
-  { 39, -1, sizeof(::ric::notify::SMPPStatusResponse)},
-  { 47, -1, sizeof(::ric::notify::SMPPGatewayInfoRequest)},
-  { 53, -1, sizeof(::ric::notify::SMPPGatewayInfoResponse)},
-  { 60, -1, sizeof(::ric::notify::SMPPCheckGatewayRequest)},
-  { 70, -1, sizeof(::ric::notify::SMPPCheckGatewayResponse)},
-  { 76, -1, sizeof(::ric::notify::Attachment)},
-  { 84, -1, sizeof(::ric::notify::SMTPSendRequest)},
-  { 103, -1, sizeof(::ric::notify::SMTPSendResponse)},
-  { 108, -1, sizeof(::ric::notify::SMTPGatewayInfoRequest)},
-  { 114, -1, sizeof(::ric::notify::SMTPGatewayInfoResponse)},
-  { 128, -1, sizeof(::ric::notify::SMTPCheckGatewayRequest)},
-  { 139, -1, sizeof(::ric::notify::SMTPCheckGatewayResponse)},
-  { 145, -1, sizeof(::ric::notify::PushSendRequest)},
-  { 153, -1, sizeof(::ric::notify::PushSendResponse)},
-  { 158, -1, sizeof(::ric::notify::Ctx)},
-  { 164, 171, sizeof(::ric::notify::HttpRequest_HeadersEntry_DoNotUse)},
-  { 173, -1, sizeof(::ric::notify::HttpRequest)},
-  { 183, 190, sizeof(::ric::notify::HttpResponse_HeadersEntry_DoNotUse)},
-  { 192, -1, sizeof(::ric::notify::HttpResponse)},
+  { 0, -1, sizeof(::ric::notify::Context)},
+  { 9, -1, sizeof(::ric::notify::SMPPSendRequest)},
+  { 18, -1, sizeof(::ric::notify::SMPPSendResponse)},
+  { 24, -1, sizeof(::ric::notify::SMPPStatusRequest)},
+  { 31, -1, sizeof(::ric::notify::SMPPStatusResponse_SMPPStatus)},
+  { 40, -1, sizeof(::ric::notify::SMPPStatusResponse)},
+  { 48, -1, sizeof(::ric::notify::SMPPGatewayInfoRequest)},
+  { 54, -1, sizeof(::ric::notify::SMPPGatewayInfoResponse)},
+  { 61, -1, sizeof(::ric::notify::SMPPCheckGatewayRequest)},
+  { 71, -1, sizeof(::ric::notify::SMPPCheckGatewayResponse)},
+  { 77, -1, sizeof(::ric::notify::Attachment)},
+  { 85, -1, sizeof(::ric::notify::SMTPSendRequest)},
+  { 104, -1, sizeof(::ric::notify::SMTPSendResponse)},
+  { 109, -1, sizeof(::ric::notify::SMTPGatewayInfoRequest)},
+  { 115, -1, sizeof(::ric::notify::SMTPGatewayInfoResponse)},
+  { 129, -1, sizeof(::ric::notify::SMTPCheckGatewayRequest)},
+  { 140, -1, sizeof(::ric::notify::SMTPCheckGatewayResponse)},
+  { 146, -1, sizeof(::ric::notify::PushSendRequest)},
+  { 154, -1, sizeof(::ric::notify::PushSendResponse)},
+  { 159, 166, sizeof(::ric::notify::HttpRequest_HeadersEntry_DoNotUse)},
+  { 168, -1, sizeof(::ric::notify::HttpRequest)},
+  { 178, 185, sizeof(::ric::notify::HttpResponse_HeadersEntry_DoNotUse)},
+  { 187, -1, sizeof(::ric::notify::HttpResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_UserContext_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_Context_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_SMPPSendRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_SMPPSendResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_SMPPStatusRequest_default_instance_),
@@ -747,7 +721,6 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_SMTPCheckGatewayResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_PushSendRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_PushSendResponse_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_Ctx_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_HttpRequest_HeadersEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_HttpRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_HttpResponse_HeadersEntry_DoNotUse_default_instance_),
@@ -757,92 +730,92 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto = {
   {}, AddDescriptors_ric_2dnotify_2fricnotify_2eproto, "ric-notify/ricnotify.proto", schemas,
   file_default_instances, TableStruct_ric_2dnotify_2fricnotify_2eproto::offsets,
-  file_level_metadata_ric_2dnotify_2fricnotify_2eproto, 24, file_level_enum_descriptors_ric_2dnotify_2fricnotify_2eproto, file_level_service_descriptors_ric_2dnotify_2fricnotify_2eproto,
+  file_level_metadata_ric_2dnotify_2fricnotify_2eproto, 23, file_level_enum_descriptors_ric_2dnotify_2fricnotify_2eproto, file_level_service_descriptors_ric_2dnotify_2fricnotify_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto[] =
   "\n\032ric-notify/ricnotify.proto\022\nric.notify"
-  "\032\036google/protobuf/wrappers.proto\"A\n\013User"
-  "Context\022\020\n\010group_id\030\001 \001(\t\022\017\n\007user_id\030\002 \001"
-  "(\t\022\017\n\007span_id\030\003 \001(\t\"k\n\017SMPPSendRequest\022$"
-  "\n\003ctx\030\001 \001(\0132\027.ric.notify.UserContext\022\022\n\n"
-  "gateway_id\030\002 \001(\t\022\r\n\005phone\030\003 \001(\t\022\017\n\007messa"
-  "ge\030\004 \001(\t\"&\n\020SMPPSendResponse\022\022\n\nmessage_"
-  "id\030\001 \001(\t\";\n\021SMPPStatusRequest\022\022\n\ngateway"
-  "_id\030\001 \001(\t\022\022\n\nmessage_id\030\002 \001(\t\"\330\002\n\022SMPPSt"
-  "atusResponse\0223\n\005state\030\001 \001(\0162$.ric.notify"
-  ".SMPPStatusResponse.State\022\023\n\013description"
-  "\030\002 \001(\t\022>\n\013smpp_status\030\003 \001(\0132).ric.notify"
-  ".SMPPStatusResponse.SMPPStatus\032U\n\nSMPPSt"
-  "atus\022\016\n\006msg_id\030\001 \001(\t\022\021\n\tmsg_state\030\002 \001(\t\022"
-  "\022\n\nfinal_date\030\003 \001(\t\022\020\n\010err_code\030\004 \001(\005\"a\n"
-  "\005State\022\013\n\007UNKNOWN\020\000\022\014\n\010SCHEDULE\020\001\022\016\n\nSEN"
-  "D_ERROR\020\002\022\030\n\024MAX_RETRIES_EXCEEDED\020\003\022\010\n\004S"
-  "ENT\020\004\022\t\n\005ERROR\020\005\",\n\026SMPPGatewayInfoReque"
-  "st\022\022\n\ngateway_id\030\001 \001(\t\"9\n\027SMPPGatewayInf"
-  "oResponse\022\016\n\006online\030\001 \001(\010\022\016\n\006uptime\030\002 \001("
-  "\003\"n\n\027SMPPCheckGatewayRequest\022\014\n\004host\030\001 \001"
-  "(\t\022\014\n\004port\030\002 \001(\005\022\020\n\010username\030\003 \001(\t\022\020\n\010pa"
-  "ssword\030\004 \001(\t\022\023\n\013system_type\030\005 \001(\t\"+\n\030SMP"
-  "PCheckGatewayResponse\022\017\n\007success\030\001 \001(\010\"E"
-  "\n\nAttachment\022\020\n\010filename\030\001 \001(\t\022\024\n\014conten"
-  "t_type\030\002 \001(\t\022\017\n\007content\030\003 \001(\014\"\352\002\n\017SMTPSe"
-  "ndRequest\022$\n\003ctx\030\001 \001(\0132\027.ric.notify.User"
-  "Context\022\022\n\ngateway_id\030\002 \001(\t\022\n\n\002to\030\003 \003(\t\022"
-  "\016\n\006sender\030\004 \001(\t\022\017\n\007subject\030\005 \001(\t\022\021\n\ttext"
-  "_body\030\006 \001(\t\022\021\n\thtml_body\030\007 \001(\t\022\014\n\004host\030\010"
-  " \001(\t\022\014\n\004port\030\t \001(\005\022\020\n\010username\030\n \001(\t\022\020\n\010"
-  "password\030\013 \001(\t\0220\n\014use_starttls\030\014 \001(\0132\032.g"
-  "oogle.protobuf.BoolValue\022+\n\007use_ssl\030\r \001("
-  "\0132\032.google.protobuf.BoolValue\022+\n\013attachm"
-  "ents\030\016 \003(\0132\026.ric.notify.Attachment\"\022\n\020SM"
-  "TPSendResponse\",\n\026SMTPGatewayInfoRequest"
-  "\022\022\n\ngateway_id\030\001 \001(\t\"\264\001\n\027SMTPGatewayInfo"
-  "Response\022\022\n\ngateway_id\030\001 \001(\t\022\016\n\006sender\030\002"
-  " \001(\t\022\014\n\004host\030\003 \001(\t\022\014\n\004port\030\004 \001(\005\022\020\n\010user"
-  "name\030\005 \001(\t\022\020\n\010password\030\006 \001(\t\022\024\n\014use_star"
-  "ttls\030\007 \001(\010\022\017\n\007use_ssl\030\010 \001(\010\022\016\n\006system\030\t "
-  "\001(\010\"\200\001\n\027SMTPCheckGatewayRequest\022\014\n\004host\030"
-  "\001 \001(\t\022\014\n\004port\030\002 \001(\005\022\020\n\010username\030\003 \001(\t\022\020\n"
-  "\010password\030\004 \001(\t\022\024\n\014use_starttls\030\005 \001(\010\022\017\n"
-  "\007use_ssl\030\006 \001(\010\"+\n\030SMTPCheckGatewayRespon"
-  "se\022\017\n\007success\030\001 \001(\010\";\n\017PushSendRequest\022\014"
-  "\n\004text\030\001 \001(\t\022\r\n\005level\030\002 \001(\t\022\013\n\003oid\030\003 \001(\t"
-  "\"\022\n\020PushSendResponse\"\030\n\003Ctx\022\021\n\tobject_id"
-  "\030\001 \001(\t\"\275\001\n\013HttpRequest\022\034\n\003ctx\030\001 \001(\0132\017.ri"
-  "c.notify.Ctx\022\016\n\006method\030\002 \001(\t\022\013\n\003url\030\003 \001("
-  "\t\0225\n\007headers\030\004 \003(\0132$.ric.notify.HttpRequ"
-  "est.HeadersEntry\022\014\n\004body\030\005 \001(\014\032.\n\014Header"
-  "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\267"
-  "\001\n\014HttpResponse\022\034\n\003ctx\030\001 \001(\0132\017.ric.notif"
-  "y.Ctx\022\023\n\013status_code\030\002 \001(\005\0226\n\007headers\030\003 "
-  "\003(\0132%.ric.notify.HttpResponse.HeadersEnt"
-  "ry\022\014\n\004body\030\004 \001(\014\032.\n\014HeadersEntry\022\013\n\003key\030"
-  "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\0012\305\002\n\004SMPP\022A\n\004Sen"
-  "d\022\033.ric.notify.SMPPSendRequest\032\034.ric.not"
-  "ify.SMPPSendResponse\022G\n\006Status\022\035.ric.not"
-  "ify.SMPPStatusRequest\032\036.ric.notify.SMPPS"
-  "tatusResponse\022V\n\013GatewayInfo\022\".ric.notif"
-  "y.SMPPGatewayInfoRequest\032#.ric.notify.SM"
-  "PPGatewayInfoResponse\022Y\n\014CheckGateway\022#."
-  "ric.notify.SMPPCheckGatewayRequest\032$.ric"
-  ".notify.SMPPCheckGatewayResponse2\374\001\n\004SMT"
-  "P\022A\n\004Send\022\033.ric.notify.SMTPSendRequest\032\034"
-  ".ric.notify.SMTPSendResponse\022V\n\013GatewayI"
-  "nfo\022\".ric.notify.SMTPGatewayInfoRequest\032"
-  "#.ric.notify.SMTPGatewayInfoResponse\022Y\n\014"
-  "CheckGateway\022#.ric.notify.SMTPCheckGatew"
-  "ayRequest\032$.ric.notify.SMTPCheckGatewayR"
-  "esponse2I\n\004Push\022A\n\004Send\022\033.ric.notify.Pus"
-  "hSendRequest\032\034.ric.notify.PushSendRespon"
-  "se2D\n\004Http\022<\n\007Request\022\027.ric.notify.HttpR"
-  "equest\032\030.ric.notify.HttpResponseB\030Z\026./ri"
-  "c-notify;ricnotifyb\006proto3"
+  "\032\036google/protobuf/wrappers.proto\"P\n\007Cont"
+  "ext\022\020\n\010group_id\030\001 \001(\t\022\017\n\007user_id\030\002 \001(\t\022\017"
+  "\n\007span_id\030\003 \001(\t\022\021\n\tobject_id\030\004 \001(\t\"g\n\017SM"
+  "PPSendRequest\022 \n\003ctx\030\001 \001(\0132\023.ric.notify."
+  "Context\022\022\n\ngateway_id\030\002 \001(\t\022\r\n\005phone\030\003 \001"
+  "(\t\022\017\n\007message\030\004 \001(\t\"&\n\020SMPPSendResponse\022"
+  "\022\n\nmessage_id\030\001 \001(\t\";\n\021SMPPStatusRequest"
+  "\022\022\n\ngateway_id\030\001 \001(\t\022\022\n\nmessage_id\030\002 \001(\t"
+  "\"\330\002\n\022SMPPStatusResponse\0223\n\005state\030\001 \001(\0162$"
+  ".ric.notify.SMPPStatusResponse.State\022\023\n\013"
+  "description\030\002 \001(\t\022>\n\013smpp_status\030\003 \001(\0132)"
+  ".ric.notify.SMPPStatusResponse.SMPPStatu"
+  "s\032U\n\nSMPPStatus\022\016\n\006msg_id\030\001 \001(\t\022\021\n\tmsg_s"
+  "tate\030\002 \001(\t\022\022\n\nfinal_date\030\003 \001(\t\022\020\n\010err_co"
+  "de\030\004 \001(\005\"a\n\005State\022\013\n\007UNKNOWN\020\000\022\014\n\010SCHEDU"
+  "LE\020\001\022\016\n\nSEND_ERROR\020\002\022\030\n\024MAX_RETRIES_EXCE"
+  "EDED\020\003\022\010\n\004SENT\020\004\022\t\n\005ERROR\020\005\",\n\026SMPPGatew"
+  "ayInfoRequest\022\022\n\ngateway_id\030\001 \001(\t\"9\n\027SMP"
+  "PGatewayInfoResponse\022\016\n\006online\030\001 \001(\010\022\016\n\006"
+  "uptime\030\002 \001(\003\"n\n\027SMPPCheckGatewayRequest\022"
+  "\014\n\004host\030\001 \001(\t\022\014\n\004port\030\002 \001(\005\022\020\n\010username\030"
+  "\003 \001(\t\022\020\n\010password\030\004 \001(\t\022\023\n\013system_type\030\005"
+  " \001(\t\"+\n\030SMPPCheckGatewayResponse\022\017\n\007succ"
+  "ess\030\001 \001(\010\"E\n\nAttachment\022\020\n\010filename\030\001 \001("
+  "\t\022\024\n\014content_type\030\002 \001(\t\022\017\n\007content\030\003 \001(\014"
+  "\"\346\002\n\017SMTPSendRequest\022 \n\003ctx\030\001 \001(\0132\023.ric."
+  "notify.Context\022\022\n\ngateway_id\030\002 \001(\t\022\n\n\002to"
+  "\030\003 \003(\t\022\016\n\006sender\030\004 \001(\t\022\017\n\007subject\030\005 \001(\t\022"
+  "\021\n\ttext_body\030\006 \001(\t\022\021\n\thtml_body\030\007 \001(\t\022\014\n"
+  "\004host\030\010 \001(\t\022\014\n\004port\030\t \001(\005\022\020\n\010username\030\n "
+  "\001(\t\022\020\n\010password\030\013 \001(\t\0220\n\014use_starttls\030\014 "
+  "\001(\0132\032.google.protobuf.BoolValue\022+\n\007use_s"
+  "sl\030\r \001(\0132\032.google.protobuf.BoolValue\022+\n\013"
+  "attachments\030\016 \003(\0132\026.ric.notify.Attachmen"
+  "t\"\022\n\020SMTPSendResponse\",\n\026SMTPGatewayInfo"
+  "Request\022\022\n\ngateway_id\030\001 \001(\t\"\264\001\n\027SMTPGate"
+  "wayInfoResponse\022\022\n\ngateway_id\030\001 \001(\t\022\016\n\006s"
+  "ender\030\002 \001(\t\022\014\n\004host\030\003 \001(\t\022\014\n\004port\030\004 \001(\005\022"
+  "\020\n\010username\030\005 \001(\t\022\020\n\010password\030\006 \001(\t\022\024\n\014u"
+  "se_starttls\030\007 \001(\010\022\017\n\007use_ssl\030\010 \001(\010\022\016\n\006sy"
+  "stem\030\t \001(\010\"\200\001\n\027SMTPCheckGatewayRequest\022\014"
+  "\n\004host\030\001 \001(\t\022\014\n\004port\030\002 \001(\005\022\020\n\010username\030\003"
+  " \001(\t\022\020\n\010password\030\004 \001(\t\022\024\n\014use_starttls\030\005"
+  " \001(\010\022\017\n\007use_ssl\030\006 \001(\010\"+\n\030SMTPCheckGatewa"
+  "yResponse\022\017\n\007success\030\001 \001(\010\";\n\017PushSendRe"
+  "quest\022\014\n\004text\030\001 \001(\t\022\r\n\005level\030\002 \001(\t\022\013\n\003oi"
+  "d\030\003 \001(\t\"\022\n\020PushSendResponse\"\301\001\n\013HttpRequ"
+  "est\022 \n\003ctx\030\001 \001(\0132\023.ric.notify.Context\022\016\n"
+  "\006method\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\0225\n\007headers\030\004 "
+  "\003(\0132$.ric.notify.HttpRequest.HeadersEntr"
+  "y\022\014\n\004body\030\005 \001(\014\032.\n\014HeadersEntry\022\013\n\003key\030\001"
+  " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\273\001\n\014HttpResponse"
+  "\022 \n\003ctx\030\001 \001(\0132\023.ric.notify.Context\022\023\n\013st"
+  "atus_code\030\002 \001(\005\0226\n\007headers\030\003 \003(\0132%.ric.n"
+  "otify.HttpResponse.HeadersEntry\022\014\n\004body\030"
+  "\004 \001(\014\032.\n\014HeadersEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va"
+  "lue\030\002 \001(\t:\0028\0012\305\002\n\004SMPP\022A\n\004Send\022\033.ric.not"
+  "ify.SMPPSendRequest\032\034.ric.notify.SMPPSen"
+  "dResponse\022G\n\006Status\022\035.ric.notify.SMPPSta"
+  "tusRequest\032\036.ric.notify.SMPPStatusRespon"
+  "se\022V\n\013GatewayInfo\022\".ric.notify.SMPPGatew"
+  "ayInfoRequest\032#.ric.notify.SMPPGatewayIn"
+  "foResponse\022Y\n\014CheckGateway\022#.ric.notify."
+  "SMPPCheckGatewayRequest\032$.ric.notify.SMP"
+  "PCheckGatewayResponse2\374\001\n\004SMTP\022A\n\004Send\022\033"
+  ".ric.notify.SMTPSendRequest\032\034.ric.notify"
+  ".SMTPSendResponse\022V\n\013GatewayInfo\022\".ric.n"
+  "otify.SMTPGatewayInfoRequest\032#.ric.notif"
+  "y.SMTPGatewayInfoResponse\022Y\n\014CheckGatewa"
+  "y\022#.ric.notify.SMTPCheckGatewayRequest\032$"
+  ".ric.notify.SMTPCheckGatewayResponse2I\n\004"
+  "Push\022A\n\004Send\022\033.ric.notify.PushSendReques"
+  "t\032\034.ric.notify.PushSendResponse2D\n\004Http\022"
+  "<\n\007Request\022\027.ric.notify.HttpRequest\032\030.ri"
+  "c.notify.HttpResponseB\030Z\026./ric-notify;ri"
+  "cnotifyb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dnotify_2fricnotify_2eproto = {
   false, InitDefaults_ric_2dnotify_2fricnotify_2eproto, 
   descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto,
-  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 3066,
+  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 3055,
 };
 
 void AddDescriptors_ric_2dnotify_2fricnotify_2eproto() {
@@ -889,24 +862,25 @@ const int SMPPStatusResponse::State_ARRAYSIZE;
 
 // ===================================================================
 
-void UserContext::InitAsDefaultInstance() {
+void Context::InitAsDefaultInstance() {
 }
-class UserContext::HasBitSetters {
+class Context::HasBitSetters {
  public:
 };
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int UserContext::kGroupIdFieldNumber;
-const int UserContext::kUserIdFieldNumber;
-const int UserContext::kSpanIdFieldNumber;
+const int Context::kGroupIdFieldNumber;
+const int Context::kUserIdFieldNumber;
+const int Context::kSpanIdFieldNumber;
+const int Context::kObjectIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-UserContext::UserContext()
+Context::Context()
   : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:ric.notify.UserContext)
+  // @@protoc_insertion_point(constructor:ric.notify.Context)
 }
-UserContext::UserContext(const UserContext& from)
+Context::Context(const Context& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
@@ -922,39 +896,45 @@ UserContext::UserContext(const UserContext& from)
   if (from.span_id().size() > 0) {
     span_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.span_id_);
   }
-  // @@protoc_insertion_point(copy_constructor:ric.notify.UserContext)
+  object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.object_id().size() > 0) {
+    object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.notify.Context)
 }
 
-void UserContext::SharedCtor() {
+void Context::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
-      &scc_info_UserContext_ric_2dnotify_2fricnotify_2eproto.base);
+      &scc_info_Context_ric_2dnotify_2fricnotify_2eproto.base);
   group_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   span_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-UserContext::~UserContext() {
-  // @@protoc_insertion_point(destructor:ric.notify.UserContext)
+Context::~Context() {
+  // @@protoc_insertion_point(destructor:ric.notify.Context)
   SharedDtor();
 }
 
-void UserContext::SharedDtor() {
+void Context::SharedDtor() {
   group_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   span_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  object_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void UserContext::SetCachedSize(int size) const {
+void Context::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const UserContext& UserContext::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_UserContext_ric_2dnotify_2fricnotify_2eproto.base);
+const Context& Context::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_Context_ric_2dnotify_2fricnotify_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void UserContext::Clear() {
-// @@protoc_insertion_point(message_clear_start:ric.notify.UserContext)
+void Context::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.notify.Context)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -962,13 +942,14 @@ void UserContext::Clear() {
   group_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   span_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* UserContext::_InternalParse(const char* begin, const char* end, void* object,
+const char* Context::_InternalParse(const char* begin, const char* end, void* object,
                   ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<UserContext*>(object);
+  auto msg = static_cast<Context*>(object);
   ::google::protobuf::int32 size; (void)size;
   int depth; (void)depth;
   ::google::protobuf::uint32 tag;
@@ -983,7 +964,7 @@ const char* UserContext::_InternalParse(const char* begin, const char* end, void
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.notify.UserContext.group_id");
+        ctx->extra_parse_data().SetFieldName("ric.notify.Context.group_id");
         object = msg->mutable_group_id();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
@@ -999,7 +980,7 @@ const char* UserContext::_InternalParse(const char* begin, const char* end, void
         if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.notify.UserContext.user_id");
+        ctx->extra_parse_data().SetFieldName("ric.notify.Context.user_id");
         object = msg->mutable_user_id();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
@@ -1015,8 +996,24 @@ const char* UserContext::_InternalParse(const char* begin, const char* end, void
         if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.notify.UserContext.span_id");
+        ctx->extra_parse_data().SetFieldName("ric.notify.Context.span_id");
         object = msg->mutable_span_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string object_id = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.Context.object_id");
+        object = msg->mutable_object_id();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -1050,11 +1047,11 @@ len_delim_till_end:
                                {parser_till_end, object}, size);
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool UserContext::MergePartialFromCodedStream(
+bool Context::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:ric.notify.UserContext)
+  // @@protoc_insertion_point(parse_start:ric.notify.Context)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -1068,7 +1065,7 @@ bool UserContext::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->group_id().data(), static_cast<int>(this->group_id().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.notify.UserContext.group_id"));
+            "ric.notify.Context.group_id"));
         } else {
           goto handle_unusual;
         }
@@ -1083,7 +1080,7 @@ bool UserContext::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->user_id().data(), static_cast<int>(this->user_id().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.notify.UserContext.user_id"));
+            "ric.notify.Context.user_id"));
         } else {
           goto handle_unusual;
         }
@@ -1098,7 +1095,22 @@ bool UserContext::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->span_id().data(), static_cast<int>(this->span_id().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.notify.UserContext.span_id"));
+            "ric.notify.Context.span_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string object_id = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_object_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->object_id().data(), static_cast<int>(this->object_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.Context.object_id"));
         } else {
           goto handle_unusual;
         }
@@ -1117,18 +1129,18 @@ bool UserContext::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:ric.notify.UserContext)
+  // @@protoc_insertion_point(parse_success:ric.notify.Context)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:ric.notify.UserContext)
+  // @@protoc_insertion_point(parse_failure:ric.notify.Context)
   return false;
 #undef DO_
 }
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
-void UserContext::SerializeWithCachedSizes(
+void Context::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:ric.notify.UserContext)
+  // @@protoc_insertion_point(serialize_start:ric.notify.Context)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1137,7 +1149,7 @@ void UserContext::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->group_id().data(), static_cast<int>(this->group_id().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.UserContext.group_id");
+      "ric.notify.Context.group_id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->group_id(), output);
   }
@@ -1147,7 +1159,7 @@ void UserContext::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->user_id().data(), static_cast<int>(this->user_id().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.UserContext.user_id");
+      "ric.notify.Context.user_id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->user_id(), output);
   }
@@ -1157,21 +1169,31 @@ void UserContext::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->span_id().data(), static_cast<int>(this->span_id().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.UserContext.span_id");
+      "ric.notify.Context.span_id");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->span_id(), output);
+  }
+
+  // string object_id = 4;
+  if (this->object_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->object_id().data(), static_cast<int>(this->object_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.Context.object_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->object_id(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:ric.notify.UserContext)
+  // @@protoc_insertion_point(serialize_end:ric.notify.Context)
 }
 
-::google::protobuf::uint8* UserContext::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Context::InternalSerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ric.notify.UserContext)
+  // @@protoc_insertion_point(serialize_to_array_start:ric.notify.Context)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1180,7 +1202,7 @@ void UserContext::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->group_id().data(), static_cast<int>(this->group_id().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.UserContext.group_id");
+      "ric.notify.Context.group_id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->group_id(), target);
@@ -1191,7 +1213,7 @@ void UserContext::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->user_id().data(), static_cast<int>(this->user_id().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.UserContext.user_id");
+      "ric.notify.Context.user_id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->user_id(), target);
@@ -1202,22 +1224,33 @@ void UserContext::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->span_id().data(), static_cast<int>(this->span_id().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.UserContext.span_id");
+      "ric.notify.Context.span_id");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->span_id(), target);
+  }
+
+  // string object_id = 4;
+  if (this->object_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->object_id().data(), static_cast<int>(this->object_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.Context.object_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->object_id(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:ric.notify.UserContext)
+  // @@protoc_insertion_point(serialize_to_array_end:ric.notify.Context)
   return target;
 }
 
-size_t UserContext::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ric.notify.UserContext)
+size_t Context::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.notify.Context)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1250,28 +1283,35 @@ size_t UserContext::ByteSizeLong() const {
         this->span_id());
   }
 
+  // string object_id = 4;
+  if (this->object_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->object_id());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void UserContext::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ric.notify.UserContext)
+void Context::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.notify.Context)
   GOOGLE_DCHECK_NE(&from, this);
-  const UserContext* source =
-      ::google::protobuf::DynamicCastToGenerated<UserContext>(
+  const Context* source =
+      ::google::protobuf::DynamicCastToGenerated<Context>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.notify.UserContext)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.notify.Context)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.notify.UserContext)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.notify.Context)
     MergeFrom(*source);
   }
 }
 
-void UserContext::MergeFrom(const UserContext& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ric.notify.UserContext)
+void Context::MergeFrom(const Context& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.notify.Context)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -1289,31 +1329,35 @@ void UserContext::MergeFrom(const UserContext& from) {
 
     span_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.span_id_);
   }
+  if (from.object_id().size() > 0) {
+
+    object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
+  }
 }
 
-void UserContext::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ric.notify.UserContext)
+void Context::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.notify.Context)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void UserContext::CopyFrom(const UserContext& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ric.notify.UserContext)
+void Context::CopyFrom(const Context& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.notify.Context)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool UserContext::IsInitialized() const {
+bool Context::IsInitialized() const {
   return true;
 }
 
-void UserContext::Swap(UserContext* other) {
+void Context::Swap(Context* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void UserContext::InternalSwap(UserContext* other) {
+void Context::InternalSwap(Context* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   group_id_.Swap(&other->group_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
@@ -1322,9 +1366,11 @@ void UserContext::InternalSwap(UserContext* other) {
     GetArenaNoVirtual());
   span_id_.Swap(&other->span_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  object_id_.Swap(&other->object_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
 }
 
-::google::protobuf::Metadata UserContext::GetMetadata() const {
+::google::protobuf::Metadata Context::GetMetadata() const {
   ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto);
   return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[kIndexInFileMessages];
 }
@@ -1333,15 +1379,15 @@ void UserContext::InternalSwap(UserContext* other) {
 // ===================================================================
 
 void SMPPSendRequest::InitAsDefaultInstance() {
-  ::ric::notify::_SMPPSendRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::notify::UserContext*>(
-      ::ric::notify::UserContext::internal_default_instance());
+  ::ric::notify::_SMPPSendRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::notify::Context*>(
+      ::ric::notify::Context::internal_default_instance());
 }
 class SMPPSendRequest::HasBitSetters {
  public:
-  static const ::ric::notify::UserContext& ctx(const SMPPSendRequest* msg);
+  static const ::ric::notify::Context& ctx(const SMPPSendRequest* msg);
 };
 
-const ::ric::notify::UserContext&
+const ::ric::notify::Context&
 SMPPSendRequest::HasBitSetters::ctx(const SMPPSendRequest* msg) {
   return *msg->ctx_;
 }
@@ -1374,7 +1420,7 @@ SMPPSendRequest::SMPPSendRequest(const SMPPSendRequest& from)
     message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
   }
   if (from.has_ctx()) {
-    ctx_ = new ::ric::notify::UserContext(*from.ctx_);
+    ctx_ = new ::ric::notify::Context(*from.ctx_);
   } else {
     ctx_ = nullptr;
   }
@@ -1440,12 +1486,12 @@ const char* SMPPSendRequest::_InternalParse(const char* begin, const char* end, 
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // .ric.notify.UserContext ctx = 1;
+      // .ric.notify.Context ctx = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::ric::notify::UserContext::_InternalParse;
+        parser_till_end = ::ric::notify::Context::_InternalParse;
         object = msg->mutable_ctx();
         if (size > end - ptr) goto len_delim_till_end;
         ptr += size;
@@ -1535,7 +1581,7 @@ bool SMPPSendRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .ric.notify.UserContext ctx = 1;
+      // .ric.notify.Context ctx = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
@@ -1618,7 +1664,7 @@ void SMPPSendRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.notify.UserContext ctx = 1;
+  // .ric.notify.Context ctx = 1;
   if (this->has_ctx()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, HasBitSetters::ctx(this), output);
@@ -1667,7 +1713,7 @@ void SMPPSendRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.notify.UserContext ctx = 1;
+  // .ric.notify.Context ctx = 1;
   if (this->has_ctx()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
@@ -1749,7 +1795,7 @@ size_t SMPPSendRequest::ByteSizeLong() const {
         this->message());
   }
 
-  // .ric.notify.UserContext ctx = 1;
+  // .ric.notify.Context ctx = 1;
   if (this->has_ctx()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -1796,7 +1842,7 @@ void SMPPSendRequest::MergeFrom(const SMPPSendRequest& from) {
     message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
   }
   if (from.has_ctx()) {
-    mutable_ctx()->::ric::notify::UserContext::MergeFrom(from.ctx());
+    mutable_ctx()->::ric::notify::Context::MergeFrom(from.ctx());
   }
 }
 
@@ -5263,8 +5309,8 @@ void Attachment::InternalSwap(Attachment* other) {
 // ===================================================================
 
 void SMTPSendRequest::InitAsDefaultInstance() {
-  ::ric::notify::_SMTPSendRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::notify::UserContext*>(
-      ::ric::notify::UserContext::internal_default_instance());
+  ::ric::notify::_SMTPSendRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::notify::Context*>(
+      ::ric::notify::Context::internal_default_instance());
   ::ric::notify::_SMTPSendRequest_default_instance_._instance.get_mutable()->use_starttls_ = const_cast< ::google::protobuf::BoolValue*>(
       ::google::protobuf::BoolValue::internal_default_instance());
   ::ric::notify::_SMTPSendRequest_default_instance_._instance.get_mutable()->use_ssl_ = const_cast< ::google::protobuf::BoolValue*>(
@@ -5272,12 +5318,12 @@ void SMTPSendRequest::InitAsDefaultInstance() {
 }
 class SMTPSendRequest::HasBitSetters {
  public:
-  static const ::ric::notify::UserContext& ctx(const SMTPSendRequest* msg);
+  static const ::ric::notify::Context& ctx(const SMTPSendRequest* msg);
   static const ::google::protobuf::BoolValue& use_starttls(const SMTPSendRequest* msg);
   static const ::google::protobuf::BoolValue& use_ssl(const SMTPSendRequest* msg);
 };
 
-const ::ric::notify::UserContext&
+const ::ric::notify::Context&
 SMTPSendRequest::HasBitSetters::ctx(const SMTPSendRequest* msg) {
   return *msg->ctx_;
 }
@@ -5362,7 +5408,7 @@ SMTPSendRequest::SMTPSendRequest(const SMTPSendRequest& from)
     password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
   }
   if (from.has_ctx()) {
-    ctx_ = new ::ric::notify::UserContext(*from.ctx_);
+    ctx_ = new ::ric::notify::Context(*from.ctx_);
   } else {
     ctx_ = nullptr;
   }
@@ -5469,12 +5515,12 @@ const char* SMTPSendRequest::_InternalParse(const char* begin, const char* end, 
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // .ric.notify.UserContext ctx = 1;
+      // .ric.notify.Context ctx = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::ric::notify::UserContext::_InternalParse;
+        parser_till_end = ::ric::notify::Context::_InternalParse;
         object = msg->mutable_ctx();
         if (size > end - ptr) goto len_delim_till_end;
         ptr += size;
@@ -5712,7 +5758,7 @@ bool SMTPSendRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .ric.notify.UserContext ctx = 1;
+      // .ric.notify.Context ctx = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
@@ -5932,7 +5978,7 @@ void SMTPSendRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.notify.UserContext ctx = 1;
+  // .ric.notify.Context ctx = 1;
   if (this->has_ctx()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, HasBitSetters::ctx(this), output);
@@ -6067,7 +6113,7 @@ void SMTPSendRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.notify.UserContext ctx = 1;
+  // .ric.notify.Context ctx = 1;
   if (this->has_ctx()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
@@ -6295,7 +6341,7 @@ size_t SMTPSendRequest::ByteSizeLong() const {
         this->password());
   }
 
-  // .ric.notify.UserContext ctx = 1;
+  // .ric.notify.Context ctx = 1;
   if (this->has_ctx()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -6385,7 +6431,7 @@ void SMTPSendRequest::MergeFrom(const SMTPSendRequest& from) {
     password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
   }
   if (from.has_ctx()) {
-    mutable_ctx()->::ric::notify::UserContext::MergeFrom(from.ctx());
+    mutable_ctx()->::ric::notify::Context::MergeFrom(from.ctx());
   }
   if (from.has_use_starttls()) {
     mutable_use_starttls()->::google::protobuf::BoolValue::MergeFrom(from.use_starttls());
@@ -9205,303 +9251,6 @@ void PushSendResponse::InternalSwap(PushSendResponse* other) {
 
 // ===================================================================
 
-void Ctx::InitAsDefaultInstance() {
-}
-class Ctx::HasBitSetters {
- public:
-};
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Ctx::kObjectIdFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-Ctx::Ctx()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:ric.notify.Ctx)
-}
-Ctx::Ctx(const Ctx& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(nullptr) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.object_id().size() > 0) {
-    object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
-  }
-  // @@protoc_insertion_point(copy_constructor:ric.notify.Ctx)
-}
-
-void Ctx::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_Ctx_ric_2dnotify_2fricnotify_2eproto.base);
-  object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-Ctx::~Ctx() {
-  // @@protoc_insertion_point(destructor:ric.notify.Ctx)
-  SharedDtor();
-}
-
-void Ctx::SharedDtor() {
-  object_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-void Ctx::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const Ctx& Ctx::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_Ctx_ric_2dnotify_2fricnotify_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void Ctx::Clear() {
-// @@protoc_insertion_point(message_clear_start:ric.notify.Ctx)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  _internal_metadata_.Clear();
-}
-
-#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* Ctx::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<Ctx*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-    switch (tag >> 3) {
-      // string object_id = 1;
-      case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("ric.notify.Ctx.object_id");
-        object = msg->mutable_object_id();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
-        }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
-      }
-    }  // switch
-  }  // while
-  return ptr;
-string_till_end:
-  static_cast<::std::string*>(object)->clear();
-  static_cast<::std::string*>(object)->reserve(size);
-  goto len_delim_till_end;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
-}
-#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool Ctx::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:ric.notify.Ctx)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // string object_id = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_object_id()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->object_id().data(), static_cast<int>(this->object_id().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "ric.notify.Ctx.object_id"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:ric.notify.Ctx)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:ric.notify.Ctx)
-  return false;
-#undef DO_
-}
-#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-
-void Ctx::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:ric.notify.Ctx)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string object_id = 1;
-  if (this->object_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->object_id().data(), static_cast<int>(this->object_id().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.Ctx.object_id");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->object_id(), output);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:ric.notify.Ctx)
-}
-
-::google::protobuf::uint8* Ctx::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:ric.notify.Ctx)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string object_id = 1;
-  if (this->object_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->object_id().data(), static_cast<int>(this->object_id().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "ric.notify.Ctx.object_id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->object_id(), target);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:ric.notify.Ctx)
-  return target;
-}
-
-size_t Ctx::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:ric.notify.Ctx)
-  size_t total_size = 0;
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string object_id = 1;
-  if (this->object_id().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->object_id());
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void Ctx::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:ric.notify.Ctx)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Ctx* source =
-      ::google::protobuf::DynamicCastToGenerated<Ctx>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.notify.Ctx)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.notify.Ctx)
-    MergeFrom(*source);
-  }
-}
-
-void Ctx::MergeFrom(const Ctx& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:ric.notify.Ctx)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.object_id().size() > 0) {
-
-    object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
-  }
-}
-
-void Ctx::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:ric.notify.Ctx)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Ctx::CopyFrom(const Ctx& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:ric.notify.Ctx)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Ctx::IsInitialized() const {
-  return true;
-}
-
-void Ctx::Swap(Ctx* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void Ctx::InternalSwap(Ctx* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  object_id_.Swap(&other->object_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-}
-
-::google::protobuf::Metadata Ctx::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto);
-  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
 HttpRequest_HeadersEntry_DoNotUse::HttpRequest_HeadersEntry_DoNotUse() {}
 HttpRequest_HeadersEntry_DoNotUse::HttpRequest_HeadersEntry_DoNotUse(::google::protobuf::Arena* arena)
     : SuperType(arena) {}
@@ -9510,7 +9259,7 @@ void HttpRequest_HeadersEntry_DoNotUse::MergeFrom(const HttpRequest_HeadersEntry
 }
 ::google::protobuf::Metadata HttpRequest_HeadersEntry_DoNotUse::GetMetadata() const {
   ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto);
-  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[20];
+  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[19];
 }
 void HttpRequest_HeadersEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -9544,15 +9293,15 @@ bool HttpRequest_HeadersEntry_DoNotUse::_ParseMap(const char* begin, const char*
 // ===================================================================
 
 void HttpRequest::InitAsDefaultInstance() {
-  ::ric::notify::_HttpRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::notify::Ctx*>(
-      ::ric::notify::Ctx::internal_default_instance());
+  ::ric::notify::_HttpRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::notify::Context*>(
+      ::ric::notify::Context::internal_default_instance());
 }
 class HttpRequest::HasBitSetters {
  public:
-  static const ::ric::notify::Ctx& ctx(const HttpRequest* msg);
+  static const ::ric::notify::Context& ctx(const HttpRequest* msg);
 };
 
-const ::ric::notify::Ctx&
+const ::ric::notify::Context&
 HttpRequest::HasBitSetters::ctx(const HttpRequest* msg) {
   return *msg->ctx_;
 }
@@ -9587,7 +9336,7 @@ HttpRequest::HttpRequest(const HttpRequest& from)
     body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.body_);
   }
   if (from.has_ctx()) {
-    ctx_ = new ::ric::notify::Ctx(*from.ctx_);
+    ctx_ = new ::ric::notify::Context(*from.ctx_);
   } else {
     ctx_ = nullptr;
   }
@@ -9654,12 +9403,12 @@ const char* HttpRequest::_InternalParse(const char* begin, const char* end, void
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // .ric.notify.Ctx ctx = 1;
+      // .ric.notify.Context ctx = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::ric::notify::Ctx::_InternalParse;
+        parser_till_end = ::ric::notify::Context::_InternalParse;
         object = msg->mutable_ctx();
         if (size > end - ptr) goto len_delim_till_end;
         ptr += size;
@@ -9767,7 +9516,7 @@ bool HttpRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .ric.notify.Ctx ctx = 1;
+      // .ric.notify.Context ctx = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
@@ -9872,7 +9621,7 @@ void HttpRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.notify.Ctx ctx = 1;
+  // .ric.notify.Context ctx = 1;
   if (this->has_ctx()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, HasBitSetters::ctx(this), output);
@@ -9966,7 +9715,7 @@ void HttpRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.notify.Ctx ctx = 1;
+  // .ric.notify.Context ctx = 1;
   if (this->has_ctx()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
@@ -10107,7 +9856,7 @@ size_t HttpRequest::ByteSizeLong() const {
         this->body());
   }
 
-  // .ric.notify.Ctx ctx = 1;
+  // .ric.notify.Context ctx = 1;
   if (this->has_ctx()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -10155,7 +9904,7 @@ void HttpRequest::MergeFrom(const HttpRequest& from) {
     body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.body_);
   }
   if (from.has_ctx()) {
-    mutable_ctx()->::ric::notify::Ctx::MergeFrom(from.ctx());
+    mutable_ctx()->::ric::notify::Context::MergeFrom(from.ctx());
   }
 }
 
@@ -10210,7 +9959,7 @@ void HttpResponse_HeadersEntry_DoNotUse::MergeFrom(const HttpResponse_HeadersEnt
 }
 ::google::protobuf::Metadata HttpResponse_HeadersEntry_DoNotUse::GetMetadata() const {
   ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto);
-  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[22];
+  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[21];
 }
 void HttpResponse_HeadersEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -10244,15 +9993,15 @@ bool HttpResponse_HeadersEntry_DoNotUse::_ParseMap(const char* begin, const char
 // ===================================================================
 
 void HttpResponse::InitAsDefaultInstance() {
-  ::ric::notify::_HttpResponse_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::notify::Ctx*>(
-      ::ric::notify::Ctx::internal_default_instance());
+  ::ric::notify::_HttpResponse_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::notify::Context*>(
+      ::ric::notify::Context::internal_default_instance());
 }
 class HttpResponse::HasBitSetters {
  public:
-  static const ::ric::notify::Ctx& ctx(const HttpResponse* msg);
+  static const ::ric::notify::Context& ctx(const HttpResponse* msg);
 };
 
-const ::ric::notify::Ctx&
+const ::ric::notify::Context&
 HttpResponse::HasBitSetters::ctx(const HttpResponse* msg) {
   return *msg->ctx_;
 }
@@ -10278,7 +10027,7 @@ HttpResponse::HttpResponse(const HttpResponse& from)
     body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.body_);
   }
   if (from.has_ctx()) {
-    ctx_ = new ::ric::notify::Ctx(*from.ctx_);
+    ctx_ = new ::ric::notify::Context(*from.ctx_);
   } else {
     ctx_ = nullptr;
   }
@@ -10343,12 +10092,12 @@ const char* HttpResponse::_InternalParse(const char* begin, const char* end, voi
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // .ric.notify.Ctx ctx = 1;
+      // .ric.notify.Context ctx = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::ric::notify::Ctx::_InternalParse;
+        parser_till_end = ::ric::notify::Context::_InternalParse;
         object = msg->mutable_ctx();
         if (size > end - ptr) goto len_delim_till_end;
         ptr += size;
@@ -10431,7 +10180,7 @@ bool HttpResponse::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .ric.notify.Ctx ctx = 1;
+      // .ric.notify.Context ctx = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
@@ -10519,7 +10268,7 @@ void HttpResponse::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.notify.Ctx ctx = 1;
+  // .ric.notify.Context ctx = 1;
   if (this->has_ctx()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, HasBitSetters::ctx(this), output);
@@ -10598,7 +10347,7 @@ void HttpResponse::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .ric.notify.Ctx ctx = 1;
+  // .ric.notify.Context ctx = 1;
   if (this->has_ctx()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
@@ -10708,7 +10457,7 @@ size_t HttpResponse::ByteSizeLong() const {
         this->body());
   }
 
-  // .ric.notify.Ctx ctx = 1;
+  // .ric.notify.Context ctx = 1;
   if (this->has_ctx()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -10755,7 +10504,7 @@ void HttpResponse::MergeFrom(const HttpResponse& from) {
     body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.body_);
   }
   if (from.has_ctx()) {
-    mutable_ctx()->::ric::notify::Ctx::MergeFrom(from.ctx());
+    mutable_ctx()->::ric::notify::Context::MergeFrom(from.ctx());
   }
   if (from.status_code() != 0) {
     set_status_code(from.status_code());
@@ -10805,8 +10554,8 @@ void HttpResponse::InternalSwap(HttpResponse* other) {
 }  // namespace ric
 namespace google {
 namespace protobuf {
-template<> PROTOBUF_NOINLINE ::ric::notify::UserContext* Arena::CreateMaybeMessage< ::ric::notify::UserContext >(Arena* arena) {
-  return Arena::CreateInternal< ::ric::notify::UserContext >(arena);
+template<> PROTOBUF_NOINLINE ::ric::notify::Context* Arena::CreateMaybeMessage< ::ric::notify::Context >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::notify::Context >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::notify::SMPPSendRequest* Arena::CreateMaybeMessage< ::ric::notify::SMPPSendRequest >(Arena* arena) {
   return Arena::CreateInternal< ::ric::notify::SMPPSendRequest >(arena);
@@ -10861,9 +10610,6 @@ template<> PROTOBUF_NOINLINE ::ric::notify::PushSendRequest* Arena::CreateMaybeM
 }
 template<> PROTOBUF_NOINLINE ::ric::notify::PushSendResponse* Arena::CreateMaybeMessage< ::ric::notify::PushSendResponse >(Arena* arena) {
   return Arena::CreateInternal< ::ric::notify::PushSendResponse >(arena);
-}
-template<> PROTOBUF_NOINLINE ::ric::notify::Ctx* Arena::CreateMaybeMessage< ::ric::notify::Ctx >(Arena* arena) {
-  return Arena::CreateInternal< ::ric::notify::Ctx >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::notify::HttpRequest_HeadersEntry_DoNotUse* Arena::CreateMaybeMessage< ::ric::notify::HttpRequest_HeadersEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateInternal< ::ric::notify::HttpRequest_HeadersEntry_DoNotUse >(arena);
