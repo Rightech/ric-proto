@@ -80,6 +80,16 @@
         "dev": 15081
       }
     },
+    "ric-notify/Push": {
+      "port": {
+        "dev": 15081
+      }
+    },
+    "ric-notify/HTTP": {
+      "port": {
+        "dev": 15081
+      }
+    },        
     "lora-agent": {
       "port": {
         "dev": 15082
