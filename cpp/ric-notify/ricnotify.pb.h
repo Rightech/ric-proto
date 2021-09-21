@@ -61,18 +61,18 @@ extern AttachmentDefaultTypeInternal _Attachment_default_instance_;
 class Context;
 class ContextDefaultTypeInternal;
 extern ContextDefaultTypeInternal _Context_default_instance_;
-class HttpRequest;
-class HttpRequestDefaultTypeInternal;
-extern HttpRequestDefaultTypeInternal _HttpRequest_default_instance_;
-class HttpRequest_HeadersEntry_DoNotUse;
-class HttpRequest_HeadersEntry_DoNotUseDefaultTypeInternal;
-extern HttpRequest_HeadersEntry_DoNotUseDefaultTypeInternal _HttpRequest_HeadersEntry_DoNotUse_default_instance_;
-class HttpResponse;
-class HttpResponseDefaultTypeInternal;
-extern HttpResponseDefaultTypeInternal _HttpResponse_default_instance_;
-class HttpResponse_HeadersEntry_DoNotUse;
-class HttpResponse_HeadersEntry_DoNotUseDefaultTypeInternal;
-extern HttpResponse_HeadersEntry_DoNotUseDefaultTypeInternal _HttpResponse_HeadersEntry_DoNotUse_default_instance_;
+class HTTPRequest;
+class HTTPRequestDefaultTypeInternal;
+extern HTTPRequestDefaultTypeInternal _HTTPRequest_default_instance_;
+class HTTPRequest_HeadersEntry_DoNotUse;
+class HTTPRequest_HeadersEntry_DoNotUseDefaultTypeInternal;
+extern HTTPRequest_HeadersEntry_DoNotUseDefaultTypeInternal _HTTPRequest_HeadersEntry_DoNotUse_default_instance_;
+class HTTPResponse;
+class HTTPResponseDefaultTypeInternal;
+extern HTTPResponseDefaultTypeInternal _HTTPResponse_default_instance_;
+class HTTPResponse_HeadersEntry_DoNotUse;
+class HTTPResponse_HeadersEntry_DoNotUseDefaultTypeInternal;
+extern HTTPResponse_HeadersEntry_DoNotUseDefaultTypeInternal _HTTPResponse_HeadersEntry_DoNotUse_default_instance_;
 class PushSendRequest;
 class PushSendRequestDefaultTypeInternal;
 extern PushSendRequestDefaultTypeInternal _PushSendRequest_default_instance_;
@@ -130,10 +130,10 @@ namespace google {
 namespace protobuf {
 template<> ::ric::notify::Attachment* Arena::CreateMaybeMessage<::ric::notify::Attachment>(Arena*);
 template<> ::ric::notify::Context* Arena::CreateMaybeMessage<::ric::notify::Context>(Arena*);
-template<> ::ric::notify::HttpRequest* Arena::CreateMaybeMessage<::ric::notify::HttpRequest>(Arena*);
-template<> ::ric::notify::HttpRequest_HeadersEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::notify::HttpRequest_HeadersEntry_DoNotUse>(Arena*);
-template<> ::ric::notify::HttpResponse* Arena::CreateMaybeMessage<::ric::notify::HttpResponse>(Arena*);
-template<> ::ric::notify::HttpResponse_HeadersEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::notify::HttpResponse_HeadersEntry_DoNotUse>(Arena*);
+template<> ::ric::notify::HTTPRequest* Arena::CreateMaybeMessage<::ric::notify::HTTPRequest>(Arena*);
+template<> ::ric::notify::HTTPRequest_HeadersEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::notify::HTTPRequest_HeadersEntry_DoNotUse>(Arena*);
+template<> ::ric::notify::HTTPResponse* Arena::CreateMaybeMessage<::ric::notify::HTTPResponse>(Arena*);
+template<> ::ric::notify::HTTPResponse_HeadersEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::notify::HTTPResponse_HeadersEntry_DoNotUse>(Arena*);
 template<> ::ric::notify::PushSendRequest* Arena::CreateMaybeMessage<::ric::notify::PushSendRequest>(Arena*);
 template<> ::ric::notify::PushSendResponse* Arena::CreateMaybeMessage<::ric::notify::PushSendResponse>(Arena*);
 template<> ::ric::notify::SMPPCheckGatewayRequest* Arena::CreateMaybeMessage<::ric::notify::SMPPCheckGatewayRequest>(Arena*);
@@ -3035,7 +3035,7 @@ class PushSendResponse final :
 };
 // -------------------------------------------------------------------
 
-class HttpRequest_HeadersEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<HttpRequest_HeadersEntry_DoNotUse, 
+class HTTPRequest_HeadersEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<HTTPRequest_HeadersEntry_DoNotUse, 
     ::std::string, ::std::string,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -3044,40 +3044,40 @@ public:
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 static bool _ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  typedef ::google::protobuf::internal::MapEntry<HttpRequest_HeadersEntry_DoNotUse, 
+  typedef ::google::protobuf::internal::MapEntry<HTTPRequest_HeadersEntry_DoNotUse, 
     ::std::string, ::std::string,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
     0 > SuperType;
-  HttpRequest_HeadersEntry_DoNotUse();
-  HttpRequest_HeadersEntry_DoNotUse(::google::protobuf::Arena* arena);
-  void MergeFrom(const HttpRequest_HeadersEntry_DoNotUse& other);
-  static const HttpRequest_HeadersEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const HttpRequest_HeadersEntry_DoNotUse*>(&_HttpRequest_HeadersEntry_DoNotUse_default_instance_); }
+  HTTPRequest_HeadersEntry_DoNotUse();
+  HTTPRequest_HeadersEntry_DoNotUse(::google::protobuf::Arena* arena);
+  void MergeFrom(const HTTPRequest_HeadersEntry_DoNotUse& other);
+  static const HTTPRequest_HeadersEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const HTTPRequest_HeadersEntry_DoNotUse*>(&_HTTPRequest_HeadersEntry_DoNotUse_default_instance_); }
   void MergeFrom(const ::google::protobuf::Message& other) final;
   ::google::protobuf::Metadata GetMetadata() const;
 };
 
 // -------------------------------------------------------------------
 
-class HttpRequest final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.HttpRequest) */ {
+class HTTPRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.HTTPRequest) */ {
  public:
-  HttpRequest();
-  virtual ~HttpRequest();
+  HTTPRequest();
+  virtual ~HTTPRequest();
 
-  HttpRequest(const HttpRequest& from);
+  HTTPRequest(const HTTPRequest& from);
 
-  inline HttpRequest& operator=(const HttpRequest& from) {
+  inline HTTPRequest& operator=(const HTTPRequest& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  HttpRequest(HttpRequest&& from) noexcept
-    : HttpRequest() {
+  HTTPRequest(HTTPRequest&& from) noexcept
+    : HTTPRequest() {
     *this = ::std::move(from);
   }
 
-  inline HttpRequest& operator=(HttpRequest&& from) noexcept {
+  inline HTTPRequest& operator=(HTTPRequest&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -3089,34 +3089,34 @@ class HttpRequest final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const HttpRequest& default_instance();
+  static const HTTPRequest& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const HttpRequest* internal_default_instance() {
-    return reinterpret_cast<const HttpRequest*>(
-               &_HttpRequest_default_instance_);
+  static inline const HTTPRequest* internal_default_instance() {
+    return reinterpret_cast<const HTTPRequest*>(
+               &_HTTPRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     20;
 
-  void Swap(HttpRequest* other);
-  friend void swap(HttpRequest& a, HttpRequest& b) {
+  void Swap(HTTPRequest* other);
+  friend void swap(HTTPRequest& a, HTTPRequest& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline HttpRequest* New() const final {
-    return CreateMaybeMessage<HttpRequest>(nullptr);
+  inline HTTPRequest* New() const final {
+    return CreateMaybeMessage<HTTPRequest>(nullptr);
   }
 
-  HttpRequest* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<HttpRequest>(arena);
+  HTTPRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<HTTPRequest>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const HttpRequest& from);
-  void MergeFrom(const HttpRequest& from);
+  void CopyFrom(const HTTPRequest& from);
+  void MergeFrom(const HTTPRequest& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -3138,7 +3138,7 @@ class HttpRequest final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(HttpRequest* other);
+  void InternalSwap(HTTPRequest* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -3215,13 +3215,13 @@ class HttpRequest final :
   ::ric::notify::Context* mutable_ctx();
   void set_allocated_ctx(::ric::notify::Context* ctx);
 
-  // @@protoc_insertion_point(class_scope:ric.notify.HttpRequest)
+  // @@protoc_insertion_point(class_scope:ric.notify.HTTPRequest)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::MapField<
-      HttpRequest_HeadersEntry_DoNotUse,
+      HTTPRequest_HeadersEntry_DoNotUse,
       ::std::string, ::std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -3235,7 +3235,7 @@ class HttpRequest final :
 };
 // -------------------------------------------------------------------
 
-class HttpResponse_HeadersEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<HttpResponse_HeadersEntry_DoNotUse, 
+class HTTPResponse_HeadersEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<HTTPResponse_HeadersEntry_DoNotUse, 
     ::std::string, ::std::string,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -3244,40 +3244,40 @@ public:
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 static bool _ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  typedef ::google::protobuf::internal::MapEntry<HttpResponse_HeadersEntry_DoNotUse, 
+  typedef ::google::protobuf::internal::MapEntry<HTTPResponse_HeadersEntry_DoNotUse, 
     ::std::string, ::std::string,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
     0 > SuperType;
-  HttpResponse_HeadersEntry_DoNotUse();
-  HttpResponse_HeadersEntry_DoNotUse(::google::protobuf::Arena* arena);
-  void MergeFrom(const HttpResponse_HeadersEntry_DoNotUse& other);
-  static const HttpResponse_HeadersEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const HttpResponse_HeadersEntry_DoNotUse*>(&_HttpResponse_HeadersEntry_DoNotUse_default_instance_); }
+  HTTPResponse_HeadersEntry_DoNotUse();
+  HTTPResponse_HeadersEntry_DoNotUse(::google::protobuf::Arena* arena);
+  void MergeFrom(const HTTPResponse_HeadersEntry_DoNotUse& other);
+  static const HTTPResponse_HeadersEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const HTTPResponse_HeadersEntry_DoNotUse*>(&_HTTPResponse_HeadersEntry_DoNotUse_default_instance_); }
   void MergeFrom(const ::google::protobuf::Message& other) final;
   ::google::protobuf::Metadata GetMetadata() const;
 };
 
 // -------------------------------------------------------------------
 
-class HttpResponse final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.HttpResponse) */ {
+class HTTPResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.HTTPResponse) */ {
  public:
-  HttpResponse();
-  virtual ~HttpResponse();
+  HTTPResponse();
+  virtual ~HTTPResponse();
 
-  HttpResponse(const HttpResponse& from);
+  HTTPResponse(const HTTPResponse& from);
 
-  inline HttpResponse& operator=(const HttpResponse& from) {
+  inline HTTPResponse& operator=(const HTTPResponse& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  HttpResponse(HttpResponse&& from) noexcept
-    : HttpResponse() {
+  HTTPResponse(HTTPResponse&& from) noexcept
+    : HTTPResponse() {
     *this = ::std::move(from);
   }
 
-  inline HttpResponse& operator=(HttpResponse&& from) noexcept {
+  inline HTTPResponse& operator=(HTTPResponse&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -3289,34 +3289,34 @@ class HttpResponse final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const HttpResponse& default_instance();
+  static const HTTPResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const HttpResponse* internal_default_instance() {
-    return reinterpret_cast<const HttpResponse*>(
-               &_HttpResponse_default_instance_);
+  static inline const HTTPResponse* internal_default_instance() {
+    return reinterpret_cast<const HTTPResponse*>(
+               &_HTTPResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     22;
 
-  void Swap(HttpResponse* other);
-  friend void swap(HttpResponse& a, HttpResponse& b) {
+  void Swap(HTTPResponse* other);
+  friend void swap(HTTPResponse& a, HTTPResponse& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline HttpResponse* New() const final {
-    return CreateMaybeMessage<HttpResponse>(nullptr);
+  inline HTTPResponse* New() const final {
+    return CreateMaybeMessage<HTTPResponse>(nullptr);
   }
 
-  HttpResponse* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<HttpResponse>(arena);
+  HTTPResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<HTTPResponse>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const HttpResponse& from);
-  void MergeFrom(const HttpResponse& from);
+  void CopyFrom(const HTTPResponse& from);
+  void MergeFrom(const HTTPResponse& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -3338,7 +3338,7 @@ class HttpResponse final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(HttpResponse* other);
+  void InternalSwap(HTTPResponse* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -3393,13 +3393,13 @@ class HttpResponse final :
   ::google::protobuf::int32 status_code() const;
   void set_status_code(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:ric.notify.HttpResponse)
+  // @@protoc_insertion_point(class_scope:ric.notify.HTTPResponse)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::MapField<
-      HttpResponse_HeadersEntry_DoNotUse,
+      HTTPResponse_HeadersEntry_DoNotUse,
       ::std::string, ::std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -6277,41 +6277,41 @@ inline void PushSendRequest::set_allocated_oid(::std::string* oid) {
 
 // -------------------------------------------------------------------
 
-// HttpRequest
+// HTTPRequest
 
 // .ric.notify.Context ctx = 1;
-inline bool HttpRequest::has_ctx() const {
+inline bool HTTPRequest::has_ctx() const {
   return this != internal_default_instance() && ctx_ != nullptr;
 }
-inline void HttpRequest::clear_ctx() {
+inline void HTTPRequest::clear_ctx() {
   if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
     delete ctx_;
   }
   ctx_ = nullptr;
 }
-inline const ::ric::notify::Context& HttpRequest::ctx() const {
+inline const ::ric::notify::Context& HTTPRequest::ctx() const {
   const ::ric::notify::Context* p = ctx_;
-  // @@protoc_insertion_point(field_get:ric.notify.HttpRequest.ctx)
+  // @@protoc_insertion_point(field_get:ric.notify.HTTPRequest.ctx)
   return p != nullptr ? *p : *reinterpret_cast<const ::ric::notify::Context*>(
       &::ric::notify::_Context_default_instance_);
 }
-inline ::ric::notify::Context* HttpRequest::release_ctx() {
-  // @@protoc_insertion_point(field_release:ric.notify.HttpRequest.ctx)
+inline ::ric::notify::Context* HTTPRequest::release_ctx() {
+  // @@protoc_insertion_point(field_release:ric.notify.HTTPRequest.ctx)
   
   ::ric::notify::Context* temp = ctx_;
   ctx_ = nullptr;
   return temp;
 }
-inline ::ric::notify::Context* HttpRequest::mutable_ctx() {
+inline ::ric::notify::Context* HTTPRequest::mutable_ctx() {
   
   if (ctx_ == nullptr) {
     auto* p = CreateMaybeMessage<::ric::notify::Context>(GetArenaNoVirtual());
     ctx_ = p;
   }
-  // @@protoc_insertion_point(field_mutable:ric.notify.HttpRequest.ctx)
+  // @@protoc_insertion_point(field_mutable:ric.notify.HTTPRequest.ctx)
   return ctx_;
 }
-inline void HttpRequest::set_allocated_ctx(::ric::notify::Context* ctx) {
+inline void HTTPRequest::set_allocated_ctx(::ric::notify::Context* ctx) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
     delete ctx_;
@@ -6327,225 +6327,225 @@ inline void HttpRequest::set_allocated_ctx(::ric::notify::Context* ctx) {
     
   }
   ctx_ = ctx;
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.HttpRequest.ctx)
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.HTTPRequest.ctx)
 }
 
 // string method = 2;
-inline void HttpRequest::clear_method() {
+inline void HTTPRequest::clear_method() {
   method_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& HttpRequest::method() const {
-  // @@protoc_insertion_point(field_get:ric.notify.HttpRequest.method)
+inline const ::std::string& HTTPRequest::method() const {
+  // @@protoc_insertion_point(field_get:ric.notify.HTTPRequest.method)
   return method_.GetNoArena();
 }
-inline void HttpRequest::set_method(const ::std::string& value) {
+inline void HTTPRequest::set_method(const ::std::string& value) {
   
   method_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.notify.HttpRequest.method)
+  // @@protoc_insertion_point(field_set:ric.notify.HTTPRequest.method)
 }
 #if LANG_CXX11
-inline void HttpRequest::set_method(::std::string&& value) {
+inline void HTTPRequest::set_method(::std::string&& value) {
   
   method_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.notify.HttpRequest.method)
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.HTTPRequest.method)
 }
 #endif
-inline void HttpRequest::set_method(const char* value) {
+inline void HTTPRequest::set_method(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   method_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.notify.HttpRequest.method)
+  // @@protoc_insertion_point(field_set_char:ric.notify.HTTPRequest.method)
 }
-inline void HttpRequest::set_method(const char* value, size_t size) {
+inline void HTTPRequest::set_method(const char* value, size_t size) {
   
   method_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.HttpRequest.method)
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.HTTPRequest.method)
 }
-inline ::std::string* HttpRequest::mutable_method() {
+inline ::std::string* HTTPRequest::mutable_method() {
   
-  // @@protoc_insertion_point(field_mutable:ric.notify.HttpRequest.method)
+  // @@protoc_insertion_point(field_mutable:ric.notify.HTTPRequest.method)
   return method_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* HttpRequest::release_method() {
-  // @@protoc_insertion_point(field_release:ric.notify.HttpRequest.method)
+inline ::std::string* HTTPRequest::release_method() {
+  // @@protoc_insertion_point(field_release:ric.notify.HTTPRequest.method)
   
   return method_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void HttpRequest::set_allocated_method(::std::string* method) {
+inline void HTTPRequest::set_allocated_method(::std::string* method) {
   if (method != nullptr) {
     
   } else {
     
   }
   method_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), method);
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.HttpRequest.method)
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.HTTPRequest.method)
 }
 
 // string url = 3;
-inline void HttpRequest::clear_url() {
+inline void HTTPRequest::clear_url() {
   url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& HttpRequest::url() const {
-  // @@protoc_insertion_point(field_get:ric.notify.HttpRequest.url)
+inline const ::std::string& HTTPRequest::url() const {
+  // @@protoc_insertion_point(field_get:ric.notify.HTTPRequest.url)
   return url_.GetNoArena();
 }
-inline void HttpRequest::set_url(const ::std::string& value) {
+inline void HTTPRequest::set_url(const ::std::string& value) {
   
   url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.notify.HttpRequest.url)
+  // @@protoc_insertion_point(field_set:ric.notify.HTTPRequest.url)
 }
 #if LANG_CXX11
-inline void HttpRequest::set_url(::std::string&& value) {
+inline void HTTPRequest::set_url(::std::string&& value) {
   
   url_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.notify.HttpRequest.url)
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.HTTPRequest.url)
 }
 #endif
-inline void HttpRequest::set_url(const char* value) {
+inline void HTTPRequest::set_url(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.notify.HttpRequest.url)
+  // @@protoc_insertion_point(field_set_char:ric.notify.HTTPRequest.url)
 }
-inline void HttpRequest::set_url(const char* value, size_t size) {
+inline void HTTPRequest::set_url(const char* value, size_t size) {
   
   url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.HttpRequest.url)
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.HTTPRequest.url)
 }
-inline ::std::string* HttpRequest::mutable_url() {
+inline ::std::string* HTTPRequest::mutable_url() {
   
-  // @@protoc_insertion_point(field_mutable:ric.notify.HttpRequest.url)
+  // @@protoc_insertion_point(field_mutable:ric.notify.HTTPRequest.url)
   return url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* HttpRequest::release_url() {
-  // @@protoc_insertion_point(field_release:ric.notify.HttpRequest.url)
+inline ::std::string* HTTPRequest::release_url() {
+  // @@protoc_insertion_point(field_release:ric.notify.HTTPRequest.url)
   
   return url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void HttpRequest::set_allocated_url(::std::string* url) {
+inline void HTTPRequest::set_allocated_url(::std::string* url) {
   if (url != nullptr) {
     
   } else {
     
   }
   url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), url);
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.HttpRequest.url)
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.HTTPRequest.url)
 }
 
 // map<string, string> headers = 4;
-inline int HttpRequest::headers_size() const {
+inline int HTTPRequest::headers_size() const {
   return headers_.size();
 }
-inline void HttpRequest::clear_headers() {
+inline void HTTPRequest::clear_headers() {
   headers_.Clear();
 }
 inline const ::google::protobuf::Map< ::std::string, ::std::string >&
-HttpRequest::headers() const {
-  // @@protoc_insertion_point(field_map:ric.notify.HttpRequest.headers)
+HTTPRequest::headers() const {
+  // @@protoc_insertion_point(field_map:ric.notify.HTTPRequest.headers)
   return headers_.GetMap();
 }
 inline ::google::protobuf::Map< ::std::string, ::std::string >*
-HttpRequest::mutable_headers() {
-  // @@protoc_insertion_point(field_mutable_map:ric.notify.HttpRequest.headers)
+HTTPRequest::mutable_headers() {
+  // @@protoc_insertion_point(field_mutable_map:ric.notify.HTTPRequest.headers)
   return headers_.MutableMap();
 }
 
 // bytes body = 5;
-inline void HttpRequest::clear_body() {
+inline void HTTPRequest::clear_body() {
   body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& HttpRequest::body() const {
-  // @@protoc_insertion_point(field_get:ric.notify.HttpRequest.body)
+inline const ::std::string& HTTPRequest::body() const {
+  // @@protoc_insertion_point(field_get:ric.notify.HTTPRequest.body)
   return body_.GetNoArena();
 }
-inline void HttpRequest::set_body(const ::std::string& value) {
+inline void HTTPRequest::set_body(const ::std::string& value) {
   
   body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.notify.HttpRequest.body)
+  // @@protoc_insertion_point(field_set:ric.notify.HTTPRequest.body)
 }
 #if LANG_CXX11
-inline void HttpRequest::set_body(::std::string&& value) {
+inline void HTTPRequest::set_body(::std::string&& value) {
   
   body_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.notify.HttpRequest.body)
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.HTTPRequest.body)
 }
 #endif
-inline void HttpRequest::set_body(const char* value) {
+inline void HTTPRequest::set_body(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.notify.HttpRequest.body)
+  // @@protoc_insertion_point(field_set_char:ric.notify.HTTPRequest.body)
 }
-inline void HttpRequest::set_body(const void* value, size_t size) {
+inline void HTTPRequest::set_body(const void* value, size_t size) {
   
   body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.HttpRequest.body)
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.HTTPRequest.body)
 }
-inline ::std::string* HttpRequest::mutable_body() {
+inline ::std::string* HTTPRequest::mutable_body() {
   
-  // @@protoc_insertion_point(field_mutable:ric.notify.HttpRequest.body)
+  // @@protoc_insertion_point(field_mutable:ric.notify.HTTPRequest.body)
   return body_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* HttpRequest::release_body() {
-  // @@protoc_insertion_point(field_release:ric.notify.HttpRequest.body)
+inline ::std::string* HTTPRequest::release_body() {
+  // @@protoc_insertion_point(field_release:ric.notify.HTTPRequest.body)
   
   return body_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void HttpRequest::set_allocated_body(::std::string* body) {
+inline void HTTPRequest::set_allocated_body(::std::string* body) {
   if (body != nullptr) {
     
   } else {
     
   }
   body_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), body);
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.HttpRequest.body)
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.HTTPRequest.body)
 }
 
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
 
-// HttpResponse
+// HTTPResponse
 
 // .ric.notify.Context ctx = 1;
-inline bool HttpResponse::has_ctx() const {
+inline bool HTTPResponse::has_ctx() const {
   return this != internal_default_instance() && ctx_ != nullptr;
 }
-inline void HttpResponse::clear_ctx() {
+inline void HTTPResponse::clear_ctx() {
   if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
     delete ctx_;
   }
   ctx_ = nullptr;
 }
-inline const ::ric::notify::Context& HttpResponse::ctx() const {
+inline const ::ric::notify::Context& HTTPResponse::ctx() const {
   const ::ric::notify::Context* p = ctx_;
-  // @@protoc_insertion_point(field_get:ric.notify.HttpResponse.ctx)
+  // @@protoc_insertion_point(field_get:ric.notify.HTTPResponse.ctx)
   return p != nullptr ? *p : *reinterpret_cast<const ::ric::notify::Context*>(
       &::ric::notify::_Context_default_instance_);
 }
-inline ::ric::notify::Context* HttpResponse::release_ctx() {
-  // @@protoc_insertion_point(field_release:ric.notify.HttpResponse.ctx)
+inline ::ric::notify::Context* HTTPResponse::release_ctx() {
+  // @@protoc_insertion_point(field_release:ric.notify.HTTPResponse.ctx)
   
   ::ric::notify::Context* temp = ctx_;
   ctx_ = nullptr;
   return temp;
 }
-inline ::ric::notify::Context* HttpResponse::mutable_ctx() {
+inline ::ric::notify::Context* HTTPResponse::mutable_ctx() {
   
   if (ctx_ == nullptr) {
     auto* p = CreateMaybeMessage<::ric::notify::Context>(GetArenaNoVirtual());
     ctx_ = p;
   }
-  // @@protoc_insertion_point(field_mutable:ric.notify.HttpResponse.ctx)
+  // @@protoc_insertion_point(field_mutable:ric.notify.HTTPResponse.ctx)
   return ctx_;
 }
-inline void HttpResponse::set_allocated_ctx(::ric::notify::Context* ctx) {
+inline void HTTPResponse::set_allocated_ctx(::ric::notify::Context* ctx) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
     delete ctx_;
@@ -6561,92 +6561,92 @@ inline void HttpResponse::set_allocated_ctx(::ric::notify::Context* ctx) {
     
   }
   ctx_ = ctx;
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.HttpResponse.ctx)
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.HTTPResponse.ctx)
 }
 
 // int32 status_code = 2;
-inline void HttpResponse::clear_status_code() {
+inline void HTTPResponse::clear_status_code() {
   status_code_ = 0;
 }
-inline ::google::protobuf::int32 HttpResponse::status_code() const {
-  // @@protoc_insertion_point(field_get:ric.notify.HttpResponse.status_code)
+inline ::google::protobuf::int32 HTTPResponse::status_code() const {
+  // @@protoc_insertion_point(field_get:ric.notify.HTTPResponse.status_code)
   return status_code_;
 }
-inline void HttpResponse::set_status_code(::google::protobuf::int32 value) {
+inline void HTTPResponse::set_status_code(::google::protobuf::int32 value) {
   
   status_code_ = value;
-  // @@protoc_insertion_point(field_set:ric.notify.HttpResponse.status_code)
+  // @@protoc_insertion_point(field_set:ric.notify.HTTPResponse.status_code)
 }
 
 // map<string, string> headers = 3;
-inline int HttpResponse::headers_size() const {
+inline int HTTPResponse::headers_size() const {
   return headers_.size();
 }
-inline void HttpResponse::clear_headers() {
+inline void HTTPResponse::clear_headers() {
   headers_.Clear();
 }
 inline const ::google::protobuf::Map< ::std::string, ::std::string >&
-HttpResponse::headers() const {
-  // @@protoc_insertion_point(field_map:ric.notify.HttpResponse.headers)
+HTTPResponse::headers() const {
+  // @@protoc_insertion_point(field_map:ric.notify.HTTPResponse.headers)
   return headers_.GetMap();
 }
 inline ::google::protobuf::Map< ::std::string, ::std::string >*
-HttpResponse::mutable_headers() {
-  // @@protoc_insertion_point(field_mutable_map:ric.notify.HttpResponse.headers)
+HTTPResponse::mutable_headers() {
+  // @@protoc_insertion_point(field_mutable_map:ric.notify.HTTPResponse.headers)
   return headers_.MutableMap();
 }
 
 // bytes body = 4;
-inline void HttpResponse::clear_body() {
+inline void HTTPResponse::clear_body() {
   body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& HttpResponse::body() const {
-  // @@protoc_insertion_point(field_get:ric.notify.HttpResponse.body)
+inline const ::std::string& HTTPResponse::body() const {
+  // @@protoc_insertion_point(field_get:ric.notify.HTTPResponse.body)
   return body_.GetNoArena();
 }
-inline void HttpResponse::set_body(const ::std::string& value) {
+inline void HTTPResponse::set_body(const ::std::string& value) {
   
   body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.notify.HttpResponse.body)
+  // @@protoc_insertion_point(field_set:ric.notify.HTTPResponse.body)
 }
 #if LANG_CXX11
-inline void HttpResponse::set_body(::std::string&& value) {
+inline void HTTPResponse::set_body(::std::string&& value) {
   
   body_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.notify.HttpResponse.body)
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.HTTPResponse.body)
 }
 #endif
-inline void HttpResponse::set_body(const char* value) {
+inline void HTTPResponse::set_body(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.notify.HttpResponse.body)
+  // @@protoc_insertion_point(field_set_char:ric.notify.HTTPResponse.body)
 }
-inline void HttpResponse::set_body(const void* value, size_t size) {
+inline void HTTPResponse::set_body(const void* value, size_t size) {
   
   body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.HttpResponse.body)
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.HTTPResponse.body)
 }
-inline ::std::string* HttpResponse::mutable_body() {
+inline ::std::string* HTTPResponse::mutable_body() {
   
-  // @@protoc_insertion_point(field_mutable:ric.notify.HttpResponse.body)
+  // @@protoc_insertion_point(field_mutable:ric.notify.HTTPResponse.body)
   return body_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* HttpResponse::release_body() {
-  // @@protoc_insertion_point(field_release:ric.notify.HttpResponse.body)
+inline ::std::string* HTTPResponse::release_body() {
+  // @@protoc_insertion_point(field_release:ric.notify.HTTPResponse.body)
   
   return body_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void HttpResponse::set_allocated_body(::std::string* body) {
+inline void HTTPResponse::set_allocated_body(::std::string* body) {
   if (body != nullptr) {
     
   } else {
     
   }
   body_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), body);
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.HttpResponse.body)
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.HTTPResponse.body)
 }
 
 #ifdef __GNUC__

@@ -348,52 +348,52 @@ Push::Service::~Service() {
 }
 
 
-static const char* Http_method_names[] = {
-  "/ric.notify.Http/Request",
+static const char* HTTP_method_names[] = {
+  "/ric.notify.HTTP/Request",
 };
 
-std::unique_ptr< Http::Stub> Http::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+std::unique_ptr< HTTP::Stub> HTTP::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< Http::Stub> stub(new Http::Stub(channel));
+  std::unique_ptr< HTTP::Stub> stub(new HTTP::Stub(channel));
   return stub;
 }
 
-Http::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_Request_(Http_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+HTTP::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_Request_(HTTP_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status Http::Stub::Request(::grpc::ClientContext* context, const ::ric::notify::HttpRequest& request, ::ric::notify::HttpResponse* response) {
+::grpc::Status HTTP::Stub::Request(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest& request, ::ric::notify::HTTPResponse* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Request_, context, request, response);
 }
 
-void Http::Stub::experimental_async::Request(::grpc::ClientContext* context, const ::ric::notify::HttpRequest* request, ::ric::notify::HttpResponse* response, std::function<void(::grpc::Status)> f) {
+void HTTP::Stub::experimental_async::Request(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest* request, ::ric::notify::HTTPResponse* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Request_, context, request, response, std::move(f));
 }
 
-void Http::Stub::experimental_async::Request(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::notify::HttpResponse* response, std::function<void(::grpc::Status)> f) {
+void HTTP::Stub::experimental_async::Request(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::notify::HTTPResponse* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Request_, context, request, response, std::move(f));
 }
 
-::grpc::ClientAsyncResponseReader< ::ric::notify::HttpResponse>* Http::Stub::AsyncRequestRaw(::grpc::ClientContext* context, const ::ric::notify::HttpRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::HttpResponse>::Create(channel_.get(), cq, rpcmethod_Request_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::ric::notify::HTTPResponse>* HTTP::Stub::AsyncRequestRaw(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::HTTPResponse>::Create(channel_.get(), cq, rpcmethod_Request_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::ric::notify::HttpResponse>* Http::Stub::PrepareAsyncRequestRaw(::grpc::ClientContext* context, const ::ric::notify::HttpRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::HttpResponse>::Create(channel_.get(), cq, rpcmethod_Request_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::ric::notify::HTTPResponse>* HTTP::Stub::PrepareAsyncRequestRaw(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::HTTPResponse>::Create(channel_.get(), cq, rpcmethod_Request_, context, request, false);
 }
 
-Http::Service::Service() {
+HTTP::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Http_method_names[0],
+      HTTP_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Http::Service, ::ric::notify::HttpRequest, ::ric::notify::HttpResponse>(
-          std::mem_fn(&Http::Service::Request), this)));
+      new ::grpc::internal::RpcMethodHandler< HTTP::Service, ::ric::notify::HTTPRequest, ::ric::notify::HTTPResponse>(
+          std::mem_fn(&HTTP::Service::Request), this)));
 }
 
-Http::Service::~Service() {
+HTTP::Service::~Service() {
 }
 
-::grpc::Status Http::Service::Request(::grpc::ServerContext* context, const ::ric::notify::HttpRequest* request, ::ric::notify::HttpResponse* response) {
+::grpc::Status HTTP::Service::Request(::grpc::ServerContext* context, const ::ric::notify::HTTPRequest* request, ::ric::notify::HTTPResponse* response) {
   (void) context;
   (void) request;
   (void) response;

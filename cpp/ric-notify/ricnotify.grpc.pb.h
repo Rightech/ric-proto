@@ -1379,47 +1379,47 @@ class Push final {
   typedef WithStreamedUnaryMethod_Send<Service > StreamedService;
 };
 
-class Http final {
+class HTTP final {
  public:
   static constexpr char const* service_full_name() {
-    return "ric.notify.Http";
+    return "ric.notify.HTTP";
   }
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status Request(::grpc::ClientContext* context, const ::ric::notify::HttpRequest& request, ::ric::notify::HttpResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::notify::HttpResponse>> AsyncRequest(::grpc::ClientContext* context, const ::ric::notify::HttpRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::notify::HttpResponse>>(AsyncRequestRaw(context, request, cq));
+    virtual ::grpc::Status Request(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest& request, ::ric::notify::HTTPResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::notify::HTTPResponse>> AsyncRequest(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::notify::HTTPResponse>>(AsyncRequestRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::notify::HttpResponse>> PrepareAsyncRequest(::grpc::ClientContext* context, const ::ric::notify::HttpRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::notify::HttpResponse>>(PrepareAsyncRequestRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::notify::HTTPResponse>> PrepareAsyncRequest(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::notify::HTTPResponse>>(PrepareAsyncRequestRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
-      virtual void Request(::grpc::ClientContext* context, const ::ric::notify::HttpRequest* request, ::ric::notify::HttpResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Request(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::notify::HttpResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Request(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest* request, ::ric::notify::HTTPResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Request(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::notify::HTTPResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::notify::HttpResponse>* AsyncRequestRaw(::grpc::ClientContext* context, const ::ric::notify::HttpRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::notify::HttpResponse>* PrepareAsyncRequestRaw(::grpc::ClientContext* context, const ::ric::notify::HttpRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::notify::HTTPResponse>* AsyncRequestRaw(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::notify::HTTPResponse>* PrepareAsyncRequestRaw(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status Request(::grpc::ClientContext* context, const ::ric::notify::HttpRequest& request, ::ric::notify::HttpResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::notify::HttpResponse>> AsyncRequest(::grpc::ClientContext* context, const ::ric::notify::HttpRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::notify::HttpResponse>>(AsyncRequestRaw(context, request, cq));
+    ::grpc::Status Request(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest& request, ::ric::notify::HTTPResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::notify::HTTPResponse>> AsyncRequest(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::notify::HTTPResponse>>(AsyncRequestRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::notify::HttpResponse>> PrepareAsyncRequest(::grpc::ClientContext* context, const ::ric::notify::HttpRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::notify::HttpResponse>>(PrepareAsyncRequestRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::notify::HTTPResponse>> PrepareAsyncRequest(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::notify::HTTPResponse>>(PrepareAsyncRequestRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void Request(::grpc::ClientContext* context, const ::ric::notify::HttpRequest* request, ::ric::notify::HttpResponse* response, std::function<void(::grpc::Status)>) override;
-      void Request(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::notify::HttpResponse* response, std::function<void(::grpc::Status)>) override;
+      void Request(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest* request, ::ric::notify::HTTPResponse* response, std::function<void(::grpc::Status)>) override;
+      void Request(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::notify::HTTPResponse* response, std::function<void(::grpc::Status)>) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -1431,8 +1431,8 @@ class Http final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::ric::notify::HttpResponse>* AsyncRequestRaw(::grpc::ClientContext* context, const ::ric::notify::HttpRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ric::notify::HttpResponse>* PrepareAsyncRequestRaw(::grpc::ClientContext* context, const ::ric::notify::HttpRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::notify::HTTPResponse>* AsyncRequestRaw(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::notify::HTTPResponse>* PrepareAsyncRequestRaw(::grpc::ClientContext* context, const ::ric::notify::HTTPRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_Request_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -1441,7 +1441,7 @@ class Http final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status Request(::grpc::ServerContext* context, const ::ric::notify::HttpRequest* request, ::ric::notify::HttpResponse* response);
+    virtual ::grpc::Status Request(::grpc::ServerContext* context, const ::ric::notify::HTTPRequest* request, ::ric::notify::HTTPResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_Request : public BaseClass {
@@ -1455,11 +1455,11 @@ class Http final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Request(::grpc::ServerContext* context, const ::ric::notify::HttpRequest* request, ::ric::notify::HttpResponse* response) override {
+    ::grpc::Status Request(::grpc::ServerContext* context, const ::ric::notify::HTTPRequest* request, ::ric::notify::HTTPResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestRequest(::grpc::ServerContext* context, ::ric::notify::HttpRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::notify::HttpResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestRequest(::grpc::ServerContext* context, ::ric::notify::HTTPRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::notify::HTTPResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -1471,10 +1471,10 @@ class Http final {
    public:
     ExperimentalWithCallbackMethod_Request() {
       ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::notify::HttpRequest, ::ric::notify::HttpResponse>(
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::notify::HTTPRequest, ::ric::notify::HTTPResponse>(
           [this](::grpc::ServerContext* context,
-                 const ::ric::notify::HttpRequest* request,
-                 ::ric::notify::HttpResponse* response,
+                 const ::ric::notify::HTTPRequest* request,
+                 ::ric::notify::HTTPResponse* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
                    return this->Request(context, request, response, controller);
                  }));
@@ -1483,11 +1483,11 @@ class Http final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Request(::grpc::ServerContext* context, const ::ric::notify::HttpRequest* request, ::ric::notify::HttpResponse* response) override {
+    ::grpc::Status Request(::grpc::ServerContext* context, const ::ric::notify::HTTPRequest* request, ::ric::notify::HTTPResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void Request(::grpc::ServerContext* context, const ::ric::notify::HttpRequest* request, ::ric::notify::HttpResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void Request(::grpc::ServerContext* context, const ::ric::notify::HTTPRequest* request, ::ric::notify::HTTPResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   typedef ExperimentalWithCallbackMethod_Request<Service > ExperimentalCallbackService;
   template <class BaseClass>
@@ -1502,7 +1502,7 @@ class Http final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Request(::grpc::ServerContext* context, const ::ric::notify::HttpRequest* request, ::ric::notify::HttpResponse* response) override {
+    ::grpc::Status Request(::grpc::ServerContext* context, const ::ric::notify::HTTPRequest* request, ::ric::notify::HTTPResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1519,7 +1519,7 @@ class Http final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Request(::grpc::ServerContext* context, const ::ric::notify::HttpRequest* request, ::ric::notify::HttpResponse* response) override {
+    ::grpc::Status Request(::grpc::ServerContext* context, const ::ric::notify::HTTPRequest* request, ::ric::notify::HTTPResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1546,7 +1546,7 @@ class Http final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Request(::grpc::ServerContext* context, const ::ric::notify::HttpRequest* request, ::ric::notify::HttpResponse* response) override {
+    ::grpc::Status Request(::grpc::ServerContext* context, const ::ric::notify::HTTPRequest* request, ::ric::notify::HTTPResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1559,18 +1559,18 @@ class Http final {
    public:
     WithStreamedUnaryMethod_Request() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::StreamedUnaryHandler< ::ric::notify::HttpRequest, ::ric::notify::HttpResponse>(std::bind(&WithStreamedUnaryMethod_Request<BaseClass>::StreamedRequest, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::notify::HTTPRequest, ::ric::notify::HTTPResponse>(std::bind(&WithStreamedUnaryMethod_Request<BaseClass>::StreamedRequest, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_Request() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Request(::grpc::ServerContext* context, const ::ric::notify::HttpRequest* request, ::ric::notify::HttpResponse* response) override {
+    ::grpc::Status Request(::grpc::ServerContext* context, const ::ric::notify::HTTPRequest* request, ::ric::notify::HTTPResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedRequest(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::notify::HttpRequest,::ric::notify::HttpResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedRequest(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::notify::HTTPRequest,::ric::notify::HTTPResponse>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_Request<Service > StreamedUnaryService;
   typedef Service SplitStreamedService;

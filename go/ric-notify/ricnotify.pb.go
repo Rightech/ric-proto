@@ -1265,7 +1265,7 @@ func (*PushSendResponse) Descriptor() ([]byte, []int) {
 	return file_ric_notify_ricnotify_proto_rawDescGZIP(), []int{17}
 }
 
-type HttpRequest struct {
+type HTTPRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1277,8 +1277,8 @@ type HttpRequest struct {
 	Body    []byte            `protobuf:"bytes,5,opt,name=body,proto3" json:"body,omitempty"`
 }
 
-func (x *HttpRequest) Reset() {
-	*x = HttpRequest{}
+func (x *HTTPRequest) Reset() {
+	*x = HTTPRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_ric_notify_ricnotify_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1286,13 +1286,13 @@ func (x *HttpRequest) Reset() {
 	}
 }
 
-func (x *HttpRequest) String() string {
+func (x *HTTPRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*HttpRequest) ProtoMessage() {}
+func (*HTTPRequest) ProtoMessage() {}
 
-func (x *HttpRequest) ProtoReflect() protoreflect.Message {
+func (x *HTTPRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_ric_notify_ricnotify_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1304,47 +1304,47 @@ func (x *HttpRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use HttpRequest.ProtoReflect.Descriptor instead.
-func (*HttpRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use HTTPRequest.ProtoReflect.Descriptor instead.
+func (*HTTPRequest) Descriptor() ([]byte, []int) {
 	return file_ric_notify_ricnotify_proto_rawDescGZIP(), []int{18}
 }
 
-func (x *HttpRequest) GetCtx() *Context {
+func (x *HTTPRequest) GetCtx() *Context {
 	if x != nil {
 		return x.Ctx
 	}
 	return nil
 }
 
-func (x *HttpRequest) GetMethod() string {
+func (x *HTTPRequest) GetMethod() string {
 	if x != nil {
 		return x.Method
 	}
 	return ""
 }
 
-func (x *HttpRequest) GetUrl() string {
+func (x *HTTPRequest) GetUrl() string {
 	if x != nil {
 		return x.Url
 	}
 	return ""
 }
 
-func (x *HttpRequest) GetHeaders() map[string]string {
+func (x *HTTPRequest) GetHeaders() map[string]string {
 	if x != nil {
 		return x.Headers
 	}
 	return nil
 }
 
-func (x *HttpRequest) GetBody() []byte {
+func (x *HTTPRequest) GetBody() []byte {
 	if x != nil {
 		return x.Body
 	}
 	return nil
 }
 
-type HttpResponse struct {
+type HTTPResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -1355,8 +1355,8 @@ type HttpResponse struct {
 	Body       []byte            `protobuf:"bytes,4,opt,name=body,proto3" json:"body,omitempty"`
 }
 
-func (x *HttpResponse) Reset() {
-	*x = HttpResponse{}
+func (x *HTTPResponse) Reset() {
+	*x = HTTPResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_ric_notify_ricnotify_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1364,13 +1364,13 @@ func (x *HttpResponse) Reset() {
 	}
 }
 
-func (x *HttpResponse) String() string {
+func (x *HTTPResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*HttpResponse) ProtoMessage() {}
+func (*HTTPResponse) ProtoMessage() {}
 
-func (x *HttpResponse) ProtoReflect() protoreflect.Message {
+func (x *HTTPResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_ric_notify_ricnotify_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1382,33 +1382,33 @@ func (x *HttpResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use HttpResponse.ProtoReflect.Descriptor instead.
-func (*HttpResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use HTTPResponse.ProtoReflect.Descriptor instead.
+func (*HTTPResponse) Descriptor() ([]byte, []int) {
 	return file_ric_notify_ricnotify_proto_rawDescGZIP(), []int{19}
 }
 
-func (x *HttpResponse) GetCtx() *Context {
+func (x *HTTPResponse) GetCtx() *Context {
 	if x != nil {
 		return x.Ctx
 	}
 	return nil
 }
 
-func (x *HttpResponse) GetStatusCode() int32 {
+func (x *HTTPResponse) GetStatusCode() int32 {
 	if x != nil {
 		return x.StatusCode
 	}
 	return 0
 }
 
-func (x *HttpResponse) GetHeaders() map[string]string {
+func (x *HTTPResponse) GetHeaders() map[string]string {
 	if x != nil {
 		return x.Headers
 	}
 	return nil
 }
 
-func (x *HttpResponse) GetBody() []byte {
+func (x *HTTPResponse) GetBody() []byte {
 	if x != nil {
 		return x.Body
 	}
@@ -1644,7 +1644,7 @@ var file_ric_notify_ricnotify_proto_rawDesc = []byte{
 	0x6c, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x6c, 0x65, 0x76, 0x65, 0x6c, 0x12, 0x10,
 	0x0a, 0x03, 0x6f, 0x69, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6f, 0x69, 0x64,
 	0x22, 0x12, 0x0a, 0x10, 0x50, 0x75, 0x73, 0x68, 0x53, 0x65, 0x6e, 0x64, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x22, 0xee, 0x01, 0x0a, 0x0b, 0x48, 0x74, 0x74, 0x70, 0x52, 0x65, 0x71,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0xee, 0x01, 0x0a, 0x0b, 0x48, 0x54, 0x54, 0x50, 0x52, 0x65, 0x71,
 	0x75, 0x65, 0x73, 0x74, 0x12, 0x25, 0x0a, 0x03, 0x63, 0x74, 0x78, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x0b, 0x32, 0x13, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x6e, 0x6f, 0x74, 0x69, 0x66, 0x79, 0x2e, 0x43,
 	0x6f, 0x6e, 0x74, 0x65, 0x78, 0x74, 0x52, 0x03, 0x63, 0x74, 0x78, 0x12, 0x16, 0x0a, 0x06, 0x6d,
@@ -1652,22 +1652,22 @@ var file_ric_notify_ricnotify_proto_rawDesc = []byte{
 	0x68, 0x6f, 0x64, 0x12, 0x10, 0x0a, 0x03, 0x75, 0x72, 0x6c, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09,
 	0x52, 0x03, 0x75, 0x72, 0x6c, 0x12, 0x3e, 0x0a, 0x07, 0x68, 0x65, 0x61, 0x64, 0x65, 0x72, 0x73,
 	0x18, 0x04, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x24, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x6e, 0x6f, 0x74,
-	0x69, 0x66, 0x79, 0x2e, 0x48, 0x74, 0x74, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x2e,
+	0x69, 0x66, 0x79, 0x2e, 0x48, 0x54, 0x54, 0x50, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x2e,
 	0x48, 0x65, 0x61, 0x64, 0x65, 0x72, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x52, 0x07, 0x68, 0x65,
 	0x61, 0x64, 0x65, 0x72, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x18, 0x05, 0x20,
 	0x01, 0x28, 0x0c, 0x52, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x1a, 0x3a, 0x0a, 0x0c, 0x48, 0x65, 0x61,
 	0x64, 0x65, 0x72, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76,
 	0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
-	0x65, 0x3a, 0x02, 0x38, 0x01, 0x22, 0xe7, 0x01, 0x0a, 0x0c, 0x48, 0x74, 0x74, 0x70, 0x52, 0x65,
+	0x65, 0x3a, 0x02, 0x38, 0x01, 0x22, 0xe7, 0x01, 0x0a, 0x0c, 0x48, 0x54, 0x54, 0x50, 0x52, 0x65,
 	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x25, 0x0a, 0x03, 0x63, 0x74, 0x78, 0x18, 0x01, 0x20,
 	0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x6e, 0x6f, 0x74, 0x69, 0x66, 0x79,
 	0x2e, 0x43, 0x6f, 0x6e, 0x74, 0x65, 0x78, 0x74, 0x52, 0x03, 0x63, 0x74, 0x78, 0x12, 0x1f, 0x0a,
 	0x0b, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x5f, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x02, 0x20, 0x01,
 	0x28, 0x05, 0x52, 0x0a, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x3f,
 	0x0a, 0x07, 0x68, 0x65, 0x61, 0x64, 0x65, 0x72, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32,
-	0x25, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x6e, 0x6f, 0x74, 0x69, 0x66, 0x79, 0x2e, 0x48, 0x74, 0x74,
-	0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x48, 0x65, 0x61, 0x64, 0x65, 0x72,
+	0x25, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x6e, 0x6f, 0x74, 0x69, 0x66, 0x79, 0x2e, 0x48, 0x54, 0x54,
+	0x50, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x48, 0x65, 0x61, 0x64, 0x65, 0x72,
 	0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x52, 0x07, 0x68, 0x65, 0x61, 0x64, 0x65, 0x72, 0x73, 0x12,
 	0x12, 0x0a, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x04, 0x62,
 	0x6f, 0x64, 0x79, 0x1a, 0x3a, 0x0a, 0x0c, 0x48, 0x65, 0x61, 0x64, 0x65, 0x72, 0x73, 0x45, 0x6e,
@@ -1715,10 +1715,10 @@ var file_ric_notify_ricnotify_proto_rawDesc = []byte{
 	0x69, 0x66, 0x79, 0x2e, 0x50, 0x75, 0x73, 0x68, 0x53, 0x65, 0x6e, 0x64, 0x52, 0x65, 0x71, 0x75,
 	0x65, 0x73, 0x74, 0x1a, 0x1c, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x6e, 0x6f, 0x74, 0x69, 0x66, 0x79,
 	0x2e, 0x50, 0x75, 0x73, 0x68, 0x53, 0x65, 0x6e, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x32, 0x44, 0x0a, 0x04, 0x48, 0x74, 0x74, 0x70, 0x12, 0x3c, 0x0a, 0x07, 0x52, 0x65, 0x71,
+	0x65, 0x32, 0x44, 0x0a, 0x04, 0x48, 0x54, 0x54, 0x50, 0x12, 0x3c, 0x0a, 0x07, 0x52, 0x65, 0x71,
 	0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x2e, 0x72, 0x69, 0x63, 0x2e, 0x6e, 0x6f, 0x74, 0x69, 0x66,
-	0x79, 0x2e, 0x48, 0x74, 0x74, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e,
-	0x72, 0x69, 0x63, 0x2e, 0x6e, 0x6f, 0x74, 0x69, 0x66, 0x79, 0x2e, 0x48, 0x74, 0x74, 0x70, 0x52,
+	0x79, 0x2e, 0x48, 0x54, 0x54, 0x50, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e,
+	0x72, 0x69, 0x63, 0x2e, 0x6e, 0x6f, 0x74, 0x69, 0x66, 0x79, 0x2e, 0x48, 0x54, 0x54, 0x50, 0x52,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x18, 0x5a, 0x16, 0x2e, 0x2f, 0x72, 0x69, 0x63,
 	0x2d, 0x6e, 0x6f, 0x74, 0x69, 0x66, 0x79, 0x3b, 0x72, 0x69, 0x63, 0x6e, 0x6f, 0x74, 0x69, 0x66,
 	0x79, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
@@ -1758,11 +1758,11 @@ var file_ric_notify_ricnotify_proto_goTypes = []interface{}{
 	(*SMTPCheckGatewayResponse)(nil),      // 16: ric.notify.SMTPCheckGatewayResponse
 	(*PushSendRequest)(nil),               // 17: ric.notify.PushSendRequest
 	(*PushSendResponse)(nil),              // 18: ric.notify.PushSendResponse
-	(*HttpRequest)(nil),                   // 19: ric.notify.HttpRequest
-	(*HttpResponse)(nil),                  // 20: ric.notify.HttpResponse
+	(*HTTPRequest)(nil),                   // 19: ric.notify.HTTPRequest
+	(*HTTPResponse)(nil),                  // 20: ric.notify.HTTPResponse
 	(*SMPPStatusResponse_SMPPStatus)(nil), // 21: ric.notify.SMPPStatusResponse.SMPPStatus
-	nil,                                   // 22: ric.notify.HttpRequest.HeadersEntry
-	nil,                                   // 23: ric.notify.HttpResponse.HeadersEntry
+	nil,                                   // 22: ric.notify.HTTPRequest.HeadersEntry
+	nil,                                   // 23: ric.notify.HTTPResponse.HeadersEntry
 	(*wrappers.BoolValue)(nil),            // 24: google.protobuf.BoolValue
 }
 var file_ric_notify_ricnotify_proto_depIdxs = []int32{
@@ -1773,10 +1773,10 @@ var file_ric_notify_ricnotify_proto_depIdxs = []int32{
 	24, // 4: ric.notify.SMTPSendRequest.use_starttls:type_name -> google.protobuf.BoolValue
 	24, // 5: ric.notify.SMTPSendRequest.use_ssl:type_name -> google.protobuf.BoolValue
 	10, // 6: ric.notify.SMTPSendRequest.attachments:type_name -> ric.notify.Attachment
-	1,  // 7: ric.notify.HttpRequest.ctx:type_name -> ric.notify.Context
-	22, // 8: ric.notify.HttpRequest.headers:type_name -> ric.notify.HttpRequest.HeadersEntry
-	1,  // 9: ric.notify.HttpResponse.ctx:type_name -> ric.notify.Context
-	23, // 10: ric.notify.HttpResponse.headers:type_name -> ric.notify.HttpResponse.HeadersEntry
+	1,  // 7: ric.notify.HTTPRequest.ctx:type_name -> ric.notify.Context
+	22, // 8: ric.notify.HTTPRequest.headers:type_name -> ric.notify.HTTPRequest.HeadersEntry
+	1,  // 9: ric.notify.HTTPResponse.ctx:type_name -> ric.notify.Context
+	23, // 10: ric.notify.HTTPResponse.headers:type_name -> ric.notify.HTTPResponse.HeadersEntry
 	2,  // 11: ric.notify.SMPP.Send:input_type -> ric.notify.SMPPSendRequest
 	4,  // 12: ric.notify.SMPP.Status:input_type -> ric.notify.SMPPStatusRequest
 	6,  // 13: ric.notify.SMPP.GatewayInfo:input_type -> ric.notify.SMPPGatewayInfoRequest
@@ -1785,7 +1785,7 @@ var file_ric_notify_ricnotify_proto_depIdxs = []int32{
 	13, // 16: ric.notify.SMTP.GatewayInfo:input_type -> ric.notify.SMTPGatewayInfoRequest
 	15, // 17: ric.notify.SMTP.CheckGateway:input_type -> ric.notify.SMTPCheckGatewayRequest
 	17, // 18: ric.notify.Push.Send:input_type -> ric.notify.PushSendRequest
-	19, // 19: ric.notify.Http.Request:input_type -> ric.notify.HttpRequest
+	19, // 19: ric.notify.HTTP.Request:input_type -> ric.notify.HTTPRequest
 	3,  // 20: ric.notify.SMPP.Send:output_type -> ric.notify.SMPPSendResponse
 	5,  // 21: ric.notify.SMPP.Status:output_type -> ric.notify.SMPPStatusResponse
 	7,  // 22: ric.notify.SMPP.GatewayInfo:output_type -> ric.notify.SMPPGatewayInfoResponse
@@ -1794,7 +1794,7 @@ var file_ric_notify_ricnotify_proto_depIdxs = []int32{
 	14, // 25: ric.notify.SMTP.GatewayInfo:output_type -> ric.notify.SMTPGatewayInfoResponse
 	16, // 26: ric.notify.SMTP.CheckGateway:output_type -> ric.notify.SMTPCheckGatewayResponse
 	18, // 27: ric.notify.Push.Send:output_type -> ric.notify.PushSendResponse
-	20, // 28: ric.notify.Http.Request:output_type -> ric.notify.HttpResponse
+	20, // 28: ric.notify.HTTP.Request:output_type -> ric.notify.HTTPResponse
 	20, // [20:29] is the sub-list for method output_type
 	11, // [11:20] is the sub-list for method input_type
 	11, // [11:11] is the sub-list for extension type_name
@@ -2025,7 +2025,7 @@ func file_ric_notify_ricnotify_proto_init() {
 			}
 		}
 		file_ric_notify_ricnotify_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*HttpRequest); i {
+			switch v := v.(*HTTPRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2037,7 +2037,7 @@ func file_ric_notify_ricnotify_proto_init() {
 			}
 		}
 		file_ric_notify_ricnotify_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*HttpResponse); i {
+			switch v := v.(*HTTPResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2486,72 +2486,72 @@ var _Push_serviceDesc = grpc.ServiceDesc{
 	Metadata: "ric-notify/ricnotify.proto",
 }
 
-// HttpClient is the client API for Http service.
+// HTTPClient is the client API for HTTP service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type HttpClient interface {
-	Request(ctx context.Context, in *HttpRequest, opts ...grpc.CallOption) (*HttpResponse, error)
+type HTTPClient interface {
+	Request(ctx context.Context, in *HTTPRequest, opts ...grpc.CallOption) (*HTTPResponse, error)
 }
 
-type httpClient struct {
+type hTTPClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewHttpClient(cc grpc.ClientConnInterface) HttpClient {
-	return &httpClient{cc}
+func NewHTTPClient(cc grpc.ClientConnInterface) HTTPClient {
+	return &hTTPClient{cc}
 }
 
-func (c *httpClient) Request(ctx context.Context, in *HttpRequest, opts ...grpc.CallOption) (*HttpResponse, error) {
-	out := new(HttpResponse)
-	err := c.cc.Invoke(ctx, "/ric.notify.Http/Request", in, out, opts...)
+func (c *hTTPClient) Request(ctx context.Context, in *HTTPRequest, opts ...grpc.CallOption) (*HTTPResponse, error) {
+	out := new(HTTPResponse)
+	err := c.cc.Invoke(ctx, "/ric.notify.HTTP/Request", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// HttpServer is the server API for Http service.
-type HttpServer interface {
-	Request(context.Context, *HttpRequest) (*HttpResponse, error)
+// HTTPServer is the server API for HTTP service.
+type HTTPServer interface {
+	Request(context.Context, *HTTPRequest) (*HTTPResponse, error)
 }
 
-// UnimplementedHttpServer can be embedded to have forward compatible implementations.
-type UnimplementedHttpServer struct {
+// UnimplementedHTTPServer can be embedded to have forward compatible implementations.
+type UnimplementedHTTPServer struct {
 }
 
-func (*UnimplementedHttpServer) Request(context.Context, *HttpRequest) (*HttpResponse, error) {
+func (*UnimplementedHTTPServer) Request(context.Context, *HTTPRequest) (*HTTPResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Request not implemented")
 }
 
-func RegisterHttpServer(s *grpc.Server, srv HttpServer) {
-	s.RegisterService(&_Http_serviceDesc, srv)
+func RegisterHTTPServer(s *grpc.Server, srv HTTPServer) {
+	s.RegisterService(&_HTTP_serviceDesc, srv)
 }
 
-func _Http_Request_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HttpRequest)
+func _HTTP_Request_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HTTPRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(HttpServer).Request(ctx, in)
+		return srv.(HTTPServer).Request(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/ric.notify.Http/Request",
+		FullMethod: "/ric.notify.HTTP/Request",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HttpServer).Request(ctx, req.(*HttpRequest))
+		return srv.(HTTPServer).Request(ctx, req.(*HTTPRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _Http_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "ric.notify.Http",
-	HandlerType: (*HttpServer)(nil),
+var _HTTP_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "ric.notify.HTTP",
+	HandlerType: (*HTTPServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Request",
-			Handler:    _Http_Request_Handler,
+			Handler:    _HTTP_Request_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

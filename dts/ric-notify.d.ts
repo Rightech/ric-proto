@@ -15,8 +15,8 @@ export interface Push {
   Send(request: PushSendRequest): Promise<PushSendResponse>;
 }
 
-export interface Http {
-  Request(request: HttpRequest): Promise<HttpResponse>;
+export interface HTTP {
+  Request(request: HTTPRequest): Promise<HTTPResponse>;
 }
 
 export interface Context {
@@ -142,7 +142,7 @@ export interface PushSendResponse {
 
 }
 
-export interface HttpRequest {
+export interface HTTPRequest {
   ctx?: Context;
   method?: string;
   url?: string;
@@ -150,7 +150,7 @@ export interface HttpRequest {
   body?: any;
 }
 
-export interface HttpResponse {
+export interface HTTPResponse {
   ctx?: Context;
   statusCode?: number;
   headers?: { [key: string]: string };
