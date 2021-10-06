@@ -28,7 +28,7 @@ const clientOpts = {
   'grpc.keepalive_timeout_ms': 120000,
   'grpc.http2.min_time_between_pings_ms': 60000,
   'grpc.http2.min_ping_interval_without_data_ms': 60000,
-  'grpc.keepalive_permit_without_calls': 0
+  'grpc.keepalive_permit_without_calls': 1
 };
 
 const options = {
