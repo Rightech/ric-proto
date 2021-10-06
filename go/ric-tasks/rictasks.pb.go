@@ -304,9 +304,9 @@ type Location struct {
 	Lng    float64 `protobuf:"fixed64,2,opt,name=lng,proto3" json:"lng,omitempty"`
 	Radius float64 `protobuf:"fixed64,3,opt,name=radius,proto3" json:"radius,omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Address string `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty"`
+	Address string `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Indoor *IndoorLocation `protobuf:"bytes,5,opt,name=indoor,proto3" json:"indoor,omitempty"`
+	Indoor *IndoorLocation `protobuf:"bytes,5,opt,name=indoor,proto3" json:"indoor,omitempty" bson:",omitempty"`
 }
 
 func (x *Location) Reset() {
@@ -453,54 +453,54 @@ type Task struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @inject_tag: bson:"_id,omitempty"
-	Oid *ObjectId `protobuf:"bytes,1,opt,name=oid,proto3" json:"oid,omitempty"`
+	Oid *ObjectId `protobuf:"bytes,1,opt,name=oid,proto3" json:"oid,omitempty" bson:"_id,omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Owner *ObjectId `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
+	Owner *ObjectId `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Group *ObjectId `protobuf:"bytes,3,opt,name=group,proto3" json:"group,omitempty"`
+	Group *ObjectId `protobuf:"bytes,3,opt,name=group,proto3" json:"group,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Parent *ObjectId `protobuf:"bytes,4,opt,name=parent,proto3" json:"parent,omitempty"`
+	Parent *ObjectId `protobuf:"bytes,4,opt,name=parent,proto3" json:"parent,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:"-"
-	Subtasks []*Task `protobuf:"bytes,5,rep,name=subtasks,proto3" json:"subtasks,omitempty"`
+	Subtasks []*Task `protobuf:"bytes,5,rep,name=subtasks,proto3" json:"subtasks,omitempty" bson:"-"`
 	// @inject_tag: bson:",omitempty"
-	Tags []string `protobuf:"bytes,6,rep,name=tags,proto3" json:"tags,omitempty"`
+	Tags []string `protobuf:"bytes,6,rep,name=tags,proto3" json:"tags,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Constrain Task_Constrain `protobuf:"varint,7,opt,name=constrain,proto3,enum=ric.tasks.Task_Constrain" json:"constrain,omitempty"`
+	Constrain Task_Constrain `protobuf:"varint,7,opt,name=constrain,proto3,enum=ric.tasks.Task_Constrain" json:"constrain,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Priority int32 `protobuf:"varint,8,opt,name=priority,proto3" json:"priority,omitempty"`
+	Priority int32 `protobuf:"varint,8,opt,name=priority,proto3" json:"priority,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:"created_at,omitempty"
-	CreatedAt int64 `protobuf:"varint,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"` // milliseconds
+	CreatedAt int64 `protobuf:"varint,9,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty" bson:"created_at,omitempty"` // milliseconds
 	// @inject_tag: bson:",omitempty"
-	Name string `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,10,opt,name=name,proto3" json:"name,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Description string `protobuf:"bytes,11,opt,name=description,proto3" json:"description,omitempty"`
+	Description string `protobuf:"bytes,11,opt,name=description,proto3" json:"description,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Status Task_Status `protobuf:"varint,12,opt,name=status,proto3,enum=ric.tasks.Task_Status" json:"status,omitempty"`
+	Status Task_Status `protobuf:"varint,12,opt,name=status,proto3,enum=ric.tasks.Task_Status" json:"status,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Object *ObjectId `protobuf:"bytes,13,opt,name=object,proto3" json:"object,omitempty"`
+	Object *ObjectId `protobuf:"bytes,13,opt,name=object,proto3" json:"object,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Kind *ObjectId `protobuf:"bytes,14,opt,name=kind,proto3" json:"kind,omitempty"`
+	Kind *ObjectId `protobuf:"bytes,14,opt,name=kind,proto3" json:"kind,omitempty" bson:",omitempty"`
 	// overwride task kind report_format
 	// @inject_tag: bson:"report_templates,omitempty"
-	ReportTemplates []*ReportTemplate `protobuf:"bytes,15,rep,name=report_templates,json=reportTemplates,proto3" json:"report_templates,omitempty"`
+	ReportTemplates []*ReportTemplate `protobuf:"bytes,15,rep,name=report_templates,json=reportTemplates,proto3" json:"report_templates,omitempty" bson:"report_templates,omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Reports []*Report `protobuf:"bytes,16,rep,name=reports,proto3" json:"reports,omitempty"`
+	Reports []*Report `protobuf:"bytes,16,rep,name=reports,proto3" json:"reports,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Begin *Location `protobuf:"bytes,17,opt,name=begin,proto3" json:"begin,omitempty"`
+	Begin *Location `protobuf:"bytes,17,opt,name=begin,proto3" json:"begin,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	End *Location `protobuf:"bytes,18,opt,name=end,proto3" json:"end,omitempty"`
+	End *Location `protobuf:"bytes,18,opt,name=end,proto3" json:"end,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Deadlines []*Deadline `protobuf:"bytes,19,rep,name=deadlines,proto3" json:"deadlines,omitempty"`
+	Deadlines []*Deadline `protobuf:"bytes,19,rep,name=deadlines,proto3" json:"deadlines,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Success *wrappers.BoolValue `protobuf:"bytes,20,opt,name=success,proto3" json:"success,omitempty"`
+	Success *wrappers.BoolValue `protobuf:"bytes,20,opt,name=success,proto3" json:"success,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Assignee *ObjectId `protobuf:"bytes,21,opt,name=assignee,proto3" json:"assignee,omitempty"`
+	Assignee *ObjectId `protobuf:"bytes,21,opt,name=assignee,proto3" json:"assignee,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:"assignee_type,omitempty"
-	AssigneeType string `protobuf:"bytes,22,opt,name=assignee_type,json=assigneeType,proto3" json:"assignee_type,omitempty"`
+	AssigneeType string `protobuf:"bytes,22,opt,name=assignee_type,json=assigneeType,proto3" json:"assignee_type,omitempty" bson:"assignee_type,omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Review *Review `protobuf:"bytes,23,opt,name=review,proto3" json:"review,omitempty"`
+	Review *Review `protobuf:"bytes,23,opt,name=review,proto3" json:"review,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Json []byte `protobuf:"bytes,24,opt,name=json,proto3" json:"json,omitempty"` // json blob
+	Json []byte `protobuf:"bytes,24,opt,name=json,proto3" json:"json,omitempty" bson:",omitempty"` // json blob
 }
 
 func (x *Task) Reset() {
@@ -896,7 +896,7 @@ type Review struct {
 	Reviewer *ObjectId `protobuf:"bytes,1,opt,name=reviewer,proto3" json:"reviewer,omitempty"`
 	Rating   int32     `protobuf:"varint,2,opt,name=rating,proto3" json:"rating,omitempty"` // rating when task approved
 	// @inject_tag: bson:",omitempty"
-	Comment string `protobuf:"bytes,3,opt,name=comment,proto3" json:"comment,omitempty"`
+	Comment string `protobuf:"bytes,3,opt,name=comment,proto3" json:"comment,omitempty" bson:",omitempty"`
 }
 
 func (x *Review) Reset() {
@@ -961,7 +961,7 @@ type Deadline struct {
 	// number of milliseconds before deadline when service should send
 	// notification
 	// @inject_tag: bson:"notify_until,omitempty"
-	NotifyUntil *wrappers.Int64Value `protobuf:"bytes,2,opt,name=notify_until,json=notifyUntil,proto3" json:"notify_until,omitempty"`
+	NotifyUntil *wrappers.Int64Value `protobuf:"bytes,2,opt,name=notify_until,json=notifyUntil,proto3" json:"notify_until,omitempty" bson:"notify_until,omitempty"`
 	Status      Task_Status          `protobuf:"varint,3,opt,name=status,proto3,enum=ric.tasks.Task_Status" json:"status,omitempty"`
 }
 
@@ -1142,17 +1142,17 @@ type Kind struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @inject_tag: bson:"_id"
-	Oid *ObjectId `protobuf:"bytes,1,opt,name=oid,proto3" json:"oid,omitempty"`
+	Oid *ObjectId `protobuf:"bytes,1,opt,name=oid,proto3" json:"oid,omitempty" bson:"_id"`
 	// @inject_tag: bson:",omitempty"
-	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Discription string `protobuf:"bytes,3,opt,name=discription,proto3" json:"discription,omitempty"`
+	Discription string `protobuf:"bytes,3,opt,name=discription,proto3" json:"discription,omitempty" bson:",omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Svg string `protobuf:"bytes,4,opt,name=svg,proto3" json:"svg,omitempty"` // svg for task this type
+	Svg string `protobuf:"bytes,4,opt,name=svg,proto3" json:"svg,omitempty" bson:",omitempty"` // svg for task this type
 	// @inject_tag: bson:",omitempty"
-	Roles []*ObjectId `protobuf:"bytes,5,rep,name=roles,proto3" json:"roles,omitempty"` // roles for access
+	Roles []*ObjectId `protobuf:"bytes,5,rep,name=roles,proto3" json:"roles,omitempty" bson:",omitempty"` // roles for access
 	// @inject_tag: bson:"report_remplates,omitempty"
-	ReportTemplates []*ReportTemplate `protobuf:"bytes,6,rep,name=report_templates,json=reportTemplates,proto3" json:"report_templates,omitempty"`
+	ReportTemplates []*ReportTemplate `protobuf:"bytes,6,rep,name=report_templates,json=reportTemplates,proto3" json:"report_templates,omitempty" bson:"report_remplates,omitempty"`
 }
 
 func (x *Kind) Reset() {
