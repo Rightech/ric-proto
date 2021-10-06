@@ -194,7 +194,7 @@ message TouchEventSubscriptionRequest {
   UserContext ctx = 1;
   string object_id = 2;
   string automaton_id = 3;
-  int32 ttl = 3;
+  int32 ttl = 4;
 }
 
 message TouchEventSubscriptionResponse {}
