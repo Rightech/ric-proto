@@ -14,7 +14,7 @@ service Service {
 message ExecRequest {
   string handler_id = 1;
   bytes packet = 2;
-  string user_code = 3
+  string user_code = 3;
 }
 
 message JsStackFrame {
