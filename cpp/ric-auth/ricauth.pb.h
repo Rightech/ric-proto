@@ -774,6 +774,20 @@ class AuthObjectResponse final :
   ::std::string* release_license_id();
   void set_allocated_license_id(::std::string* license_id);
 
+  // string org_id = 15;
+  void clear_org_id();
+  static const int kOrgIdFieldNumber = 15;
+  const ::std::string& org_id() const;
+  void set_org_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_org_id(::std::string&& value);
+  #endif
+  void set_org_id(const char* value);
+  void set_org_id(const char* value, size_t size);
+  ::std::string* mutable_org_id();
+  ::std::string* release_org_id();
+  void set_allocated_org_id(::std::string* org_id);
+
   // int64 issued_at = 8;
   void clear_issued_at();
   static const int kIssuedAtFieldNumber = 8;
@@ -818,6 +832,7 @@ class AuthObjectResponse final :
   ::google::protobuf::internal::ArenaStringPtr group_key_;
   ::google::protobuf::internal::ArenaStringPtr config_;
   ::google::protobuf::internal::ArenaStringPtr license_id_;
+  ::google::protobuf::internal::ArenaStringPtr org_id_;
   ::google::protobuf::int64 issued_at_;
   ::google::protobuf::int64 expires_at_;
   bool full_packet_mode_;
@@ -3010,6 +3025,59 @@ inline void AuthObjectResponse::set_full_packet_mode(bool value) {
   
   full_packet_mode_ = value;
   // @@protoc_insertion_point(field_set:ric.auth.AuthObjectResponse.full_packet_mode)
+}
+
+// string org_id = 15;
+inline void AuthObjectResponse::clear_org_id() {
+  org_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& AuthObjectResponse::org_id() const {
+  // @@protoc_insertion_point(field_get:ric.auth.AuthObjectResponse.org_id)
+  return org_id_.GetNoArena();
+}
+inline void AuthObjectResponse::set_org_id(const ::std::string& value) {
+  
+  org_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.auth.AuthObjectResponse.org_id)
+}
+#if LANG_CXX11
+inline void AuthObjectResponse::set_org_id(::std::string&& value) {
+  
+  org_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.auth.AuthObjectResponse.org_id)
+}
+#endif
+inline void AuthObjectResponse::set_org_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  org_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.auth.AuthObjectResponse.org_id)
+}
+inline void AuthObjectResponse::set_org_id(const char* value, size_t size) {
+  
+  org_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.AuthObjectResponse.org_id)
+}
+inline ::std::string* AuthObjectResponse::mutable_org_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.auth.AuthObjectResponse.org_id)
+  return org_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* AuthObjectResponse::release_org_id() {
+  // @@protoc_insertion_point(field_release:ric.auth.AuthObjectResponse.org_id)
+  
+  return org_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AuthObjectResponse::set_allocated_org_id(::std::string* org_id) {
+  if (org_id != nullptr) {
+    
+  } else {
+    
+  }
+  org_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), org_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.auth.AuthObjectResponse.org_id)
 }
 
 // -------------------------------------------------------------------
