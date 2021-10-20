@@ -314,6 +314,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dhandler_2frichandler_2eproto:
   PROTOBUF_FIELD_OFFSET(::ric::handler::ExecRequest, handler_id_),
   PROTOBUF_FIELD_OFFSET(::ric::handler::ExecRequest, packet_),
   PROTOBUF_FIELD_OFFSET(::ric::handler::ExecRequest, user_code_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecRequest, parameters_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::handler::JsStackFrame, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -423,19 +424,19 @@ const ::google::protobuf::uint32 TableStruct_ric_2dhandler_2frichandler_2eproto:
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ric::handler::ExecRequest)},
-  { 8, -1, sizeof(::ric::handler::JsStackFrame)},
-  { 16, -1, sizeof(::ric::handler::JsError)},
-  { 25, -1, sizeof(::ric::handler::ExecStats)},
-  { 42, -1, sizeof(::ric::handler::LogRecord)},
-  { 49, -1, sizeof(::ric::handler::ExecResponse)},
-  { 58, -1, sizeof(::ric::handler::GetObjectInfoRequest)},
-  { 64, -1, sizeof(::ric::handler::Action)},
-  { 71, -1, sizeof(::ric::handler::Handler)},
-  { 80, -1, sizeof(::ric::handler::GetObjectInfoResponse)},
-  { 91, -1, sizeof(::ric::handler::GetHandlerStoreRequest)},
-  { 97, -1, sizeof(::ric::handler::GetHandlerStoreResponse)},
-  { 103, -1, sizeof(::ric::handler::ForceLinksUpdateRequest)},
-  { 109, -1, sizeof(::ric::handler::EmptyResponse)},
+  { 9, -1, sizeof(::ric::handler::JsStackFrame)},
+  { 17, -1, sizeof(::ric::handler::JsError)},
+  { 26, -1, sizeof(::ric::handler::ExecStats)},
+  { 43, -1, sizeof(::ric::handler::LogRecord)},
+  { 50, -1, sizeof(::ric::handler::ExecResponse)},
+  { 59, -1, sizeof(::ric::handler::GetObjectInfoRequest)},
+  { 65, -1, sizeof(::ric::handler::Action)},
+  { 72, -1, sizeof(::ric::handler::Handler)},
+  { 81, -1, sizeof(::ric::handler::GetObjectInfoResponse)},
+  { 92, -1, sizeof(::ric::handler::GetHandlerStoreRequest)},
+  { 98, -1, sizeof(::ric::handler::GetHandlerStoreResponse)},
+  { 104, -1, sizeof(::ric::handler::ForceLinksUpdateRequest)},
+  { 110, -1, sizeof(::ric::handler::EmptyResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -463,53 +464,54 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 
 const char descriptor_table_protodef_ric_2dhandler_2frichandler_2eproto[] =
   "\n\034ric-handler/richandler.proto\022\013ric.hand"
-  "ler\"D\n\013ExecRequest\022\022\n\nhandler_id\030\001 \001(\t\022\016"
-  "\n\006packet\030\002 \001(\014\022\021\n\tuser_code\030\003 \001(\t\"J\n\014JsS"
-  "tackFrame\022\025\n\rfunction_name\030\001 \001(\t\022\023\n\013line"
-  "_number\030\002 \001(\005\022\016\n\006column\030\003 \001(\005\"i\n\007JsError"
-  "\022\017\n\007message\030\001 \001(\t\022\023\n\013line_number\030\002 \001(\005\022\016"
-  "\n\006column\030\003 \001(\005\022(\n\005stack\030\004 \003(\0132\031.ric.hand"
-  "ler.JsStackFrame\"\343\002\n\tExecStats\022\027\n\017total_"
-  "heap_size\030\001 \001(\004\022\"\n\032total_heap_size_execu"
-  "table\030\002 \001(\004\022\033\n\023total_physical_size\030\003 \001(\004"
-  "\022\034\n\024total_available_size\030\004 \001(\004\022\026\n\016used_h"
-  "eap_size\030\005 \001(\004\022\027\n\017heap_size_limit\030\006 \001(\004\022"
-  "\027\n\017malloced_memory\030\007 \001(\004\022\027\n\017external_mem"
-  "ory\030\010 \001(\004\022\034\n\024peak_malloced_memory\030\t \001(\004\022"
-  "!\n\031number_of_native_contexts\030\n \001(\004\022#\n\033nu"
-  "mber_of_detached_contexts\030\013 \001(\004\022\025\n\rexec_"
-  "duration\030\014 \001(\t\")\n\tLogRecord\022\014\n\004time\030\001 \001("
-  "\003\022\016\n\006record\030\002 \001(\t\"\220\001\n\014ExecResponse\022\016\n\006re"
-  "sult\030\001 \001(\014\022#\n\005error\030\002 \001(\0132\024.ric.handler."
-  "JsError\022%\n\005stats\030\003 \001(\0132\026.ric.handler.Exe"
-  "cStats\022$\n\004logs\030\004 \003(\0132\026.ric.handler.LogRe"
-  "cord\")\n\024GetObjectInfoRequest\022\021\n\tobject_i"
-  "d\030\001 \001(\t\"$\n\006Action\022\n\n\002id\030\001 \001(\t\022\016\n\006params\030"
-  "\002 \001(\014\"N\n\007Handler\022\n\n\002id\030\001 \001(\t\022\021\n\tuser_cod"
-  "e\030\002 \001(\t\022\020\n\010bindings\030\003 \001(\014\022\022\n\nparameters\030"
-  "\004 \001(\014\"\252\001\n\025GetObjectInfoResponse\022\n\n\002id\030\001 "
-  "\001(\t\022\016\n\006config\030\002 \001(\014\022\r\n\005store\030\003 \001(\014\022\030\n\020la"
-  "st_packet_time\030\004 \001(\003\022$\n\007actions\030\005 \003(\0132\023."
-  "ric.handler.Action\022&\n\010handlers\030\006 \003(\0132\024.r"
-  "ic.handler.Handler\",\n\026GetHandlerStoreReq"
-  "uest\022\022\n\nhandler_id\030\001 \001(\t\"(\n\027GetHandlerSt"
-  "oreResponse\022\r\n\005store\030\001 \001(\014\",\n\027ForceLinks"
-  "UpdateRequest\022\021\n\tobject_id\030\001 \001(\t\"\017\n\rEmpt"
-  "yResponse2\322\002\n\007Service\022;\n\004Exec\022\030.ric.hand"
-  "ler.ExecRequest\032\031.ric.handler.ExecRespon"
-  "se\022V\n\rGetObjectInfo\022!.ric.handler.GetObj"
-  "ectInfoRequest\032\".ric.handler.GetObjectIn"
-  "foResponse\022\\\n\017GetHandlerStore\022#.ric.hand"
-  "ler.GetHandlerStoreRequest\032$.ric.handler"
-  ".GetHandlerStoreResponse\022T\n\020ForceLinksUp"
-  "date\022$.ric.handler.ForceLinksUpdateReque"
-  "st\032\032.ric.handler.EmptyResponseB\032Z\030./ric-"
-  "handler;richandlerb\006proto3"
+  "ler\"X\n\013ExecRequest\022\022\n\nhandler_id\030\001 \001(\t\022\016"
+  "\n\006packet\030\002 \001(\014\022\021\n\tuser_code\030\003 \001(\t\022\022\n\npar"
+  "ameters\030\004 \001(\014\"J\n\014JsStackFrame\022\025\n\rfunctio"
+  "n_name\030\001 \001(\t\022\023\n\013line_number\030\002 \001(\005\022\016\n\006col"
+  "umn\030\003 \001(\005\"i\n\007JsError\022\017\n\007message\030\001 \001(\t\022\023\n"
+  "\013line_number\030\002 \001(\005\022\016\n\006column\030\003 \001(\005\022(\n\005st"
+  "ack\030\004 \003(\0132\031.ric.handler.JsStackFrame\"\343\002\n"
+  "\tExecStats\022\027\n\017total_heap_size\030\001 \001(\004\022\"\n\032t"
+  "otal_heap_size_executable\030\002 \001(\004\022\033\n\023total"
+  "_physical_size\030\003 \001(\004\022\034\n\024total_available_"
+  "size\030\004 \001(\004\022\026\n\016used_heap_size\030\005 \001(\004\022\027\n\017he"
+  "ap_size_limit\030\006 \001(\004\022\027\n\017malloced_memory\030\007"
+  " \001(\004\022\027\n\017external_memory\030\010 \001(\004\022\034\n\024peak_ma"
+  "lloced_memory\030\t \001(\004\022!\n\031number_of_native_"
+  "contexts\030\n \001(\004\022#\n\033number_of_detached_con"
+  "texts\030\013 \001(\004\022\025\n\rexec_duration\030\014 \001(\t\")\n\tLo"
+  "gRecord\022\014\n\004time\030\001 \001(\003\022\016\n\006record\030\002 \001(\t\"\220\001"
+  "\n\014ExecResponse\022\016\n\006result\030\001 \001(\014\022#\n\005error\030"
+  "\002 \001(\0132\024.ric.handler.JsError\022%\n\005stats\030\003 \001"
+  "(\0132\026.ric.handler.ExecStats\022$\n\004logs\030\004 \003(\013"
+  "2\026.ric.handler.LogRecord\")\n\024GetObjectInf"
+  "oRequest\022\021\n\tobject_id\030\001 \001(\t\"$\n\006Action\022\n\n"
+  "\002id\030\001 \001(\t\022\016\n\006params\030\002 \001(\014\"N\n\007Handler\022\n\n\002"
+  "id\030\001 \001(\t\022\021\n\tuser_code\030\002 \001(\t\022\020\n\010bindings\030"
+  "\003 \001(\014\022\022\n\nparameters\030\004 \001(\014\"\252\001\n\025GetObjectI"
+  "nfoResponse\022\n\n\002id\030\001 \001(\t\022\016\n\006config\030\002 \001(\014\022"
+  "\r\n\005store\030\003 \001(\014\022\030\n\020last_packet_time\030\004 \001(\003"
+  "\022$\n\007actions\030\005 \003(\0132\023.ric.handler.Action\022&"
+  "\n\010handlers\030\006 \003(\0132\024.ric.handler.Handler\","
+  "\n\026GetHandlerStoreRequest\022\022\n\nhandler_id\030\001"
+  " \001(\t\"(\n\027GetHandlerStoreResponse\022\r\n\005store"
+  "\030\001 \001(\014\",\n\027ForceLinksUpdateRequest\022\021\n\tobj"
+  "ect_id\030\001 \001(\t\"\017\n\rEmptyResponse2\322\002\n\007Servic"
+  "e\022;\n\004Exec\022\030.ric.handler.ExecRequest\032\031.ri"
+  "c.handler.ExecResponse\022V\n\rGetObjectInfo\022"
+  "!.ric.handler.GetObjectInfoRequest\032\".ric"
+  ".handler.GetObjectInfoResponse\022\\\n\017GetHan"
+  "dlerStore\022#.ric.handler.GetHandlerStoreR"
+  "equest\032$.ric.handler.GetHandlerStoreResp"
+  "onse\022T\n\020ForceLinksUpdate\022$.ric.handler.F"
+  "orceLinksUpdateRequest\032\032.ric.handler.Emp"
+  "tyResponseB\032Z\030./ric-handler;richandlerb\006"
+  "proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dhandler_2frichandler_2eproto = {
   false, InitDefaults_ric_2dhandler_2frichandler_2eproto, 
   descriptor_table_protodef_ric_2dhandler_2frichandler_2eproto,
-  "ric-handler/richandler.proto", &assign_descriptors_table_ric_2dhandler_2frichandler_2eproto, 1706,
+  "ric-handler/richandler.proto", &assign_descriptors_table_ric_2dhandler_2frichandler_2eproto, 1726,
 };
 
 void AddDescriptors_ric_2dhandler_2frichandler_2eproto() {
@@ -536,6 +538,7 @@ class ExecRequest::HasBitSetters {
 const int ExecRequest::kHandlerIdFieldNumber;
 const int ExecRequest::kPacketFieldNumber;
 const int ExecRequest::kUserCodeFieldNumber;
+const int ExecRequest::kParametersFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ExecRequest::ExecRequest()
@@ -559,6 +562,10 @@ ExecRequest::ExecRequest(const ExecRequest& from)
   if (from.user_code().size() > 0) {
     user_code_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_code_);
   }
+  parameters_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.parameters().size() > 0) {
+    parameters_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.parameters_);
+  }
   // @@protoc_insertion_point(copy_constructor:ric.handler.ExecRequest)
 }
 
@@ -568,6 +575,7 @@ void ExecRequest::SharedCtor() {
   handler_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   packet_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_code_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  parameters_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 ExecRequest::~ExecRequest() {
@@ -579,6 +587,7 @@ void ExecRequest::SharedDtor() {
   handler_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   packet_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_code_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  parameters_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void ExecRequest::SetCachedSize(int size) const {
@@ -599,6 +608,7 @@ void ExecRequest::Clear() {
   handler_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   packet_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  parameters_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
@@ -658,6 +668,21 @@ const char* ExecRequest::_InternalParse(const char* begin, const char* end, void
           goto string_till_end;
         }
         GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // bytes parameters = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        object = msg->mutable_parameters();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParser;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
         ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
         ptr += size;
         break;
@@ -737,6 +762,17 @@ bool ExecRequest::MergePartialFromCodedStream(
         break;
       }
 
+      // bytes parameters = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_parameters()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -790,6 +826,12 @@ void ExecRequest::SerializeWithCachedSizes(
       3, this->user_code(), output);
   }
 
+  // bytes parameters = 4;
+  if (this->parameters().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      4, this->parameters(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -830,6 +872,13 @@ void ExecRequest::SerializeWithCachedSizes(
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->user_code(), target);
+  }
+
+  // bytes parameters = 4;
+  if (this->parameters().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        4, this->parameters(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -874,6 +923,13 @@ size_t ExecRequest::ByteSizeLong() const {
         this->user_code());
   }
 
+  // bytes parameters = 4;
+  if (this->parameters().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->parameters());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -913,6 +969,10 @@ void ExecRequest::MergeFrom(const ExecRequest& from) {
 
     user_code_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_code_);
   }
+  if (from.parameters().size() > 0) {
+
+    parameters_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.parameters_);
+  }
 }
 
 void ExecRequest::CopyFrom(const ::google::protobuf::Message& from) {
@@ -945,6 +1005,8 @@ void ExecRequest::InternalSwap(ExecRequest* other) {
   packet_.Swap(&other->packet_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   user_code_.Swap(&other->user_code_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  parameters_.Swap(&other->parameters_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
 }
 

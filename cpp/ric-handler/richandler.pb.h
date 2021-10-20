@@ -254,6 +254,20 @@ class ExecRequest final :
   ::std::string* release_user_code();
   void set_allocated_user_code(::std::string* user_code);
 
+  // bytes parameters = 4;
+  void clear_parameters();
+  static const int kParametersFieldNumber = 4;
+  const ::std::string& parameters() const;
+  void set_parameters(const ::std::string& value);
+  #if LANG_CXX11
+  void set_parameters(::std::string&& value);
+  #endif
+  void set_parameters(const char* value);
+  void set_parameters(const void* value, size_t size);
+  ::std::string* mutable_parameters();
+  ::std::string* release_parameters();
+  void set_allocated_parameters(::std::string* parameters);
+
   // @@protoc_insertion_point(class_scope:ric.handler.ExecRequest)
  private:
   class HasBitSetters;
@@ -262,6 +276,7 @@ class ExecRequest final :
   ::google::protobuf::internal::ArenaStringPtr handler_id_;
   ::google::protobuf::internal::ArenaStringPtr packet_;
   ::google::protobuf::internal::ArenaStringPtr user_code_;
+  ::google::protobuf::internal::ArenaStringPtr parameters_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dhandler_2frichandler_2eproto;
 };
@@ -2259,6 +2274,59 @@ inline void ExecRequest::set_allocated_user_code(::std::string* user_code) {
   }
   user_code_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_code);
   // @@protoc_insertion_point(field_set_allocated:ric.handler.ExecRequest.user_code)
+}
+
+// bytes parameters = 4;
+inline void ExecRequest::clear_parameters() {
+  parameters_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ExecRequest::parameters() const {
+  // @@protoc_insertion_point(field_get:ric.handler.ExecRequest.parameters)
+  return parameters_.GetNoArena();
+}
+inline void ExecRequest::set_parameters(const ::std::string& value) {
+  
+  parameters_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.handler.ExecRequest.parameters)
+}
+#if LANG_CXX11
+inline void ExecRequest::set_parameters(::std::string&& value) {
+  
+  parameters_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.handler.ExecRequest.parameters)
+}
+#endif
+inline void ExecRequest::set_parameters(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  parameters_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.handler.ExecRequest.parameters)
+}
+inline void ExecRequest::set_parameters(const void* value, size_t size) {
+  
+  parameters_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.handler.ExecRequest.parameters)
+}
+inline ::std::string* ExecRequest::mutable_parameters() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.handler.ExecRequest.parameters)
+  return parameters_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ExecRequest::release_parameters() {
+  // @@protoc_insertion_point(field_release:ric.handler.ExecRequest.parameters)
+  
+  return parameters_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ExecRequest::set_allocated_parameters(::std::string* parameters) {
+  if (parameters != nullptr) {
+    
+  } else {
+    
+  }
+  parameters_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), parameters);
+  // @@protoc_insertion_point(field_set_allocated:ric.handler.ExecRequest.parameters)
 }
 
 // -------------------------------------------------------------------
