@@ -314,7 +314,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dhandler_2frichandler_2eproto:
   PROTOBUF_FIELD_OFFSET(::ric::handler::ExecRequest, handler_id_),
   PROTOBUF_FIELD_OFFSET(::ric::handler::ExecRequest, packet_),
   PROTOBUF_FIELD_OFFSET(::ric::handler::ExecRequest, user_code_),
-  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecRequest, parameters_),
+  PROTOBUF_FIELD_OFFSET(::ric::handler::ExecRequest, bindings_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::handler::JsStackFrame, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -464,54 +464,54 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 
 const char descriptor_table_protodef_ric_2dhandler_2frichandler_2eproto[] =
   "\n\034ric-handler/richandler.proto\022\013ric.hand"
-  "ler\"X\n\013ExecRequest\022\022\n\nhandler_id\030\001 \001(\t\022\016"
-  "\n\006packet\030\002 \001(\014\022\021\n\tuser_code\030\003 \001(\t\022\022\n\npar"
-  "ameters\030\004 \001(\014\"J\n\014JsStackFrame\022\025\n\rfunctio"
-  "n_name\030\001 \001(\t\022\023\n\013line_number\030\002 \001(\005\022\016\n\006col"
-  "umn\030\003 \001(\005\"i\n\007JsError\022\017\n\007message\030\001 \001(\t\022\023\n"
-  "\013line_number\030\002 \001(\005\022\016\n\006column\030\003 \001(\005\022(\n\005st"
-  "ack\030\004 \003(\0132\031.ric.handler.JsStackFrame\"\343\002\n"
-  "\tExecStats\022\027\n\017total_heap_size\030\001 \001(\004\022\"\n\032t"
-  "otal_heap_size_executable\030\002 \001(\004\022\033\n\023total"
-  "_physical_size\030\003 \001(\004\022\034\n\024total_available_"
-  "size\030\004 \001(\004\022\026\n\016used_heap_size\030\005 \001(\004\022\027\n\017he"
-  "ap_size_limit\030\006 \001(\004\022\027\n\017malloced_memory\030\007"
-  " \001(\004\022\027\n\017external_memory\030\010 \001(\004\022\034\n\024peak_ma"
-  "lloced_memory\030\t \001(\004\022!\n\031number_of_native_"
-  "contexts\030\n \001(\004\022#\n\033number_of_detached_con"
-  "texts\030\013 \001(\004\022\025\n\rexec_duration\030\014 \001(\t\")\n\tLo"
-  "gRecord\022\014\n\004time\030\001 \001(\003\022\016\n\006record\030\002 \001(\t\"\220\001"
-  "\n\014ExecResponse\022\016\n\006result\030\001 \001(\014\022#\n\005error\030"
-  "\002 \001(\0132\024.ric.handler.JsError\022%\n\005stats\030\003 \001"
-  "(\0132\026.ric.handler.ExecStats\022$\n\004logs\030\004 \003(\013"
-  "2\026.ric.handler.LogRecord\")\n\024GetObjectInf"
-  "oRequest\022\021\n\tobject_id\030\001 \001(\t\"$\n\006Action\022\n\n"
-  "\002id\030\001 \001(\t\022\016\n\006params\030\002 \001(\014\"N\n\007Handler\022\n\n\002"
-  "id\030\001 \001(\t\022\021\n\tuser_code\030\002 \001(\t\022\020\n\010bindings\030"
-  "\003 \001(\014\022\022\n\nparameters\030\004 \001(\014\"\252\001\n\025GetObjectI"
-  "nfoResponse\022\n\n\002id\030\001 \001(\t\022\016\n\006config\030\002 \001(\014\022"
-  "\r\n\005store\030\003 \001(\014\022\030\n\020last_packet_time\030\004 \001(\003"
-  "\022$\n\007actions\030\005 \003(\0132\023.ric.handler.Action\022&"
-  "\n\010handlers\030\006 \003(\0132\024.ric.handler.Handler\","
-  "\n\026GetHandlerStoreRequest\022\022\n\nhandler_id\030\001"
-  " \001(\t\"(\n\027GetHandlerStoreResponse\022\r\n\005store"
-  "\030\001 \001(\014\",\n\027ForceLinksUpdateRequest\022\021\n\tobj"
-  "ect_id\030\001 \001(\t\"\017\n\rEmptyResponse2\322\002\n\007Servic"
-  "e\022;\n\004Exec\022\030.ric.handler.ExecRequest\032\031.ri"
-  "c.handler.ExecResponse\022V\n\rGetObjectInfo\022"
-  "!.ric.handler.GetObjectInfoRequest\032\".ric"
-  ".handler.GetObjectInfoResponse\022\\\n\017GetHan"
-  "dlerStore\022#.ric.handler.GetHandlerStoreR"
-  "equest\032$.ric.handler.GetHandlerStoreResp"
-  "onse\022T\n\020ForceLinksUpdate\022$.ric.handler.F"
-  "orceLinksUpdateRequest\032\032.ric.handler.Emp"
-  "tyResponseB\032Z\030./ric-handler;richandlerb\006"
-  "proto3"
+  "ler\"V\n\013ExecRequest\022\022\n\nhandler_id\030\001 \001(\t\022\016"
+  "\n\006packet\030\002 \001(\014\022\021\n\tuser_code\030\003 \001(\t\022\020\n\010bin"
+  "dings\030\004 \001(\014\"J\n\014JsStackFrame\022\025\n\rfunction_"
+  "name\030\001 \001(\t\022\023\n\013line_number\030\002 \001(\005\022\016\n\006colum"
+  "n\030\003 \001(\005\"i\n\007JsError\022\017\n\007message\030\001 \001(\t\022\023\n\013l"
+  "ine_number\030\002 \001(\005\022\016\n\006column\030\003 \001(\005\022(\n\005stac"
+  "k\030\004 \003(\0132\031.ric.handler.JsStackFrame\"\343\002\n\tE"
+  "xecStats\022\027\n\017total_heap_size\030\001 \001(\004\022\"\n\032tot"
+  "al_heap_size_executable\030\002 \001(\004\022\033\n\023total_p"
+  "hysical_size\030\003 \001(\004\022\034\n\024total_available_si"
+  "ze\030\004 \001(\004\022\026\n\016used_heap_size\030\005 \001(\004\022\027\n\017heap"
+  "_size_limit\030\006 \001(\004\022\027\n\017malloced_memory\030\007 \001"
+  "(\004\022\027\n\017external_memory\030\010 \001(\004\022\034\n\024peak_mall"
+  "oced_memory\030\t \001(\004\022!\n\031number_of_native_co"
+  "ntexts\030\n \001(\004\022#\n\033number_of_detached_conte"
+  "xts\030\013 \001(\004\022\025\n\rexec_duration\030\014 \001(\t\")\n\tLogR"
+  "ecord\022\014\n\004time\030\001 \001(\003\022\016\n\006record\030\002 \001(\t\"\220\001\n\014"
+  "ExecResponse\022\016\n\006result\030\001 \001(\014\022#\n\005error\030\002 "
+  "\001(\0132\024.ric.handler.JsError\022%\n\005stats\030\003 \001(\013"
+  "2\026.ric.handler.ExecStats\022$\n\004logs\030\004 \003(\0132\026"
+  ".ric.handler.LogRecord\")\n\024GetObjectInfoR"
+  "equest\022\021\n\tobject_id\030\001 \001(\t\"$\n\006Action\022\n\n\002i"
+  "d\030\001 \001(\t\022\016\n\006params\030\002 \001(\014\"N\n\007Handler\022\n\n\002id"
+  "\030\001 \001(\t\022\021\n\tuser_code\030\002 \001(\t\022\020\n\010bindings\030\003 "
+  "\001(\014\022\022\n\nparameters\030\004 \001(\014\"\252\001\n\025GetObjectInf"
+  "oResponse\022\n\n\002id\030\001 \001(\t\022\016\n\006config\030\002 \001(\014\022\r\n"
+  "\005store\030\003 \001(\014\022\030\n\020last_packet_time\030\004 \001(\003\022$"
+  "\n\007actions\030\005 \003(\0132\023.ric.handler.Action\022&\n\010"
+  "handlers\030\006 \003(\0132\024.ric.handler.Handler\",\n\026"
+  "GetHandlerStoreRequest\022\022\n\nhandler_id\030\001 \001"
+  "(\t\"(\n\027GetHandlerStoreResponse\022\r\n\005store\030\001"
+  " \001(\014\",\n\027ForceLinksUpdateRequest\022\021\n\tobjec"
+  "t_id\030\001 \001(\t\"\017\n\rEmptyResponse2\322\002\n\007Service\022"
+  ";\n\004Exec\022\030.ric.handler.ExecRequest\032\031.ric."
+  "handler.ExecResponse\022V\n\rGetObjectInfo\022!."
+  "ric.handler.GetObjectInfoRequest\032\".ric.h"
+  "andler.GetObjectInfoResponse\022\\\n\017GetHandl"
+  "erStore\022#.ric.handler.GetHandlerStoreReq"
+  "uest\032$.ric.handler.GetHandlerStoreRespon"
+  "se\022T\n\020ForceLinksUpdate\022$.ric.handler.For"
+  "ceLinksUpdateRequest\032\032.ric.handler.Empty"
+  "ResponseB\032Z\030./ric-handler;richandlerb\006pr"
+  "oto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dhandler_2frichandler_2eproto = {
   false, InitDefaults_ric_2dhandler_2frichandler_2eproto, 
   descriptor_table_protodef_ric_2dhandler_2frichandler_2eproto,
-  "ric-handler/richandler.proto", &assign_descriptors_table_ric_2dhandler_2frichandler_2eproto, 1726,
+  "ric-handler/richandler.proto", &assign_descriptors_table_ric_2dhandler_2frichandler_2eproto, 1724,
 };
 
 void AddDescriptors_ric_2dhandler_2frichandler_2eproto() {
@@ -538,7 +538,7 @@ class ExecRequest::HasBitSetters {
 const int ExecRequest::kHandlerIdFieldNumber;
 const int ExecRequest::kPacketFieldNumber;
 const int ExecRequest::kUserCodeFieldNumber;
-const int ExecRequest::kParametersFieldNumber;
+const int ExecRequest::kBindingsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ExecRequest::ExecRequest()
@@ -562,9 +562,9 @@ ExecRequest::ExecRequest(const ExecRequest& from)
   if (from.user_code().size() > 0) {
     user_code_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_code_);
   }
-  parameters_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.parameters().size() > 0) {
-    parameters_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.parameters_);
+  bindings_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.bindings().size() > 0) {
+    bindings_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.bindings_);
   }
   // @@protoc_insertion_point(copy_constructor:ric.handler.ExecRequest)
 }
@@ -575,7 +575,7 @@ void ExecRequest::SharedCtor() {
   handler_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   packet_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_code_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  parameters_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  bindings_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 ExecRequest::~ExecRequest() {
@@ -587,7 +587,7 @@ void ExecRequest::SharedDtor() {
   handler_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   packet_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_code_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  parameters_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  bindings_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void ExecRequest::SetCachedSize(int size) const {
@@ -608,7 +608,7 @@ void ExecRequest::Clear() {
   handler_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   packet_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  parameters_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  bindings_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
@@ -672,12 +672,12 @@ const char* ExecRequest::_InternalParse(const char* begin, const char* end, void
         ptr += size;
         break;
       }
-      // bytes parameters = 4;
+      // bytes bindings = 4;
       case 4: {
         if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        object = msg->mutable_parameters();
+        object = msg->mutable_bindings();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParser;
           goto string_till_end;
@@ -762,11 +762,11 @@ bool ExecRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // bytes parameters = 4;
+      // bytes bindings = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_parameters()));
+                input, this->mutable_bindings()));
         } else {
           goto handle_unusual;
         }
@@ -826,10 +826,10 @@ void ExecRequest::SerializeWithCachedSizes(
       3, this->user_code(), output);
   }
 
-  // bytes parameters = 4;
-  if (this->parameters().size() > 0) {
+  // bytes bindings = 4;
+  if (this->bindings().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      4, this->parameters(), output);
+      4, this->bindings(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -874,11 +874,11 @@ void ExecRequest::SerializeWithCachedSizes(
         3, this->user_code(), target);
   }
 
-  // bytes parameters = 4;
-  if (this->parameters().size() > 0) {
+  // bytes bindings = 4;
+  if (this->bindings().size() > 0) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        4, this->parameters(), target);
+        4, this->bindings(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -923,11 +923,11 @@ size_t ExecRequest::ByteSizeLong() const {
         this->user_code());
   }
 
-  // bytes parameters = 4;
-  if (this->parameters().size() > 0) {
+  // bytes bindings = 4;
+  if (this->bindings().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->parameters());
+        this->bindings());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -969,9 +969,9 @@ void ExecRequest::MergeFrom(const ExecRequest& from) {
 
     user_code_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_code_);
   }
-  if (from.parameters().size() > 0) {
+  if (from.bindings().size() > 0) {
 
-    parameters_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.parameters_);
+    bindings_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.bindings_);
   }
 }
 
@@ -1006,7 +1006,7 @@ void ExecRequest::InternalSwap(ExecRequest* other) {
     GetArenaNoVirtual());
   user_code_.Swap(&other->user_code_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  parameters_.Swap(&other->parameters_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  bindings_.Swap(&other->bindings_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
 }
 

@@ -9,7 +9,7 @@ export interface ExecRequest {
   handlerId?: string;
   packet?: any;
   userCode?: string;
-  parameters?: any;
+  bindings?: any;
 }
 
 export interface JsStackFrame {
