@@ -17,6 +17,7 @@ export interface RicLogicV3 {
   WaitEvent(request: WaitEventRequest): Promise<WaitEventResponse>;
   UpdateAutomatonVars(request: UpdateAutomatonVarsRequest): Promise<UpdateAutomatonVarsResponse>;
   TouchEventSubscription(request: TouchEventSubscriptionRequest): Promise<TouchEventSubscriptionResponse>;
+  GetSchedulerNextInvocation(request: GetSchedulerNextInvocationRequest): Promise<GetSchedulerNextInvocationResponse>;
 
   streamed?(): {
     GetAutomatons(request: GetAutomatonsRequest): GrpcStream<AutomatonInfo>;
@@ -210,4 +211,23 @@ export interface TouchEventSubscriptionRequest {
 
 export interface TouchEventSubscriptionResponse {
 
+}
+
+export interface SchedulerInterval {
+  from?: string;
+  to?: string;
+  delay?: number;
+}
+
+export interface GetSchedulerNextInvocationRequest {
+  tz?: number;
+  month?: number[];
+  dayOfWeek?: number[];
+  date?: number[];
+  times?: string[];
+  intervals?: SchedulerInterval[];
+}
+
+export interface GetSchedulerNextInvocationResponse {
+  ms?: number;
 }

@@ -31,6 +31,7 @@ static const char* RicLogicV3_method_names[] = {
   "/ric.logic.v3.RicLogicV3/WaitEvent",
   "/ric.logic.v3.RicLogicV3/UpdateAutomatonVars",
   "/ric.logic.v3.RicLogicV3/TouchEventSubscription",
+  "/ric.logic.v3.RicLogicV3/GetSchedulerNextInvocation",
 };
 
 std::unique_ptr< RicLogicV3::Stub> RicLogicV3::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -50,6 +51,7 @@ RicLogicV3::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel
   , rpcmethod_WaitEvent_(RicLogicV3_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_UpdateAutomatonVars_(RicLogicV3_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_TouchEventSubscription_(RicLogicV3_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetSchedulerNextInvocation_(RicLogicV3_method_names[10], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status RicLogicV3::Stub::GetInstanceInfo(::grpc::ClientContext* context, const ::ric::logic::v3::GetInstanceInfoRequest& request, ::ric::logic::v3::GetInstanceInfoResponse* response) {
@@ -244,6 +246,26 @@ void RicLogicV3::Stub::experimental_async::TouchEventSubscription(::grpc::Client
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::TouchEventSubscriptionResponse>::Create(channel_.get(), cq, rpcmethod_TouchEventSubscription_, context, request, false);
 }
 
+::grpc::Status RicLogicV3::Stub::GetSchedulerNextInvocation(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest& request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_GetSchedulerNextInvocation_, context, request, response);
+}
+
+void RicLogicV3::Stub::experimental_async::GetSchedulerNextInvocation(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest* request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetSchedulerNextInvocation_, context, request, response, std::move(f));
+}
+
+void RicLogicV3::Stub::experimental_async::GetSchedulerNextInvocation(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetSchedulerNextInvocation_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::logic::v3::GetSchedulerNextInvocationResponse>* RicLogicV3::Stub::AsyncGetSchedulerNextInvocationRaw(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::GetSchedulerNextInvocationResponse>::Create(channel_.get(), cq, rpcmethod_GetSchedulerNextInvocation_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::logic::v3::GetSchedulerNextInvocationResponse>* RicLogicV3::Stub::PrepareAsyncGetSchedulerNextInvocationRaw(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::logic::v3::GetSchedulerNextInvocationResponse>::Create(channel_.get(), cq, rpcmethod_GetSchedulerNextInvocation_, context, request, false);
+}
+
 RicLogicV3::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RicLogicV3_method_names[0],
@@ -295,6 +317,11 @@ RicLogicV3::Service::Service() {
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< RicLogicV3::Service, ::ric::logic::v3::TouchEventSubscriptionRequest, ::ric::logic::v3::TouchEventSubscriptionResponse>(
           std::mem_fn(&RicLogicV3::Service::TouchEventSubscription), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RicLogicV3_method_names[10],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RicLogicV3::Service, ::ric::logic::v3::GetSchedulerNextInvocationRequest, ::ric::logic::v3::GetSchedulerNextInvocationResponse>(
+          std::mem_fn(&RicLogicV3::Service::GetSchedulerNextInvocation), this)));
 }
 
 RicLogicV3::Service::~Service() {
@@ -364,6 +391,13 @@ RicLogicV3::Service::~Service() {
 }
 
 ::grpc::Status RicLogicV3::Service::TouchEventSubscription(::grpc::ServerContext* context, const ::ric::logic::v3::TouchEventSubscriptionRequest* request, ::ric::logic::v3::TouchEventSubscriptionResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RicLogicV3::Service::GetSchedulerNextInvocation(::grpc::ServerContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest* request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response) {
   (void) context;
   (void) request;
   (void) response;

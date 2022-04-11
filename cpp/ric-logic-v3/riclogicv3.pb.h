@@ -44,7 +44,7 @@ struct TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[33]
+  static const ::google::protobuf::internal::ParseTable schema[36]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -93,6 +93,12 @@ extern GetInstanceInfoResponseDefaultTypeInternal _GetInstanceInfoResponse_defau
 class GetRuntimeInfoRequest;
 class GetRuntimeInfoRequestDefaultTypeInternal;
 extern GetRuntimeInfoRequestDefaultTypeInternal _GetRuntimeInfoRequest_default_instance_;
+class GetSchedulerNextInvocationRequest;
+class GetSchedulerNextInvocationRequestDefaultTypeInternal;
+extern GetSchedulerNextInvocationRequestDefaultTypeInternal _GetSchedulerNextInvocationRequest_default_instance_;
+class GetSchedulerNextInvocationResponse;
+class GetSchedulerNextInvocationResponseDefaultTypeInternal;
+extern GetSchedulerNextInvocationResponseDefaultTypeInternal _GetSchedulerNextInvocationResponse_default_instance_;
 class LogEntry;
 class LogEntryDefaultTypeInternal;
 extern LogEntryDefaultTypeInternal _LogEntry_default_instance_;
@@ -102,6 +108,9 @@ extern RunAutomatonRequestDefaultTypeInternal _RunAutomatonRequest_default_insta
 class RunAutomatonRequest_VarsEntry_DoNotUse;
 class RunAutomatonRequest_VarsEntry_DoNotUseDefaultTypeInternal;
 extern RunAutomatonRequest_VarsEntry_DoNotUseDefaultTypeInternal _RunAutomatonRequest_VarsEntry_DoNotUse_default_instance_;
+class SchedulerInterval;
+class SchedulerIntervalDefaultTypeInternal;
+extern SchedulerIntervalDefaultTypeInternal _SchedulerInterval_default_instance_;
 class StartAutomatonMultiRequest;
 class StartAutomatonMultiRequestDefaultTypeInternal;
 extern StartAutomatonMultiRequestDefaultTypeInternal _StartAutomatonMultiRequest_default_instance_;
@@ -171,9 +180,12 @@ template<> ::ric::logic::v3::GetAutomatonsResponse* Arena::CreateMaybeMessage<::
 template<> ::ric::logic::v3::GetInstanceInfoRequest* Arena::CreateMaybeMessage<::ric::logic::v3::GetInstanceInfoRequest>(Arena*);
 template<> ::ric::logic::v3::GetInstanceInfoResponse* Arena::CreateMaybeMessage<::ric::logic::v3::GetInstanceInfoResponse>(Arena*);
 template<> ::ric::logic::v3::GetRuntimeInfoRequest* Arena::CreateMaybeMessage<::ric::logic::v3::GetRuntimeInfoRequest>(Arena*);
+template<> ::ric::logic::v3::GetSchedulerNextInvocationRequest* Arena::CreateMaybeMessage<::ric::logic::v3::GetSchedulerNextInvocationRequest>(Arena*);
+template<> ::ric::logic::v3::GetSchedulerNextInvocationResponse* Arena::CreateMaybeMessage<::ric::logic::v3::GetSchedulerNextInvocationResponse>(Arena*);
 template<> ::ric::logic::v3::LogEntry* Arena::CreateMaybeMessage<::ric::logic::v3::LogEntry>(Arena*);
 template<> ::ric::logic::v3::RunAutomatonRequest* Arena::CreateMaybeMessage<::ric::logic::v3::RunAutomatonRequest>(Arena*);
 template<> ::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse>(Arena*);
+template<> ::ric::logic::v3::SchedulerInterval* Arena::CreateMaybeMessage<::ric::logic::v3::SchedulerInterval>(Arena*);
 template<> ::ric::logic::v3::StartAutomatonMultiRequest* Arena::CreateMaybeMessage<::ric::logic::v3::StartAutomatonMultiRequest>(Arena*);
 template<> ::ric::logic::v3::StartAutomatonRequest* Arena::CreateMaybeMessage<::ric::logic::v3::StartAutomatonRequest>(Arena*);
 template<> ::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse>(Arena*);
@@ -4588,6 +4600,450 @@ class TouchEventSubscriptionResponse final :
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SchedulerInterval final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.logic.v3.SchedulerInterval) */ {
+ public:
+  SchedulerInterval();
+  virtual ~SchedulerInterval();
+
+  SchedulerInterval(const SchedulerInterval& from);
+
+  inline SchedulerInterval& operator=(const SchedulerInterval& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SchedulerInterval(SchedulerInterval&& from) noexcept
+    : SchedulerInterval() {
+    *this = ::std::move(from);
+  }
+
+  inline SchedulerInterval& operator=(SchedulerInterval&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const SchedulerInterval& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SchedulerInterval* internal_default_instance() {
+    return reinterpret_cast<const SchedulerInterval*>(
+               &_SchedulerInterval_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    33;
+
+  void Swap(SchedulerInterval* other);
+  friend void swap(SchedulerInterval& a, SchedulerInterval& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SchedulerInterval* New() const final {
+    return CreateMaybeMessage<SchedulerInterval>(nullptr);
+  }
+
+  SchedulerInterval* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<SchedulerInterval>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const SchedulerInterval& from);
+  void MergeFrom(const SchedulerInterval& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SchedulerInterval* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string from = 1;
+  void clear_from();
+  static const int kFromFieldNumber = 1;
+  const ::std::string& from() const;
+  void set_from(const ::std::string& value);
+  #if LANG_CXX11
+  void set_from(::std::string&& value);
+  #endif
+  void set_from(const char* value);
+  void set_from(const char* value, size_t size);
+  ::std::string* mutable_from();
+  ::std::string* release_from();
+  void set_allocated_from(::std::string* from);
+
+  // string to = 2;
+  void clear_to();
+  static const int kToFieldNumber = 2;
+  const ::std::string& to() const;
+  void set_to(const ::std::string& value);
+  #if LANG_CXX11
+  void set_to(::std::string&& value);
+  #endif
+  void set_to(const char* value);
+  void set_to(const char* value, size_t size);
+  ::std::string* mutable_to();
+  ::std::string* release_to();
+  void set_allocated_to(::std::string* to);
+
+  // int32 delay = 3;
+  void clear_delay();
+  static const int kDelayFieldNumber = 3;
+  ::google::protobuf::int32 delay() const;
+  void set_delay(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:ric.logic.v3.SchedulerInterval)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr from_;
+  ::google::protobuf::internal::ArenaStringPtr to_;
+  ::google::protobuf::int32 delay_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetSchedulerNextInvocationRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.logic.v3.GetSchedulerNextInvocationRequest) */ {
+ public:
+  GetSchedulerNextInvocationRequest();
+  virtual ~GetSchedulerNextInvocationRequest();
+
+  GetSchedulerNextInvocationRequest(const GetSchedulerNextInvocationRequest& from);
+
+  inline GetSchedulerNextInvocationRequest& operator=(const GetSchedulerNextInvocationRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GetSchedulerNextInvocationRequest(GetSchedulerNextInvocationRequest&& from) noexcept
+    : GetSchedulerNextInvocationRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline GetSchedulerNextInvocationRequest& operator=(GetSchedulerNextInvocationRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const GetSchedulerNextInvocationRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GetSchedulerNextInvocationRequest* internal_default_instance() {
+    return reinterpret_cast<const GetSchedulerNextInvocationRequest*>(
+               &_GetSchedulerNextInvocationRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    34;
+
+  void Swap(GetSchedulerNextInvocationRequest* other);
+  friend void swap(GetSchedulerNextInvocationRequest& a, GetSchedulerNextInvocationRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GetSchedulerNextInvocationRequest* New() const final {
+    return CreateMaybeMessage<GetSchedulerNextInvocationRequest>(nullptr);
+  }
+
+  GetSchedulerNextInvocationRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<GetSchedulerNextInvocationRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const GetSchedulerNextInvocationRequest& from);
+  void MergeFrom(const GetSchedulerNextInvocationRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetSchedulerNextInvocationRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated int32 month = 2;
+  int month_size() const;
+  void clear_month();
+  static const int kMonthFieldNumber = 2;
+  ::google::protobuf::int32 month(int index) const;
+  void set_month(int index, ::google::protobuf::int32 value);
+  void add_month(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      month() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_month();
+
+  // repeated int32 day_of_week = 3;
+  int day_of_week_size() const;
+  void clear_day_of_week();
+  static const int kDayOfWeekFieldNumber = 3;
+  ::google::protobuf::int32 day_of_week(int index) const;
+  void set_day_of_week(int index, ::google::protobuf::int32 value);
+  void add_day_of_week(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      day_of_week() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_day_of_week();
+
+  // repeated int32 date = 4;
+  int date_size() const;
+  void clear_date();
+  static const int kDateFieldNumber = 4;
+  ::google::protobuf::int32 date(int index) const;
+  void set_date(int index, ::google::protobuf::int32 value);
+  void add_date(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      date() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_date();
+
+  // repeated string times = 5;
+  int times_size() const;
+  void clear_times();
+  static const int kTimesFieldNumber = 5;
+  const ::std::string& times(int index) const;
+  ::std::string* mutable_times(int index);
+  void set_times(int index, const ::std::string& value);
+  #if LANG_CXX11
+  void set_times(int index, ::std::string&& value);
+  #endif
+  void set_times(int index, const char* value);
+  void set_times(int index, const char* value, size_t size);
+  ::std::string* add_times();
+  void add_times(const ::std::string& value);
+  #if LANG_CXX11
+  void add_times(::std::string&& value);
+  #endif
+  void add_times(const char* value);
+  void add_times(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField<::std::string>& times() const;
+  ::google::protobuf::RepeatedPtrField<::std::string>* mutable_times();
+
+  // repeated .ric.logic.v3.SchedulerInterval intervals = 6;
+  int intervals_size() const;
+  void clear_intervals();
+  static const int kIntervalsFieldNumber = 6;
+  ::ric::logic::v3::SchedulerInterval* mutable_intervals(int index);
+  ::google::protobuf::RepeatedPtrField< ::ric::logic::v3::SchedulerInterval >*
+      mutable_intervals();
+  const ::ric::logic::v3::SchedulerInterval& intervals(int index) const;
+  ::ric::logic::v3::SchedulerInterval* add_intervals();
+  const ::google::protobuf::RepeatedPtrField< ::ric::logic::v3::SchedulerInterval >&
+      intervals() const;
+
+  // int32 tz = 1;
+  void clear_tz();
+  static const int kTzFieldNumber = 1;
+  ::google::protobuf::int32 tz() const;
+  void set_tz(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:ric.logic.v3.GetSchedulerNextInvocationRequest)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > month_;
+  mutable std::atomic<int> _month_cached_byte_size_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > day_of_week_;
+  mutable std::atomic<int> _day_of_week_cached_byte_size_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > date_;
+  mutable std::atomic<int> _date_cached_byte_size_;
+  ::google::protobuf::RepeatedPtrField<::std::string> times_;
+  ::google::protobuf::RepeatedPtrField< ::ric::logic::v3::SchedulerInterval > intervals_;
+  ::google::protobuf::int32 tz_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetSchedulerNextInvocationResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.logic.v3.GetSchedulerNextInvocationResponse) */ {
+ public:
+  GetSchedulerNextInvocationResponse();
+  virtual ~GetSchedulerNextInvocationResponse();
+
+  GetSchedulerNextInvocationResponse(const GetSchedulerNextInvocationResponse& from);
+
+  inline GetSchedulerNextInvocationResponse& operator=(const GetSchedulerNextInvocationResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  GetSchedulerNextInvocationResponse(GetSchedulerNextInvocationResponse&& from) noexcept
+    : GetSchedulerNextInvocationResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline GetSchedulerNextInvocationResponse& operator=(GetSchedulerNextInvocationResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const GetSchedulerNextInvocationResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const GetSchedulerNextInvocationResponse* internal_default_instance() {
+    return reinterpret_cast<const GetSchedulerNextInvocationResponse*>(
+               &_GetSchedulerNextInvocationResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    35;
+
+  void Swap(GetSchedulerNextInvocationResponse* other);
+  friend void swap(GetSchedulerNextInvocationResponse& a, GetSchedulerNextInvocationResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline GetSchedulerNextInvocationResponse* New() const final {
+    return CreateMaybeMessage<GetSchedulerNextInvocationResponse>(nullptr);
+  }
+
+  GetSchedulerNextInvocationResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<GetSchedulerNextInvocationResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const GetSchedulerNextInvocationResponse& from);
+  void MergeFrom(const GetSchedulerNextInvocationResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GetSchedulerNextInvocationResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int64 ms = 1;
+  void clear_ms();
+  static const int kMsFieldNumber = 1;
+  ::google::protobuf::int64 ms() const;
+  void set_ms(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:ric.logic.v3.GetSchedulerNextInvocationResponse)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int64 ms_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto;
 };
@@ -9277,9 +9733,364 @@ inline void TouchEventSubscriptionRequest::set_ttl(::google::protobuf::int32 val
 
 // TouchEventSubscriptionResponse
 
+// -------------------------------------------------------------------
+
+// SchedulerInterval
+
+// string from = 1;
+inline void SchedulerInterval::clear_from() {
+  from_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SchedulerInterval::from() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.SchedulerInterval.from)
+  return from_.GetNoArena();
+}
+inline void SchedulerInterval::set_from(const ::std::string& value) {
+  
+  from_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.SchedulerInterval.from)
+}
+#if LANG_CXX11
+inline void SchedulerInterval::set_from(::std::string&& value) {
+  
+  from_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.logic.v3.SchedulerInterval.from)
+}
+#endif
+inline void SchedulerInterval::set_from(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  from_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.logic.v3.SchedulerInterval.from)
+}
+inline void SchedulerInterval::set_from(const char* value, size_t size) {
+  
+  from_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.logic.v3.SchedulerInterval.from)
+}
+inline ::std::string* SchedulerInterval::mutable_from() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.SchedulerInterval.from)
+  return from_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SchedulerInterval::release_from() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.SchedulerInterval.from)
+  
+  return from_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SchedulerInterval::set_allocated_from(::std::string* from) {
+  if (from != nullptr) {
+    
+  } else {
+    
+  }
+  from_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from);
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.SchedulerInterval.from)
+}
+
+// string to = 2;
+inline void SchedulerInterval::clear_to() {
+  to_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SchedulerInterval::to() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.SchedulerInterval.to)
+  return to_.GetNoArena();
+}
+inline void SchedulerInterval::set_to(const ::std::string& value) {
+  
+  to_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.SchedulerInterval.to)
+}
+#if LANG_CXX11
+inline void SchedulerInterval::set_to(::std::string&& value) {
+  
+  to_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.logic.v3.SchedulerInterval.to)
+}
+#endif
+inline void SchedulerInterval::set_to(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  to_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.logic.v3.SchedulerInterval.to)
+}
+inline void SchedulerInterval::set_to(const char* value, size_t size) {
+  
+  to_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.logic.v3.SchedulerInterval.to)
+}
+inline ::std::string* SchedulerInterval::mutable_to() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.SchedulerInterval.to)
+  return to_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SchedulerInterval::release_to() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.SchedulerInterval.to)
+  
+  return to_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SchedulerInterval::set_allocated_to(::std::string* to) {
+  if (to != nullptr) {
+    
+  } else {
+    
+  }
+  to_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), to);
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.SchedulerInterval.to)
+}
+
+// int32 delay = 3;
+inline void SchedulerInterval::clear_delay() {
+  delay_ = 0;
+}
+inline ::google::protobuf::int32 SchedulerInterval::delay() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.SchedulerInterval.delay)
+  return delay_;
+}
+inline void SchedulerInterval::set_delay(::google::protobuf::int32 value) {
+  
+  delay_ = value;
+  // @@protoc_insertion_point(field_set:ric.logic.v3.SchedulerInterval.delay)
+}
+
+// -------------------------------------------------------------------
+
+// GetSchedulerNextInvocationRequest
+
+// int32 tz = 1;
+inline void GetSchedulerNextInvocationRequest::clear_tz() {
+  tz_ = 0;
+}
+inline ::google::protobuf::int32 GetSchedulerNextInvocationRequest::tz() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.GetSchedulerNextInvocationRequest.tz)
+  return tz_;
+}
+inline void GetSchedulerNextInvocationRequest::set_tz(::google::protobuf::int32 value) {
+  
+  tz_ = value;
+  // @@protoc_insertion_point(field_set:ric.logic.v3.GetSchedulerNextInvocationRequest.tz)
+}
+
+// repeated int32 month = 2;
+inline int GetSchedulerNextInvocationRequest::month_size() const {
+  return month_.size();
+}
+inline void GetSchedulerNextInvocationRequest::clear_month() {
+  month_.Clear();
+}
+inline ::google::protobuf::int32 GetSchedulerNextInvocationRequest::month(int index) const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.GetSchedulerNextInvocationRequest.month)
+  return month_.Get(index);
+}
+inline void GetSchedulerNextInvocationRequest::set_month(int index, ::google::protobuf::int32 value) {
+  month_.Set(index, value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.GetSchedulerNextInvocationRequest.month)
+}
+inline void GetSchedulerNextInvocationRequest::add_month(::google::protobuf::int32 value) {
+  month_.Add(value);
+  // @@protoc_insertion_point(field_add:ric.logic.v3.GetSchedulerNextInvocationRequest.month)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+GetSchedulerNextInvocationRequest::month() const {
+  // @@protoc_insertion_point(field_list:ric.logic.v3.GetSchedulerNextInvocationRequest.month)
+  return month_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+GetSchedulerNextInvocationRequest::mutable_month() {
+  // @@protoc_insertion_point(field_mutable_list:ric.logic.v3.GetSchedulerNextInvocationRequest.month)
+  return &month_;
+}
+
+// repeated int32 day_of_week = 3;
+inline int GetSchedulerNextInvocationRequest::day_of_week_size() const {
+  return day_of_week_.size();
+}
+inline void GetSchedulerNextInvocationRequest::clear_day_of_week() {
+  day_of_week_.Clear();
+}
+inline ::google::protobuf::int32 GetSchedulerNextInvocationRequest::day_of_week(int index) const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.GetSchedulerNextInvocationRequest.day_of_week)
+  return day_of_week_.Get(index);
+}
+inline void GetSchedulerNextInvocationRequest::set_day_of_week(int index, ::google::protobuf::int32 value) {
+  day_of_week_.Set(index, value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.GetSchedulerNextInvocationRequest.day_of_week)
+}
+inline void GetSchedulerNextInvocationRequest::add_day_of_week(::google::protobuf::int32 value) {
+  day_of_week_.Add(value);
+  // @@protoc_insertion_point(field_add:ric.logic.v3.GetSchedulerNextInvocationRequest.day_of_week)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+GetSchedulerNextInvocationRequest::day_of_week() const {
+  // @@protoc_insertion_point(field_list:ric.logic.v3.GetSchedulerNextInvocationRequest.day_of_week)
+  return day_of_week_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+GetSchedulerNextInvocationRequest::mutable_day_of_week() {
+  // @@protoc_insertion_point(field_mutable_list:ric.logic.v3.GetSchedulerNextInvocationRequest.day_of_week)
+  return &day_of_week_;
+}
+
+// repeated int32 date = 4;
+inline int GetSchedulerNextInvocationRequest::date_size() const {
+  return date_.size();
+}
+inline void GetSchedulerNextInvocationRequest::clear_date() {
+  date_.Clear();
+}
+inline ::google::protobuf::int32 GetSchedulerNextInvocationRequest::date(int index) const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.GetSchedulerNextInvocationRequest.date)
+  return date_.Get(index);
+}
+inline void GetSchedulerNextInvocationRequest::set_date(int index, ::google::protobuf::int32 value) {
+  date_.Set(index, value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.GetSchedulerNextInvocationRequest.date)
+}
+inline void GetSchedulerNextInvocationRequest::add_date(::google::protobuf::int32 value) {
+  date_.Add(value);
+  // @@protoc_insertion_point(field_add:ric.logic.v3.GetSchedulerNextInvocationRequest.date)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+GetSchedulerNextInvocationRequest::date() const {
+  // @@protoc_insertion_point(field_list:ric.logic.v3.GetSchedulerNextInvocationRequest.date)
+  return date_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+GetSchedulerNextInvocationRequest::mutable_date() {
+  // @@protoc_insertion_point(field_mutable_list:ric.logic.v3.GetSchedulerNextInvocationRequest.date)
+  return &date_;
+}
+
+// repeated string times = 5;
+inline int GetSchedulerNextInvocationRequest::times_size() const {
+  return times_.size();
+}
+inline void GetSchedulerNextInvocationRequest::clear_times() {
+  times_.Clear();
+}
+inline const ::std::string& GetSchedulerNextInvocationRequest::times(int index) const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.GetSchedulerNextInvocationRequest.times)
+  return times_.Get(index);
+}
+inline ::std::string* GetSchedulerNextInvocationRequest::mutable_times(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.GetSchedulerNextInvocationRequest.times)
+  return times_.Mutable(index);
+}
+inline void GetSchedulerNextInvocationRequest::set_times(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:ric.logic.v3.GetSchedulerNextInvocationRequest.times)
+  times_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+inline void GetSchedulerNextInvocationRequest::set_times(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:ric.logic.v3.GetSchedulerNextInvocationRequest.times)
+  times_.Mutable(index)->assign(std::move(value));
+}
+#endif
+inline void GetSchedulerNextInvocationRequest::set_times(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  times_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ric.logic.v3.GetSchedulerNextInvocationRequest.times)
+}
+inline void GetSchedulerNextInvocationRequest::set_times(int index, const char* value, size_t size) {
+  times_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ric.logic.v3.GetSchedulerNextInvocationRequest.times)
+}
+inline ::std::string* GetSchedulerNextInvocationRequest::add_times() {
+  // @@protoc_insertion_point(field_add_mutable:ric.logic.v3.GetSchedulerNextInvocationRequest.times)
+  return times_.Add();
+}
+inline void GetSchedulerNextInvocationRequest::add_times(const ::std::string& value) {
+  times_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ric.logic.v3.GetSchedulerNextInvocationRequest.times)
+}
+#if LANG_CXX11
+inline void GetSchedulerNextInvocationRequest::add_times(::std::string&& value) {
+  times_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ric.logic.v3.GetSchedulerNextInvocationRequest.times)
+}
+#endif
+inline void GetSchedulerNextInvocationRequest::add_times(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  times_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ric.logic.v3.GetSchedulerNextInvocationRequest.times)
+}
+inline void GetSchedulerNextInvocationRequest::add_times(const char* value, size_t size) {
+  times_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ric.logic.v3.GetSchedulerNextInvocationRequest.times)
+}
+inline const ::google::protobuf::RepeatedPtrField<::std::string>&
+GetSchedulerNextInvocationRequest::times() const {
+  // @@protoc_insertion_point(field_list:ric.logic.v3.GetSchedulerNextInvocationRequest.times)
+  return times_;
+}
+inline ::google::protobuf::RepeatedPtrField<::std::string>*
+GetSchedulerNextInvocationRequest::mutable_times() {
+  // @@protoc_insertion_point(field_mutable_list:ric.logic.v3.GetSchedulerNextInvocationRequest.times)
+  return &times_;
+}
+
+// repeated .ric.logic.v3.SchedulerInterval intervals = 6;
+inline int GetSchedulerNextInvocationRequest::intervals_size() const {
+  return intervals_.size();
+}
+inline void GetSchedulerNextInvocationRequest::clear_intervals() {
+  intervals_.Clear();
+}
+inline ::ric::logic::v3::SchedulerInterval* GetSchedulerNextInvocationRequest::mutable_intervals(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.GetSchedulerNextInvocationRequest.intervals)
+  return intervals_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::ric::logic::v3::SchedulerInterval >*
+GetSchedulerNextInvocationRequest::mutable_intervals() {
+  // @@protoc_insertion_point(field_mutable_list:ric.logic.v3.GetSchedulerNextInvocationRequest.intervals)
+  return &intervals_;
+}
+inline const ::ric::logic::v3::SchedulerInterval& GetSchedulerNextInvocationRequest::intervals(int index) const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.GetSchedulerNextInvocationRequest.intervals)
+  return intervals_.Get(index);
+}
+inline ::ric::logic::v3::SchedulerInterval* GetSchedulerNextInvocationRequest::add_intervals() {
+  // @@protoc_insertion_point(field_add:ric.logic.v3.GetSchedulerNextInvocationRequest.intervals)
+  return intervals_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ric::logic::v3::SchedulerInterval >&
+GetSchedulerNextInvocationRequest::intervals() const {
+  // @@protoc_insertion_point(field_list:ric.logic.v3.GetSchedulerNextInvocationRequest.intervals)
+  return intervals_;
+}
+
+// -------------------------------------------------------------------
+
+// GetSchedulerNextInvocationResponse
+
+// int64 ms = 1;
+inline void GetSchedulerNextInvocationResponse::clear_ms() {
+  ms_ = PROTOBUF_LONGLONG(0);
+}
+inline ::google::protobuf::int64 GetSchedulerNextInvocationResponse::ms() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.GetSchedulerNextInvocationResponse.ms)
+  return ms_;
+}
+inline void GetSchedulerNextInvocationResponse::set_ms(::google::protobuf::int64 value) {
+  
+  ms_ = value;
+  // @@protoc_insertion_point(field_set:ric.logic.v3.GetSchedulerNextInvocationResponse.ms)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

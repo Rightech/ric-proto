@@ -113,6 +113,13 @@ class RicLogicV3 final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::TouchEventSubscriptionResponse>> PrepareAsyncTouchEventSubscription(::grpc::ClientContext* context, const ::ric::logic::v3::TouchEventSubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::TouchEventSubscriptionResponse>>(PrepareAsyncTouchEventSubscriptionRaw(context, request, cq));
     }
+    virtual ::grpc::Status GetSchedulerNextInvocation(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest& request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::GetSchedulerNextInvocationResponse>> AsyncGetSchedulerNextInvocation(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::GetSchedulerNextInvocationResponse>>(AsyncGetSchedulerNextInvocationRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::GetSchedulerNextInvocationResponse>> PrepareAsyncGetSchedulerNextInvocation(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::GetSchedulerNextInvocationResponse>>(PrepareAsyncGetSchedulerNextInvocationRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
@@ -134,6 +141,8 @@ class RicLogicV3 final {
       virtual void UpdateAutomatonVars(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void TouchEventSubscription(::grpc::ClientContext* context, const ::ric::logic::v3::TouchEventSubscriptionRequest* request, ::ric::logic::v3::TouchEventSubscriptionResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void TouchEventSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::TouchEventSubscriptionResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetSchedulerNextInvocation(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest* request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetSchedulerNextInvocation(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
@@ -159,6 +168,8 @@ class RicLogicV3 final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::UpdateAutomatonVarsResponse>* PrepareAsyncUpdateAutomatonVarsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::TouchEventSubscriptionResponse>* AsyncTouchEventSubscriptionRaw(::grpc::ClientContext* context, const ::ric::logic::v3::TouchEventSubscriptionRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::TouchEventSubscriptionResponse>* PrepareAsyncTouchEventSubscriptionRaw(::grpc::ClientContext* context, const ::ric::logic::v3::TouchEventSubscriptionRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::GetSchedulerNextInvocationResponse>* AsyncGetSchedulerNextInvocationRaw(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::logic::v3::GetSchedulerNextInvocationResponse>* PrepareAsyncGetSchedulerNextInvocationRaw(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -237,6 +248,13 @@ class RicLogicV3 final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::TouchEventSubscriptionResponse>> PrepareAsyncTouchEventSubscription(::grpc::ClientContext* context, const ::ric::logic::v3::TouchEventSubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::TouchEventSubscriptionResponse>>(PrepareAsyncTouchEventSubscriptionRaw(context, request, cq));
     }
+    ::grpc::Status GetSchedulerNextInvocation(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest& request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::GetSchedulerNextInvocationResponse>> AsyncGetSchedulerNextInvocation(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::GetSchedulerNextInvocationResponse>>(AsyncGetSchedulerNextInvocationRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::GetSchedulerNextInvocationResponse>> PrepareAsyncGetSchedulerNextInvocation(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::GetSchedulerNextInvocationResponse>>(PrepareAsyncGetSchedulerNextInvocationRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
@@ -258,6 +276,8 @@ class RicLogicV3 final {
       void UpdateAutomatonVars(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response, std::function<void(::grpc::Status)>) override;
       void TouchEventSubscription(::grpc::ClientContext* context, const ::ric::logic::v3::TouchEventSubscriptionRequest* request, ::ric::logic::v3::TouchEventSubscriptionResponse* response, std::function<void(::grpc::Status)>) override;
       void TouchEventSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::TouchEventSubscriptionResponse* response, std::function<void(::grpc::Status)>) override;
+      void GetSchedulerNextInvocation(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest* request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response, std::function<void(::grpc::Status)>) override;
+      void GetSchedulerNextInvocation(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response, std::function<void(::grpc::Status)>) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -291,6 +311,8 @@ class RicLogicV3 final {
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::UpdateAutomatonVarsResponse>* PrepareAsyncUpdateAutomatonVarsRaw(::grpc::ClientContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::TouchEventSubscriptionResponse>* AsyncTouchEventSubscriptionRaw(::grpc::ClientContext* context, const ::ric::logic::v3::TouchEventSubscriptionRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::TouchEventSubscriptionResponse>* PrepareAsyncTouchEventSubscriptionRaw(::grpc::ClientContext* context, const ::ric::logic::v3::TouchEventSubscriptionRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::GetSchedulerNextInvocationResponse>* AsyncGetSchedulerNextInvocationRaw(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::logic::v3::GetSchedulerNextInvocationResponse>* PrepareAsyncGetSchedulerNextInvocationRaw(::grpc::ClientContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetInstanceInfo_;
     const ::grpc::internal::RpcMethod rpcmethod_GetAutomatons_;
     const ::grpc::internal::RpcMethod rpcmethod_StartAutomaton_;
@@ -301,6 +323,7 @@ class RicLogicV3 final {
     const ::grpc::internal::RpcMethod rpcmethod_WaitEvent_;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateAutomatonVars_;
     const ::grpc::internal::RpcMethod rpcmethod_TouchEventSubscription_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetSchedulerNextInvocation_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -318,6 +341,7 @@ class RicLogicV3 final {
     virtual ::grpc::Status WaitEvent(::grpc::ServerContext* context, const ::ric::logic::v3::WaitEventRequest* request, ::ric::logic::v3::WaitEventResponse* response);
     virtual ::grpc::Status UpdateAutomatonVars(::grpc::ServerContext* context, const ::ric::logic::v3::UpdateAutomatonVarsRequest* request, ::ric::logic::v3::UpdateAutomatonVarsResponse* response);
     virtual ::grpc::Status TouchEventSubscription(::grpc::ServerContext* context, const ::ric::logic::v3::TouchEventSubscriptionRequest* request, ::ric::logic::v3::TouchEventSubscriptionResponse* response);
+    virtual ::grpc::Status GetSchedulerNextInvocation(::grpc::ServerContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest* request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GetInstanceInfo : public BaseClass {
@@ -519,7 +543,27 @@ class RicLogicV3 final {
       ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetInstanceInfo<WithAsyncMethod_GetAutomatons<WithAsyncMethod_StartAutomaton<WithAsyncMethod_StartAutomatonMulti<WithAsyncMethod_StopAutomaton<WithAsyncMethod_RunAutomaton<WithAsyncMethod_EmitEvent<WithAsyncMethod_WaitEvent<WithAsyncMethod_UpdateAutomatonVars<WithAsyncMethod_TouchEventSubscription<Service > > > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_GetSchedulerNextInvocation : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_GetSchedulerNextInvocation() {
+      ::grpc::Service::MarkMethodAsync(10);
+    }
+    ~WithAsyncMethod_GetSchedulerNextInvocation() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetSchedulerNextInvocation(::grpc::ServerContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest* request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetSchedulerNextInvocation(::grpc::ServerContext* context, ::ric::logic::v3::GetSchedulerNextInvocationRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::logic::v3::GetSchedulerNextInvocationResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_GetInstanceInfo<WithAsyncMethod_GetAutomatons<WithAsyncMethod_StartAutomaton<WithAsyncMethod_StartAutomatonMulti<WithAsyncMethod_StopAutomaton<WithAsyncMethod_RunAutomaton<WithAsyncMethod_EmitEvent<WithAsyncMethod_WaitEvent<WithAsyncMethod_UpdateAutomatonVars<WithAsyncMethod_TouchEventSubscription<WithAsyncMethod_GetSchedulerNextInvocation<Service > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_GetInstanceInfo : public BaseClass {
    private:
@@ -764,7 +808,32 @@ class RicLogicV3 final {
     }
     virtual void TouchEventSubscription(::grpc::ServerContext* context, const ::ric::logic::v3::TouchEventSubscriptionRequest* request, ::ric::logic::v3::TouchEventSubscriptionResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_GetInstanceInfo<ExperimentalWithCallbackMethod_GetAutomatons<ExperimentalWithCallbackMethod_StartAutomaton<ExperimentalWithCallbackMethod_StartAutomatonMulti<ExperimentalWithCallbackMethod_StopAutomaton<ExperimentalWithCallbackMethod_RunAutomaton<ExperimentalWithCallbackMethod_EmitEvent<ExperimentalWithCallbackMethod_WaitEvent<ExperimentalWithCallbackMethod_UpdateAutomatonVars<ExperimentalWithCallbackMethod_TouchEventSubscription<Service > > > > > > > > > > ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_GetSchedulerNextInvocation : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_GetSchedulerNextInvocation() {
+      ::grpc::Service::experimental().MarkMethodCallback(10,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::logic::v3::GetSchedulerNextInvocationRequest, ::ric::logic::v3::GetSchedulerNextInvocationResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::logic::v3::GetSchedulerNextInvocationRequest* request,
+                 ::ric::logic::v3::GetSchedulerNextInvocationResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->GetSchedulerNextInvocation(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_GetSchedulerNextInvocation() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetSchedulerNextInvocation(::grpc::ServerContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest* request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void GetSchedulerNextInvocation(::grpc::ServerContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest* request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  typedef ExperimentalWithCallbackMethod_GetInstanceInfo<ExperimentalWithCallbackMethod_GetAutomatons<ExperimentalWithCallbackMethod_StartAutomaton<ExperimentalWithCallbackMethod_StartAutomatonMulti<ExperimentalWithCallbackMethod_StopAutomaton<ExperimentalWithCallbackMethod_RunAutomaton<ExperimentalWithCallbackMethod_EmitEvent<ExperimentalWithCallbackMethod_WaitEvent<ExperimentalWithCallbackMethod_UpdateAutomatonVars<ExperimentalWithCallbackMethod_TouchEventSubscription<ExperimentalWithCallbackMethod_GetSchedulerNextInvocation<Service > > > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GetInstanceInfo : public BaseClass {
    private:
@@ -931,6 +1000,23 @@ class RicLogicV3 final {
     }
     // disable synchronous version of this method
     ::grpc::Status TouchEventSubscription(::grpc::ServerContext* context, const ::ric::logic::v3::TouchEventSubscriptionRequest* request, ::ric::logic::v3::TouchEventSubscriptionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_GetSchedulerNextInvocation : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_GetSchedulerNextInvocation() {
+      ::grpc::Service::MarkMethodGeneric(10);
+    }
+    ~WithGenericMethod_GetSchedulerNextInvocation() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetSchedulerNextInvocation(::grpc::ServerContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest* request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1133,6 +1219,26 @@ class RicLogicV3 final {
     }
     void RequestTouchEventSubscription(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_GetSchedulerNextInvocation : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_GetSchedulerNextInvocation() {
+      ::grpc::Service::MarkMethodRaw(10);
+    }
+    ~WithRawMethod_GetSchedulerNextInvocation() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetSchedulerNextInvocation(::grpc::ServerContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest* request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetSchedulerNextInvocation(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1380,6 +1486,31 @@ class RicLogicV3 final {
     virtual void TouchEventSubscription(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_GetSchedulerNextInvocation : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_GetSchedulerNextInvocation() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(10,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->GetSchedulerNextInvocation(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_GetSchedulerNextInvocation() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetSchedulerNextInvocation(::grpc::ServerContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest* request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void GetSchedulerNextInvocation(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_GetInstanceInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
@@ -1539,7 +1670,27 @@ class RicLogicV3 final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedTouchEventSubscription(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::logic::v3::TouchEventSubscriptionRequest,::ric::logic::v3::TouchEventSubscriptionResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_GetInstanceInfo<WithStreamedUnaryMethod_StartAutomaton<WithStreamedUnaryMethod_StartAutomatonMulti<WithStreamedUnaryMethod_StopAutomaton<WithStreamedUnaryMethod_EmitEvent<WithStreamedUnaryMethod_WaitEvent<WithStreamedUnaryMethod_UpdateAutomatonVars<WithStreamedUnaryMethod_TouchEventSubscription<Service > > > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_GetSchedulerNextInvocation : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_GetSchedulerNextInvocation() {
+      ::grpc::Service::MarkMethodStreamed(10,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::logic::v3::GetSchedulerNextInvocationRequest, ::ric::logic::v3::GetSchedulerNextInvocationResponse>(std::bind(&WithStreamedUnaryMethod_GetSchedulerNextInvocation<BaseClass>::StreamedGetSchedulerNextInvocation, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_GetSchedulerNextInvocation() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status GetSchedulerNextInvocation(::grpc::ServerContext* context, const ::ric::logic::v3::GetSchedulerNextInvocationRequest* request, ::ric::logic::v3::GetSchedulerNextInvocationResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedGetSchedulerNextInvocation(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::logic::v3::GetSchedulerNextInvocationRequest,::ric::logic::v3::GetSchedulerNextInvocationResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_GetInstanceInfo<WithStreamedUnaryMethod_StartAutomaton<WithStreamedUnaryMethod_StartAutomatonMulti<WithStreamedUnaryMethod_StopAutomaton<WithStreamedUnaryMethod_EmitEvent<WithStreamedUnaryMethod_WaitEvent<WithStreamedUnaryMethod_UpdateAutomatonVars<WithStreamedUnaryMethod_TouchEventSubscription<WithStreamedUnaryMethod_GetSchedulerNextInvocation<Service > > > > > > > > > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_GetAutomatons : public BaseClass {
    private:
@@ -1581,7 +1732,7 @@ class RicLogicV3 final {
     virtual ::grpc::Status StreamedRunAutomaton(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::ric::logic::v3::RunAutomatonRequest,::ric::logic::v3::AutomatonInfo>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_GetAutomatons<WithSplitStreamingMethod_RunAutomaton<Service > > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GetInstanceInfo<WithSplitStreamingMethod_GetAutomatons<WithStreamedUnaryMethod_StartAutomaton<WithStreamedUnaryMethod_StartAutomatonMulti<WithStreamedUnaryMethod_StopAutomaton<WithSplitStreamingMethod_RunAutomaton<WithStreamedUnaryMethod_EmitEvent<WithStreamedUnaryMethod_WaitEvent<WithStreamedUnaryMethod_UpdateAutomatonVars<WithStreamedUnaryMethod_TouchEventSubscription<Service > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_GetInstanceInfo<WithSplitStreamingMethod_GetAutomatons<WithStreamedUnaryMethod_StartAutomaton<WithStreamedUnaryMethod_StartAutomatonMulti<WithStreamedUnaryMethod_StopAutomaton<WithSplitStreamingMethod_RunAutomaton<WithStreamedUnaryMethod_EmitEvent<WithStreamedUnaryMethod_WaitEvent<WithStreamedUnaryMethod_UpdateAutomatonVars<WithStreamedUnaryMethod_TouchEventSubscription<WithStreamedUnaryMethod_GetSchedulerNextInvocation<Service > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace v3

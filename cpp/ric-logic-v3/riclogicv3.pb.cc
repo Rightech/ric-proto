@@ -19,6 +19,7 @@
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_ActionResult_ric_2dlogic_2dv3_2friclogicv3_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_AutomatonEvent_ric_2dlogic_2dv3_2friclogicv3_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_AutomatonVarValue_ric_2dlogic_2dv3_2friclogicv3_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_SchedulerInterval_ric_2dlogic_2dv3_2friclogicv3_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_StatsCounter_ric_2dlogic_2dv3_2friclogicv3_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_UserContext_ric_2dlogic_2dv3_2friclogicv3_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dlogic_2dv3_2friclogicv3_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_WaitCondition_ric_2dlogic_2dv3_2friclogicv3_2eproto;
@@ -168,6 +169,18 @@ class TouchEventSubscriptionResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<TouchEventSubscriptionResponse> _instance;
 } _TouchEventSubscriptionResponse_default_instance_;
+class SchedulerIntervalDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<SchedulerInterval> _instance;
+} _SchedulerInterval_default_instance_;
+class GetSchedulerNextInvocationRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<GetSchedulerNextInvocationRequest> _instance;
+} _GetSchedulerNextInvocationRequest_default_instance_;
+class GetSchedulerNextInvocationResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<GetSchedulerNextInvocationResponse> _instance;
+} _GetSchedulerNextInvocationResponse_default_instance_;
 }  // namespace v3
 }  // namespace logic
 }  // namespace ric
@@ -657,6 +670,49 @@ static void InitDefaultsTouchEventSubscriptionResponse_ric_2dlogic_2dv3_2friclog
 ::google::protobuf::internal::SCCInfo<0> scc_info_TouchEventSubscriptionResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsTouchEventSubscriptionResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {}};
 
+static void InitDefaultsSchedulerInterval_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::logic::v3::_SchedulerInterval_default_instance_;
+    new (ptr) ::ric::logic::v3::SchedulerInterval();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::logic::v3::SchedulerInterval::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_SchedulerInterval_ric_2dlogic_2dv3_2friclogicv3_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSchedulerInterval_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {}};
+
+static void InitDefaultsGetSchedulerNextInvocationRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::logic::v3::_GetSchedulerNextInvocationRequest_default_instance_;
+    new (ptr) ::ric::logic::v3::GetSchedulerNextInvocationRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::logic::v3::GetSchedulerNextInvocationRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_GetSchedulerNextInvocationRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsGetSchedulerNextInvocationRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {
+      &scc_info_SchedulerInterval_ric_2dlogic_2dv3_2friclogicv3_2eproto.base,}};
+
+static void InitDefaultsGetSchedulerNextInvocationResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::logic::v3::_GetSchedulerNextInvocationResponse_default_instance_;
+    new (ptr) ::ric::logic::v3::GetSchedulerNextInvocationResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::logic::v3::GetSchedulerNextInvocationResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_GetSchedulerNextInvocationResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGetSchedulerNextInvocationResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto}, {}};
+
 void InitDefaults_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_UserContext_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_StatsCounter_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
@@ -691,9 +747,12 @@ void InitDefaults_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_UpdateAutomatonVarsResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_TouchEventSubscriptionRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_TouchEventSubscriptionResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_SchedulerInterval_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_GetSchedulerNextInvocationRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_GetSchedulerNextInvocationResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[33];
+::google::protobuf::Metadata file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[36];
 constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto = nullptr;
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto = nullptr;
 
@@ -984,6 +1043,31 @@ const ::google::protobuf::uint32 TableStruct_ric_2dlogic_2dv3_2friclogicv3_2epro
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::SchedulerInterval, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::SchedulerInterval, from_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::SchedulerInterval, to_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::SchedulerInterval, delay_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::GetSchedulerNextInvocationRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::GetSchedulerNextInvocationRequest, tz_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::GetSchedulerNextInvocationRequest, month_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::GetSchedulerNextInvocationRequest, day_of_week_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::GetSchedulerNextInvocationRequest, date_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::GetSchedulerNextInvocationRequest, times_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::GetSchedulerNextInvocationRequest, intervals_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::GetSchedulerNextInvocationResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::GetSchedulerNextInvocationResponse, ms_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ric::logic::v3::UserContext)},
@@ -1019,6 +1103,9 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 266, -1, sizeof(::ric::logic::v3::UpdateAutomatonVarsResponse)},
   { 272, -1, sizeof(::ric::logic::v3::TouchEventSubscriptionRequest)},
   { 281, -1, sizeof(::ric::logic::v3::TouchEventSubscriptionResponse)},
+  { 286, -1, sizeof(::ric::logic::v3::SchedulerInterval)},
+  { 294, -1, sizeof(::ric::logic::v3::GetSchedulerNextInvocationRequest)},
+  { 305, -1, sizeof(::ric::logic::v3::GetSchedulerNextInvocationResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -1055,12 +1142,15 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_UpdateAutomatonVarsResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_TouchEventSubscriptionRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_TouchEventSubscriptionResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_SchedulerInterval_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_GetSchedulerNextInvocationRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::logic::v3::_GetSchedulerNextInvocationResponse_default_instance_),
 };
 
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto = {
   {}, AddDescriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto, "ric-logic-v3/riclogicv3.proto", schemas,
   file_default_instances, TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto::offsets,
-  file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto, 33, file_level_enum_descriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto, file_level_service_descriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto,
+  file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto, 36, file_level_enum_descriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto, file_level_service_descriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dlogic_2dv3_2friclogicv3_2eproto[] =
@@ -1156,37 +1246,47 @@ const char descriptor_table_protodef_ric_2dlogic_2dv3_2friclogicv3_2eproto[] =
   "tSubscriptionRequest\022&\n\003ctx\030\001 \001(\0132\031.ric."
   "logic.v3.UserContext\022\021\n\tobject_id\030\002 \001(\t\022"
   "\024\n\014automaton_id\030\003 \001(\t\022\013\n\003ttl\030\004 \001(\005\" \n\036To"
-  "uchEventSubscriptionResponse2\255\007\n\nRicLogi"
-  "cV3\022^\n\017GetInstanceInfo\022$.ric.logic.v3.Ge"
-  "tInstanceInfoRequest\032%.ric.logic.v3.GetI"
-  "nstanceInfoResponse\022R\n\rGetAutomatons\022\".r"
-  "ic.logic.v3.GetAutomatonsRequest\032\033.ric.l"
-  "ogic.v3.AutomatonInfo0\001\022[\n\016StartAutomato"
-  "n\022#.ric.logic.v3.StartAutomatonRequest\032$"
-  ".ric.logic.v3.StartAutomatonResponse\022e\n\023"
-  "StartAutomatonMulti\022(.ric.logic.v3.Start"
-  "AutomatonMultiRequest\032$.ric.logic.v3.Sta"
-  "rtAutomatonResponse\022X\n\rStopAutomaton\022\".r"
-  "ic.logic.v3.StopAutomatonRequest\032#.ric.l"
-  "ogic.v3.StopAutomatonResponse\022P\n\014RunAuto"
-  "maton\022!.ric.logic.v3.RunAutomatonRequest"
-  "\032\033.ric.logic.v3.AutomatonInfo0\001\022L\n\tEmitE"
-  "vent\022\036.ric.logic.v3.EmitEventRequest\032\037.r"
-  "ic.logic.v3.EmitEventResponse\022L\n\tWaitEve"
-  "nt\022\036.ric.logic.v3.WaitEventRequest\032\037.ric"
-  ".logic.v3.WaitEventResponse\022j\n\023UpdateAut"
-  "omatonVars\022(.ric.logic.v3.UpdateAutomato"
-  "nVarsRequest\032).ric.logic.v3.UpdateAutoma"
-  "tonVarsResponse\022s\n\026TouchEventSubscriptio"
-  "n\022+.ric.logic.v3.TouchEventSubscriptionR"
-  "equest\032,.ric.logic.v3.TouchEventSubscrip"
-  "tionResponseB\033Z\031./ric-logic-v3;riclogicv"
-  "3b\006proto3"
+  "uchEventSubscriptionResponse\"<\n\021Schedule"
+  "rInterval\022\014\n\004from\030\001 \001(\t\022\n\n\002to\030\002 \001(\t\022\r\n\005d"
+  "elay\030\003 \001(\005\"\244\001\n!GetSchedulerNextInvocatio"
+  "nRequest\022\n\n\002tz\030\001 \001(\005\022\r\n\005month\030\002 \003(\005\022\023\n\013d"
+  "ay_of_week\030\003 \003(\005\022\014\n\004date\030\004 \003(\005\022\r\n\005times\030"
+  "\005 \003(\t\0222\n\tintervals\030\006 \003(\0132\037.ric.logic.v3."
+  "SchedulerInterval\"0\n\"GetSchedulerNextInv"
+  "ocationResponse\022\n\n\002ms\030\001 \001(\0032\256\010\n\nRicLogic"
+  "V3\022^\n\017GetInstanceInfo\022$.ric.logic.v3.Get"
+  "InstanceInfoRequest\032%.ric.logic.v3.GetIn"
+  "stanceInfoResponse\022R\n\rGetAutomatons\022\".ri"
+  "c.logic.v3.GetAutomatonsRequest\032\033.ric.lo"
+  "gic.v3.AutomatonInfo0\001\022[\n\016StartAutomaton"
+  "\022#.ric.logic.v3.StartAutomatonRequest\032$."
+  "ric.logic.v3.StartAutomatonResponse\022e\n\023S"
+  "tartAutomatonMulti\022(.ric.logic.v3.StartA"
+  "utomatonMultiRequest\032$.ric.logic.v3.Star"
+  "tAutomatonResponse\022X\n\rStopAutomaton\022\".ri"
+  "c.logic.v3.StopAutomatonRequest\032#.ric.lo"
+  "gic.v3.StopAutomatonResponse\022P\n\014RunAutom"
+  "aton\022!.ric.logic.v3.RunAutomatonRequest\032"
+  "\033.ric.logic.v3.AutomatonInfo0\001\022L\n\tEmitEv"
+  "ent\022\036.ric.logic.v3.EmitEventRequest\032\037.ri"
+  "c.logic.v3.EmitEventResponse\022L\n\tWaitEven"
+  "t\022\036.ric.logic.v3.WaitEventRequest\032\037.ric."
+  "logic.v3.WaitEventResponse\022j\n\023UpdateAuto"
+  "matonVars\022(.ric.logic.v3.UpdateAutomaton"
+  "VarsRequest\032).ric.logic.v3.UpdateAutomat"
+  "onVarsResponse\022s\n\026TouchEventSubscription"
+  "\022+.ric.logic.v3.TouchEventSubscriptionRe"
+  "quest\032,.ric.logic.v3.TouchEventSubscript"
+  "ionResponse\022\177\n\032GetSchedulerNextInvocatio"
+  "n\022/.ric.logic.v3.GetSchedulerNextInvocat"
+  "ionRequest\0320.ric.logic.v3.GetSchedulerNe"
+  "xtInvocationResponseB\033Z\031./ric-logic-v3;r"
+  "iclogicv3b\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dlogic_2dv3_2friclogicv3_2eproto = {
   false, InitDefaults_ric_2dlogic_2dv3_2friclogicv3_2eproto, 
   descriptor_table_protodef_ric_2dlogic_2dv3_2friclogicv3_2eproto,
-  "ric-logic-v3/riclogicv3.proto", &assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto, 4689,
+  "ric-logic-v3/riclogicv3.proto", &assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto, 5097,
 };
 
 void AddDescriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
@@ -14685,6 +14785,1318 @@ void TouchEventSubscriptionResponse::InternalSwap(TouchEventSubscriptionResponse
 }
 
 
+// ===================================================================
+
+void SchedulerInterval::InitAsDefaultInstance() {
+}
+class SchedulerInterval::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int SchedulerInterval::kFromFieldNumber;
+const int SchedulerInterval::kToFieldNumber;
+const int SchedulerInterval::kDelayFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SchedulerInterval::SchedulerInterval()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.logic.v3.SchedulerInterval)
+}
+SchedulerInterval::SchedulerInterval(const SchedulerInterval& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  from_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.from().size() > 0) {
+    from_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.from_);
+  }
+  to_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.to().size() > 0) {
+    to_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.to_);
+  }
+  delay_ = from.delay_;
+  // @@protoc_insertion_point(copy_constructor:ric.logic.v3.SchedulerInterval)
+}
+
+void SchedulerInterval::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_SchedulerInterval_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  from_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  to_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  delay_ = 0;
+}
+
+SchedulerInterval::~SchedulerInterval() {
+  // @@protoc_insertion_point(destructor:ric.logic.v3.SchedulerInterval)
+  SharedDtor();
+}
+
+void SchedulerInterval::SharedDtor() {
+  from_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  to_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void SchedulerInterval::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const SchedulerInterval& SchedulerInterval::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_SchedulerInterval_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void SchedulerInterval::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.logic.v3.SchedulerInterval)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  from_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  to_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  delay_ = 0;
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* SchedulerInterval::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<SchedulerInterval*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // string from = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.logic.v3.SchedulerInterval.from");
+        object = msg->mutable_from();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string to = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.logic.v3.SchedulerInterval.to");
+        object = msg->mutable_to();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // int32 delay = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
+        msg->set_delay(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool SchedulerInterval::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.logic.v3.SchedulerInterval)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string from = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_from()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->from().data(), static_cast<int>(this->from().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.logic.v3.SchedulerInterval.from"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string to = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_to()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->to().data(), static_cast<int>(this->to().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.logic.v3.SchedulerInterval.to"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 delay = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &delay_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.logic.v3.SchedulerInterval)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.logic.v3.SchedulerInterval)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void SchedulerInterval::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.logic.v3.SchedulerInterval)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string from = 1;
+  if (this->from().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->from().data(), static_cast<int>(this->from().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.SchedulerInterval.from");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->from(), output);
+  }
+
+  // string to = 2;
+  if (this->to().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->to().data(), static_cast<int>(this->to().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.SchedulerInterval.to");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->to(), output);
+  }
+
+  // int32 delay = 3;
+  if (this->delay() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->delay(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.logic.v3.SchedulerInterval)
+}
+
+::google::protobuf::uint8* SchedulerInterval::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.logic.v3.SchedulerInterval)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string from = 1;
+  if (this->from().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->from().data(), static_cast<int>(this->from().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.SchedulerInterval.from");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->from(), target);
+  }
+
+  // string to = 2;
+  if (this->to().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->to().data(), static_cast<int>(this->to().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.SchedulerInterval.to");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->to(), target);
+  }
+
+  // int32 delay = 3;
+  if (this->delay() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->delay(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.logic.v3.SchedulerInterval)
+  return target;
+}
+
+size_t SchedulerInterval::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.logic.v3.SchedulerInterval)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string from = 1;
+  if (this->from().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->from());
+  }
+
+  // string to = 2;
+  if (this->to().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->to());
+  }
+
+  // int32 delay = 3;
+  if (this->delay() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->delay());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void SchedulerInterval::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.logic.v3.SchedulerInterval)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SchedulerInterval* source =
+      ::google::protobuf::DynamicCastToGenerated<SchedulerInterval>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.logic.v3.SchedulerInterval)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.logic.v3.SchedulerInterval)
+    MergeFrom(*source);
+  }
+}
+
+void SchedulerInterval::MergeFrom(const SchedulerInterval& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.logic.v3.SchedulerInterval)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.from().size() > 0) {
+
+    from_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.from_);
+  }
+  if (from.to().size() > 0) {
+
+    to_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.to_);
+  }
+  if (from.delay() != 0) {
+    set_delay(from.delay());
+  }
+}
+
+void SchedulerInterval::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.logic.v3.SchedulerInterval)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SchedulerInterval::CopyFrom(const SchedulerInterval& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.logic.v3.SchedulerInterval)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SchedulerInterval::IsInitialized() const {
+  return true;
+}
+
+void SchedulerInterval::Swap(SchedulerInterval* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SchedulerInterval::InternalSwap(SchedulerInterval* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  from_.Swap(&other->from_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  to_.Swap(&other->to_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(delay_, other->delay_);
+}
+
+::google::protobuf::Metadata SchedulerInterval::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto);
+  return ::file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void GetSchedulerNextInvocationRequest::InitAsDefaultInstance() {
+}
+class GetSchedulerNextInvocationRequest::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int GetSchedulerNextInvocationRequest::kTzFieldNumber;
+const int GetSchedulerNextInvocationRequest::kMonthFieldNumber;
+const int GetSchedulerNextInvocationRequest::kDayOfWeekFieldNumber;
+const int GetSchedulerNextInvocationRequest::kDateFieldNumber;
+const int GetSchedulerNextInvocationRequest::kTimesFieldNumber;
+const int GetSchedulerNextInvocationRequest::kIntervalsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+GetSchedulerNextInvocationRequest::GetSchedulerNextInvocationRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.logic.v3.GetSchedulerNextInvocationRequest)
+}
+GetSchedulerNextInvocationRequest::GetSchedulerNextInvocationRequest(const GetSchedulerNextInvocationRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr),
+      month_(from.month_),
+      day_of_week_(from.day_of_week_),
+      date_(from.date_),
+      times_(from.times_),
+      intervals_(from.intervals_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  tz_ = from.tz_;
+  // @@protoc_insertion_point(copy_constructor:ric.logic.v3.GetSchedulerNextInvocationRequest)
+}
+
+void GetSchedulerNextInvocationRequest::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_GetSchedulerNextInvocationRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  tz_ = 0;
+}
+
+GetSchedulerNextInvocationRequest::~GetSchedulerNextInvocationRequest() {
+  // @@protoc_insertion_point(destructor:ric.logic.v3.GetSchedulerNextInvocationRequest)
+  SharedDtor();
+}
+
+void GetSchedulerNextInvocationRequest::SharedDtor() {
+}
+
+void GetSchedulerNextInvocationRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const GetSchedulerNextInvocationRequest& GetSchedulerNextInvocationRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_GetSchedulerNextInvocationRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void GetSchedulerNextInvocationRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.logic.v3.GetSchedulerNextInvocationRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  month_.Clear();
+  day_of_week_.Clear();
+  date_.Clear();
+  times_.Clear();
+  intervals_.Clear();
+  tz_ = 0;
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* GetSchedulerNextInvocationRequest::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<GetSchedulerNextInvocationRequest*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // int32 tz = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 8) goto handle_unusual;
+        msg->set_tz(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // repeated int32 month = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) == 18) {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::google::protobuf::internal::PackedInt32Parser;
+          object = msg->mutable_month();
+          if (size > end - ptr) goto len_delim_till_end;
+          auto newend = ptr + size;
+          if (size) ptr = parser_till_end(ptr, newend, object, ctx);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr == newend);
+          break;
+        } else if (static_cast<::google::protobuf::uint8>(tag) != 16) goto handle_unusual;
+        do {
+          msg->add_month(::google::protobuf::internal::ReadVarint(&ptr));
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 16 && (ptr += 1));
+        break;
+      }
+      // repeated int32 day_of_week = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) == 26) {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::google::protobuf::internal::PackedInt32Parser;
+          object = msg->mutable_day_of_week();
+          if (size > end - ptr) goto len_delim_till_end;
+          auto newend = ptr + size;
+          if (size) ptr = parser_till_end(ptr, newend, object, ctx);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr == newend);
+          break;
+        } else if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
+        do {
+          msg->add_day_of_week(::google::protobuf::internal::ReadVarint(&ptr));
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 24 && (ptr += 1));
+        break;
+      }
+      // repeated int32 date = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) == 34) {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::google::protobuf::internal::PackedInt32Parser;
+          object = msg->mutable_date();
+          if (size > end - ptr) goto len_delim_till_end;
+          auto newend = ptr + size;
+          if (size) ptr = parser_till_end(ptr, newend, object, ctx);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr == newend);
+          break;
+        } else if (static_cast<::google::protobuf::uint8>(tag) != 32) goto handle_unusual;
+        do {
+          msg->add_date(::google::protobuf::internal::ReadVarint(&ptr));
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 32 && (ptr += 1));
+        break;
+      }
+      // repeated string times = 5;
+      case 5: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 42) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          ctx->extra_parse_data().SetFieldName("ric.logic.v3.GetSchedulerNextInvocationRequest.times");
+          object = msg->add_times();
+          if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+            parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+            goto string_till_end;
+          }
+          GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+          ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+          ptr += size;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 42 && (ptr += 1));
+        break;
+      }
+      // repeated .ric.logic.v3.SchedulerInterval intervals = 6;
+      case 6: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::ric::logic::v3::SchedulerInterval::_InternalParse;
+          object = msg->add_intervals();
+          if (size > end - ptr) goto len_delim_till_end;
+          ptr += size;
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+              {parser_till_end, object}, ptr - size, ptr));
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 50 && (ptr += 1));
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool GetSchedulerNextInvocationRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.logic.v3.GetSchedulerNextInvocationRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int32 tz = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (8 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &tz_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated int32 month = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_month())));
+        } else if (static_cast< ::google::protobuf::uint8>(tag) == (16 & 0xFF)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 18u, input, this->mutable_month())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated int32 day_of_week = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_day_of_week())));
+        } else if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 26u, input, this->mutable_day_of_week())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated int32 date = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_date())));
+        } else if (static_cast< ::google::protobuf::uint8>(tag) == (32 & 0xFF)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 34u, input, this->mutable_date())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated string times = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (42 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_times()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->times(this->times_size() - 1).data(),
+            static_cast<int>(this->times(this->times_size() - 1).length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.logic.v3.GetSchedulerNextInvocationRequest.times"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .ric.logic.v3.SchedulerInterval intervals = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+                input, add_intervals()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.logic.v3.GetSchedulerNextInvocationRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.logic.v3.GetSchedulerNextInvocationRequest)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void GetSchedulerNextInvocationRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.logic.v3.GetSchedulerNextInvocationRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 tz = 1;
+  if (this->tz() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->tz(), output);
+  }
+
+  // repeated int32 month = 2;
+  if (this->month_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(2, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(_month_cached_byte_size_.load(
+        std::memory_order_relaxed));
+  }
+  for (int i = 0, n = this->month_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->month(i), output);
+  }
+
+  // repeated int32 day_of_week = 3;
+  if (this->day_of_week_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(3, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(_day_of_week_cached_byte_size_.load(
+        std::memory_order_relaxed));
+  }
+  for (int i = 0, n = this->day_of_week_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->day_of_week(i), output);
+  }
+
+  // repeated int32 date = 4;
+  if (this->date_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(4, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(_date_cached_byte_size_.load(
+        std::memory_order_relaxed));
+  }
+  for (int i = 0, n = this->date_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
+      this->date(i), output);
+  }
+
+  // repeated string times = 5;
+  for (int i = 0, n = this->times_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->times(i).data(), static_cast<int>(this->times(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.GetSchedulerNextInvocationRequest.times");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      5, this->times(i), output);
+  }
+
+  // repeated .ric.logic.v3.SchedulerInterval intervals = 6;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->intervals_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      6,
+      this->intervals(static_cast<int>(i)),
+      output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.logic.v3.GetSchedulerNextInvocationRequest)
+}
+
+::google::protobuf::uint8* GetSchedulerNextInvocationRequest::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.logic.v3.GetSchedulerNextInvocationRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 tz = 1;
+  if (this->tz() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->tz(), target);
+  }
+
+  // repeated int32 month = 2;
+  if (this->month_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      2,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        _month_cached_byte_size_.load(std::memory_order_relaxed),
+         target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->month_, target);
+  }
+
+  // repeated int32 day_of_week = 3;
+  if (this->day_of_week_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      3,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        _day_of_week_cached_byte_size_.load(std::memory_order_relaxed),
+         target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->day_of_week_, target);
+  }
+
+  // repeated int32 date = 4;
+  if (this->date_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      4,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        _date_cached_byte_size_.load(std::memory_order_relaxed),
+         target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->date_, target);
+  }
+
+  // repeated string times = 5;
+  for (int i = 0, n = this->times_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->times(i).data(), static_cast<int>(this->times(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.GetSchedulerNextInvocationRequest.times");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(5, this->times(i), target);
+  }
+
+  // repeated .ric.logic.v3.SchedulerInterval intervals = 6;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->intervals_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        6, this->intervals(static_cast<int>(i)), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.logic.v3.GetSchedulerNextInvocationRequest)
+  return target;
+}
+
+size_t GetSchedulerNextInvocationRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.logic.v3.GetSchedulerNextInvocationRequest)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated int32 month = 2;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->month_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast<::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    _month_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated int32 day_of_week = 3;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->day_of_week_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast<::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    _day_of_week_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated int32 date = 4;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      Int32Size(this->date_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast<::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    _date_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated string times = 5;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->times_size());
+  for (int i = 0, n = this->times_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->times(i));
+  }
+
+  // repeated .ric.logic.v3.SchedulerInterval intervals = 6;
+  {
+    unsigned int count = static_cast<unsigned int>(this->intervals_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->intervals(static_cast<int>(i)));
+    }
+  }
+
+  // int32 tz = 1;
+  if (this->tz() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->tz());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void GetSchedulerNextInvocationRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.logic.v3.GetSchedulerNextInvocationRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const GetSchedulerNextInvocationRequest* source =
+      ::google::protobuf::DynamicCastToGenerated<GetSchedulerNextInvocationRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.logic.v3.GetSchedulerNextInvocationRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.logic.v3.GetSchedulerNextInvocationRequest)
+    MergeFrom(*source);
+  }
+}
+
+void GetSchedulerNextInvocationRequest::MergeFrom(const GetSchedulerNextInvocationRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.logic.v3.GetSchedulerNextInvocationRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  month_.MergeFrom(from.month_);
+  day_of_week_.MergeFrom(from.day_of_week_);
+  date_.MergeFrom(from.date_);
+  times_.MergeFrom(from.times_);
+  intervals_.MergeFrom(from.intervals_);
+  if (from.tz() != 0) {
+    set_tz(from.tz());
+  }
+}
+
+void GetSchedulerNextInvocationRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.logic.v3.GetSchedulerNextInvocationRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GetSchedulerNextInvocationRequest::CopyFrom(const GetSchedulerNextInvocationRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.logic.v3.GetSchedulerNextInvocationRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GetSchedulerNextInvocationRequest::IsInitialized() const {
+  return true;
+}
+
+void GetSchedulerNextInvocationRequest::Swap(GetSchedulerNextInvocationRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void GetSchedulerNextInvocationRequest::InternalSwap(GetSchedulerNextInvocationRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  month_.InternalSwap(&other->month_);
+  day_of_week_.InternalSwap(&other->day_of_week_);
+  date_.InternalSwap(&other->date_);
+  times_.InternalSwap(CastToBase(&other->times_));
+  CastToBase(&intervals_)->InternalSwap(CastToBase(&other->intervals_));
+  swap(tz_, other->tz_);
+}
+
+::google::protobuf::Metadata GetSchedulerNextInvocationRequest::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto);
+  return ::file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void GetSchedulerNextInvocationResponse::InitAsDefaultInstance() {
+}
+class GetSchedulerNextInvocationResponse::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int GetSchedulerNextInvocationResponse::kMsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+GetSchedulerNextInvocationResponse::GetSchedulerNextInvocationResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.logic.v3.GetSchedulerNextInvocationResponse)
+}
+GetSchedulerNextInvocationResponse::GetSchedulerNextInvocationResponse(const GetSchedulerNextInvocationResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ms_ = from.ms_;
+  // @@protoc_insertion_point(copy_constructor:ric.logic.v3.GetSchedulerNextInvocationResponse)
+}
+
+void GetSchedulerNextInvocationResponse::SharedCtor() {
+  ms_ = PROTOBUF_LONGLONG(0);
+}
+
+GetSchedulerNextInvocationResponse::~GetSchedulerNextInvocationResponse() {
+  // @@protoc_insertion_point(destructor:ric.logic.v3.GetSchedulerNextInvocationResponse)
+  SharedDtor();
+}
+
+void GetSchedulerNextInvocationResponse::SharedDtor() {
+}
+
+void GetSchedulerNextInvocationResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const GetSchedulerNextInvocationResponse& GetSchedulerNextInvocationResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_GetSchedulerNextInvocationResponse_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void GetSchedulerNextInvocationResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.logic.v3.GetSchedulerNextInvocationResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ms_ = PROTOBUF_LONGLONG(0);
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* GetSchedulerNextInvocationResponse::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<GetSchedulerNextInvocationResponse*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // int64 ms = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 8) goto handle_unusual;
+        msg->set_ms(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool GetSchedulerNextInvocationResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.logic.v3.GetSchedulerNextInvocationResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int64 ms = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (8 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &ms_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.logic.v3.GetSchedulerNextInvocationResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.logic.v3.GetSchedulerNextInvocationResponse)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void GetSchedulerNextInvocationResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.logic.v3.GetSchedulerNextInvocationResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 ms = 1;
+  if (this->ms() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->ms(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.logic.v3.GetSchedulerNextInvocationResponse)
+}
+
+::google::protobuf::uint8* GetSchedulerNextInvocationResponse::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.logic.v3.GetSchedulerNextInvocationResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 ms = 1;
+  if (this->ms() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->ms(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.logic.v3.GetSchedulerNextInvocationResponse)
+  return target;
+}
+
+size_t GetSchedulerNextInvocationResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.logic.v3.GetSchedulerNextInvocationResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int64 ms = 1;
+  if (this->ms() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->ms());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void GetSchedulerNextInvocationResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.logic.v3.GetSchedulerNextInvocationResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const GetSchedulerNextInvocationResponse* source =
+      ::google::protobuf::DynamicCastToGenerated<GetSchedulerNextInvocationResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.logic.v3.GetSchedulerNextInvocationResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.logic.v3.GetSchedulerNextInvocationResponse)
+    MergeFrom(*source);
+  }
+}
+
+void GetSchedulerNextInvocationResponse::MergeFrom(const GetSchedulerNextInvocationResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.logic.v3.GetSchedulerNextInvocationResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.ms() != 0) {
+    set_ms(from.ms());
+  }
+}
+
+void GetSchedulerNextInvocationResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.logic.v3.GetSchedulerNextInvocationResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GetSchedulerNextInvocationResponse::CopyFrom(const GetSchedulerNextInvocationResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.logic.v3.GetSchedulerNextInvocationResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GetSchedulerNextInvocationResponse::IsInitialized() const {
+  return true;
+}
+
+void GetSchedulerNextInvocationResponse::Swap(GetSchedulerNextInvocationResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void GetSchedulerNextInvocationResponse::InternalSwap(GetSchedulerNextInvocationResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(ms_, other->ms_);
+}
+
+::google::protobuf::Metadata GetSchedulerNextInvocationResponse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto);
+  return ::file_level_metadata_ric_2dlogic_2dv3_2friclogicv3_2eproto[kIndexInFileMessages];
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace v3
 }  // namespace logic
@@ -14789,6 +16201,15 @@ template<> PROTOBUF_NOINLINE ::ric::logic::v3::TouchEventSubscriptionRequest* Ar
 }
 template<> PROTOBUF_NOINLINE ::ric::logic::v3::TouchEventSubscriptionResponse* Arena::CreateMaybeMessage< ::ric::logic::v3::TouchEventSubscriptionResponse >(Arena* arena) {
   return Arena::CreateInternal< ::ric::logic::v3::TouchEventSubscriptionResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::logic::v3::SchedulerInterval* Arena::CreateMaybeMessage< ::ric::logic::v3::SchedulerInterval >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::logic::v3::SchedulerInterval >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::logic::v3::GetSchedulerNextInvocationRequest* Arena::CreateMaybeMessage< ::ric::logic::v3::GetSchedulerNextInvocationRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::logic::v3::GetSchedulerNextInvocationRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::logic::v3::GetSchedulerNextInvocationResponse* Arena::CreateMaybeMessage< ::ric::logic::v3::GetSchedulerNextInvocationResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::logic::v3::GetSchedulerNextInvocationResponse >(arena);
 }
 }  // namespace protobuf
 }  // namespace google
