@@ -6,6 +6,7 @@ option go_package = "./ric-code;riccode";
 
 service RicCode {
   rpc TranspileEs6(TranspileRequest) returns (TranspileResponse);
+  rpc BundleEs(BundleEsRequest) returns (stream BundleEsProgress);
   rpc ParseCondition(ParseConditionRequest) returns (ParseConditionResponse);
 }
 
@@ -44,6 +45,18 @@ message LibRequest {
   string name = 1;
   string semver = 2;
   bool local = 3;
+}
+
+message BundleEsRequest {
+  string id = 1;
+  string code = 2;
+  string main = 3;
+}
+
+message BundleEsProgress {
+  string message = 1;
+  string result = 2;
+  string error = 3;
 }
 
 message ParseConditionRequest {
