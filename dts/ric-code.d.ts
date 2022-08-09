@@ -1,6 +1,19 @@
+
+import { Stream } from 'stream';
+
+interface GrpcStream<T> extends Stream {
+  write(chunk: T): boolean;
+  on(event: 'data', listener: (chunk: T) => void): this;
+}
+
 export interface RicCode {
   TranspileEs6(request: TranspileRequest): Promise<TranspileResponse>;
+  BundleEs(request: BundleEsRequest, clientCall?: GrpcStream<BundleEsProgress>): any;
   ParseCondition(request: ParseConditionRequest): Promise<ParseConditionResponse>;
+
+  streamed?(): {
+    BundleEs(request: BundleEsRequest): GrpcStream<BundleEsProgress>;
+  };
 }
 
 export interface TranspileRequest {
@@ -38,6 +51,18 @@ export interface LibRequest {
   name?: string;
   semver?: string;
   local?: boolean;
+}
+
+export interface BundleEsRequest {
+  id?: string;
+  code?: string;
+  main?: string;
+}
+
+export interface BundleEsProgress {
+  message?: string;
+  result?: string;
+  error?: string;
 }
 
 export interface ParseConditionRequest {

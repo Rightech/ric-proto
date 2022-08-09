@@ -21,6 +21,7 @@ namespace code {
 
 static const char* RicCode_method_names[] = {
   "/ric.code.RicCode/TranspileEs6",
+  "/ric.code.RicCode/BundleEs",
   "/ric.code.RicCode/ParseCondition",
 };
 
@@ -32,7 +33,8 @@ std::unique_ptr< RicCode::Stub> RicCode::NewStub(const std::shared_ptr< ::grpc::
 
 RicCode::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_TranspileEs6_(RicCode_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_ParseCondition_(RicCode_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_BundleEs_(RicCode_method_names[1], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_ParseCondition_(RicCode_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status RicCode::Stub::TranspileEs6(::grpc::ClientContext* context, const ::ric::code::TranspileRequest& request, ::ric::code::TranspileResponse* response) {
@@ -53,6 +55,22 @@ void RicCode::Stub::experimental_async::TranspileEs6(::grpc::ClientContext* cont
 
 ::grpc::ClientAsyncResponseReader< ::ric::code::TranspileResponse>* RicCode::Stub::PrepareAsyncTranspileEs6Raw(::grpc::ClientContext* context, const ::ric::code::TranspileRequest& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::code::TranspileResponse>::Create(channel_.get(), cq, rpcmethod_TranspileEs6_, context, request, false);
+}
+
+::grpc::ClientReader< ::ric::code::BundleEsProgress>* RicCode::Stub::BundleEsRaw(::grpc::ClientContext* context, const ::ric::code::BundleEsRequest& request) {
+  return ::grpc::internal::ClientReaderFactory< ::ric::code::BundleEsProgress>::Create(channel_.get(), rpcmethod_BundleEs_, context, request);
+}
+
+void RicCode::Stub::experimental_async::BundleEs(::grpc::ClientContext* context, ::ric::code::BundleEsRequest* request, ::grpc::experimental::ClientReadReactor< ::ric::code::BundleEsProgress>* reactor) {
+  ::grpc::internal::ClientCallbackReaderFactory< ::ric::code::BundleEsProgress>::Create(stub_->channel_.get(), stub_->rpcmethod_BundleEs_, context, request, reactor);
+}
+
+::grpc::ClientAsyncReader< ::ric::code::BundleEsProgress>* RicCode::Stub::AsyncBundleEsRaw(::grpc::ClientContext* context, const ::ric::code::BundleEsRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::ric::code::BundleEsProgress>::Create(channel_.get(), cq, rpcmethod_BundleEs_, context, request, true, tag);
+}
+
+::grpc::ClientAsyncReader< ::ric::code::BundleEsProgress>* RicCode::Stub::PrepareAsyncBundleEsRaw(::grpc::ClientContext* context, const ::ric::code::BundleEsRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::ric::code::BundleEsProgress>::Create(channel_.get(), cq, rpcmethod_BundleEs_, context, request, false, nullptr);
 }
 
 ::grpc::Status RicCode::Stub::ParseCondition(::grpc::ClientContext* context, const ::ric::code::ParseConditionRequest& request, ::ric::code::ParseConditionResponse* response) {
@@ -83,6 +101,11 @@ RicCode::Service::Service() {
           std::mem_fn(&RicCode::Service::TranspileEs6), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RicCode_method_names[1],
+      ::grpc::internal::RpcMethod::SERVER_STREAMING,
+      new ::grpc::internal::ServerStreamingHandler< RicCode::Service, ::ric::code::BundleEsRequest, ::ric::code::BundleEsProgress>(
+          std::mem_fn(&RicCode::Service::BundleEs), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RicCode_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< RicCode::Service, ::ric::code::ParseConditionRequest, ::ric::code::ParseConditionResponse>(
           std::mem_fn(&RicCode::Service::ParseCondition), this)));
@@ -95,6 +118,13 @@ RicCode::Service::~Service() {
   (void) context;
   (void) request;
   (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RicCode::Service::BundleEs(::grpc::ServerContext* context, const ::ric::code::BundleEsRequest* request, ::grpc::ServerWriter< ::ric::code::BundleEsProgress>* writer) {
+  (void) context;
+  (void) request;
+  (void) writer;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 

@@ -44,7 +44,7 @@ struct TableStruct_ric_2dcode_2friccode_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[9]
+  static const ::google::protobuf::internal::ParseTable schema[11]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -53,6 +53,12 @@ struct TableStruct_ric_2dcode_2friccode_2eproto {
 void AddDescriptors_ric_2dcode_2friccode_2eproto();
 namespace ric {
 namespace code {
+class BundleEsProgress;
+class BundleEsProgressDefaultTypeInternal;
+extern BundleEsProgressDefaultTypeInternal _BundleEsProgress_default_instance_;
+class BundleEsRequest;
+class BundleEsRequestDefaultTypeInternal;
+extern BundleEsRequestDefaultTypeInternal _BundleEsRequest_default_instance_;
 class InputRef;
 class InputRefDefaultTypeInternal;
 extern InputRefDefaultTypeInternal _InputRef_default_instance_;
@@ -84,6 +90,8 @@ extern VarDeclDefaultTypeInternal _VarDecl_default_instance_;
 }  // namespace ric
 namespace google {
 namespace protobuf {
+template<> ::ric::code::BundleEsProgress* Arena::CreateMaybeMessage<::ric::code::BundleEsProgress>(Arena*);
+template<> ::ric::code::BundleEsRequest* Arena::CreateMaybeMessage<::ric::code::BundleEsRequest>(Arena*);
 template<> ::ric::code::InputRef* Arena::CreateMaybeMessage<::ric::code::InputRef>(Arena*);
 template<> ::ric::code::LibDefinition* Arena::CreateMaybeMessage<::ric::code::LibDefinition>(Arena*);
 template<> ::ric::code::LibRequest* Arena::CreateMaybeMessage<::ric::code::LibRequest>(Arena*);
@@ -995,6 +1003,306 @@ class LibRequest final :
 };
 // -------------------------------------------------------------------
 
+class BundleEsRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.code.BundleEsRequest) */ {
+ public:
+  BundleEsRequest();
+  virtual ~BundleEsRequest();
+
+  BundleEsRequest(const BundleEsRequest& from);
+
+  inline BundleEsRequest& operator=(const BundleEsRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  BundleEsRequest(BundleEsRequest&& from) noexcept
+    : BundleEsRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline BundleEsRequest& operator=(BundleEsRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const BundleEsRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const BundleEsRequest* internal_default_instance() {
+    return reinterpret_cast<const BundleEsRequest*>(
+               &_BundleEsRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  void Swap(BundleEsRequest* other);
+  friend void swap(BundleEsRequest& a, BundleEsRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BundleEsRequest* New() const final {
+    return CreateMaybeMessage<BundleEsRequest>(nullptr);
+  }
+
+  BundleEsRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<BundleEsRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const BundleEsRequest& from);
+  void MergeFrom(const BundleEsRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BundleEsRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string id = 1;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  const ::std::string& id() const;
+  void set_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_id(::std::string&& value);
+  #endif
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  ::std::string* mutable_id();
+  ::std::string* release_id();
+  void set_allocated_id(::std::string* id);
+
+  // string code = 2;
+  void clear_code();
+  static const int kCodeFieldNumber = 2;
+  const ::std::string& code() const;
+  void set_code(const ::std::string& value);
+  #if LANG_CXX11
+  void set_code(::std::string&& value);
+  #endif
+  void set_code(const char* value);
+  void set_code(const char* value, size_t size);
+  ::std::string* mutable_code();
+  ::std::string* release_code();
+  void set_allocated_code(::std::string* code);
+
+  // string main = 3;
+  void clear_main();
+  static const int kMainFieldNumber = 3;
+  const ::std::string& main() const;
+  void set_main(const ::std::string& value);
+  #if LANG_CXX11
+  void set_main(::std::string&& value);
+  #endif
+  void set_main(const char* value);
+  void set_main(const char* value, size_t size);
+  ::std::string* mutable_main();
+  ::std::string* release_main();
+  void set_allocated_main(::std::string* main);
+
+  // @@protoc_insertion_point(class_scope:ric.code.BundleEsRequest)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr id_;
+  ::google::protobuf::internal::ArenaStringPtr code_;
+  ::google::protobuf::internal::ArenaStringPtr main_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dcode_2friccode_2eproto;
+};
+// -------------------------------------------------------------------
+
+class BundleEsProgress final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.code.BundleEsProgress) */ {
+ public:
+  BundleEsProgress();
+  virtual ~BundleEsProgress();
+
+  BundleEsProgress(const BundleEsProgress& from);
+
+  inline BundleEsProgress& operator=(const BundleEsProgress& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  BundleEsProgress(BundleEsProgress&& from) noexcept
+    : BundleEsProgress() {
+    *this = ::std::move(from);
+  }
+
+  inline BundleEsProgress& operator=(BundleEsProgress&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const BundleEsProgress& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const BundleEsProgress* internal_default_instance() {
+    return reinterpret_cast<const BundleEsProgress*>(
+               &_BundleEsProgress_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  void Swap(BundleEsProgress* other);
+  friend void swap(BundleEsProgress& a, BundleEsProgress& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BundleEsProgress* New() const final {
+    return CreateMaybeMessage<BundleEsProgress>(nullptr);
+  }
+
+  BundleEsProgress* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<BundleEsProgress>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const BundleEsProgress& from);
+  void MergeFrom(const BundleEsProgress& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BundleEsProgress* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string message = 1;
+  void clear_message();
+  static const int kMessageFieldNumber = 1;
+  const ::std::string& message() const;
+  void set_message(const ::std::string& value);
+  #if LANG_CXX11
+  void set_message(::std::string&& value);
+  #endif
+  void set_message(const char* value);
+  void set_message(const char* value, size_t size);
+  ::std::string* mutable_message();
+  ::std::string* release_message();
+  void set_allocated_message(::std::string* message);
+
+  // string result = 2;
+  void clear_result();
+  static const int kResultFieldNumber = 2;
+  const ::std::string& result() const;
+  void set_result(const ::std::string& value);
+  #if LANG_CXX11
+  void set_result(::std::string&& value);
+  #endif
+  void set_result(const char* value);
+  void set_result(const char* value, size_t size);
+  ::std::string* mutable_result();
+  ::std::string* release_result();
+  void set_allocated_result(::std::string* result);
+
+  // string error = 3;
+  void clear_error();
+  static const int kErrorFieldNumber = 3;
+  const ::std::string& error() const;
+  void set_error(const ::std::string& value);
+  #if LANG_CXX11
+  void set_error(::std::string&& value);
+  #endif
+  void set_error(const char* value);
+  void set_error(const char* value, size_t size);
+  ::std::string* mutable_error();
+  ::std::string* release_error();
+  void set_allocated_error(::std::string* error);
+
+  // @@protoc_insertion_point(class_scope:ric.code.BundleEsProgress)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr message_;
+  ::google::protobuf::internal::ArenaStringPtr result_;
+  ::google::protobuf::internal::ArenaStringPtr error_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dcode_2friccode_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ParseConditionRequest_AliasesEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<ParseConditionRequest_AliasesEntry_DoNotUse, 
     ::std::string, ::std::string,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -1057,7 +1365,7 @@ class ParseConditionRequest final :
                &_ParseConditionRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   void Swap(ParseConditionRequest* other);
   friend void swap(ParseConditionRequest& a, ParseConditionRequest& b) {
@@ -1208,7 +1516,7 @@ class ParseConditionResponse final :
                &_ParseConditionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   void Swap(ParseConditionResponse* other);
   friend void swap(ParseConditionResponse& a, ParseConditionResponse& b) {
@@ -2151,6 +2459,332 @@ inline void LibRequest::set_local(bool value) {
 
 // -------------------------------------------------------------------
 
+// BundleEsRequest
+
+// string id = 1;
+inline void BundleEsRequest::clear_id() {
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& BundleEsRequest::id() const {
+  // @@protoc_insertion_point(field_get:ric.code.BundleEsRequest.id)
+  return id_.GetNoArena();
+}
+inline void BundleEsRequest::set_id(const ::std::string& value) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.code.BundleEsRequest.id)
+}
+#if LANG_CXX11
+inline void BundleEsRequest::set_id(::std::string&& value) {
+  
+  id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.code.BundleEsRequest.id)
+}
+#endif
+inline void BundleEsRequest::set_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.code.BundleEsRequest.id)
+}
+inline void BundleEsRequest::set_id(const char* value, size_t size) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.code.BundleEsRequest.id)
+}
+inline ::std::string* BundleEsRequest::mutable_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.code.BundleEsRequest.id)
+  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* BundleEsRequest::release_id() {
+  // @@protoc_insertion_point(field_release:ric.code.BundleEsRequest.id)
+  
+  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BundleEsRequest::set_allocated_id(::std::string* id) {
+  if (id != nullptr) {
+    
+  } else {
+    
+  }
+  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:ric.code.BundleEsRequest.id)
+}
+
+// string code = 2;
+inline void BundleEsRequest::clear_code() {
+  code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& BundleEsRequest::code() const {
+  // @@protoc_insertion_point(field_get:ric.code.BundleEsRequest.code)
+  return code_.GetNoArena();
+}
+inline void BundleEsRequest::set_code(const ::std::string& value) {
+  
+  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.code.BundleEsRequest.code)
+}
+#if LANG_CXX11
+inline void BundleEsRequest::set_code(::std::string&& value) {
+  
+  code_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.code.BundleEsRequest.code)
+}
+#endif
+inline void BundleEsRequest::set_code(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.code.BundleEsRequest.code)
+}
+inline void BundleEsRequest::set_code(const char* value, size_t size) {
+  
+  code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.code.BundleEsRequest.code)
+}
+inline ::std::string* BundleEsRequest::mutable_code() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.code.BundleEsRequest.code)
+  return code_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* BundleEsRequest::release_code() {
+  // @@protoc_insertion_point(field_release:ric.code.BundleEsRequest.code)
+  
+  return code_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BundleEsRequest::set_allocated_code(::std::string* code) {
+  if (code != nullptr) {
+    
+  } else {
+    
+  }
+  code_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), code);
+  // @@protoc_insertion_point(field_set_allocated:ric.code.BundleEsRequest.code)
+}
+
+// string main = 3;
+inline void BundleEsRequest::clear_main() {
+  main_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& BundleEsRequest::main() const {
+  // @@protoc_insertion_point(field_get:ric.code.BundleEsRequest.main)
+  return main_.GetNoArena();
+}
+inline void BundleEsRequest::set_main(const ::std::string& value) {
+  
+  main_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.code.BundleEsRequest.main)
+}
+#if LANG_CXX11
+inline void BundleEsRequest::set_main(::std::string&& value) {
+  
+  main_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.code.BundleEsRequest.main)
+}
+#endif
+inline void BundleEsRequest::set_main(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  main_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.code.BundleEsRequest.main)
+}
+inline void BundleEsRequest::set_main(const char* value, size_t size) {
+  
+  main_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.code.BundleEsRequest.main)
+}
+inline ::std::string* BundleEsRequest::mutable_main() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.code.BundleEsRequest.main)
+  return main_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* BundleEsRequest::release_main() {
+  // @@protoc_insertion_point(field_release:ric.code.BundleEsRequest.main)
+  
+  return main_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BundleEsRequest::set_allocated_main(::std::string* main) {
+  if (main != nullptr) {
+    
+  } else {
+    
+  }
+  main_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), main);
+  // @@protoc_insertion_point(field_set_allocated:ric.code.BundleEsRequest.main)
+}
+
+// -------------------------------------------------------------------
+
+// BundleEsProgress
+
+// string message = 1;
+inline void BundleEsProgress::clear_message() {
+  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& BundleEsProgress::message() const {
+  // @@protoc_insertion_point(field_get:ric.code.BundleEsProgress.message)
+  return message_.GetNoArena();
+}
+inline void BundleEsProgress::set_message(const ::std::string& value) {
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.code.BundleEsProgress.message)
+}
+#if LANG_CXX11
+inline void BundleEsProgress::set_message(::std::string&& value) {
+  
+  message_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.code.BundleEsProgress.message)
+}
+#endif
+inline void BundleEsProgress::set_message(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.code.BundleEsProgress.message)
+}
+inline void BundleEsProgress::set_message(const char* value, size_t size) {
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.code.BundleEsProgress.message)
+}
+inline ::std::string* BundleEsProgress::mutable_message() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.code.BundleEsProgress.message)
+  return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* BundleEsProgress::release_message() {
+  // @@protoc_insertion_point(field_release:ric.code.BundleEsProgress.message)
+  
+  return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BundleEsProgress::set_allocated_message(::std::string* message) {
+  if (message != nullptr) {
+    
+  } else {
+    
+  }
+  message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
+  // @@protoc_insertion_point(field_set_allocated:ric.code.BundleEsProgress.message)
+}
+
+// string result = 2;
+inline void BundleEsProgress::clear_result() {
+  result_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& BundleEsProgress::result() const {
+  // @@protoc_insertion_point(field_get:ric.code.BundleEsProgress.result)
+  return result_.GetNoArena();
+}
+inline void BundleEsProgress::set_result(const ::std::string& value) {
+  
+  result_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.code.BundleEsProgress.result)
+}
+#if LANG_CXX11
+inline void BundleEsProgress::set_result(::std::string&& value) {
+  
+  result_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.code.BundleEsProgress.result)
+}
+#endif
+inline void BundleEsProgress::set_result(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  result_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.code.BundleEsProgress.result)
+}
+inline void BundleEsProgress::set_result(const char* value, size_t size) {
+  
+  result_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.code.BundleEsProgress.result)
+}
+inline ::std::string* BundleEsProgress::mutable_result() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.code.BundleEsProgress.result)
+  return result_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* BundleEsProgress::release_result() {
+  // @@protoc_insertion_point(field_release:ric.code.BundleEsProgress.result)
+  
+  return result_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BundleEsProgress::set_allocated_result(::std::string* result) {
+  if (result != nullptr) {
+    
+  } else {
+    
+  }
+  result_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), result);
+  // @@protoc_insertion_point(field_set_allocated:ric.code.BundleEsProgress.result)
+}
+
+// string error = 3;
+inline void BundleEsProgress::clear_error() {
+  error_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& BundleEsProgress::error() const {
+  // @@protoc_insertion_point(field_get:ric.code.BundleEsProgress.error)
+  return error_.GetNoArena();
+}
+inline void BundleEsProgress::set_error(const ::std::string& value) {
+  
+  error_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.code.BundleEsProgress.error)
+}
+#if LANG_CXX11
+inline void BundleEsProgress::set_error(::std::string&& value) {
+  
+  error_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.code.BundleEsProgress.error)
+}
+#endif
+inline void BundleEsProgress::set_error(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  error_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.code.BundleEsProgress.error)
+}
+inline void BundleEsProgress::set_error(const char* value, size_t size) {
+  
+  error_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.code.BundleEsProgress.error)
+}
+inline ::std::string* BundleEsProgress::mutable_error() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.code.BundleEsProgress.error)
+  return error_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* BundleEsProgress::release_error() {
+  // @@protoc_insertion_point(field_release:ric.code.BundleEsProgress.error)
+  
+  return error_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BundleEsProgress::set_allocated_error(::std::string* error) {
+  if (error != nullptr) {
+    
+  } else {
+    
+  }
+  error_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), error);
+  // @@protoc_insertion_point(field_set_allocated:ric.code.BundleEsProgress.error)
+}
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // ParseConditionRequest
@@ -2339,6 +2973,10 @@ inline void ParseConditionResponse::set_allocated_compiled(::std::string* compil
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
