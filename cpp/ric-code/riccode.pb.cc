@@ -312,6 +312,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dcode_2friccode_2eproto::offse
   PROTOBUF_FIELD_OFFSET(::ric::code::BundleEsProgress, message_),
   PROTOBUF_FIELD_OFFSET(::ric::code::BundleEsProgress, result_),
   PROTOBUF_FIELD_OFFSET(::ric::code::BundleEsProgress, error_),
+  PROTOBUF_FIELD_OFFSET(::ric::code::BundleEsProgress, source_map_),
   PROTOBUF_FIELD_OFFSET(::ric::code::ParseConditionRequest_AliasesEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::ric::code::ParseConditionRequest_AliasesEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -345,9 +346,9 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 41, -1, sizeof(::ric::code::LibRequest)},
   { 49, -1, sizeof(::ric::code::BundleEsRequest)},
   { 57, -1, sizeof(::ric::code::BundleEsProgress)},
-  { 65, 72, sizeof(::ric::code::ParseConditionRequest_AliasesEntry_DoNotUse)},
-  { 74, -1, sizeof(::ric::code::ParseConditionRequest)},
-  { 82, -1, sizeof(::ric::code::ParseConditionResponse)},
+  { 66, 73, sizeof(::ric::code::ParseConditionRequest_AliasesEntry_DoNotUse)},
+  { 75, -1, sizeof(::ric::code::ParseConditionRequest)},
+  { 83, -1, sizeof(::ric::code::ParseConditionResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -385,26 +386,26 @@ const char descriptor_table_protodef_ric_2dcode_2friccode_2eproto[] =
   "tion\022\014\n\004name\030\001 \001(\t\022\013\n\003def\030\002 \001(\t\"9\n\nLibRe"
   "quest\022\014\n\004name\030\001 \001(\t\022\016\n\006semver\030\002 \001(\t\022\r\n\005l"
   "ocal\030\003 \001(\010\"9\n\017BundleEsRequest\022\n\n\002id\030\001 \001("
-  "\t\022\014\n\004code\030\002 \001(\t\022\014\n\004main\030\003 \001(\t\"B\n\020BundleE"
+  "\t\022\014\n\004code\030\002 \001(\t\022\014\n\004main\030\003 \001(\t\"V\n\020BundleE"
   "sProgress\022\017\n\007message\030\001 \001(\t\022\016\n\006result\030\002 \001"
-  "(\t\022\r\n\005error\030\003 \001(\t\"\240\001\n\025ParseConditionRequ"
-  "est\022\n\n\002id\030\001 \001(\t\022\014\n\004code\030\002 \001(\t\022=\n\007aliases"
-  "\030\003 \003(\0132,.ric.code.ParseConditionRequest."
-  "AliasesEntry\032.\n\014AliasesEntry\022\013\n\003key\030\001 \001("
-  "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"*\n\026ParseConditionRe"
-  "sponse\022\020\n\010compiled\030\001 \001(\t2\354\001\n\007RicCode\022G\n\014"
-  "TranspileEs6\022\032.ric.code.TranspileRequest"
-  "\032\033.ric.code.TranspileResponse\022C\n\010BundleE"
-  "s\022\031.ric.code.BundleEsRequest\032\032.ric.code."
-  "BundleEsProgress0\001\022S\n\016ParseCondition\022\037.r"
-  "ic.code.ParseConditionRequest\032 .ric.code"
-  ".ParseConditionResponseB\024Z\022./ric-code;ri"
-  "ccodeb\006proto3"
+  "(\t\022\r\n\005error\030\003 \001(\t\022\022\n\nsource_map\030\004 \001(\t\"\240\001"
+  "\n\025ParseConditionRequest\022\n\n\002id\030\001 \001(\t\022\014\n\004c"
+  "ode\030\002 \001(\t\022=\n\007aliases\030\003 \003(\0132,.ric.code.Pa"
+  "rseConditionRequest.AliasesEntry\032.\n\014Alia"
+  "sesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001"
+  "\"*\n\026ParseConditionResponse\022\020\n\010compiled\030\001"
+  " \001(\t2\354\001\n\007RicCode\022G\n\014TranspileEs6\022\032.ric.c"
+  "ode.TranspileRequest\032\033.ric.code.Transpil"
+  "eResponse\022C\n\010BundleEs\022\031.ric.code.BundleE"
+  "sRequest\032\032.ric.code.BundleEsProgress0\001\022S"
+  "\n\016ParseCondition\022\037.ric.code.ParseConditi"
+  "onRequest\032 .ric.code.ParseConditionRespo"
+  "nseB\024Z\022./ric-code;riccodeb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dcode_2friccode_2eproto = {
   false, InitDefaults_ric_2dcode_2friccode_2eproto, 
   descriptor_table_protodef_ric_2dcode_2friccode_2eproto,
-  "ric-code/riccode.proto", &assign_descriptors_table_ric_2dcode_2friccode_2eproto, 1133,
+  "ric-code/riccode.proto", &assign_descriptors_table_ric_2dcode_2friccode_2eproto, 1153,
 };
 
 void AddDescriptors_ric_2dcode_2friccode_2eproto() {
@@ -3497,6 +3498,7 @@ class BundleEsProgress::HasBitSetters {
 const int BundleEsProgress::kMessageFieldNumber;
 const int BundleEsProgress::kResultFieldNumber;
 const int BundleEsProgress::kErrorFieldNumber;
+const int BundleEsProgress::kSourceMapFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 BundleEsProgress::BundleEsProgress()
@@ -3520,6 +3522,10 @@ BundleEsProgress::BundleEsProgress(const BundleEsProgress& from)
   if (from.error().size() > 0) {
     error_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.error_);
   }
+  source_map_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.source_map().size() > 0) {
+    source_map_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.source_map_);
+  }
   // @@protoc_insertion_point(copy_constructor:ric.code.BundleEsProgress)
 }
 
@@ -3529,6 +3535,7 @@ void BundleEsProgress::SharedCtor() {
   message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   result_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   error_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  source_map_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 BundleEsProgress::~BundleEsProgress() {
@@ -3540,6 +3547,7 @@ void BundleEsProgress::SharedDtor() {
   message_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   result_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   error_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  source_map_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void BundleEsProgress::SetCachedSize(int size) const {
@@ -3560,6 +3568,7 @@ void BundleEsProgress::Clear() {
   message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   result_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   error_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  source_map_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
@@ -3615,6 +3624,22 @@ const char* BundleEsProgress::_InternalParse(const char* begin, const char* end,
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         ctx->extra_parse_data().SetFieldName("ric.code.BundleEsProgress.error");
         object = msg->mutable_error();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string source_map = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.code.BundleEsProgress.source_map");
+        object = msg->mutable_source_map();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -3703,6 +3728,21 @@ bool BundleEsProgress::MergePartialFromCodedStream(
         break;
       }
 
+      // string source_map = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_source_map()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->source_map().data(), static_cast<int>(this->source_map().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.code.BundleEsProgress.source_map"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -3760,6 +3800,16 @@ void BundleEsProgress::SerializeWithCachedSizes(
       3, this->error(), output);
   }
 
+  // string source_map = 4;
+  if (this->source_map().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->source_map().data(), static_cast<int>(this->source_map().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.code.BundleEsProgress.source_map");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->source_map(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -3806,6 +3856,17 @@ void BundleEsProgress::SerializeWithCachedSizes(
         3, this->error(), target);
   }
 
+  // string source_map = 4;
+  if (this->source_map().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->source_map().data(), static_cast<int>(this->source_map().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.code.BundleEsProgress.source_map");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->source_map(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -3848,6 +3909,13 @@ size_t BundleEsProgress::ByteSizeLong() const {
         this->error());
   }
 
+  // string source_map = 4;
+  if (this->source_map().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->source_map());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -3887,6 +3955,10 @@ void BundleEsProgress::MergeFrom(const BundleEsProgress& from) {
 
     error_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.error_);
   }
+  if (from.source_map().size() > 0) {
+
+    source_map_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.source_map_);
+  }
 }
 
 void BundleEsProgress::CopyFrom(const ::google::protobuf::Message& from) {
@@ -3919,6 +3991,8 @@ void BundleEsProgress::InternalSwap(BundleEsProgress* other) {
   result_.Swap(&other->result_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   error_.Swap(&other->error_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  source_map_.Swap(&other->source_map_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
 }
 

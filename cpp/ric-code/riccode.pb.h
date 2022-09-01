@@ -1290,6 +1290,20 @@ class BundleEsProgress final :
   ::std::string* release_error();
   void set_allocated_error(::std::string* error);
 
+  // string source_map = 4;
+  void clear_source_map();
+  static const int kSourceMapFieldNumber = 4;
+  const ::std::string& source_map() const;
+  void set_source_map(const ::std::string& value);
+  #if LANG_CXX11
+  void set_source_map(::std::string&& value);
+  #endif
+  void set_source_map(const char* value);
+  void set_source_map(const char* value, size_t size);
+  ::std::string* mutable_source_map();
+  ::std::string* release_source_map();
+  void set_allocated_source_map(::std::string* source_map);
+
   // @@protoc_insertion_point(class_scope:ric.code.BundleEsProgress)
  private:
   class HasBitSetters;
@@ -1298,6 +1312,7 @@ class BundleEsProgress final :
   ::google::protobuf::internal::ArenaStringPtr message_;
   ::google::protobuf::internal::ArenaStringPtr result_;
   ::google::protobuf::internal::ArenaStringPtr error_;
+  ::google::protobuf::internal::ArenaStringPtr source_map_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dcode_2friccode_2eproto;
 };
@@ -2781,6 +2796,59 @@ inline void BundleEsProgress::set_allocated_error(::std::string* error) {
   }
   error_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), error);
   // @@protoc_insertion_point(field_set_allocated:ric.code.BundleEsProgress.error)
+}
+
+// string source_map = 4;
+inline void BundleEsProgress::clear_source_map() {
+  source_map_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& BundleEsProgress::source_map() const {
+  // @@protoc_insertion_point(field_get:ric.code.BundleEsProgress.source_map)
+  return source_map_.GetNoArena();
+}
+inline void BundleEsProgress::set_source_map(const ::std::string& value) {
+  
+  source_map_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.code.BundleEsProgress.source_map)
+}
+#if LANG_CXX11
+inline void BundleEsProgress::set_source_map(::std::string&& value) {
+  
+  source_map_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.code.BundleEsProgress.source_map)
+}
+#endif
+inline void BundleEsProgress::set_source_map(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  source_map_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.code.BundleEsProgress.source_map)
+}
+inline void BundleEsProgress::set_source_map(const char* value, size_t size) {
+  
+  source_map_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.code.BundleEsProgress.source_map)
+}
+inline ::std::string* BundleEsProgress::mutable_source_map() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.code.BundleEsProgress.source_map)
+  return source_map_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* BundleEsProgress::release_source_map() {
+  // @@protoc_insertion_point(field_release:ric.code.BundleEsProgress.source_map)
+  
+  return source_map_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BundleEsProgress::set_allocated_source_map(::std::string* source_map) {
+  if (source_map != nullptr) {
+    
+  } else {
+    
+  }
+  source_map_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), source_map);
+  // @@protoc_insertion_point(field_set_allocated:ric.code.BundleEsProgress.source_map)
 }
 
 // -------------------------------------------------------------------

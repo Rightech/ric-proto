@@ -63,6 +63,7 @@ export interface BundleEsProgress {
   message?: string;
   result?: string;
   error?: string;
+  sourceMap?: string;
 }
 
 export interface ParseConditionRequest {
