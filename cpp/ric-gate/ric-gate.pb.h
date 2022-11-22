@@ -705,9 +705,37 @@ class AuthResponse final :
   ::std::string* release_group_id();
   void set_allocated_group_id(::std::string* group_id);
 
-  // bytes config = 3;
+  // string license_id = 3;
+  void clear_license_id();
+  static const int kLicenseIdFieldNumber = 3;
+  const ::std::string& license_id() const;
+  void set_license_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_license_id(::std::string&& value);
+  #endif
+  void set_license_id(const char* value);
+  void set_license_id(const char* value, size_t size);
+  ::std::string* mutable_license_id();
+  ::std::string* release_license_id();
+  void set_allocated_license_id(::std::string* license_id);
+
+  // string session_id = 4;
+  void clear_session_id();
+  static const int kSessionIdFieldNumber = 4;
+  const ::std::string& session_id() const;
+  void set_session_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_session_id(::std::string&& value);
+  #endif
+  void set_session_id(const char* value);
+  void set_session_id(const char* value, size_t size);
+  ::std::string* mutable_session_id();
+  ::std::string* release_session_id();
+  void set_allocated_session_id(::std::string* session_id);
+
+  // bytes config = 5;
   void clear_config();
-  static const int kConfigFieldNumber = 3;
+  static const int kConfigFieldNumber = 5;
   const ::std::string& config() const;
   void set_config(const ::std::string& value);
   #if LANG_CXX11
@@ -719,10 +747,10 @@ class AuthResponse final :
   ::std::string* release_config();
   void set_allocated_config(::std::string* config);
 
-  // .ric.gate.LimitingParams limits = 4;
+  // .ric.gate.LimitingParams limits = 6;
   bool has_limits() const;
   void clear_limits();
-  static const int kLimitsFieldNumber = 4;
+  static const int kLimitsFieldNumber = 6;
   const ::ric::gate::LimitingParams& limits() const;
   ::ric::gate::LimitingParams* release_limits();
   ::ric::gate::LimitingParams* mutable_limits();
@@ -735,6 +763,8 @@ class AuthResponse final :
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr object_id_;
   ::google::protobuf::internal::ArenaStringPtr group_id_;
+  ::google::protobuf::internal::ArenaStringPtr license_id_;
+  ::google::protobuf::internal::ArenaStringPtr session_id_;
   ::google::protobuf::internal::ArenaStringPtr config_;
   ::ric::gate::LimitingParams* limits_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
@@ -2151,7 +2181,113 @@ inline void AuthResponse::set_allocated_group_id(::std::string* group_id) {
   // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthResponse.group_id)
 }
 
-// bytes config = 3;
+// string license_id = 3;
+inline void AuthResponse::clear_license_id() {
+  license_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& AuthResponse::license_id() const {
+  // @@protoc_insertion_point(field_get:ric.gate.AuthResponse.license_id)
+  return license_id_.GetNoArena();
+}
+inline void AuthResponse::set_license_id(const ::std::string& value) {
+  
+  license_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.gate.AuthResponse.license_id)
+}
+#if LANG_CXX11
+inline void AuthResponse::set_license_id(::std::string&& value) {
+  
+  license_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.gate.AuthResponse.license_id)
+}
+#endif
+inline void AuthResponse::set_license_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  license_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.gate.AuthResponse.license_id)
+}
+inline void AuthResponse::set_license_id(const char* value, size_t size) {
+  
+  license_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.gate.AuthResponse.license_id)
+}
+inline ::std::string* AuthResponse::mutable_license_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.gate.AuthResponse.license_id)
+  return license_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* AuthResponse::release_license_id() {
+  // @@protoc_insertion_point(field_release:ric.gate.AuthResponse.license_id)
+  
+  return license_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AuthResponse::set_allocated_license_id(::std::string* license_id) {
+  if (license_id != nullptr) {
+    
+  } else {
+    
+  }
+  license_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), license_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthResponse.license_id)
+}
+
+// string session_id = 4;
+inline void AuthResponse::clear_session_id() {
+  session_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& AuthResponse::session_id() const {
+  // @@protoc_insertion_point(field_get:ric.gate.AuthResponse.session_id)
+  return session_id_.GetNoArena();
+}
+inline void AuthResponse::set_session_id(const ::std::string& value) {
+  
+  session_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.gate.AuthResponse.session_id)
+}
+#if LANG_CXX11
+inline void AuthResponse::set_session_id(::std::string&& value) {
+  
+  session_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.gate.AuthResponse.session_id)
+}
+#endif
+inline void AuthResponse::set_session_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  session_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.gate.AuthResponse.session_id)
+}
+inline void AuthResponse::set_session_id(const char* value, size_t size) {
+  
+  session_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.gate.AuthResponse.session_id)
+}
+inline ::std::string* AuthResponse::mutable_session_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.gate.AuthResponse.session_id)
+  return session_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* AuthResponse::release_session_id() {
+  // @@protoc_insertion_point(field_release:ric.gate.AuthResponse.session_id)
+  
+  return session_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AuthResponse::set_allocated_session_id(::std::string* session_id) {
+  if (session_id != nullptr) {
+    
+  } else {
+    
+  }
+  session_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), session_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthResponse.session_id)
+}
+
+// bytes config = 5;
 inline void AuthResponse::clear_config() {
   config_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -2204,7 +2340,7 @@ inline void AuthResponse::set_allocated_config(::std::string* config) {
   // @@protoc_insertion_point(field_set_allocated:ric.gate.AuthResponse.config)
 }
 
-// .ric.gate.LimitingParams limits = 4;
+// .ric.gate.LimitingParams limits = 6;
 inline bool AuthResponse::has_limits() const {
   return this != internal_default_instance() && limits_ != nullptr;
 }

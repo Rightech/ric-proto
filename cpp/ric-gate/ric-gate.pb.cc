@@ -253,6 +253,8 @@ const ::google::protobuf::uint32 TableStruct_ric_2dgate_2fric_2dgate_2eproto::of
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::gate::AuthResponse, object_id_),
   PROTOBUF_FIELD_OFFSET(::ric::gate::AuthResponse, group_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::gate::AuthResponse, license_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::gate::AuthResponse, session_id_),
   PROTOBUF_FIELD_OFFSET(::ric::gate::AuthResponse, config_),
   PROTOBUF_FIELD_OFFSET(::ric::gate::AuthResponse, limits_),
   ~0u,  // no _has_bits_
@@ -308,12 +310,12 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 6, -1, sizeof(::ric::gate::AuthRequest)},
   { 16, -1, sizeof(::ric::gate::LimitingParams)},
   { 26, -1, sizeof(::ric::gate::AuthResponse)},
-  { 35, -1, sizeof(::ric::gate::DataRequest)},
-  { 45, -1, sizeof(::ric::gate::Ping)},
-  { 51, -1, sizeof(::ric::gate::CommandReplyRequest)},
-  { 61, -1, sizeof(::ric::gate::OfflineRequest)},
-  { 68, -1, sizeof(::ric::gate::Command)},
-  { 77, -1, sizeof(::ric::gate::EmptyResponse)},
+  { 37, -1, sizeof(::ric::gate::DataRequest)},
+  { 47, -1, sizeof(::ric::gate::Ping)},
+  { 53, -1, sizeof(::ric::gate::CommandReplyRequest)},
+  { 63, -1, sizeof(::ric::gate::OfflineRequest)},
+  { 70, -1, sizeof(::ric::gate::Command)},
+  { 79, -1, sizeof(::ric::gate::EmptyResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -343,42 +345,43 @@ const char descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto[] =
   "ot\030\005 \001(\010\"\214\001\n\016LimitingParams\022\023\n\013packet_si"
   "ze\030\001 \001(\002\022\030\n\020packet_frequency\030\002 \001(\002\022\030\n\020ex"
   "cesses_allowed\030\003 \001(\002\022\027\n\017current_packets\030"
-  "\004 \001(\002\022\030\n\020current_excesses\030\005 \001(\002\"m\n\014AuthR"
-  "esponse\022\021\n\tobject_id\030\001 \001(\t\022\020\n\010group_id\030\002"
-  " \001(\t\022\016\n\006config\030\003 \001(\014\022(\n\006limits\030\004 \001(\0132\030.r"
-  "ic.gate.LimitingParams\"\316\001\n\013DataRequest\022\023"
-  "\n\013instance_id\030\001 \001(\t\022\021\n\tobject_id\030\002 \001(\t\022\014"
-  "\n\004data\030\003 \001(\014\022\023\n\013binary_data\030\004 \001(\014\0221\n\tdat"
-  "a_type\030\005 \001(\0162\036.ric.gate.DataRequest.Data"
-  "Type\"A\n\010DataType\022\013\n\007UNKNOWN\020\000\022\n\n\006PARAMS\020"
-  "\001\022\010\n\004FILE\020\002\022\t\n\005EVENT\020\003\022\007\n\003RPC\020\004\"\033\n\004Ping\022"
-  "\023\n\013instance_id\030\001 \001(\t\"\321\001\n\023CommandReplyReq"
-  "uest\022\022\n\ncommand_id\030\001 \001(\t\022\021\n\tobject_id\030\002 "
-  "\001(\t\022\014\n\004data\030\003 \001(\014\0222\n\005stage\030\004 \001(\0162#.ric.g"
-  "ate.CommandReplyRequest.Stage\022\r\n\005error\030\005"
-  " \001(\t\"B\n\005Stage\022\013\n\007UNKNOWN\020\000\022\t\n\005ERROR\020\001\022\t\n"
-  "\005INLET\020\002\022\n\n\006OBJECT\020\003\022\n\n\006PACKET\020\004\"8\n\016Offl"
-  "ineRequest\022\023\n\013instance_id\030\001 \001(\t\022\021\n\tobjec"
-  "t_id\030\002 \001(\t\"P\n\007Command\022\022\n\ncommand_id\030\001 \001("
-  "\t\022\021\n\tobject_id\030\002 \001(\t\022\016\n\006method\030\003 \001(\t\022\016\n\006"
-  "params\030\004 \001(\014\"\017\n\rEmptyResponse2\374\002\n\tGateIn"
-  "let\0222\n\004Init\022\025.ric.gate.InitRequest\032\021.ric"
-  ".gate.Command0\001\0225\n\004Auth\022\025.ric.gate.AuthR"
-  "equest\032\026.ric.gate.AuthResponse\022:\n\010SendDa"
-  "ta\022\025.ric.gate.DataRequest\032\027.ric.gate.Emp"
-  "tyResponse\022:\n\rSendHeartbeat\022\016.ric.gate.P"
-  "ing\032\027.ric.gate.EmptyResponse(\001\022J\n\020SendCo"
-  "mmandReply\022\035.ric.gate.CommandReplyReques"
-  "t\032\027.ric.gate.EmptyResponse\022@\n\013SendOfflin"
-  "e\022\030.ric.gate.OfflineRequest\032\027.ric.gate.E"
-  "mptyResponse2J\n\013GateCommand\022;\n\007SendRpc\022\021"
-  ".ric.gate.Command\032\035.ric.gate.CommandRepl"
-  "yRequestB\024Z\022./ric-gate;ricgateb\006proto3"
+  "\004 \001(\002\022\030\n\020current_excesses\030\005 \001(\002\"\225\001\n\014Auth"
+  "Response\022\021\n\tobject_id\030\001 \001(\t\022\020\n\010group_id\030"
+  "\002 \001(\t\022\022\n\nlicense_id\030\003 \001(\t\022\022\n\nsession_id\030"
+  "\004 \001(\t\022\016\n\006config\030\005 \001(\014\022(\n\006limits\030\006 \001(\0132\030."
+  "ric.gate.LimitingParams\"\316\001\n\013DataRequest\022"
+  "\023\n\013instance_id\030\001 \001(\t\022\021\n\tobject_id\030\002 \001(\t\022"
+  "\014\n\004data\030\003 \001(\014\022\023\n\013binary_data\030\004 \001(\014\0221\n\tda"
+  "ta_type\030\005 \001(\0162\036.ric.gate.DataRequest.Dat"
+  "aType\"A\n\010DataType\022\013\n\007UNKNOWN\020\000\022\n\n\006PARAMS"
+  "\020\001\022\010\n\004FILE\020\002\022\t\n\005EVENT\020\003\022\007\n\003RPC\020\004\"\033\n\004Ping"
+  "\022\023\n\013instance_id\030\001 \001(\t\"\321\001\n\023CommandReplyRe"
+  "quest\022\022\n\ncommand_id\030\001 \001(\t\022\021\n\tobject_id\030\002"
+  " \001(\t\022\014\n\004data\030\003 \001(\014\0222\n\005stage\030\004 \001(\0162#.ric."
+  "gate.CommandReplyRequest.Stage\022\r\n\005error\030"
+  "\005 \001(\t\"B\n\005Stage\022\013\n\007UNKNOWN\020\000\022\t\n\005ERROR\020\001\022\t"
+  "\n\005INLET\020\002\022\n\n\006OBJECT\020\003\022\n\n\006PACKET\020\004\"8\n\016Off"
+  "lineRequest\022\023\n\013instance_id\030\001 \001(\t\022\021\n\tobje"
+  "ct_id\030\002 \001(\t\"P\n\007Command\022\022\n\ncommand_id\030\001 \001"
+  "(\t\022\021\n\tobject_id\030\002 \001(\t\022\016\n\006method\030\003 \001(\t\022\016\n"
+  "\006params\030\004 \001(\014\"\017\n\rEmptyResponse2\374\002\n\tGateI"
+  "nlet\0222\n\004Init\022\025.ric.gate.InitRequest\032\021.ri"
+  "c.gate.Command0\001\0225\n\004Auth\022\025.ric.gate.Auth"
+  "Request\032\026.ric.gate.AuthResponse\022:\n\010SendD"
+  "ata\022\025.ric.gate.DataRequest\032\027.ric.gate.Em"
+  "ptyResponse\022:\n\rSendHeartbeat\022\016.ric.gate."
+  "Ping\032\027.ric.gate.EmptyResponse(\001\022J\n\020SendC"
+  "ommandReply\022\035.ric.gate.CommandReplyReque"
+  "st\032\027.ric.gate.EmptyResponse\022@\n\013SendOffli"
+  "ne\022\030.ric.gate.OfflineRequest\032\027.ric.gate."
+  "EmptyResponse2J\n\013GateCommand\022;\n\007SendRpc\022"
+  "\021.ric.gate.Command\032\035.ric.gate.CommandRep"
+  "lyRequestB\024Z\022./ric-gate;ricgateb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dgate_2fric_2dgate_2eproto = {
   false, InitDefaults_ric_2dgate_2fric_2dgate_2eproto, 
   descriptor_table_protodef_ric_2dgate_2fric_2dgate_2eproto,
-  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1518,
+  "ric-gate/ric-gate.proto", &assign_descriptors_table_ric_2dgate_2fric_2dgate_2eproto, 1559,
 };
 
 void AddDescriptors_ric_2dgate_2fric_2dgate_2eproto() {
@@ -1745,6 +1748,8 @@ AuthResponse::HasBitSetters::limits(const AuthResponse* msg) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int AuthResponse::kObjectIdFieldNumber;
 const int AuthResponse::kGroupIdFieldNumber;
+const int AuthResponse::kLicenseIdFieldNumber;
+const int AuthResponse::kSessionIdFieldNumber;
 const int AuthResponse::kConfigFieldNumber;
 const int AuthResponse::kLimitsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -1766,6 +1771,14 @@ AuthResponse::AuthResponse(const AuthResponse& from)
   if (from.group_id().size() > 0) {
     group_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_id_);
   }
+  license_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.license_id().size() > 0) {
+    license_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.license_id_);
+  }
+  session_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.session_id().size() > 0) {
+    session_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.session_id_);
+  }
   config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.config().size() > 0) {
     config_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.config_);
@@ -1783,6 +1796,8 @@ void AuthResponse::SharedCtor() {
       &scc_info_AuthResponse_ric_2dgate_2fric_2dgate_2eproto.base);
   object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   group_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  license_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  session_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   limits_ = nullptr;
 }
@@ -1795,6 +1810,8 @@ AuthResponse::~AuthResponse() {
 void AuthResponse::SharedDtor() {
   object_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   group_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  license_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  session_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete limits_;
 }
@@ -1816,6 +1833,8 @@ void AuthResponse::Clear() {
 
   object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   group_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  license_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  session_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   config_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && limits_ != nullptr) {
     delete limits_;
@@ -1869,9 +1888,41 @@ const char* AuthResponse::_InternalParse(const char* begin, const char* end, voi
         ptr += size;
         break;
       }
-      // bytes config = 3;
+      // string license_id = 3;
       case 3: {
         if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.gate.AuthResponse.license_id");
+        object = msg->mutable_license_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string session_id = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.gate.AuthResponse.session_id");
+        object = msg->mutable_session_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // bytes config = 5;
+      case 5: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 42) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         object = msg->mutable_config();
@@ -1884,9 +1935,9 @@ const char* AuthResponse::_InternalParse(const char* begin, const char* end, voi
         ptr += size;
         break;
       }
-      // .ric.gate.LimitingParams limits = 4;
-      case 4: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+      // .ric.gate.LimitingParams limits = 6;
+      case 6: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         parser_till_end = ::ric::gate::LimitingParams::_InternalParse;
@@ -1961,9 +2012,39 @@ bool AuthResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // bytes config = 3;
+      // string license_id = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_license_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->license_id().data(), static_cast<int>(this->license_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.gate.AuthResponse.license_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string session_id = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_session_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->session_id().data(), static_cast<int>(this->session_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.gate.AuthResponse.session_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes config = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (42 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_config()));
         } else {
@@ -1972,9 +2053,9 @@ bool AuthResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // .ric.gate.LimitingParams limits = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+      // .ric.gate.LimitingParams limits = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_limits()));
         } else {
@@ -2030,16 +2111,36 @@ void AuthResponse::SerializeWithCachedSizes(
       2, this->group_id(), output);
   }
 
-  // bytes config = 3;
-  if (this->config().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      3, this->config(), output);
+  // string license_id = 3;
+  if (this->license_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->license_id().data(), static_cast<int>(this->license_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.gate.AuthResponse.license_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->license_id(), output);
   }
 
-  // .ric.gate.LimitingParams limits = 4;
+  // string session_id = 4;
+  if (this->session_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->session_id().data(), static_cast<int>(this->session_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.gate.AuthResponse.session_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->session_id(), output);
+  }
+
+  // bytes config = 5;
+  if (this->config().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      5, this->config(), output);
+  }
+
+  // .ric.gate.LimitingParams limits = 6;
   if (this->has_limits()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, HasBitSetters::limits(this), output);
+      6, HasBitSetters::limits(this), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2077,18 +2178,40 @@ void AuthResponse::SerializeWithCachedSizes(
         2, this->group_id(), target);
   }
 
-  // bytes config = 3;
+  // string license_id = 3;
+  if (this->license_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->license_id().data(), static_cast<int>(this->license_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.gate.AuthResponse.license_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->license_id(), target);
+  }
+
+  // string session_id = 4;
+  if (this->session_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->session_id().data(), static_cast<int>(this->session_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.gate.AuthResponse.session_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->session_id(), target);
+  }
+
+  // bytes config = 5;
   if (this->config().size() > 0) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->config(), target);
+        5, this->config(), target);
   }
 
-  // .ric.gate.LimitingParams limits = 4;
+  // .ric.gate.LimitingParams limits = 6;
   if (this->has_limits()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        4, HasBitSetters::limits(this), target);
+        6, HasBitSetters::limits(this), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2126,14 +2249,28 @@ size_t AuthResponse::ByteSizeLong() const {
         this->group_id());
   }
 
-  // bytes config = 3;
+  // string license_id = 3;
+  if (this->license_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->license_id());
+  }
+
+  // string session_id = 4;
+  if (this->session_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->session_id());
+  }
+
+  // bytes config = 5;
   if (this->config().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->config());
   }
 
-  // .ric.gate.LimitingParams limits = 4;
+  // .ric.gate.LimitingParams limits = 6;
   if (this->has_limits()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -2175,6 +2312,14 @@ void AuthResponse::MergeFrom(const AuthResponse& from) {
 
     group_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.group_id_);
   }
+  if (from.license_id().size() > 0) {
+
+    license_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.license_id_);
+  }
+  if (from.session_id().size() > 0) {
+
+    session_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.session_id_);
+  }
   if (from.config().size() > 0) {
 
     config_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.config_);
@@ -2212,6 +2357,10 @@ void AuthResponse::InternalSwap(AuthResponse* other) {
   object_id_.Swap(&other->object_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   group_id_.Swap(&other->group_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  license_id_.Swap(&other->license_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  session_id_.Swap(&other->session_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   config_.Swap(&other->config_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
