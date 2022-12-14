@@ -19,8 +19,10 @@
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dauth_2fricauth_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_AuthObjectArgument_ric_2dauth_2fricauth_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dauth_2fricauth_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_AuthObjectRequest_AuthObjectCert_ric_2dauth_2fricauth_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dauth_2fricauth_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_AuthObjectResponse_LicenseEntry_DoNotUse_ric_2dauth_2fricauth_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dauth_2fricauth_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_RepeaterInfo_ObjectRepeaterInfo_ric_2dauth_2fricauth_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dauth_2fricauth_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_StatRecord_ric_2dauth_2fricauth_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dauth_2fricauth_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_AuthObjectResponse_StatsEntry_DoNotUse_ric_2dauth_2fricauth_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dauth_2fricauth_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_RepeaterInfo_ric_2dauth_2fricauth_2eproto;
 namespace ric {
 namespace auth {
 class AuthObjectRequest_AuthObjectCertDefaultTypeInternal {
@@ -75,6 +77,22 @@ class ObjectGateResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<ObjectGateResponse> _instance;
 } _ObjectGateResponse_default_instance_;
+class QueryRepeatersRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<QueryRepeatersRequest> _instance;
+} _QueryRepeatersRequest_default_instance_;
+class RepeaterInfo_ObjectRepeaterInfoDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<RepeaterInfo_ObjectRepeaterInfo> _instance;
+} _RepeaterInfo_ObjectRepeaterInfo_default_instance_;
+class RepeaterInfoDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<RepeaterInfo> _instance;
+} _RepeaterInfo_default_instance_;
+class RepeatersResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<RepeatersResponse> _instance;
+} _RepeatersResponse_default_instance_;
 }  // namespace auth
 }  // namespace ric
 static void InitDefaultsAuthObjectRequest_AuthObjectCert_ric_2dauth_2fricauth_2eproto() {
@@ -263,6 +281,64 @@ static void InitDefaultsObjectGateResponse_ric_2dauth_2fricauth_2eproto() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_ObjectGateResponse_ric_2dauth_2fricauth_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsObjectGateResponse_ric_2dauth_2fricauth_2eproto}, {}};
 
+static void InitDefaultsQueryRepeatersRequest_ric_2dauth_2fricauth_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::auth::_QueryRepeatersRequest_default_instance_;
+    new (ptr) ::ric::auth::QueryRepeatersRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::auth::QueryRepeatersRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_QueryRepeatersRequest_ric_2dauth_2fricauth_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsQueryRepeatersRequest_ric_2dauth_2fricauth_2eproto}, {}};
+
+static void InitDefaultsRepeaterInfo_ObjectRepeaterInfo_ric_2dauth_2fricauth_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::auth::_RepeaterInfo_ObjectRepeaterInfo_default_instance_;
+    new (ptr) ::ric::auth::RepeaterInfo_ObjectRepeaterInfo();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::auth::RepeaterInfo_ObjectRepeaterInfo::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_RepeaterInfo_ObjectRepeaterInfo_ric_2dauth_2fricauth_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsRepeaterInfo_ObjectRepeaterInfo_ric_2dauth_2fricauth_2eproto}, {}};
+
+static void InitDefaultsRepeaterInfo_ric_2dauth_2fricauth_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::auth::_RepeaterInfo_default_instance_;
+    new (ptr) ::ric::auth::RepeaterInfo();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::auth::RepeaterInfo::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_RepeaterInfo_ric_2dauth_2fricauth_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsRepeaterInfo_ric_2dauth_2fricauth_2eproto}, {
+      &scc_info_RepeaterInfo_ObjectRepeaterInfo_ric_2dauth_2fricauth_2eproto.base,}};
+
+static void InitDefaultsRepeatersResponse_ric_2dauth_2fricauth_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::auth::_RepeatersResponse_default_instance_;
+    new (ptr) ::ric::auth::RepeatersResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::auth::RepeatersResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_RepeatersResponse_ric_2dauth_2fricauth_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsRepeatersResponse_ric_2dauth_2fricauth_2eproto}, {
+      &scc_info_RepeaterInfo_ric_2dauth_2fricauth_2eproto.base,}};
+
 void InitDefaults_ric_2dauth_2fricauth_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_AuthObjectRequest_AuthObjectCert_ric_2dauth_2fricauth_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_AuthObjectRequest_ric_2dauth_2fricauth_2eproto.base);
@@ -277,9 +353,13 @@ void InitDefaults_ric_2dauth_2fricauth_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_ModelInfoResponse_ric_2dauth_2fricauth_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ObjectGateRequest_ric_2dauth_2fricauth_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ObjectGateResponse_ric_2dauth_2fricauth_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_QueryRepeatersRequest_ric_2dauth_2fricauth_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_RepeaterInfo_ObjectRepeaterInfo_ric_2dauth_2fricauth_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_RepeaterInfo_ric_2dauth_2fricauth_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_RepeatersResponse_ric_2dauth_2fricauth_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dauth_2fricauth_2eproto[13];
+::google::protobuf::Metadata file_level_metadata_ric_2dauth_2fricauth_2eproto[17];
 constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_ric_2dauth_2fricauth_2eproto = nullptr;
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dauth_2fricauth_2eproto = nullptr;
 
@@ -402,6 +482,40 @@ const ::google::protobuf::uint32 TableStruct_ric_2dauth_2fricauth_2eproto::offse
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::auth::QueryRepeatersRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::auth::QueryRepeatersRequest, with_objects_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::QueryRepeatersRequest, protocols_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::QueryRepeatersRequest, repeater_ids_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::QueryRepeatersRequest, object_ids_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::auth::RepeaterInfo_ObjectRepeaterInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::auth::RepeaterInfo_ObjectRepeaterInfo, object_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::RepeaterInfo_ObjectRepeaterInfo, repeater_config_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::auth::RepeaterInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::auth::RepeaterInfo, repeater_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::RepeaterInfo, protocol_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::RepeaterInfo, name_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::RepeaterInfo, host_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::RepeaterInfo, port_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::RepeaterInfo, config_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::RepeaterInfo, objects_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::auth::RepeatersResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::auth::RepeatersResponse, repeaters_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ric::auth::AuthObjectRequest_AuthObjectCert)},
@@ -417,6 +531,10 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 100, -1, sizeof(::ric::auth::ModelInfoResponse)},
   { 107, -1, sizeof(::ric::auth::ObjectGateRequest)},
   { 113, -1, sizeof(::ric::auth::ObjectGateResponse)},
+  { 118, -1, sizeof(::ric::auth::QueryRepeatersRequest)},
+  { 127, -1, sizeof(::ric::auth::RepeaterInfo_ObjectRepeaterInfo)},
+  { 134, -1, sizeof(::ric::auth::RepeaterInfo)},
+  { 146, -1, sizeof(::ric::auth::RepeatersResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -433,12 +551,16 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_ModelInfoResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_ObjectGateRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_ObjectGateResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_QueryRepeatersRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_RepeaterInfo_ObjectRepeaterInfo_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_RepeaterInfo_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::auth::_RepeatersResponse_default_instance_),
 };
 
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dauth_2fricauth_2eproto = {
   {}, AddDescriptors_ric_2dauth_2fricauth_2eproto, "ric-auth/ricauth.proto", schemas,
   file_default_instances, TableStruct_ric_2dauth_2fricauth_2eproto::offsets,
-  file_level_metadata_ric_2dauth_2fricauth_2eproto, 13, file_level_enum_descriptors_ric_2dauth_2fricauth_2eproto, file_level_service_descriptors_ric_2dauth_2fricauth_2eproto,
+  file_level_metadata_ric_2dauth_2fricauth_2eproto, 17, file_level_enum_descriptors_ric_2dauth_2fricauth_2eproto, file_level_service_descriptors_ric_2dauth_2fricauth_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dauth_2fricauth_2eproto[] =
@@ -475,22 +597,34 @@ const char descriptor_table_protodef_ric_2dauth_2fricauth_2eproto[] =
   "sponse\022\020\n\010model_id\030\001 \001(\t\022/\n\targuments\030\002 "
   "\003(\0132\034.ric.auth.AuthObjectArgument\"&\n\021Obj"
   "ectGateRequest\022\021\n\tobject_id\030\001 \001(\t\"\024\n\022Obj"
-  "ectGateResponse2\371\002\n\007RicAuth\022G\n\nAuthObjec"
-  "t\022\033.ric.auth.AuthObjectRequest\032\034.ric.aut"
-  "h.AuthObjectResponse\022G\n\014GetModelInfo\022\032.r"
-  "ic.auth.ModelInfoRequest\032\033.ric.auth.Mode"
-  "lInfoResponse\022D\n\tIssueCert\022\032.ric.auth.Is"
-  "sueCertRequest\032\033.ric.auth.IssueCertRespo"
-  "nse\022H\n\013SendOffline\022\033.ric.auth.ObjectGate"
-  "Request\032\034.ric.auth.ObjectGateResponse\022L\n"
-  "\017SendModelUpdate\022\033.ric.auth.ObjectGateRe"
-  "quest\032\034.ric.auth.ObjectGateResponseB\024Z\022."
-  "/ric-auth;ricauthb\006proto3"
+  "ectGateResponse\"j\n\025QueryRepeatersRequest"
+  "\022\024\n\014with_objects\030\001 \001(\010\022\021\n\tprotocols\030\002 \003("
+  "\t\022\024\n\014repeater_ids\030\003 \003(\t\022\022\n\nobject_ids\030\004 "
+  "\003(\t\"\355\001\n\014RepeaterInfo\022\023\n\013repeater_id\030\001 \001("
+  "\t\022\020\n\010protocol\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\014\n\004hos"
+  "t\030\004 \001(\t\022\014\n\004port\030\005 \001(\005\022\016\n\006config\030\006 \001(\t\022:\n"
+  "\007objects\030\n \003(\0132).ric.auth.RepeaterInfo.O"
+  "bjectRepeaterInfo\032@\n\022ObjectRepeaterInfo\022"
+  "\021\n\tobject_id\030\001 \001(\t\022\027\n\017repeater_config\030\002 "
+  "\001(\t\">\n\021RepeatersResponse\022)\n\trepeaters\030\001 "
+  "\003(\0132\026.ric.auth.RepeaterInfo2\311\003\n\007RicAuth\022"
+  "G\n\nAuthObject\022\033.ric.auth.AuthObjectReque"
+  "st\032\034.ric.auth.AuthObjectResponse\022G\n\014GetM"
+  "odelInfo\022\032.ric.auth.ModelInfoRequest\032\033.r"
+  "ic.auth.ModelInfoResponse\022D\n\tIssueCert\022\032"
+  ".ric.auth.IssueCertRequest\032\033.ric.auth.Is"
+  "sueCertResponse\022H\n\013SendOffline\022\033.ric.aut"
+  "h.ObjectGateRequest\032\034.ric.auth.ObjectGat"
+  "eResponse\022L\n\017SendModelUpdate\022\033.ric.auth."
+  "ObjectGateRequest\032\034.ric.auth.ObjectGateR"
+  "esponse\022N\n\016QueryRepeaters\022\037.ric.auth.Que"
+  "ryRepeatersRequest\032\033.ric.auth.RepeatersR"
+  "esponseB\024Z\022./ric-auth;ricauthb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dauth_2fricauth_2eproto = {
   false, InitDefaults_ric_2dauth_2fricauth_2eproto, 
   descriptor_table_protodef_ric_2dauth_2fricauth_2eproto,
-  "ric-auth/ricauth.proto", &assign_descriptors_table_ric_2dauth_2fricauth_2eproto, 1745,
+  "ric-auth/ricauth.proto", &assign_descriptors_table_ric_2dauth_2fricauth_2eproto, 2237,
 };
 
 void AddDescriptors_ric_2dauth_2fricauth_2eproto() {
@@ -6138,6 +6272,1821 @@ void ObjectGateResponse::InternalSwap(ObjectGateResponse* other) {
 }
 
 
+// ===================================================================
+
+void QueryRepeatersRequest::InitAsDefaultInstance() {
+}
+class QueryRepeatersRequest::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int QueryRepeatersRequest::kWithObjectsFieldNumber;
+const int QueryRepeatersRequest::kProtocolsFieldNumber;
+const int QueryRepeatersRequest::kRepeaterIdsFieldNumber;
+const int QueryRepeatersRequest::kObjectIdsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+QueryRepeatersRequest::QueryRepeatersRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.auth.QueryRepeatersRequest)
+}
+QueryRepeatersRequest::QueryRepeatersRequest(const QueryRepeatersRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr),
+      protocols_(from.protocols_),
+      repeater_ids_(from.repeater_ids_),
+      object_ids_(from.object_ids_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  with_objects_ = from.with_objects_;
+  // @@protoc_insertion_point(copy_constructor:ric.auth.QueryRepeatersRequest)
+}
+
+void QueryRepeatersRequest::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_QueryRepeatersRequest_ric_2dauth_2fricauth_2eproto.base);
+  with_objects_ = false;
+}
+
+QueryRepeatersRequest::~QueryRepeatersRequest() {
+  // @@protoc_insertion_point(destructor:ric.auth.QueryRepeatersRequest)
+  SharedDtor();
+}
+
+void QueryRepeatersRequest::SharedDtor() {
+}
+
+void QueryRepeatersRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const QueryRepeatersRequest& QueryRepeatersRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_QueryRepeatersRequest_ric_2dauth_2fricauth_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void QueryRepeatersRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.auth.QueryRepeatersRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  protocols_.Clear();
+  repeater_ids_.Clear();
+  object_ids_.Clear();
+  with_objects_ = false;
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* QueryRepeatersRequest::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<QueryRepeatersRequest*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // bool with_objects = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 8) goto handle_unusual;
+        msg->set_with_objects(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // repeated string protocols = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          ctx->extra_parse_data().SetFieldName("ric.auth.QueryRepeatersRequest.protocols");
+          object = msg->add_protocols();
+          if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+            parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+            goto string_till_end;
+          }
+          GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+          ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+          ptr += size;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 18 && (ptr += 1));
+        break;
+      }
+      // repeated string repeater_ids = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          ctx->extra_parse_data().SetFieldName("ric.auth.QueryRepeatersRequest.repeater_ids");
+          object = msg->add_repeater_ids();
+          if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+            parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+            goto string_till_end;
+          }
+          GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+          ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+          ptr += size;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 26 && (ptr += 1));
+        break;
+      }
+      // repeated string object_ids = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          ctx->extra_parse_data().SetFieldName("ric.auth.QueryRepeatersRequest.object_ids");
+          object = msg->add_object_ids();
+          if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+            parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+            goto string_till_end;
+          }
+          GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+          ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+          ptr += size;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 34 && (ptr += 1));
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool QueryRepeatersRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.auth.QueryRepeatersRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // bool with_objects = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (8 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &with_objects_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated string protocols = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_protocols()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->protocols(this->protocols_size() - 1).data(),
+            static_cast<int>(this->protocols(this->protocols_size() - 1).length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.QueryRepeatersRequest.protocols"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated string repeater_ids = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_repeater_ids()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->repeater_ids(this->repeater_ids_size() - 1).data(),
+            static_cast<int>(this->repeater_ids(this->repeater_ids_size() - 1).length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.QueryRepeatersRequest.repeater_ids"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated string object_ids = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_object_ids()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->object_ids(this->object_ids_size() - 1).data(),
+            static_cast<int>(this->object_ids(this->object_ids_size() - 1).length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.QueryRepeatersRequest.object_ids"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.auth.QueryRepeatersRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.auth.QueryRepeatersRequest)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void QueryRepeatersRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.auth.QueryRepeatersRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool with_objects = 1;
+  if (this->with_objects() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->with_objects(), output);
+  }
+
+  // repeated string protocols = 2;
+  for (int i = 0, n = this->protocols_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->protocols(i).data(), static_cast<int>(this->protocols(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.QueryRepeatersRequest.protocols");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->protocols(i), output);
+  }
+
+  // repeated string repeater_ids = 3;
+  for (int i = 0, n = this->repeater_ids_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->repeater_ids(i).data(), static_cast<int>(this->repeater_ids(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.QueryRepeatersRequest.repeater_ids");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->repeater_ids(i), output);
+  }
+
+  // repeated string object_ids = 4;
+  for (int i = 0, n = this->object_ids_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->object_ids(i).data(), static_cast<int>(this->object_ids(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.QueryRepeatersRequest.object_ids");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      4, this->object_ids(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.auth.QueryRepeatersRequest)
+}
+
+::google::protobuf::uint8* QueryRepeatersRequest::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.auth.QueryRepeatersRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool with_objects = 1;
+  if (this->with_objects() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->with_objects(), target);
+  }
+
+  // repeated string protocols = 2;
+  for (int i = 0, n = this->protocols_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->protocols(i).data(), static_cast<int>(this->protocols(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.QueryRepeatersRequest.protocols");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(2, this->protocols(i), target);
+  }
+
+  // repeated string repeater_ids = 3;
+  for (int i = 0, n = this->repeater_ids_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->repeater_ids(i).data(), static_cast<int>(this->repeater_ids(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.QueryRepeatersRequest.repeater_ids");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(3, this->repeater_ids(i), target);
+  }
+
+  // repeated string object_ids = 4;
+  for (int i = 0, n = this->object_ids_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->object_ids(i).data(), static_cast<int>(this->object_ids(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.QueryRepeatersRequest.object_ids");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(4, this->object_ids(i), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.auth.QueryRepeatersRequest)
+  return target;
+}
+
+size_t QueryRepeatersRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.auth.QueryRepeatersRequest)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated string protocols = 2;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->protocols_size());
+  for (int i = 0, n = this->protocols_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->protocols(i));
+  }
+
+  // repeated string repeater_ids = 3;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->repeater_ids_size());
+  for (int i = 0, n = this->repeater_ids_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->repeater_ids(i));
+  }
+
+  // repeated string object_ids = 4;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->object_ids_size());
+  for (int i = 0, n = this->object_ids_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->object_ids(i));
+  }
+
+  // bool with_objects = 1;
+  if (this->with_objects() != 0) {
+    total_size += 1 + 1;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void QueryRepeatersRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.auth.QueryRepeatersRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const QueryRepeatersRequest* source =
+      ::google::protobuf::DynamicCastToGenerated<QueryRepeatersRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.auth.QueryRepeatersRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.auth.QueryRepeatersRequest)
+    MergeFrom(*source);
+  }
+}
+
+void QueryRepeatersRequest::MergeFrom(const QueryRepeatersRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.auth.QueryRepeatersRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  protocols_.MergeFrom(from.protocols_);
+  repeater_ids_.MergeFrom(from.repeater_ids_);
+  object_ids_.MergeFrom(from.object_ids_);
+  if (from.with_objects() != 0) {
+    set_with_objects(from.with_objects());
+  }
+}
+
+void QueryRepeatersRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.auth.QueryRepeatersRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void QueryRepeatersRequest::CopyFrom(const QueryRepeatersRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.auth.QueryRepeatersRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool QueryRepeatersRequest::IsInitialized() const {
+  return true;
+}
+
+void QueryRepeatersRequest::Swap(QueryRepeatersRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void QueryRepeatersRequest::InternalSwap(QueryRepeatersRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  protocols_.InternalSwap(CastToBase(&other->protocols_));
+  repeater_ids_.InternalSwap(CastToBase(&other->repeater_ids_));
+  object_ids_.InternalSwap(CastToBase(&other->object_ids_));
+  swap(with_objects_, other->with_objects_);
+}
+
+::google::protobuf::Metadata QueryRepeatersRequest::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dauth_2fricauth_2eproto);
+  return ::file_level_metadata_ric_2dauth_2fricauth_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void RepeaterInfo_ObjectRepeaterInfo::InitAsDefaultInstance() {
+}
+class RepeaterInfo_ObjectRepeaterInfo::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int RepeaterInfo_ObjectRepeaterInfo::kObjectIdFieldNumber;
+const int RepeaterInfo_ObjectRepeaterInfo::kRepeaterConfigFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+RepeaterInfo_ObjectRepeaterInfo::RepeaterInfo_ObjectRepeaterInfo()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+}
+RepeaterInfo_ObjectRepeaterInfo::RepeaterInfo_ObjectRepeaterInfo(const RepeaterInfo_ObjectRepeaterInfo& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.object_id().size() > 0) {
+    object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
+  }
+  repeater_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.repeater_config().size() > 0) {
+    repeater_config_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.repeater_config_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+}
+
+void RepeaterInfo_ObjectRepeaterInfo::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_RepeaterInfo_ObjectRepeaterInfo_ric_2dauth_2fricauth_2eproto.base);
+  object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  repeater_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+RepeaterInfo_ObjectRepeaterInfo::~RepeaterInfo_ObjectRepeaterInfo() {
+  // @@protoc_insertion_point(destructor:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+  SharedDtor();
+}
+
+void RepeaterInfo_ObjectRepeaterInfo::SharedDtor() {
+  object_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  repeater_config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void RepeaterInfo_ObjectRepeaterInfo::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const RepeaterInfo_ObjectRepeaterInfo& RepeaterInfo_ObjectRepeaterInfo::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_RepeaterInfo_ObjectRepeaterInfo_ric_2dauth_2fricauth_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void RepeaterInfo_ObjectRepeaterInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  repeater_config_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* RepeaterInfo_ObjectRepeaterInfo::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<RepeaterInfo_ObjectRepeaterInfo*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // string object_id = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.auth.RepeaterInfo.ObjectRepeaterInfo.object_id");
+        object = msg->mutable_object_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string repeater_config = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.auth.RepeaterInfo.ObjectRepeaterInfo.repeater_config");
+        object = msg->mutable_repeater_config();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool RepeaterInfo_ObjectRepeaterInfo::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string object_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_object_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->object_id().data(), static_cast<int>(this->object_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.RepeaterInfo.ObjectRepeaterInfo.object_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string repeater_config = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_repeater_config()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->repeater_config().data(), static_cast<int>(this->repeater_config().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.RepeaterInfo.ObjectRepeaterInfo.repeater_config"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void RepeaterInfo_ObjectRepeaterInfo::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string object_id = 1;
+  if (this->object_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->object_id().data(), static_cast<int>(this->object_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.ObjectRepeaterInfo.object_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->object_id(), output);
+  }
+
+  // string repeater_config = 2;
+  if (this->repeater_config().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->repeater_config().data(), static_cast<int>(this->repeater_config().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.ObjectRepeaterInfo.repeater_config");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->repeater_config(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+}
+
+::google::protobuf::uint8* RepeaterInfo_ObjectRepeaterInfo::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string object_id = 1;
+  if (this->object_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->object_id().data(), static_cast<int>(this->object_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.ObjectRepeaterInfo.object_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->object_id(), target);
+  }
+
+  // string repeater_config = 2;
+  if (this->repeater_config().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->repeater_config().data(), static_cast<int>(this->repeater_config().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.ObjectRepeaterInfo.repeater_config");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->repeater_config(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+  return target;
+}
+
+size_t RepeaterInfo_ObjectRepeaterInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string object_id = 1;
+  if (this->object_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->object_id());
+  }
+
+  // string repeater_config = 2;
+  if (this->repeater_config().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->repeater_config());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void RepeaterInfo_ObjectRepeaterInfo::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  const RepeaterInfo_ObjectRepeaterInfo* source =
+      ::google::protobuf::DynamicCastToGenerated<RepeaterInfo_ObjectRepeaterInfo>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+    MergeFrom(*source);
+  }
+}
+
+void RepeaterInfo_ObjectRepeaterInfo::MergeFrom(const RepeaterInfo_ObjectRepeaterInfo& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.object_id().size() > 0) {
+
+    object_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.object_id_);
+  }
+  if (from.repeater_config().size() > 0) {
+
+    repeater_config_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.repeater_config_);
+  }
+}
+
+void RepeaterInfo_ObjectRepeaterInfo::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RepeaterInfo_ObjectRepeaterInfo::CopyFrom(const RepeaterInfo_ObjectRepeaterInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RepeaterInfo_ObjectRepeaterInfo::IsInitialized() const {
+  return true;
+}
+
+void RepeaterInfo_ObjectRepeaterInfo::Swap(RepeaterInfo_ObjectRepeaterInfo* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void RepeaterInfo_ObjectRepeaterInfo::InternalSwap(RepeaterInfo_ObjectRepeaterInfo* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  object_id_.Swap(&other->object_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  repeater_config_.Swap(&other->repeater_config_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+}
+
+::google::protobuf::Metadata RepeaterInfo_ObjectRepeaterInfo::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dauth_2fricauth_2eproto);
+  return ::file_level_metadata_ric_2dauth_2fricauth_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void RepeaterInfo::InitAsDefaultInstance() {
+}
+class RepeaterInfo::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int RepeaterInfo::kRepeaterIdFieldNumber;
+const int RepeaterInfo::kProtocolFieldNumber;
+const int RepeaterInfo::kNameFieldNumber;
+const int RepeaterInfo::kHostFieldNumber;
+const int RepeaterInfo::kPortFieldNumber;
+const int RepeaterInfo::kConfigFieldNumber;
+const int RepeaterInfo::kObjectsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+RepeaterInfo::RepeaterInfo()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.auth.RepeaterInfo)
+}
+RepeaterInfo::RepeaterInfo(const RepeaterInfo& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr),
+      objects_(from.objects_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  repeater_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.repeater_id().size() > 0) {
+    repeater_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.repeater_id_);
+  }
+  protocol_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.protocol().size() > 0) {
+    protocol_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.protocol_);
+  }
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.name().size() > 0) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  host_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.host().size() > 0) {
+    host_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.host_);
+  }
+  config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.config().size() > 0) {
+    config_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.config_);
+  }
+  port_ = from.port_;
+  // @@protoc_insertion_point(copy_constructor:ric.auth.RepeaterInfo)
+}
+
+void RepeaterInfo::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_RepeaterInfo_ric_2dauth_2fricauth_2eproto.base);
+  repeater_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  protocol_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  host_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  port_ = 0;
+}
+
+RepeaterInfo::~RepeaterInfo() {
+  // @@protoc_insertion_point(destructor:ric.auth.RepeaterInfo)
+  SharedDtor();
+}
+
+void RepeaterInfo::SharedDtor() {
+  repeater_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  protocol_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  host_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void RepeaterInfo::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const RepeaterInfo& RepeaterInfo::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_RepeaterInfo_ric_2dauth_2fricauth_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void RepeaterInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.auth.RepeaterInfo)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  objects_.Clear();
+  repeater_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  protocol_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  host_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  config_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  port_ = 0;
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* RepeaterInfo::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<RepeaterInfo*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // string repeater_id = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.auth.RepeaterInfo.repeater_id");
+        object = msg->mutable_repeater_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string protocol = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.auth.RepeaterInfo.protocol");
+        object = msg->mutable_protocol();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string name = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.auth.RepeaterInfo.name");
+        object = msg->mutable_name();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string host = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.auth.RepeaterInfo.host");
+        object = msg->mutable_host();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // int32 port = 5;
+      case 5: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 40) goto handle_unusual;
+        msg->set_port(::google::protobuf::internal::ReadVarint(&ptr));
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        break;
+      }
+      // string config = 6;
+      case 6: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 50) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.auth.RepeaterInfo.config");
+        object = msg->mutable_config();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // repeated .ric.auth.RepeaterInfo.ObjectRepeaterInfo objects = 10;
+      case 10: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 82) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::ric::auth::RepeaterInfo_ObjectRepeaterInfo::_InternalParse;
+          object = msg->add_objects();
+          if (size > end - ptr) goto len_delim_till_end;
+          ptr += size;
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+              {parser_till_end, object}, ptr - size, ptr));
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 82 && (ptr += 1));
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool RepeaterInfo::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.auth.RepeaterInfo)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string repeater_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_repeater_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->repeater_id().data(), static_cast<int>(this->repeater_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.RepeaterInfo.repeater_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string protocol = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_protocol()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->protocol().data(), static_cast<int>(this->protocol().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.RepeaterInfo.protocol"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string name = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_name()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->name().data(), static_cast<int>(this->name().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.RepeaterInfo.name"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string host = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_host()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->host().data(), static_cast<int>(this->host().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.RepeaterInfo.host"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 port = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (40 & 0xFF)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &port_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string config = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (50 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_config()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->config().data(), static_cast<int>(this->config().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.RepeaterInfo.config"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .ric.auth.RepeaterInfo.ObjectRepeaterInfo objects = 10;
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (82 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+                input, add_objects()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.auth.RepeaterInfo)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.auth.RepeaterInfo)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void RepeaterInfo::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.auth.RepeaterInfo)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string repeater_id = 1;
+  if (this->repeater_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->repeater_id().data(), static_cast<int>(this->repeater_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.repeater_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->repeater_id(), output);
+  }
+
+  // string protocol = 2;
+  if (this->protocol().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->protocol().data(), static_cast<int>(this->protocol().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.protocol");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->protocol(), output);
+  }
+
+  // string name = 3;
+  if (this->name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->name().data(), static_cast<int>(this->name().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->name(), output);
+  }
+
+  // string host = 4;
+  if (this->host().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->host().data(), static_cast<int>(this->host().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.host");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->host(), output);
+  }
+
+  // int32 port = 5;
+  if (this->port() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->port(), output);
+  }
+
+  // string config = 6;
+  if (this->config().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->config().data(), static_cast<int>(this->config().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.config");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      6, this->config(), output);
+  }
+
+  // repeated .ric.auth.RepeaterInfo.ObjectRepeaterInfo objects = 10;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->objects_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      10,
+      this->objects(static_cast<int>(i)),
+      output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.auth.RepeaterInfo)
+}
+
+::google::protobuf::uint8* RepeaterInfo::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.auth.RepeaterInfo)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string repeater_id = 1;
+  if (this->repeater_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->repeater_id().data(), static_cast<int>(this->repeater_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.repeater_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->repeater_id(), target);
+  }
+
+  // string protocol = 2;
+  if (this->protocol().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->protocol().data(), static_cast<int>(this->protocol().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.protocol");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->protocol(), target);
+  }
+
+  // string name = 3;
+  if (this->name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->name().data(), static_cast<int>(this->name().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.name");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->name(), target);
+  }
+
+  // string host = 4;
+  if (this->host().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->host().data(), static_cast<int>(this->host().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.host");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->host(), target);
+  }
+
+  // int32 port = 5;
+  if (this->port() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->port(), target);
+  }
+
+  // string config = 6;
+  if (this->config().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->config().data(), static_cast<int>(this->config().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.config");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->config(), target);
+  }
+
+  // repeated .ric.auth.RepeaterInfo.ObjectRepeaterInfo objects = 10;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->objects_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        10, this->objects(static_cast<int>(i)), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.auth.RepeaterInfo)
+  return target;
+}
+
+size_t RepeaterInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.auth.RepeaterInfo)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .ric.auth.RepeaterInfo.ObjectRepeaterInfo objects = 10;
+  {
+    unsigned int count = static_cast<unsigned int>(this->objects_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->objects(static_cast<int>(i)));
+    }
+  }
+
+  // string repeater_id = 1;
+  if (this->repeater_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->repeater_id());
+  }
+
+  // string protocol = 2;
+  if (this->protocol().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->protocol());
+  }
+
+  // string name = 3;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->name());
+  }
+
+  // string host = 4;
+  if (this->host().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->host());
+  }
+
+  // string config = 6;
+  if (this->config().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->config());
+  }
+
+  // int32 port = 5;
+  if (this->port() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->port());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void RepeaterInfo::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.auth.RepeaterInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  const RepeaterInfo* source =
+      ::google::protobuf::DynamicCastToGenerated<RepeaterInfo>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.auth.RepeaterInfo)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.auth.RepeaterInfo)
+    MergeFrom(*source);
+  }
+}
+
+void RepeaterInfo::MergeFrom(const RepeaterInfo& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.auth.RepeaterInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  objects_.MergeFrom(from.objects_);
+  if (from.repeater_id().size() > 0) {
+
+    repeater_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.repeater_id_);
+  }
+  if (from.protocol().size() > 0) {
+
+    protocol_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.protocol_);
+  }
+  if (from.name().size() > 0) {
+
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  if (from.host().size() > 0) {
+
+    host_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.host_);
+  }
+  if (from.config().size() > 0) {
+
+    config_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.config_);
+  }
+  if (from.port() != 0) {
+    set_port(from.port());
+  }
+}
+
+void RepeaterInfo::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.auth.RepeaterInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RepeaterInfo::CopyFrom(const RepeaterInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.auth.RepeaterInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RepeaterInfo::IsInitialized() const {
+  return true;
+}
+
+void RepeaterInfo::Swap(RepeaterInfo* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void RepeaterInfo::InternalSwap(RepeaterInfo* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  CastToBase(&objects_)->InternalSwap(CastToBase(&other->objects_));
+  repeater_id_.Swap(&other->repeater_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  protocol_.Swap(&other->protocol_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  name_.Swap(&other->name_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  host_.Swap(&other->host_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  config_.Swap(&other->config_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(port_, other->port_);
+}
+
+::google::protobuf::Metadata RepeaterInfo::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dauth_2fricauth_2eproto);
+  return ::file_level_metadata_ric_2dauth_2fricauth_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void RepeatersResponse::InitAsDefaultInstance() {
+}
+class RepeatersResponse::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int RepeatersResponse::kRepeatersFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+RepeatersResponse::RepeatersResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.auth.RepeatersResponse)
+}
+RepeatersResponse::RepeatersResponse(const RepeatersResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr),
+      repeaters_(from.repeaters_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:ric.auth.RepeatersResponse)
+}
+
+void RepeatersResponse::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_RepeatersResponse_ric_2dauth_2fricauth_2eproto.base);
+}
+
+RepeatersResponse::~RepeatersResponse() {
+  // @@protoc_insertion_point(destructor:ric.auth.RepeatersResponse)
+  SharedDtor();
+}
+
+void RepeatersResponse::SharedDtor() {
+}
+
+void RepeatersResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const RepeatersResponse& RepeatersResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_RepeatersResponse_ric_2dauth_2fricauth_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void RepeatersResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.auth.RepeatersResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  repeaters_.Clear();
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* RepeatersResponse::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<RepeatersResponse*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // repeated .ric.auth.RepeaterInfo repeaters = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::ric::auth::RepeaterInfo::_InternalParse;
+          object = msg->add_repeaters();
+          if (size > end - ptr) goto len_delim_till_end;
+          ptr += size;
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+              {parser_till_end, object}, ptr - size, ptr));
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 10 && (ptr += 1));
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool RepeatersResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.auth.RepeatersResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .ric.auth.RepeaterInfo repeaters = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+                input, add_repeaters()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.auth.RepeatersResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.auth.RepeatersResponse)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void RepeatersResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.auth.RepeatersResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .ric.auth.RepeaterInfo repeaters = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->repeaters_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1,
+      this->repeaters(static_cast<int>(i)),
+      output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.auth.RepeatersResponse)
+}
+
+::google::protobuf::uint8* RepeatersResponse::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.auth.RepeatersResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .ric.auth.RepeaterInfo repeaters = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->repeaters_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, this->repeaters(static_cast<int>(i)), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.auth.RepeatersResponse)
+  return target;
+}
+
+size_t RepeatersResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.auth.RepeatersResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .ric.auth.RepeaterInfo repeaters = 1;
+  {
+    unsigned int count = static_cast<unsigned int>(this->repeaters_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->repeaters(static_cast<int>(i)));
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void RepeatersResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.auth.RepeatersResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const RepeatersResponse* source =
+      ::google::protobuf::DynamicCastToGenerated<RepeatersResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.auth.RepeatersResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.auth.RepeatersResponse)
+    MergeFrom(*source);
+  }
+}
+
+void RepeatersResponse::MergeFrom(const RepeatersResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.auth.RepeatersResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  repeaters_.MergeFrom(from.repeaters_);
+}
+
+void RepeatersResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.auth.RepeatersResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RepeatersResponse::CopyFrom(const RepeatersResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.auth.RepeatersResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RepeatersResponse::IsInitialized() const {
+  return true;
+}
+
+void RepeatersResponse::Swap(RepeatersResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void RepeatersResponse::InternalSwap(RepeatersResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  CastToBase(&repeaters_)->InternalSwap(CastToBase(&other->repeaters_));
+}
+
+::google::protobuf::Metadata RepeatersResponse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dauth_2fricauth_2eproto);
+  return ::file_level_metadata_ric_2dauth_2fricauth_2eproto[kIndexInFileMessages];
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace auth
 }  // namespace ric
@@ -6181,6 +8130,18 @@ template<> PROTOBUF_NOINLINE ::ric::auth::ObjectGateRequest* Arena::CreateMaybeM
 }
 template<> PROTOBUF_NOINLINE ::ric::auth::ObjectGateResponse* Arena::CreateMaybeMessage< ::ric::auth::ObjectGateResponse >(Arena* arena) {
   return Arena::CreateInternal< ::ric::auth::ObjectGateResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::auth::QueryRepeatersRequest* Arena::CreateMaybeMessage< ::ric::auth::QueryRepeatersRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::auth::QueryRepeatersRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::auth::RepeaterInfo_ObjectRepeaterInfo* Arena::CreateMaybeMessage< ::ric::auth::RepeaterInfo_ObjectRepeaterInfo >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::auth::RepeaterInfo_ObjectRepeaterInfo >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::auth::RepeaterInfo* Arena::CreateMaybeMessage< ::ric::auth::RepeaterInfo >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::auth::RepeaterInfo >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::auth::RepeatersResponse* Arena::CreateMaybeMessage< ::ric::auth::RepeatersResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::auth::RepeatersResponse >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

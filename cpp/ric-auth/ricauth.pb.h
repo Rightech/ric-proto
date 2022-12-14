@@ -44,7 +44,7 @@ struct TableStruct_ric_2dauth_2fricauth_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[13]
+  static const ::google::protobuf::internal::ParseTable schema[17]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -89,6 +89,18 @@ extern ObjectGateRequestDefaultTypeInternal _ObjectGateRequest_default_instance_
 class ObjectGateResponse;
 class ObjectGateResponseDefaultTypeInternal;
 extern ObjectGateResponseDefaultTypeInternal _ObjectGateResponse_default_instance_;
+class QueryRepeatersRequest;
+class QueryRepeatersRequestDefaultTypeInternal;
+extern QueryRepeatersRequestDefaultTypeInternal _QueryRepeatersRequest_default_instance_;
+class RepeaterInfo;
+class RepeaterInfoDefaultTypeInternal;
+extern RepeaterInfoDefaultTypeInternal _RepeaterInfo_default_instance_;
+class RepeaterInfo_ObjectRepeaterInfo;
+class RepeaterInfo_ObjectRepeaterInfoDefaultTypeInternal;
+extern RepeaterInfo_ObjectRepeaterInfoDefaultTypeInternal _RepeaterInfo_ObjectRepeaterInfo_default_instance_;
+class RepeatersResponse;
+class RepeatersResponseDefaultTypeInternal;
+extern RepeatersResponseDefaultTypeInternal _RepeatersResponse_default_instance_;
 class StatRecord;
 class StatRecordDefaultTypeInternal;
 extern StatRecordDefaultTypeInternal _StatRecord_default_instance_;
@@ -108,6 +120,10 @@ template<> ::ric::auth::ModelInfoRequest* Arena::CreateMaybeMessage<::ric::auth:
 template<> ::ric::auth::ModelInfoResponse* Arena::CreateMaybeMessage<::ric::auth::ModelInfoResponse>(Arena*);
 template<> ::ric::auth::ObjectGateRequest* Arena::CreateMaybeMessage<::ric::auth::ObjectGateRequest>(Arena*);
 template<> ::ric::auth::ObjectGateResponse* Arena::CreateMaybeMessage<::ric::auth::ObjectGateResponse>(Arena*);
+template<> ::ric::auth::QueryRepeatersRequest* Arena::CreateMaybeMessage<::ric::auth::QueryRepeatersRequest>(Arena*);
+template<> ::ric::auth::RepeaterInfo* Arena::CreateMaybeMessage<::ric::auth::RepeaterInfo>(Arena*);
+template<> ::ric::auth::RepeaterInfo_ObjectRepeaterInfo* Arena::CreateMaybeMessage<::ric::auth::RepeaterInfo_ObjectRepeaterInfo>(Arena*);
+template<> ::ric::auth::RepeatersResponse* Arena::CreateMaybeMessage<::ric::auth::RepeatersResponse>(Arena*);
 template<> ::ric::auth::StatRecord* Arena::CreateMaybeMessage<::ric::auth::StatRecord>(Arena*);
 }  // namespace protobuf
 }  // namespace google
@@ -1911,6 +1927,642 @@ class ObjectGateResponse final :
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dauth_2fricauth_2eproto;
+};
+// -------------------------------------------------------------------
+
+class QueryRepeatersRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.auth.QueryRepeatersRequest) */ {
+ public:
+  QueryRepeatersRequest();
+  virtual ~QueryRepeatersRequest();
+
+  QueryRepeatersRequest(const QueryRepeatersRequest& from);
+
+  inline QueryRepeatersRequest& operator=(const QueryRepeatersRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  QueryRepeatersRequest(QueryRepeatersRequest&& from) noexcept
+    : QueryRepeatersRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline QueryRepeatersRequest& operator=(QueryRepeatersRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const QueryRepeatersRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const QueryRepeatersRequest* internal_default_instance() {
+    return reinterpret_cast<const QueryRepeatersRequest*>(
+               &_QueryRepeatersRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    13;
+
+  void Swap(QueryRepeatersRequest* other);
+  friend void swap(QueryRepeatersRequest& a, QueryRepeatersRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline QueryRepeatersRequest* New() const final {
+    return CreateMaybeMessage<QueryRepeatersRequest>(nullptr);
+  }
+
+  QueryRepeatersRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<QueryRepeatersRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const QueryRepeatersRequest& from);
+  void MergeFrom(const QueryRepeatersRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(QueryRepeatersRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated string protocols = 2;
+  int protocols_size() const;
+  void clear_protocols();
+  static const int kProtocolsFieldNumber = 2;
+  const ::std::string& protocols(int index) const;
+  ::std::string* mutable_protocols(int index);
+  void set_protocols(int index, const ::std::string& value);
+  #if LANG_CXX11
+  void set_protocols(int index, ::std::string&& value);
+  #endif
+  void set_protocols(int index, const char* value);
+  void set_protocols(int index, const char* value, size_t size);
+  ::std::string* add_protocols();
+  void add_protocols(const ::std::string& value);
+  #if LANG_CXX11
+  void add_protocols(::std::string&& value);
+  #endif
+  void add_protocols(const char* value);
+  void add_protocols(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField<::std::string>& protocols() const;
+  ::google::protobuf::RepeatedPtrField<::std::string>* mutable_protocols();
+
+  // repeated string repeater_ids = 3;
+  int repeater_ids_size() const;
+  void clear_repeater_ids();
+  static const int kRepeaterIdsFieldNumber = 3;
+  const ::std::string& repeater_ids(int index) const;
+  ::std::string* mutable_repeater_ids(int index);
+  void set_repeater_ids(int index, const ::std::string& value);
+  #if LANG_CXX11
+  void set_repeater_ids(int index, ::std::string&& value);
+  #endif
+  void set_repeater_ids(int index, const char* value);
+  void set_repeater_ids(int index, const char* value, size_t size);
+  ::std::string* add_repeater_ids();
+  void add_repeater_ids(const ::std::string& value);
+  #if LANG_CXX11
+  void add_repeater_ids(::std::string&& value);
+  #endif
+  void add_repeater_ids(const char* value);
+  void add_repeater_ids(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField<::std::string>& repeater_ids() const;
+  ::google::protobuf::RepeatedPtrField<::std::string>* mutable_repeater_ids();
+
+  // repeated string object_ids = 4;
+  int object_ids_size() const;
+  void clear_object_ids();
+  static const int kObjectIdsFieldNumber = 4;
+  const ::std::string& object_ids(int index) const;
+  ::std::string* mutable_object_ids(int index);
+  void set_object_ids(int index, const ::std::string& value);
+  #if LANG_CXX11
+  void set_object_ids(int index, ::std::string&& value);
+  #endif
+  void set_object_ids(int index, const char* value);
+  void set_object_ids(int index, const char* value, size_t size);
+  ::std::string* add_object_ids();
+  void add_object_ids(const ::std::string& value);
+  #if LANG_CXX11
+  void add_object_ids(::std::string&& value);
+  #endif
+  void add_object_ids(const char* value);
+  void add_object_ids(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField<::std::string>& object_ids() const;
+  ::google::protobuf::RepeatedPtrField<::std::string>* mutable_object_ids();
+
+  // bool with_objects = 1;
+  void clear_with_objects();
+  static const int kWithObjectsFieldNumber = 1;
+  bool with_objects() const;
+  void set_with_objects(bool value);
+
+  // @@protoc_insertion_point(class_scope:ric.auth.QueryRepeatersRequest)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField<::std::string> protocols_;
+  ::google::protobuf::RepeatedPtrField<::std::string> repeater_ids_;
+  ::google::protobuf::RepeatedPtrField<::std::string> object_ids_;
+  bool with_objects_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dauth_2fricauth_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RepeaterInfo_ObjectRepeaterInfo final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.auth.RepeaterInfo.ObjectRepeaterInfo) */ {
+ public:
+  RepeaterInfo_ObjectRepeaterInfo();
+  virtual ~RepeaterInfo_ObjectRepeaterInfo();
+
+  RepeaterInfo_ObjectRepeaterInfo(const RepeaterInfo_ObjectRepeaterInfo& from);
+
+  inline RepeaterInfo_ObjectRepeaterInfo& operator=(const RepeaterInfo_ObjectRepeaterInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  RepeaterInfo_ObjectRepeaterInfo(RepeaterInfo_ObjectRepeaterInfo&& from) noexcept
+    : RepeaterInfo_ObjectRepeaterInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline RepeaterInfo_ObjectRepeaterInfo& operator=(RepeaterInfo_ObjectRepeaterInfo&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const RepeaterInfo_ObjectRepeaterInfo& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const RepeaterInfo_ObjectRepeaterInfo* internal_default_instance() {
+    return reinterpret_cast<const RepeaterInfo_ObjectRepeaterInfo*>(
+               &_RepeaterInfo_ObjectRepeaterInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  void Swap(RepeaterInfo_ObjectRepeaterInfo* other);
+  friend void swap(RepeaterInfo_ObjectRepeaterInfo& a, RepeaterInfo_ObjectRepeaterInfo& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RepeaterInfo_ObjectRepeaterInfo* New() const final {
+    return CreateMaybeMessage<RepeaterInfo_ObjectRepeaterInfo>(nullptr);
+  }
+
+  RepeaterInfo_ObjectRepeaterInfo* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<RepeaterInfo_ObjectRepeaterInfo>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const RepeaterInfo_ObjectRepeaterInfo& from);
+  void MergeFrom(const RepeaterInfo_ObjectRepeaterInfo& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RepeaterInfo_ObjectRepeaterInfo* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string object_id = 1;
+  void clear_object_id();
+  static const int kObjectIdFieldNumber = 1;
+  const ::std::string& object_id() const;
+  void set_object_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_object_id(::std::string&& value);
+  #endif
+  void set_object_id(const char* value);
+  void set_object_id(const char* value, size_t size);
+  ::std::string* mutable_object_id();
+  ::std::string* release_object_id();
+  void set_allocated_object_id(::std::string* object_id);
+
+  // string repeater_config = 2;
+  void clear_repeater_config();
+  static const int kRepeaterConfigFieldNumber = 2;
+  const ::std::string& repeater_config() const;
+  void set_repeater_config(const ::std::string& value);
+  #if LANG_CXX11
+  void set_repeater_config(::std::string&& value);
+  #endif
+  void set_repeater_config(const char* value);
+  void set_repeater_config(const char* value, size_t size);
+  ::std::string* mutable_repeater_config();
+  ::std::string* release_repeater_config();
+  void set_allocated_repeater_config(::std::string* repeater_config);
+
+  // @@protoc_insertion_point(class_scope:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr object_id_;
+  ::google::protobuf::internal::ArenaStringPtr repeater_config_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dauth_2fricauth_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RepeaterInfo final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.auth.RepeaterInfo) */ {
+ public:
+  RepeaterInfo();
+  virtual ~RepeaterInfo();
+
+  RepeaterInfo(const RepeaterInfo& from);
+
+  inline RepeaterInfo& operator=(const RepeaterInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  RepeaterInfo(RepeaterInfo&& from) noexcept
+    : RepeaterInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline RepeaterInfo& operator=(RepeaterInfo&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const RepeaterInfo& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const RepeaterInfo* internal_default_instance() {
+    return reinterpret_cast<const RepeaterInfo*>(
+               &_RepeaterInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  void Swap(RepeaterInfo* other);
+  friend void swap(RepeaterInfo& a, RepeaterInfo& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RepeaterInfo* New() const final {
+    return CreateMaybeMessage<RepeaterInfo>(nullptr);
+  }
+
+  RepeaterInfo* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<RepeaterInfo>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const RepeaterInfo& from);
+  void MergeFrom(const RepeaterInfo& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RepeaterInfo* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef RepeaterInfo_ObjectRepeaterInfo ObjectRepeaterInfo;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .ric.auth.RepeaterInfo.ObjectRepeaterInfo objects = 10;
+  int objects_size() const;
+  void clear_objects();
+  static const int kObjectsFieldNumber = 10;
+  ::ric::auth::RepeaterInfo_ObjectRepeaterInfo* mutable_objects(int index);
+  ::google::protobuf::RepeatedPtrField< ::ric::auth::RepeaterInfo_ObjectRepeaterInfo >*
+      mutable_objects();
+  const ::ric::auth::RepeaterInfo_ObjectRepeaterInfo& objects(int index) const;
+  ::ric::auth::RepeaterInfo_ObjectRepeaterInfo* add_objects();
+  const ::google::protobuf::RepeatedPtrField< ::ric::auth::RepeaterInfo_ObjectRepeaterInfo >&
+      objects() const;
+
+  // string repeater_id = 1;
+  void clear_repeater_id();
+  static const int kRepeaterIdFieldNumber = 1;
+  const ::std::string& repeater_id() const;
+  void set_repeater_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_repeater_id(::std::string&& value);
+  #endif
+  void set_repeater_id(const char* value);
+  void set_repeater_id(const char* value, size_t size);
+  ::std::string* mutable_repeater_id();
+  ::std::string* release_repeater_id();
+  void set_allocated_repeater_id(::std::string* repeater_id);
+
+  // string protocol = 2;
+  void clear_protocol();
+  static const int kProtocolFieldNumber = 2;
+  const ::std::string& protocol() const;
+  void set_protocol(const ::std::string& value);
+  #if LANG_CXX11
+  void set_protocol(::std::string&& value);
+  #endif
+  void set_protocol(const char* value);
+  void set_protocol(const char* value, size_t size);
+  ::std::string* mutable_protocol();
+  ::std::string* release_protocol();
+  void set_allocated_protocol(::std::string* protocol);
+
+  // string name = 3;
+  void clear_name();
+  static const int kNameFieldNumber = 3;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // string host = 4;
+  void clear_host();
+  static const int kHostFieldNumber = 4;
+  const ::std::string& host() const;
+  void set_host(const ::std::string& value);
+  #if LANG_CXX11
+  void set_host(::std::string&& value);
+  #endif
+  void set_host(const char* value);
+  void set_host(const char* value, size_t size);
+  ::std::string* mutable_host();
+  ::std::string* release_host();
+  void set_allocated_host(::std::string* host);
+
+  // string config = 6;
+  void clear_config();
+  static const int kConfigFieldNumber = 6;
+  const ::std::string& config() const;
+  void set_config(const ::std::string& value);
+  #if LANG_CXX11
+  void set_config(::std::string&& value);
+  #endif
+  void set_config(const char* value);
+  void set_config(const char* value, size_t size);
+  ::std::string* mutable_config();
+  ::std::string* release_config();
+  void set_allocated_config(::std::string* config);
+
+  // int32 port = 5;
+  void clear_port();
+  static const int kPortFieldNumber = 5;
+  ::google::protobuf::int32 port() const;
+  void set_port(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:ric.auth.RepeaterInfo)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::ric::auth::RepeaterInfo_ObjectRepeaterInfo > objects_;
+  ::google::protobuf::internal::ArenaStringPtr repeater_id_;
+  ::google::protobuf::internal::ArenaStringPtr protocol_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::internal::ArenaStringPtr host_;
+  ::google::protobuf::internal::ArenaStringPtr config_;
+  ::google::protobuf::int32 port_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dauth_2fricauth_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RepeatersResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.auth.RepeatersResponse) */ {
+ public:
+  RepeatersResponse();
+  virtual ~RepeatersResponse();
+
+  RepeatersResponse(const RepeatersResponse& from);
+
+  inline RepeatersResponse& operator=(const RepeatersResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  RepeatersResponse(RepeatersResponse&& from) noexcept
+    : RepeatersResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline RepeatersResponse& operator=(RepeatersResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const RepeatersResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const RepeatersResponse* internal_default_instance() {
+    return reinterpret_cast<const RepeatersResponse*>(
+               &_RepeatersResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  void Swap(RepeatersResponse* other);
+  friend void swap(RepeatersResponse& a, RepeatersResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RepeatersResponse* New() const final {
+    return CreateMaybeMessage<RepeatersResponse>(nullptr);
+  }
+
+  RepeatersResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<RepeatersResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const RepeatersResponse& from);
+  void MergeFrom(const RepeatersResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RepeatersResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .ric.auth.RepeaterInfo repeaters = 1;
+  int repeaters_size() const;
+  void clear_repeaters();
+  static const int kRepeatersFieldNumber = 1;
+  ::ric::auth::RepeaterInfo* mutable_repeaters(int index);
+  ::google::protobuf::RepeatedPtrField< ::ric::auth::RepeaterInfo >*
+      mutable_repeaters();
+  const ::ric::auth::RepeaterInfo& repeaters(int index) const;
+  ::ric::auth::RepeaterInfo* add_repeaters();
+  const ::google::protobuf::RepeatedPtrField< ::ric::auth::RepeaterInfo >&
+      repeaters() const;
+
+  // @@protoc_insertion_point(class_scope:ric.auth.RepeatersResponse)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::ric::auth::RepeaterInfo > repeaters_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dauth_2fricauth_2eproto;
 };
@@ -3862,9 +4514,699 @@ inline void ObjectGateRequest::set_allocated_object_id(::std::string* object_id)
 
 // ObjectGateResponse
 
+// -------------------------------------------------------------------
+
+// QueryRepeatersRequest
+
+// bool with_objects = 1;
+inline void QueryRepeatersRequest::clear_with_objects() {
+  with_objects_ = false;
+}
+inline bool QueryRepeatersRequest::with_objects() const {
+  // @@protoc_insertion_point(field_get:ric.auth.QueryRepeatersRequest.with_objects)
+  return with_objects_;
+}
+inline void QueryRepeatersRequest::set_with_objects(bool value) {
+  
+  with_objects_ = value;
+  // @@protoc_insertion_point(field_set:ric.auth.QueryRepeatersRequest.with_objects)
+}
+
+// repeated string protocols = 2;
+inline int QueryRepeatersRequest::protocols_size() const {
+  return protocols_.size();
+}
+inline void QueryRepeatersRequest::clear_protocols() {
+  protocols_.Clear();
+}
+inline const ::std::string& QueryRepeatersRequest::protocols(int index) const {
+  // @@protoc_insertion_point(field_get:ric.auth.QueryRepeatersRequest.protocols)
+  return protocols_.Get(index);
+}
+inline ::std::string* QueryRepeatersRequest::mutable_protocols(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.auth.QueryRepeatersRequest.protocols)
+  return protocols_.Mutable(index);
+}
+inline void QueryRepeatersRequest::set_protocols(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:ric.auth.QueryRepeatersRequest.protocols)
+  protocols_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+inline void QueryRepeatersRequest::set_protocols(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:ric.auth.QueryRepeatersRequest.protocols)
+  protocols_.Mutable(index)->assign(std::move(value));
+}
+#endif
+inline void QueryRepeatersRequest::set_protocols(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  protocols_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ric.auth.QueryRepeatersRequest.protocols)
+}
+inline void QueryRepeatersRequest::set_protocols(int index, const char* value, size_t size) {
+  protocols_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.QueryRepeatersRequest.protocols)
+}
+inline ::std::string* QueryRepeatersRequest::add_protocols() {
+  // @@protoc_insertion_point(field_add_mutable:ric.auth.QueryRepeatersRequest.protocols)
+  return protocols_.Add();
+}
+inline void QueryRepeatersRequest::add_protocols(const ::std::string& value) {
+  protocols_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ric.auth.QueryRepeatersRequest.protocols)
+}
+#if LANG_CXX11
+inline void QueryRepeatersRequest::add_protocols(::std::string&& value) {
+  protocols_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ric.auth.QueryRepeatersRequest.protocols)
+}
+#endif
+inline void QueryRepeatersRequest::add_protocols(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  protocols_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ric.auth.QueryRepeatersRequest.protocols)
+}
+inline void QueryRepeatersRequest::add_protocols(const char* value, size_t size) {
+  protocols_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ric.auth.QueryRepeatersRequest.protocols)
+}
+inline const ::google::protobuf::RepeatedPtrField<::std::string>&
+QueryRepeatersRequest::protocols() const {
+  // @@protoc_insertion_point(field_list:ric.auth.QueryRepeatersRequest.protocols)
+  return protocols_;
+}
+inline ::google::protobuf::RepeatedPtrField<::std::string>*
+QueryRepeatersRequest::mutable_protocols() {
+  // @@protoc_insertion_point(field_mutable_list:ric.auth.QueryRepeatersRequest.protocols)
+  return &protocols_;
+}
+
+// repeated string repeater_ids = 3;
+inline int QueryRepeatersRequest::repeater_ids_size() const {
+  return repeater_ids_.size();
+}
+inline void QueryRepeatersRequest::clear_repeater_ids() {
+  repeater_ids_.Clear();
+}
+inline const ::std::string& QueryRepeatersRequest::repeater_ids(int index) const {
+  // @@protoc_insertion_point(field_get:ric.auth.QueryRepeatersRequest.repeater_ids)
+  return repeater_ids_.Get(index);
+}
+inline ::std::string* QueryRepeatersRequest::mutable_repeater_ids(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.auth.QueryRepeatersRequest.repeater_ids)
+  return repeater_ids_.Mutable(index);
+}
+inline void QueryRepeatersRequest::set_repeater_ids(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:ric.auth.QueryRepeatersRequest.repeater_ids)
+  repeater_ids_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+inline void QueryRepeatersRequest::set_repeater_ids(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:ric.auth.QueryRepeatersRequest.repeater_ids)
+  repeater_ids_.Mutable(index)->assign(std::move(value));
+}
+#endif
+inline void QueryRepeatersRequest::set_repeater_ids(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  repeater_ids_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ric.auth.QueryRepeatersRequest.repeater_ids)
+}
+inline void QueryRepeatersRequest::set_repeater_ids(int index, const char* value, size_t size) {
+  repeater_ids_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.QueryRepeatersRequest.repeater_ids)
+}
+inline ::std::string* QueryRepeatersRequest::add_repeater_ids() {
+  // @@protoc_insertion_point(field_add_mutable:ric.auth.QueryRepeatersRequest.repeater_ids)
+  return repeater_ids_.Add();
+}
+inline void QueryRepeatersRequest::add_repeater_ids(const ::std::string& value) {
+  repeater_ids_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ric.auth.QueryRepeatersRequest.repeater_ids)
+}
+#if LANG_CXX11
+inline void QueryRepeatersRequest::add_repeater_ids(::std::string&& value) {
+  repeater_ids_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ric.auth.QueryRepeatersRequest.repeater_ids)
+}
+#endif
+inline void QueryRepeatersRequest::add_repeater_ids(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  repeater_ids_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ric.auth.QueryRepeatersRequest.repeater_ids)
+}
+inline void QueryRepeatersRequest::add_repeater_ids(const char* value, size_t size) {
+  repeater_ids_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ric.auth.QueryRepeatersRequest.repeater_ids)
+}
+inline const ::google::protobuf::RepeatedPtrField<::std::string>&
+QueryRepeatersRequest::repeater_ids() const {
+  // @@protoc_insertion_point(field_list:ric.auth.QueryRepeatersRequest.repeater_ids)
+  return repeater_ids_;
+}
+inline ::google::protobuf::RepeatedPtrField<::std::string>*
+QueryRepeatersRequest::mutable_repeater_ids() {
+  // @@protoc_insertion_point(field_mutable_list:ric.auth.QueryRepeatersRequest.repeater_ids)
+  return &repeater_ids_;
+}
+
+// repeated string object_ids = 4;
+inline int QueryRepeatersRequest::object_ids_size() const {
+  return object_ids_.size();
+}
+inline void QueryRepeatersRequest::clear_object_ids() {
+  object_ids_.Clear();
+}
+inline const ::std::string& QueryRepeatersRequest::object_ids(int index) const {
+  // @@protoc_insertion_point(field_get:ric.auth.QueryRepeatersRequest.object_ids)
+  return object_ids_.Get(index);
+}
+inline ::std::string* QueryRepeatersRequest::mutable_object_ids(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.auth.QueryRepeatersRequest.object_ids)
+  return object_ids_.Mutable(index);
+}
+inline void QueryRepeatersRequest::set_object_ids(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:ric.auth.QueryRepeatersRequest.object_ids)
+  object_ids_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+inline void QueryRepeatersRequest::set_object_ids(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:ric.auth.QueryRepeatersRequest.object_ids)
+  object_ids_.Mutable(index)->assign(std::move(value));
+}
+#endif
+inline void QueryRepeatersRequest::set_object_ids(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  object_ids_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:ric.auth.QueryRepeatersRequest.object_ids)
+}
+inline void QueryRepeatersRequest::set_object_ids(int index, const char* value, size_t size) {
+  object_ids_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.QueryRepeatersRequest.object_ids)
+}
+inline ::std::string* QueryRepeatersRequest::add_object_ids() {
+  // @@protoc_insertion_point(field_add_mutable:ric.auth.QueryRepeatersRequest.object_ids)
+  return object_ids_.Add();
+}
+inline void QueryRepeatersRequest::add_object_ids(const ::std::string& value) {
+  object_ids_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:ric.auth.QueryRepeatersRequest.object_ids)
+}
+#if LANG_CXX11
+inline void QueryRepeatersRequest::add_object_ids(::std::string&& value) {
+  object_ids_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:ric.auth.QueryRepeatersRequest.object_ids)
+}
+#endif
+inline void QueryRepeatersRequest::add_object_ids(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  object_ids_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:ric.auth.QueryRepeatersRequest.object_ids)
+}
+inline void QueryRepeatersRequest::add_object_ids(const char* value, size_t size) {
+  object_ids_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:ric.auth.QueryRepeatersRequest.object_ids)
+}
+inline const ::google::protobuf::RepeatedPtrField<::std::string>&
+QueryRepeatersRequest::object_ids() const {
+  // @@protoc_insertion_point(field_list:ric.auth.QueryRepeatersRequest.object_ids)
+  return object_ids_;
+}
+inline ::google::protobuf::RepeatedPtrField<::std::string>*
+QueryRepeatersRequest::mutable_object_ids() {
+  // @@protoc_insertion_point(field_mutable_list:ric.auth.QueryRepeatersRequest.object_ids)
+  return &object_ids_;
+}
+
+// -------------------------------------------------------------------
+
+// RepeaterInfo_ObjectRepeaterInfo
+
+// string object_id = 1;
+inline void RepeaterInfo_ObjectRepeaterInfo::clear_object_id() {
+  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& RepeaterInfo_ObjectRepeaterInfo::object_id() const {
+  // @@protoc_insertion_point(field_get:ric.auth.RepeaterInfo.ObjectRepeaterInfo.object_id)
+  return object_id_.GetNoArena();
+}
+inline void RepeaterInfo_ObjectRepeaterInfo::set_object_id(const ::std::string& value) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.auth.RepeaterInfo.ObjectRepeaterInfo.object_id)
+}
+#if LANG_CXX11
+inline void RepeaterInfo_ObjectRepeaterInfo::set_object_id(::std::string&& value) {
+  
+  object_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.auth.RepeaterInfo.ObjectRepeaterInfo.object_id)
+}
+#endif
+inline void RepeaterInfo_ObjectRepeaterInfo::set_object_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.auth.RepeaterInfo.ObjectRepeaterInfo.object_id)
+}
+inline void RepeaterInfo_ObjectRepeaterInfo::set_object_id(const char* value, size_t size) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.RepeaterInfo.ObjectRepeaterInfo.object_id)
+}
+inline ::std::string* RepeaterInfo_ObjectRepeaterInfo::mutable_object_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.auth.RepeaterInfo.ObjectRepeaterInfo.object_id)
+  return object_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* RepeaterInfo_ObjectRepeaterInfo::release_object_id() {
+  // @@protoc_insertion_point(field_release:ric.auth.RepeaterInfo.ObjectRepeaterInfo.object_id)
+  
+  return object_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void RepeaterInfo_ObjectRepeaterInfo::set_allocated_object_id(::std::string* object_id) {
+  if (object_id != nullptr) {
+    
+  } else {
+    
+  }
+  object_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), object_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.auth.RepeaterInfo.ObjectRepeaterInfo.object_id)
+}
+
+// string repeater_config = 2;
+inline void RepeaterInfo_ObjectRepeaterInfo::clear_repeater_config() {
+  repeater_config_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& RepeaterInfo_ObjectRepeaterInfo::repeater_config() const {
+  // @@protoc_insertion_point(field_get:ric.auth.RepeaterInfo.ObjectRepeaterInfo.repeater_config)
+  return repeater_config_.GetNoArena();
+}
+inline void RepeaterInfo_ObjectRepeaterInfo::set_repeater_config(const ::std::string& value) {
+  
+  repeater_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.auth.RepeaterInfo.ObjectRepeaterInfo.repeater_config)
+}
+#if LANG_CXX11
+inline void RepeaterInfo_ObjectRepeaterInfo::set_repeater_config(::std::string&& value) {
+  
+  repeater_config_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.auth.RepeaterInfo.ObjectRepeaterInfo.repeater_config)
+}
+#endif
+inline void RepeaterInfo_ObjectRepeaterInfo::set_repeater_config(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  repeater_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.auth.RepeaterInfo.ObjectRepeaterInfo.repeater_config)
+}
+inline void RepeaterInfo_ObjectRepeaterInfo::set_repeater_config(const char* value, size_t size) {
+  
+  repeater_config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.RepeaterInfo.ObjectRepeaterInfo.repeater_config)
+}
+inline ::std::string* RepeaterInfo_ObjectRepeaterInfo::mutable_repeater_config() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.auth.RepeaterInfo.ObjectRepeaterInfo.repeater_config)
+  return repeater_config_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* RepeaterInfo_ObjectRepeaterInfo::release_repeater_config() {
+  // @@protoc_insertion_point(field_release:ric.auth.RepeaterInfo.ObjectRepeaterInfo.repeater_config)
+  
+  return repeater_config_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void RepeaterInfo_ObjectRepeaterInfo::set_allocated_repeater_config(::std::string* repeater_config) {
+  if (repeater_config != nullptr) {
+    
+  } else {
+    
+  }
+  repeater_config_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), repeater_config);
+  // @@protoc_insertion_point(field_set_allocated:ric.auth.RepeaterInfo.ObjectRepeaterInfo.repeater_config)
+}
+
+// -------------------------------------------------------------------
+
+// RepeaterInfo
+
+// string repeater_id = 1;
+inline void RepeaterInfo::clear_repeater_id() {
+  repeater_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& RepeaterInfo::repeater_id() const {
+  // @@protoc_insertion_point(field_get:ric.auth.RepeaterInfo.repeater_id)
+  return repeater_id_.GetNoArena();
+}
+inline void RepeaterInfo::set_repeater_id(const ::std::string& value) {
+  
+  repeater_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.auth.RepeaterInfo.repeater_id)
+}
+#if LANG_CXX11
+inline void RepeaterInfo::set_repeater_id(::std::string&& value) {
+  
+  repeater_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.auth.RepeaterInfo.repeater_id)
+}
+#endif
+inline void RepeaterInfo::set_repeater_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  repeater_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.auth.RepeaterInfo.repeater_id)
+}
+inline void RepeaterInfo::set_repeater_id(const char* value, size_t size) {
+  
+  repeater_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.RepeaterInfo.repeater_id)
+}
+inline ::std::string* RepeaterInfo::mutable_repeater_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.auth.RepeaterInfo.repeater_id)
+  return repeater_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* RepeaterInfo::release_repeater_id() {
+  // @@protoc_insertion_point(field_release:ric.auth.RepeaterInfo.repeater_id)
+  
+  return repeater_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void RepeaterInfo::set_allocated_repeater_id(::std::string* repeater_id) {
+  if (repeater_id != nullptr) {
+    
+  } else {
+    
+  }
+  repeater_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), repeater_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.auth.RepeaterInfo.repeater_id)
+}
+
+// string protocol = 2;
+inline void RepeaterInfo::clear_protocol() {
+  protocol_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& RepeaterInfo::protocol() const {
+  // @@protoc_insertion_point(field_get:ric.auth.RepeaterInfo.protocol)
+  return protocol_.GetNoArena();
+}
+inline void RepeaterInfo::set_protocol(const ::std::string& value) {
+  
+  protocol_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.auth.RepeaterInfo.protocol)
+}
+#if LANG_CXX11
+inline void RepeaterInfo::set_protocol(::std::string&& value) {
+  
+  protocol_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.auth.RepeaterInfo.protocol)
+}
+#endif
+inline void RepeaterInfo::set_protocol(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  protocol_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.auth.RepeaterInfo.protocol)
+}
+inline void RepeaterInfo::set_protocol(const char* value, size_t size) {
+  
+  protocol_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.RepeaterInfo.protocol)
+}
+inline ::std::string* RepeaterInfo::mutable_protocol() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.auth.RepeaterInfo.protocol)
+  return protocol_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* RepeaterInfo::release_protocol() {
+  // @@protoc_insertion_point(field_release:ric.auth.RepeaterInfo.protocol)
+  
+  return protocol_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void RepeaterInfo::set_allocated_protocol(::std::string* protocol) {
+  if (protocol != nullptr) {
+    
+  } else {
+    
+  }
+  protocol_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), protocol);
+  // @@protoc_insertion_point(field_set_allocated:ric.auth.RepeaterInfo.protocol)
+}
+
+// string name = 3;
+inline void RepeaterInfo::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& RepeaterInfo::name() const {
+  // @@protoc_insertion_point(field_get:ric.auth.RepeaterInfo.name)
+  return name_.GetNoArena();
+}
+inline void RepeaterInfo::set_name(const ::std::string& value) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.auth.RepeaterInfo.name)
+}
+#if LANG_CXX11
+inline void RepeaterInfo::set_name(::std::string&& value) {
+  
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.auth.RepeaterInfo.name)
+}
+#endif
+inline void RepeaterInfo::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.auth.RepeaterInfo.name)
+}
+inline void RepeaterInfo::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.RepeaterInfo.name)
+}
+inline ::std::string* RepeaterInfo::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.auth.RepeaterInfo.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* RepeaterInfo::release_name() {
+  // @@protoc_insertion_point(field_release:ric.auth.RepeaterInfo.name)
+  
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void RepeaterInfo::set_allocated_name(::std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:ric.auth.RepeaterInfo.name)
+}
+
+// string host = 4;
+inline void RepeaterInfo::clear_host() {
+  host_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& RepeaterInfo::host() const {
+  // @@protoc_insertion_point(field_get:ric.auth.RepeaterInfo.host)
+  return host_.GetNoArena();
+}
+inline void RepeaterInfo::set_host(const ::std::string& value) {
+  
+  host_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.auth.RepeaterInfo.host)
+}
+#if LANG_CXX11
+inline void RepeaterInfo::set_host(::std::string&& value) {
+  
+  host_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.auth.RepeaterInfo.host)
+}
+#endif
+inline void RepeaterInfo::set_host(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  host_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.auth.RepeaterInfo.host)
+}
+inline void RepeaterInfo::set_host(const char* value, size_t size) {
+  
+  host_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.RepeaterInfo.host)
+}
+inline ::std::string* RepeaterInfo::mutable_host() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.auth.RepeaterInfo.host)
+  return host_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* RepeaterInfo::release_host() {
+  // @@protoc_insertion_point(field_release:ric.auth.RepeaterInfo.host)
+  
+  return host_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void RepeaterInfo::set_allocated_host(::std::string* host) {
+  if (host != nullptr) {
+    
+  } else {
+    
+  }
+  host_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), host);
+  // @@protoc_insertion_point(field_set_allocated:ric.auth.RepeaterInfo.host)
+}
+
+// int32 port = 5;
+inline void RepeaterInfo::clear_port() {
+  port_ = 0;
+}
+inline ::google::protobuf::int32 RepeaterInfo::port() const {
+  // @@protoc_insertion_point(field_get:ric.auth.RepeaterInfo.port)
+  return port_;
+}
+inline void RepeaterInfo::set_port(::google::protobuf::int32 value) {
+  
+  port_ = value;
+  // @@protoc_insertion_point(field_set:ric.auth.RepeaterInfo.port)
+}
+
+// string config = 6;
+inline void RepeaterInfo::clear_config() {
+  config_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& RepeaterInfo::config() const {
+  // @@protoc_insertion_point(field_get:ric.auth.RepeaterInfo.config)
+  return config_.GetNoArena();
+}
+inline void RepeaterInfo::set_config(const ::std::string& value) {
+  
+  config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.auth.RepeaterInfo.config)
+}
+#if LANG_CXX11
+inline void RepeaterInfo::set_config(::std::string&& value) {
+  
+  config_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.auth.RepeaterInfo.config)
+}
+#endif
+inline void RepeaterInfo::set_config(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.auth.RepeaterInfo.config)
+}
+inline void RepeaterInfo::set_config(const char* value, size_t size) {
+  
+  config_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.RepeaterInfo.config)
+}
+inline ::std::string* RepeaterInfo::mutable_config() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.auth.RepeaterInfo.config)
+  return config_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* RepeaterInfo::release_config() {
+  // @@protoc_insertion_point(field_release:ric.auth.RepeaterInfo.config)
+  
+  return config_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void RepeaterInfo::set_allocated_config(::std::string* config) {
+  if (config != nullptr) {
+    
+  } else {
+    
+  }
+  config_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), config);
+  // @@protoc_insertion_point(field_set_allocated:ric.auth.RepeaterInfo.config)
+}
+
+// repeated .ric.auth.RepeaterInfo.ObjectRepeaterInfo objects = 10;
+inline int RepeaterInfo::objects_size() const {
+  return objects_.size();
+}
+inline void RepeaterInfo::clear_objects() {
+  objects_.Clear();
+}
+inline ::ric::auth::RepeaterInfo_ObjectRepeaterInfo* RepeaterInfo::mutable_objects(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.auth.RepeaterInfo.objects)
+  return objects_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::ric::auth::RepeaterInfo_ObjectRepeaterInfo >*
+RepeaterInfo::mutable_objects() {
+  // @@protoc_insertion_point(field_mutable_list:ric.auth.RepeaterInfo.objects)
+  return &objects_;
+}
+inline const ::ric::auth::RepeaterInfo_ObjectRepeaterInfo& RepeaterInfo::objects(int index) const {
+  // @@protoc_insertion_point(field_get:ric.auth.RepeaterInfo.objects)
+  return objects_.Get(index);
+}
+inline ::ric::auth::RepeaterInfo_ObjectRepeaterInfo* RepeaterInfo::add_objects() {
+  // @@protoc_insertion_point(field_add:ric.auth.RepeaterInfo.objects)
+  return objects_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ric::auth::RepeaterInfo_ObjectRepeaterInfo >&
+RepeaterInfo::objects() const {
+  // @@protoc_insertion_point(field_list:ric.auth.RepeaterInfo.objects)
+  return objects_;
+}
+
+// -------------------------------------------------------------------
+
+// RepeatersResponse
+
+// repeated .ric.auth.RepeaterInfo repeaters = 1;
+inline int RepeatersResponse::repeaters_size() const {
+  return repeaters_.size();
+}
+inline void RepeatersResponse::clear_repeaters() {
+  repeaters_.Clear();
+}
+inline ::ric::auth::RepeaterInfo* RepeatersResponse::mutable_repeaters(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.auth.RepeatersResponse.repeaters)
+  return repeaters_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::ric::auth::RepeaterInfo >*
+RepeatersResponse::mutable_repeaters() {
+  // @@protoc_insertion_point(field_mutable_list:ric.auth.RepeatersResponse.repeaters)
+  return &repeaters_;
+}
+inline const ::ric::auth::RepeaterInfo& RepeatersResponse::repeaters(int index) const {
+  // @@protoc_insertion_point(field_get:ric.auth.RepeatersResponse.repeaters)
+  return repeaters_.Get(index);
+}
+inline ::ric::auth::RepeaterInfo* RepeatersResponse::add_repeaters() {
+  // @@protoc_insertion_point(field_add:ric.auth.RepeatersResponse.repeaters)
+  return repeaters_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ric::auth::RepeaterInfo >&
+RepeatersResponse::repeaters() const {
+  // @@protoc_insertion_point(field_list:ric.auth.RepeatersResponse.repeaters)
+  return repeaters_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

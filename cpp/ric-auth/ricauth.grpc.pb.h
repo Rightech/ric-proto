@@ -73,6 +73,13 @@ class RicAuth final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::auth::ObjectGateResponse>> PrepareAsyncSendModelUpdate(::grpc::ClientContext* context, const ::ric::auth::ObjectGateRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::auth::ObjectGateResponse>>(PrepareAsyncSendModelUpdateRaw(context, request, cq));
     }
+    virtual ::grpc::Status QueryRepeaters(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest& request, ::ric::auth::RepeatersResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::auth::RepeatersResponse>> AsyncQueryRepeaters(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::auth::RepeatersResponse>>(AsyncQueryRepeatersRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::auth::RepeatersResponse>> PrepareAsyncQueryRepeaters(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::auth::RepeatersResponse>>(PrepareAsyncQueryRepeatersRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
@@ -86,6 +93,8 @@ class RicAuth final {
       virtual void SendOffline(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::auth::ObjectGateResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SendModelUpdate(::grpc::ClientContext* context, const ::ric::auth::ObjectGateRequest* request, ::ric::auth::ObjectGateResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SendModelUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::auth::ObjectGateResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void QueryRepeaters(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest* request, ::ric::auth::RepeatersResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void QueryRepeaters(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::auth::RepeatersResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
@@ -99,6 +108,8 @@ class RicAuth final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::auth::ObjectGateResponse>* PrepareAsyncSendOfflineRaw(::grpc::ClientContext* context, const ::ric::auth::ObjectGateRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::auth::ObjectGateResponse>* AsyncSendModelUpdateRaw(::grpc::ClientContext* context, const ::ric::auth::ObjectGateRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::auth::ObjectGateResponse>* PrepareAsyncSendModelUpdateRaw(::grpc::ClientContext* context, const ::ric::auth::ObjectGateRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::auth::RepeatersResponse>* AsyncQueryRepeatersRaw(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::auth::RepeatersResponse>* PrepareAsyncQueryRepeatersRaw(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -138,6 +149,13 @@ class RicAuth final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::auth::ObjectGateResponse>> PrepareAsyncSendModelUpdate(::grpc::ClientContext* context, const ::ric::auth::ObjectGateRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::auth::ObjectGateResponse>>(PrepareAsyncSendModelUpdateRaw(context, request, cq));
     }
+    ::grpc::Status QueryRepeaters(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest& request, ::ric::auth::RepeatersResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::auth::RepeatersResponse>> AsyncQueryRepeaters(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::auth::RepeatersResponse>>(AsyncQueryRepeatersRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::auth::RepeatersResponse>> PrepareAsyncQueryRepeaters(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::auth::RepeatersResponse>>(PrepareAsyncQueryRepeatersRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
@@ -151,6 +169,8 @@ class RicAuth final {
       void SendOffline(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::auth::ObjectGateResponse* response, std::function<void(::grpc::Status)>) override;
       void SendModelUpdate(::grpc::ClientContext* context, const ::ric::auth::ObjectGateRequest* request, ::ric::auth::ObjectGateResponse* response, std::function<void(::grpc::Status)>) override;
       void SendModelUpdate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::auth::ObjectGateResponse* response, std::function<void(::grpc::Status)>) override;
+      void QueryRepeaters(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest* request, ::ric::auth::RepeatersResponse* response, std::function<void(::grpc::Status)>) override;
+      void QueryRepeaters(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::auth::RepeatersResponse* response, std::function<void(::grpc::Status)>) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -172,11 +192,14 @@ class RicAuth final {
     ::grpc::ClientAsyncResponseReader< ::ric::auth::ObjectGateResponse>* PrepareAsyncSendOfflineRaw(::grpc::ClientContext* context, const ::ric::auth::ObjectGateRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::auth::ObjectGateResponse>* AsyncSendModelUpdateRaw(::grpc::ClientContext* context, const ::ric::auth::ObjectGateRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::auth::ObjectGateResponse>* PrepareAsyncSendModelUpdateRaw(::grpc::ClientContext* context, const ::ric::auth::ObjectGateRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::auth::RepeatersResponse>* AsyncQueryRepeatersRaw(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::auth::RepeatersResponse>* PrepareAsyncQueryRepeatersRaw(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_AuthObject_;
     const ::grpc::internal::RpcMethod rpcmethod_GetModelInfo_;
     const ::grpc::internal::RpcMethod rpcmethod_IssueCert_;
     const ::grpc::internal::RpcMethod rpcmethod_SendOffline_;
     const ::grpc::internal::RpcMethod rpcmethod_SendModelUpdate_;
+    const ::grpc::internal::RpcMethod rpcmethod_QueryRepeaters_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -189,6 +212,7 @@ class RicAuth final {
     virtual ::grpc::Status IssueCert(::grpc::ServerContext* context, const ::ric::auth::IssueCertRequest* request, ::ric::auth::IssueCertResponse* response);
     virtual ::grpc::Status SendOffline(::grpc::ServerContext* context, const ::ric::auth::ObjectGateRequest* request, ::ric::auth::ObjectGateResponse* response);
     virtual ::grpc::Status SendModelUpdate(::grpc::ServerContext* context, const ::ric::auth::ObjectGateRequest* request, ::ric::auth::ObjectGateResponse* response);
+    virtual ::grpc::Status QueryRepeaters(::grpc::ServerContext* context, const ::ric::auth::QueryRepeatersRequest* request, ::ric::auth::RepeatersResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_AuthObject : public BaseClass {
@@ -290,7 +314,27 @@ class RicAuth final {
       ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_AuthObject<WithAsyncMethod_GetModelInfo<WithAsyncMethod_IssueCert<WithAsyncMethod_SendOffline<WithAsyncMethod_SendModelUpdate<Service > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_QueryRepeaters : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_QueryRepeaters() {
+      ::grpc::Service::MarkMethodAsync(5);
+    }
+    ~WithAsyncMethod_QueryRepeaters() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status QueryRepeaters(::grpc::ServerContext* context, const ::ric::auth::QueryRepeatersRequest* request, ::ric::auth::RepeatersResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestQueryRepeaters(::grpc::ServerContext* context, ::ric::auth::QueryRepeatersRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::auth::RepeatersResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_AuthObject<WithAsyncMethod_GetModelInfo<WithAsyncMethod_IssueCert<WithAsyncMethod_SendOffline<WithAsyncMethod_SendModelUpdate<WithAsyncMethod_QueryRepeaters<Service > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_AuthObject : public BaseClass {
    private:
@@ -416,7 +460,32 @@ class RicAuth final {
     }
     virtual void SendModelUpdate(::grpc::ServerContext* context, const ::ric::auth::ObjectGateRequest* request, ::ric::auth::ObjectGateResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_AuthObject<ExperimentalWithCallbackMethod_GetModelInfo<ExperimentalWithCallbackMethod_IssueCert<ExperimentalWithCallbackMethod_SendOffline<ExperimentalWithCallbackMethod_SendModelUpdate<Service > > > > > ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_QueryRepeaters : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_QueryRepeaters() {
+      ::grpc::Service::experimental().MarkMethodCallback(5,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::auth::QueryRepeatersRequest, ::ric::auth::RepeatersResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::auth::QueryRepeatersRequest* request,
+                 ::ric::auth::RepeatersResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->QueryRepeaters(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_QueryRepeaters() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status QueryRepeaters(::grpc::ServerContext* context, const ::ric::auth::QueryRepeatersRequest* request, ::ric::auth::RepeatersResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void QueryRepeaters(::grpc::ServerContext* context, const ::ric::auth::QueryRepeatersRequest* request, ::ric::auth::RepeatersResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  typedef ExperimentalWithCallbackMethod_AuthObject<ExperimentalWithCallbackMethod_GetModelInfo<ExperimentalWithCallbackMethod_IssueCert<ExperimentalWithCallbackMethod_SendOffline<ExperimentalWithCallbackMethod_SendModelUpdate<ExperimentalWithCallbackMethod_QueryRepeaters<Service > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_AuthObject : public BaseClass {
    private:
@@ -498,6 +567,23 @@ class RicAuth final {
     }
     // disable synchronous version of this method
     ::grpc::Status SendModelUpdate(::grpc::ServerContext* context, const ::ric::auth::ObjectGateRequest* request, ::ric::auth::ObjectGateResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_QueryRepeaters : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_QueryRepeaters() {
+      ::grpc::Service::MarkMethodGeneric(5);
+    }
+    ~WithGenericMethod_QueryRepeaters() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status QueryRepeaters(::grpc::ServerContext* context, const ::ric::auth::QueryRepeatersRequest* request, ::ric::auth::RepeatersResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -600,6 +686,26 @@ class RicAuth final {
     }
     void RequestSendModelUpdate(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_QueryRepeaters : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_QueryRepeaters() {
+      ::grpc::Service::MarkMethodRaw(5);
+    }
+    ~WithRawMethod_QueryRepeaters() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status QueryRepeaters(::grpc::ServerContext* context, const ::ric::auth::QueryRepeatersRequest* request, ::ric::auth::RepeatersResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestQueryRepeaters(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -728,6 +834,31 @@ class RicAuth final {
     virtual void SendModelUpdate(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_QueryRepeaters : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_QueryRepeaters() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(5,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->QueryRepeaters(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_QueryRepeaters() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status QueryRepeaters(::grpc::ServerContext* context, const ::ric::auth::QueryRepeatersRequest* request, ::ric::auth::RepeatersResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void QueryRepeaters(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_AuthObject : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
@@ -827,9 +958,29 @@ class RicAuth final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedSendModelUpdate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::auth::ObjectGateRequest,::ric::auth::ObjectGateResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_AuthObject<WithStreamedUnaryMethod_GetModelInfo<WithStreamedUnaryMethod_IssueCert<WithStreamedUnaryMethod_SendOffline<WithStreamedUnaryMethod_SendModelUpdate<Service > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_QueryRepeaters : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_QueryRepeaters() {
+      ::grpc::Service::MarkMethodStreamed(5,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::auth::QueryRepeatersRequest, ::ric::auth::RepeatersResponse>(std::bind(&WithStreamedUnaryMethod_QueryRepeaters<BaseClass>::StreamedQueryRepeaters, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_QueryRepeaters() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status QueryRepeaters(::grpc::ServerContext* context, const ::ric::auth::QueryRepeatersRequest* request, ::ric::auth::RepeatersResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedQueryRepeaters(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::auth::QueryRepeatersRequest,::ric::auth::RepeatersResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_AuthObject<WithStreamedUnaryMethod_GetModelInfo<WithStreamedUnaryMethod_IssueCert<WithStreamedUnaryMethod_SendOffline<WithStreamedUnaryMethod_SendModelUpdate<WithStreamedUnaryMethod_QueryRepeaters<Service > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_AuthObject<WithStreamedUnaryMethod_GetModelInfo<WithStreamedUnaryMethod_IssueCert<WithStreamedUnaryMethod_SendOffline<WithStreamedUnaryMethod_SendModelUpdate<Service > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_AuthObject<WithStreamedUnaryMethod_GetModelInfo<WithStreamedUnaryMethod_IssueCert<WithStreamedUnaryMethod_SendOffline<WithStreamedUnaryMethod_SendModelUpdate<WithStreamedUnaryMethod_QueryRepeaters<Service > > > > > > StreamedService;
 };
 
 }  // namespace auth

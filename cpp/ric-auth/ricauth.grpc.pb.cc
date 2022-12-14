@@ -25,6 +25,7 @@ static const char* RicAuth_method_names[] = {
   "/ric.auth.RicAuth/IssueCert",
   "/ric.auth.RicAuth/SendOffline",
   "/ric.auth.RicAuth/SendModelUpdate",
+  "/ric.auth.RicAuth/QueryRepeaters",
 };
 
 std::unique_ptr< RicAuth::Stub> RicAuth::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -39,6 +40,7 @@ RicAuth::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   , rpcmethod_IssueCert_(RicAuth_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SendOffline_(RicAuth_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SendModelUpdate_(RicAuth_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_QueryRepeaters_(RicAuth_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status RicAuth::Stub::AuthObject(::grpc::ClientContext* context, const ::ric::auth::AuthObjectRequest& request, ::ric::auth::AuthObjectResponse* response) {
@@ -141,6 +143,26 @@ void RicAuth::Stub::experimental_async::SendModelUpdate(::grpc::ClientContext* c
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::auth::ObjectGateResponse>::Create(channel_.get(), cq, rpcmethod_SendModelUpdate_, context, request, false);
 }
 
+::grpc::Status RicAuth::Stub::QueryRepeaters(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest& request, ::ric::auth::RepeatersResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_QueryRepeaters_, context, request, response);
+}
+
+void RicAuth::Stub::experimental_async::QueryRepeaters(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest* request, ::ric::auth::RepeatersResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_QueryRepeaters_, context, request, response, std::move(f));
+}
+
+void RicAuth::Stub::experimental_async::QueryRepeaters(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::auth::RepeatersResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_QueryRepeaters_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::auth::RepeatersResponse>* RicAuth::Stub::AsyncQueryRepeatersRaw(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::auth::RepeatersResponse>::Create(channel_.get(), cq, rpcmethod_QueryRepeaters_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::auth::RepeatersResponse>* RicAuth::Stub::PrepareAsyncQueryRepeatersRaw(::grpc::ClientContext* context, const ::ric::auth::QueryRepeatersRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::auth::RepeatersResponse>::Create(channel_.get(), cq, rpcmethod_QueryRepeaters_, context, request, false);
+}
+
 RicAuth::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RicAuth_method_names[0],
@@ -167,6 +189,11 @@ RicAuth::Service::Service() {
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< RicAuth::Service, ::ric::auth::ObjectGateRequest, ::ric::auth::ObjectGateResponse>(
           std::mem_fn(&RicAuth::Service::SendModelUpdate), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RicAuth_method_names[5],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RicAuth::Service, ::ric::auth::QueryRepeatersRequest, ::ric::auth::RepeatersResponse>(
+          std::mem_fn(&RicAuth::Service::QueryRepeaters), this)));
 }
 
 RicAuth::Service::~Service() {
@@ -201,6 +228,13 @@ RicAuth::Service::~Service() {
 }
 
 ::grpc::Status RicAuth::Service::SendModelUpdate(::grpc::ServerContext* context, const ::ric::auth::ObjectGateRequest* request, ::ric::auth::ObjectGateResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RicAuth::Service::QueryRepeaters(::grpc::ServerContext* context, const ::ric::auth::QueryRepeatersRequest* request, ::ric::auth::RepeatersResponse* response) {
   (void) context;
   (void) request;
   (void) response;

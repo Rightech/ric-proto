@@ -4,6 +4,7 @@ export interface RicAuth {
   IssueCert(request: IssueCertRequest): Promise<IssueCertResponse>;
   SendOffline(request: ObjectGateRequest): Promise<ObjectGateResponse>;
   SendModelUpdate(request: ObjectGateRequest): Promise<ObjectGateResponse>;
+  QueryRepeaters(request: QueryRepeatersRequest): Promise<RepeatersResponse>;
 }
 
 export interface AuthObjectRequest {
@@ -83,4 +84,30 @@ export interface ObjectGateRequest {
 
 export interface ObjectGateResponse {
 
+}
+
+export interface QueryRepeatersRequest {
+  withObjects?: boolean;
+  protocols?: string[];
+  repeaterIds?: string[];
+  objectIds?: string[];
+}
+
+export interface RepeaterInfo {
+  repeaterId?: string;
+  protocol?: string;
+  name?: string;
+  host?: string;
+  port?: number;
+  config?: string;
+  objects?: ObjectRepeaterInfo[];
+}
+
+export interface ObjectRepeaterInfo {
+  objectId?: string;
+  repeaterConfig?: string;
+}
+
+export interface RepeatersResponse {
+  repeaters?: RepeaterInfo[];
 }
