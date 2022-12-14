@@ -10,6 +10,7 @@ service RicAuth {
   rpc IssueCert(IssueCertRequest) returns (IssueCertResponse);
   rpc SendOffline(ObjectGateRequest) returns (ObjectGateResponse);
   rpc SendModelUpdate(ObjectGateRequest) returns (ObjectGateResponse);
+  rpc QueryRepeaters(QueryRepeatersRequest) returns (RepeatersResponse);
 }
 
 message AuthObjectRequest {
@@ -87,3 +88,28 @@ message ObjectGateRequest {
 }
 
 message ObjectGateResponse {}
+
+message QueryRepeatersRequest {
+  bool with_objects = 1;
+  repeated string protocols = 2;
+  repeated string repeater_ids = 3;
+  repeated string object_ids = 4;
+}
+
+message RepeaterInfo {
+  message ObjectRepeaterInfo {
+    string object_id = 1;
+    string repeater_config = 2;
+  }
+  string repeater_id = 1;
+  string protocol = 2;
+  string name = 3;
+  string host = 4;
+  int32 port = 5;
+  string config = 6;
+  repeated ObjectRepeaterInfo objects = 10;
+}
+
+message RepeatersResponse {
+  repeated RepeaterInfo repeaters = 1;
+}
