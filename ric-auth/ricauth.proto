@@ -100,6 +100,7 @@ message RepeaterInfo {
   message ObjectRepeaterInfo {
     string object_id = 1;
     string repeater_config = 2;
+    string status = 3;
   }
   string repeater_id = 1;
   string protocol = 2;
