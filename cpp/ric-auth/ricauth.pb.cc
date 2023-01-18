@@ -498,6 +498,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dauth_2fricauth_2eproto::offse
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::ric::auth::RepeaterInfo_ObjectRepeaterInfo, object_id_),
   PROTOBUF_FIELD_OFFSET(::ric::auth::RepeaterInfo_ObjectRepeaterInfo, repeater_config_),
+  PROTOBUF_FIELD_OFFSET(::ric::auth::RepeaterInfo_ObjectRepeaterInfo, status_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::auth::RepeaterInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -533,8 +534,8 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 113, -1, sizeof(::ric::auth::ObjectGateResponse)},
   { 118, -1, sizeof(::ric::auth::QueryRepeatersRequest)},
   { 127, -1, sizeof(::ric::auth::RepeaterInfo_ObjectRepeaterInfo)},
-  { 134, -1, sizeof(::ric::auth::RepeaterInfo)},
-  { 146, -1, sizeof(::ric::auth::RepeatersResponse)},
+  { 135, -1, sizeof(::ric::auth::RepeaterInfo)},
+  { 147, -1, sizeof(::ric::auth::RepeatersResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -600,31 +601,32 @@ const char descriptor_table_protodef_ric_2dauth_2fricauth_2eproto[] =
   "ectGateResponse\"j\n\025QueryRepeatersRequest"
   "\022\024\n\014with_objects\030\001 \001(\010\022\021\n\tprotocols\030\002 \003("
   "\t\022\024\n\014repeater_ids\030\003 \003(\t\022\022\n\nobject_ids\030\004 "
-  "\003(\t\"\355\001\n\014RepeaterInfo\022\023\n\013repeater_id\030\001 \001("
+  "\003(\t\"\375\001\n\014RepeaterInfo\022\023\n\013repeater_id\030\001 \001("
   "\t\022\020\n\010protocol\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\014\n\004hos"
   "t\030\004 \001(\t\022\014\n\004port\030\005 \001(\005\022\016\n\006config\030\006 \001(\t\022:\n"
   "\007objects\030\n \003(\0132).ric.auth.RepeaterInfo.O"
-  "bjectRepeaterInfo\032@\n\022ObjectRepeaterInfo\022"
+  "bjectRepeaterInfo\032P\n\022ObjectRepeaterInfo\022"
   "\021\n\tobject_id\030\001 \001(\t\022\027\n\017repeater_config\030\002 "
-  "\001(\t\">\n\021RepeatersResponse\022)\n\trepeaters\030\001 "
-  "\003(\0132\026.ric.auth.RepeaterInfo2\311\003\n\007RicAuth\022"
-  "G\n\nAuthObject\022\033.ric.auth.AuthObjectReque"
-  "st\032\034.ric.auth.AuthObjectResponse\022G\n\014GetM"
-  "odelInfo\022\032.ric.auth.ModelInfoRequest\032\033.r"
-  "ic.auth.ModelInfoResponse\022D\n\tIssueCert\022\032"
-  ".ric.auth.IssueCertRequest\032\033.ric.auth.Is"
-  "sueCertResponse\022H\n\013SendOffline\022\033.ric.aut"
-  "h.ObjectGateRequest\032\034.ric.auth.ObjectGat"
-  "eResponse\022L\n\017SendModelUpdate\022\033.ric.auth."
-  "ObjectGateRequest\032\034.ric.auth.ObjectGateR"
-  "esponse\022N\n\016QueryRepeaters\022\037.ric.auth.Que"
-  "ryRepeatersRequest\032\033.ric.auth.RepeatersR"
-  "esponseB\024Z\022./ric-auth;ricauthb\006proto3"
+  "\001(\t\022\016\n\006status\030\003 \001(\t\">\n\021RepeatersResponse"
+  "\022)\n\trepeaters\030\001 \003(\0132\026.ric.auth.RepeaterI"
+  "nfo2\311\003\n\007RicAuth\022G\n\nAuthObject\022\033.ric.auth"
+  ".AuthObjectRequest\032\034.ric.auth.AuthObject"
+  "Response\022G\n\014GetModelInfo\022\032.ric.auth.Mode"
+  "lInfoRequest\032\033.ric.auth.ModelInfoRespons"
+  "e\022D\n\tIssueCert\022\032.ric.auth.IssueCertReque"
+  "st\032\033.ric.auth.IssueCertResponse\022H\n\013SendO"
+  "ffline\022\033.ric.auth.ObjectGateRequest\032\034.ri"
+  "c.auth.ObjectGateResponse\022L\n\017SendModelUp"
+  "date\022\033.ric.auth.ObjectGateRequest\032\034.ric."
+  "auth.ObjectGateResponse\022N\n\016QueryRepeater"
+  "s\022\037.ric.auth.QueryRepeatersRequest\032\033.ric"
+  ".auth.RepeatersResponseB\024Z\022./ric-auth;ri"
+  "cauthb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dauth_2fricauth_2eproto = {
   false, InitDefaults_ric_2dauth_2fricauth_2eproto, 
   descriptor_table_protodef_ric_2dauth_2fricauth_2eproto,
-  "ric-auth/ricauth.proto", &assign_descriptors_table_ric_2dauth_2fricauth_2eproto, 2237,
+  "ric-auth/ricauth.proto", &assign_descriptors_table_ric_2dauth_2fricauth_2eproto, 2253,
 };
 
 void AddDescriptors_ric_2dauth_2fricauth_2eproto() {
@@ -6754,6 +6756,7 @@ class RepeaterInfo_ObjectRepeaterInfo::HasBitSetters {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int RepeaterInfo_ObjectRepeaterInfo::kObjectIdFieldNumber;
 const int RepeaterInfo_ObjectRepeaterInfo::kRepeaterConfigFieldNumber;
+const int RepeaterInfo_ObjectRepeaterInfo::kStatusFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 RepeaterInfo_ObjectRepeaterInfo::RepeaterInfo_ObjectRepeaterInfo()
@@ -6773,6 +6776,10 @@ RepeaterInfo_ObjectRepeaterInfo::RepeaterInfo_ObjectRepeaterInfo(const RepeaterI
   if (from.repeater_config().size() > 0) {
     repeater_config_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.repeater_config_);
   }
+  status_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.status().size() > 0) {
+    status_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.status_);
+  }
   // @@protoc_insertion_point(copy_constructor:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
 }
 
@@ -6781,6 +6788,7 @@ void RepeaterInfo_ObjectRepeaterInfo::SharedCtor() {
       &scc_info_RepeaterInfo_ObjectRepeaterInfo_ric_2dauth_2fricauth_2eproto.base);
   object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   repeater_config_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  status_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 RepeaterInfo_ObjectRepeaterInfo::~RepeaterInfo_ObjectRepeaterInfo() {
@@ -6791,6 +6799,7 @@ RepeaterInfo_ObjectRepeaterInfo::~RepeaterInfo_ObjectRepeaterInfo() {
 void RepeaterInfo_ObjectRepeaterInfo::SharedDtor() {
   object_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   repeater_config_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  status_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void RepeaterInfo_ObjectRepeaterInfo::SetCachedSize(int size) const {
@@ -6810,6 +6819,7 @@ void RepeaterInfo_ObjectRepeaterInfo::Clear() {
 
   object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   repeater_config_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  status_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
@@ -6849,6 +6859,22 @@ const char* RepeaterInfo_ObjectRepeaterInfo::_InternalParse(const char* begin, c
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
         ctx->extra_parse_data().SetFieldName("ric.auth.RepeaterInfo.ObjectRepeaterInfo.repeater_config");
         object = msg->mutable_repeater_config();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string status = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.auth.RepeaterInfo.ObjectRepeaterInfo.status");
+        object = msg->mutable_status();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
           goto string_till_end;
@@ -6922,6 +6948,21 @@ bool RepeaterInfo_ObjectRepeaterInfo::MergePartialFromCodedStream(
         break;
       }
 
+      // string status = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_status()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->status().data(), static_cast<int>(this->status().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.auth.RepeaterInfo.ObjectRepeaterInfo.status"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -6969,6 +7010,16 @@ void RepeaterInfo_ObjectRepeaterInfo::SerializeWithCachedSizes(
       2, this->repeater_config(), output);
   }
 
+  // string status = 3;
+  if (this->status().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->status().data(), static_cast<int>(this->status().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.ObjectRepeaterInfo.status");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->status(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -7002,6 +7053,17 @@ void RepeaterInfo_ObjectRepeaterInfo::SerializeWithCachedSizes(
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->repeater_config(), target);
+  }
+
+  // string status = 3;
+  if (this->status().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->status().data(), static_cast<int>(this->status().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.auth.RepeaterInfo.ObjectRepeaterInfo.status");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->status(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -7039,6 +7101,13 @@ size_t RepeaterInfo_ObjectRepeaterInfo::ByteSizeLong() const {
         this->repeater_config());
   }
 
+  // string status = 3;
+  if (this->status().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->status());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -7074,6 +7143,10 @@ void RepeaterInfo_ObjectRepeaterInfo::MergeFrom(const RepeaterInfo_ObjectRepeate
 
     repeater_config_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.repeater_config_);
   }
+  if (from.status().size() > 0) {
+
+    status_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.status_);
+  }
 }
 
 void RepeaterInfo_ObjectRepeaterInfo::CopyFrom(const ::google::protobuf::Message& from) {
@@ -7104,6 +7177,8 @@ void RepeaterInfo_ObjectRepeaterInfo::InternalSwap(RepeaterInfo_ObjectRepeaterIn
   object_id_.Swap(&other->object_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   repeater_config_.Swap(&other->repeater_config_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  status_.Swap(&other->status_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
 }
 

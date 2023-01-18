@@ -106,6 +106,7 @@ export interface RepeaterInfo {
 export interface ObjectRepeaterInfo {
   objectId?: string;
   repeaterConfig?: string;
+  status?: string;
 }
 
 export interface RepeatersResponse {

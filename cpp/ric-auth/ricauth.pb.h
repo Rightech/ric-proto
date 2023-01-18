@@ -2236,6 +2236,20 @@ class RepeaterInfo_ObjectRepeaterInfo final :
   ::std::string* release_repeater_config();
   void set_allocated_repeater_config(::std::string* repeater_config);
 
+  // string status = 3;
+  void clear_status();
+  static const int kStatusFieldNumber = 3;
+  const ::std::string& status() const;
+  void set_status(const ::std::string& value);
+  #if LANG_CXX11
+  void set_status(::std::string&& value);
+  #endif
+  void set_status(const char* value);
+  void set_status(const char* value, size_t size);
+  ::std::string* mutable_status();
+  ::std::string* release_status();
+  void set_allocated_status(::std::string* status);
+
   // @@protoc_insertion_point(class_scope:ric.auth.RepeaterInfo.ObjectRepeaterInfo)
  private:
   class HasBitSetters;
@@ -2243,6 +2257,7 @@ class RepeaterInfo_ObjectRepeaterInfo final :
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr object_id_;
   ::google::protobuf::internal::ArenaStringPtr repeater_config_;
+  ::google::protobuf::internal::ArenaStringPtr status_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dauth_2fricauth_2eproto;
 };
@@ -4847,6 +4862,59 @@ inline void RepeaterInfo_ObjectRepeaterInfo::set_allocated_repeater_config(::std
   }
   repeater_config_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), repeater_config);
   // @@protoc_insertion_point(field_set_allocated:ric.auth.RepeaterInfo.ObjectRepeaterInfo.repeater_config)
+}
+
+// string status = 3;
+inline void RepeaterInfo_ObjectRepeaterInfo::clear_status() {
+  status_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& RepeaterInfo_ObjectRepeaterInfo::status() const {
+  // @@protoc_insertion_point(field_get:ric.auth.RepeaterInfo.ObjectRepeaterInfo.status)
+  return status_.GetNoArena();
+}
+inline void RepeaterInfo_ObjectRepeaterInfo::set_status(const ::std::string& value) {
+  
+  status_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.auth.RepeaterInfo.ObjectRepeaterInfo.status)
+}
+#if LANG_CXX11
+inline void RepeaterInfo_ObjectRepeaterInfo::set_status(::std::string&& value) {
+  
+  status_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.auth.RepeaterInfo.ObjectRepeaterInfo.status)
+}
+#endif
+inline void RepeaterInfo_ObjectRepeaterInfo::set_status(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  status_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.auth.RepeaterInfo.ObjectRepeaterInfo.status)
+}
+inline void RepeaterInfo_ObjectRepeaterInfo::set_status(const char* value, size_t size) {
+  
+  status_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.RepeaterInfo.ObjectRepeaterInfo.status)
+}
+inline ::std::string* RepeaterInfo_ObjectRepeaterInfo::mutable_status() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.auth.RepeaterInfo.ObjectRepeaterInfo.status)
+  return status_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* RepeaterInfo_ObjectRepeaterInfo::release_status() {
+  // @@protoc_insertion_point(field_release:ric.auth.RepeaterInfo.ObjectRepeaterInfo.status)
+  
+  return status_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void RepeaterInfo_ObjectRepeaterInfo::set_allocated_status(::std::string* status) {
+  if (status != nullptr) {
+    
+  } else {
+    
+  }
+  status_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), status);
+  // @@protoc_insertion_point(field_set_allocated:ric.auth.RepeaterInfo.ObjectRepeaterInfo.status)
 }
 
 // -------------------------------------------------------------------
