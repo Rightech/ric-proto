@@ -89,7 +89,12 @@
       "port": {
         "dev": 15081
       }
-    },        
+    },
+    "ric-notify/Notifier": {
+      "port": {
+        "dev": 15081
+      }
+    },
     "lora-agent": {
       "port": {
         "dev": 15082
