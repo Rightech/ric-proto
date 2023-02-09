@@ -46,7 +46,7 @@ struct TableStruct_ric_2dnotify_2fricnotify_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[23]
+  static const ::google::protobuf::internal::ParseTable schema[27]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -73,6 +73,18 @@ extern HTTPResponseDefaultTypeInternal _HTTPResponse_default_instance_;
 class HTTPResponse_HeadersEntry_DoNotUse;
 class HTTPResponse_HeadersEntry_DoNotUseDefaultTypeInternal;
 extern HTTPResponse_HeadersEntry_DoNotUseDefaultTypeInternal _HTTPResponse_HeadersEntry_DoNotUse_default_instance_;
+class NotifierInitRequest;
+class NotifierInitRequestDefaultTypeInternal;
+extern NotifierInitRequestDefaultTypeInternal _NotifierInitRequest_default_instance_;
+class NotifierInitResponse;
+class NotifierInitResponseDefaultTypeInternal;
+extern NotifierInitResponseDefaultTypeInternal _NotifierInitResponse_default_instance_;
+class NotifierSendRequest;
+class NotifierSendRequestDefaultTypeInternal;
+extern NotifierSendRequestDefaultTypeInternal _NotifierSendRequest_default_instance_;
+class NotifierSendResponse;
+class NotifierSendResponseDefaultTypeInternal;
+extern NotifierSendResponseDefaultTypeInternal _NotifierSendResponse_default_instance_;
 class PushSendRequest;
 class PushSendRequestDefaultTypeInternal;
 extern PushSendRequestDefaultTypeInternal _PushSendRequest_default_instance_;
@@ -134,6 +146,10 @@ template<> ::ric::notify::HTTPRequest* Arena::CreateMaybeMessage<::ric::notify::
 template<> ::ric::notify::HTTPRequest_HeadersEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::notify::HTTPRequest_HeadersEntry_DoNotUse>(Arena*);
 template<> ::ric::notify::HTTPResponse* Arena::CreateMaybeMessage<::ric::notify::HTTPResponse>(Arena*);
 template<> ::ric::notify::HTTPResponse_HeadersEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::notify::HTTPResponse_HeadersEntry_DoNotUse>(Arena*);
+template<> ::ric::notify::NotifierInitRequest* Arena::CreateMaybeMessage<::ric::notify::NotifierInitRequest>(Arena*);
+template<> ::ric::notify::NotifierInitResponse* Arena::CreateMaybeMessage<::ric::notify::NotifierInitResponse>(Arena*);
+template<> ::ric::notify::NotifierSendRequest* Arena::CreateMaybeMessage<::ric::notify::NotifierSendRequest>(Arena*);
+template<> ::ric::notify::NotifierSendResponse* Arena::CreateMaybeMessage<::ric::notify::NotifierSendResponse>(Arena*);
 template<> ::ric::notify::PushSendRequest* Arena::CreateMaybeMessage<::ric::notify::PushSendRequest>(Arena*);
 template<> ::ric::notify::PushSendResponse* Arena::CreateMaybeMessage<::ric::notify::PushSendResponse>(Arena*);
 template<> ::ric::notify::SMPPCheckGatewayRequest* Arena::CreateMaybeMessage<::ric::notify::SMPPCheckGatewayRequest>(Arena*);
@@ -3410,6 +3426,581 @@ class HTTPResponse final :
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
 };
+// -------------------------------------------------------------------
+
+class NotifierInitRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.NotifierInitRequest) */ {
+ public:
+  NotifierInitRequest();
+  virtual ~NotifierInitRequest();
+
+  NotifierInitRequest(const NotifierInitRequest& from);
+
+  inline NotifierInitRequest& operator=(const NotifierInitRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  NotifierInitRequest(NotifierInitRequest&& from) noexcept
+    : NotifierInitRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline NotifierInitRequest& operator=(NotifierInitRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const NotifierInitRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const NotifierInitRequest* internal_default_instance() {
+    return reinterpret_cast<const NotifierInitRequest*>(
+               &_NotifierInitRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    23;
+
+  void Swap(NotifierInitRequest* other);
+  friend void swap(NotifierInitRequest& a, NotifierInitRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline NotifierInitRequest* New() const final {
+    return CreateMaybeMessage<NotifierInitRequest>(nullptr);
+  }
+
+  NotifierInitRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<NotifierInitRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const NotifierInitRequest& from);
+  void MergeFrom(const NotifierInitRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(NotifierInitRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string notifier_id = 2;
+  void clear_notifier_id();
+  static const int kNotifierIdFieldNumber = 2;
+  const ::std::string& notifier_id() const;
+  void set_notifier_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_notifier_id(::std::string&& value);
+  #endif
+  void set_notifier_id(const char* value);
+  void set_notifier_id(const char* value, size_t size);
+  ::std::string* mutable_notifier_id();
+  ::std::string* release_notifier_id();
+  void set_allocated_notifier_id(::std::string* notifier_id);
+
+  // bytes data = 3;
+  void clear_data();
+  static const int kDataFieldNumber = 3;
+  const ::std::string& data() const;
+  void set_data(const ::std::string& value);
+  #if LANG_CXX11
+  void set_data(::std::string&& value);
+  #endif
+  void set_data(const char* value);
+  void set_data(const void* value, size_t size);
+  ::std::string* mutable_data();
+  ::std::string* release_data();
+  void set_allocated_data(::std::string* data);
+
+  // .ric.notify.Context ctx = 1;
+  bool has_ctx() const;
+  void clear_ctx();
+  static const int kCtxFieldNumber = 1;
+  const ::ric::notify::Context& ctx() const;
+  ::ric::notify::Context* release_ctx();
+  ::ric::notify::Context* mutable_ctx();
+  void set_allocated_ctx(::ric::notify::Context* ctx);
+
+  // @@protoc_insertion_point(class_scope:ric.notify.NotifierInitRequest)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr notifier_id_;
+  ::google::protobuf::internal::ArenaStringPtr data_;
+  ::ric::notify::Context* ctx_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
+};
+// -------------------------------------------------------------------
+
+class NotifierInitResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.NotifierInitResponse) */ {
+ public:
+  NotifierInitResponse();
+  virtual ~NotifierInitResponse();
+
+  NotifierInitResponse(const NotifierInitResponse& from);
+
+  inline NotifierInitResponse& operator=(const NotifierInitResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  NotifierInitResponse(NotifierInitResponse&& from) noexcept
+    : NotifierInitResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline NotifierInitResponse& operator=(NotifierInitResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const NotifierInitResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const NotifierInitResponse* internal_default_instance() {
+    return reinterpret_cast<const NotifierInitResponse*>(
+               &_NotifierInitResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    24;
+
+  void Swap(NotifierInitResponse* other);
+  friend void swap(NotifierInitResponse& a, NotifierInitResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline NotifierInitResponse* New() const final {
+    return CreateMaybeMessage<NotifierInitResponse>(nullptr);
+  }
+
+  NotifierInitResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<NotifierInitResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const NotifierInitResponse& from);
+  void MergeFrom(const NotifierInitResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(NotifierInitResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string message = 1;
+  void clear_message();
+  static const int kMessageFieldNumber = 1;
+  const ::std::string& message() const;
+  void set_message(const ::std::string& value);
+  #if LANG_CXX11
+  void set_message(::std::string&& value);
+  #endif
+  void set_message(const char* value);
+  void set_message(const char* value, size_t size);
+  ::std::string* mutable_message();
+  ::std::string* release_message();
+  void set_allocated_message(::std::string* message);
+
+  // bytes data = 2;
+  void clear_data();
+  static const int kDataFieldNumber = 2;
+  const ::std::string& data() const;
+  void set_data(const ::std::string& value);
+  #if LANG_CXX11
+  void set_data(::std::string&& value);
+  #endif
+  void set_data(const char* value);
+  void set_data(const void* value, size_t size);
+  ::std::string* mutable_data();
+  ::std::string* release_data();
+  void set_allocated_data(::std::string* data);
+
+  // @@protoc_insertion_point(class_scope:ric.notify.NotifierInitResponse)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr message_;
+  ::google::protobuf::internal::ArenaStringPtr data_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
+};
+// -------------------------------------------------------------------
+
+class NotifierSendRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.NotifierSendRequest) */ {
+ public:
+  NotifierSendRequest();
+  virtual ~NotifierSendRequest();
+
+  NotifierSendRequest(const NotifierSendRequest& from);
+
+  inline NotifierSendRequest& operator=(const NotifierSendRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  NotifierSendRequest(NotifierSendRequest&& from) noexcept
+    : NotifierSendRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline NotifierSendRequest& operator=(NotifierSendRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const NotifierSendRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const NotifierSendRequest* internal_default_instance() {
+    return reinterpret_cast<const NotifierSendRequest*>(
+               &_NotifierSendRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    25;
+
+  void Swap(NotifierSendRequest* other);
+  friend void swap(NotifierSendRequest& a, NotifierSendRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline NotifierSendRequest* New() const final {
+    return CreateMaybeMessage<NotifierSendRequest>(nullptr);
+  }
+
+  NotifierSendRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<NotifierSendRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const NotifierSendRequest& from);
+  void MergeFrom(const NotifierSendRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(NotifierSendRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string notifier_id = 2;
+  void clear_notifier_id();
+  static const int kNotifierIdFieldNumber = 2;
+  const ::std::string& notifier_id() const;
+  void set_notifier_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_notifier_id(::std::string&& value);
+  #endif
+  void set_notifier_id(const char* value);
+  void set_notifier_id(const char* value, size_t size);
+  ::std::string* mutable_notifier_id();
+  ::std::string* release_notifier_id();
+  void set_allocated_notifier_id(::std::string* notifier_id);
+
+  // string message = 3;
+  void clear_message();
+  static const int kMessageFieldNumber = 3;
+  const ::std::string& message() const;
+  void set_message(const ::std::string& value);
+  #if LANG_CXX11
+  void set_message(::std::string&& value);
+  #endif
+  void set_message(const char* value);
+  void set_message(const char* value, size_t size);
+  ::std::string* mutable_message();
+  ::std::string* release_message();
+  void set_allocated_message(::std::string* message);
+
+  // bytes data = 4;
+  void clear_data();
+  static const int kDataFieldNumber = 4;
+  const ::std::string& data() const;
+  void set_data(const ::std::string& value);
+  #if LANG_CXX11
+  void set_data(::std::string&& value);
+  #endif
+  void set_data(const char* value);
+  void set_data(const void* value, size_t size);
+  ::std::string* mutable_data();
+  ::std::string* release_data();
+  void set_allocated_data(::std::string* data);
+
+  // .ric.notify.Context ctx = 1;
+  bool has_ctx() const;
+  void clear_ctx();
+  static const int kCtxFieldNumber = 1;
+  const ::ric::notify::Context& ctx() const;
+  ::ric::notify::Context* release_ctx();
+  ::ric::notify::Context* mutable_ctx();
+  void set_allocated_ctx(::ric::notify::Context* ctx);
+
+  // @@protoc_insertion_point(class_scope:ric.notify.NotifierSendRequest)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr notifier_id_;
+  ::google::protobuf::internal::ArenaStringPtr message_;
+  ::google::protobuf::internal::ArenaStringPtr data_;
+  ::ric::notify::Context* ctx_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
+};
+// -------------------------------------------------------------------
+
+class NotifierSendResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.NotifierSendResponse) */ {
+ public:
+  NotifierSendResponse();
+  virtual ~NotifierSendResponse();
+
+  NotifierSendResponse(const NotifierSendResponse& from);
+
+  inline NotifierSendResponse& operator=(const NotifierSendResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  NotifierSendResponse(NotifierSendResponse&& from) noexcept
+    : NotifierSendResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline NotifierSendResponse& operator=(NotifierSendResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const NotifierSendResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const NotifierSendResponse* internal_default_instance() {
+    return reinterpret_cast<const NotifierSendResponse*>(
+               &_NotifierSendResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    26;
+
+  void Swap(NotifierSendResponse* other);
+  friend void swap(NotifierSendResponse& a, NotifierSendResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline NotifierSendResponse* New() const final {
+    return CreateMaybeMessage<NotifierSendResponse>(nullptr);
+  }
+
+  NotifierSendResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<NotifierSendResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const NotifierSendResponse& from);
+  void MergeFrom(const NotifierSendResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(NotifierSendResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string message = 1;
+  void clear_message();
+  static const int kMessageFieldNumber = 1;
+  const ::std::string& message() const;
+  void set_message(const ::std::string& value);
+  #if LANG_CXX11
+  void set_message(::std::string&& value);
+  #endif
+  void set_message(const char* value);
+  void set_message(const char* value, size_t size);
+  ::std::string* mutable_message();
+  ::std::string* release_message();
+  void set_allocated_message(::std::string* message);
+
+  // bytes data = 2;
+  void clear_data();
+  static const int kDataFieldNumber = 2;
+  const ::std::string& data() const;
+  void set_data(const ::std::string& value);
+  #if LANG_CXX11
+  void set_data(::std::string&& value);
+  #endif
+  void set_data(const char* value);
+  void set_data(const void* value, size_t size);
+  ::std::string* mutable_data();
+  ::std::string* release_data();
+  void set_allocated_data(::std::string* data);
+
+  // @@protoc_insertion_point(class_scope:ric.notify.NotifierSendResponse)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr message_;
+  ::google::protobuf::internal::ArenaStringPtr data_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
+};
 // ===================================================================
 
 
@@ -6649,9 +7240,612 @@ inline void HTTPResponse::set_allocated_body(::std::string* body) {
   // @@protoc_insertion_point(field_set_allocated:ric.notify.HTTPResponse.body)
 }
 
+// -------------------------------------------------------------------
+
+// NotifierInitRequest
+
+// .ric.notify.Context ctx = 1;
+inline bool NotifierInitRequest::has_ctx() const {
+  return this != internal_default_instance() && ctx_ != nullptr;
+}
+inline void NotifierInitRequest::clear_ctx() {
+  if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
+    delete ctx_;
+  }
+  ctx_ = nullptr;
+}
+inline const ::ric::notify::Context& NotifierInitRequest::ctx() const {
+  const ::ric::notify::Context* p = ctx_;
+  // @@protoc_insertion_point(field_get:ric.notify.NotifierInitRequest.ctx)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::notify::Context*>(
+      &::ric::notify::_Context_default_instance_);
+}
+inline ::ric::notify::Context* NotifierInitRequest::release_ctx() {
+  // @@protoc_insertion_point(field_release:ric.notify.NotifierInitRequest.ctx)
+  
+  ::ric::notify::Context* temp = ctx_;
+  ctx_ = nullptr;
+  return temp;
+}
+inline ::ric::notify::Context* NotifierInitRequest::mutable_ctx() {
+  
+  if (ctx_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::notify::Context>(GetArenaNoVirtual());
+    ctx_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.notify.NotifierInitRequest.ctx)
+  return ctx_;
+}
+inline void NotifierInitRequest::set_allocated_ctx(::ric::notify::Context* ctx) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete ctx_;
+  }
+  if (ctx) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      ctx = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, ctx, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  ctx_ = ctx;
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.NotifierInitRequest.ctx)
+}
+
+// string notifier_id = 2;
+inline void NotifierInitRequest::clear_notifier_id() {
+  notifier_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& NotifierInitRequest::notifier_id() const {
+  // @@protoc_insertion_point(field_get:ric.notify.NotifierInitRequest.notifier_id)
+  return notifier_id_.GetNoArena();
+}
+inline void NotifierInitRequest::set_notifier_id(const ::std::string& value) {
+  
+  notifier_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.NotifierInitRequest.notifier_id)
+}
+#if LANG_CXX11
+inline void NotifierInitRequest::set_notifier_id(::std::string&& value) {
+  
+  notifier_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.NotifierInitRequest.notifier_id)
+}
+#endif
+inline void NotifierInitRequest::set_notifier_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  notifier_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.NotifierInitRequest.notifier_id)
+}
+inline void NotifierInitRequest::set_notifier_id(const char* value, size_t size) {
+  
+  notifier_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.NotifierInitRequest.notifier_id)
+}
+inline ::std::string* NotifierInitRequest::mutable_notifier_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.NotifierInitRequest.notifier_id)
+  return notifier_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* NotifierInitRequest::release_notifier_id() {
+  // @@protoc_insertion_point(field_release:ric.notify.NotifierInitRequest.notifier_id)
+  
+  return notifier_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NotifierInitRequest::set_allocated_notifier_id(::std::string* notifier_id) {
+  if (notifier_id != nullptr) {
+    
+  } else {
+    
+  }
+  notifier_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), notifier_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.NotifierInitRequest.notifier_id)
+}
+
+// bytes data = 3;
+inline void NotifierInitRequest::clear_data() {
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& NotifierInitRequest::data() const {
+  // @@protoc_insertion_point(field_get:ric.notify.NotifierInitRequest.data)
+  return data_.GetNoArena();
+}
+inline void NotifierInitRequest::set_data(const ::std::string& value) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.NotifierInitRequest.data)
+}
+#if LANG_CXX11
+inline void NotifierInitRequest::set_data(::std::string&& value) {
+  
+  data_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.NotifierInitRequest.data)
+}
+#endif
+inline void NotifierInitRequest::set_data(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.NotifierInitRequest.data)
+}
+inline void NotifierInitRequest::set_data(const void* value, size_t size) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.NotifierInitRequest.data)
+}
+inline ::std::string* NotifierInitRequest::mutable_data() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.NotifierInitRequest.data)
+  return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* NotifierInitRequest::release_data() {
+  // @@protoc_insertion_point(field_release:ric.notify.NotifierInitRequest.data)
+  
+  return data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NotifierInitRequest::set_allocated_data(::std::string* data) {
+  if (data != nullptr) {
+    
+  } else {
+    
+  }
+  data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.NotifierInitRequest.data)
+}
+
+// -------------------------------------------------------------------
+
+// NotifierInitResponse
+
+// string message = 1;
+inline void NotifierInitResponse::clear_message() {
+  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& NotifierInitResponse::message() const {
+  // @@protoc_insertion_point(field_get:ric.notify.NotifierInitResponse.message)
+  return message_.GetNoArena();
+}
+inline void NotifierInitResponse::set_message(const ::std::string& value) {
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.NotifierInitResponse.message)
+}
+#if LANG_CXX11
+inline void NotifierInitResponse::set_message(::std::string&& value) {
+  
+  message_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.NotifierInitResponse.message)
+}
+#endif
+inline void NotifierInitResponse::set_message(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.NotifierInitResponse.message)
+}
+inline void NotifierInitResponse::set_message(const char* value, size_t size) {
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.NotifierInitResponse.message)
+}
+inline ::std::string* NotifierInitResponse::mutable_message() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.NotifierInitResponse.message)
+  return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* NotifierInitResponse::release_message() {
+  // @@protoc_insertion_point(field_release:ric.notify.NotifierInitResponse.message)
+  
+  return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NotifierInitResponse::set_allocated_message(::std::string* message) {
+  if (message != nullptr) {
+    
+  } else {
+    
+  }
+  message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.NotifierInitResponse.message)
+}
+
+// bytes data = 2;
+inline void NotifierInitResponse::clear_data() {
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& NotifierInitResponse::data() const {
+  // @@protoc_insertion_point(field_get:ric.notify.NotifierInitResponse.data)
+  return data_.GetNoArena();
+}
+inline void NotifierInitResponse::set_data(const ::std::string& value) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.NotifierInitResponse.data)
+}
+#if LANG_CXX11
+inline void NotifierInitResponse::set_data(::std::string&& value) {
+  
+  data_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.NotifierInitResponse.data)
+}
+#endif
+inline void NotifierInitResponse::set_data(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.NotifierInitResponse.data)
+}
+inline void NotifierInitResponse::set_data(const void* value, size_t size) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.NotifierInitResponse.data)
+}
+inline ::std::string* NotifierInitResponse::mutable_data() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.NotifierInitResponse.data)
+  return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* NotifierInitResponse::release_data() {
+  // @@protoc_insertion_point(field_release:ric.notify.NotifierInitResponse.data)
+  
+  return data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NotifierInitResponse::set_allocated_data(::std::string* data) {
+  if (data != nullptr) {
+    
+  } else {
+    
+  }
+  data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.NotifierInitResponse.data)
+}
+
+// -------------------------------------------------------------------
+
+// NotifierSendRequest
+
+// .ric.notify.Context ctx = 1;
+inline bool NotifierSendRequest::has_ctx() const {
+  return this != internal_default_instance() && ctx_ != nullptr;
+}
+inline void NotifierSendRequest::clear_ctx() {
+  if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
+    delete ctx_;
+  }
+  ctx_ = nullptr;
+}
+inline const ::ric::notify::Context& NotifierSendRequest::ctx() const {
+  const ::ric::notify::Context* p = ctx_;
+  // @@protoc_insertion_point(field_get:ric.notify.NotifierSendRequest.ctx)
+  return p != nullptr ? *p : *reinterpret_cast<const ::ric::notify::Context*>(
+      &::ric::notify::_Context_default_instance_);
+}
+inline ::ric::notify::Context* NotifierSendRequest::release_ctx() {
+  // @@protoc_insertion_point(field_release:ric.notify.NotifierSendRequest.ctx)
+  
+  ::ric::notify::Context* temp = ctx_;
+  ctx_ = nullptr;
+  return temp;
+}
+inline ::ric::notify::Context* NotifierSendRequest::mutable_ctx() {
+  
+  if (ctx_ == nullptr) {
+    auto* p = CreateMaybeMessage<::ric::notify::Context>(GetArenaNoVirtual());
+    ctx_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:ric.notify.NotifierSendRequest.ctx)
+  return ctx_;
+}
+inline void NotifierSendRequest::set_allocated_ctx(::ric::notify::Context* ctx) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete ctx_;
+  }
+  if (ctx) {
+    ::google::protobuf::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      ctx = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, ctx, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  ctx_ = ctx;
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.NotifierSendRequest.ctx)
+}
+
+// string notifier_id = 2;
+inline void NotifierSendRequest::clear_notifier_id() {
+  notifier_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& NotifierSendRequest::notifier_id() const {
+  // @@protoc_insertion_point(field_get:ric.notify.NotifierSendRequest.notifier_id)
+  return notifier_id_.GetNoArena();
+}
+inline void NotifierSendRequest::set_notifier_id(const ::std::string& value) {
+  
+  notifier_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.NotifierSendRequest.notifier_id)
+}
+#if LANG_CXX11
+inline void NotifierSendRequest::set_notifier_id(::std::string&& value) {
+  
+  notifier_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.NotifierSendRequest.notifier_id)
+}
+#endif
+inline void NotifierSendRequest::set_notifier_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  notifier_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.NotifierSendRequest.notifier_id)
+}
+inline void NotifierSendRequest::set_notifier_id(const char* value, size_t size) {
+  
+  notifier_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.NotifierSendRequest.notifier_id)
+}
+inline ::std::string* NotifierSendRequest::mutable_notifier_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.NotifierSendRequest.notifier_id)
+  return notifier_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* NotifierSendRequest::release_notifier_id() {
+  // @@protoc_insertion_point(field_release:ric.notify.NotifierSendRequest.notifier_id)
+  
+  return notifier_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NotifierSendRequest::set_allocated_notifier_id(::std::string* notifier_id) {
+  if (notifier_id != nullptr) {
+    
+  } else {
+    
+  }
+  notifier_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), notifier_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.NotifierSendRequest.notifier_id)
+}
+
+// string message = 3;
+inline void NotifierSendRequest::clear_message() {
+  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& NotifierSendRequest::message() const {
+  // @@protoc_insertion_point(field_get:ric.notify.NotifierSendRequest.message)
+  return message_.GetNoArena();
+}
+inline void NotifierSendRequest::set_message(const ::std::string& value) {
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.NotifierSendRequest.message)
+}
+#if LANG_CXX11
+inline void NotifierSendRequest::set_message(::std::string&& value) {
+  
+  message_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.NotifierSendRequest.message)
+}
+#endif
+inline void NotifierSendRequest::set_message(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.NotifierSendRequest.message)
+}
+inline void NotifierSendRequest::set_message(const char* value, size_t size) {
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.NotifierSendRequest.message)
+}
+inline ::std::string* NotifierSendRequest::mutable_message() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.NotifierSendRequest.message)
+  return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* NotifierSendRequest::release_message() {
+  // @@protoc_insertion_point(field_release:ric.notify.NotifierSendRequest.message)
+  
+  return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NotifierSendRequest::set_allocated_message(::std::string* message) {
+  if (message != nullptr) {
+    
+  } else {
+    
+  }
+  message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.NotifierSendRequest.message)
+}
+
+// bytes data = 4;
+inline void NotifierSendRequest::clear_data() {
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& NotifierSendRequest::data() const {
+  // @@protoc_insertion_point(field_get:ric.notify.NotifierSendRequest.data)
+  return data_.GetNoArena();
+}
+inline void NotifierSendRequest::set_data(const ::std::string& value) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.NotifierSendRequest.data)
+}
+#if LANG_CXX11
+inline void NotifierSendRequest::set_data(::std::string&& value) {
+  
+  data_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.NotifierSendRequest.data)
+}
+#endif
+inline void NotifierSendRequest::set_data(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.NotifierSendRequest.data)
+}
+inline void NotifierSendRequest::set_data(const void* value, size_t size) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.NotifierSendRequest.data)
+}
+inline ::std::string* NotifierSendRequest::mutable_data() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.NotifierSendRequest.data)
+  return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* NotifierSendRequest::release_data() {
+  // @@protoc_insertion_point(field_release:ric.notify.NotifierSendRequest.data)
+  
+  return data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NotifierSendRequest::set_allocated_data(::std::string* data) {
+  if (data != nullptr) {
+    
+  } else {
+    
+  }
+  data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.NotifierSendRequest.data)
+}
+
+// -------------------------------------------------------------------
+
+// NotifierSendResponse
+
+// string message = 1;
+inline void NotifierSendResponse::clear_message() {
+  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& NotifierSendResponse::message() const {
+  // @@protoc_insertion_point(field_get:ric.notify.NotifierSendResponse.message)
+  return message_.GetNoArena();
+}
+inline void NotifierSendResponse::set_message(const ::std::string& value) {
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.NotifierSendResponse.message)
+}
+#if LANG_CXX11
+inline void NotifierSendResponse::set_message(::std::string&& value) {
+  
+  message_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.NotifierSendResponse.message)
+}
+#endif
+inline void NotifierSendResponse::set_message(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.NotifierSendResponse.message)
+}
+inline void NotifierSendResponse::set_message(const char* value, size_t size) {
+  
+  message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.NotifierSendResponse.message)
+}
+inline ::std::string* NotifierSendResponse::mutable_message() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.NotifierSendResponse.message)
+  return message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* NotifierSendResponse::release_message() {
+  // @@protoc_insertion_point(field_release:ric.notify.NotifierSendResponse.message)
+  
+  return message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NotifierSendResponse::set_allocated_message(::std::string* message) {
+  if (message != nullptr) {
+    
+  } else {
+    
+  }
+  message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.NotifierSendResponse.message)
+}
+
+// bytes data = 2;
+inline void NotifierSendResponse::clear_data() {
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& NotifierSendResponse::data() const {
+  // @@protoc_insertion_point(field_get:ric.notify.NotifierSendResponse.data)
+  return data_.GetNoArena();
+}
+inline void NotifierSendResponse::set_data(const ::std::string& value) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.NotifierSendResponse.data)
+}
+#if LANG_CXX11
+inline void NotifierSendResponse::set_data(::std::string&& value) {
+  
+  data_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.NotifierSendResponse.data)
+}
+#endif
+inline void NotifierSendResponse::set_data(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.NotifierSendResponse.data)
+}
+inline void NotifierSendResponse::set_data(const void* value, size_t size) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.NotifierSendResponse.data)
+}
+inline ::std::string* NotifierSendResponse::mutable_data() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.NotifierSendResponse.data)
+  return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* NotifierSendResponse::release_data() {
+  // @@protoc_insertion_point(field_release:ric.notify.NotifierSendResponse.data)
+  
+  return data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void NotifierSendResponse::set_allocated_data(::std::string* data) {
+  if (data != nullptr) {
+    
+  } else {
+    
+  }
+  data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.NotifierSendResponse.data)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

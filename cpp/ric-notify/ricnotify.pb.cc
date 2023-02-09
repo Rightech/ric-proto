@@ -116,6 +116,22 @@ class HTTPResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<HTTPResponse> _instance;
 } _HTTPResponse_default_instance_;
+class NotifierInitRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<NotifierInitRequest> _instance;
+} _NotifierInitRequest_default_instance_;
+class NotifierInitResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<NotifierInitResponse> _instance;
+} _NotifierInitResponse_default_instance_;
+class NotifierSendRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<NotifierSendRequest> _instance;
+} _NotifierSendRequest_default_instance_;
+class NotifierSendResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<NotifierSendResponse> _instance;
+} _NotifierSendResponse_default_instance_;
 }  // namespace notify
 }  // namespace ric
 static void InitDefaultsContext_ric_2dnotify_2fricnotify_2eproto() {
@@ -447,6 +463,64 @@ static void InitDefaultsHTTPResponse_ric_2dnotify_2fricnotify_2eproto() {
       &scc_info_Context_ric_2dnotify_2fricnotify_2eproto.base,
       &scc_info_HTTPResponse_HeadersEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto.base,}};
 
+static void InitDefaultsNotifierInitRequest_ric_2dnotify_2fricnotify_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::notify::_NotifierInitRequest_default_instance_;
+    new (ptr) ::ric::notify::NotifierInitRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::notify::NotifierInitRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_NotifierInitRequest_ric_2dnotify_2fricnotify_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsNotifierInitRequest_ric_2dnotify_2fricnotify_2eproto}, {
+      &scc_info_Context_ric_2dnotify_2fricnotify_2eproto.base,}};
+
+static void InitDefaultsNotifierInitResponse_ric_2dnotify_2fricnotify_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::notify::_NotifierInitResponse_default_instance_;
+    new (ptr) ::ric::notify::NotifierInitResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::notify::NotifierInitResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_NotifierInitResponse_ric_2dnotify_2fricnotify_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsNotifierInitResponse_ric_2dnotify_2fricnotify_2eproto}, {}};
+
+static void InitDefaultsNotifierSendRequest_ric_2dnotify_2fricnotify_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::notify::_NotifierSendRequest_default_instance_;
+    new (ptr) ::ric::notify::NotifierSendRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::notify::NotifierSendRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_NotifierSendRequest_ric_2dnotify_2fricnotify_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsNotifierSendRequest_ric_2dnotify_2fricnotify_2eproto}, {
+      &scc_info_Context_ric_2dnotify_2fricnotify_2eproto.base,}};
+
+static void InitDefaultsNotifierSendResponse_ric_2dnotify_2fricnotify_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::notify::_NotifierSendResponse_default_instance_;
+    new (ptr) ::ric::notify::NotifierSendResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::notify::NotifierSendResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_NotifierSendResponse_ric_2dnotify_2fricnotify_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsNotifierSendResponse_ric_2dnotify_2fricnotify_2eproto}, {}};
+
 void InitDefaults_ric_2dnotify_2fricnotify_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_Context_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_SMPPSendRequest_ric_2dnotify_2fricnotify_2eproto.base);
@@ -471,9 +545,13 @@ void InitDefaults_ric_2dnotify_2fricnotify_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_HTTPRequest_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_HTTPResponse_HeadersEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_HTTPResponse_ric_2dnotify_2fricnotify_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_NotifierInitRequest_ric_2dnotify_2fricnotify_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_NotifierInitResponse_ric_2dnotify_2fricnotify_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_NotifierSendRequest_ric_2dnotify_2fricnotify_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_NotifierSendResponse_ric_2dnotify_2fricnotify_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dnotify_2fricnotify_2eproto[23];
+::google::protobuf::Metadata file_level_metadata_ric_2dnotify_2fricnotify_2eproto[27];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors_ric_2dnotify_2fricnotify_2eproto[1];
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dnotify_2fricnotify_2eproto = nullptr;
 
@@ -674,6 +752,37 @@ const ::google::protobuf::uint32 TableStruct_ric_2dnotify_2fricnotify_2eproto::o
   PROTOBUF_FIELD_OFFSET(::ric::notify::HTTPResponse, status_code_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::HTTPResponse, headers_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::HTTPResponse, body_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::notify::NotifierInitRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::notify::NotifierInitRequest, ctx_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::NotifierInitRequest, notifier_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::NotifierInitRequest, data_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::notify::NotifierInitResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::notify::NotifierInitResponse, message_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::NotifierInitResponse, data_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::notify::NotifierSendRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::notify::NotifierSendRequest, ctx_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::NotifierSendRequest, notifier_id_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::NotifierSendRequest, message_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::NotifierSendRequest, data_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::notify::NotifierSendResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::notify::NotifierSendResponse, message_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::NotifierSendResponse, data_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::ric::notify::Context)},
@@ -699,6 +808,10 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 168, -1, sizeof(::ric::notify::HTTPRequest)},
   { 178, 185, sizeof(::ric::notify::HTTPResponse_HeadersEntry_DoNotUse)},
   { 187, -1, sizeof(::ric::notify::HTTPResponse)},
+  { 196, -1, sizeof(::ric::notify::NotifierInitRequest)},
+  { 204, -1, sizeof(::ric::notify::NotifierInitResponse)},
+  { 211, -1, sizeof(::ric::notify::NotifierSendRequest)},
+  { 220, -1, sizeof(::ric::notify::NotifierSendResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -725,12 +838,16 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_HTTPRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_HTTPResponse_HeadersEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_HTTPResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_NotifierInitRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_NotifierInitResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_NotifierSendRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_NotifierSendResponse_default_instance_),
 };
 
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto = {
   {}, AddDescriptors_ric_2dnotify_2fricnotify_2eproto, "ric-notify/ricnotify.proto", schemas,
   file_default_instances, TableStruct_ric_2dnotify_2fricnotify_2eproto::offsets,
-  file_level_metadata_ric_2dnotify_2fricnotify_2eproto, 23, file_level_enum_descriptors_ric_2dnotify_2fricnotify_2eproto, file_level_service_descriptors_ric_2dnotify_2fricnotify_2eproto,
+  file_level_metadata_ric_2dnotify_2fricnotify_2eproto, 27, file_level_enum_descriptors_ric_2dnotify_2fricnotify_2eproto, file_level_service_descriptors_ric_2dnotify_2fricnotify_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto[] =
@@ -791,31 +908,43 @@ const char descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto[] =
   "atus_code\030\002 \001(\005\0226\n\007headers\030\003 \003(\0132%.ric.n"
   "otify.HTTPResponse.HeadersEntry\022\014\n\004body\030"
   "\004 \001(\014\032.\n\014HeadersEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va"
-  "lue\030\002 \001(\t:\0028\0012\305\002\n\004SMPP\022A\n\004Send\022\033.ric.not"
-  "ify.SMPPSendRequest\032\034.ric.notify.SMPPSen"
-  "dResponse\022G\n\006Status\022\035.ric.notify.SMPPSta"
-  "tusRequest\032\036.ric.notify.SMPPStatusRespon"
-  "se\022V\n\013GatewayInfo\022\".ric.notify.SMPPGatew"
-  "ayInfoRequest\032#.ric.notify.SMPPGatewayIn"
-  "foResponse\022Y\n\014CheckGateway\022#.ric.notify."
-  "SMPPCheckGatewayRequest\032$.ric.notify.SMP"
-  "PCheckGatewayResponse2\374\001\n\004SMTP\022A\n\004Send\022\033"
-  ".ric.notify.SMTPSendRequest\032\034.ric.notify"
-  ".SMTPSendResponse\022V\n\013GatewayInfo\022\".ric.n"
-  "otify.SMTPGatewayInfoRequest\032#.ric.notif"
-  "y.SMTPGatewayInfoResponse\022Y\n\014CheckGatewa"
-  "y\022#.ric.notify.SMTPCheckGatewayRequest\032$"
-  ".ric.notify.SMTPCheckGatewayResponse2I\n\004"
-  "Push\022A\n\004Send\022\033.ric.notify.PushSendReques"
-  "t\032\034.ric.notify.PushSendResponse2D\n\004HTTP\022"
-  "<\n\007Request\022\027.ric.notify.HTTPRequest\032\030.ri"
-  "c.notify.HTTPResponseB\030Z\026./ric-notify;ri"
-  "cnotifyb\006proto3"
+  "lue\030\002 \001(\t:\0028\001\"Z\n\023NotifierInitRequest\022 \n\003"
+  "ctx\030\001 \001(\0132\023.ric.notify.Context\022\023\n\013notifi"
+  "er_id\030\002 \001(\t\022\014\n\004data\030\003 \001(\014\"5\n\024NotifierIni"
+  "tResponse\022\017\n\007message\030\001 \001(\t\022\014\n\004data\030\002 \001(\014"
+  "\"k\n\023NotifierSendRequest\022 \n\003ctx\030\001 \001(\0132\023.r"
+  "ic.notify.Context\022\023\n\013notifier_id\030\002 \001(\t\022\017"
+  "\n\007message\030\003 \001(\t\022\014\n\004data\030\004 \001(\014\"5\n\024Notifie"
+  "rSendResponse\022\017\n\007message\030\001 \001(\t\022\014\n\004data\030\002"
+  " \001(\0142\305\002\n\004SMPP\022A\n\004Send\022\033.ric.notify.SMPPS"
+  "endRequest\032\034.ric.notify.SMPPSendResponse"
+  "\022G\n\006Status\022\035.ric.notify.SMPPStatusReques"
+  "t\032\036.ric.notify.SMPPStatusResponse\022V\n\013Gat"
+  "ewayInfo\022\".ric.notify.SMPPGatewayInfoReq"
+  "uest\032#.ric.notify.SMPPGatewayInfoRespons"
+  "e\022Y\n\014CheckGateway\022#.ric.notify.SMPPCheck"
+  "GatewayRequest\032$.ric.notify.SMPPCheckGat"
+  "ewayResponse2\374\001\n\004SMTP\022A\n\004Send\022\033.ric.noti"
+  "fy.SMTPSendRequest\032\034.ric.notify.SMTPSend"
+  "Response\022V\n\013GatewayInfo\022\".ric.notify.SMT"
+  "PGatewayInfoRequest\032#.ric.notify.SMTPGat"
+  "ewayInfoResponse\022Y\n\014CheckGateway\022#.ric.n"
+  "otify.SMTPCheckGatewayRequest\032$.ric.noti"
+  "fy.SMTPCheckGatewayResponse2I\n\004Push\022A\n\004S"
+  "end\022\033.ric.notify.PushSendRequest\032\034.ric.n"
+  "otify.PushSendResponse2D\n\004HTTP\022<\n\007Reques"
+  "t\022\027.ric.notify.HTTPRequest\032\030.ric.notify."
+  "HTTPResponse2\240\001\n\010Notifier\022I\n\004Init\022\037.ric."
+  "notify.NotifierInitRequest\032 .ric.notify."
+  "NotifierInitResponse\022I\n\004Send\022\037.ric.notif"
+  "y.NotifierSendRequest\032 .ric.notify.Notif"
+  "ierSendResponseB\030Z\026./ric-notify;ricnotif"
+  "yb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dnotify_2fricnotify_2eproto = {
   false, InitDefaults_ric_2dnotify_2fricnotify_2eproto, 
   descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto,
-  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 3055,
+  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 3529,
 };
 
 void AddDescriptors_ric_2dnotify_2fricnotify_2eproto() {
@@ -10549,6 +10678,1641 @@ void HTTPResponse::InternalSwap(HTTPResponse* other) {
 }
 
 
+// ===================================================================
+
+void NotifierInitRequest::InitAsDefaultInstance() {
+  ::ric::notify::_NotifierInitRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::notify::Context*>(
+      ::ric::notify::Context::internal_default_instance());
+}
+class NotifierInitRequest::HasBitSetters {
+ public:
+  static const ::ric::notify::Context& ctx(const NotifierInitRequest* msg);
+};
+
+const ::ric::notify::Context&
+NotifierInitRequest::HasBitSetters::ctx(const NotifierInitRequest* msg) {
+  return *msg->ctx_;
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int NotifierInitRequest::kCtxFieldNumber;
+const int NotifierInitRequest::kNotifierIdFieldNumber;
+const int NotifierInitRequest::kDataFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+NotifierInitRequest::NotifierInitRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.notify.NotifierInitRequest)
+}
+NotifierInitRequest::NotifierInitRequest(const NotifierInitRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  notifier_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.notifier_id().size() > 0) {
+    notifier_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.notifier_id_);
+  }
+  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.data().size() > 0) {
+    data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
+  }
+  if (from.has_ctx()) {
+    ctx_ = new ::ric::notify::Context(*from.ctx_);
+  } else {
+    ctx_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.notify.NotifierInitRequest)
+}
+
+void NotifierInitRequest::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_NotifierInitRequest_ric_2dnotify_2fricnotify_2eproto.base);
+  notifier_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ctx_ = nullptr;
+}
+
+NotifierInitRequest::~NotifierInitRequest() {
+  // @@protoc_insertion_point(destructor:ric.notify.NotifierInitRequest)
+  SharedDtor();
+}
+
+void NotifierInitRequest::SharedDtor() {
+  notifier_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete ctx_;
+}
+
+void NotifierInitRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const NotifierInitRequest& NotifierInitRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_NotifierInitRequest_ric_2dnotify_2fricnotify_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void NotifierInitRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.notify.NotifierInitRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  notifier_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
+    delete ctx_;
+  }
+  ctx_ = nullptr;
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* NotifierInitRequest::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<NotifierInitRequest*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // .ric.notify.Context ctx = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::ric::notify::Context::_InternalParse;
+        object = msg->mutable_ctx();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // string notifier_id = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.NotifierInitRequest.notifier_id");
+        object = msg->mutable_notifier_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // bytes data = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        object = msg->mutable_data();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParser;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool NotifierInitRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.notify.NotifierInitRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .ric.notify.Context ctx = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_ctx()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string notifier_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_notifier_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->notifier_id().data(), static_cast<int>(this->notifier_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.NotifierInitRequest.notifier_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes data = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_data()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.notify.NotifierInitRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.notify.NotifierInitRequest)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void NotifierInitRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.notify.NotifierInitRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ric.notify.Context ctx = 1;
+  if (this->has_ctx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, HasBitSetters::ctx(this), output);
+  }
+
+  // string notifier_id = 2;
+  if (this->notifier_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->notifier_id().data(), static_cast<int>(this->notifier_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.NotifierInitRequest.notifier_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->notifier_id(), output);
+  }
+
+  // bytes data = 3;
+  if (this->data().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      3, this->data(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.notify.NotifierInitRequest)
+}
+
+::google::protobuf::uint8* NotifierInitRequest::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.notify.NotifierInitRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ric.notify.Context ctx = 1;
+  if (this->has_ctx()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, HasBitSetters::ctx(this), target);
+  }
+
+  // string notifier_id = 2;
+  if (this->notifier_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->notifier_id().data(), static_cast<int>(this->notifier_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.NotifierInitRequest.notifier_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->notifier_id(), target);
+  }
+
+  // bytes data = 3;
+  if (this->data().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->data(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.notify.NotifierInitRequest)
+  return target;
+}
+
+size_t NotifierInitRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.notify.NotifierInitRequest)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string notifier_id = 2;
+  if (this->notifier_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->notifier_id());
+  }
+
+  // bytes data = 3;
+  if (this->data().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->data());
+  }
+
+  // .ric.notify.Context ctx = 1;
+  if (this->has_ctx()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *ctx_);
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void NotifierInitRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.notify.NotifierInitRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const NotifierInitRequest* source =
+      ::google::protobuf::DynamicCastToGenerated<NotifierInitRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.notify.NotifierInitRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.notify.NotifierInitRequest)
+    MergeFrom(*source);
+  }
+}
+
+void NotifierInitRequest::MergeFrom(const NotifierInitRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.notify.NotifierInitRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.notifier_id().size() > 0) {
+
+    notifier_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.notifier_id_);
+  }
+  if (from.data().size() > 0) {
+
+    data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
+  }
+  if (from.has_ctx()) {
+    mutable_ctx()->::ric::notify::Context::MergeFrom(from.ctx());
+  }
+}
+
+void NotifierInitRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.notify.NotifierInitRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NotifierInitRequest::CopyFrom(const NotifierInitRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.notify.NotifierInitRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NotifierInitRequest::IsInitialized() const {
+  return true;
+}
+
+void NotifierInitRequest::Swap(NotifierInitRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void NotifierInitRequest::InternalSwap(NotifierInitRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  notifier_id_.Swap(&other->notifier_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  data_.Swap(&other->data_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(ctx_, other->ctx_);
+}
+
+::google::protobuf::Metadata NotifierInitRequest::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto);
+  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void NotifierInitResponse::InitAsDefaultInstance() {
+}
+class NotifierInitResponse::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int NotifierInitResponse::kMessageFieldNumber;
+const int NotifierInitResponse::kDataFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+NotifierInitResponse::NotifierInitResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.notify.NotifierInitResponse)
+}
+NotifierInitResponse::NotifierInitResponse(const NotifierInitResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.message().size() > 0) {
+    message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
+  }
+  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.data().size() > 0) {
+    data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.notify.NotifierInitResponse)
+}
+
+void NotifierInitResponse::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_NotifierInitResponse_ric_2dnotify_2fricnotify_2eproto.base);
+  message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+NotifierInitResponse::~NotifierInitResponse() {
+  // @@protoc_insertion_point(destructor:ric.notify.NotifierInitResponse)
+  SharedDtor();
+}
+
+void NotifierInitResponse::SharedDtor() {
+  message_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void NotifierInitResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const NotifierInitResponse& NotifierInitResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_NotifierInitResponse_ric_2dnotify_2fricnotify_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void NotifierInitResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.notify.NotifierInitResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* NotifierInitResponse::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<NotifierInitResponse*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // string message = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.NotifierInitResponse.message");
+        object = msg->mutable_message();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // bytes data = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        object = msg->mutable_data();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParser;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool NotifierInitResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.notify.NotifierInitResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string message = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_message()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->message().data(), static_cast<int>(this->message().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.NotifierInitResponse.message"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes data = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_data()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.notify.NotifierInitResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.notify.NotifierInitResponse)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void NotifierInitResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.notify.NotifierInitResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string message = 1;
+  if (this->message().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->message().data(), static_cast<int>(this->message().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.NotifierInitResponse.message");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->message(), output);
+  }
+
+  // bytes data = 2;
+  if (this->data().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->data(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.notify.NotifierInitResponse)
+}
+
+::google::protobuf::uint8* NotifierInitResponse::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.notify.NotifierInitResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string message = 1;
+  if (this->message().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->message().data(), static_cast<int>(this->message().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.NotifierInitResponse.message");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->message(), target);
+  }
+
+  // bytes data = 2;
+  if (this->data().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->data(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.notify.NotifierInitResponse)
+  return target;
+}
+
+size_t NotifierInitResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.notify.NotifierInitResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string message = 1;
+  if (this->message().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->message());
+  }
+
+  // bytes data = 2;
+  if (this->data().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->data());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void NotifierInitResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.notify.NotifierInitResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const NotifierInitResponse* source =
+      ::google::protobuf::DynamicCastToGenerated<NotifierInitResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.notify.NotifierInitResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.notify.NotifierInitResponse)
+    MergeFrom(*source);
+  }
+}
+
+void NotifierInitResponse::MergeFrom(const NotifierInitResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.notify.NotifierInitResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.message().size() > 0) {
+
+    message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
+  }
+  if (from.data().size() > 0) {
+
+    data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
+  }
+}
+
+void NotifierInitResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.notify.NotifierInitResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NotifierInitResponse::CopyFrom(const NotifierInitResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.notify.NotifierInitResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NotifierInitResponse::IsInitialized() const {
+  return true;
+}
+
+void NotifierInitResponse::Swap(NotifierInitResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void NotifierInitResponse::InternalSwap(NotifierInitResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  message_.Swap(&other->message_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  data_.Swap(&other->data_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+}
+
+::google::protobuf::Metadata NotifierInitResponse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto);
+  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void NotifierSendRequest::InitAsDefaultInstance() {
+  ::ric::notify::_NotifierSendRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::notify::Context*>(
+      ::ric::notify::Context::internal_default_instance());
+}
+class NotifierSendRequest::HasBitSetters {
+ public:
+  static const ::ric::notify::Context& ctx(const NotifierSendRequest* msg);
+};
+
+const ::ric::notify::Context&
+NotifierSendRequest::HasBitSetters::ctx(const NotifierSendRequest* msg) {
+  return *msg->ctx_;
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int NotifierSendRequest::kCtxFieldNumber;
+const int NotifierSendRequest::kNotifierIdFieldNumber;
+const int NotifierSendRequest::kMessageFieldNumber;
+const int NotifierSendRequest::kDataFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+NotifierSendRequest::NotifierSendRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.notify.NotifierSendRequest)
+}
+NotifierSendRequest::NotifierSendRequest(const NotifierSendRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  notifier_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.notifier_id().size() > 0) {
+    notifier_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.notifier_id_);
+  }
+  message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.message().size() > 0) {
+    message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
+  }
+  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.data().size() > 0) {
+    data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
+  }
+  if (from.has_ctx()) {
+    ctx_ = new ::ric::notify::Context(*from.ctx_);
+  } else {
+    ctx_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.notify.NotifierSendRequest)
+}
+
+void NotifierSendRequest::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_NotifierSendRequest_ric_2dnotify_2fricnotify_2eproto.base);
+  notifier_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ctx_ = nullptr;
+}
+
+NotifierSendRequest::~NotifierSendRequest() {
+  // @@protoc_insertion_point(destructor:ric.notify.NotifierSendRequest)
+  SharedDtor();
+}
+
+void NotifierSendRequest::SharedDtor() {
+  notifier_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  message_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete ctx_;
+}
+
+void NotifierSendRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const NotifierSendRequest& NotifierSendRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_NotifierSendRequest_ric_2dnotify_2fricnotify_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void NotifierSendRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.notify.NotifierSendRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  notifier_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
+    delete ctx_;
+  }
+  ctx_ = nullptr;
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* NotifierSendRequest::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<NotifierSendRequest*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // .ric.notify.Context ctx = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::ric::notify::Context::_InternalParse;
+        object = msg->mutable_ctx();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // string notifier_id = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.NotifierSendRequest.notifier_id");
+        object = msg->mutable_notifier_id();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // string message = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.NotifierSendRequest.message");
+        object = msg->mutable_message();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // bytes data = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        object = msg->mutable_data();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParser;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool NotifierSendRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.notify.NotifierSendRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .ric.notify.Context ctx = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_ctx()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string notifier_id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_notifier_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->notifier_id().data(), static_cast<int>(this->notifier_id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.NotifierSendRequest.notifier_id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string message = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_message()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->message().data(), static_cast<int>(this->message().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.NotifierSendRequest.message"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes data = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_data()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.notify.NotifierSendRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.notify.NotifierSendRequest)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void NotifierSendRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.notify.NotifierSendRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ric.notify.Context ctx = 1;
+  if (this->has_ctx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, HasBitSetters::ctx(this), output);
+  }
+
+  // string notifier_id = 2;
+  if (this->notifier_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->notifier_id().data(), static_cast<int>(this->notifier_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.NotifierSendRequest.notifier_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->notifier_id(), output);
+  }
+
+  // string message = 3;
+  if (this->message().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->message().data(), static_cast<int>(this->message().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.NotifierSendRequest.message");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->message(), output);
+  }
+
+  // bytes data = 4;
+  if (this->data().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      4, this->data(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.notify.NotifierSendRequest)
+}
+
+::google::protobuf::uint8* NotifierSendRequest::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.notify.NotifierSendRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ric.notify.Context ctx = 1;
+  if (this->has_ctx()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, HasBitSetters::ctx(this), target);
+  }
+
+  // string notifier_id = 2;
+  if (this->notifier_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->notifier_id().data(), static_cast<int>(this->notifier_id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.NotifierSendRequest.notifier_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->notifier_id(), target);
+  }
+
+  // string message = 3;
+  if (this->message().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->message().data(), static_cast<int>(this->message().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.NotifierSendRequest.message");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->message(), target);
+  }
+
+  // bytes data = 4;
+  if (this->data().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        4, this->data(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.notify.NotifierSendRequest)
+  return target;
+}
+
+size_t NotifierSendRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.notify.NotifierSendRequest)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string notifier_id = 2;
+  if (this->notifier_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->notifier_id());
+  }
+
+  // string message = 3;
+  if (this->message().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->message());
+  }
+
+  // bytes data = 4;
+  if (this->data().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->data());
+  }
+
+  // .ric.notify.Context ctx = 1;
+  if (this->has_ctx()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *ctx_);
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void NotifierSendRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.notify.NotifierSendRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const NotifierSendRequest* source =
+      ::google::protobuf::DynamicCastToGenerated<NotifierSendRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.notify.NotifierSendRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.notify.NotifierSendRequest)
+    MergeFrom(*source);
+  }
+}
+
+void NotifierSendRequest::MergeFrom(const NotifierSendRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.notify.NotifierSendRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.notifier_id().size() > 0) {
+
+    notifier_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.notifier_id_);
+  }
+  if (from.message().size() > 0) {
+
+    message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
+  }
+  if (from.data().size() > 0) {
+
+    data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
+  }
+  if (from.has_ctx()) {
+    mutable_ctx()->::ric::notify::Context::MergeFrom(from.ctx());
+  }
+}
+
+void NotifierSendRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.notify.NotifierSendRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NotifierSendRequest::CopyFrom(const NotifierSendRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.notify.NotifierSendRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NotifierSendRequest::IsInitialized() const {
+  return true;
+}
+
+void NotifierSendRequest::Swap(NotifierSendRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void NotifierSendRequest::InternalSwap(NotifierSendRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  notifier_id_.Swap(&other->notifier_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  message_.Swap(&other->message_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  data_.Swap(&other->data_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(ctx_, other->ctx_);
+}
+
+::google::protobuf::Metadata NotifierSendRequest::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto);
+  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void NotifierSendResponse::InitAsDefaultInstance() {
+}
+class NotifierSendResponse::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int NotifierSendResponse::kMessageFieldNumber;
+const int NotifierSendResponse::kDataFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+NotifierSendResponse::NotifierSendResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.notify.NotifierSendResponse)
+}
+NotifierSendResponse::NotifierSendResponse(const NotifierSendResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.message().size() > 0) {
+    message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
+  }
+  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.data().size() > 0) {
+    data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.notify.NotifierSendResponse)
+}
+
+void NotifierSendResponse::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_NotifierSendResponse_ric_2dnotify_2fricnotify_2eproto.base);
+  message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+NotifierSendResponse::~NotifierSendResponse() {
+  // @@protoc_insertion_point(destructor:ric.notify.NotifierSendResponse)
+  SharedDtor();
+}
+
+void NotifierSendResponse::SharedDtor() {
+  message_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void NotifierSendResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const NotifierSendResponse& NotifierSendResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_NotifierSendResponse_ric_2dnotify_2fricnotify_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void NotifierSendResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.notify.NotifierSendResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* NotifierSendResponse::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<NotifierSendResponse*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // string message = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.NotifierSendResponse.message");
+        object = msg->mutable_message();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // bytes data = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        object = msg->mutable_data();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParser;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool NotifierSendResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.notify.NotifierSendResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string message = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_message()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->message().data(), static_cast<int>(this->message().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.NotifierSendResponse.message"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes data = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_data()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.notify.NotifierSendResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.notify.NotifierSendResponse)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void NotifierSendResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.notify.NotifierSendResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string message = 1;
+  if (this->message().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->message().data(), static_cast<int>(this->message().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.NotifierSendResponse.message");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->message(), output);
+  }
+
+  // bytes data = 2;
+  if (this->data().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->data(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.notify.NotifierSendResponse)
+}
+
+::google::protobuf::uint8* NotifierSendResponse::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.notify.NotifierSendResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string message = 1;
+  if (this->message().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->message().data(), static_cast<int>(this->message().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.NotifierSendResponse.message");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->message(), target);
+  }
+
+  // bytes data = 2;
+  if (this->data().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->data(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.notify.NotifierSendResponse)
+  return target;
+}
+
+size_t NotifierSendResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.notify.NotifierSendResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string message = 1;
+  if (this->message().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->message());
+  }
+
+  // bytes data = 2;
+  if (this->data().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->data());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void NotifierSendResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.notify.NotifierSendResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const NotifierSendResponse* source =
+      ::google::protobuf::DynamicCastToGenerated<NotifierSendResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.notify.NotifierSendResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.notify.NotifierSendResponse)
+    MergeFrom(*source);
+  }
+}
+
+void NotifierSendResponse::MergeFrom(const NotifierSendResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.notify.NotifierSendResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.message().size() > 0) {
+
+    message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
+  }
+  if (from.data().size() > 0) {
+
+    data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
+  }
+}
+
+void NotifierSendResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.notify.NotifierSendResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NotifierSendResponse::CopyFrom(const NotifierSendResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.notify.NotifierSendResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NotifierSendResponse::IsInitialized() const {
+  return true;
+}
+
+void NotifierSendResponse::Swap(NotifierSendResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void NotifierSendResponse::InternalSwap(NotifierSendResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  message_.Swap(&other->message_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  data_.Swap(&other->data_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+}
+
+::google::protobuf::Metadata NotifierSendResponse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto);
+  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[kIndexInFileMessages];
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace notify
 }  // namespace ric
@@ -10622,6 +12386,18 @@ template<> PROTOBUF_NOINLINE ::ric::notify::HTTPResponse_HeadersEntry_DoNotUse* 
 }
 template<> PROTOBUF_NOINLINE ::ric::notify::HTTPResponse* Arena::CreateMaybeMessage< ::ric::notify::HTTPResponse >(Arena* arena) {
   return Arena::CreateInternal< ::ric::notify::HTTPResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::notify::NotifierInitRequest* Arena::CreateMaybeMessage< ::ric::notify::NotifierInitRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::notify::NotifierInitRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::notify::NotifierInitResponse* Arena::CreateMaybeMessage< ::ric::notify::NotifierInitResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::notify::NotifierInitResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::notify::NotifierSendRequest* Arena::CreateMaybeMessage< ::ric::notify::NotifierSendRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::notify::NotifierSendRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::notify::NotifierSendResponse* Arena::CreateMaybeMessage< ::ric::notify::NotifierSendResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::notify::NotifierSendResponse >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

@@ -19,6 +19,11 @@ export interface HTTP {
   Request(request: HTTPRequest): Promise<HTTPResponse>;
 }
 
+export interface Notifier {
+  Init(request: NotifierInitRequest): Promise<NotifierInitResponse>;
+  Send(request: NotifierSendRequest): Promise<NotifierSendResponse>;
+}
+
 export interface Context {
   groupId?: string;
   userId?: string;
@@ -155,4 +160,27 @@ export interface HTTPResponse {
   statusCode?: number;
   headers?: { [key: string]: string };
   body?: any;
+}
+
+export interface NotifierInitRequest {
+  ctx?: Context;
+  notifierId?: string;
+  data?: any;
+}
+
+export interface NotifierInitResponse {
+  message?: string;
+  data?: any;
+}
+
+export interface NotifierSendRequest {
+  ctx?: Context;
+  notifierId?: string;
+  message?: string;
+  data?: any;
+}
+
+export interface NotifierSendResponse {
+  message?: string;
+  data?: any;
 }

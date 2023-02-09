@@ -401,6 +401,93 @@ HTTP::Service::~Service() {
 }
 
 
+static const char* Notifier_method_names[] = {
+  "/ric.notify.Notifier/Init",
+  "/ric.notify.Notifier/Send",
+};
+
+std::unique_ptr< Notifier::Stub> Notifier::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  (void)options;
+  std::unique_ptr< Notifier::Stub> stub(new Notifier::Stub(channel));
+  return stub;
+}
+
+Notifier::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_Init_(Notifier_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Send_(Notifier_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  {}
+
+::grpc::Status Notifier::Stub::Init(::grpc::ClientContext* context, const ::ric::notify::NotifierInitRequest& request, ::ric::notify::NotifierInitResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Init_, context, request, response);
+}
+
+void Notifier::Stub::experimental_async::Init(::grpc::ClientContext* context, const ::ric::notify::NotifierInitRequest* request, ::ric::notify::NotifierInitResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Init_, context, request, response, std::move(f));
+}
+
+void Notifier::Stub::experimental_async::Init(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::notify::NotifierInitResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Init_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::notify::NotifierInitResponse>* Notifier::Stub::AsyncInitRaw(::grpc::ClientContext* context, const ::ric::notify::NotifierInitRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::NotifierInitResponse>::Create(channel_.get(), cq, rpcmethod_Init_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::notify::NotifierInitResponse>* Notifier::Stub::PrepareAsyncInitRaw(::grpc::ClientContext* context, const ::ric::notify::NotifierInitRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::NotifierInitResponse>::Create(channel_.get(), cq, rpcmethod_Init_, context, request, false);
+}
+
+::grpc::Status Notifier::Stub::Send(::grpc::ClientContext* context, const ::ric::notify::NotifierSendRequest& request, ::ric::notify::NotifierSendResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Send_, context, request, response);
+}
+
+void Notifier::Stub::experimental_async::Send(::grpc::ClientContext* context, const ::ric::notify::NotifierSendRequest* request, ::ric::notify::NotifierSendResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Send_, context, request, response, std::move(f));
+}
+
+void Notifier::Stub::experimental_async::Send(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::notify::NotifierSendResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Send_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::notify::NotifierSendResponse>* Notifier::Stub::AsyncSendRaw(::grpc::ClientContext* context, const ::ric::notify::NotifierSendRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::NotifierSendResponse>::Create(channel_.get(), cq, rpcmethod_Send_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::notify::NotifierSendResponse>* Notifier::Stub::PrepareAsyncSendRaw(::grpc::ClientContext* context, const ::ric::notify::NotifierSendRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::NotifierSendResponse>::Create(channel_.get(), cq, rpcmethod_Send_, context, request, false);
+}
+
+Notifier::Service::Service() {
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Notifier_method_names[0],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Notifier::Service, ::ric::notify::NotifierInitRequest, ::ric::notify::NotifierInitResponse>(
+          std::mem_fn(&Notifier::Service::Init), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Notifier_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Notifier::Service, ::ric::notify::NotifierSendRequest, ::ric::notify::NotifierSendResponse>(
+          std::mem_fn(&Notifier::Service::Send), this)));
+}
+
+Notifier::Service::~Service() {
+}
+
+::grpc::Status Notifier::Service::Init(::grpc::ServerContext* context, const ::ric::notify::NotifierInitRequest* request, ::ric::notify::NotifierInitResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Notifier::Service::Send(::grpc::ServerContext* context, const ::ric::notify::NotifierSendRequest* request, ::ric::notify::NotifierSendResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+
 }  // namespace ric
 }  // namespace notify
 
