@@ -178,8 +178,7 @@ message HTTPResponse {
 message NotifierInitRequest {
   Context ctx = 1;
   string notifier_id = 2;
-  string message = 3;
-  bytes data = 4;
+  bytes data = 3;
 }
 
 message NotifierInitResponse {
