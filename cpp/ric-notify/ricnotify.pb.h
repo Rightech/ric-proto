@@ -85,18 +85,6 @@ extern NotifierSendRequestDefaultTypeInternal _NotifierSendRequest_default_insta
 class NotifierSendResponse;
 class NotifierSendResponseDefaultTypeInternal;
 extern NotifierSendResponseDefaultTypeInternal _NotifierSendResponse_default_instance_;
-class PushDataMessageRequest;
-class PushDataMessageRequestDefaultTypeInternal;
-extern PushDataMessageRequestDefaultTypeInternal _PushDataMessageRequest_default_instance_;
-class PushDataMessageRequest_DataEntry_DoNotUse;
-class PushDataMessageRequest_DataEntry_DoNotUseDefaultTypeInternal;
-extern PushDataMessageRequest_DataEntry_DoNotUseDefaultTypeInternal _PushDataMessageRequest_DataEntry_DoNotUse_default_instance_;
-class PushDataMessageRequest_NotificationEntry_DoNotUse;
-class PushDataMessageRequest_NotificationEntry_DoNotUseDefaultTypeInternal;
-extern PushDataMessageRequest_NotificationEntry_DoNotUseDefaultTypeInternal _PushDataMessageRequest_NotificationEntry_DoNotUse_default_instance_;
-class PushDataMessageResponse;
-class PushDataMessageResponseDefaultTypeInternal;
-extern PushDataMessageResponseDefaultTypeInternal _PushDataMessageResponse_default_instance_;
 class PushSendRequest;
 class PushSendRequestDefaultTypeInternal;
 extern PushSendRequestDefaultTypeInternal _PushSendRequest_default_instance_;
@@ -148,6 +136,18 @@ extern SMTPSendRequestDefaultTypeInternal _SMTPSendRequest_default_instance_;
 class SMTPSendResponse;
 class SMTPSendResponseDefaultTypeInternal;
 extern SMTPSendResponseDefaultTypeInternal _SMTPSendResponse_default_instance_;
+class SendDataPushRequest;
+class SendDataPushRequestDefaultTypeInternal;
+extern SendDataPushRequestDefaultTypeInternal _SendDataPushRequest_default_instance_;
+class SendDataPushRequest_DataEntry_DoNotUse;
+class SendDataPushRequest_DataEntry_DoNotUseDefaultTypeInternal;
+extern SendDataPushRequest_DataEntry_DoNotUseDefaultTypeInternal _SendDataPushRequest_DataEntry_DoNotUse_default_instance_;
+class SendDataPushRequest_NotificationEntry_DoNotUse;
+class SendDataPushRequest_NotificationEntry_DoNotUseDefaultTypeInternal;
+extern SendDataPushRequest_NotificationEntry_DoNotUseDefaultTypeInternal _SendDataPushRequest_NotificationEntry_DoNotUse_default_instance_;
+class SendDataPushResponse;
+class SendDataPushResponseDefaultTypeInternal;
+extern SendDataPushResponseDefaultTypeInternal _SendDataPushResponse_default_instance_;
 }  // namespace notify
 }  // namespace ric
 namespace google {
@@ -162,10 +162,6 @@ template<> ::ric::notify::NotifierInitRequest* Arena::CreateMaybeMessage<::ric::
 template<> ::ric::notify::NotifierInitResponse* Arena::CreateMaybeMessage<::ric::notify::NotifierInitResponse>(Arena*);
 template<> ::ric::notify::NotifierSendRequest* Arena::CreateMaybeMessage<::ric::notify::NotifierSendRequest>(Arena*);
 template<> ::ric::notify::NotifierSendResponse* Arena::CreateMaybeMessage<::ric::notify::NotifierSendResponse>(Arena*);
-template<> ::ric::notify::PushDataMessageRequest* Arena::CreateMaybeMessage<::ric::notify::PushDataMessageRequest>(Arena*);
-template<> ::ric::notify::PushDataMessageRequest_DataEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::notify::PushDataMessageRequest_DataEntry_DoNotUse>(Arena*);
-template<> ::ric::notify::PushDataMessageRequest_NotificationEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::notify::PushDataMessageRequest_NotificationEntry_DoNotUse>(Arena*);
-template<> ::ric::notify::PushDataMessageResponse* Arena::CreateMaybeMessage<::ric::notify::PushDataMessageResponse>(Arena*);
 template<> ::ric::notify::PushSendRequest* Arena::CreateMaybeMessage<::ric::notify::PushSendRequest>(Arena*);
 template<> ::ric::notify::PushSendResponse* Arena::CreateMaybeMessage<::ric::notify::PushSendResponse>(Arena*);
 template<> ::ric::notify::SMPPCheckGatewayRequest* Arena::CreateMaybeMessage<::ric::notify::SMPPCheckGatewayRequest>(Arena*);
@@ -183,6 +179,10 @@ template<> ::ric::notify::SMTPGatewayInfoRequest* Arena::CreateMaybeMessage<::ri
 template<> ::ric::notify::SMTPGatewayInfoResponse* Arena::CreateMaybeMessage<::ric::notify::SMTPGatewayInfoResponse>(Arena*);
 template<> ::ric::notify::SMTPSendRequest* Arena::CreateMaybeMessage<::ric::notify::SMTPSendRequest>(Arena*);
 template<> ::ric::notify::SMTPSendResponse* Arena::CreateMaybeMessage<::ric::notify::SMTPSendResponse>(Arena*);
+template<> ::ric::notify::SendDataPushRequest* Arena::CreateMaybeMessage<::ric::notify::SendDataPushRequest>(Arena*);
+template<> ::ric::notify::SendDataPushRequest_DataEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::notify::SendDataPushRequest_DataEntry_DoNotUse>(Arena*);
+template<> ::ric::notify::SendDataPushRequest_NotificationEntry_DoNotUse* Arena::CreateMaybeMessage<::ric::notify::SendDataPushRequest_NotificationEntry_DoNotUse>(Arena*);
+template<> ::ric::notify::SendDataPushResponse* Arena::CreateMaybeMessage<::ric::notify::SendDataPushResponse>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace ric {
@@ -3067,7 +3067,7 @@ class PushSendResponse final :
 };
 // -------------------------------------------------------------------
 
-class PushDataMessageRequest_DataEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<PushDataMessageRequest_DataEntry_DoNotUse, 
+class SendDataPushRequest_DataEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<SendDataPushRequest_DataEntry_DoNotUse, 
     ::std::string, ::std::string,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -3076,22 +3076,22 @@ public:
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 static bool _ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  typedef ::google::protobuf::internal::MapEntry<PushDataMessageRequest_DataEntry_DoNotUse, 
+  typedef ::google::protobuf::internal::MapEntry<SendDataPushRequest_DataEntry_DoNotUse, 
     ::std::string, ::std::string,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
     0 > SuperType;
-  PushDataMessageRequest_DataEntry_DoNotUse();
-  PushDataMessageRequest_DataEntry_DoNotUse(::google::protobuf::Arena* arena);
-  void MergeFrom(const PushDataMessageRequest_DataEntry_DoNotUse& other);
-  static const PushDataMessageRequest_DataEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const PushDataMessageRequest_DataEntry_DoNotUse*>(&_PushDataMessageRequest_DataEntry_DoNotUse_default_instance_); }
+  SendDataPushRequest_DataEntry_DoNotUse();
+  SendDataPushRequest_DataEntry_DoNotUse(::google::protobuf::Arena* arena);
+  void MergeFrom(const SendDataPushRequest_DataEntry_DoNotUse& other);
+  static const SendDataPushRequest_DataEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const SendDataPushRequest_DataEntry_DoNotUse*>(&_SendDataPushRequest_DataEntry_DoNotUse_default_instance_); }
   void MergeFrom(const ::google::protobuf::Message& other) final;
   ::google::protobuf::Metadata GetMetadata() const;
 };
 
 // -------------------------------------------------------------------
 
-class PushDataMessageRequest_NotificationEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<PushDataMessageRequest_NotificationEntry_DoNotUse, 
+class SendDataPushRequest_NotificationEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<SendDataPushRequest_NotificationEntry_DoNotUse, 
     ::std::string, ::std::string,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -3100,40 +3100,40 @@ public:
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 static bool _ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  typedef ::google::protobuf::internal::MapEntry<PushDataMessageRequest_NotificationEntry_DoNotUse, 
+  typedef ::google::protobuf::internal::MapEntry<SendDataPushRequest_NotificationEntry_DoNotUse, 
     ::std::string, ::std::string,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
     ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
     0 > SuperType;
-  PushDataMessageRequest_NotificationEntry_DoNotUse();
-  PushDataMessageRequest_NotificationEntry_DoNotUse(::google::protobuf::Arena* arena);
-  void MergeFrom(const PushDataMessageRequest_NotificationEntry_DoNotUse& other);
-  static const PushDataMessageRequest_NotificationEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const PushDataMessageRequest_NotificationEntry_DoNotUse*>(&_PushDataMessageRequest_NotificationEntry_DoNotUse_default_instance_); }
+  SendDataPushRequest_NotificationEntry_DoNotUse();
+  SendDataPushRequest_NotificationEntry_DoNotUse(::google::protobuf::Arena* arena);
+  void MergeFrom(const SendDataPushRequest_NotificationEntry_DoNotUse& other);
+  static const SendDataPushRequest_NotificationEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const SendDataPushRequest_NotificationEntry_DoNotUse*>(&_SendDataPushRequest_NotificationEntry_DoNotUse_default_instance_); }
   void MergeFrom(const ::google::protobuf::Message& other) final;
   ::google::protobuf::Metadata GetMetadata() const;
 };
 
 // -------------------------------------------------------------------
 
-class PushDataMessageRequest final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.PushDataMessageRequest) */ {
+class SendDataPushRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.SendDataPushRequest) */ {
  public:
-  PushDataMessageRequest();
-  virtual ~PushDataMessageRequest();
+  SendDataPushRequest();
+  virtual ~SendDataPushRequest();
 
-  PushDataMessageRequest(const PushDataMessageRequest& from);
+  SendDataPushRequest(const SendDataPushRequest& from);
 
-  inline PushDataMessageRequest& operator=(const PushDataMessageRequest& from) {
+  inline SendDataPushRequest& operator=(const SendDataPushRequest& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  PushDataMessageRequest(PushDataMessageRequest&& from) noexcept
-    : PushDataMessageRequest() {
+  SendDataPushRequest(SendDataPushRequest&& from) noexcept
+    : SendDataPushRequest() {
     *this = ::std::move(from);
   }
 
-  inline PushDataMessageRequest& operator=(PushDataMessageRequest&& from) noexcept {
+  inline SendDataPushRequest& operator=(SendDataPushRequest&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -3145,34 +3145,34 @@ class PushDataMessageRequest final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const PushDataMessageRequest& default_instance();
+  static const SendDataPushRequest& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const PushDataMessageRequest* internal_default_instance() {
-    return reinterpret_cast<const PushDataMessageRequest*>(
-               &_PushDataMessageRequest_default_instance_);
+  static inline const SendDataPushRequest* internal_default_instance() {
+    return reinterpret_cast<const SendDataPushRequest*>(
+               &_SendDataPushRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     21;
 
-  void Swap(PushDataMessageRequest* other);
-  friend void swap(PushDataMessageRequest& a, PushDataMessageRequest& b) {
+  void Swap(SendDataPushRequest* other);
+  friend void swap(SendDataPushRequest& a, SendDataPushRequest& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline PushDataMessageRequest* New() const final {
-    return CreateMaybeMessage<PushDataMessageRequest>(nullptr);
+  inline SendDataPushRequest* New() const final {
+    return CreateMaybeMessage<SendDataPushRequest>(nullptr);
   }
 
-  PushDataMessageRequest* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<PushDataMessageRequest>(arena);
+  SendDataPushRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<SendDataPushRequest>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const PushDataMessageRequest& from);
-  void MergeFrom(const PushDataMessageRequest& from);
+  void CopyFrom(const SendDataPushRequest& from);
+  void MergeFrom(const SendDataPushRequest& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -3194,7 +3194,7 @@ class PushDataMessageRequest final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(PushDataMessageRequest* other);
+  void InternalSwap(SendDataPushRequest* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -3274,20 +3274,20 @@ class PushDataMessageRequest final :
   ::ric::notify::Context* mutable_ctx();
   void set_allocated_ctx(::ric::notify::Context* ctx);
 
-  // @@protoc_insertion_point(class_scope:ric.notify.PushDataMessageRequest)
+  // @@protoc_insertion_point(class_scope:ric.notify.SendDataPushRequest)
  private:
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField<::std::string> users_;
   ::google::protobuf::internal::MapField<
-      PushDataMessageRequest_DataEntry_DoNotUse,
+      SendDataPushRequest_DataEntry_DoNotUse,
       ::std::string, ::std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       0 > data_;
   ::google::protobuf::internal::MapField<
-      PushDataMessageRequest_NotificationEntry_DoNotUse,
+      SendDataPushRequest_NotificationEntry_DoNotUse,
       ::std::string, ::std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -3299,25 +3299,25 @@ class PushDataMessageRequest final :
 };
 // -------------------------------------------------------------------
 
-class PushDataMessageResponse final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.PushDataMessageResponse) */ {
+class SendDataPushResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.notify.SendDataPushResponse) */ {
  public:
-  PushDataMessageResponse();
-  virtual ~PushDataMessageResponse();
+  SendDataPushResponse();
+  virtual ~SendDataPushResponse();
 
-  PushDataMessageResponse(const PushDataMessageResponse& from);
+  SendDataPushResponse(const SendDataPushResponse& from);
 
-  inline PushDataMessageResponse& operator=(const PushDataMessageResponse& from) {
+  inline SendDataPushResponse& operator=(const SendDataPushResponse& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  PushDataMessageResponse(PushDataMessageResponse&& from) noexcept
-    : PushDataMessageResponse() {
+  SendDataPushResponse(SendDataPushResponse&& from) noexcept
+    : SendDataPushResponse() {
     *this = ::std::move(from);
   }
 
-  inline PushDataMessageResponse& operator=(PushDataMessageResponse&& from) noexcept {
+  inline SendDataPushResponse& operator=(SendDataPushResponse&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -3329,34 +3329,34 @@ class PushDataMessageResponse final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const PushDataMessageResponse& default_instance();
+  static const SendDataPushResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const PushDataMessageResponse* internal_default_instance() {
-    return reinterpret_cast<const PushDataMessageResponse*>(
-               &_PushDataMessageResponse_default_instance_);
+  static inline const SendDataPushResponse* internal_default_instance() {
+    return reinterpret_cast<const SendDataPushResponse*>(
+               &_SendDataPushResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     22;
 
-  void Swap(PushDataMessageResponse* other);
-  friend void swap(PushDataMessageResponse& a, PushDataMessageResponse& b) {
+  void Swap(SendDataPushResponse* other);
+  friend void swap(SendDataPushResponse& a, SendDataPushResponse& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline PushDataMessageResponse* New() const final {
-    return CreateMaybeMessage<PushDataMessageResponse>(nullptr);
+  inline SendDataPushResponse* New() const final {
+    return CreateMaybeMessage<SendDataPushResponse>(nullptr);
   }
 
-  PushDataMessageResponse* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<PushDataMessageResponse>(arena);
+  SendDataPushResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<SendDataPushResponse>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const PushDataMessageResponse& from);
-  void MergeFrom(const PushDataMessageResponse& from);
+  void CopyFrom(const SendDataPushResponse& from);
+  void MergeFrom(const SendDataPushResponse& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -3378,7 +3378,7 @@ class PushDataMessageResponse final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(PushDataMessageResponse* other);
+  void InternalSwap(SendDataPushResponse* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -3438,7 +3438,7 @@ class PushDataMessageResponse final :
   const ::google::protobuf::RepeatedPtrField<::std::string>& failure() const;
   ::google::protobuf::RepeatedPtrField<::std::string>* mutable_failure();
 
-  // @@protoc_insertion_point(class_scope:ric.notify.PushDataMessageResponse)
+  // @@protoc_insertion_point(class_scope:ric.notify.SendDataPushResponse)
  private:
   class HasBitSetters;
 
@@ -7269,41 +7269,41 @@ inline void PushSendRequest::set_allocated_oid(::std::string* oid) {
 
 // -------------------------------------------------------------------
 
-// PushDataMessageRequest
+// SendDataPushRequest
 
 // .ric.notify.Context ctx = 1;
-inline bool PushDataMessageRequest::has_ctx() const {
+inline bool SendDataPushRequest::has_ctx() const {
   return this != internal_default_instance() && ctx_ != nullptr;
 }
-inline void PushDataMessageRequest::clear_ctx() {
+inline void SendDataPushRequest::clear_ctx() {
   if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
     delete ctx_;
   }
   ctx_ = nullptr;
 }
-inline const ::ric::notify::Context& PushDataMessageRequest::ctx() const {
+inline const ::ric::notify::Context& SendDataPushRequest::ctx() const {
   const ::ric::notify::Context* p = ctx_;
-  // @@protoc_insertion_point(field_get:ric.notify.PushDataMessageRequest.ctx)
+  // @@protoc_insertion_point(field_get:ric.notify.SendDataPushRequest.ctx)
   return p != nullptr ? *p : *reinterpret_cast<const ::ric::notify::Context*>(
       &::ric::notify::_Context_default_instance_);
 }
-inline ::ric::notify::Context* PushDataMessageRequest::release_ctx() {
-  // @@protoc_insertion_point(field_release:ric.notify.PushDataMessageRequest.ctx)
+inline ::ric::notify::Context* SendDataPushRequest::release_ctx() {
+  // @@protoc_insertion_point(field_release:ric.notify.SendDataPushRequest.ctx)
   
   ::ric::notify::Context* temp = ctx_;
   ctx_ = nullptr;
   return temp;
 }
-inline ::ric::notify::Context* PushDataMessageRequest::mutable_ctx() {
+inline ::ric::notify::Context* SendDataPushRequest::mutable_ctx() {
   
   if (ctx_ == nullptr) {
     auto* p = CreateMaybeMessage<::ric::notify::Context>(GetArenaNoVirtual());
     ctx_ = p;
   }
-  // @@protoc_insertion_point(field_mutable:ric.notify.PushDataMessageRequest.ctx)
+  // @@protoc_insertion_point(field_mutable:ric.notify.SendDataPushRequest.ctx)
   return ctx_;
 }
-inline void PushDataMessageRequest::set_allocated_ctx(::ric::notify::Context* ctx) {
+inline void SendDataPushRequest::set_allocated_ctx(::ric::notify::Context* ctx) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
     delete ctx_;
@@ -7319,306 +7319,306 @@ inline void PushDataMessageRequest::set_allocated_ctx(::ric::notify::Context* ct
     
   }
   ctx_ = ctx;
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.PushDataMessageRequest.ctx)
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SendDataPushRequest.ctx)
 }
 
 // string app = 2;
-inline void PushDataMessageRequest::clear_app() {
+inline void SendDataPushRequest::clear_app() {
   app_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& PushDataMessageRequest::app() const {
-  // @@protoc_insertion_point(field_get:ric.notify.PushDataMessageRequest.app)
+inline const ::std::string& SendDataPushRequest::app() const {
+  // @@protoc_insertion_point(field_get:ric.notify.SendDataPushRequest.app)
   return app_.GetNoArena();
 }
-inline void PushDataMessageRequest::set_app(const ::std::string& value) {
+inline void SendDataPushRequest::set_app(const ::std::string& value) {
   
   app_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:ric.notify.PushDataMessageRequest.app)
+  // @@protoc_insertion_point(field_set:ric.notify.SendDataPushRequest.app)
 }
 #if LANG_CXX11
-inline void PushDataMessageRequest::set_app(::std::string&& value) {
+inline void SendDataPushRequest::set_app(::std::string&& value) {
   
   app_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:ric.notify.PushDataMessageRequest.app)
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SendDataPushRequest.app)
 }
 #endif
-inline void PushDataMessageRequest::set_app(const char* value) {
+inline void SendDataPushRequest::set_app(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   app_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:ric.notify.PushDataMessageRequest.app)
+  // @@protoc_insertion_point(field_set_char:ric.notify.SendDataPushRequest.app)
 }
-inline void PushDataMessageRequest::set_app(const char* value, size_t size) {
+inline void SendDataPushRequest::set_app(const char* value, size_t size) {
   
   app_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.PushDataMessageRequest.app)
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SendDataPushRequest.app)
 }
-inline ::std::string* PushDataMessageRequest::mutable_app() {
+inline ::std::string* SendDataPushRequest::mutable_app() {
   
-  // @@protoc_insertion_point(field_mutable:ric.notify.PushDataMessageRequest.app)
+  // @@protoc_insertion_point(field_mutable:ric.notify.SendDataPushRequest.app)
   return app_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* PushDataMessageRequest::release_app() {
-  // @@protoc_insertion_point(field_release:ric.notify.PushDataMessageRequest.app)
+inline ::std::string* SendDataPushRequest::release_app() {
+  // @@protoc_insertion_point(field_release:ric.notify.SendDataPushRequest.app)
   
   return app_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void PushDataMessageRequest::set_allocated_app(::std::string* app) {
+inline void SendDataPushRequest::set_allocated_app(::std::string* app) {
   if (app != nullptr) {
     
   } else {
     
   }
   app_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), app);
-  // @@protoc_insertion_point(field_set_allocated:ric.notify.PushDataMessageRequest.app)
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SendDataPushRequest.app)
 }
 
 // repeated string users = 3;
-inline int PushDataMessageRequest::users_size() const {
+inline int SendDataPushRequest::users_size() const {
   return users_.size();
 }
-inline void PushDataMessageRequest::clear_users() {
+inline void SendDataPushRequest::clear_users() {
   users_.Clear();
 }
-inline const ::std::string& PushDataMessageRequest::users(int index) const {
-  // @@protoc_insertion_point(field_get:ric.notify.PushDataMessageRequest.users)
+inline const ::std::string& SendDataPushRequest::users(int index) const {
+  // @@protoc_insertion_point(field_get:ric.notify.SendDataPushRequest.users)
   return users_.Get(index);
 }
-inline ::std::string* PushDataMessageRequest::mutable_users(int index) {
-  // @@protoc_insertion_point(field_mutable:ric.notify.PushDataMessageRequest.users)
+inline ::std::string* SendDataPushRequest::mutable_users(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.notify.SendDataPushRequest.users)
   return users_.Mutable(index);
 }
-inline void PushDataMessageRequest::set_users(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:ric.notify.PushDataMessageRequest.users)
+inline void SendDataPushRequest::set_users(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:ric.notify.SendDataPushRequest.users)
   users_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
-inline void PushDataMessageRequest::set_users(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:ric.notify.PushDataMessageRequest.users)
+inline void SendDataPushRequest::set_users(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:ric.notify.SendDataPushRequest.users)
   users_.Mutable(index)->assign(std::move(value));
 }
 #endif
-inline void PushDataMessageRequest::set_users(int index, const char* value) {
+inline void SendDataPushRequest::set_users(int index, const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   users_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:ric.notify.PushDataMessageRequest.users)
+  // @@protoc_insertion_point(field_set_char:ric.notify.SendDataPushRequest.users)
 }
-inline void PushDataMessageRequest::set_users(int index, const char* value, size_t size) {
+inline void SendDataPushRequest::set_users(int index, const char* value, size_t size) {
   users_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.PushDataMessageRequest.users)
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SendDataPushRequest.users)
 }
-inline ::std::string* PushDataMessageRequest::add_users() {
-  // @@protoc_insertion_point(field_add_mutable:ric.notify.PushDataMessageRequest.users)
+inline ::std::string* SendDataPushRequest::add_users() {
+  // @@protoc_insertion_point(field_add_mutable:ric.notify.SendDataPushRequest.users)
   return users_.Add();
 }
-inline void PushDataMessageRequest::add_users(const ::std::string& value) {
+inline void SendDataPushRequest::add_users(const ::std::string& value) {
   users_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:ric.notify.PushDataMessageRequest.users)
+  // @@protoc_insertion_point(field_add:ric.notify.SendDataPushRequest.users)
 }
 #if LANG_CXX11
-inline void PushDataMessageRequest::add_users(::std::string&& value) {
+inline void SendDataPushRequest::add_users(::std::string&& value) {
   users_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:ric.notify.PushDataMessageRequest.users)
+  // @@protoc_insertion_point(field_add:ric.notify.SendDataPushRequest.users)
 }
 #endif
-inline void PushDataMessageRequest::add_users(const char* value) {
+inline void SendDataPushRequest::add_users(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   users_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:ric.notify.PushDataMessageRequest.users)
+  // @@protoc_insertion_point(field_add_char:ric.notify.SendDataPushRequest.users)
 }
-inline void PushDataMessageRequest::add_users(const char* value, size_t size) {
+inline void SendDataPushRequest::add_users(const char* value, size_t size) {
   users_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:ric.notify.PushDataMessageRequest.users)
+  // @@protoc_insertion_point(field_add_pointer:ric.notify.SendDataPushRequest.users)
 }
 inline const ::google::protobuf::RepeatedPtrField<::std::string>&
-PushDataMessageRequest::users() const {
-  // @@protoc_insertion_point(field_list:ric.notify.PushDataMessageRequest.users)
+SendDataPushRequest::users() const {
+  // @@protoc_insertion_point(field_list:ric.notify.SendDataPushRequest.users)
   return users_;
 }
 inline ::google::protobuf::RepeatedPtrField<::std::string>*
-PushDataMessageRequest::mutable_users() {
-  // @@protoc_insertion_point(field_mutable_list:ric.notify.PushDataMessageRequest.users)
+SendDataPushRequest::mutable_users() {
+  // @@protoc_insertion_point(field_mutable_list:ric.notify.SendDataPushRequest.users)
   return &users_;
 }
 
 // map<string, string> data = 4;
-inline int PushDataMessageRequest::data_size() const {
+inline int SendDataPushRequest::data_size() const {
   return data_.size();
 }
-inline void PushDataMessageRequest::clear_data() {
+inline void SendDataPushRequest::clear_data() {
   data_.Clear();
 }
 inline const ::google::protobuf::Map< ::std::string, ::std::string >&
-PushDataMessageRequest::data() const {
-  // @@protoc_insertion_point(field_map:ric.notify.PushDataMessageRequest.data)
+SendDataPushRequest::data() const {
+  // @@protoc_insertion_point(field_map:ric.notify.SendDataPushRequest.data)
   return data_.GetMap();
 }
 inline ::google::protobuf::Map< ::std::string, ::std::string >*
-PushDataMessageRequest::mutable_data() {
-  // @@protoc_insertion_point(field_mutable_map:ric.notify.PushDataMessageRequest.data)
+SendDataPushRequest::mutable_data() {
+  // @@protoc_insertion_point(field_mutable_map:ric.notify.SendDataPushRequest.data)
   return data_.MutableMap();
 }
 
 // map<string, string> notification = 5;
-inline int PushDataMessageRequest::notification_size() const {
+inline int SendDataPushRequest::notification_size() const {
   return notification_.size();
 }
-inline void PushDataMessageRequest::clear_notification() {
+inline void SendDataPushRequest::clear_notification() {
   notification_.Clear();
 }
 inline const ::google::protobuf::Map< ::std::string, ::std::string >&
-PushDataMessageRequest::notification() const {
-  // @@protoc_insertion_point(field_map:ric.notify.PushDataMessageRequest.notification)
+SendDataPushRequest::notification() const {
+  // @@protoc_insertion_point(field_map:ric.notify.SendDataPushRequest.notification)
   return notification_.GetMap();
 }
 inline ::google::protobuf::Map< ::std::string, ::std::string >*
-PushDataMessageRequest::mutable_notification() {
-  // @@protoc_insertion_point(field_mutable_map:ric.notify.PushDataMessageRequest.notification)
+SendDataPushRequest::mutable_notification() {
+  // @@protoc_insertion_point(field_mutable_map:ric.notify.SendDataPushRequest.notification)
   return notification_.MutableMap();
 }
 
 // -------------------------------------------------------------------
 
-// PushDataMessageResponse
+// SendDataPushResponse
 
 // repeated string success = 1;
-inline int PushDataMessageResponse::success_size() const {
+inline int SendDataPushResponse::success_size() const {
   return success_.size();
 }
-inline void PushDataMessageResponse::clear_success() {
+inline void SendDataPushResponse::clear_success() {
   success_.Clear();
 }
-inline const ::std::string& PushDataMessageResponse::success(int index) const {
-  // @@protoc_insertion_point(field_get:ric.notify.PushDataMessageResponse.success)
+inline const ::std::string& SendDataPushResponse::success(int index) const {
+  // @@protoc_insertion_point(field_get:ric.notify.SendDataPushResponse.success)
   return success_.Get(index);
 }
-inline ::std::string* PushDataMessageResponse::mutable_success(int index) {
-  // @@protoc_insertion_point(field_mutable:ric.notify.PushDataMessageResponse.success)
+inline ::std::string* SendDataPushResponse::mutable_success(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.notify.SendDataPushResponse.success)
   return success_.Mutable(index);
 }
-inline void PushDataMessageResponse::set_success(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:ric.notify.PushDataMessageResponse.success)
+inline void SendDataPushResponse::set_success(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:ric.notify.SendDataPushResponse.success)
   success_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
-inline void PushDataMessageResponse::set_success(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:ric.notify.PushDataMessageResponse.success)
+inline void SendDataPushResponse::set_success(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:ric.notify.SendDataPushResponse.success)
   success_.Mutable(index)->assign(std::move(value));
 }
 #endif
-inline void PushDataMessageResponse::set_success(int index, const char* value) {
+inline void SendDataPushResponse::set_success(int index, const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   success_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:ric.notify.PushDataMessageResponse.success)
+  // @@protoc_insertion_point(field_set_char:ric.notify.SendDataPushResponse.success)
 }
-inline void PushDataMessageResponse::set_success(int index, const char* value, size_t size) {
+inline void SendDataPushResponse::set_success(int index, const char* value, size_t size) {
   success_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.PushDataMessageResponse.success)
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SendDataPushResponse.success)
 }
-inline ::std::string* PushDataMessageResponse::add_success() {
-  // @@protoc_insertion_point(field_add_mutable:ric.notify.PushDataMessageResponse.success)
+inline ::std::string* SendDataPushResponse::add_success() {
+  // @@protoc_insertion_point(field_add_mutable:ric.notify.SendDataPushResponse.success)
   return success_.Add();
 }
-inline void PushDataMessageResponse::add_success(const ::std::string& value) {
+inline void SendDataPushResponse::add_success(const ::std::string& value) {
   success_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:ric.notify.PushDataMessageResponse.success)
+  // @@protoc_insertion_point(field_add:ric.notify.SendDataPushResponse.success)
 }
 #if LANG_CXX11
-inline void PushDataMessageResponse::add_success(::std::string&& value) {
+inline void SendDataPushResponse::add_success(::std::string&& value) {
   success_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:ric.notify.PushDataMessageResponse.success)
+  // @@protoc_insertion_point(field_add:ric.notify.SendDataPushResponse.success)
 }
 #endif
-inline void PushDataMessageResponse::add_success(const char* value) {
+inline void SendDataPushResponse::add_success(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   success_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:ric.notify.PushDataMessageResponse.success)
+  // @@protoc_insertion_point(field_add_char:ric.notify.SendDataPushResponse.success)
 }
-inline void PushDataMessageResponse::add_success(const char* value, size_t size) {
+inline void SendDataPushResponse::add_success(const char* value, size_t size) {
   success_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:ric.notify.PushDataMessageResponse.success)
+  // @@protoc_insertion_point(field_add_pointer:ric.notify.SendDataPushResponse.success)
 }
 inline const ::google::protobuf::RepeatedPtrField<::std::string>&
-PushDataMessageResponse::success() const {
-  // @@protoc_insertion_point(field_list:ric.notify.PushDataMessageResponse.success)
+SendDataPushResponse::success() const {
+  // @@protoc_insertion_point(field_list:ric.notify.SendDataPushResponse.success)
   return success_;
 }
 inline ::google::protobuf::RepeatedPtrField<::std::string>*
-PushDataMessageResponse::mutable_success() {
-  // @@protoc_insertion_point(field_mutable_list:ric.notify.PushDataMessageResponse.success)
+SendDataPushResponse::mutable_success() {
+  // @@protoc_insertion_point(field_mutable_list:ric.notify.SendDataPushResponse.success)
   return &success_;
 }
 
 // repeated string failure = 2;
-inline int PushDataMessageResponse::failure_size() const {
+inline int SendDataPushResponse::failure_size() const {
   return failure_.size();
 }
-inline void PushDataMessageResponse::clear_failure() {
+inline void SendDataPushResponse::clear_failure() {
   failure_.Clear();
 }
-inline const ::std::string& PushDataMessageResponse::failure(int index) const {
-  // @@protoc_insertion_point(field_get:ric.notify.PushDataMessageResponse.failure)
+inline const ::std::string& SendDataPushResponse::failure(int index) const {
+  // @@protoc_insertion_point(field_get:ric.notify.SendDataPushResponse.failure)
   return failure_.Get(index);
 }
-inline ::std::string* PushDataMessageResponse::mutable_failure(int index) {
-  // @@protoc_insertion_point(field_mutable:ric.notify.PushDataMessageResponse.failure)
+inline ::std::string* SendDataPushResponse::mutable_failure(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.notify.SendDataPushResponse.failure)
   return failure_.Mutable(index);
 }
-inline void PushDataMessageResponse::set_failure(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:ric.notify.PushDataMessageResponse.failure)
+inline void SendDataPushResponse::set_failure(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:ric.notify.SendDataPushResponse.failure)
   failure_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
-inline void PushDataMessageResponse::set_failure(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:ric.notify.PushDataMessageResponse.failure)
+inline void SendDataPushResponse::set_failure(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:ric.notify.SendDataPushResponse.failure)
   failure_.Mutable(index)->assign(std::move(value));
 }
 #endif
-inline void PushDataMessageResponse::set_failure(int index, const char* value) {
+inline void SendDataPushResponse::set_failure(int index, const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   failure_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:ric.notify.PushDataMessageResponse.failure)
+  // @@protoc_insertion_point(field_set_char:ric.notify.SendDataPushResponse.failure)
 }
-inline void PushDataMessageResponse::set_failure(int index, const char* value, size_t size) {
+inline void SendDataPushResponse::set_failure(int index, const char* value, size_t size) {
   failure_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:ric.notify.PushDataMessageResponse.failure)
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SendDataPushResponse.failure)
 }
-inline ::std::string* PushDataMessageResponse::add_failure() {
-  // @@protoc_insertion_point(field_add_mutable:ric.notify.PushDataMessageResponse.failure)
+inline ::std::string* SendDataPushResponse::add_failure() {
+  // @@protoc_insertion_point(field_add_mutable:ric.notify.SendDataPushResponse.failure)
   return failure_.Add();
 }
-inline void PushDataMessageResponse::add_failure(const ::std::string& value) {
+inline void SendDataPushResponse::add_failure(const ::std::string& value) {
   failure_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:ric.notify.PushDataMessageResponse.failure)
+  // @@protoc_insertion_point(field_add:ric.notify.SendDataPushResponse.failure)
 }
 #if LANG_CXX11
-inline void PushDataMessageResponse::add_failure(::std::string&& value) {
+inline void SendDataPushResponse::add_failure(::std::string&& value) {
   failure_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:ric.notify.PushDataMessageResponse.failure)
+  // @@protoc_insertion_point(field_add:ric.notify.SendDataPushResponse.failure)
 }
 #endif
-inline void PushDataMessageResponse::add_failure(const char* value) {
+inline void SendDataPushResponse::add_failure(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   failure_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:ric.notify.PushDataMessageResponse.failure)
+  // @@protoc_insertion_point(field_add_char:ric.notify.SendDataPushResponse.failure)
 }
-inline void PushDataMessageResponse::add_failure(const char* value, size_t size) {
+inline void SendDataPushResponse::add_failure(const char* value, size_t size) {
   failure_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:ric.notify.PushDataMessageResponse.failure)
+  // @@protoc_insertion_point(field_add_pointer:ric.notify.SendDataPushResponse.failure)
 }
 inline const ::google::protobuf::RepeatedPtrField<::std::string>&
-PushDataMessageResponse::failure() const {
-  // @@protoc_insertion_point(field_list:ric.notify.PushDataMessageResponse.failure)
+SendDataPushResponse::failure() const {
+  // @@protoc_insertion_point(field_list:ric.notify.SendDataPushResponse.failure)
   return failure_;
 }
 inline ::google::protobuf::RepeatedPtrField<::std::string>*
-PushDataMessageResponse::mutable_failure() {
-  // @@protoc_insertion_point(field_mutable_list:ric.notify.PushDataMessageResponse.failure)
+SendDataPushResponse::mutable_failure() {
+  // @@protoc_insertion_point(field_mutable_list:ric.notify.SendDataPushResponse.failure)
   return &failure_;
 }
 

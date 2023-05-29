@@ -21,7 +21,7 @@ service SMTP {
 
 service Push {
   rpc Send(PushSendRequest) returns (PushSendResponse);
-  rpc SendData(PushDataMessageRequest) returns (PushDataMessageResponse);
+  rpc SendData(SendDataPushRequest) returns (SendDataPushResponse);
 }
 
 service HTTP {
@@ -161,7 +161,7 @@ message PushSendRequest {
 
 message PushSendResponse {}
 
-message PushDataMessageRequest {
+message SendDataPushRequest {
   Context ctx = 1;
   string app = 2;
   repeated string users = 3;
@@ -169,7 +169,7 @@ message PushDataMessageRequest {
   map<string, string> notification = 5;
 }
 
-message PushDataMessageResponse {
+message SendDataPushResponse {
   repeated string success = 1;
   repeated string failure = 2;
 }

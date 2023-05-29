@@ -13,7 +13,7 @@ export interface SMTP {
 
 export interface Push {
   Send(request: PushSendRequest): Promise<PushSendResponse>;
-  SendData(request: PushDataMessageRequest): Promise<PushDataMessageResponse>;
+  SendData(request: SendDataPushRequest): Promise<SendDataPushResponse>;
 }
 
 export interface HTTP {
@@ -148,7 +148,7 @@ export interface PushSendResponse {
 
 }
 
-export interface PushDataMessageRequest {
+export interface SendDataPushRequest {
   ctx?: Context;
   app?: string;
   users?: string[];
@@ -156,7 +156,7 @@ export interface PushDataMessageRequest {
   notification?: { [key: string]: string };
 }
 
-export interface PushDataMessageResponse {
+export interface SendDataPushResponse {
   success?: string[];
   failure?: string[];
 }

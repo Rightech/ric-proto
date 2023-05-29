@@ -331,24 +331,24 @@ void Push::Stub::experimental_async::Send(::grpc::ClientContext* context, const 
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::PushSendResponse>::Create(channel_.get(), cq, rpcmethod_Send_, context, request, false);
 }
 
-::grpc::Status Push::Stub::SendData(::grpc::ClientContext* context, const ::ric::notify::PushDataMessageRequest& request, ::ric::notify::PushDataMessageResponse* response) {
+::grpc::Status Push::Stub::SendData(::grpc::ClientContext* context, const ::ric::notify::SendDataPushRequest& request, ::ric::notify::SendDataPushResponse* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SendData_, context, request, response);
 }
 
-void Push::Stub::experimental_async::SendData(::grpc::ClientContext* context, const ::ric::notify::PushDataMessageRequest* request, ::ric::notify::PushDataMessageResponse* response, std::function<void(::grpc::Status)> f) {
+void Push::Stub::experimental_async::SendData(::grpc::ClientContext* context, const ::ric::notify::SendDataPushRequest* request, ::ric::notify::SendDataPushResponse* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendData_, context, request, response, std::move(f));
 }
 
-void Push::Stub::experimental_async::SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::notify::PushDataMessageResponse* response, std::function<void(::grpc::Status)> f) {
+void Push::Stub::experimental_async::SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::notify::SendDataPushResponse* response, std::function<void(::grpc::Status)> f) {
   return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendData_, context, request, response, std::move(f));
 }
 
-::grpc::ClientAsyncResponseReader< ::ric::notify::PushDataMessageResponse>* Push::Stub::AsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::notify::PushDataMessageRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::PushDataMessageResponse>::Create(channel_.get(), cq, rpcmethod_SendData_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::ric::notify::SendDataPushResponse>* Push::Stub::AsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::notify::SendDataPushRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::SendDataPushResponse>::Create(channel_.get(), cq, rpcmethod_SendData_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::ric::notify::PushDataMessageResponse>* Push::Stub::PrepareAsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::notify::PushDataMessageRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::PushDataMessageResponse>::Create(channel_.get(), cq, rpcmethod_SendData_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::ric::notify::SendDataPushResponse>* Push::Stub::PrepareAsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::notify::SendDataPushRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::SendDataPushResponse>::Create(channel_.get(), cq, rpcmethod_SendData_, context, request, false);
 }
 
 Push::Service::Service() {
@@ -360,7 +360,7 @@ Push::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Push_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Push::Service, ::ric::notify::PushDataMessageRequest, ::ric::notify::PushDataMessageResponse>(
+      new ::grpc::internal::RpcMethodHandler< Push::Service, ::ric::notify::SendDataPushRequest, ::ric::notify::SendDataPushResponse>(
           std::mem_fn(&Push::Service::SendData), this)));
 }
 
@@ -374,7 +374,7 @@ Push::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Push::Service::SendData(::grpc::ServerContext* context, const ::ric::notify::PushDataMessageRequest* request, ::ric::notify::PushDataMessageResponse* response) {
+::grpc::Status Push::Service::SendData(::grpc::ServerContext* context, const ::ric::notify::SendDataPushRequest* request, ::ric::notify::SendDataPushResponse* response) {
   (void) context;
   (void) request;
   (void) response;
