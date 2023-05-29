@@ -21,6 +21,8 @@ extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::proto
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Context_ric_2dnotify_2fricnotify_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_HTTPRequest_HeadersEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_HTTPResponse_HeadersEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_PushDataMessageRequest_DataEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_PushDataMessageRequest_NotificationEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_ric_2dnotify_2fricnotify_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_SMPPStatusResponse_SMPPStatus_ric_2dnotify_2fricnotify_2eproto;
 namespace ric {
 namespace notify {
@@ -100,6 +102,22 @@ class PushSendResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<PushSendResponse> _instance;
 } _PushSendResponse_default_instance_;
+class PushDataMessageRequest_DataEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<PushDataMessageRequest_DataEntry_DoNotUse> _instance;
+} _PushDataMessageRequest_DataEntry_DoNotUse_default_instance_;
+class PushDataMessageRequest_NotificationEntry_DoNotUseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<PushDataMessageRequest_NotificationEntry_DoNotUse> _instance;
+} _PushDataMessageRequest_NotificationEntry_DoNotUse_default_instance_;
+class PushDataMessageRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<PushDataMessageRequest> _instance;
+} _PushDataMessageRequest_default_instance_;
+class PushDataMessageResponseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<PushDataMessageResponse> _instance;
+} _PushDataMessageResponse_default_instance_;
 class HTTPRequest_HeadersEntry_DoNotUseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<HTTPRequest_HeadersEntry_DoNotUse> _instance;
@@ -405,6 +423,63 @@ static void InitDefaultsPushSendResponse_ric_2dnotify_2fricnotify_2eproto() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_PushSendResponse_ric_2dnotify_2fricnotify_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPushSendResponse_ric_2dnotify_2fricnotify_2eproto}, {}};
 
+static void InitDefaultsPushDataMessageRequest_DataEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::notify::_PushDataMessageRequest_DataEntry_DoNotUse_default_instance_;
+    new (ptr) ::ric::notify::PushDataMessageRequest_DataEntry_DoNotUse();
+  }
+  ::ric::notify::PushDataMessageRequest_DataEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_PushDataMessageRequest_DataEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPushDataMessageRequest_DataEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto}, {}};
+
+static void InitDefaultsPushDataMessageRequest_NotificationEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::notify::_PushDataMessageRequest_NotificationEntry_DoNotUse_default_instance_;
+    new (ptr) ::ric::notify::PushDataMessageRequest_NotificationEntry_DoNotUse();
+  }
+  ::ric::notify::PushDataMessageRequest_NotificationEntry_DoNotUse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_PushDataMessageRequest_NotificationEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPushDataMessageRequest_NotificationEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto}, {}};
+
+static void InitDefaultsPushDataMessageRequest_ric_2dnotify_2fricnotify_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::notify::_PushDataMessageRequest_default_instance_;
+    new (ptr) ::ric::notify::PushDataMessageRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::notify::PushDataMessageRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<3> scc_info_PushDataMessageRequest_ric_2dnotify_2fricnotify_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 3, InitDefaultsPushDataMessageRequest_ric_2dnotify_2fricnotify_2eproto}, {
+      &scc_info_Context_ric_2dnotify_2fricnotify_2eproto.base,
+      &scc_info_PushDataMessageRequest_DataEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto.base,
+      &scc_info_PushDataMessageRequest_NotificationEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto.base,}};
+
+static void InitDefaultsPushDataMessageResponse_ric_2dnotify_2fricnotify_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::ric::notify::_PushDataMessageResponse_default_instance_;
+    new (ptr) ::ric::notify::PushDataMessageResponse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::ric::notify::PushDataMessageResponse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_PushDataMessageResponse_ric_2dnotify_2fricnotify_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPushDataMessageResponse_ric_2dnotify_2fricnotify_2eproto}, {}};
+
 static void InitDefaultsHTTPRequest_HeadersEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -541,6 +616,10 @@ void InitDefaults_ric_2dnotify_2fricnotify_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_SMTPCheckGatewayResponse_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_PushSendRequest_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_PushSendResponse_ric_2dnotify_2fricnotify_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_PushDataMessageRequest_DataEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_PushDataMessageRequest_NotificationEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_PushDataMessageRequest_ric_2dnotify_2fricnotify_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_PushDataMessageResponse_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_HTTPRequest_HeadersEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_HTTPRequest_ric_2dnotify_2fricnotify_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_HTTPResponse_HeadersEntry_DoNotUse_ric_2dnotify_2fricnotify_2eproto.base);
@@ -551,7 +630,7 @@ void InitDefaults_ric_2dnotify_2fricnotify_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_NotifierSendResponse_ric_2dnotify_2fricnotify_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_ric_2dnotify_2fricnotify_2eproto[27];
+::google::protobuf::Metadata file_level_metadata_ric_2dnotify_2fricnotify_2eproto[31];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors_ric_2dnotify_2fricnotify_2eproto[1];
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_ric_2dnotify_2fricnotify_2eproto = nullptr;
 
@@ -715,6 +794,41 @@ const ::google::protobuf::uint32 TableStruct_ric_2dnotify_2fricnotify_2eproto::o
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageRequest_DataEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageRequest_DataEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageRequest_DataEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageRequest_DataEntry_DoNotUse, value_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageRequest_NotificationEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageRequest_NotificationEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageRequest_NotificationEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageRequest_NotificationEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageRequest, ctx_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageRequest, app_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageRequest, users_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageRequest, data_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageRequest, notification_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageResponse, success_),
+  PROTOBUF_FIELD_OFFSET(::ric::notify::PushDataMessageResponse, failure_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::HTTPRequest_HeadersEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::ric::notify::HTTPRequest_HeadersEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -804,14 +918,18 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 140, -1, sizeof(::ric::notify::SMTPCheckGatewayResponse)},
   { 146, -1, sizeof(::ric::notify::PushSendRequest)},
   { 154, -1, sizeof(::ric::notify::PushSendResponse)},
-  { 159, 166, sizeof(::ric::notify::HTTPRequest_HeadersEntry_DoNotUse)},
-  { 168, -1, sizeof(::ric::notify::HTTPRequest)},
-  { 178, 185, sizeof(::ric::notify::HTTPResponse_HeadersEntry_DoNotUse)},
-  { 187, -1, sizeof(::ric::notify::HTTPResponse)},
-  { 196, -1, sizeof(::ric::notify::NotifierInitRequest)},
-  { 204, -1, sizeof(::ric::notify::NotifierInitResponse)},
-  { 211, -1, sizeof(::ric::notify::NotifierSendRequest)},
-  { 220, -1, sizeof(::ric::notify::NotifierSendResponse)},
+  { 159, 166, sizeof(::ric::notify::PushDataMessageRequest_DataEntry_DoNotUse)},
+  { 168, 175, sizeof(::ric::notify::PushDataMessageRequest_NotificationEntry_DoNotUse)},
+  { 177, -1, sizeof(::ric::notify::PushDataMessageRequest)},
+  { 187, -1, sizeof(::ric::notify::PushDataMessageResponse)},
+  { 194, 201, sizeof(::ric::notify::HTTPRequest_HeadersEntry_DoNotUse)},
+  { 203, -1, sizeof(::ric::notify::HTTPRequest)},
+  { 213, 220, sizeof(::ric::notify::HTTPResponse_HeadersEntry_DoNotUse)},
+  { 222, -1, sizeof(::ric::notify::HTTPResponse)},
+  { 231, -1, sizeof(::ric::notify::NotifierInitRequest)},
+  { 239, -1, sizeof(::ric::notify::NotifierInitResponse)},
+  { 246, -1, sizeof(::ric::notify::NotifierSendRequest)},
+  { 255, -1, sizeof(::ric::notify::NotifierSendResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -834,6 +952,10 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_SMTPCheckGatewayResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_PushSendRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_PushSendResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_PushDataMessageRequest_DataEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_PushDataMessageRequest_NotificationEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_PushDataMessageRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_PushDataMessageResponse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_HTTPRequest_HeadersEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_HTTPRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::ric::notify::_HTTPResponse_HeadersEntry_DoNotUse_default_instance_),
@@ -847,7 +969,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto = {
   {}, AddDescriptors_ric_2dnotify_2fricnotify_2eproto, "ric-notify/ricnotify.proto", schemas,
   file_default_instances, TableStruct_ric_2dnotify_2fricnotify_2eproto::offsets,
-  file_level_metadata_ric_2dnotify_2fricnotify_2eproto, 27, file_level_enum_descriptors_ric_2dnotify_2fricnotify_2eproto, file_level_service_descriptors_ric_2dnotify_2fricnotify_2eproto,
+  file_level_metadata_ric_2dnotify_2fricnotify_2eproto, 31, file_level_enum_descriptors_ric_2dnotify_2fricnotify_2eproto, file_level_service_descriptors_ric_2dnotify_2fricnotify_2eproto,
 };
 
 const char descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto[] =
@@ -898,53 +1020,64 @@ const char descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto[] =
   " \001(\010\022\017\n\007use_ssl\030\006 \001(\010\"+\n\030SMTPCheckGatewa"
   "yResponse\022\017\n\007success\030\001 \001(\010\";\n\017PushSendRe"
   "quest\022\014\n\004text\030\001 \001(\t\022\r\n\005level\030\002 \001(\t\022\013\n\003oi"
-  "d\030\003 \001(\t\"\022\n\020PushSendResponse\"\301\001\n\013HTTPRequ"
-  "est\022 \n\003ctx\030\001 \001(\0132\023.ric.notify.Context\022\016\n"
-  "\006method\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\0225\n\007headers\030\004 "
-  "\003(\0132$.ric.notify.HTTPRequest.HeadersEntr"
-  "y\022\014\n\004body\030\005 \001(\014\032.\n\014HeadersEntry\022\013\n\003key\030\001"
-  " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\273\001\n\014HTTPResponse"
-  "\022 \n\003ctx\030\001 \001(\0132\023.ric.notify.Context\022\023\n\013st"
-  "atus_code\030\002 \001(\005\0226\n\007headers\030\003 \003(\0132%.ric.n"
-  "otify.HTTPResponse.HeadersEntry\022\014\n\004body\030"
-  "\004 \001(\014\032.\n\014HeadersEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va"
-  "lue\030\002 \001(\t:\0028\001\"Z\n\023NotifierInitRequest\022 \n\003"
-  "ctx\030\001 \001(\0132\023.ric.notify.Context\022\023\n\013notifi"
-  "er_id\030\002 \001(\t\022\014\n\004data\030\003 \001(\014\"5\n\024NotifierIni"
-  "tResponse\022\017\n\007message\030\001 \001(\t\022\014\n\004data\030\002 \001(\014"
-  "\"k\n\023NotifierSendRequest\022 \n\003ctx\030\001 \001(\0132\023.r"
-  "ic.notify.Context\022\023\n\013notifier_id\030\002 \001(\t\022\017"
-  "\n\007message\030\003 \001(\t\022\014\n\004data\030\004 \001(\014\"5\n\024Notifie"
-  "rSendResponse\022\017\n\007message\030\001 \001(\t\022\014\n\004data\030\002"
-  " \001(\0142\305\002\n\004SMPP\022A\n\004Send\022\033.ric.notify.SMPPS"
-  "endRequest\032\034.ric.notify.SMPPSendResponse"
-  "\022G\n\006Status\022\035.ric.notify.SMPPStatusReques"
-  "t\032\036.ric.notify.SMPPStatusResponse\022V\n\013Gat"
-  "ewayInfo\022\".ric.notify.SMPPGatewayInfoReq"
-  "uest\032#.ric.notify.SMPPGatewayInfoRespons"
-  "e\022Y\n\014CheckGateway\022#.ric.notify.SMPPCheck"
-  "GatewayRequest\032$.ric.notify.SMPPCheckGat"
-  "ewayResponse2\374\001\n\004SMTP\022A\n\004Send\022\033.ric.noti"
-  "fy.SMTPSendRequest\032\034.ric.notify.SMTPSend"
-  "Response\022V\n\013GatewayInfo\022\".ric.notify.SMT"
-  "PGatewayInfoRequest\032#.ric.notify.SMTPGat"
-  "ewayInfoResponse\022Y\n\014CheckGateway\022#.ric.n"
-  "otify.SMTPCheckGatewayRequest\032$.ric.noti"
-  "fy.SMTPCheckGatewayResponse2I\n\004Push\022A\n\004S"
-  "end\022\033.ric.notify.PushSendRequest\032\034.ric.n"
-  "otify.PushSendResponse2D\n\004HTTP\022<\n\007Reques"
-  "t\022\027.ric.notify.HTTPRequest\032\030.ric.notify."
-  "HTTPResponse2\240\001\n\010Notifier\022I\n\004Init\022\037.ric."
-  "notify.NotifierInitRequest\032 .ric.notify."
-  "NotifierInitResponse\022I\n\004Send\022\037.ric.notif"
-  "y.NotifierSendRequest\032 .ric.notify.Notif"
-  "ierSendResponseB\030Z\026./ric-notify;ricnotif"
-  "yb\006proto3"
+  "d\030\003 \001(\t\"\022\n\020PushSendResponse\"\300\002\n\026PushData"
+  "MessageRequest\022 \n\003ctx\030\001 \001(\0132\023.ric.notify"
+  ".Context\022\013\n\003app\030\002 \001(\t\022\r\n\005users\030\003 \003(\t\022:\n\004"
+  "data\030\004 \003(\0132,.ric.notify.PushDataMessageR"
+  "equest.DataEntry\022J\n\014notification\030\005 \003(\01324"
+  ".ric.notify.PushDataMessageRequest.Notif"
+  "icationEntry\032+\n\tDataEntry\022\013\n\003key\030\001 \001(\t\022\r"
+  "\n\005value\030\002 \001(\t:\0028\001\0323\n\021NotificationEntry\022\013"
+  "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\";\n\027PushDa"
+  "taMessageResponse\022\017\n\007success\030\001 \003(\t\022\017\n\007fa"
+  "ilure\030\002 \003(\t\"\301\001\n\013HTTPRequest\022 \n\003ctx\030\001 \001(\013"
+  "2\023.ric.notify.Context\022\016\n\006method\030\002 \001(\t\022\013\n"
+  "\003url\030\003 \001(\t\0225\n\007headers\030\004 \003(\0132$.ric.notify"
+  ".HTTPRequest.HeadersEntry\022\014\n\004body\030\005 \001(\014\032"
+  ".\n\014HeadersEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 "
+  "\001(\t:\0028\001\"\273\001\n\014HTTPResponse\022 \n\003ctx\030\001 \001(\0132\023."
+  "ric.notify.Context\022\023\n\013status_code\030\002 \001(\005\022"
+  "6\n\007headers\030\003 \003(\0132%.ric.notify.HTTPRespon"
+  "se.HeadersEntry\022\014\n\004body\030\004 \001(\014\032.\n\014Headers"
+  "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"Z\n"
+  "\023NotifierInitRequest\022 \n\003ctx\030\001 \001(\0132\023.ric."
+  "notify.Context\022\023\n\013notifier_id\030\002 \001(\t\022\014\n\004d"
+  "ata\030\003 \001(\014\"5\n\024NotifierInitResponse\022\017\n\007mes"
+  "sage\030\001 \001(\t\022\014\n\004data\030\002 \001(\014\"k\n\023NotifierSend"
+  "Request\022 \n\003ctx\030\001 \001(\0132\023.ric.notify.Contex"
+  "t\022\023\n\013notifier_id\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\022"
+  "\014\n\004data\030\004 \001(\014\"5\n\024NotifierSendResponse\022\017\n"
+  "\007message\030\001 \001(\t\022\014\n\004data\030\002 \001(\0142\305\002\n\004SMPP\022A\n"
+  "\004Send\022\033.ric.notify.SMPPSendRequest\032\034.ric"
+  ".notify.SMPPSendResponse\022G\n\006Status\022\035.ric"
+  ".notify.SMPPStatusRequest\032\036.ric.notify.S"
+  "MPPStatusResponse\022V\n\013GatewayInfo\022\".ric.n"
+  "otify.SMPPGatewayInfoRequest\032#.ric.notif"
+  "y.SMPPGatewayInfoResponse\022Y\n\014CheckGatewa"
+  "y\022#.ric.notify.SMPPCheckGatewayRequest\032$"
+  ".ric.notify.SMPPCheckGatewayResponse2\374\001\n"
+  "\004SMTP\022A\n\004Send\022\033.ric.notify.SMTPSendReque"
+  "st\032\034.ric.notify.SMTPSendResponse\022V\n\013Gate"
+  "wayInfo\022\".ric.notify.SMTPGatewayInfoRequ"
+  "est\032#.ric.notify.SMTPGatewayInfoResponse"
+  "\022Y\n\014CheckGateway\022#.ric.notify.SMTPCheckG"
+  "atewayRequest\032$.ric.notify.SMTPCheckGate"
+  "wayResponse2\236\001\n\004Push\022A\n\004Send\022\033.ric.notif"
+  "y.PushSendRequest\032\034.ric.notify.PushSendR"
+  "esponse\022S\n\010SendData\022\".ric.notify.PushDat"
+  "aMessageRequest\032#.ric.notify.PushDataMes"
+  "sageResponse2D\n\004HTTP\022<\n\007Request\022\027.ric.no"
+  "tify.HTTPRequest\032\030.ric.notify.HTTPRespon"
+  "se2\240\001\n\010Notifier\022I\n\004Init\022\037.ric.notify.Not"
+  "ifierInitRequest\032 .ric.notify.NotifierIn"
+  "itResponse\022I\n\004Send\022\037.ric.notify.Notifier"
+  "SendRequest\032 .ric.notify.NotifierSendRes"
+  "ponseB\030Z\026./ric-notify;ricnotifyb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dnotify_2fricnotify_2eproto = {
   false, InitDefaults_ric_2dnotify_2fricnotify_2eproto, 
   descriptor_table_protodef_ric_2dnotify_2fricnotify_2eproto,
-  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 3529,
+  "ric-notify/ricnotify.proto", &assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto, 3999,
 };
 
 void AddDescriptors_ric_2dnotify_2fricnotify_2eproto() {
@@ -9380,6 +9513,1204 @@ void PushSendResponse::InternalSwap(PushSendResponse* other) {
 
 // ===================================================================
 
+PushDataMessageRequest_DataEntry_DoNotUse::PushDataMessageRequest_DataEntry_DoNotUse() {}
+PushDataMessageRequest_DataEntry_DoNotUse::PushDataMessageRequest_DataEntry_DoNotUse(::google::protobuf::Arena* arena)
+    : SuperType(arena) {}
+void PushDataMessageRequest_DataEntry_DoNotUse::MergeFrom(const PushDataMessageRequest_DataEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::google::protobuf::Metadata PushDataMessageRequest_DataEntry_DoNotUse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto);
+  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[19];
+}
+void PushDataMessageRequest_DataEntry_DoNotUse::MergeFrom(
+    const ::google::protobuf::Message& other) {
+  ::google::protobuf::Message::MergeFrom(other);
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool PushDataMessageRequest_DataEntry_DoNotUse::_ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx) {
+  using MF = ::google::protobuf::internal::MapField<
+      PushDataMessageRequest_DataEntry_DoNotUse, EntryKeyType, EntryValueType,
+      kEntryKeyFieldType, kEntryValueFieldType,
+      kEntryDefaultEnumValue>;
+  auto mf = static_cast<MF*>(object);
+  Parser<MF, ::google::protobuf::Map<EntryKeyType, EntryValueType>> parser(mf);
+#define DO_(x) if (!(x)) return false
+  DO_(parser.ParseMap(begin, end));
+  DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+    parser.key().data(), static_cast<int>(parser.key().length()),
+    ::google::protobuf::internal::WireFormatLite::PARSE,
+    "ric.notify.PushDataMessageRequest.DataEntry.key"));
+  DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+    parser.value().data(), static_cast<int>(parser.value().length()),
+    ::google::protobuf::internal::WireFormatLite::PARSE,
+    "ric.notify.PushDataMessageRequest.DataEntry.value"));
+#undef DO_
+  return true;
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+
+// ===================================================================
+
+PushDataMessageRequest_NotificationEntry_DoNotUse::PushDataMessageRequest_NotificationEntry_DoNotUse() {}
+PushDataMessageRequest_NotificationEntry_DoNotUse::PushDataMessageRequest_NotificationEntry_DoNotUse(::google::protobuf::Arena* arena)
+    : SuperType(arena) {}
+void PushDataMessageRequest_NotificationEntry_DoNotUse::MergeFrom(const PushDataMessageRequest_NotificationEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::google::protobuf::Metadata PushDataMessageRequest_NotificationEntry_DoNotUse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto);
+  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[20];
+}
+void PushDataMessageRequest_NotificationEntry_DoNotUse::MergeFrom(
+    const ::google::protobuf::Message& other) {
+  ::google::protobuf::Message::MergeFrom(other);
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool PushDataMessageRequest_NotificationEntry_DoNotUse::_ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx) {
+  using MF = ::google::protobuf::internal::MapField<
+      PushDataMessageRequest_NotificationEntry_DoNotUse, EntryKeyType, EntryValueType,
+      kEntryKeyFieldType, kEntryValueFieldType,
+      kEntryDefaultEnumValue>;
+  auto mf = static_cast<MF*>(object);
+  Parser<MF, ::google::protobuf::Map<EntryKeyType, EntryValueType>> parser(mf);
+#define DO_(x) if (!(x)) return false
+  DO_(parser.ParseMap(begin, end));
+  DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+    parser.key().data(), static_cast<int>(parser.key().length()),
+    ::google::protobuf::internal::WireFormatLite::PARSE,
+    "ric.notify.PushDataMessageRequest.NotificationEntry.key"));
+  DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+    parser.value().data(), static_cast<int>(parser.value().length()),
+    ::google::protobuf::internal::WireFormatLite::PARSE,
+    "ric.notify.PushDataMessageRequest.NotificationEntry.value"));
+#undef DO_
+  return true;
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+
+// ===================================================================
+
+void PushDataMessageRequest::InitAsDefaultInstance() {
+  ::ric::notify::_PushDataMessageRequest_default_instance_._instance.get_mutable()->ctx_ = const_cast< ::ric::notify::Context*>(
+      ::ric::notify::Context::internal_default_instance());
+}
+class PushDataMessageRequest::HasBitSetters {
+ public:
+  static const ::ric::notify::Context& ctx(const PushDataMessageRequest* msg);
+};
+
+const ::ric::notify::Context&
+PushDataMessageRequest::HasBitSetters::ctx(const PushDataMessageRequest* msg) {
+  return *msg->ctx_;
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int PushDataMessageRequest::kCtxFieldNumber;
+const int PushDataMessageRequest::kAppFieldNumber;
+const int PushDataMessageRequest::kUsersFieldNumber;
+const int PushDataMessageRequest::kDataFieldNumber;
+const int PushDataMessageRequest::kNotificationFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+PushDataMessageRequest::PushDataMessageRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.notify.PushDataMessageRequest)
+}
+PushDataMessageRequest::PushDataMessageRequest(const PushDataMessageRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr),
+      users_(from.users_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  data_.MergeFrom(from.data_);
+  notification_.MergeFrom(from.notification_);
+  app_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.app().size() > 0) {
+    app_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.app_);
+  }
+  if (from.has_ctx()) {
+    ctx_ = new ::ric::notify::Context(*from.ctx_);
+  } else {
+    ctx_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:ric.notify.PushDataMessageRequest)
+}
+
+void PushDataMessageRequest::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_PushDataMessageRequest_ric_2dnotify_2fricnotify_2eproto.base);
+  app_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ctx_ = nullptr;
+}
+
+PushDataMessageRequest::~PushDataMessageRequest() {
+  // @@protoc_insertion_point(destructor:ric.notify.PushDataMessageRequest)
+  SharedDtor();
+}
+
+void PushDataMessageRequest::SharedDtor() {
+  app_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete ctx_;
+}
+
+void PushDataMessageRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const PushDataMessageRequest& PushDataMessageRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_PushDataMessageRequest_ric_2dnotify_2fricnotify_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void PushDataMessageRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.notify.PushDataMessageRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  users_.Clear();
+  data_.Clear();
+  notification_.Clear();
+  app_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
+    delete ctx_;
+  }
+  ctx_ = nullptr;
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* PushDataMessageRequest::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<PushDataMessageRequest*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // .ric.notify.Context ctx = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        parser_till_end = ::ric::notify::Context::_InternalParse;
+        object = msg->mutable_ctx();
+        if (size > end - ptr) goto len_delim_till_end;
+        ptr += size;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
+            {parser_till_end, object}, ptr - size, ptr));
+        break;
+      }
+      // string app = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.notify.PushDataMessageRequest.app");
+        object = msg->mutable_app();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
+        break;
+      }
+      // repeated string users = 3;
+      case 3: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          ctx->extra_parse_data().SetFieldName("ric.notify.PushDataMessageRequest.users");
+          object = msg->add_users();
+          if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+            parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+            goto string_till_end;
+          }
+          GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+          ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+          ptr += size;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 26 && (ptr += 1));
+        break;
+      }
+      // map<string, string> data = 4;
+      case 4: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 34) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::google::protobuf::internal::SlowMapEntryParser;
+          auto parse_map = ::ric::notify::PushDataMessageRequest_DataEntry_DoNotUse::_ParseMap;
+          ctx->extra_parse_data().payload.clear();
+          ctx->extra_parse_data().parse_map = parse_map;
+          object = &msg->data_;
+          if (size > end - ptr) goto len_delim_till_end;
+          auto newend = ptr + size;
+          GOOGLE_PROTOBUF_PARSER_ASSERT(parse_map(ptr, newend, object, ctx));
+          ptr = newend;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 34 && (ptr += 1));
+        break;
+      }
+      // map<string, string> notification = 5;
+      case 5: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 42) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::google::protobuf::internal::SlowMapEntryParser;
+          auto parse_map = ::ric::notify::PushDataMessageRequest_NotificationEntry_DoNotUse::_ParseMap;
+          ctx->extra_parse_data().payload.clear();
+          ctx->extra_parse_data().parse_map = parse_map;
+          object = &msg->notification_;
+          if (size > end - ptr) goto len_delim_till_end;
+          auto newend = ptr + size;
+          GOOGLE_PROTOBUF_PARSER_ASSERT(parse_map(ptr, newend, object, ctx));
+          ptr = newend;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 42 && (ptr += 1));
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool PushDataMessageRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.notify.PushDataMessageRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .ric.notify.Context ctx = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_ctx()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string app = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_app()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->app().data(), static_cast<int>(this->app().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.PushDataMessageRequest.app"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated string users = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_users()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->users(this->users_size() - 1).data(),
+            static_cast<int>(this->users(this->users_size() - 1).length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.PushDataMessageRequest.users"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // map<string, string> data = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (34 & 0xFF)) {
+          PushDataMessageRequest_DataEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
+              PushDataMessageRequest_DataEntry_DoNotUse,
+              ::std::string, ::std::string,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              0 >,
+            ::google::protobuf::Map< ::std::string, ::std::string > > parser(&data_);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, &parser));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.key().data(), static_cast<int>(parser.key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.PushDataMessageRequest.DataEntry.key"));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.value().data(), static_cast<int>(parser.value().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.PushDataMessageRequest.DataEntry.value"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // map<string, string> notification = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (42 & 0xFF)) {
+          PushDataMessageRequest_NotificationEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
+              PushDataMessageRequest_NotificationEntry_DoNotUse,
+              ::std::string, ::std::string,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+              0 >,
+            ::google::protobuf::Map< ::std::string, ::std::string > > parser(&notification_);
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, &parser));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.key().data(), static_cast<int>(parser.key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.PushDataMessageRequest.NotificationEntry.key"));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            parser.value().data(), static_cast<int>(parser.value().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.PushDataMessageRequest.NotificationEntry.value"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.notify.PushDataMessageRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.notify.PushDataMessageRequest)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void PushDataMessageRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.notify.PushDataMessageRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ric.notify.Context ctx = 1;
+  if (this->has_ctx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, HasBitSetters::ctx(this), output);
+  }
+
+  // string app = 2;
+  if (this->app().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->app().data(), static_cast<int>(this->app().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.PushDataMessageRequest.app");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->app(), output);
+  }
+
+  // repeated string users = 3;
+  for (int i = 0, n = this->users_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->users(i).data(), static_cast<int>(this->users(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.PushDataMessageRequest.users");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->users(i), output);
+  }
+
+  // map<string, string> data = 4;
+  if (!this->data().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::std::string >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.notify.PushDataMessageRequest.DataEntry.key");
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->second.data(), static_cast<int>(p->second.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.notify.PushDataMessageRequest.DataEntry.value");
+      }
+    };
+
+    if (output->IsSerializationDeterministic() &&
+        this->data().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->data().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::std::string >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->data().begin();
+          it != this->data().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<PushDataMessageRequest_DataEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(data_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(4, *entry, output);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<PushDataMessageRequest_DataEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->data().begin();
+          it != this->data().end(); ++it) {
+        entry.reset(data_.NewEntryWrapper(it->first, it->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(4, *entry, output);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  // map<string, string> notification = 5;
+  if (!this->notification().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::std::string >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.notify.PushDataMessageRequest.NotificationEntry.key");
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->second.data(), static_cast<int>(p->second.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.notify.PushDataMessageRequest.NotificationEntry.value");
+      }
+    };
+
+    if (output->IsSerializationDeterministic() &&
+        this->notification().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->notification().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::std::string >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->notification().begin();
+          it != this->notification().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<PushDataMessageRequest_NotificationEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(notification_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(5, *entry, output);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<PushDataMessageRequest_NotificationEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->notification().begin();
+          it != this->notification().end(); ++it) {
+        entry.reset(notification_.NewEntryWrapper(it->first, it->second));
+        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(5, *entry, output);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.notify.PushDataMessageRequest)
+}
+
+::google::protobuf::uint8* PushDataMessageRequest::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.notify.PushDataMessageRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .ric.notify.Context ctx = 1;
+  if (this->has_ctx()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, HasBitSetters::ctx(this), target);
+  }
+
+  // string app = 2;
+  if (this->app().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->app().data(), static_cast<int>(this->app().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.PushDataMessageRequest.app");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->app(), target);
+  }
+
+  // repeated string users = 3;
+  for (int i = 0, n = this->users_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->users(i).data(), static_cast<int>(this->users(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.PushDataMessageRequest.users");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(3, this->users(i), target);
+  }
+
+  // map<string, string> data = 4;
+  if (!this->data().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::std::string >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.notify.PushDataMessageRequest.DataEntry.key");
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->second.data(), static_cast<int>(p->second.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.notify.PushDataMessageRequest.DataEntry.value");
+      }
+    };
+
+    if (false &&
+        this->data().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->data().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::std::string >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->data().begin();
+          it != this->data().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<PushDataMessageRequest_DataEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(data_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(4, *entry, target);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<PushDataMessageRequest_DataEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->data().begin();
+          it != this->data().end(); ++it) {
+        entry.reset(data_.NewEntryWrapper(it->first, it->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(4, *entry, target);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  // map<string, string> notification = 5;
+  if (!this->notification().empty()) {
+    typedef ::google::protobuf::Map< ::std::string, ::std::string >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.notify.PushDataMessageRequest.NotificationEntry.key");
+        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          p->second.data(), static_cast<int>(p->second.length()),
+          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          "ric.notify.PushDataMessageRequest.NotificationEntry.value");
+      }
+    };
+
+    if (false &&
+        this->notification().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->notification().size()]);
+      typedef ::google::protobuf::Map< ::std::string, ::std::string >::size_type size_type;
+      size_type n = 0;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->notification().begin();
+          it != this->notification().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      ::std::unique_ptr<PushDataMessageRequest_NotificationEntry_DoNotUse> entry;
+      for (size_type i = 0; i < n; i++) {
+        entry.reset(notification_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(5, *entry, target);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+      }
+    } else {
+      ::std::unique_ptr<PushDataMessageRequest_NotificationEntry_DoNotUse> entry;
+      for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+          it = this->notification().begin();
+          it != this->notification().end(); ++it) {
+        entry.reset(notification_.NewEntryWrapper(it->first, it->second));
+        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(5, *entry, target);
+        Utf8Check::Check(&(*it));
+      }
+    }
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.notify.PushDataMessageRequest)
+  return target;
+}
+
+size_t PushDataMessageRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.notify.PushDataMessageRequest)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated string users = 3;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->users_size());
+  for (int i = 0, n = this->users_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->users(i));
+  }
+
+  // map<string, string> data = 4;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->data_size());
+  {
+    ::std::unique_ptr<PushDataMessageRequest_DataEntry_DoNotUse> entry;
+    for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+        it = this->data().begin();
+        it != this->data().end(); ++it) {
+      entry.reset(data_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
+    }
+  }
+
+  // map<string, string> notification = 5;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->notification_size());
+  {
+    ::std::unique_ptr<PushDataMessageRequest_NotificationEntry_DoNotUse> entry;
+    for (::google::protobuf::Map< ::std::string, ::std::string >::const_iterator
+        it = this->notification().begin();
+        it != this->notification().end(); ++it) {
+      entry.reset(notification_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
+    }
+  }
+
+  // string app = 2;
+  if (this->app().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->app());
+  }
+
+  // .ric.notify.Context ctx = 1;
+  if (this->has_ctx()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *ctx_);
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void PushDataMessageRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.notify.PushDataMessageRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const PushDataMessageRequest* source =
+      ::google::protobuf::DynamicCastToGenerated<PushDataMessageRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.notify.PushDataMessageRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.notify.PushDataMessageRequest)
+    MergeFrom(*source);
+  }
+}
+
+void PushDataMessageRequest::MergeFrom(const PushDataMessageRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.notify.PushDataMessageRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  users_.MergeFrom(from.users_);
+  data_.MergeFrom(from.data_);
+  notification_.MergeFrom(from.notification_);
+  if (from.app().size() > 0) {
+
+    app_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.app_);
+  }
+  if (from.has_ctx()) {
+    mutable_ctx()->::ric::notify::Context::MergeFrom(from.ctx());
+  }
+}
+
+void PushDataMessageRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.notify.PushDataMessageRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PushDataMessageRequest::CopyFrom(const PushDataMessageRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.notify.PushDataMessageRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PushDataMessageRequest::IsInitialized() const {
+  return true;
+}
+
+void PushDataMessageRequest::Swap(PushDataMessageRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void PushDataMessageRequest::InternalSwap(PushDataMessageRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  users_.InternalSwap(CastToBase(&other->users_));
+  data_.Swap(&other->data_);
+  notification_.Swap(&other->notification_);
+  app_.Swap(&other->app_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(ctx_, other->ctx_);
+}
+
+::google::protobuf::Metadata PushDataMessageRequest::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto);
+  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void PushDataMessageResponse::InitAsDefaultInstance() {
+}
+class PushDataMessageResponse::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int PushDataMessageResponse::kSuccessFieldNumber;
+const int PushDataMessageResponse::kFailureFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+PushDataMessageResponse::PushDataMessageResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:ric.notify.PushDataMessageResponse)
+}
+PushDataMessageResponse::PushDataMessageResponse(const PushDataMessageResponse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr),
+      success_(from.success_),
+      failure_(from.failure_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:ric.notify.PushDataMessageResponse)
+}
+
+void PushDataMessageResponse::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_PushDataMessageResponse_ric_2dnotify_2fricnotify_2eproto.base);
+}
+
+PushDataMessageResponse::~PushDataMessageResponse() {
+  // @@protoc_insertion_point(destructor:ric.notify.PushDataMessageResponse)
+  SharedDtor();
+}
+
+void PushDataMessageResponse::SharedDtor() {
+}
+
+void PushDataMessageResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const PushDataMessageResponse& PushDataMessageResponse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_PushDataMessageResponse_ric_2dnotify_2fricnotify_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void PushDataMessageResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:ric.notify.PushDataMessageResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  success_.Clear();
+  failure_.Clear();
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* PushDataMessageResponse::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<PushDataMessageResponse*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // repeated string success = 1;
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          ctx->extra_parse_data().SetFieldName("ric.notify.PushDataMessageResponse.success");
+          object = msg->add_success();
+          if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+            parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+            goto string_till_end;
+          }
+          GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+          ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+          ptr += size;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 10 && (ptr += 1));
+        break;
+      }
+      // repeated string failure = 2;
+      case 2: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          ctx->extra_parse_data().SetFieldName("ric.notify.PushDataMessageResponse.failure");
+          object = msg->add_failure();
+          if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+            parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+            goto string_till_end;
+          }
+          GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+          ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+          ptr += size;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 18 && (ptr += 1));
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool PushDataMessageResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:ric.notify.PushDataMessageResponse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated string success = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_success()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->success(this->success_size() - 1).data(),
+            static_cast<int>(this->success(this->success_size() - 1).length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.PushDataMessageResponse.success"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated string failure = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_failure()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->failure(this->failure_size() - 1).data(),
+            static_cast<int>(this->failure(this->failure_size() - 1).length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.notify.PushDataMessageResponse.failure"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:ric.notify.PushDataMessageResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:ric.notify.PushDataMessageResponse)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void PushDataMessageResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:ric.notify.PushDataMessageResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated string success = 1;
+  for (int i = 0, n = this->success_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->success(i).data(), static_cast<int>(this->success(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.PushDataMessageResponse.success");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->success(i), output);
+  }
+
+  // repeated string failure = 2;
+  for (int i = 0, n = this->failure_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->failure(i).data(), static_cast<int>(this->failure(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.PushDataMessageResponse.failure");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->failure(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:ric.notify.PushDataMessageResponse)
+}
+
+::google::protobuf::uint8* PushDataMessageResponse::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:ric.notify.PushDataMessageResponse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated string success = 1;
+  for (int i = 0, n = this->success_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->success(i).data(), static_cast<int>(this->success(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.PushDataMessageResponse.success");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(1, this->success(i), target);
+  }
+
+  // repeated string failure = 2;
+  for (int i = 0, n = this->failure_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->failure(i).data(), static_cast<int>(this->failure(i).length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.notify.PushDataMessageResponse.failure");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(2, this->failure(i), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:ric.notify.PushDataMessageResponse)
+  return target;
+}
+
+size_t PushDataMessageResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:ric.notify.PushDataMessageResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated string success = 1;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->success_size());
+  for (int i = 0, n = this->success_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->success(i));
+  }
+
+  // repeated string failure = 2;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->failure_size());
+  for (int i = 0, n = this->failure_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->failure(i));
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void PushDataMessageResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:ric.notify.PushDataMessageResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const PushDataMessageResponse* source =
+      ::google::protobuf::DynamicCastToGenerated<PushDataMessageResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:ric.notify.PushDataMessageResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:ric.notify.PushDataMessageResponse)
+    MergeFrom(*source);
+  }
+}
+
+void PushDataMessageResponse::MergeFrom(const PushDataMessageResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:ric.notify.PushDataMessageResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  success_.MergeFrom(from.success_);
+  failure_.MergeFrom(from.failure_);
+}
+
+void PushDataMessageResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:ric.notify.PushDataMessageResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PushDataMessageResponse::CopyFrom(const PushDataMessageResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ric.notify.PushDataMessageResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PushDataMessageResponse::IsInitialized() const {
+  return true;
+}
+
+void PushDataMessageResponse::Swap(PushDataMessageResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void PushDataMessageResponse::InternalSwap(PushDataMessageResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  success_.InternalSwap(CastToBase(&other->success_));
+  failure_.InternalSwap(CastToBase(&other->failure_));
+}
+
+::google::protobuf::Metadata PushDataMessageResponse::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto);
+  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
 HTTPRequest_HeadersEntry_DoNotUse::HTTPRequest_HeadersEntry_DoNotUse() {}
 HTTPRequest_HeadersEntry_DoNotUse::HTTPRequest_HeadersEntry_DoNotUse(::google::protobuf::Arena* arena)
     : SuperType(arena) {}
@@ -9388,7 +10719,7 @@ void HTTPRequest_HeadersEntry_DoNotUse::MergeFrom(const HTTPRequest_HeadersEntry
 }
 ::google::protobuf::Metadata HTTPRequest_HeadersEntry_DoNotUse::GetMetadata() const {
   ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto);
-  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[19];
+  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[23];
 }
 void HTTPRequest_HeadersEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -10088,7 +11419,7 @@ void HTTPResponse_HeadersEntry_DoNotUse::MergeFrom(const HTTPResponse_HeadersEnt
 }
 ::google::protobuf::Metadata HTTPResponse_HeadersEntry_DoNotUse::GetMetadata() const {
   ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_ric_2dnotify_2fricnotify_2eproto);
-  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[21];
+  return ::file_level_metadata_ric_2dnotify_2fricnotify_2eproto[25];
 }
 void HTTPResponse_HeadersEntry_DoNotUse::MergeFrom(
     const ::google::protobuf::Message& other) {
@@ -12374,6 +13705,18 @@ template<> PROTOBUF_NOINLINE ::ric::notify::PushSendRequest* Arena::CreateMaybeM
 }
 template<> PROTOBUF_NOINLINE ::ric::notify::PushSendResponse* Arena::CreateMaybeMessage< ::ric::notify::PushSendResponse >(Arena* arena) {
   return Arena::CreateInternal< ::ric::notify::PushSendResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::notify::PushDataMessageRequest_DataEntry_DoNotUse* Arena::CreateMaybeMessage< ::ric::notify::PushDataMessageRequest_DataEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::notify::PushDataMessageRequest_DataEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::notify::PushDataMessageRequest_NotificationEntry_DoNotUse* Arena::CreateMaybeMessage< ::ric::notify::PushDataMessageRequest_NotificationEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::notify::PushDataMessageRequest_NotificationEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::notify::PushDataMessageRequest* Arena::CreateMaybeMessage< ::ric::notify::PushDataMessageRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::notify::PushDataMessageRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::ric::notify::PushDataMessageResponse* Arena::CreateMaybeMessage< ::ric::notify::PushDataMessageResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::ric::notify::PushDataMessageResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::ric::notify::HTTPRequest_HeadersEntry_DoNotUse* Arena::CreateMaybeMessage< ::ric::notify::HTTPRequest_HeadersEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateInternal< ::ric::notify::HTTPRequest_HeadersEntry_DoNotUse >(arena);

@@ -21,7 +21,7 @@ service SMTP {
 
 service Push {
   rpc Send(PushSendRequest) returns (PushSendResponse);
-  rpc SendData(PushDataMessageRequest) returns(PushDataMessageResponse);
+  rpc SendData(PushDataMessageRequest) returns (PushDataMessageResponse);
 }
 
 service HTTP {

@@ -297,6 +297,7 @@ SMTP::Service::~Service() {
 
 static const char* Push_method_names[] = {
   "/ric.notify.Push/Send",
+  "/ric.notify.Push/SendData",
 };
 
 std::unique_ptr< Push::Stub> Push::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -307,6 +308,7 @@ std::unique_ptr< Push::Stub> Push::NewStub(const std::shared_ptr< ::grpc::Channe
 
 Push::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_Send_(Push_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendData_(Push_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Push::Stub::Send(::grpc::ClientContext* context, const ::ric::notify::PushSendRequest& request, ::ric::notify::PushSendResponse* response) {
@@ -329,18 +331,50 @@ void Push::Stub::experimental_async::Send(::grpc::ClientContext* context, const 
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::PushSendResponse>::Create(channel_.get(), cq, rpcmethod_Send_, context, request, false);
 }
 
+::grpc::Status Push::Stub::SendData(::grpc::ClientContext* context, const ::ric::notify::PushDataMessageRequest& request, ::ric::notify::PushDataMessageResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SendData_, context, request, response);
+}
+
+void Push::Stub::experimental_async::SendData(::grpc::ClientContext* context, const ::ric::notify::PushDataMessageRequest* request, ::ric::notify::PushDataMessageResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendData_, context, request, response, std::move(f));
+}
+
+void Push::Stub::experimental_async::SendData(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::notify::PushDataMessageResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendData_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::notify::PushDataMessageResponse>* Push::Stub::AsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::notify::PushDataMessageRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::PushDataMessageResponse>::Create(channel_.get(), cq, rpcmethod_SendData_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::notify::PushDataMessageResponse>* Push::Stub::PrepareAsyncSendDataRaw(::grpc::ClientContext* context, const ::ric::notify::PushDataMessageRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::notify::PushDataMessageResponse>::Create(channel_.get(), cq, rpcmethod_SendData_, context, request, false);
+}
+
 Push::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Push_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Push::Service, ::ric::notify::PushSendRequest, ::ric::notify::PushSendResponse>(
           std::mem_fn(&Push::Service::Send), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Push_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Push::Service, ::ric::notify::PushDataMessageRequest, ::ric::notify::PushDataMessageResponse>(
+          std::mem_fn(&Push::Service::SendData), this)));
 }
 
 Push::Service::~Service() {
 }
 
 ::grpc::Status Push::Service::Send(::grpc::ServerContext* context, const ::ric::notify::PushSendRequest* request, ::ric::notify::PushSendResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Push::Service::SendData(::grpc::ServerContext* context, const ::ric::notify::PushDataMessageRequest* request, ::ric::notify::PushDataMessageResponse* response) {
   (void) context;
   (void) request;
   (void) response;
