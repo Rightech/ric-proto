@@ -1,5 +1,6 @@
 export interface RicWeb {
   DispatchDefaultAction(request: DispatchDefaultActionRequest): Promise<DispatchDefaultActionResponse>;
+  SendCommand(request: SendCommandRequest): Promise<SendCommandResponse>;
 }
 
 export interface DispatchDefaultActionRequest {
@@ -12,5 +13,14 @@ export interface DispatchDefaultActionRequest {
 }
 
 export interface DispatchDefaultActionResponse {
+
+}
+
+export interface SendCommandRequest {
+  objectId?: string;
+  params?: string;
+}
+
+export interface SendCommandResponse {
 
 }

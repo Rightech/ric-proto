@@ -192,6 +192,7 @@ export interface NotifierSendRequest {
   notifierId?: string;
   message?: string;
   data?: any;
+  attachments?: Attachment[];
 }
 
 export interface NotifierSendResponse {

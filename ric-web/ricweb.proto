@@ -6,6 +6,7 @@ option go_package = "./ric-web;ricweb";
 
 service RicWeb {
   rpc DispatchDefaultAction(DispatchDefaultActionRequest) returns (DispatchDefaultActionResponse);
+  rpc SendCommand(SendCommandRequest) returns (SendCommandResponse);
 }
 
 message DispatchDefaultActionRequest {
@@ -18,3 +19,10 @@ message DispatchDefaultActionRequest {
 }
 
 message DispatchDefaultActionResponse {}
+
+message SendCommandRequest {
+  string object_id = 1;
+  string params = 2;
+}
+
+message SendCommandResponse {}
