@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package ric.cmds;
+
+service Command {
+  rpc Send(CommandSendRequest) returns (CommandSendResponse);
+}
+
+message Context {
+  string group_id = 1;
+  string user_id = 2;
+  string object_id = 3;
+}
+
+message CommandSendRequest {
+  Context ctx = 1;
+  string command = 2;
+  string params = 3;
+  bool confirm = 4;
+}
+
+message CommandSendResponse {
+  bool success = 1;
+}
