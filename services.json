@@ -118,7 +118,7 @@
     },
     "ric-cmds/Command": {
       "port": {
-        "dev": 15086
+        "dev": 15087
       }
     }
   }
