@@ -13,6 +13,7 @@ import { SMPP, SMTP, Push, HTTP, Notifier } from './ric-notify';
 import { Service } from './ric-handler';
 import { RicWeb } from './ric-web';
 import { RicPacketSpy } from './ric-packet-spy';
+import { Command } from './ric-cmds';
 
 interface GrpcRegistry {
   /* clients */  
@@ -64,6 +65,9 @@ interface GrpcRegistry {
   getClient(service: 'ric-packet-spy'): RicPacketSpy;
   getClient(service: 'ric-packet-spy/RicPacketSpy'): RicPacketSpy;
 
+  getClient(service: 'ric-cmds'): Command;
+  getClient(service: 'ric-cmds/Command'): Command;
+
 
   /* servers */ 
   addServer(service: 'ric-echo', impl: Greeter);
@@ -113,6 +117,9 @@ interface GrpcRegistry {
 
   addServer(service: 'ric-packet-spy', impl: RicPacketSpy);
   addServer(service: 'ric-packet-spy/RicPacketSpy', impl: RicPacketSpy);
+
+  addServer(service: 'ric-cmds', impl: Command);
+  addServer(service: 'ric-cmds/Command', impl: Command);
 }
 
 declare const index: { registry: GrpcRegistry };
