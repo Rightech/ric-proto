@@ -5,6 +5,7 @@ export interface Stats {
 export interface IncrementRequest {
   oid?: string;
   gid?: string;
+  size?: any;
 }
 
 export interface IncrementResponse {
