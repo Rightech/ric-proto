@@ -120,6 +120,11 @@
       "port": {
         "dev": 15087
       }
+    },
+    "ric-stats/Stats": {
+      "port": {
+        "dev": 15088
+      }
     }
   }
 }
