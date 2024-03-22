@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package ric.stats;
+
+service Stats {
+  rpc Increment(IncrementRequest) returns (IncrementResponse);
+}
+
+message IncrementRequest {
+  string oid = 1;
+  string gid = 2;
+}
+
+message IncrementResponse {
+  bool success = 1;
+}
