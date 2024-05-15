@@ -157,6 +157,8 @@ message PushSendRequest {
   string text = 1;
   string level = 2;
   string oid = 3;
+  string type = 4;
+  string data = 5;
 }
 
 message PushSendResponse {}
