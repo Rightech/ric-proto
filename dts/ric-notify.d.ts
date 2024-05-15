@@ -142,6 +142,8 @@ export interface PushSendRequest {
   text?: string;
   level?: string;
   oid?: string;
+  type?: string;
+  data?: string;
 }
 
 export interface PushSendResponse {
