@@ -166,7 +166,7 @@ let servers = [];
 for (const { service, services } of index) {
   let importsCode = `import { ${services
     .map(({ name }) => name)
-    .join(', ')} } from './${service}';`;
+    .join(', ')} } from './${service}.js';`;
 
   let clientsCode = [];
   let serversCode = [];
