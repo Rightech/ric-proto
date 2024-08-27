@@ -17,4 +17,5 @@ export interface CommandSendRequest {
 
 export interface CommandSendResponse {
   success?: boolean;
+  payload?: string;
 }
