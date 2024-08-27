@@ -21,4 +21,5 @@ message CommandSendRequest {
 
 message CommandSendResponse {
   bool success = 1;
+  string payload = 2;
 }
