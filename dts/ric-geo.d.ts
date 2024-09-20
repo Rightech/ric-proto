@@ -1,21 +1,11 @@
 export interface Geo {
-  GetObjectInfo(request: GetObjectInfoRequest): Promise<GetObjectInfoResponse>;
+  Validate(request: GeoValidateRequest): Promise<GeoValidateResponse>;
 }
 
-export interface GetObjectInfoRequest {
-  objectId?: string;
+export interface GeoValidateRequest {
+  geofence?: any;
 }
 
-export interface GeoInfo {
-  id?: string;
-  kind?: any;
-  isIn?: boolean;
-  lastPacketTime?: number;
-  lastEnterTime?: number;
-  lastLeaveTime?: number;
-  nested?: GeoInfo[];
-}
-
-export interface GetObjectInfoResponse {
-  geofences?: GeoInfo[];
+export interface GeoValidateResponse {
+  success?: boolean;
 }
