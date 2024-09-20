@@ -2,33 +2,14 @@ syntax = "proto3";
 
 package ric.geo;
 
-option go_package = "./ric-geo;ricgeo";
-
 service Geo {
-  rpc GetObjectInfo(GetObjectInfoRequest) returns (GetObjectInfoResponse);
+  rpc Validate(GeoValidateRequest) returns (GeoValidateResponse);
 }
 
-message GetObjectInfoRequest {
-  string object_id = 1;
+message GeoValidateRequest {
+  bytes geofence = 1;
 }
 
-enum KindType {
-  UNKNOWN = 0;
-  GEOFENCE = 1;
-  FLOOR = 2;
-  ROOM = 3;
-}
-
-message GeoInfo {
-  string id = 1;
-  KindType kind = 2;
-  bool is_in = 3;
-  int64 last_packet_time = 4;
-  int64 last_enter_time = 5;
-  int64 last_leave_time = 6;
-  repeated GeoInfo nested = 7;
-}
-
-message GetObjectInfoResponse {
-  repeated GeoInfo geofences = 1;
+message GeoValidateResponse {
+  bool success = 1;
 }

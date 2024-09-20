@@ -1,20 +1,20 @@
 
-import { Greeter } from './ric-echo';
-import { RicCode } from './ric-code';
-import { FunctionControl, PublicAPI } from './ric-action';
-import { Geo } from './ric-geo';
-import { RicAuth } from './ric-auth';
-import { RicLogicV3 } from './ric-logic-v3';
-import { TaskService, KindService } from './ric-tasks';
-import { RicStore } from './ric-store';
-import { Bots } from './ric-bots';
-import { Billing } from './ric-bill';
-import { SMPP, SMTP, Push, HTTP, Notifier } from './ric-notify';
-import { Service } from './ric-handler';
-import { RicWeb } from './ric-web';
-import { RicPacketSpy } from './ric-packet-spy';
-import { Command } from './ric-cmds';
-import { Stats } from './ric-stats';
+import { Greeter } from './ric-echo.js';
+import { RicCode } from './ric-code.js';
+import { FunctionControl, PublicAPI } from './ric-action.js';
+import { Geo } from './ric-geo.js';
+import { RicAuth } from './ric-auth.js';
+import { RicLogicV3 } from './ric-logic-v3.js';
+import { TaskService, KindService } from './ric-tasks.js';
+import { RicStore } from './ric-store.js';
+import { Bots } from './ric-bots.js';
+import { Billing } from './ric-bill.js';
+import { SMPP, SMTP, Push, HTTP, Notifier } from './ric-notify.js';
+import { Service } from './ric-handler.js';
+import { RicWeb } from './ric-web.js';
+import { RicPacketSpy } from './ric-packet-spy.js';
+import { Command } from './ric-cmds.js';
+import { Stats } from './ric-stats.js';
 
 interface GrpcRegistry {
   /* clients */  
