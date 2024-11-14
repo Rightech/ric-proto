@@ -6,20 +6,29 @@ service Command {
   rpc Send(CommandSendRequest) returns (CommandSendResponse);
 }
 
-message Context {
+message UserContext {
   string group_id = 1;
   string user_id = 2;
   string object_id = 3;
 }
 
+message Reference {
+  string store = 1;
+  string id = 2;
+  string name = 3;
+}
+
 message CommandSendRequest {
-  Context ctx = 1;
-  string command = 2;
-  string params = 3;
-  bool confirm = 4;
+  UserContext ctx = 1;
+  Reference ref = 2;
+  string command = 3;
+  string params = 4;
+  string template_context = 5;
+  bool confirm = 6;
+  bool disable_default_config_mixin = 7;
 }
 
 message CommandSendResponse {
   bool success = 1;
-  string payload = 2;
+  string result = 2;
 }

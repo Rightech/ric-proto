@@ -2,20 +2,29 @@ export interface Command {
   Send(request: CommandSendRequest): Promise<CommandSendResponse>;
 }
 
-export interface Context {
+export interface UserContext {
   groupId?: string;
   userId?: string;
   objectId?: string;
 }
 
+export interface Reference {
+  store?: string;
+  id?: string;
+  name?: string;
+}
+
 export interface CommandSendRequest {
-  ctx?: Context;
+  ctx?: UserContext;
+  ref?: Reference;
   command?: string;
   params?: string;
+  templateContext?: string;
   confirm?: boolean;
+  disableDefaultConfigMixin?: boolean;
 }
 
 export interface CommandSendResponse {
   success?: boolean;
-  payload?: string;
+  result?: string;
 }
