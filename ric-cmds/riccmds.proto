@@ -25,7 +25,7 @@ message CommandSendRequest {
   string params = 4;
   string template_context = 5;
   bool confirm = 6;
-  bool disable_default_config_mixin = 7;
+  string options = 7;
 }
 
 message CommandSendResponse {

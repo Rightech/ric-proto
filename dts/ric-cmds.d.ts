@@ -21,7 +21,7 @@ export interface CommandSendRequest {
   params?: string;
   templateContext?: string;
   confirm?: boolean;
-  disableDefaultConfigMixin?: boolean;
+  options?: string;
 }
 
 export interface CommandSendResponse {
