@@ -119,6 +119,7 @@ message SMTPSendRequest {
   google.protobuf.BoolValue use_starttls = 12;
   google.protobuf.BoolValue use_ssl = 13;
   repeated Attachment attachments = 14;
+  string reply_to = 15;
 }
 
 message SMTPSendResponse {}
