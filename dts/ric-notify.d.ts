@@ -103,6 +103,7 @@ export interface SMTPSendRequest {
   useStarttls?: boolean;
   useSsl?: boolean;
   attachments?: Attachment[];
+  replyTo?: string;
 }
 
 export interface SMTPSendResponse {
