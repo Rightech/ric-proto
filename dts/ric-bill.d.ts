@@ -9,6 +9,7 @@ export interface Billing {
   ActivateSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
   DeactivateSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
   SendReceipt(request: ReceiptRequest): Promise<ReceiptResponse>;
+  ValidatePromocode(request: ValidatePromocodeRequest): Promise<ValidatePromocodeResponse>;
 }
 
 export interface UserContext {
@@ -56,4 +57,18 @@ export interface ReceiptRequest {
 
 export interface ReceiptResponse {
 
+}
+
+export interface ValidatePromocodeRequest {
+  ctx?: UserContext;
+  code?: string;
+}
+
+export interface ValidatePromocodeResponse {
+  name?: string;
+  description?: string;
+  type?: string;
+  discountValue?: number;
+  discountPercent?: number;
+  maxDiscount?: number;
 }

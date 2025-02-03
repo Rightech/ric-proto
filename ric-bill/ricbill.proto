@@ -15,6 +15,7 @@ service Billing {
   rpc ActivateSubscription(SubscriptionRequest) returns (SubscriptionResponse);
   rpc DeactivateSubscription(SubscriptionRequest) returns (SubscriptionResponse);
   rpc SendReceipt(ReceiptRequest) returns (ReceiptResponse);
+  rpc ValidatePromocode(ValidatePromocodeRequest) returns (ValidatePromocodeResponse);
 }
 
 message UserContext {
@@ -61,3 +62,17 @@ message ReceiptRequest {
 }
 
 message ReceiptResponse {}
+
+message ValidatePromocodeRequest {
+  UserContext ctx = 1;
+  string code = 2;
+}
+
+message ValidatePromocodeResponse {
+  string name = 1;
+  string description = 2;
+  string type = 3;
+  double discount_value = 4;
+  double discount_percent = 5;
+  double max_discount = 6;
+}
