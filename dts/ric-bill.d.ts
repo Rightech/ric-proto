@@ -32,6 +32,7 @@ export interface DryRun {
   currency?: string;
   nextPay?: number;
   messages?: string[];
+  discount?: string;
 }
 
 export interface SubscriptionRequest {
@@ -40,6 +41,7 @@ export interface SubscriptionRequest {
   dryRun?: boolean;
   params?: string;
   groupId?: string;
+  promocode?: string;
 }
 
 export interface SubscriptionResponse {

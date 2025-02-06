@@ -38,6 +38,7 @@ message DryRun {
   string currency = 2;
   int64 next_pay = 3;
   repeated string messages = 4;
+  string discount = 5;
 }
 
 message SubscriptionRequest {
@@ -46,6 +47,7 @@ message SubscriptionRequest {
   bool dry_run = 3;
   string params = 4;
   string group_id = 5;
+  string promocode = 6;
 }
 
 message SubscriptionResponse {
