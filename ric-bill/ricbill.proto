@@ -6,8 +6,8 @@ option go_package = "./ric-bill;ricbill";
 
 service Billing {
   rpc SetupAccount(SetupRequest) returns (SetupResponse);
-  rpc VerifyAccount(SetupRequest) returns (SetupResponse);
-  rpc CloseAccount(SetupRequest) returns (SetupResponse);
+  rpc VerifyAccount(VerifyRequest) returns (SuccessResponse);
+  rpc CloseAccount(CloseRequest) returns (SuccessResponse);
   rpc CreateSubscription(SubscriptionRequest) returns (SubscriptionResponse);
   rpc UpdateSubscription(SubscriptionRequest) returns (SubscriptionResponse);
   rpc CancelSubscription(SubscriptionRequest) returns (SubscriptionResponse);
@@ -24,6 +24,10 @@ message UserContext {
   string span_id = 3;
 }
 
+message SuccessResponse {
+  bool success = 1;
+}
+
 message SetupRequest {
   UserContext ctx = 1;
 }
@@ -31,14 +35,17 @@ message SetupRequest {
 message SetupResponse {
   string binding_id = 1;
   string widget_params = 2;
+  string payment_account_id = 3;
 }
 
-message DryRun {
-  string amount = 1;
-  string currency = 2;
-  int64 next_pay = 3;
-  repeated string messages = 4;
-  string discount = 5;
+message VerifyRequest {
+  UserContext ctx = 1;
+  string payment_account_id = 2;
+}
+
+message CloseRequest {
+  UserContext ctx = 1;
+  string payment_account_id = 2;
 }
 
 message SubscriptionRequest {
@@ -53,7 +60,7 @@ message SubscriptionRequest {
 message SubscriptionResponse {
   string payment_id = 1;
   string job_id = 2;
-  DryRun dry_run = 3;
+  string dry_run = 3;
   string license_id = 4;
 }
 

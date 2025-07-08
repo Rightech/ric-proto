@@ -1,7 +1,7 @@
 export interface Billing {
   SetupAccount(request: SetupRequest): Promise<SetupResponse>;
-  VerifyAccount(request: SetupRequest): Promise<SetupResponse>;
-  CloseAccount(request: SetupRequest): Promise<SetupResponse>;
+  VerifyAccount(request: VerifyRequest): Promise<SuccessResponse>;
+  CloseAccount(request: CloseRequest): Promise<SuccessResponse>;
   CreateSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
   UpdateSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
   CancelSubscription(request: SubscriptionRequest): Promise<SubscriptionResponse>;
@@ -18,6 +18,10 @@ export interface UserContext {
   spanId?: string;
 }
 
+export interface SuccessResponse {
+  success?: boolean;
+}
+
 export interface SetupRequest {
   ctx?: UserContext;
 }
@@ -25,14 +29,17 @@ export interface SetupRequest {
 export interface SetupResponse {
   bindingId?: string;
   widgetParams?: string;
+  paymentAccountId?: string;
 }
 
-export interface DryRun {
-  amount?: string;
-  currency?: string;
-  nextPay?: number;
-  messages?: string[];
-  discount?: string;
+export interface VerifyRequest {
+  ctx?: UserContext;
+  paymentAccountId?: string;
+}
+
+export interface CloseRequest {
+  ctx?: UserContext;
+  paymentAccountId?: string;
 }
 
 export interface SubscriptionRequest {
@@ -47,7 +54,7 @@ export interface SubscriptionRequest {
 export interface SubscriptionResponse {
   paymentId?: string;
   jobId?: string;
-  dryRun?: DryRun;
+  dryRun?: string;
   licenseId?: string;
 }
 
