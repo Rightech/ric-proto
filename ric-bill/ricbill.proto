@@ -55,6 +55,7 @@ message SubscriptionRequest {
   string params = 4;
   string group_id = 5;
   string promocode = 6;
+  string tariff_id = 7;
 }
 
 message SubscriptionResponse {

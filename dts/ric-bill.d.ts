@@ -49,6 +49,7 @@ export interface SubscriptionRequest {
   params?: string;
   groupId?: string;
   promocode?: string;
+  tariffId?: string;
 }
 
 export interface SubscriptionResponse {
