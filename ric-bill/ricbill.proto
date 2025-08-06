@@ -51,11 +51,11 @@ message CloseRequest {
 message SubscriptionRequest {
   UserContext ctx = 1;
   string license_id = 2;
-  string tariff_id = 3;
-  bool dry_run = 4;
-  string params = 5;
-  string group_id = 6;
-  string promocode = 7;
+  bool dry_run = 3;
+  string params = 4;
+  string group_id = 5;
+  string promocode = 6;
+  string tariff_id = 7;
 }
 
 message SubscriptionResponse {

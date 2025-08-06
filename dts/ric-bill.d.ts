@@ -45,11 +45,11 @@ export interface CloseRequest {
 export interface SubscriptionRequest {
   ctx?: UserContext;
   licenseId?: string;
-  tariffId?: string;
   dryRun?: boolean;
   params?: string;
   groupId?: string;
   promocode?: string;
+  tariffId?: string;
 }
 
 export interface SubscriptionResponse {
