@@ -78,7 +78,6 @@ export interface ValidatePromocodeResponse {
   name?: string;
   description?: string;
   type?: string;
-  discountValue?: number;
+  price?: string;
   discountPercent?: number;
-  maxDiscount?: number;
 }

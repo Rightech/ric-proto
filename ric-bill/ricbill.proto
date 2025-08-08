@@ -82,7 +82,6 @@ message ValidatePromocodeResponse {
   string name = 1;
   string description = 2;
   string type = 3;
-  double discount_value = 4;
+  string price = 4;
   double discount_percent = 5;
-  double max_discount = 6;
 }
