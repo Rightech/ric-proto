@@ -40,6 +40,8 @@ export interface AuthObjectResponse {
   stats?: { [key: string]: StatRecord };
   fullPacketMode?: boolean;
   orgId?: string;
+  shardKey?: string;
+  storeKey?: string;
 }
 
 export interface AuthObjectArgument {
