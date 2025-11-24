@@ -18,7 +18,9 @@ message DispatchDefaultActionRequest {
   string params = 6;
 }
 
-message DispatchDefaultActionResponse {}
+message DispatchDefaultActionResponse {
+  string data = 1;
+}
 
 message SendCommandRequest {
   string object_id = 1;

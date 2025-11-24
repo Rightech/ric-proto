@@ -13,7 +13,7 @@ export interface DispatchDefaultActionRequest {
 }
 
 export interface DispatchDefaultActionResponse {
-
+  data?: string;
 }
 
 export interface SendCommandRequest {
