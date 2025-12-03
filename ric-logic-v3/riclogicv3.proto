@@ -114,6 +114,7 @@ message StartAutomatonRequest {
   string object_id = 2;
   string automaton_id = 3;
   map<string, AutomatonVarValue> vars = 4;
+  string init_state = 5;
 }
 
 message StartAutomatonMultiRequest {
