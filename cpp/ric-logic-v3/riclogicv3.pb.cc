@@ -897,6 +897,7 @@ const ::google::protobuf::uint32 TableStruct_ric_2dlogic_2dv3_2friclogicv3_2epro
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonRequest, object_id_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonRequest, automaton_id_),
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonRequest, vars_),
+  PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonRequest, init_state_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::ric::logic::v3::StartAutomatonMultiRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1084,28 +1085,28 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SE
   { 110, -1, sizeof(::ric::logic::v3::GetInstanceInfoResponse)},
   { 122, 129, sizeof(::ric::logic::v3::StartAutomatonRequest_VarsEntry_DoNotUse)},
   { 131, -1, sizeof(::ric::logic::v3::StartAutomatonRequest)},
-  { 140, -1, sizeof(::ric::logic::v3::StartAutomatonMultiRequest)},
-  { 148, -1, sizeof(::ric::logic::v3::StartAutomatonResponse)},
-  { 154, -1, sizeof(::ric::logic::v3::StopAutomatonRequest)},
-  { 162, 169, sizeof(::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse)},
-  { 171, -1, sizeof(::ric::logic::v3::RunAutomatonRequest)},
-  { 182, -1, sizeof(::ric::logic::v3::StopAutomatonResponse)},
-  { 188, -1, sizeof(::ric::logic::v3::GetAutomatonsRequest)},
-  { 197, -1, sizeof(::ric::logic::v3::GetAutomatonsResponse)},
-  { 203, -1, sizeof(::ric::logic::v3::EmitEventRequest)},
-  { 213, -1, sizeof(::ric::logic::v3::EmitEventResponse)},
-  { 218, -1, sizeof(::ric::logic::v3::WaitEventRequest)},
-  { 227, -1, sizeof(::ric::logic::v3::WaitEventResponse)},
-  { 232, -1, sizeof(::ric::logic::v3::GetRuntimeInfoRequest)},
-  { 239, 246, sizeof(::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse)},
-  { 248, -1, sizeof(::ric::logic::v3::UpdateAutomatonVarsRequest)},
-  { 257, 264, sizeof(::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse)},
-  { 266, -1, sizeof(::ric::logic::v3::UpdateAutomatonVarsResponse)},
-  { 272, -1, sizeof(::ric::logic::v3::TouchEventSubscriptionRequest)},
-  { 281, -1, sizeof(::ric::logic::v3::TouchEventSubscriptionResponse)},
-  { 286, -1, sizeof(::ric::logic::v3::SchedulerInterval)},
-  { 294, -1, sizeof(::ric::logic::v3::GetSchedulerNextInvocationRequest)},
-  { 305, -1, sizeof(::ric::logic::v3::GetSchedulerNextInvocationResponse)},
+  { 141, -1, sizeof(::ric::logic::v3::StartAutomatonMultiRequest)},
+  { 149, -1, sizeof(::ric::logic::v3::StartAutomatonResponse)},
+  { 155, -1, sizeof(::ric::logic::v3::StopAutomatonRequest)},
+  { 163, 170, sizeof(::ric::logic::v3::RunAutomatonRequest_VarsEntry_DoNotUse)},
+  { 172, -1, sizeof(::ric::logic::v3::RunAutomatonRequest)},
+  { 183, -1, sizeof(::ric::logic::v3::StopAutomatonResponse)},
+  { 189, -1, sizeof(::ric::logic::v3::GetAutomatonsRequest)},
+  { 198, -1, sizeof(::ric::logic::v3::GetAutomatonsResponse)},
+  { 204, -1, sizeof(::ric::logic::v3::EmitEventRequest)},
+  { 214, -1, sizeof(::ric::logic::v3::EmitEventResponse)},
+  { 219, -1, sizeof(::ric::logic::v3::WaitEventRequest)},
+  { 228, -1, sizeof(::ric::logic::v3::WaitEventResponse)},
+  { 233, -1, sizeof(::ric::logic::v3::GetRuntimeInfoRequest)},
+  { 240, 247, sizeof(::ric::logic::v3::UpdateAutomatonVarsRequest_VarsEntry_DoNotUse)},
+  { 249, -1, sizeof(::ric::logic::v3::UpdateAutomatonVarsRequest)},
+  { 258, 265, sizeof(::ric::logic::v3::UpdateAutomatonVarsResponse_VarsEntry_DoNotUse)},
+  { 267, -1, sizeof(::ric::logic::v3::UpdateAutomatonVarsResponse)},
+  { 273, -1, sizeof(::ric::logic::v3::TouchEventSubscriptionRequest)},
+  { 282, -1, sizeof(::ric::logic::v3::TouchEventSubscriptionResponse)},
+  { 287, -1, sizeof(::ric::logic::v3::SchedulerInterval)},
+  { 295, -1, sizeof(::ric::logic::v3::GetSchedulerNextInvocationRequest)},
+  { 306, -1, sizeof(::ric::logic::v3::GetSchedulerNextInvocationResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -1194,99 +1195,99 @@ const char descriptor_table_protodef_ric_2dlogic_2dv3_2friclogicv3_2eproto[] =
   "sponse\022\020\n\010hostname\030\001 \001(\t\022\016\n\006status\030\002 \001(\t"
   "\022\022\n\nstarted_at\030\003 \001(\003\022\025\n\robjects_total\030\004 "
   "\001(\003\022\030\n\020containers_total\030\005 \001(\003\022\032\n\022contain"
-  "ers_running\030\006 \001(\003\022\022\n\nobject_ids\030\007 \003(\t\"\363\001"
+  "ers_running\030\006 \001(\003\022\022\n\nobject_ids\030\007 \003(\t\"\207\002"
   "\n\025StartAutomatonRequest\022&\n\003ctx\030\001 \001(\0132\031.r"
   "ic.logic.v3.UserContext\022\021\n\tobject_id\030\002 \001"
   "(\t\022\024\n\014automaton_id\030\003 \001(\t\022;\n\004vars\030\004 \003(\0132-"
   ".ric.logic.v3.StartAutomatonRequest.Vars"
-  "Entry\032L\n\tVarsEntry\022\013\n\003key\030\001 \001(\t\022.\n\005value"
-  "\030\002 \001(\0132\037.ric.logic.v3.AutomatonVarValue:"
-  "\0028\001\"n\n\032StartAutomatonMultiRequest\022&\n\003ctx"
-  "\030\001 \001(\0132\031.ric.logic.v3.UserContext\022\022\n\nobj"
-  "ect_ids\030\002 \003(\t\022\024\n\014automaton_id\030\003 \001(\t\"H\n\026S"
-  "tartAutomatonResponse\022.\n\tautomaton\030\001 \001(\013"
-  "2\033.ric.logic.v3.AutomatonInfo\"g\n\024StopAut"
-  "omatonRequest\022&\n\003ctx\030\001 \001(\0132\031.ric.logic.v"
-  "3.UserContext\022\021\n\tobject_id\030\002 \001(\t\022\024\n\014auto"
-  "maton_id\030\003 \001(\t\"\256\002\n\023RunAutomatonRequest\022&"
-  "\n\003ctx\030\001 \001(\0132\031.ric.logic.v3.UserContext\022\021"
-  "\n\tobject_id\030\002 \001(\t\022\024\n\014automaton_id\030\003 \001(\t\022"
-  ")\n\004wait\030\004 \001(\0132\033.ric.logic.v3.WaitConditi"
-  "on\022\022\n\non_running\030\006 \001(\t\0229\n\004vars\030\007 \003(\0132+.r"
-  "ic.logic.v3.RunAutomatonRequest.VarsEntr"
-  "y\032L\n\tVarsEntry\022\013\n\003key\030\001 \001(\t\022.\n\005value\030\002 \001"
-  "(\0132\037.ric.logic.v3.AutomatonVarValue:\0028\001\""
-  "G\n\025StopAutomatonResponse\022.\n\tautomaton\030\001 "
-  "\001(\0132\033.ric.logic.v3.AutomatonInfo\"c\n\024GetA"
-  "utomatonsRequest\022\022\n\nobject_ids\030\001 \003(\t\022\025\n\r"
-  "automaton_ids\030\002 \003(\t\022\021\n\twith_logs\030\003 \001(\010\022\r"
-  "\n\005watch\030\004 \001(\010\"H\n\025GetAutomatonsResponse\022/"
-  "\n\nautomatons\030\001 \003(\0132\033.ric.logic.v3.Automa"
-  "tonInfo\"\203\001\n\020EmitEventRequest\022&\n\003ctx\030\001 \001("
-  "\0132\031.ric.logic.v3.UserContext\022\021\n\tobject_i"
-  "d\030\002 \001(\t\022\024\n\014automaton_id\030\003 \001(\t\022\r\n\005event\030\004"
-  " \001(\t\022\017\n\007payload\030\005 \001(\t\"\023\n\021EmitEventRespon"
-  "se\"\216\001\n\020WaitEventRequest\022&\n\003ctx\030\001 \001(\0132\031.r"
-  "ic.logic.v3.UserContext\022\021\n\tobject_id\030\002 \001"
-  "(\t\022\024\n\014automaton_id\030\003 \001(\t\022)\n\004wait\030\004 \001(\0132\033"
-  ".ric.logic.v3.WaitCondition\"\023\n\021WaitEvent"
-  "Response\"@\n\025GetRuntimeInfoRequest\022\021\n\tobj"
-  "ect_id\030\001 \001(\t\022\024\n\014automaton_id\030\002 \001(\t\"\375\001\n\032U"
-  "pdateAutomatonVarsRequest\022&\n\003ctx\030\001 \001(\0132\031"
-  ".ric.logic.v3.UserContext\022\021\n\tobject_id\030\002"
-  " \001(\t\022\024\n\014automaton_id\030\003 \001(\t\022@\n\004vars\030\004 \003(\013"
-  "22.ric.logic.v3.UpdateAutomatonVarsReque"
-  "st.VarsEntry\032L\n\tVarsEntry\022\013\n\003key\030\001 \001(\t\022."
-  "\n\005value\030\002 \001(\0132\037.ric.logic.v3.AutomatonVa"
-  "rValue:\0028\001\"\256\001\n\033UpdateAutomatonVarsRespon"
-  "se\022A\n\004vars\030\001 \003(\01323.ric.logic.v3.UpdateAu"
-  "tomatonVarsResponse.VarsEntry\032L\n\tVarsEnt"
-  "ry\022\013\n\003key\030\001 \001(\t\022.\n\005value\030\002 \001(\0132\037.ric.log"
-  "ic.v3.AutomatonVarValue:\0028\001\"}\n\035TouchEven"
-  "tSubscriptionRequest\022&\n\003ctx\030\001 \001(\0132\031.ric."
-  "logic.v3.UserContext\022\021\n\tobject_id\030\002 \001(\t\022"
-  "\024\n\014automaton_id\030\003 \001(\t\022\013\n\003ttl\030\004 \001(\005\" \n\036To"
-  "uchEventSubscriptionResponse\"<\n\021Schedule"
-  "rInterval\022\014\n\004from\030\001 \001(\t\022\n\n\002to\030\002 \001(\t\022\r\n\005d"
-  "elay\030\003 \001(\005\"\244\001\n!GetSchedulerNextInvocatio"
-  "nRequest\022\n\n\002tz\030\001 \001(\005\022\r\n\005month\030\002 \003(\005\022\023\n\013d"
-  "ay_of_week\030\003 \003(\005\022\014\n\004date\030\004 \003(\005\022\r\n\005times\030"
-  "\005 \003(\t\0222\n\tintervals\030\006 \003(\0132\037.ric.logic.v3."
-  "SchedulerInterval\"0\n\"GetSchedulerNextInv"
-  "ocationResponse\022\n\n\002ms\030\001 \001(\0032\256\010\n\nRicLogic"
-  "V3\022^\n\017GetInstanceInfo\022$.ric.logic.v3.Get"
-  "InstanceInfoRequest\032%.ric.logic.v3.GetIn"
-  "stanceInfoResponse\022R\n\rGetAutomatons\022\".ri"
-  "c.logic.v3.GetAutomatonsRequest\032\033.ric.lo"
-  "gic.v3.AutomatonInfo0\001\022[\n\016StartAutomaton"
-  "\022#.ric.logic.v3.StartAutomatonRequest\032$."
-  "ric.logic.v3.StartAutomatonResponse\022e\n\023S"
-  "tartAutomatonMulti\022(.ric.logic.v3.StartA"
-  "utomatonMultiRequest\032$.ric.logic.v3.Star"
-  "tAutomatonResponse\022X\n\rStopAutomaton\022\".ri"
-  "c.logic.v3.StopAutomatonRequest\032#.ric.lo"
-  "gic.v3.StopAutomatonResponse\022P\n\014RunAutom"
-  "aton\022!.ric.logic.v3.RunAutomatonRequest\032"
-  "\033.ric.logic.v3.AutomatonInfo0\001\022L\n\tEmitEv"
-  "ent\022\036.ric.logic.v3.EmitEventRequest\032\037.ri"
-  "c.logic.v3.EmitEventResponse\022L\n\tWaitEven"
-  "t\022\036.ric.logic.v3.WaitEventRequest\032\037.ric."
-  "logic.v3.WaitEventResponse\022j\n\023UpdateAuto"
-  "matonVars\022(.ric.logic.v3.UpdateAutomaton"
-  "VarsRequest\032).ric.logic.v3.UpdateAutomat"
-  "onVarsResponse\022s\n\026TouchEventSubscription"
-  "\022+.ric.logic.v3.TouchEventSubscriptionRe"
-  "quest\032,.ric.logic.v3.TouchEventSubscript"
-  "ionResponse\022\177\n\032GetSchedulerNextInvocatio"
-  "n\022/.ric.logic.v3.GetSchedulerNextInvocat"
-  "ionRequest\0320.ric.logic.v3.GetSchedulerNe"
-  "xtInvocationResponseB\033Z\031./ric-logic-v3;r"
-  "iclogicv3b\006proto3"
+  "Entry\022\022\n\ninit_state\030\005 \001(\t\032L\n\tVarsEntry\022\013"
+  "\n\003key\030\001 \001(\t\022.\n\005value\030\002 \001(\0132\037.ric.logic.v"
+  "3.AutomatonVarValue:\0028\001\"n\n\032StartAutomato"
+  "nMultiRequest\022&\n\003ctx\030\001 \001(\0132\031.ric.logic.v"
+  "3.UserContext\022\022\n\nobject_ids\030\002 \003(\t\022\024\n\014aut"
+  "omaton_id\030\003 \001(\t\"H\n\026StartAutomatonRespons"
+  "e\022.\n\tautomaton\030\001 \001(\0132\033.ric.logic.v3.Auto"
+  "matonInfo\"g\n\024StopAutomatonRequest\022&\n\003ctx"
+  "\030\001 \001(\0132\031.ric.logic.v3.UserContext\022\021\n\tobj"
+  "ect_id\030\002 \001(\t\022\024\n\014automaton_id\030\003 \001(\t\"\256\002\n\023R"
+  "unAutomatonRequest\022&\n\003ctx\030\001 \001(\0132\031.ric.lo"
+  "gic.v3.UserContext\022\021\n\tobject_id\030\002 \001(\t\022\024\n"
+  "\014automaton_id\030\003 \001(\t\022)\n\004wait\030\004 \001(\0132\033.ric."
+  "logic.v3.WaitCondition\022\022\n\non_running\030\006 \001"
+  "(\t\0229\n\004vars\030\007 \003(\0132+.ric.logic.v3.RunAutom"
+  "atonRequest.VarsEntry\032L\n\tVarsEntry\022\013\n\003ke"
+  "y\030\001 \001(\t\022.\n\005value\030\002 \001(\0132\037.ric.logic.v3.Au"
+  "tomatonVarValue:\0028\001\"G\n\025StopAutomatonResp"
+  "onse\022.\n\tautomaton\030\001 \001(\0132\033.ric.logic.v3.A"
+  "utomatonInfo\"c\n\024GetAutomatonsRequest\022\022\n\n"
+  "object_ids\030\001 \003(\t\022\025\n\rautomaton_ids\030\002 \003(\t\022"
+  "\021\n\twith_logs\030\003 \001(\010\022\r\n\005watch\030\004 \001(\010\"H\n\025Get"
+  "AutomatonsResponse\022/\n\nautomatons\030\001 \003(\0132\033"
+  ".ric.logic.v3.AutomatonInfo\"\203\001\n\020EmitEven"
+  "tRequest\022&\n\003ctx\030\001 \001(\0132\031.ric.logic.v3.Use"
+  "rContext\022\021\n\tobject_id\030\002 \001(\t\022\024\n\014automaton"
+  "_id\030\003 \001(\t\022\r\n\005event\030\004 \001(\t\022\017\n\007payload\030\005 \001("
+  "\t\"\023\n\021EmitEventResponse\"\216\001\n\020WaitEventRequ"
+  "est\022&\n\003ctx\030\001 \001(\0132\031.ric.logic.v3.UserCont"
+  "ext\022\021\n\tobject_id\030\002 \001(\t\022\024\n\014automaton_id\030\003"
+  " \001(\t\022)\n\004wait\030\004 \001(\0132\033.ric.logic.v3.WaitCo"
+  "ndition\"\023\n\021WaitEventResponse\"@\n\025GetRunti"
+  "meInfoRequest\022\021\n\tobject_id\030\001 \001(\t\022\024\n\014auto"
+  "maton_id\030\002 \001(\t\"\375\001\n\032UpdateAutomatonVarsRe"
+  "quest\022&\n\003ctx\030\001 \001(\0132\031.ric.logic.v3.UserCo"
+  "ntext\022\021\n\tobject_id\030\002 \001(\t\022\024\n\014automaton_id"
+  "\030\003 \001(\t\022@\n\004vars\030\004 \003(\01322.ric.logic.v3.Upda"
+  "teAutomatonVarsRequest.VarsEntry\032L\n\tVars"
+  "Entry\022\013\n\003key\030\001 \001(\t\022.\n\005value\030\002 \001(\0132\037.ric."
+  "logic.v3.AutomatonVarValue:\0028\001\"\256\001\n\033Updat"
+  "eAutomatonVarsResponse\022A\n\004vars\030\001 \003(\01323.r"
+  "ic.logic.v3.UpdateAutomatonVarsResponse."
+  "VarsEntry\032L\n\tVarsEntry\022\013\n\003key\030\001 \001(\t\022.\n\005v"
+  "alue\030\002 \001(\0132\037.ric.logic.v3.AutomatonVarVa"
+  "lue:\0028\001\"}\n\035TouchEventSubscriptionRequest"
+  "\022&\n\003ctx\030\001 \001(\0132\031.ric.logic.v3.UserContext"
+  "\022\021\n\tobject_id\030\002 \001(\t\022\024\n\014automaton_id\030\003 \001("
+  "\t\022\013\n\003ttl\030\004 \001(\005\" \n\036TouchEventSubscription"
+  "Response\"<\n\021SchedulerInterval\022\014\n\004from\030\001 "
+  "\001(\t\022\n\n\002to\030\002 \001(\t\022\r\n\005delay\030\003 \001(\005\"\244\001\n!GetSc"
+  "hedulerNextInvocationRequest\022\n\n\002tz\030\001 \001(\005"
+  "\022\r\n\005month\030\002 \003(\005\022\023\n\013day_of_week\030\003 \003(\005\022\014\n\004"
+  "date\030\004 \003(\005\022\r\n\005times\030\005 \003(\t\0222\n\tintervals\030\006"
+  " \003(\0132\037.ric.logic.v3.SchedulerInterval\"0\n"
+  "\"GetSchedulerNextInvocationResponse\022\n\n\002m"
+  "s\030\001 \001(\0032\256\010\n\nRicLogicV3\022^\n\017GetInstanceInf"
+  "o\022$.ric.logic.v3.GetInstanceInfoRequest\032"
+  "%.ric.logic.v3.GetInstanceInfoResponse\022R"
+  "\n\rGetAutomatons\022\".ric.logic.v3.GetAutoma"
+  "tonsRequest\032\033.ric.logic.v3.AutomatonInfo"
+  "0\001\022[\n\016StartAutomaton\022#.ric.logic.v3.Star"
+  "tAutomatonRequest\032$.ric.logic.v3.StartAu"
+  "tomatonResponse\022e\n\023StartAutomatonMulti\022("
+  ".ric.logic.v3.StartAutomatonMultiRequest"
+  "\032$.ric.logic.v3.StartAutomatonResponse\022X"
+  "\n\rStopAutomaton\022\".ric.logic.v3.StopAutom"
+  "atonRequest\032#.ric.logic.v3.StopAutomaton"
+  "Response\022P\n\014RunAutomaton\022!.ric.logic.v3."
+  "RunAutomatonRequest\032\033.ric.logic.v3.Autom"
+  "atonInfo0\001\022L\n\tEmitEvent\022\036.ric.logic.v3.E"
+  "mitEventRequest\032\037.ric.logic.v3.EmitEvent"
+  "Response\022L\n\tWaitEvent\022\036.ric.logic.v3.Wai"
+  "tEventRequest\032\037.ric.logic.v3.WaitEventRe"
+  "sponse\022j\n\023UpdateAutomatonVars\022(.ric.logi"
+  "c.v3.UpdateAutomatonVarsRequest\032).ric.lo"
+  "gic.v3.UpdateAutomatonVarsResponse\022s\n\026To"
+  "uchEventSubscription\022+.ric.logic.v3.Touc"
+  "hEventSubscriptionRequest\032,.ric.logic.v3"
+  ".TouchEventSubscriptionResponse\022\177\n\032GetSc"
+  "hedulerNextInvocation\022/.ric.logic.v3.Get"
+  "SchedulerNextInvocationRequest\0320.ric.log"
+  "ic.v3.GetSchedulerNextInvocationResponse"
+  "B\033Z\031./ric-logic-v3;riclogicv3b\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_ric_2dlogic_2dv3_2friclogicv3_2eproto = {
   false, InitDefaults_ric_2dlogic_2dv3_2friclogicv3_2eproto, 
   descriptor_table_protodef_ric_2dlogic_2dv3_2friclogicv3_2eproto,
-  "ric-logic-v3/riclogicv3.proto", &assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto, 5097,
+  "ric-logic-v3/riclogicv3.proto", &assign_descriptors_table_ric_2dlogic_2dv3_2friclogicv3_2eproto, 5117,
 };
 
 void AddDescriptors_ric_2dlogic_2dv3_2friclogicv3_2eproto() {
@@ -7682,6 +7683,7 @@ const int StartAutomatonRequest::kCtxFieldNumber;
 const int StartAutomatonRequest::kObjectIdFieldNumber;
 const int StartAutomatonRequest::kAutomatonIdFieldNumber;
 const int StartAutomatonRequest::kVarsFieldNumber;
+const int StartAutomatonRequest::kInitStateFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 StartAutomatonRequest::StartAutomatonRequest()
@@ -7702,6 +7704,10 @@ StartAutomatonRequest::StartAutomatonRequest(const StartAutomatonRequest& from)
   if (from.automaton_id().size() > 0) {
     automaton_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.automaton_id_);
   }
+  init_state_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.init_state().size() > 0) {
+    init_state_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.init_state_);
+  }
   if (from.has_ctx()) {
     ctx_ = new ::ric::logic::v3::UserContext(*from.ctx_);
   } else {
@@ -7715,6 +7721,7 @@ void StartAutomatonRequest::SharedCtor() {
       &scc_info_StartAutomatonRequest_ric_2dlogic_2dv3_2friclogicv3_2eproto.base);
   object_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   automaton_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  init_state_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ctx_ = nullptr;
 }
 
@@ -7726,6 +7733,7 @@ StartAutomatonRequest::~StartAutomatonRequest() {
 void StartAutomatonRequest::SharedDtor() {
   object_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   automaton_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  init_state_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete ctx_;
 }
 
@@ -7747,6 +7755,7 @@ void StartAutomatonRequest::Clear() {
   vars_.Clear();
   object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   automaton_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  init_state_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == nullptr && ctx_ != nullptr) {
     delete ctx_;
   }
@@ -7829,6 +7838,22 @@ const char* StartAutomatonRequest::_InternalParse(const char* begin, const char*
           ptr = newend;
           if (ptr >= end) break;
         } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 34 && (ptr += 1));
+        break;
+      }
+      // string init_state = 5;
+      case 5: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 42) goto handle_unusual;
+        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+        ctx->extra_parse_data().SetFieldName("ric.logic.v3.StartAutomatonRequest.init_state");
+        object = msg->mutable_init_state();
+        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
+          goto string_till_end;
+        }
+        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
+        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+        ptr += size;
         break;
       }
       default: {
@@ -7922,6 +7947,21 @@ bool StartAutomatonRequest::MergePartialFromCodedStream(
             parser.key().data(), static_cast<int>(parser.key().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "ric.logic.v3.StartAutomatonRequest.VarsEntry.key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string init_state = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (42 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_init_state()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->init_state().data(), static_cast<int>(this->init_state().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "ric.logic.v3.StartAutomatonRequest.init_state"));
         } else {
           goto handle_unusual;
         }
@@ -8026,6 +8066,16 @@ void StartAutomatonRequest::SerializeWithCachedSizes(
     }
   }
 
+  // string init_state = 5;
+  if (this->init_state().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->init_state().data(), static_cast<int>(this->init_state().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.StartAutomatonRequest.init_state");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->init_state(), output);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
@@ -8113,6 +8163,17 @@ void StartAutomatonRequest::SerializeWithCachedSizes(
     }
   }
 
+  // string init_state = 5;
+  if (this->init_state().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->init_state().data(), static_cast<int>(this->init_state().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "ric.logic.v3.StartAutomatonRequest.init_state");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->init_state(), target);
+  }
+
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
@@ -8162,6 +8223,13 @@ size_t StartAutomatonRequest::ByteSizeLong() const {
         this->automaton_id());
   }
 
+  // string init_state = 5;
+  if (this->init_state().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->init_state());
+  }
+
   // .ric.logic.v3.UserContext ctx = 1;
   if (this->has_ctx()) {
     total_size += 1 +
@@ -8205,6 +8273,10 @@ void StartAutomatonRequest::MergeFrom(const StartAutomatonRequest& from) {
 
     automaton_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.automaton_id_);
   }
+  if (from.init_state().size() > 0) {
+
+    init_state_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.init_state_);
+  }
   if (from.has_ctx()) {
     mutable_ctx()->::ric::logic::v3::UserContext::MergeFrom(from.ctx());
   }
@@ -8239,6 +8311,8 @@ void StartAutomatonRequest::InternalSwap(StartAutomatonRequest* other) {
   object_id_.Swap(&other->object_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   automaton_id_.Swap(&other->automaton_id_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  init_state_.Swap(&other->init_state_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(ctx_, other->ctx_);
 }

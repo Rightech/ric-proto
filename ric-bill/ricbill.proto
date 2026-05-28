@@ -102,4 +102,3 @@ message UnreservePromocodeRequest {
   UserContext ctx = 1;
   string license_id = 2;
 }
-

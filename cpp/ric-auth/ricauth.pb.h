@@ -804,6 +804,34 @@ class AuthObjectResponse final :
   ::std::string* release_org_id();
   void set_allocated_org_id(::std::string* org_id);
 
+  // string shard_key = 16;
+  void clear_shard_key();
+  static const int kShardKeyFieldNumber = 16;
+  const ::std::string& shard_key() const;
+  void set_shard_key(const ::std::string& value);
+  #if LANG_CXX11
+  void set_shard_key(::std::string&& value);
+  #endif
+  void set_shard_key(const char* value);
+  void set_shard_key(const char* value, size_t size);
+  ::std::string* mutable_shard_key();
+  ::std::string* release_shard_key();
+  void set_allocated_shard_key(::std::string* shard_key);
+
+  // string store_key = 17;
+  void clear_store_key();
+  static const int kStoreKeyFieldNumber = 17;
+  const ::std::string& store_key() const;
+  void set_store_key(const ::std::string& value);
+  #if LANG_CXX11
+  void set_store_key(::std::string&& value);
+  #endif
+  void set_store_key(const char* value);
+  void set_store_key(const char* value, size_t size);
+  ::std::string* mutable_store_key();
+  ::std::string* release_store_key();
+  void set_allocated_store_key(::std::string* store_key);
+
   // int64 issued_at = 8;
   void clear_issued_at();
   static const int kIssuedAtFieldNumber = 8;
@@ -849,6 +877,8 @@ class AuthObjectResponse final :
   ::google::protobuf::internal::ArenaStringPtr config_;
   ::google::protobuf::internal::ArenaStringPtr license_id_;
   ::google::protobuf::internal::ArenaStringPtr org_id_;
+  ::google::protobuf::internal::ArenaStringPtr shard_key_;
+  ::google::protobuf::internal::ArenaStringPtr store_key_;
   ::google::protobuf::int64 issued_at_;
   ::google::protobuf::int64 expires_at_;
   bool full_packet_mode_;
@@ -3745,6 +3775,112 @@ inline void AuthObjectResponse::set_allocated_org_id(::std::string* org_id) {
   }
   org_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), org_id);
   // @@protoc_insertion_point(field_set_allocated:ric.auth.AuthObjectResponse.org_id)
+}
+
+// string shard_key = 16;
+inline void AuthObjectResponse::clear_shard_key() {
+  shard_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& AuthObjectResponse::shard_key() const {
+  // @@protoc_insertion_point(field_get:ric.auth.AuthObjectResponse.shard_key)
+  return shard_key_.GetNoArena();
+}
+inline void AuthObjectResponse::set_shard_key(const ::std::string& value) {
+  
+  shard_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.auth.AuthObjectResponse.shard_key)
+}
+#if LANG_CXX11
+inline void AuthObjectResponse::set_shard_key(::std::string&& value) {
+  
+  shard_key_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.auth.AuthObjectResponse.shard_key)
+}
+#endif
+inline void AuthObjectResponse::set_shard_key(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  shard_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.auth.AuthObjectResponse.shard_key)
+}
+inline void AuthObjectResponse::set_shard_key(const char* value, size_t size) {
+  
+  shard_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.AuthObjectResponse.shard_key)
+}
+inline ::std::string* AuthObjectResponse::mutable_shard_key() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.auth.AuthObjectResponse.shard_key)
+  return shard_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* AuthObjectResponse::release_shard_key() {
+  // @@protoc_insertion_point(field_release:ric.auth.AuthObjectResponse.shard_key)
+  
+  return shard_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AuthObjectResponse::set_allocated_shard_key(::std::string* shard_key) {
+  if (shard_key != nullptr) {
+    
+  } else {
+    
+  }
+  shard_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), shard_key);
+  // @@protoc_insertion_point(field_set_allocated:ric.auth.AuthObjectResponse.shard_key)
+}
+
+// string store_key = 17;
+inline void AuthObjectResponse::clear_store_key() {
+  store_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& AuthObjectResponse::store_key() const {
+  // @@protoc_insertion_point(field_get:ric.auth.AuthObjectResponse.store_key)
+  return store_key_.GetNoArena();
+}
+inline void AuthObjectResponse::set_store_key(const ::std::string& value) {
+  
+  store_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.auth.AuthObjectResponse.store_key)
+}
+#if LANG_CXX11
+inline void AuthObjectResponse::set_store_key(::std::string&& value) {
+  
+  store_key_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.auth.AuthObjectResponse.store_key)
+}
+#endif
+inline void AuthObjectResponse::set_store_key(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  store_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.auth.AuthObjectResponse.store_key)
+}
+inline void AuthObjectResponse::set_store_key(const char* value, size_t size) {
+  
+  store_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.auth.AuthObjectResponse.store_key)
+}
+inline ::std::string* AuthObjectResponse::mutable_store_key() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.auth.AuthObjectResponse.store_key)
+  return store_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* AuthObjectResponse::release_store_key() {
+  // @@protoc_insertion_point(field_release:ric.auth.AuthObjectResponse.store_key)
+  
+  return store_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AuthObjectResponse::set_allocated_store_key(::std::string* store_key) {
+  if (store_key != nullptr) {
+    
+  } else {
+    
+  }
+  store_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), store_key);
+  // @@protoc_insertion_point(field_set_allocated:ric.auth.AuthObjectResponse.store_key)
 }
 
 // -------------------------------------------------------------------

@@ -21,6 +21,7 @@ namespace web {
 
 static const char* RicWeb_method_names[] = {
   "/ric.web.RicWeb/DispatchDefaultAction",
+  "/ric.web.RicWeb/SendCommand",
 };
 
 std::unique_ptr< RicWeb::Stub> RicWeb::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -31,6 +32,7 @@ std::unique_ptr< RicWeb::Stub> RicWeb::NewStub(const std::shared_ptr< ::grpc::Ch
 
 RicWeb::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_DispatchDefaultAction_(RicWeb_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SendCommand_(RicWeb_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status RicWeb::Stub::DispatchDefaultAction(::grpc::ClientContext* context, const ::ric::web::DispatchDefaultActionRequest& request, ::ric::web::DispatchDefaultActionResponse* response) {
@@ -53,18 +55,50 @@ void RicWeb::Stub::experimental_async::DispatchDefaultAction(::grpc::ClientConte
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::web::DispatchDefaultActionResponse>::Create(channel_.get(), cq, rpcmethod_DispatchDefaultAction_, context, request, false);
 }
 
+::grpc::Status RicWeb::Stub::SendCommand(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest& request, ::ric::web::SendCommandResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SendCommand_, context, request, response);
+}
+
+void RicWeb::Stub::experimental_async::SendCommand(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest* request, ::ric::web::SendCommandResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendCommand_, context, request, response, std::move(f));
+}
+
+void RicWeb::Stub::experimental_async::SendCommand(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::web::SendCommandResponse* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SendCommand_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::web::SendCommandResponse>* RicWeb::Stub::AsyncSendCommandRaw(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::web::SendCommandResponse>::Create(channel_.get(), cq, rpcmethod_SendCommand_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::ric::web::SendCommandResponse>* RicWeb::Stub::PrepareAsyncSendCommandRaw(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::ric::web::SendCommandResponse>::Create(channel_.get(), cq, rpcmethod_SendCommand_, context, request, false);
+}
+
 RicWeb::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       RicWeb_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< RicWeb::Service, ::ric::web::DispatchDefaultActionRequest, ::ric::web::DispatchDefaultActionResponse>(
           std::mem_fn(&RicWeb::Service::DispatchDefaultAction), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      RicWeb_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< RicWeb::Service, ::ric::web::SendCommandRequest, ::ric::web::SendCommandResponse>(
+          std::mem_fn(&RicWeb::Service::SendCommand), this)));
 }
 
 RicWeb::Service::~Service() {
 }
 
 ::grpc::Status RicWeb::Service::DispatchDefaultAction(::grpc::ServerContext* context, const ::ric::web::DispatchDefaultActionRequest* request, ::ric::web::DispatchDefaultActionResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status RicWeb::Service::SendCommand(::grpc::ServerContext* context, const ::ric::web::SendCommandRequest* request, ::ric::web::SendCommandResponse* response) {
   (void) context;
   (void) request;
   (void) response;

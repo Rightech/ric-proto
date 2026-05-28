@@ -2294,6 +2294,20 @@ class StartAutomatonRequest final :
   ::std::string* release_automaton_id();
   void set_allocated_automaton_id(::std::string* automaton_id);
 
+  // string init_state = 5;
+  void clear_init_state();
+  static const int kInitStateFieldNumber = 5;
+  const ::std::string& init_state() const;
+  void set_init_state(const ::std::string& value);
+  #if LANG_CXX11
+  void set_init_state(::std::string&& value);
+  #endif
+  void set_init_state(const char* value);
+  void set_init_state(const char* value, size_t size);
+  ::std::string* mutable_init_state();
+  ::std::string* release_init_state();
+  void set_allocated_init_state(::std::string* init_state);
+
   // .ric.logic.v3.UserContext ctx = 1;
   bool has_ctx() const;
   void clear_ctx();
@@ -2316,6 +2330,7 @@ class StartAutomatonRequest final :
       0 > vars_;
   ::google::protobuf::internal::ArenaStringPtr object_id_;
   ::google::protobuf::internal::ArenaStringPtr automaton_id_;
+  ::google::protobuf::internal::ArenaStringPtr init_state_;
   ::ric::logic::v3::UserContext* ctx_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dlogic_2dv3_2friclogicv3_2eproto;
@@ -7813,6 +7828,59 @@ inline ::google::protobuf::Map< ::std::string, ::ric::logic::v3::AutomatonVarVal
 StartAutomatonRequest::mutable_vars() {
   // @@protoc_insertion_point(field_mutable_map:ric.logic.v3.StartAutomatonRequest.vars)
   return vars_.MutableMap();
+}
+
+// string init_state = 5;
+inline void StartAutomatonRequest::clear_init_state() {
+  init_state_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& StartAutomatonRequest::init_state() const {
+  // @@protoc_insertion_point(field_get:ric.logic.v3.StartAutomatonRequest.init_state)
+  return init_state_.GetNoArena();
+}
+inline void StartAutomatonRequest::set_init_state(const ::std::string& value) {
+  
+  init_state_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.logic.v3.StartAutomatonRequest.init_state)
+}
+#if LANG_CXX11
+inline void StartAutomatonRequest::set_init_state(::std::string&& value) {
+  
+  init_state_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.logic.v3.StartAutomatonRequest.init_state)
+}
+#endif
+inline void StartAutomatonRequest::set_init_state(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  init_state_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.logic.v3.StartAutomatonRequest.init_state)
+}
+inline void StartAutomatonRequest::set_init_state(const char* value, size_t size) {
+  
+  init_state_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.logic.v3.StartAutomatonRequest.init_state)
+}
+inline ::std::string* StartAutomatonRequest::mutable_init_state() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.logic.v3.StartAutomatonRequest.init_state)
+  return init_state_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* StartAutomatonRequest::release_init_state() {
+  // @@protoc_insertion_point(field_release:ric.logic.v3.StartAutomatonRequest.init_state)
+  
+  return init_state_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void StartAutomatonRequest::set_allocated_init_state(::std::string* init_state) {
+  if (init_state != nullptr) {
+    
+  } else {
+    
+  }
+  init_state_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), init_state);
+  // @@protoc_insertion_point(field_set_allocated:ric.logic.v3.StartAutomatonRequest.init_state)
 }
 
 // -------------------------------------------------------------------

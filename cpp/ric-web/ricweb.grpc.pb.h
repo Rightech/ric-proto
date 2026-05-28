@@ -45,16 +45,27 @@ class RicWeb final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::web::DispatchDefaultActionResponse>> PrepareAsyncDispatchDefaultAction(::grpc::ClientContext* context, const ::ric::web::DispatchDefaultActionRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::web::DispatchDefaultActionResponse>>(PrepareAsyncDispatchDefaultActionRaw(context, request, cq));
     }
+    virtual ::grpc::Status SendCommand(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest& request, ::ric::web::SendCommandResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::web::SendCommandResponse>> AsyncSendCommand(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::web::SendCommandResponse>>(AsyncSendCommandRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::web::SendCommandResponse>> PrepareAsyncSendCommand(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::web::SendCommandResponse>>(PrepareAsyncSendCommandRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
       virtual void DispatchDefaultAction(::grpc::ClientContext* context, const ::ric::web::DispatchDefaultActionRequest* request, ::ric::web::DispatchDefaultActionResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void DispatchDefaultAction(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::web::DispatchDefaultActionResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SendCommand(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest* request, ::ric::web::SendCommandResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SendCommand(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::web::SendCommandResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::web::DispatchDefaultActionResponse>* AsyncDispatchDefaultActionRaw(::grpc::ClientContext* context, const ::ric::web::DispatchDefaultActionRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::web::DispatchDefaultActionResponse>* PrepareAsyncDispatchDefaultActionRaw(::grpc::ClientContext* context, const ::ric::web::DispatchDefaultActionRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::web::SendCommandResponse>* AsyncSendCommandRaw(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::web::SendCommandResponse>* PrepareAsyncSendCommandRaw(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -66,11 +77,20 @@ class RicWeb final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::web::DispatchDefaultActionResponse>> PrepareAsyncDispatchDefaultAction(::grpc::ClientContext* context, const ::ric::web::DispatchDefaultActionRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::web::DispatchDefaultActionResponse>>(PrepareAsyncDispatchDefaultActionRaw(context, request, cq));
     }
+    ::grpc::Status SendCommand(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest& request, ::ric::web::SendCommandResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::web::SendCommandResponse>> AsyncSendCommand(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::web::SendCommandResponse>>(AsyncSendCommandRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::web::SendCommandResponse>> PrepareAsyncSendCommand(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::web::SendCommandResponse>>(PrepareAsyncSendCommandRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
       void DispatchDefaultAction(::grpc::ClientContext* context, const ::ric::web::DispatchDefaultActionRequest* request, ::ric::web::DispatchDefaultActionResponse* response, std::function<void(::grpc::Status)>) override;
       void DispatchDefaultAction(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::web::DispatchDefaultActionResponse* response, std::function<void(::grpc::Status)>) override;
+      void SendCommand(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest* request, ::ric::web::SendCommandResponse* response, std::function<void(::grpc::Status)>) override;
+      void SendCommand(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::web::SendCommandResponse* response, std::function<void(::grpc::Status)>) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -84,7 +104,10 @@ class RicWeb final {
     class experimental_async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::ric::web::DispatchDefaultActionResponse>* AsyncDispatchDefaultActionRaw(::grpc::ClientContext* context, const ::ric::web::DispatchDefaultActionRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::web::DispatchDefaultActionResponse>* PrepareAsyncDispatchDefaultActionRaw(::grpc::ClientContext* context, const ::ric::web::DispatchDefaultActionRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::web::SendCommandResponse>* AsyncSendCommandRaw(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::web::SendCommandResponse>* PrepareAsyncSendCommandRaw(::grpc::ClientContext* context, const ::ric::web::SendCommandRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_DispatchDefaultAction_;
+    const ::grpc::internal::RpcMethod rpcmethod_SendCommand_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -93,6 +116,7 @@ class RicWeb final {
     Service();
     virtual ~Service();
     virtual ::grpc::Status DispatchDefaultAction(::grpc::ServerContext* context, const ::ric::web::DispatchDefaultActionRequest* request, ::ric::web::DispatchDefaultActionResponse* response);
+    virtual ::grpc::Status SendCommand(::grpc::ServerContext* context, const ::ric::web::SendCommandRequest* request, ::ric::web::SendCommandResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_DispatchDefaultAction : public BaseClass {
@@ -114,7 +138,27 @@ class RicWeb final {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_DispatchDefaultAction<Service > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_SendCommand : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_SendCommand() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_SendCommand() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendCommand(::grpc::ServerContext* context, const ::ric::web::SendCommandRequest* request, ::ric::web::SendCommandResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendCommand(::grpc::ServerContext* context, ::ric::web::SendCommandRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::web::SendCommandResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_DispatchDefaultAction<WithAsyncMethod_SendCommand<Service > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_DispatchDefaultAction : public BaseClass {
    private:
@@ -140,7 +184,32 @@ class RicWeb final {
     }
     virtual void DispatchDefaultAction(::grpc::ServerContext* context, const ::ric::web::DispatchDefaultActionRequest* request, ::ric::web::DispatchDefaultActionResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_DispatchDefaultAction<Service > ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SendCommand : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_SendCommand() {
+      ::grpc::Service::experimental().MarkMethodCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::web::SendCommandRequest, ::ric::web::SendCommandResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::web::SendCommandRequest* request,
+                 ::ric::web::SendCommandResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->SendCommand(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_SendCommand() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendCommand(::grpc::ServerContext* context, const ::ric::web::SendCommandRequest* request, ::ric::web::SendCommandResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void SendCommand(::grpc::ServerContext* context, const ::ric::web::SendCommandRequest* request, ::ric::web::SendCommandResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  typedef ExperimentalWithCallbackMethod_DispatchDefaultAction<ExperimentalWithCallbackMethod_SendCommand<Service > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_DispatchDefaultAction : public BaseClass {
    private:
@@ -154,6 +223,23 @@ class RicWeb final {
     }
     // disable synchronous version of this method
     ::grpc::Status DispatchDefaultAction(::grpc::ServerContext* context, const ::ric::web::DispatchDefaultActionRequest* request, ::ric::web::DispatchDefaultActionResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SendCommand : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_SendCommand() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_SendCommand() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendCommand(::grpc::ServerContext* context, const ::ric::web::SendCommandRequest* request, ::ric::web::SendCommandResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -176,6 +262,26 @@ class RicWeb final {
     }
     void RequestDispatchDefaultAction(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SendCommand : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_SendCommand() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_SendCommand() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendCommand(::grpc::ServerContext* context, const ::ric::web::SendCommandRequest* request, ::ric::web::SendCommandResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSendCommand(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -204,6 +310,31 @@ class RicWeb final {
     virtual void DispatchDefaultAction(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SendCommand : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SendCommand() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(1,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->SendCommand(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SendCommand() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SendCommand(::grpc::ServerContext* context, const ::ric::web::SendCommandRequest* request, ::ric::web::SendCommandResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void SendCommand(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_DispatchDefaultAction : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
@@ -223,9 +354,29 @@ class RicWeb final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedDispatchDefaultAction(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::web::DispatchDefaultActionRequest,::ric::web::DispatchDefaultActionResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_DispatchDefaultAction<Service > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SendCommand : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_SendCommand() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::web::SendCommandRequest, ::ric::web::SendCommandResponse>(std::bind(&WithStreamedUnaryMethod_SendCommand<BaseClass>::StreamedSendCommand, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_SendCommand() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SendCommand(::grpc::ServerContext* context, const ::ric::web::SendCommandRequest* request, ::ric::web::SendCommandResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSendCommand(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::web::SendCommandRequest,::ric::web::SendCommandResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_DispatchDefaultAction<WithStreamedUnaryMethod_SendCommand<Service > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_DispatchDefaultAction<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_DispatchDefaultAction<WithStreamedUnaryMethod_SendCommand<Service > > StreamedService;
 };
 
 }  // namespace web

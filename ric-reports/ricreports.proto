@@ -26,4 +26,3 @@ message ExportRequest {
   string build_id = 2;
   string format = 3;
 }
-

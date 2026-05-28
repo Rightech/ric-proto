@@ -45,19 +45,19 @@ class Billing final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>> PrepareAsyncSetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>>(PrepareAsyncSetupAccountRaw(context, request, cq));
     }
-    virtual ::grpc::Status VerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::ric::bill::SetupResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>> AsyncVerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>>(AsyncVerifyAccountRaw(context, request, cq));
+    virtual ::grpc::Status VerifyAccount(::grpc::ClientContext* context, const ::ric::bill::VerifyRequest& request, ::ric::bill::SuccessResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>> AsyncVerifyAccount(::grpc::ClientContext* context, const ::ric::bill::VerifyRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>>(AsyncVerifyAccountRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>> PrepareAsyncVerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>>(PrepareAsyncVerifyAccountRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>> PrepareAsyncVerifyAccount(::grpc::ClientContext* context, const ::ric::bill::VerifyRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>>(PrepareAsyncVerifyAccountRaw(context, request, cq));
     }
-    virtual ::grpc::Status CloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::ric::bill::SetupResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>> AsyncCloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>>(AsyncCloseAccountRaw(context, request, cq));
+    virtual ::grpc::Status CloseAccount(::grpc::ClientContext* context, const ::ric::bill::CloseRequest& request, ::ric::bill::SuccessResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>> AsyncCloseAccount(::grpc::ClientContext* context, const ::ric::bill::CloseRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>>(AsyncCloseAccountRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>> PrepareAsyncCloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>>(PrepareAsyncCloseAccountRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>> PrepareAsyncCloseAccount(::grpc::ClientContext* context, const ::ric::bill::CloseRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>>(PrepareAsyncCloseAccountRaw(context, request, cq));
     }
     virtual ::grpc::Status CreateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::ric::bill::SubscriptionResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>> AsyncCreateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
@@ -108,15 +108,36 @@ class Billing final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ReceiptResponse>> PrepareAsyncSendReceipt(::grpc::ClientContext* context, const ::ric::bill::ReceiptRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ReceiptResponse>>(PrepareAsyncSendReceiptRaw(context, request, cq));
     }
+    virtual ::grpc::Status ValidatePromocode(::grpc::ClientContext* context, const ::ric::bill::ValidatePromocodeRequest& request, ::ric::bill::ValidatePromocodeResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ValidatePromocodeResponse>> AsyncValidatePromocode(::grpc::ClientContext* context, const ::ric::bill::ValidatePromocodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ValidatePromocodeResponse>>(AsyncValidatePromocodeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ValidatePromocodeResponse>> PrepareAsyncValidatePromocode(::grpc::ClientContext* context, const ::ric::bill::ValidatePromocodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ValidatePromocodeResponse>>(PrepareAsyncValidatePromocodeRaw(context, request, cq));
+    }
+    virtual ::grpc::Status ReservePromocode(::grpc::ClientContext* context, const ::ric::bill::ReservePromocodeRequest& request, ::ric::bill::ReservePromocodeResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ReservePromocodeResponse>> AsyncReservePromocode(::grpc::ClientContext* context, const ::ric::bill::ReservePromocodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ReservePromocodeResponse>>(AsyncReservePromocodeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ReservePromocodeResponse>> PrepareAsyncReservePromocode(::grpc::ClientContext* context, const ::ric::bill::ReservePromocodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ReservePromocodeResponse>>(PrepareAsyncReservePromocodeRaw(context, request, cq));
+    }
+    virtual ::grpc::Status UnreservePromocode(::grpc::ClientContext* context, const ::ric::bill::UnreservePromocodeRequest& request, ::ric::bill::SuccessResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>> AsyncUnreservePromocode(::grpc::ClientContext* context, const ::ric::bill::UnreservePromocodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>>(AsyncUnreservePromocodeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>> PrepareAsyncUnreservePromocode(::grpc::ClientContext* context, const ::ric::bill::UnreservePromocodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>>(PrepareAsyncUnreservePromocodeRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
       virtual void SetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SetupAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void VerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void VerifyAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void CloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void CloseAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void VerifyAccount(::grpc::ClientContext* context, const ::ric::bill::VerifyRequest* request, ::ric::bill::SuccessResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void VerifyAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SuccessResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void CloseAccount(::grpc::ClientContext* context, const ::ric::bill::CloseRequest* request, ::ric::bill::SuccessResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void CloseAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SuccessResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void CreateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void CreateSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void UpdateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -131,15 +152,21 @@ class Billing final {
       virtual void DeactivateSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SendReceipt(::grpc::ClientContext* context, const ::ric::bill::ReceiptRequest* request, ::ric::bill::ReceiptResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SendReceipt(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::ReceiptResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ValidatePromocode(::grpc::ClientContext* context, const ::ric::bill::ValidatePromocodeRequest* request, ::ric::bill::ValidatePromocodeResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ValidatePromocode(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::ValidatePromocodeResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ReservePromocode(::grpc::ClientContext* context, const ::ric::bill::ReservePromocodeRequest* request, ::ric::bill::ReservePromocodeResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ReservePromocode(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::ReservePromocodeResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void UnreservePromocode(::grpc::ClientContext* context, const ::ric::bill::UnreservePromocodeRequest* request, ::ric::bill::SuccessResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void UnreservePromocode(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SuccessResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>* AsyncSetupAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>* PrepareAsyncSetupAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>* AsyncVerifyAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>* PrepareAsyncVerifyAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>* AsyncCloseAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SetupResponse>* PrepareAsyncCloseAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>* AsyncVerifyAccountRaw(::grpc::ClientContext* context, const ::ric::bill::VerifyRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>* PrepareAsyncVerifyAccountRaw(::grpc::ClientContext* context, const ::ric::bill::VerifyRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>* AsyncCloseAccountRaw(::grpc::ClientContext* context, const ::ric::bill::CloseRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>* PrepareAsyncCloseAccountRaw(::grpc::ClientContext* context, const ::ric::bill::CloseRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>* AsyncCreateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>* PrepareAsyncCreateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>* AsyncUpdateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -154,6 +181,12 @@ class Billing final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SubscriptionResponse>* PrepareAsyncDeactivateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ReceiptResponse>* AsyncSendReceiptRaw(::grpc::ClientContext* context, const ::ric::bill::ReceiptRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ReceiptResponse>* PrepareAsyncSendReceiptRaw(::grpc::ClientContext* context, const ::ric::bill::ReceiptRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ValidatePromocodeResponse>* AsyncValidatePromocodeRaw(::grpc::ClientContext* context, const ::ric::bill::ValidatePromocodeRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ValidatePromocodeResponse>* PrepareAsyncValidatePromocodeRaw(::grpc::ClientContext* context, const ::ric::bill::ValidatePromocodeRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ReservePromocodeResponse>* AsyncReservePromocodeRaw(::grpc::ClientContext* context, const ::ric::bill::ReservePromocodeRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::ReservePromocodeResponse>* PrepareAsyncReservePromocodeRaw(::grpc::ClientContext* context, const ::ric::bill::ReservePromocodeRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>* AsyncUnreservePromocodeRaw(::grpc::ClientContext* context, const ::ric::bill::UnreservePromocodeRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::bill::SuccessResponse>* PrepareAsyncUnreservePromocodeRaw(::grpc::ClientContext* context, const ::ric::bill::UnreservePromocodeRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -165,19 +198,19 @@ class Billing final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>> PrepareAsyncSetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>>(PrepareAsyncSetupAccountRaw(context, request, cq));
     }
-    ::grpc::Status VerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::ric::bill::SetupResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>> AsyncVerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>>(AsyncVerifyAccountRaw(context, request, cq));
+    ::grpc::Status VerifyAccount(::grpc::ClientContext* context, const ::ric::bill::VerifyRequest& request, ::ric::bill::SuccessResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>> AsyncVerifyAccount(::grpc::ClientContext* context, const ::ric::bill::VerifyRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>>(AsyncVerifyAccountRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>> PrepareAsyncVerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>>(PrepareAsyncVerifyAccountRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>> PrepareAsyncVerifyAccount(::grpc::ClientContext* context, const ::ric::bill::VerifyRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>>(PrepareAsyncVerifyAccountRaw(context, request, cq));
     }
-    ::grpc::Status CloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::ric::bill::SetupResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>> AsyncCloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>>(AsyncCloseAccountRaw(context, request, cq));
+    ::grpc::Status CloseAccount(::grpc::ClientContext* context, const ::ric::bill::CloseRequest& request, ::ric::bill::SuccessResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>> AsyncCloseAccount(::grpc::ClientContext* context, const ::ric::bill::CloseRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>>(AsyncCloseAccountRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>> PrepareAsyncCloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>>(PrepareAsyncCloseAccountRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>> PrepareAsyncCloseAccount(::grpc::ClientContext* context, const ::ric::bill::CloseRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>>(PrepareAsyncCloseAccountRaw(context, request, cq));
     }
     ::grpc::Status CreateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::ric::bill::SubscriptionResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>> AsyncCreateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) {
@@ -228,15 +261,36 @@ class Billing final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::ReceiptResponse>> PrepareAsyncSendReceipt(::grpc::ClientContext* context, const ::ric::bill::ReceiptRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::ReceiptResponse>>(PrepareAsyncSendReceiptRaw(context, request, cq));
     }
+    ::grpc::Status ValidatePromocode(::grpc::ClientContext* context, const ::ric::bill::ValidatePromocodeRequest& request, ::ric::bill::ValidatePromocodeResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::ValidatePromocodeResponse>> AsyncValidatePromocode(::grpc::ClientContext* context, const ::ric::bill::ValidatePromocodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::ValidatePromocodeResponse>>(AsyncValidatePromocodeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::ValidatePromocodeResponse>> PrepareAsyncValidatePromocode(::grpc::ClientContext* context, const ::ric::bill::ValidatePromocodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::ValidatePromocodeResponse>>(PrepareAsyncValidatePromocodeRaw(context, request, cq));
+    }
+    ::grpc::Status ReservePromocode(::grpc::ClientContext* context, const ::ric::bill::ReservePromocodeRequest& request, ::ric::bill::ReservePromocodeResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::ReservePromocodeResponse>> AsyncReservePromocode(::grpc::ClientContext* context, const ::ric::bill::ReservePromocodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::ReservePromocodeResponse>>(AsyncReservePromocodeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::ReservePromocodeResponse>> PrepareAsyncReservePromocode(::grpc::ClientContext* context, const ::ric::bill::ReservePromocodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::ReservePromocodeResponse>>(PrepareAsyncReservePromocodeRaw(context, request, cq));
+    }
+    ::grpc::Status UnreservePromocode(::grpc::ClientContext* context, const ::ric::bill::UnreservePromocodeRequest& request, ::ric::bill::SuccessResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>> AsyncUnreservePromocode(::grpc::ClientContext* context, const ::ric::bill::UnreservePromocodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>>(AsyncUnreservePromocodeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>> PrepareAsyncUnreservePromocode(::grpc::ClientContext* context, const ::ric::bill::UnreservePromocodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>>(PrepareAsyncUnreservePromocodeRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
       void SetupAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) override;
       void SetupAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) override;
-      void VerifyAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) override;
-      void VerifyAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) override;
-      void CloseAccount(::grpc::ClientContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) override;
-      void CloseAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SetupResponse* response, std::function<void(::grpc::Status)>) override;
+      void VerifyAccount(::grpc::ClientContext* context, const ::ric::bill::VerifyRequest* request, ::ric::bill::SuccessResponse* response, std::function<void(::grpc::Status)>) override;
+      void VerifyAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SuccessResponse* response, std::function<void(::grpc::Status)>) override;
+      void CloseAccount(::grpc::ClientContext* context, const ::ric::bill::CloseRequest* request, ::ric::bill::SuccessResponse* response, std::function<void(::grpc::Status)>) override;
+      void CloseAccount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SuccessResponse* response, std::function<void(::grpc::Status)>) override;
       void CreateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) override;
       void CreateSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) override;
       void UpdateSubscription(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) override;
@@ -251,6 +305,12 @@ class Billing final {
       void DeactivateSubscription(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SubscriptionResponse* response, std::function<void(::grpc::Status)>) override;
       void SendReceipt(::grpc::ClientContext* context, const ::ric::bill::ReceiptRequest* request, ::ric::bill::ReceiptResponse* response, std::function<void(::grpc::Status)>) override;
       void SendReceipt(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::ReceiptResponse* response, std::function<void(::grpc::Status)>) override;
+      void ValidatePromocode(::grpc::ClientContext* context, const ::ric::bill::ValidatePromocodeRequest* request, ::ric::bill::ValidatePromocodeResponse* response, std::function<void(::grpc::Status)>) override;
+      void ValidatePromocode(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::ValidatePromocodeResponse* response, std::function<void(::grpc::Status)>) override;
+      void ReservePromocode(::grpc::ClientContext* context, const ::ric::bill::ReservePromocodeRequest* request, ::ric::bill::ReservePromocodeResponse* response, std::function<void(::grpc::Status)>) override;
+      void ReservePromocode(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::ReservePromocodeResponse* response, std::function<void(::grpc::Status)>) override;
+      void UnreservePromocode(::grpc::ClientContext* context, const ::ric::bill::UnreservePromocodeRequest* request, ::ric::bill::SuccessResponse* response, std::function<void(::grpc::Status)>) override;
+      void UnreservePromocode(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::bill::SuccessResponse* response, std::function<void(::grpc::Status)>) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -264,10 +324,10 @@ class Billing final {
     class experimental_async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* AsyncSetupAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* PrepareAsyncSetupAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* AsyncVerifyAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* PrepareAsyncVerifyAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* AsyncCloseAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ric::bill::SetupResponse>* PrepareAsyncCloseAccountRaw(::grpc::ClientContext* context, const ::ric::bill::SetupRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>* AsyncVerifyAccountRaw(::grpc::ClientContext* context, const ::ric::bill::VerifyRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>* PrepareAsyncVerifyAccountRaw(::grpc::ClientContext* context, const ::ric::bill::VerifyRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>* AsyncCloseAccountRaw(::grpc::ClientContext* context, const ::ric::bill::CloseRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>* PrepareAsyncCloseAccountRaw(::grpc::ClientContext* context, const ::ric::bill::CloseRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>* AsyncCreateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>* PrepareAsyncCreateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>* AsyncUpdateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -282,6 +342,12 @@ class Billing final {
     ::grpc::ClientAsyncResponseReader< ::ric::bill::SubscriptionResponse>* PrepareAsyncDeactivateSubscriptionRaw(::grpc::ClientContext* context, const ::ric::bill::SubscriptionRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::bill::ReceiptResponse>* AsyncSendReceiptRaw(::grpc::ClientContext* context, const ::ric::bill::ReceiptRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::ric::bill::ReceiptResponse>* PrepareAsyncSendReceiptRaw(::grpc::ClientContext* context, const ::ric::bill::ReceiptRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::ValidatePromocodeResponse>* AsyncValidatePromocodeRaw(::grpc::ClientContext* context, const ::ric::bill::ValidatePromocodeRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::ValidatePromocodeResponse>* PrepareAsyncValidatePromocodeRaw(::grpc::ClientContext* context, const ::ric::bill::ValidatePromocodeRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::ReservePromocodeResponse>* AsyncReservePromocodeRaw(::grpc::ClientContext* context, const ::ric::bill::ReservePromocodeRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::ReservePromocodeResponse>* PrepareAsyncReservePromocodeRaw(::grpc::ClientContext* context, const ::ric::bill::ReservePromocodeRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>* AsyncUnreservePromocodeRaw(::grpc::ClientContext* context, const ::ric::bill::UnreservePromocodeRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::bill::SuccessResponse>* PrepareAsyncUnreservePromocodeRaw(::grpc::ClientContext* context, const ::ric::bill::UnreservePromocodeRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_SetupAccount_;
     const ::grpc::internal::RpcMethod rpcmethod_VerifyAccount_;
     const ::grpc::internal::RpcMethod rpcmethod_CloseAccount_;
@@ -292,6 +358,9 @@ class Billing final {
     const ::grpc::internal::RpcMethod rpcmethod_ActivateSubscription_;
     const ::grpc::internal::RpcMethod rpcmethod_DeactivateSubscription_;
     const ::grpc::internal::RpcMethod rpcmethod_SendReceipt_;
+    const ::grpc::internal::RpcMethod rpcmethod_ValidatePromocode_;
+    const ::grpc::internal::RpcMethod rpcmethod_ReservePromocode_;
+    const ::grpc::internal::RpcMethod rpcmethod_UnreservePromocode_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -300,8 +369,8 @@ class Billing final {
     Service();
     virtual ~Service();
     virtual ::grpc::Status SetupAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response);
-    virtual ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response);
-    virtual ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response);
+    virtual ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::VerifyRequest* request, ::ric::bill::SuccessResponse* response);
+    virtual ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::CloseRequest* request, ::ric::bill::SuccessResponse* response);
     virtual ::grpc::Status CreateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response);
     virtual ::grpc::Status UpdateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response);
     virtual ::grpc::Status CancelSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response);
@@ -309,6 +378,9 @@ class Billing final {
     virtual ::grpc::Status ActivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response);
     virtual ::grpc::Status DeactivateSubscription(::grpc::ServerContext* context, const ::ric::bill::SubscriptionRequest* request, ::ric::bill::SubscriptionResponse* response);
     virtual ::grpc::Status SendReceipt(::grpc::ServerContext* context, const ::ric::bill::ReceiptRequest* request, ::ric::bill::ReceiptResponse* response);
+    virtual ::grpc::Status ValidatePromocode(::grpc::ServerContext* context, const ::ric::bill::ValidatePromocodeRequest* request, ::ric::bill::ValidatePromocodeResponse* response);
+    virtual ::grpc::Status ReservePromocode(::grpc::ServerContext* context, const ::ric::bill::ReservePromocodeRequest* request, ::ric::bill::ReservePromocodeResponse* response);
+    virtual ::grpc::Status UnreservePromocode(::grpc::ServerContext* context, const ::ric::bill::UnreservePromocodeRequest* request, ::ric::bill::SuccessResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_SetupAccount : public BaseClass {
@@ -342,11 +414,11 @@ class Billing final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::VerifyRequest* request, ::ric::bill::SuccessResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestVerifyAccount(::grpc::ServerContext* context, ::ric::bill::SetupRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::bill::SetupResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestVerifyAccount(::grpc::ServerContext* context, ::ric::bill::VerifyRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::bill::SuccessResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -362,11 +434,11 @@ class Billing final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::CloseRequest* request, ::ric::bill::SuccessResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestCloseAccount(::grpc::ServerContext* context, ::ric::bill::SetupRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::bill::SetupResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestCloseAccount(::grpc::ServerContext* context, ::ric::bill::CloseRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::bill::SuccessResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -510,7 +582,67 @@ class Billing final {
       ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_SetupAccount<WithAsyncMethod_VerifyAccount<WithAsyncMethod_CloseAccount<WithAsyncMethod_CreateSubscription<WithAsyncMethod_UpdateSubscription<WithAsyncMethod_CancelSubscription<WithAsyncMethod_ResumeSubscription<WithAsyncMethod_ActivateSubscription<WithAsyncMethod_DeactivateSubscription<WithAsyncMethod_SendReceipt<Service > > > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_ValidatePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_ValidatePromocode() {
+      ::grpc::Service::MarkMethodAsync(10);
+    }
+    ~WithAsyncMethod_ValidatePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ValidatePromocode(::grpc::ServerContext* context, const ::ric::bill::ValidatePromocodeRequest* request, ::ric::bill::ValidatePromocodeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestValidatePromocode(::grpc::ServerContext* context, ::ric::bill::ValidatePromocodeRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::bill::ValidatePromocodeResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_ReservePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_ReservePromocode() {
+      ::grpc::Service::MarkMethodAsync(11);
+    }
+    ~WithAsyncMethod_ReservePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReservePromocode(::grpc::ServerContext* context, const ::ric::bill::ReservePromocodeRequest* request, ::ric::bill::ReservePromocodeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestReservePromocode(::grpc::ServerContext* context, ::ric::bill::ReservePromocodeRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::bill::ReservePromocodeResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_UnreservePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_UnreservePromocode() {
+      ::grpc::Service::MarkMethodAsync(12);
+    }
+    ~WithAsyncMethod_UnreservePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UnreservePromocode(::grpc::ServerContext* context, const ::ric::bill::UnreservePromocodeRequest* request, ::ric::bill::SuccessResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestUnreservePromocode(::grpc::ServerContext* context, ::ric::bill::UnreservePromocodeRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::bill::SuccessResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_SetupAccount<WithAsyncMethod_VerifyAccount<WithAsyncMethod_CloseAccount<WithAsyncMethod_CreateSubscription<WithAsyncMethod_UpdateSubscription<WithAsyncMethod_CancelSubscription<WithAsyncMethod_ResumeSubscription<WithAsyncMethod_ActivateSubscription<WithAsyncMethod_DeactivateSubscription<WithAsyncMethod_SendReceipt<WithAsyncMethod_ValidatePromocode<WithAsyncMethod_ReservePromocode<WithAsyncMethod_UnreservePromocode<Service > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_SetupAccount : public BaseClass {
    private:
@@ -543,10 +675,10 @@ class Billing final {
    public:
     ExperimentalWithCallbackMethod_VerifyAccount() {
       ::grpc::Service::experimental().MarkMethodCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::bill::SetupRequest, ::ric::bill::SetupResponse>(
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bill::VerifyRequest, ::ric::bill::SuccessResponse>(
           [this](::grpc::ServerContext* context,
-                 const ::ric::bill::SetupRequest* request,
-                 ::ric::bill::SetupResponse* response,
+                 const ::ric::bill::VerifyRequest* request,
+                 ::ric::bill::SuccessResponse* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
                    return this->VerifyAccount(context, request, response, controller);
                  }));
@@ -555,11 +687,11 @@ class Billing final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::VerifyRequest* request, ::ric::bill::SuccessResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::VerifyRequest* request, ::ric::bill::SuccessResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_CloseAccount : public BaseClass {
@@ -568,10 +700,10 @@ class Billing final {
    public:
     ExperimentalWithCallbackMethod_CloseAccount() {
       ::grpc::Service::experimental().MarkMethodCallback(2,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::bill::SetupRequest, ::ric::bill::SetupResponse>(
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bill::CloseRequest, ::ric::bill::SuccessResponse>(
           [this](::grpc::ServerContext* context,
-                 const ::ric::bill::SetupRequest* request,
-                 ::ric::bill::SetupResponse* response,
+                 const ::ric::bill::CloseRequest* request,
+                 ::ric::bill::SuccessResponse* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
                    return this->CloseAccount(context, request, response, controller);
                  }));
@@ -580,11 +712,11 @@ class Billing final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::CloseRequest* request, ::ric::bill::SuccessResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void CloseAccount(::grpc::ServerContext* context, const ::ric::bill::CloseRequest* request, ::ric::bill::SuccessResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_CreateSubscription : public BaseClass {
@@ -761,7 +893,82 @@ class Billing final {
     }
     virtual void SendReceipt(::grpc::ServerContext* context, const ::ric::bill::ReceiptRequest* request, ::ric::bill::ReceiptResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_SetupAccount<ExperimentalWithCallbackMethod_VerifyAccount<ExperimentalWithCallbackMethod_CloseAccount<ExperimentalWithCallbackMethod_CreateSubscription<ExperimentalWithCallbackMethod_UpdateSubscription<ExperimentalWithCallbackMethod_CancelSubscription<ExperimentalWithCallbackMethod_ResumeSubscription<ExperimentalWithCallbackMethod_ActivateSubscription<ExperimentalWithCallbackMethod_DeactivateSubscription<ExperimentalWithCallbackMethod_SendReceipt<Service > > > > > > > > > > ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_ValidatePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_ValidatePromocode() {
+      ::grpc::Service::experimental().MarkMethodCallback(10,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bill::ValidatePromocodeRequest, ::ric::bill::ValidatePromocodeResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bill::ValidatePromocodeRequest* request,
+                 ::ric::bill::ValidatePromocodeResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->ValidatePromocode(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_ValidatePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ValidatePromocode(::grpc::ServerContext* context, const ::ric::bill::ValidatePromocodeRequest* request, ::ric::bill::ValidatePromocodeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void ValidatePromocode(::grpc::ServerContext* context, const ::ric::bill::ValidatePromocodeRequest* request, ::ric::bill::ValidatePromocodeResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_ReservePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_ReservePromocode() {
+      ::grpc::Service::experimental().MarkMethodCallback(11,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bill::ReservePromocodeRequest, ::ric::bill::ReservePromocodeResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bill::ReservePromocodeRequest* request,
+                 ::ric::bill::ReservePromocodeResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->ReservePromocode(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_ReservePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReservePromocode(::grpc::ServerContext* context, const ::ric::bill::ReservePromocodeRequest* request, ::ric::bill::ReservePromocodeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void ReservePromocode(::grpc::ServerContext* context, const ::ric::bill::ReservePromocodeRequest* request, ::ric::bill::ReservePromocodeResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_UnreservePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_UnreservePromocode() {
+      ::grpc::Service::experimental().MarkMethodCallback(12,
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::bill::UnreservePromocodeRequest, ::ric::bill::SuccessResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::ric::bill::UnreservePromocodeRequest* request,
+                 ::ric::bill::SuccessResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->UnreservePromocode(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_UnreservePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UnreservePromocode(::grpc::ServerContext* context, const ::ric::bill::UnreservePromocodeRequest* request, ::ric::bill::SuccessResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void UnreservePromocode(::grpc::ServerContext* context, const ::ric::bill::UnreservePromocodeRequest* request, ::ric::bill::SuccessResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  typedef ExperimentalWithCallbackMethod_SetupAccount<ExperimentalWithCallbackMethod_VerifyAccount<ExperimentalWithCallbackMethod_CloseAccount<ExperimentalWithCallbackMethod_CreateSubscription<ExperimentalWithCallbackMethod_UpdateSubscription<ExperimentalWithCallbackMethod_CancelSubscription<ExperimentalWithCallbackMethod_ResumeSubscription<ExperimentalWithCallbackMethod_ActivateSubscription<ExperimentalWithCallbackMethod_DeactivateSubscription<ExperimentalWithCallbackMethod_SendReceipt<ExperimentalWithCallbackMethod_ValidatePromocode<ExperimentalWithCallbackMethod_ReservePromocode<ExperimentalWithCallbackMethod_UnreservePromocode<Service > > > > > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_SetupAccount : public BaseClass {
    private:
@@ -791,7 +998,7 @@ class Billing final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::VerifyRequest* request, ::ric::bill::SuccessResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -808,7 +1015,7 @@ class Billing final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::CloseRequest* request, ::ric::bill::SuccessResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -933,6 +1140,57 @@ class Billing final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_ValidatePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_ValidatePromocode() {
+      ::grpc::Service::MarkMethodGeneric(10);
+    }
+    ~WithGenericMethod_ValidatePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ValidatePromocode(::grpc::ServerContext* context, const ::ric::bill::ValidatePromocodeRequest* request, ::ric::bill::ValidatePromocodeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_ReservePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_ReservePromocode() {
+      ::grpc::Service::MarkMethodGeneric(11);
+    }
+    ~WithGenericMethod_ReservePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReservePromocode(::grpc::ServerContext* context, const ::ric::bill::ReservePromocodeRequest* request, ::ric::bill::ReservePromocodeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_UnreservePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_UnreservePromocode() {
+      ::grpc::Service::MarkMethodGeneric(12);
+    }
+    ~WithGenericMethod_UnreservePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UnreservePromocode(::grpc::ServerContext* context, const ::ric::bill::UnreservePromocodeRequest* request, ::ric::bill::SuccessResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_SetupAccount : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
@@ -964,7 +1222,7 @@ class Billing final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::VerifyRequest* request, ::ric::bill::SuccessResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -984,7 +1242,7 @@ class Billing final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::CloseRequest* request, ::ric::bill::SuccessResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1133,6 +1391,66 @@ class Billing final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_ValidatePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_ValidatePromocode() {
+      ::grpc::Service::MarkMethodRaw(10);
+    }
+    ~WithRawMethod_ValidatePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ValidatePromocode(::grpc::ServerContext* context, const ::ric::bill::ValidatePromocodeRequest* request, ::ric::bill::ValidatePromocodeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestValidatePromocode(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_ReservePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_ReservePromocode() {
+      ::grpc::Service::MarkMethodRaw(11);
+    }
+    ~WithRawMethod_ReservePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReservePromocode(::grpc::ServerContext* context, const ::ric::bill::ReservePromocodeRequest* request, ::ric::bill::ReservePromocodeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestReservePromocode(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(11, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_UnreservePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_UnreservePromocode() {
+      ::grpc::Service::MarkMethodRaw(12);
+    }
+    ~WithRawMethod_UnreservePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UnreservePromocode(::grpc::ServerContext* context, const ::ric::bill::UnreservePromocodeRequest* request, ::ric::bill::SuccessResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestUnreservePromocode(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_SetupAccount : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
@@ -1176,7 +1494,7 @@ class Billing final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::VerifyRequest* request, ::ric::bill::SuccessResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1201,7 +1519,7 @@ class Billing final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::CloseRequest* request, ::ric::bill::SuccessResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1383,6 +1701,81 @@ class Billing final {
     virtual void SendReceipt(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_ValidatePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_ValidatePromocode() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(10,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->ValidatePromocode(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_ValidatePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ValidatePromocode(::grpc::ServerContext* context, const ::ric::bill::ValidatePromocodeRequest* request, ::ric::bill::ValidatePromocodeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void ValidatePromocode(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_ReservePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_ReservePromocode() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(11,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->ReservePromocode(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_ReservePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ReservePromocode(::grpc::ServerContext* context, const ::ric::bill::ReservePromocodeRequest* request, ::ric::bill::ReservePromocodeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void ReservePromocode(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_UnreservePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_UnreservePromocode() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(12,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->UnreservePromocode(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_UnreservePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UnreservePromocode(::grpc::ServerContext* context, const ::ric::bill::UnreservePromocodeRequest* request, ::ric::bill::SuccessResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void UnreservePromocode(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_SetupAccount : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
@@ -1409,18 +1802,18 @@ class Billing final {
    public:
     WithStreamedUnaryMethod_VerifyAccount() {
       ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::internal::StreamedUnaryHandler< ::ric::bill::SetupRequest, ::ric::bill::SetupResponse>(std::bind(&WithStreamedUnaryMethod_VerifyAccount<BaseClass>::StreamedVerifyAccount, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::bill::VerifyRequest, ::ric::bill::SuccessResponse>(std::bind(&WithStreamedUnaryMethod_VerifyAccount<BaseClass>::StreamedVerifyAccount, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_VerifyAccount() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+    ::grpc::Status VerifyAccount(::grpc::ServerContext* context, const ::ric::bill::VerifyRequest* request, ::ric::bill::SuccessResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedVerifyAccount(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bill::SetupRequest,::ric::bill::SetupResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedVerifyAccount(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bill::VerifyRequest,::ric::bill::SuccessResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_CloseAccount : public BaseClass {
@@ -1429,18 +1822,18 @@ class Billing final {
    public:
     WithStreamedUnaryMethod_CloseAccount() {
       ::grpc::Service::MarkMethodStreamed(2,
-        new ::grpc::internal::StreamedUnaryHandler< ::ric::bill::SetupRequest, ::ric::bill::SetupResponse>(std::bind(&WithStreamedUnaryMethod_CloseAccount<BaseClass>::StreamedCloseAccount, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::bill::CloseRequest, ::ric::bill::SuccessResponse>(std::bind(&WithStreamedUnaryMethod_CloseAccount<BaseClass>::StreamedCloseAccount, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_CloseAccount() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::SetupRequest* request, ::ric::bill::SetupResponse* response) override {
+    ::grpc::Status CloseAccount(::grpc::ServerContext* context, const ::ric::bill::CloseRequest* request, ::ric::bill::SuccessResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedCloseAccount(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bill::SetupRequest,::ric::bill::SetupResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedCloseAccount(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bill::CloseRequest,::ric::bill::SuccessResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_CreateSubscription : public BaseClass {
@@ -1582,9 +1975,69 @@ class Billing final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedSendReceipt(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bill::ReceiptRequest,::ric::bill::ReceiptResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_SetupAccount<WithStreamedUnaryMethod_VerifyAccount<WithStreamedUnaryMethod_CloseAccount<WithStreamedUnaryMethod_CreateSubscription<WithStreamedUnaryMethod_UpdateSubscription<WithStreamedUnaryMethod_CancelSubscription<WithStreamedUnaryMethod_ResumeSubscription<WithStreamedUnaryMethod_ActivateSubscription<WithStreamedUnaryMethod_DeactivateSubscription<WithStreamedUnaryMethod_SendReceipt<Service > > > > > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_ValidatePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_ValidatePromocode() {
+      ::grpc::Service::MarkMethodStreamed(10,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::bill::ValidatePromocodeRequest, ::ric::bill::ValidatePromocodeResponse>(std::bind(&WithStreamedUnaryMethod_ValidatePromocode<BaseClass>::StreamedValidatePromocode, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_ValidatePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ValidatePromocode(::grpc::ServerContext* context, const ::ric::bill::ValidatePromocodeRequest* request, ::ric::bill::ValidatePromocodeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedValidatePromocode(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bill::ValidatePromocodeRequest,::ric::bill::ValidatePromocodeResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_ReservePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_ReservePromocode() {
+      ::grpc::Service::MarkMethodStreamed(11,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::bill::ReservePromocodeRequest, ::ric::bill::ReservePromocodeResponse>(std::bind(&WithStreamedUnaryMethod_ReservePromocode<BaseClass>::StreamedReservePromocode, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_ReservePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ReservePromocode(::grpc::ServerContext* context, const ::ric::bill::ReservePromocodeRequest* request, ::ric::bill::ReservePromocodeResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedReservePromocode(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bill::ReservePromocodeRequest,::ric::bill::ReservePromocodeResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_UnreservePromocode : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_UnreservePromocode() {
+      ::grpc::Service::MarkMethodStreamed(12,
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::bill::UnreservePromocodeRequest, ::ric::bill::SuccessResponse>(std::bind(&WithStreamedUnaryMethod_UnreservePromocode<BaseClass>::StreamedUnreservePromocode, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_UnreservePromocode() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status UnreservePromocode(::grpc::ServerContext* context, const ::ric::bill::UnreservePromocodeRequest* request, ::ric::bill::SuccessResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedUnreservePromocode(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::bill::UnreservePromocodeRequest,::ric::bill::SuccessResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_SetupAccount<WithStreamedUnaryMethod_VerifyAccount<WithStreamedUnaryMethod_CloseAccount<WithStreamedUnaryMethod_CreateSubscription<WithStreamedUnaryMethod_UpdateSubscription<WithStreamedUnaryMethod_CancelSubscription<WithStreamedUnaryMethod_ResumeSubscription<WithStreamedUnaryMethod_ActivateSubscription<WithStreamedUnaryMethod_DeactivateSubscription<WithStreamedUnaryMethod_SendReceipt<WithStreamedUnaryMethod_ValidatePromocode<WithStreamedUnaryMethod_ReservePromocode<WithStreamedUnaryMethod_UnreservePromocode<Service > > > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_SetupAccount<WithStreamedUnaryMethod_VerifyAccount<WithStreamedUnaryMethod_CloseAccount<WithStreamedUnaryMethod_CreateSubscription<WithStreamedUnaryMethod_UpdateSubscription<WithStreamedUnaryMethod_CancelSubscription<WithStreamedUnaryMethod_ResumeSubscription<WithStreamedUnaryMethod_ActivateSubscription<WithStreamedUnaryMethod_DeactivateSubscription<WithStreamedUnaryMethod_SendReceipt<Service > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_SetupAccount<WithStreamedUnaryMethod_VerifyAccount<WithStreamedUnaryMethod_CloseAccount<WithStreamedUnaryMethod_CreateSubscription<WithStreamedUnaryMethod_UpdateSubscription<WithStreamedUnaryMethod_CancelSubscription<WithStreamedUnaryMethod_ResumeSubscription<WithStreamedUnaryMethod_ActivateSubscription<WithStreamedUnaryMethod_DeactivateSubscription<WithStreamedUnaryMethod_SendReceipt<WithStreamedUnaryMethod_ValidatePromocode<WithStreamedUnaryMethod_ReservePromocode<WithStreamedUnaryMethod_UnreservePromocode<Service > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace bill

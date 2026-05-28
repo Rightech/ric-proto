@@ -38,39 +38,39 @@ class Geo final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::ric::geo::GetObjectInfoResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::GetObjectInfoResponse>> AsyncGetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::GetObjectInfoResponse>>(AsyncGetObjectInfoRaw(context, request, cq));
+    virtual ::grpc::Status Validate(::grpc::ClientContext* context, const ::ric::geo::GeoValidateRequest& request, ::ric::geo::GeoValidateResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::GeoValidateResponse>> AsyncValidate(::grpc::ClientContext* context, const ::ric::geo::GeoValidateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::GeoValidateResponse>>(AsyncValidateRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::GetObjectInfoResponse>> PrepareAsyncGetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::GetObjectInfoResponse>>(PrepareAsyncGetObjectInfoRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::GeoValidateResponse>> PrepareAsyncValidate(::grpc::ClientContext* context, const ::ric::geo::GeoValidateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::GeoValidateResponse>>(PrepareAsyncValidateRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
-      virtual void GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Validate(::grpc::ClientContext* context, const ::ric::geo::GeoValidateRequest* request, ::ric::geo::GeoValidateResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Validate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GeoValidateResponse* response, std::function<void(::grpc::Status)>) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::GetObjectInfoResponse>* AsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::GetObjectInfoResponse>* PrepareAsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::GeoValidateResponse>* AsyncValidateRaw(::grpc::ClientContext* context, const ::ric::geo::GeoValidateRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::ric::geo::GeoValidateResponse>* PrepareAsyncValidateRaw(::grpc::ClientContext* context, const ::ric::geo::GeoValidateRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::ric::geo::GetObjectInfoResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::geo::GetObjectInfoResponse>> AsyncGetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::geo::GetObjectInfoResponse>>(AsyncGetObjectInfoRaw(context, request, cq));
+    ::grpc::Status Validate(::grpc::ClientContext* context, const ::ric::geo::GeoValidateRequest& request, ::ric::geo::GeoValidateResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::geo::GeoValidateResponse>> AsyncValidate(::grpc::ClientContext* context, const ::ric::geo::GeoValidateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::geo::GeoValidateResponse>>(AsyncValidateRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::geo::GetObjectInfoResponse>> PrepareAsyncGetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::geo::GetObjectInfoResponse>>(PrepareAsyncGetObjectInfoRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::geo::GeoValidateResponse>> PrepareAsyncValidate(::grpc::ClientContext* context, const ::ric::geo::GeoValidateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::ric::geo::GeoValidateResponse>>(PrepareAsyncValidateRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void GetObjectInfo(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) override;
-      void GetObjectInfo(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GetObjectInfoResponse* response, std::function<void(::grpc::Status)>) override;
+      void Validate(::grpc::ClientContext* context, const ::ric::geo::GeoValidateRequest* request, ::ric::geo::GeoValidateResponse* response, std::function<void(::grpc::Status)>) override;
+      void Validate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::ric::geo::GeoValidateResponse* response, std::function<void(::grpc::Status)>) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -82,9 +82,9 @@ class Geo final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::ric::geo::GetObjectInfoResponse>* AsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::ric::geo::GetObjectInfoResponse>* PrepareAsyncGetObjectInfoRaw(::grpc::ClientContext* context, const ::ric::geo::GetObjectInfoRequest& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_GetObjectInfo_;
+    ::grpc::ClientAsyncResponseReader< ::ric::geo::GeoValidateResponse>* AsyncValidateRaw(::grpc::ClientContext* context, const ::ric::geo::GeoValidateRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::ric::geo::GeoValidateResponse>* PrepareAsyncValidateRaw(::grpc::ClientContext* context, const ::ric::geo::GeoValidateRequest& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_Validate_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -92,140 +92,140 @@ class Geo final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response);
+    virtual ::grpc::Status Validate(::grpc::ServerContext* context, const ::ric::geo::GeoValidateRequest* request, ::ric::geo::GeoValidateResponse* response);
   };
   template <class BaseClass>
-  class WithAsyncMethod_GetObjectInfo : public BaseClass {
+  class WithAsyncMethod_Validate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_GetObjectInfo() {
+    WithAsyncMethod_Validate() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_GetObjectInfo() override {
+    ~WithAsyncMethod_Validate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status Validate(::grpc::ServerContext* context, const ::ric::geo::GeoValidateRequest* request, ::ric::geo::GeoValidateResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetObjectInfo(::grpc::ServerContext* context, ::ric::geo::GetObjectInfoRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::geo::GetObjectInfoResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestValidate(::grpc::ServerContext* context, ::ric::geo::GeoValidateRequest* request, ::grpc::ServerAsyncResponseWriter< ::ric::geo::GeoValidateResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetObjectInfo<Service > AsyncService;
+  typedef WithAsyncMethod_Validate<Service > AsyncService;
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GetObjectInfo : public BaseClass {
+  class ExperimentalWithCallbackMethod_Validate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    ExperimentalWithCallbackMethod_GetObjectInfo() {
+    ExperimentalWithCallbackMethod_Validate() {
       ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::GetObjectInfoRequest, ::ric::geo::GetObjectInfoResponse>(
+        new ::grpc::internal::CallbackUnaryHandler< ::ric::geo::GeoValidateRequest, ::ric::geo::GeoValidateResponse>(
           [this](::grpc::ServerContext* context,
-                 const ::ric::geo::GetObjectInfoRequest* request,
-                 ::ric::geo::GetObjectInfoResponse* response,
+                 const ::ric::geo::GeoValidateRequest* request,
+                 ::ric::geo::GeoValidateResponse* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->GetObjectInfo(context, request, response, controller);
+                   return this->Validate(context, request, response, controller);
                  }));
     }
-    ~ExperimentalWithCallbackMethod_GetObjectInfo() override {
+    ~ExperimentalWithCallbackMethod_Validate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status Validate(::grpc::ServerContext* context, const ::ric::geo::GeoValidateRequest* request, ::ric::geo::GeoValidateResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void Validate(::grpc::ServerContext* context, const ::ric::geo::GeoValidateRequest* request, ::ric::geo::GeoValidateResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_GetObjectInfo<Service > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_Validate<Service > ExperimentalCallbackService;
   template <class BaseClass>
-  class WithGenericMethod_GetObjectInfo : public BaseClass {
+  class WithGenericMethod_Validate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithGenericMethod_GetObjectInfo() {
+    WithGenericMethod_Validate() {
       ::grpc::Service::MarkMethodGeneric(0);
     }
-    ~WithGenericMethod_GetObjectInfo() override {
+    ~WithGenericMethod_Validate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status Validate(::grpc::ServerContext* context, const ::ric::geo::GeoValidateRequest* request, ::ric::geo::GeoValidateResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithRawMethod_GetObjectInfo : public BaseClass {
+  class WithRawMethod_Validate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithRawMethod_GetObjectInfo() {
+    WithRawMethod_Validate() {
       ::grpc::Service::MarkMethodRaw(0);
     }
-    ~WithRawMethod_GetObjectInfo() override {
+    ~WithRawMethod_Validate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status Validate(::grpc::ServerContext* context, const ::ric::geo::GeoValidateRequest* request, ::ric::geo::GeoValidateResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetObjectInfo(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestValidate(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GetObjectInfo : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_Validate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    ExperimentalWithRawCallbackMethod_GetObjectInfo() {
+    ExperimentalWithRawCallbackMethod_Validate() {
       ::grpc::Service::experimental().MarkMethodRawCallback(0,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
                  ::grpc::ByteBuffer* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->GetObjectInfo(context, request, response, controller);
+                   this->Validate(context, request, response, controller);
                  }));
     }
-    ~ExperimentalWithRawCallbackMethod_GetObjectInfo() override {
+    ~ExperimentalWithRawCallbackMethod_Validate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status Validate(::grpc::ServerContext* context, const ::ric::geo::GeoValidateRequest* request, ::ric::geo::GeoValidateResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void GetObjectInfo(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void Validate(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_GetObjectInfo : public BaseClass {
+  class WithStreamedUnaryMethod_Validate : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithStreamedUnaryMethod_GetObjectInfo() {
+    WithStreamedUnaryMethod_Validate() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::StreamedUnaryHandler< ::ric::geo::GetObjectInfoRequest, ::ric::geo::GetObjectInfoResponse>(std::bind(&WithStreamedUnaryMethod_GetObjectInfo<BaseClass>::StreamedGetObjectInfo, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::ric::geo::GeoValidateRequest, ::ric::geo::GeoValidateResponse>(std::bind(&WithStreamedUnaryMethod_Validate<BaseClass>::StreamedValidate, this, std::placeholders::_1, std::placeholders::_2)));
     }
-    ~WithStreamedUnaryMethod_GetObjectInfo() override {
+    ~WithStreamedUnaryMethod_Validate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetObjectInfo(::grpc::ServerContext* context, const ::ric::geo::GetObjectInfoRequest* request, ::ric::geo::GetObjectInfoResponse* response) override {
+    ::grpc::Status Validate(::grpc::ServerContext* context, const ::ric::geo::GeoValidateRequest* request, ::ric::geo::GeoValidateResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetObjectInfo(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::geo::GetObjectInfoRequest,::ric::geo::GetObjectInfoResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedValidate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::ric::geo::GeoValidateRequest,::ric::geo::GeoValidateResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_GetObjectInfo<Service > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_Validate<Service > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GetObjectInfo<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_Validate<Service > StreamedService;
 };
 
 }  // namespace geo

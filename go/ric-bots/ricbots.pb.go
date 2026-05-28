@@ -266,11 +266,11 @@ type SetGeoConfigRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @inject_tag: bson:"-"
-	ObjectId string                   `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty" bson:"-"`
+	ObjectId string                   `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
 	Mode     SetGeoConfigRequest_Mode `protobuf:"varint,2,opt,name=mode,proto3,enum=ric.bots.SetGeoConfigRequest_Mode" json:"mode,omitempty"`
 	Repeat   bool                     `protobuf:"varint,3,opt,name=repeat,proto3" json:"repeat,omitempty"`
 	// @inject_tag: bson:",omitempty"
-	Map   map[string]string            `protobuf:"bytes,4,rep,name=map,proto3" json:"map,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:",omitempty"`
+	Map   map[string]string            `protobuf:"bytes,4,rep,name=map,proto3" json:"map,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	Track []*SetGeoConfigRequest_Point `protobuf:"bytes,5,rep,name=track,proto3" json:"track,omitempty"`
 }
 
@@ -347,7 +347,7 @@ type AddToGenConfigRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @inject_tag: bson:"-"
-	ObjectId string `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty" bson:"-"`
+	ObjectId string `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
 	Name     string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	// Types that are assignable to Type:
 	//	*AddToGenConfigRequest_Random
@@ -444,7 +444,7 @@ type RemoveFromGenConfigRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @inject_tag: bson:"-"
-	ObjectId string `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty" bson:"-"`
+	ObjectId string `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
 	Name     string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 }
 
@@ -500,7 +500,7 @@ type PauseStopGeoRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @inject_tag: bson:"-"
-	ObjectId string `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty" bson:"-"`
+	ObjectId string `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
 	Stop     bool   `protobuf:"varint,2,opt,name=stop,proto3" json:"stop,omitempty"`
 }
 
@@ -556,7 +556,7 @@ type StartGeoRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @inject_tag: bson:"-"
-	ObjectId string `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty" bson:"-"`
+	ObjectId string `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
 }
 
 func (x *StartGeoRequest) Reset() {
@@ -604,7 +604,7 @@ type SetBotConfigRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @inject_tag: bson:"-"
-	ObjectId     string  `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty" bson:"-"`
+	ObjectId     string  `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
 	SendInterval float64 `protobuf:"fixed64,2,opt,name=send_interval,json=sendInterval,proto3" json:"send_interval,omitempty"`
 }
 
@@ -660,7 +660,7 @@ type CallRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @inject_tag: bson:"-"
-	ObjectId string            `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty" bson:"-"`
+	ObjectId string            `protobuf:"bytes,1,opt,name=object_id,json=objectId,proto3" json:"object_id,omitempty"`
 	Name     string            `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Params   map[string]string `protobuf:"bytes,3,rep,name=params,proto3" json:"params,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }

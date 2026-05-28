@@ -2039,6 +2039,20 @@ class SMTPSendRequest final :
   ::std::string* release_password();
   void set_allocated_password(::std::string* password);
 
+  // string reply_to = 15;
+  void clear_reply_to();
+  static const int kReplyToFieldNumber = 15;
+  const ::std::string& reply_to() const;
+  void set_reply_to(const ::std::string& value);
+  #if LANG_CXX11
+  void set_reply_to(::std::string&& value);
+  #endif
+  void set_reply_to(const char* value);
+  void set_reply_to(const char* value, size_t size);
+  ::std::string* mutable_reply_to();
+  ::std::string* release_reply_to();
+  void set_allocated_reply_to(::std::string* reply_to);
+
   // .ric.notify.Context ctx = 1;
   bool has_ctx() const;
   void clear_ctx();
@@ -2087,6 +2101,7 @@ class SMTPSendRequest final :
   ::google::protobuf::internal::ArenaStringPtr host_;
   ::google::protobuf::internal::ArenaStringPtr username_;
   ::google::protobuf::internal::ArenaStringPtr password_;
+  ::google::protobuf::internal::ArenaStringPtr reply_to_;
   ::ric::notify::Context* ctx_;
   ::google::protobuf::BoolValue* use_starttls_;
   ::google::protobuf::BoolValue* use_ssl_;
@@ -2949,6 +2964,34 @@ class PushSendRequest final :
   ::std::string* release_oid();
   void set_allocated_oid(::std::string* oid);
 
+  // string type = 4;
+  void clear_type();
+  static const int kTypeFieldNumber = 4;
+  const ::std::string& type() const;
+  void set_type(const ::std::string& value);
+  #if LANG_CXX11
+  void set_type(::std::string&& value);
+  #endif
+  void set_type(const char* value);
+  void set_type(const char* value, size_t size);
+  ::std::string* mutable_type();
+  ::std::string* release_type();
+  void set_allocated_type(::std::string* type);
+
+  // string data = 5;
+  void clear_data();
+  static const int kDataFieldNumber = 5;
+  const ::std::string& data() const;
+  void set_data(const ::std::string& value);
+  #if LANG_CXX11
+  void set_data(::std::string&& value);
+  #endif
+  void set_data(const char* value);
+  void set_data(const char* value, size_t size);
+  ::std::string* mutable_data();
+  ::std::string* release_data();
+  void set_allocated_data(::std::string* data);
+
   // @@protoc_insertion_point(class_scope:ric.notify.PushSendRequest)
  private:
   class HasBitSetters;
@@ -2957,6 +3000,8 @@ class PushSendRequest final :
   ::google::protobuf::internal::ArenaStringPtr text_;
   ::google::protobuf::internal::ArenaStringPtr level_;
   ::google::protobuf::internal::ArenaStringPtr oid_;
+  ::google::protobuf::internal::ArenaStringPtr type_;
+  ::google::protobuf::internal::ArenaStringPtr data_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ric_2dnotify_2fricnotify_2eproto;
 };
@@ -4202,6 +4247,18 @@ class NotifierSendRequest final :
 
   // accessors -------------------------------------------------------
 
+  // repeated .ric.notify.Attachment attachments = 5;
+  int attachments_size() const;
+  void clear_attachments();
+  static const int kAttachmentsFieldNumber = 5;
+  ::ric::notify::Attachment* mutable_attachments(int index);
+  ::google::protobuf::RepeatedPtrField< ::ric::notify::Attachment >*
+      mutable_attachments();
+  const ::ric::notify::Attachment& attachments(int index) const;
+  ::ric::notify::Attachment* add_attachments();
+  const ::google::protobuf::RepeatedPtrField< ::ric::notify::Attachment >&
+      attachments() const;
+
   // string notifier_id = 2;
   void clear_notifier_id();
   static const int kNotifierIdFieldNumber = 2;
@@ -4258,6 +4315,7 @@ class NotifierSendRequest final :
   class HasBitSetters;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::ric::notify::Attachment > attachments_;
   ::google::protobuf::internal::ArenaStringPtr notifier_id_;
   ::google::protobuf::internal::ArenaStringPtr message_;
   ::google::protobuf::internal::ArenaStringPtr data_;
@@ -6487,6 +6545,59 @@ SMTPSendRequest::attachments() const {
   return attachments_;
 }
 
+// string reply_to = 15;
+inline void SMTPSendRequest::clear_reply_to() {
+  reply_to_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SMTPSendRequest::reply_to() const {
+  // @@protoc_insertion_point(field_get:ric.notify.SMTPSendRequest.reply_to)
+  return reply_to_.GetNoArena();
+}
+inline void SMTPSendRequest::set_reply_to(const ::std::string& value) {
+  
+  reply_to_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.SMTPSendRequest.reply_to)
+}
+#if LANG_CXX11
+inline void SMTPSendRequest::set_reply_to(::std::string&& value) {
+  
+  reply_to_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.SMTPSendRequest.reply_to)
+}
+#endif
+inline void SMTPSendRequest::set_reply_to(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  reply_to_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.SMTPSendRequest.reply_to)
+}
+inline void SMTPSendRequest::set_reply_to(const char* value, size_t size) {
+  
+  reply_to_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.SMTPSendRequest.reply_to)
+}
+inline ::std::string* SMTPSendRequest::mutable_reply_to() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.SMTPSendRequest.reply_to)
+  return reply_to_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SMTPSendRequest::release_reply_to() {
+  // @@protoc_insertion_point(field_release:ric.notify.SMTPSendRequest.reply_to)
+  
+  return reply_to_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SMTPSendRequest::set_allocated_reply_to(::std::string* reply_to) {
+  if (reply_to != nullptr) {
+    
+  } else {
+    
+  }
+  reply_to_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), reply_to);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.SMTPSendRequest.reply_to)
+}
+
 // -------------------------------------------------------------------
 
 // SMTPSendResponse
@@ -7257,6 +7368,112 @@ inline void PushSendRequest::set_allocated_oid(::std::string* oid) {
   }
   oid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), oid);
   // @@protoc_insertion_point(field_set_allocated:ric.notify.PushSendRequest.oid)
+}
+
+// string type = 4;
+inline void PushSendRequest::clear_type() {
+  type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& PushSendRequest::type() const {
+  // @@protoc_insertion_point(field_get:ric.notify.PushSendRequest.type)
+  return type_.GetNoArena();
+}
+inline void PushSendRequest::set_type(const ::std::string& value) {
+  
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.PushSendRequest.type)
+}
+#if LANG_CXX11
+inline void PushSendRequest::set_type(::std::string&& value) {
+  
+  type_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.PushSendRequest.type)
+}
+#endif
+inline void PushSendRequest::set_type(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.PushSendRequest.type)
+}
+inline void PushSendRequest::set_type(const char* value, size_t size) {
+  
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.PushSendRequest.type)
+}
+inline ::std::string* PushSendRequest::mutable_type() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.PushSendRequest.type)
+  return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* PushSendRequest::release_type() {
+  // @@protoc_insertion_point(field_release:ric.notify.PushSendRequest.type)
+  
+  return type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void PushSendRequest::set_allocated_type(::std::string* type) {
+  if (type != nullptr) {
+    
+  } else {
+    
+  }
+  type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.PushSendRequest.type)
+}
+
+// string data = 5;
+inline void PushSendRequest::clear_data() {
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& PushSendRequest::data() const {
+  // @@protoc_insertion_point(field_get:ric.notify.PushSendRequest.data)
+  return data_.GetNoArena();
+}
+inline void PushSendRequest::set_data(const ::std::string& value) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.notify.PushSendRequest.data)
+}
+#if LANG_CXX11
+inline void PushSendRequest::set_data(::std::string&& value) {
+  
+  data_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.notify.PushSendRequest.data)
+}
+#endif
+inline void PushSendRequest::set_data(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.notify.PushSendRequest.data)
+}
+inline void PushSendRequest::set_data(const char* value, size_t size) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.notify.PushSendRequest.data)
+}
+inline ::std::string* PushSendRequest::mutable_data() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.notify.PushSendRequest.data)
+  return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* PushSendRequest::release_data() {
+  // @@protoc_insertion_point(field_release:ric.notify.PushSendRequest.data)
+  
+  return data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void PushSendRequest::set_allocated_data(::std::string* data) {
+  if (data != nullptr) {
+    
+  } else {
+    
+  }
+  data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
+  // @@protoc_insertion_point(field_set_allocated:ric.notify.PushSendRequest.data)
 }
 
 // -------------------------------------------------------------------
@@ -8481,6 +8698,36 @@ inline void NotifierSendRequest::set_allocated_data(::std::string* data) {
   }
   data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
   // @@protoc_insertion_point(field_set_allocated:ric.notify.NotifierSendRequest.data)
+}
+
+// repeated .ric.notify.Attachment attachments = 5;
+inline int NotifierSendRequest::attachments_size() const {
+  return attachments_.size();
+}
+inline void NotifierSendRequest::clear_attachments() {
+  attachments_.Clear();
+}
+inline ::ric::notify::Attachment* NotifierSendRequest::mutable_attachments(int index) {
+  // @@protoc_insertion_point(field_mutable:ric.notify.NotifierSendRequest.attachments)
+  return attachments_.Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField< ::ric::notify::Attachment >*
+NotifierSendRequest::mutable_attachments() {
+  // @@protoc_insertion_point(field_mutable_list:ric.notify.NotifierSendRequest.attachments)
+  return &attachments_;
+}
+inline const ::ric::notify::Attachment& NotifierSendRequest::attachments(int index) const {
+  // @@protoc_insertion_point(field_get:ric.notify.NotifierSendRequest.attachments)
+  return attachments_.Get(index);
+}
+inline ::ric::notify::Attachment* NotifierSendRequest::add_attachments() {
+  // @@protoc_insertion_point(field_add:ric.notify.NotifierSendRequest.attachments)
+  return attachments_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::ric::notify::Attachment >&
+NotifierSendRequest::attachments() const {
+  // @@protoc_insertion_point(field_list:ric.notify.NotifierSendRequest.attachments)
+  return attachments_;
 }
 
 // -------------------------------------------------------------------

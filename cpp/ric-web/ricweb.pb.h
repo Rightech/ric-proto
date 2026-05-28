@@ -41,7 +41,7 @@ struct TableStruct_ric_2dweb_2fricweb_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[2]
+  static const ::google::protobuf::internal::ParseTable schema[4]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -56,12 +56,20 @@ extern DispatchDefaultActionRequestDefaultTypeInternal _DispatchDefaultActionReq
 class DispatchDefaultActionResponse;
 class DispatchDefaultActionResponseDefaultTypeInternal;
 extern DispatchDefaultActionResponseDefaultTypeInternal _DispatchDefaultActionResponse_default_instance_;
+class SendCommandRequest;
+class SendCommandRequestDefaultTypeInternal;
+extern SendCommandRequestDefaultTypeInternal _SendCommandRequest_default_instance_;
+class SendCommandResponse;
+class SendCommandResponseDefaultTypeInternal;
+extern SendCommandResponseDefaultTypeInternal _SendCommandResponse_default_instance_;
 }  // namespace web
 }  // namespace ric
 namespace google {
 namespace protobuf {
 template<> ::ric::web::DispatchDefaultActionRequest* Arena::CreateMaybeMessage<::ric::web::DispatchDefaultActionRequest>(Arena*);
 template<> ::ric::web::DispatchDefaultActionResponse* Arena::CreateMaybeMessage<::ric::web::DispatchDefaultActionResponse>(Arena*);
+template<> ::ric::web::SendCommandRequest* Arena::CreateMaybeMessage<::ric::web::SendCommandRequest>(Arena*);
+template<> ::ric::web::SendCommandResponse* Arena::CreateMaybeMessage<::ric::web::SendCommandResponse>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace ric {
@@ -359,7 +367,262 @@ class DispatchDefaultActionResponse final :
 
   // accessors -------------------------------------------------------
 
+  // string data = 1;
+  void clear_data();
+  static const int kDataFieldNumber = 1;
+  const ::std::string& data() const;
+  void set_data(const ::std::string& value);
+  #if LANG_CXX11
+  void set_data(::std::string&& value);
+  #endif
+  void set_data(const char* value);
+  void set_data(const char* value, size_t size);
+  ::std::string* mutable_data();
+  ::std::string* release_data();
+  void set_allocated_data(::std::string* data);
+
   // @@protoc_insertion_point(class_scope:ric.web.DispatchDefaultActionResponse)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr data_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dweb_2fricweb_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SendCommandRequest final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.web.SendCommandRequest) */ {
+ public:
+  SendCommandRequest();
+  virtual ~SendCommandRequest();
+
+  SendCommandRequest(const SendCommandRequest& from);
+
+  inline SendCommandRequest& operator=(const SendCommandRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SendCommandRequest(SendCommandRequest&& from) noexcept
+    : SendCommandRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline SendCommandRequest& operator=(SendCommandRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const SendCommandRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SendCommandRequest* internal_default_instance() {
+    return reinterpret_cast<const SendCommandRequest*>(
+               &_SendCommandRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  void Swap(SendCommandRequest* other);
+  friend void swap(SendCommandRequest& a, SendCommandRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SendCommandRequest* New() const final {
+    return CreateMaybeMessage<SendCommandRequest>(nullptr);
+  }
+
+  SendCommandRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<SendCommandRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const SendCommandRequest& from);
+  void MergeFrom(const SendCommandRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SendCommandRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string object_id = 1;
+  void clear_object_id();
+  static const int kObjectIdFieldNumber = 1;
+  const ::std::string& object_id() const;
+  void set_object_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_object_id(::std::string&& value);
+  #endif
+  void set_object_id(const char* value);
+  void set_object_id(const char* value, size_t size);
+  ::std::string* mutable_object_id();
+  ::std::string* release_object_id();
+  void set_allocated_object_id(::std::string* object_id);
+
+  // string params = 2;
+  void clear_params();
+  static const int kParamsFieldNumber = 2;
+  const ::std::string& params() const;
+  void set_params(const ::std::string& value);
+  #if LANG_CXX11
+  void set_params(::std::string&& value);
+  #endif
+  void set_params(const char* value);
+  void set_params(const char* value, size_t size);
+  ::std::string* mutable_params();
+  ::std::string* release_params();
+  void set_allocated_params(::std::string* params);
+
+  // @@protoc_insertion_point(class_scope:ric.web.SendCommandRequest)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr object_id_;
+  ::google::protobuf::internal::ArenaStringPtr params_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ric_2dweb_2fricweb_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SendCommandResponse final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:ric.web.SendCommandResponse) */ {
+ public:
+  SendCommandResponse();
+  virtual ~SendCommandResponse();
+
+  SendCommandResponse(const SendCommandResponse& from);
+
+  inline SendCommandResponse& operator=(const SendCommandResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SendCommandResponse(SendCommandResponse&& from) noexcept
+    : SendCommandResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline SendCommandResponse& operator=(SendCommandResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const SendCommandResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SendCommandResponse* internal_default_instance() {
+    return reinterpret_cast<const SendCommandResponse*>(
+               &_SendCommandResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  void Swap(SendCommandResponse* other);
+  friend void swap(SendCommandResponse& a, SendCommandResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SendCommandResponse* New() const final {
+    return CreateMaybeMessage<SendCommandResponse>(nullptr);
+  }
+
+  SendCommandResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<SendCommandResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const SendCommandResponse& from);
+  void MergeFrom(const SendCommandResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SendCommandResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:ric.web.SendCommandResponse)
  private:
   class HasBitSetters;
 
@@ -700,9 +963,180 @@ inline void DispatchDefaultActionRequest::set_allocated_params(::std::string* pa
 
 // DispatchDefaultActionResponse
 
+// string data = 1;
+inline void DispatchDefaultActionResponse::clear_data() {
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& DispatchDefaultActionResponse::data() const {
+  // @@protoc_insertion_point(field_get:ric.web.DispatchDefaultActionResponse.data)
+  return data_.GetNoArena();
+}
+inline void DispatchDefaultActionResponse::set_data(const ::std::string& value) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.web.DispatchDefaultActionResponse.data)
+}
+#if LANG_CXX11
+inline void DispatchDefaultActionResponse::set_data(::std::string&& value) {
+  
+  data_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.web.DispatchDefaultActionResponse.data)
+}
+#endif
+inline void DispatchDefaultActionResponse::set_data(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.web.DispatchDefaultActionResponse.data)
+}
+inline void DispatchDefaultActionResponse::set_data(const char* value, size_t size) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.web.DispatchDefaultActionResponse.data)
+}
+inline ::std::string* DispatchDefaultActionResponse::mutable_data() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.web.DispatchDefaultActionResponse.data)
+  return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* DispatchDefaultActionResponse::release_data() {
+  // @@protoc_insertion_point(field_release:ric.web.DispatchDefaultActionResponse.data)
+  
+  return data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void DispatchDefaultActionResponse::set_allocated_data(::std::string* data) {
+  if (data != nullptr) {
+    
+  } else {
+    
+  }
+  data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
+  // @@protoc_insertion_point(field_set_allocated:ric.web.DispatchDefaultActionResponse.data)
+}
+
+// -------------------------------------------------------------------
+
+// SendCommandRequest
+
+// string object_id = 1;
+inline void SendCommandRequest::clear_object_id() {
+  object_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SendCommandRequest::object_id() const {
+  // @@protoc_insertion_point(field_get:ric.web.SendCommandRequest.object_id)
+  return object_id_.GetNoArena();
+}
+inline void SendCommandRequest::set_object_id(const ::std::string& value) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.web.SendCommandRequest.object_id)
+}
+#if LANG_CXX11
+inline void SendCommandRequest::set_object_id(::std::string&& value) {
+  
+  object_id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.web.SendCommandRequest.object_id)
+}
+#endif
+inline void SendCommandRequest::set_object_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.web.SendCommandRequest.object_id)
+}
+inline void SendCommandRequest::set_object_id(const char* value, size_t size) {
+  
+  object_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.web.SendCommandRequest.object_id)
+}
+inline ::std::string* SendCommandRequest::mutable_object_id() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.web.SendCommandRequest.object_id)
+  return object_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SendCommandRequest::release_object_id() {
+  // @@protoc_insertion_point(field_release:ric.web.SendCommandRequest.object_id)
+  
+  return object_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SendCommandRequest::set_allocated_object_id(::std::string* object_id) {
+  if (object_id != nullptr) {
+    
+  } else {
+    
+  }
+  object_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), object_id);
+  // @@protoc_insertion_point(field_set_allocated:ric.web.SendCommandRequest.object_id)
+}
+
+// string params = 2;
+inline void SendCommandRequest::clear_params() {
+  params_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& SendCommandRequest::params() const {
+  // @@protoc_insertion_point(field_get:ric.web.SendCommandRequest.params)
+  return params_.GetNoArena();
+}
+inline void SendCommandRequest::set_params(const ::std::string& value) {
+  
+  params_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:ric.web.SendCommandRequest.params)
+}
+#if LANG_CXX11
+inline void SendCommandRequest::set_params(::std::string&& value) {
+  
+  params_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:ric.web.SendCommandRequest.params)
+}
+#endif
+inline void SendCommandRequest::set_params(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  params_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:ric.web.SendCommandRequest.params)
+}
+inline void SendCommandRequest::set_params(const char* value, size_t size) {
+  
+  params_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:ric.web.SendCommandRequest.params)
+}
+inline ::std::string* SendCommandRequest::mutable_params() {
+  
+  // @@protoc_insertion_point(field_mutable:ric.web.SendCommandRequest.params)
+  return params_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SendCommandRequest::release_params() {
+  // @@protoc_insertion_point(field_release:ric.web.SendCommandRequest.params)
+  
+  return params_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SendCommandRequest::set_allocated_params(::std::string* params) {
+  if (params != nullptr) {
+    
+  } else {
+    
+  }
+  params_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), params);
+  // @@protoc_insertion_point(field_set_allocated:ric.web.SendCommandRequest.params)
+}
+
+// -------------------------------------------------------------------
+
+// SendCommandResponse
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

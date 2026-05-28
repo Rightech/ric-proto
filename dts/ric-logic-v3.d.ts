@@ -121,6 +121,7 @@ export interface StartAutomatonRequest {
   objectId?: string;
   automatonId?: string;
   vars?: { [key: string]: AutomatonVarValue };
+  initState?: string;
 }
 
 export interface StartAutomatonMultiRequest {
